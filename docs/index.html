@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMC Exam Prep - Computer Supervisor & Clerk</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            color: #e0e0e0;
+            min-height: 100vh;
+        }
+        .header {
+            background: linear-gradient(135deg, #ff6b35, #f7c948);
+            color: #1a1a2e;
+            padding: 30px 20px;
+            text-align: center;
+        }
+        .header h1 { font-size: 1.8em; margin-bottom: 8px; }
+        .header p { font-size: 1em; opacity: 0.85; }
+        .badge {
+            display: inline-block;
+            background: #1a1a2e;
+            color: #f7c948;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+        .section {
+            background: rgba(255,255,255,0.06);
+            border-radius: 16px;
+            padding: 24px;
+            margin: 20px 0;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .section h2 {
+            color: #f7c948;
+            font-size: 1.4em;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .section .subtitle { color: #aaa; font-size: 0.9em; margin-bottom: 16px; }
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 12px;
+        }
+        .card {
+            background: rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 16px;
+            text-decoration: none;
+            color: #e0e0e0;
+            border: 1px solid rgba(255,255,255,0.08);
+            transition: all 0.2s;
+            display: block;
+        }
+        .card:hover {
+            background: rgba(255,255,255,0.14);
+            border-color: #f7c948;
+            transform: translateY(-2px);
+        }
+        .card h3 { font-size: 1em; color: #fff; margin-bottom: 4px; }
+        .card p { font-size: 0.82em; color: #aaa; }
+        .card .tag {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 8px;
+            font-size: 0.75em;
+            margin-top: 8px;
+            font-weight: bold;
+        }
+        .tag-high { background: #ff6b3520; color: #ff6b35; }
+        .tag-medium { background: #f7c94820; color: #f7c948; }
+        .tag-low { background: #4ecca320; color: #4ecca3; }
+        .tag-mock { background: #6c63ff20; color: #6c63ff; }
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+        .stat {
+            text-align: center;
+            padding: 16px 24px;
+            background: rgba(255,255,255,0.06);
+            border-radius: 12px;
+            min-width: 120px;
+        }
+        .stat .num { font-size: 2em; font-weight: bold; color: #f7c948; }
+        .stat .label { font-size: 0.8em; color: #aaa; margin-top: 4px; }
+        .download-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff6b35, #f7c948);
+            color: #1a1a2e;
+            padding: 14px 32px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.05em;
+            margin: 10px;
+            transition: transform 0.2s;
+        }
+        .download-btn:hover { transform: scale(1.05); }
+        .center { text-align: center; }
+        .footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: #666;
+            font-size: 0.85em;
+        }
+        .footer a { color: #f7c948; text-decoration: none; }
+        .divider { height: 1px; background: rgba(255,255,255,0.1); margin: 10px 0; }
+        @media (max-width: 600px) {
+            .header h1 { font-size: 1.3em; }
+            .card-grid { grid-template-columns: 1fr; }
+            .stats { gap: 12px; }
+            .stat { min-width: 90px; padding: 12px 16px; }
+            .stat .num { font-size: 1.5em; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>SMC Exam Preparation Guide</h1>
+    <p>Surat Municipal Corporation - Computer Supervisor & Clerk Exam</p>
+    <div>
+        <span class="badge">Code-513 Computer Supervisor</span>
+        <span class="badge">Code-502 Clerk</span>
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="stats">
+        <div class="stat"><div class="num">2000+</div><div class="label">MCQs</div></div>
+        <div class="stat"><div class="num">6</div><div class="label">Mock Tests</div></div>
+        <div class="stat"><div class="num">14</div><div class="label">Subject Guides</div></div>
+        <div class="stat"><div class="num">100%</div><div class="label">FREE</div></div>
+    </div>
+
+    <div class="center">
+        <a class="download-btn" href="https://github.com/abhiiibabariya-dev/SMC-Computer-Supervisor-Exam-Prep/archive/refs/heads/master.zip">Download All Materials (ZIP)</a>
+    </div>
+
+    <!-- COMPUTER SUPERVISOR SECTION -->
+    <div class="section">
+        <h2>Computer Supervisor Exam (Code-513)</h2>
+        <p class="subtitle">100 MCQs | 120 Minutes | No Negative Marking</p>
+        <div class="card-grid">
+            <a class="card" href="https://github.com/abhiiibabariya-dev/SMC-Computer-Supervisor-Exam-Prep/blob/master/ALL_IN_ONE_EXAM_GUIDE.md">
+                <h3>All-in-One Guide</h3>
+                <p>820+ MCQs covering every topic in one page</p>
+                <span class="tag tag-high">COMPLETE GUIDE</span>
+            </a>
+            <a class="card" href="https://github.com/abhiiibabariya-dev/SMC-Computer-Supervisor-Exam-Prep/blob/master/subjects/01_computer_knowledge.md">
+                <h3>Computer Knowledge</h3>
+                <p>Hardware, Software, OS, Networking basics</p>
+                <span class="tag tag-high">HIGH PRIORITY</span>
+            </a>
+            <a class="card" href="https://github.com/abhiiibabariya-dev/SMC-Computer-Supervisor-Exam-Prep/blob/master/subjects/02_general_knowledge.md">
+                <h3>General Knowledge</h3>
+                <p>Gujarat GK, Indian Polity, History, Geography</p>
+                <span class="tag tag-high">HIGH PRIORITY</span>
+            </a>
+            <a class="card" href="https://github.com/abhiiibabariya-dev/SMC-Computer-Supervisor-Exam-Prep/blob/master/subjects/03_gujarati_language.md">
+                <h3>Gujarati Language</h3>
+                <p>Vyakaran, Sahitya, Rudhiprayog</p>
+                <span class="tag tag-medium">MEDIUM</span>
+            </a>
+            <a class="card" href="https://github.com/abhiiibabariya-dev/SMC-Computer-Supervisor-Exam-Prep/blob/master/subjects/04_english_language.md">
+                <h3>English Language</h3>
+                <p>Grammar, Vocabulary, Comprehension</p>
+                <span class="tag tag-medium">MEDIUM</span>
+            </a>
+            <a class="card" href="https://github.com/abhiiibabariya-dev/SMC-Computer-Supervisor-Exam-Prep/blob/master/subjects/05_mathematics.md">
+                <h3>Mathematics</h3>
+                <p>Quant Aptitude, Reasoning, Data</p>
+                <span class="tag tag-medium">MEDIUM</span>
+            </a>
+            <a class="card" href="https://github.com/abhiiibabariya-dev/SMC-Computer-Supervisor-Exam-Prep/blob/master/subjects/06_advanced_computer_supervisor.md">
+                <h3>Advanced Computer Topics</h3>
+                <p>220 advanced MCQs - Networking, DB, Security</p>
+                <span class="tag tag-high">HIGH PRIORITY</span>
+            </a>
+            <a class="card" href="https://github.com/abhiiibabariya-dev/SMC-Computer-Supervisor-Exam-Prep/blob/master/subjects/07_exam_strategy_and_practical.md">
+                <h3>Exam Strategy</h3>
+                <p>Time management, tips, practical test guide</p>
+                <span class="tag tag-low">STRATEGY</span>
+            </a>
+            <a class="card" href="https://github.com/abhiiibabariya-dev/SMC-Computer-Supervisor-Exam-Prep/blob/master/subjects/08_gujarati_typing_complete_guide.md">
+                <h3>Gujarati Typing Guide</h3>
+                <p>InScript layout, practice plan, exam tips</p>
+                <span class="tag tag-low">PRACTICAL</span>
+            </a>
+        </div>
+
+        <div class="divider" style="margin: 16px 0;"></div>
+        <h3 style="color: #aaa; margin-bottom: 10px;">Mock Tests</h3>
+        <div class="card-grid">
+            <a class="card" href="https://github.com/abhiiibabariya-dev/SMC-Computer-Supervisor-Exam-Prep/blob/master/papers/mock_test_1.md">
+                <h3>Mock Test 1</h3>
+                <p>100 questions with answer key</p>
+                <span class="tag tag-mock">MOCK TEST</span>
+            </a>
+            <a class="card" href="https://github.com/abhiiibabariya-dev/SMC-Computer-Supervisor-Exam-Prep/blob/master/papers/mock_test_2.md">
+                <h3>Mock Test 2</h3>
+                <p>100 questions with answer key</p>
+                <span class="tag tag-mock">MOCK TEST</span>
+            </a>
+            <a class="card" href="https://github.com/abhiiibabariya-dev/SMC-Computer-Supervisor-Exam-Prep/blob/master/papers/mock_test_3.md">
+                <h3>Mock Test 3</h3>
+                <p>100 questions with answer key</p>
+                <span class="tag tag-mock">MOCK TEST</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- CLERK EXAM SECTION -->
+    <div class="section">
+        <h2>Clerk Exam (Code-502)</h2>
+        <p class="subtitle">100 MCQs | 120 Minutes | -0.25 Negative Marking</p>
+        <div class="card-grid">
+            <a class="card" href="https://github.com/abhiiibabariya-dev/SMC-Computer-Supervisor-Exam-Prep/blob/master/clerk_exam/02_complete_clerk_exam_guide.md">
+                <h3>All-in-One Clerk Guide</h3>
+                <p>330+ MCQs all subjects in one file</p>
+                <span class="tag tag-high">COMPLETE GUIDE</span>
+            </a>
+            <a class="card" href="https://github.com/abhiiibabariya-dev/SMC-Computer-Supervisor-Exam-Prep/blob/master/clerk_exam_complete/subjects/01_gujarati_language.md">
+                <h3>Gujarati Language</h3>
+                <p>155 MCQs - Sandhi, Samaas, Sahitya, Idioms</p>
+                <span class="tag tag-high">HIGH PRIORITY</span>
+            </a>
+            <a class="card" href="https://github.com/abhiiibabariya-dev/SMC-Computer-Supervisor-Exam-Prep/blob/master/clerk_exam_complete/subjects/02_general_knowledge.md">
+                <h3>General Knowledge</h3>
+                <p>155 MCQs - Gujarat, Polity, History, Current Affairs</p>
+                <span class="tag tag-high">HIGH PRIORITY</span>
+            </a>
+            <a class="card" href="https://github.com/abhiiibabariya-dev/SMC-Computer-Supervisor-Exam-Prep/blob/master/clerk_exam_complete/subjects/03_english_language.md">
+                <h3>English Language</h3>
+                <p>120 MCQs - Tenses, Articles, Vocabulary, Idioms</p>
+                <span class="tag tag-medium">MEDIUM</span>
+            </a>
+            <a class="card" href="https://github.com/abhiiibabariya-dev/SMC-Computer-Supervisor-Exam-Prep/blob/master/clerk_exam_complete/subjects/04_mathematics.md">
+                <h3>Mathematics</h3>
+                <p>135 MCQs - Percentage, Profit/Loss, SI/CI, Ratio</p>
+                <span class="tag tag-medium">MEDIUM</span>
+            </a>
+            <a class="card" href="https://github.com/abhiiibabariya-dev/SMC-Computer-Supervisor-Exam-Prep/blob/master/clerk_exam_complete/subjects/05_reasoning.md">
+                <h3>Reasoning & Mental Ability</h3>
+                <p>120 MCQs - Series, Coding, Blood Relations</p>
+                <span class="tag tag-medium">MEDIUM</span>
+            </a>
+            <a class="card" href="https://github.com/abhiiibabariya-dev/SMC-Computer-Supervisor-Exam-Prep/blob/master/clerk_exam_complete/subjects/06_computer_knowledge.md">
+                <h3>Computer Knowledge</h3>
+                <p>85 MCQs - Basics, MS Office, Internet, Shortcuts</p>
+                <span class="tag tag-low">EASY SCORING</span>
+            </a>
+            <a class="card" href="https://github.com/abhiiibabariya-dev/SMC-Computer-Supervisor-Exam-Prep/blob/master/clerk_exam_complete/practical/01_typing_test_guide.md">
+                <h3>Typing Test Guide</h3>
+                <p>English + Gujarati typing, InScript, 30-day plan</p>
+                <span class="tag tag-low">PRACTICAL</span>
+            </a>
+            <a class="card" href="https://github.com/abhiiibabariya-dev/SMC-Computer-Supervisor-Exam-Prep/blob/master/clerk_exam_complete/previous_papers/previous_paper_analysis.md">
+                <h3>Previous Paper Analysis</h3>
+                <p>Weightage, top 50 facts, exam strategy, cutoffs</p>
+                <span class="tag tag-low">STRATEGY</span>
+            </a>
+        </div>
+
+        <div class="divider" style="margin: 16px 0;"></div>
+        <h3 style="color: #aaa; margin-bottom: 10px;">Mock Tests</h3>
+        <div class="card-grid">
+            <a class="card" href="https://github.com/abhiiibabariya-dev/SMC-Computer-Supervisor-Exam-Prep/blob/master/clerk_exam_complete/mock_tests/mock_test_1.md">
+                <h3>Mock Test 1</h3>
+                <p>100 questions with answer key</p>
+                <span class="tag tag-mock">MOCK TEST</span>
+            </a>
+            <a class="card" href="https://github.com/abhiiibabariya-dev/SMC-Computer-Supervisor-Exam-Prep/blob/master/clerk_exam_complete/mock_tests/mock_test_2.md">
+                <h3>Mock Test 2</h3>
+                <p>100 questions with answer key</p>
+                <span class="tag tag-mock">MOCK TEST</span>
+            </a>
+            <a class="card" href="https://github.com/abhiiibabariya-dev/SMC-Computer-Supervisor-Exam-Prep/blob/master/clerk_exam_complete/mock_tests/mock_test_3.md">
+                <h3>Mock Test 3</h3>
+                <p>100 questions with answer key</p>
+                <span class="tag tag-mock">MOCK TEST</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Study Resources</h2>
+        <div class="card-grid">
+            <a class="card" href="https://github.com/abhiiibabariya-dev/SMC-Computer-Supervisor-Exam-Prep/blob/master/resources/study_plan_and_links.md">
+                <h3>Study Plan & Links</h3>
+                <p>Week-wise study plan with useful resources</p>
+                <span class="tag tag-low">PLANNING</span>
+            </a>
+            <a class="card" href="https://github.com/abhiiibabariya-dev/SMC-Computer-Supervisor-Exam-Prep/blob/master/papers/previous_paper_analysis.md">
+                <h3>Previous Paper Analysis</h3>
+                <p>Computer Supervisor exam patterns</p>
+                <span class="tag tag-low">ANALYSIS</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="center" style="margin: 30px 0;">
+        <a class="download-btn" href="https://github.com/abhiiibabariya-dev/SMC-Computer-Supervisor-Exam-Prep/archive/refs/heads/master.zip">Download Everything (ZIP)</a>
+        <a class="download-btn" href="https://github.com/abhiiibabariya-dev/SMC-Computer-Supervisor-Exam-Prep" style="background: linear-gradient(135deg, #6c63ff, #4ecca3);">View on GitHub</a>
+    </div>
+
+</div>
+
+<div class="footer">
+    <p>Made with dedication for SMC exam aspirants</p>
+    <p style="margin-top: 8px;">
+        <a href="https://github.com/abhiiibabariya-dev/SMC-Computer-Supervisor-Exam-Prep">GitHub Repository</a>
+    </p>
+    <p style="margin-top: 8px; color: #555;">Best of luck for your exam!</p>
+</div>
+
+</body>
+</html>
