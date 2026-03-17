@@ -3,474 +3,258 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SMC Exam Prep - Computer Supervisor & Clerk</title>
+    <title>SMC Exam Prep 2026 - Computer Supervisor & Clerk</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-            color: #e0e0e0;
-            min-height: 100vh;
-        }
-        .header {
-            background: linear-gradient(135deg, #ff6b35, #f7c948);
-            color: #1a1a2e;
-            padding: 30px 20px;
-            text-align: center;
-        }
-        .header h1 { font-size: 1.8em; margin-bottom: 8px; }
-        .header p { font-size: 1em; opacity: 0.85; }
-        .badge {
-            display: inline-block;
-            background: #1a1a2e;
-            color: #f7c948;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.85em;
-            margin-top: 10px;
-            font-weight: bold;
-        }
-        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
-        .section {
-            background: rgba(255,255,255,0.06);
-            border-radius: 16px;
-            padding: 24px;
-            margin: 20px 0;
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-        .section h2 {
-            color: #f7c948;
-            font-size: 1.4em;
-            margin-bottom: 6px;
-        }
-        .section .subtitle { color: #aaa; font-size: 0.9em; margin-bottom: 16px; }
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 12px;
-        }
-        .card {
-            background: rgba(255,255,255,0.08);
-            border-radius: 12px;
-            padding: 16px;
-            text-decoration: none;
-            color: #e0e0e0;
-            border: 1px solid rgba(255,255,255,0.08);
-            transition: all 0.2s;
-            display: block;
-            cursor: pointer;
-        }
-        .card:hover {
-            background: rgba(255,255,255,0.14);
-            border-color: #f7c948;
-            transform: translateY(-2px);
-        }
-        .card h3 { font-size: 1em; color: #fff; margin-bottom: 4px; }
-        .card p { font-size: 0.82em; color: #aaa; }
-        .card .tag {
-            display: inline-block;
-            padding: 2px 8px;
-            border-radius: 8px;
-            font-size: 0.75em;
-            margin-top: 8px;
-            font-weight: bold;
-        }
-        .tag-high { background: #ff6b3520; color: #ff6b35; }
-        .tag-medium { background: #f7c94820; color: #f7c948; }
-        .tag-low { background: #4ecca320; color: #4ecca3; }
-        .tag-mock { background: #6c63ff20; color: #6c63ff; }
-        .stats {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-            margin: 20px 0;
-        }
-        .stat {
-            text-align: center;
-            padding: 16px 24px;
-            background: rgba(255,255,255,0.06);
-            border-radius: 12px;
-            min-width: 120px;
-        }
-        .stat .num { font-size: 2em; font-weight: bold; color: #f7c948; }
-        .stat .label { font-size: 0.8em; color: #aaa; margin-top: 4px; }
-        .download-btn {
-            display: inline-block;
-            background: linear-gradient(135deg, #ff6b35, #f7c948);
-            color: #1a1a2e;
-            padding: 14px 32px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.05em;
-            margin: 10px;
-            transition: transform 0.2s;
-        }
-        .download-btn:hover { transform: scale(1.05); }
-        .center { text-align: center; }
-        .footer {
-            text-align: center;
-            padding: 30px 20px;
-            color: #666;
-            font-size: 0.85em;
-        }
-        .footer a { color: #f7c948; text-decoration: none; }
-        .divider { height: 1px; background: rgba(255,255,255,0.1); margin: 10px 0; }
-        @media (max-width: 600px) {
-            .header h1 { font-size: 1.3em; }
-            .card-grid { grid-template-columns: 1fr; }
-            .stats { gap: 12px; }
-            .stat { min-width: 90px; padding: 12px 16px; }
-            .stat .num { font-size: 1.5em; }
-        }
+        body { font-family: 'Inter', sans-serif; background: #0a0a0f; color: #d1d5db; min-height: 100vh; }
 
-        /* VIEWER STYLES */
-        #viewer-overlay {
-            display: none;
-            position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: #0f0c29;
-            z-index: 1000;
-            overflow-y: auto;
-            -webkit-overflow-scrolling: touch;
+        /* HEADER */
+        .hero { background: linear-gradient(135deg, #1e3a5f 0%, #0d1b2a 50%, #1b2838 100%); padding: 40px 20px 30px; text-align: center; border-bottom: 3px solid #f59e0b; }
+        .hero h1 { font-size: 2em; font-weight: 800; background: linear-gradient(90deg, #f59e0b, #ef4444, #f59e0b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .hero .sub { color: #94a3b8; font-size: 0.95em; margin-top: 6px; }
+        .hero .badges { margin-top: 14px; display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; }
+        .hero .badges span { background: rgba(245,158,11,0.15); color: #f59e0b; padding: 6px 16px; border-radius: 20px; font-size: 0.8em; font-weight: 700; border: 1px solid rgba(245,158,11,0.3); }
+
+        /* ALERT BAR */
+        .alert-bar { background: linear-gradient(90deg, #ef4444, #dc2626); color: #fff; padding: 12px 20px; text-align: center; font-weight: 700; font-size: 0.9em; cursor: pointer; animation: pulse 2s infinite; }
+        .alert-bar:hover { background: linear-gradient(90deg, #dc2626, #b91c1c); }
+        @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.85; } }
+
+        .container { max-width: 960px; margin: 0 auto; padding: 16px; }
+
+        /* STATS */
+        .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 20px 0; }
+        .stat-card { background: linear-gradient(135deg, #1e293b, #0f172a); border-radius: 14px; padding: 18px 10px; text-align: center; border: 1px solid #1e293b; }
+        .stat-card .num { font-size: 1.8em; font-weight: 800; color: #f59e0b; }
+        .stat-card .lbl { font-size: 0.7em; color: #64748b; margin-top: 2px; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* DOWNLOAD */
+        .dl-bar { text-align: center; margin: 16px 0; }
+        .dl-btn { display: inline-block; background: linear-gradient(135deg, #f59e0b, #ef4444); color: #fff; padding: 14px 36px; border-radius: 30px; text-decoration: none; font-weight: 700; font-size: 1em; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 20px rgba(245,158,11,0.3); }
+        .dl-btn:hover { transform: scale(1.04); box-shadow: 0 6px 30px rgba(245,158,11,0.5); }
+
+        /* SECTIONS */
+        .sec { background: #111827; border-radius: 16px; padding: 22px; margin: 20px 0; border: 1px solid #1f2937; }
+        .sec-title { font-size: 1.25em; font-weight: 700; margin-bottom: 4px; }
+        .sec-title.gold { color: #f59e0b; }
+        .sec-title.red { color: #ef4444; }
+        .sec-title.green { color: #10b981; }
+        .sec-title.blue { color: #3b82f6; }
+        .sec-sub { color: #6b7280; font-size: 0.85em; margin-bottom: 14px; }
+
+        /* CARDS */
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; }
+        .c { background: #1a2332; border-radius: 12px; padding: 14px; cursor: pointer; border: 1px solid #1f2937; transition: all 0.2s; text-decoration: none; color: inherit; display: block; }
+        .c:hover { background: #1e3a5f; border-color: #f59e0b; transform: translateY(-2px); box-shadow: 0 4px 15px rgba(0,0,0,0.4); }
+        .c h3 { font-size: 0.92em; color: #f1f5f9; margin-bottom: 3px; font-weight: 600; }
+        .c p { font-size: 0.78em; color: #6b7280; line-height: 1.3; }
+        .tag { display: inline-block; padding: 2px 8px; border-radius: 6px; font-size: 0.68em; margin-top: 6px; font-weight: 700; }
+        .t-high { background: rgba(239,68,68,0.15); color: #ef4444; }
+        .t-med { background: rgba(245,158,11,0.15); color: #f59e0b; }
+        .t-low { background: rgba(16,185,129,0.15); color: #10b981; }
+        .t-mock { background: rgba(99,102,241,0.15); color: #818cf8; }
+        .t-new { background: rgba(239,68,68,0.2); color: #ef4444; border: 1px solid rgba(239,68,68,0.3); }
+
+        .divider { height: 1px; background: #1f2937; margin: 14px 0; }
+        .sub-title { color: #6b7280; font-size: 0.9em; margin-bottom: 10px; font-weight: 600; }
+
+        /* FOOTER */
+        .footer { text-align: center; padding: 30px 20px; color: #4b5563; font-size: 0.82em; }
+        .footer a { color: #f59e0b; text-decoration: none; }
+
+        /* VIEWER */
+        #viewer { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: #0a0a0f; z-index: 1000; overflow-y: auto; -webkit-overflow-scrolling: touch; }
+        #viewer.on { display: block; }
+        #v-bar { position: sticky; top: 0; background: #111827; padding: 10px 16px; display: flex; align-items: center; gap: 12px; z-index: 1001; border-bottom: 2px solid #f59e0b; }
+        #v-bar button { background: #f59e0b; color: #0a0a0f; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 700; cursor: pointer; font-size: 0.9em; }
+        #v-bar .vt { color: #f1f5f9; font-weight: 600; font-size: 0.95em; flex: 1; text-align: center; }
+        #v-body { max-width: 900px; margin: 0 auto; padding: 20px; line-height: 1.75; font-size: 15px; }
+        #v-body h1 { color: #f59e0b; font-size: 1.5em; margin: 20px 0 10px; }
+        #v-body h2 { color: #ef4444; font-size: 1.25em; margin: 18px 0 8px; border-bottom: 1px solid #1f2937; padding-bottom: 6px; }
+        #v-body h3 { color: #10b981; font-size: 1.05em; margin: 14px 0 6px; }
+        #v-body strong { color: #f1f5f9; }
+        #v-body table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 0.88em; }
+        #v-body th { background: #1e293b; color: #f59e0b; padding: 8px; text-align: left; }
+        #v-body td { padding: 8px; border-bottom: 1px solid #1f2937; }
+        #v-body tr:hover { background: rgba(255,255,255,0.02); }
+        #v-body code { background: #1e293b; padding: 2px 6px; border-radius: 4px; font-size: 0.9em; }
+        #v-body pre { background: #0d1117; padding: 12px; border-radius: 8px; overflow-x: auto; margin: 10px 0; }
+        #v-body pre code { background: none; }
+        #v-body blockquote { border-left: 3px solid #f59e0b; padding: 10px 16px; margin: 12px 0; background: #111827; border-radius: 0 8px 8px 0; }
+        #v-body a { color: #3b82f6; }
+        #v-body hr { border: none; border-top: 1px solid #1f2937; margin: 16px 0; }
+        #v-body ul, #v-body ol { padding-left: 24px; margin: 8px 0; }
+        #v-body li { margin: 4px 0; }
+        .loading { text-align: center; padding: 80px 20px; color: #f59e0b; font-size: 1.1em; }
+
+        @media (max-width: 640px) {
+            .hero h1 { font-size: 1.4em; }
+            .stats { grid-template-columns: repeat(2, 1fr); }
+            .grid { grid-template-columns: 1fr; }
+            .stat-card .num { font-size: 1.4em; }
         }
-        #viewer-overlay.active { display: block; }
-        #viewer-bar {
-            position: sticky;
-            top: 0;
-            background: linear-gradient(135deg, #ff6b35, #f7c948);
-            padding: 12px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1001;
-        }
-        #viewer-bar .back-btn {
-            background: #1a1a2e;
-            color: #f7c948;
-            border: none;
-            padding: 8px 20px;
-            border-radius: 20px;
-            font-size: 1em;
-            cursor: pointer;
-            font-weight: bold;
-        }
-        #viewer-bar .title {
-            color: #1a1a2e;
-            font-weight: bold;
-            font-size: 1em;
-            flex: 1;
-            text-align: center;
-            margin: 0 10px;
-        }
-        #viewer-content {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-            line-height: 1.7;
-            font-size: 15px;
-        }
-        #viewer-content h1 { color: #f7c948; font-size: 1.6em; margin: 20px 0 10px; }
-        #viewer-content h2 { color: #ff6b35; font-size: 1.3em; margin: 18px 0 8px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 6px; }
-        #viewer-content h3 { color: #4ecca3; font-size: 1.1em; margin: 14px 0 6px; }
-        #viewer-content p { margin: 8px 0; }
-        #viewer-content strong { color: #fff; }
-        #viewer-content table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 0.9em; }
-        #viewer-content th { background: rgba(255,255,255,0.1); color: #f7c948; padding: 8px; text-align: left; }
-        #viewer-content td { padding: 8px; border-bottom: 1px solid rgba(255,255,255,0.06); }
-        #viewer-content tr:hover { background: rgba(255,255,255,0.04); }
-        #viewer-content code { background: rgba(255,255,255,0.1); padding: 2px 6px; border-radius: 4px; font-size: 0.9em; }
-        #viewer-content pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 8px; overflow-x: auto; margin: 10px 0; }
-        #viewer-content pre code { background: none; padding: 0; }
-        #viewer-content blockquote { border-left: 3px solid #f7c948; padding: 10px 16px; margin: 12px 0; background: rgba(255,255,255,0.04); border-radius: 0 8px 8px 0; }
-        #viewer-content a { color: #4ecca3; }
-        #viewer-content hr { border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 16px 0; }
-        #viewer-content ul, #viewer-content ol { padding-left: 24px; margin: 8px 0; }
-        #viewer-content li { margin: 4px 0; }
-        #loading-msg { text-align: center; padding: 60px 20px; color: #f7c948; font-size: 1.2em; }
     </style>
 </head>
 <body>
 
-<!-- VIEWER OVERLAY -->
-<div id="viewer-overlay">
-    <div id="viewer-bar">
-        <button class="back-btn" onclick="closeViewer()">Back</button>
-        <span class="title" id="viewer-title">Loading...</span>
-        <div style="width: 60px;"></div>
+<!-- VIEWER -->
+<div id="viewer">
+    <div id="v-bar">
+        <button onclick="closeV()">Back</button>
+        <span class="vt" id="vt">Loading...</span>
     </div>
-    <div id="viewer-content">
-        <div id="loading-msg">Loading content...</div>
+    <div id="v-body"><div class="loading">Loading...</div></div>
+</div>
+
+<!-- MAIN -->
+<div id="main">
+
+<div class="hero">
+    <h1>SMC Exam Preparation 2026</h1>
+    <div class="sub">Surat Municipal Corporation - Computer Supervisor & Clerk</div>
+    <div class="badges">
+        <span>Code-513 Computer Supervisor</span>
+        <span>Code-502 Clerk</span>
+        <span>2,295 Vacancies</span>
     </div>
 </div>
 
-<!-- MAIN PAGE -->
-<div id="main-page">
-
-<div class="header">
-    <h1>SMC Exam Preparation Guide</h1>
-    <p>Surat Municipal Corporation - Computer Supervisor & Clerk Exam</p>
-    <div>
-        <span class="badge">Code-513 Computer Supervisor</span>
-        <span class="badge">Code-502 Clerk</span>
-    </div>
+<!-- ALERT -->
+<div class="alert-bar" onclick="openF('docs/smc_recruitment_2026.md','SMC Recruitment 2026')">
+    NEW: SMC Recruitment 2026 — 2,295 Posts — Apply 1-15 April 2026 — Click Here for Full Details & Form Guide
 </div>
 
 <div class="container">
 
+    <!-- STATS -->
     <div class="stats">
-        <div class="stat"><div class="num">3500+</div><div class="label">MCQs</div></div>
-        <div class="stat"><div class="num">6</div><div class="label">Mock Tests</div></div>
-        <div class="stat"><div class="num">20+</div><div class="label">Subject Guides</div></div>
-        <div class="stat"><div class="num">100%</div><div class="label">FREE</div></div>
+        <div class="stat-card"><div class="num">3500+</div><div class="lbl">MCQs</div></div>
+        <div class="stat-card"><div class="num">6</div><div class="lbl">Mock Tests</div></div>
+        <div class="stat-card"><div class="num">20+</div><div class="lbl">Guides</div></div>
+        <div class="stat-card"><div class="num">717</div><div class="lbl">Clerk Posts</div></div>
     </div>
 
-    <div class="center">
-        <a class="download-btn" href="https://github.com/abhiiibabariya-dev/SMC-Computer-Supervisor-Exam-Prep/archive/refs/heads/master.zip">Download All (ZIP)</a>
+    <div class="dl-bar">
+        <a class="dl-btn" href="https://github.com/abhiiibabariya-dev/SMC-Computer-Supervisor-Exam-Prep/archive/refs/heads/master.zip">Download All Materials (ZIP)</a>
     </div>
 
-    <!-- COMPUTER SUPERVISOR SECTION -->
-    <div class="section">
-        <h2>Computer Supervisor Exam (Code-513)</h2>
-        <p class="subtitle">100 MCQs | 120 Minutes | No Negative Marking</p>
-        <div class="card-grid">
-            <div class="card" onclick="openFile('ALL_IN_ONE_EXAM_GUIDE.md','All-in-One Guide')">
-                <h3>All-in-One Guide</h3>
-                <p>820+ MCQs covering every topic in one page</p>
-                <span class="tag tag-high">COMPLETE GUIDE</span>
+    <!-- RECRUITMENT 2026 -->
+    <div class="sec" style="border-color: #ef4444;">
+        <div class="sec-title red">SMC Recruitment 2026 (NEW!)</div>
+        <div class="sec-sub">Apply Online: 1 April - 15 April 2026 | 2,295 Vacancies</div>
+        <div class="grid">
+            <div class="c" onclick="openF('docs/smc_recruitment_2026.md','Recruitment 2026 Guide')" style="border-color: #ef4444;">
+                <h3>Complete Recruitment Guide + SOP</h3>
+                <p>How to fill form, documents, fees, salary, eligibility, step-by-step</p>
+                <span class="tag t-new">LATEST UPDATE</span>
             </div>
-            <div class="card" onclick="openFile('subjects/01_computer_knowledge.md','Computer Knowledge')">
-                <h3>Computer Knowledge</h3>
-                <p>Hardware, Software, OS, Networking basics</p>
-                <span class="tag tag-high">HIGH PRIORITY</span>
-            </div>
-            <div class="card" onclick="openFile('subjects/02_general_knowledge.md','General Knowledge')">
-                <h3>General Knowledge</h3>
-                <p>Gujarat GK, Indian Polity, History, Geography</p>
-                <span class="tag tag-high">HIGH PRIORITY</span>
-            </div>
-            <div class="card" onclick="openFile('subjects/03_gujarati_language.md','Gujarati Language')">
-                <h3>Gujarati Language</h3>
-                <p>Vyakaran, Sahitya, Rudhiprayog</p>
-                <span class="tag tag-medium">MEDIUM</span>
-            </div>
-            <div class="card" onclick="openFile('subjects/04_english_language.md','English Language')">
-                <h3>English Language</h3>
-                <p>Grammar, Vocabulary, Comprehension</p>
-                <span class="tag tag-medium">MEDIUM</span>
-            </div>
-            <div class="card" onclick="openFile('subjects/05_mathematics.md','Mathematics')">
-                <h3>Mathematics</h3>
-                <p>Quant Aptitude, Reasoning, Data</p>
-                <span class="tag tag-medium">MEDIUM</span>
-            </div>
-            <div class="card" onclick="openFile('subjects/06_advanced_computer_supervisor.md','Advanced Computer')">
-                <h3>Advanced Computer Topics</h3>
-                <p>220 advanced MCQs - Networking, DB, Security</p>
-                <span class="tag tag-high">HIGH PRIORITY</span>
-            </div>
-            <div class="card" onclick="openFile('subjects/07_exam_strategy_and_practical.md','Exam Strategy')">
-                <h3>Exam Strategy</h3>
-                <p>Time management, tips, practical test guide</p>
-                <span class="tag tag-low">STRATEGY</span>
-            </div>
-            <div class="card" onclick="openFile('subjects/08_gujarati_typing_complete_guide.md','Gujarati Typing')">
-                <h3>Gujarati Typing Guide</h3>
-                <p>InScript layout, practice plan, exam tips</p>
-                <span class="tag tag-low">PRACTICAL</span>
-            </div>
-        </div>
-        <div class="divider" style="margin: 16px 0;"></div>
-        <h3 style="color: #aaa; margin-bottom: 10px;">Mock Tests</h3>
-        <div class="card-grid">
-            <div class="card" onclick="openFile('papers/mock_test_1.md','Mock Test 1')">
-                <h3>Mock Test 1</h3><p>100 questions with answer key</p><span class="tag tag-mock">MOCK TEST</span>
-            </div>
-            <div class="card" onclick="openFile('papers/mock_test_2.md','Mock Test 2')">
-                <h3>Mock Test 2</h3><p>100 questions with answer key</p><span class="tag tag-mock">MOCK TEST</span>
-            </div>
-            <div class="card" onclick="openFile('papers/mock_test_3.md','Mock Test 3')">
-                <h3>Mock Test 3</h3><p>100 questions with answer key</p><span class="tag tag-mock">MOCK TEST</span>
-            </div>
+            <a class="c" href="https://www.suratmunicipal.gov.in/recruitment/" target="_blank" style="border-color: #ef4444;">
+                <h3>Apply Online (Official)</h3>
+                <p>suratmunicipal.gov.in — Apply from 1 April 2026</p>
+                <span class="tag t-new">OFFICIAL LINK</span>
+            </a>
         </div>
     </div>
 
-    <!-- CLERK EXAM SECTION -->
-    <div class="section">
-        <h2>Clerk Exam (Code-502)</h2>
-        <p class="subtitle">100 MCQs | 120 Minutes | -0.25 Negative Marking</p>
-        <div class="card-grid">
-            <div class="card" onclick="openFile('clerk_exam/02_complete_clerk_exam_guide.md','Clerk All-in-One')">
-                <h3>All-in-One Clerk Guide</h3>
-                <p>330+ MCQs all subjects in one file</p>
-                <span class="tag tag-high">COMPLETE GUIDE</span>
-            </div>
-            <div class="card" onclick="openFile('clerk_exam_complete/subjects/01_gujarati_language.md','Gujarati Language')">
-                <h3>Gujarati Language</h3>
-                <p>155 MCQs - Sandhi, Samaas, Sahitya, Idioms</p>
-                <span class="tag tag-high">HIGH PRIORITY</span>
-            </div>
-            <div class="card" onclick="openFile('clerk_exam_complete/subjects/02_general_knowledge.md','General Knowledge')">
-                <h3>General Knowledge</h3>
-                <p>155 MCQs - Gujarat, Polity, History, Current Affairs</p>
-                <span class="tag tag-high">HIGH PRIORITY</span>
-            </div>
-            <div class="card" onclick="openFile('clerk_exam_complete/subjects/03_english_language.md','English Language')">
-                <h3>English Language</h3>
-                <p>120 MCQs - Tenses, Articles, Vocabulary, Idioms</p>
-                <span class="tag tag-medium">MEDIUM</span>
-            </div>
-            <div class="card" onclick="openFile('clerk_exam_complete/subjects/04_mathematics.md','Mathematics')">
-                <h3>Mathematics</h3>
-                <p>135 MCQs - Percentage, Profit/Loss, SI/CI, Ratio</p>
-                <span class="tag tag-medium">MEDIUM</span>
-            </div>
-            <div class="card" onclick="openFile('clerk_exam_complete/subjects/05_reasoning.md','Reasoning')">
-                <h3>Reasoning & Mental Ability</h3>
-                <p>120 MCQs - Series, Coding, Blood Relations</p>
-                <span class="tag tag-medium">MEDIUM</span>
-            </div>
-            <div class="card" onclick="openFile('clerk_exam_complete/subjects/06_computer_knowledge.md','Computer Knowledge')">
-                <h3>Computer Knowledge</h3>
-                <p>85 MCQs - Basics, MS Office, Internet, Shortcuts</p>
-                <span class="tag tag-low">EASY SCORING</span>
-            </div>
-            <div class="card" onclick="openFile('clerk_exam_complete/practical/01_typing_test_guide.md','Typing Guide')">
-                <h3>Typing Test Guide</h3>
-                <p>English + Gujarati typing, InScript, 30-day plan</p>
-                <span class="tag tag-low">PRACTICAL</span>
-            </div>
-            <div class="card" onclick="openFile('clerk_exam_complete/previous_papers/previous_paper_analysis.md','Previous Papers')">
-                <h3>Previous Paper Analysis</h3>
-                <p>Weightage, top 50 facts, exam strategy, cutoffs</p>
-                <span class="tag tag-low">STRATEGY</span>
-            </div>
+    <!-- COMPUTER SUPERVISOR -->
+    <div class="sec">
+        <div class="sec-title gold">Computer Supervisor (Code-513)</div>
+        <div class="sec-sub">100 MCQs | 120 Min | No Negative Marking | Salary: ₹39,900-1,26,600</div>
+        <div class="grid">
+            <div class="c" onclick="openF('ALL_IN_ONE_EXAM_GUIDE.md','All-in-One Guide')"><h3>All-in-One Guide</h3><p>820+ MCQs — every topic</p><span class="tag t-high">COMPLETE</span></div>
+            <div class="c" onclick="openF('subjects/01_computer_knowledge.md','Computer Knowledge')"><h3>Computer Knowledge</h3><p>Hardware, Software, OS, Networks</p><span class="tag t-high">HIGH</span></div>
+            <div class="c" onclick="openF('subjects/02_general_knowledge.md','General Knowledge')"><h3>General Knowledge</h3><p>Gujarat GK, Polity, History</p><span class="tag t-high">HIGH</span></div>
+            <div class="c" onclick="openF('subjects/03_gujarati_language.md','Gujarati')"><h3>Gujarati Language</h3><p>Vyakaran, Sahitya</p><span class="tag t-med">MEDIUM</span></div>
+            <div class="c" onclick="openF('subjects/04_english_language.md','English')"><h3>English Language</h3><p>Grammar, Vocabulary</p><span class="tag t-med">MEDIUM</span></div>
+            <div class="c" onclick="openF('subjects/05_mathematics.md','Mathematics')"><h3>Mathematics</h3><p>Quant, Reasoning</p><span class="tag t-med">MEDIUM</span></div>
+            <div class="c" onclick="openF('subjects/06_advanced_computer_supervisor.md','Advanced Computer')"><h3>Advanced Computer</h3><p>220 MCQs — Networking, DB</p><span class="tag t-high">HIGH</span></div>
+            <div class="c" onclick="openF('subjects/07_exam_strategy_and_practical.md','Strategy')"><h3>Exam Strategy</h3><p>Time management, tips</p><span class="tag t-low">STRATEGY</span></div>
+            <div class="c" onclick="openF('subjects/08_gujarati_typing_complete_guide.md','Typing')"><h3>Gujarati Typing</h3><p>InScript, practice plan</p><span class="tag t-low">PRACTICAL</span></div>
         </div>
-        <div class="divider" style="margin: 16px 0;"></div>
-        <h3 style="color: #aaa; margin-bottom: 10px;">Mock Tests</h3>
-        <div class="card-grid">
-            <div class="card" onclick="openFile('clerk_exam_complete/mock_tests/mock_test_1.md','Clerk Mock Test 1')">
-                <h3>Mock Test 1</h3><p>100 questions with answer key</p><span class="tag tag-mock">MOCK TEST</span>
-            </div>
-            <div class="card" onclick="openFile('clerk_exam_complete/mock_tests/mock_test_2.md','Clerk Mock Test 2')">
-                <h3>Mock Test 2</h3><p>100 questions with answer key</p><span class="tag tag-mock">MOCK TEST</span>
-            </div>
-            <div class="card" onclick="openFile('clerk_exam_complete/mock_tests/mock_test_3.md','Clerk Mock Test 3')">
-                <h3>Mock Test 3</h3><p>100 questions with answer key</p><span class="tag tag-mock">MOCK TEST</span>
-            </div>
+        <div class="divider"></div>
+        <div class="sub-title">Mock Tests</div>
+        <div class="grid">
+            <div class="c" onclick="openF('papers/mock_test_1.md','Mock Test 1')"><h3>Mock Test 1</h3><p>100Q + Answer Key</p><span class="tag t-mock">MOCK</span></div>
+            <div class="c" onclick="openF('papers/mock_test_2.md','Mock Test 2')"><h3>Mock Test 2</h3><p>100Q + Answer Key</p><span class="tag t-mock">MOCK</span></div>
+            <div class="c" onclick="openF('papers/mock_test_3.md','Mock Test 3')"><h3>Mock Test 3</h3><p>100Q + Answer Key</p><span class="tag t-mock">MOCK</span></div>
         </div>
     </div>
 
-    <!-- HARDEST PAPERS & SURAT HISTORY -->
-    <div class="section" style="border-color: #ff6b35;">
-        <h2 style="color: #ff6b35;">HARDEST Papers & Surat History (NEW!)</h2>
-        <p class="subtitle">Advanced level questions + Complete Surat History for exam</p>
-        <div class="card-grid">
-            <div class="card" style="border-color: #ff6b35;" onclick="openFile('docs/advanced_hard_paper_computer_supervisor.md','HARDEST - Computer Supervisor')">
-                <h3>HARDEST Paper - Computer Supervisor</h3>
-                <p>150 advanced MCQs - Networking, DB, OS, e-Governance (EN + GJ)</p>
-                <span class="tag tag-high">HARD LEVEL</span>
-            </div>
-            <div class="card" style="border-color: #ff6b35;" onclick="openFile('docs/advanced_hard_paper_clerk.md','HARDEST - Clerk')">
-                <h3>HARDEST Paper - Clerk</h3>
-                <p>150 advanced MCQs - All subjects, tricky questions (EN + GJ)</p>
-                <span class="tag tag-high">HARD LEVEL</span>
-            </div>
-            <div class="card" style="border-color: #f7c948;" onclick="openFile('docs/surat_history_complete.md','Surat History')">
-                <h3>Surat History - Complete Guide</h3>
-                <p>150 MCQs on Surat history, SMC, industries, geography (EN + GJ)</p>
-                <span class="tag tag-high">MUST READ</span>
-            </div>
-            <div class="card" style="border-color: #4ecca3;" onclick="openFile('docs/practical_exam_complete.md','Practical Exam Guide')">
-                <h3>Practical Exam - Complete Guide</h3>
-                <p>MS Word/Excel/PPT tasks + InScript typing + English typing</p>
-                <span class="tag tag-low">PRACTICAL</span>
-            </div>
+    <!-- CLERK -->
+    <div class="sec">
+        <div class="sec-title blue">Clerk Exam (Code-502)</div>
+        <div class="sec-sub">100 MCQs | 120 Min | -0.25 Negative | 717 Posts | Salary: ₹19,900-63,200</div>
+        <div class="grid">
+            <div class="c" onclick="openF('clerk_exam/02_complete_clerk_exam_guide.md','Clerk Guide')"><h3>All-in-One Clerk Guide</h3><p>330+ MCQs all subjects</p><span class="tag t-high">COMPLETE</span></div>
+            <div class="c" onclick="openF('clerk_exam_complete/subjects/01_gujarati_language.md','Gujarati')"><h3>Gujarati Language</h3><p>155 MCQs — Sandhi, Samaas</p><span class="tag t-high">HIGH</span></div>
+            <div class="c" onclick="openF('clerk_exam_complete/subjects/02_general_knowledge.md','GK')"><h3>General Knowledge</h3><p>155 MCQs — Gujarat, Polity</p><span class="tag t-high">HIGH</span></div>
+            <div class="c" onclick="openF('clerk_exam_complete/subjects/03_english_language.md','English')"><h3>English Language</h3><p>120 MCQs — Tenses, Vocab</p><span class="tag t-med">MEDIUM</span></div>
+            <div class="c" onclick="openF('clerk_exam_complete/subjects/04_mathematics.md','Maths')"><h3>Mathematics</h3><p>135 MCQs — Percentage, SI/CI</p><span class="tag t-med">MEDIUM</span></div>
+            <div class="c" onclick="openF('clerk_exam_complete/subjects/05_reasoning.md','Reasoning')"><h3>Reasoning</h3><p>120 MCQs — Series, Coding</p><span class="tag t-med">MEDIUM</span></div>
+            <div class="c" onclick="openF('clerk_exam_complete/subjects/06_computer_knowledge.md','Computer')"><h3>Computer Knowledge</h3><p>85 MCQs — Shortcuts, Office</p><span class="tag t-low">EASY</span></div>
+            <div class="c" onclick="openF('clerk_exam_complete/practical/01_typing_test_guide.md','Typing')"><h3>Typing Test Guide</h3><p>EN + GJ typing, 30-day plan</p><span class="tag t-low">PRACTICAL</span></div>
+            <div class="c" onclick="openF('clerk_exam_complete/previous_papers/previous_paper_analysis.md','Analysis')"><h3>Previous Paper Analysis</h3><p>Weightage, strategy, cutoffs</p><span class="tag t-low">STRATEGY</span></div>
+        </div>
+        <div class="divider"></div>
+        <div class="sub-title">Mock Tests</div>
+        <div class="grid">
+            <div class="c" onclick="openF('clerk_exam_complete/mock_tests/mock_test_1.md','Clerk Mock 1')"><h3>Mock Test 1</h3><p>100Q + Answer Key</p><span class="tag t-mock">MOCK</span></div>
+            <div class="c" onclick="openF('clerk_exam_complete/mock_tests/mock_test_2.md','Clerk Mock 2')"><h3>Mock Test 2</h3><p>100Q + Answer Key</p><span class="tag t-mock">MOCK</span></div>
+            <div class="c" onclick="openF('clerk_exam_complete/mock_tests/mock_test_3.md','Clerk Mock 3')"><h3>Mock Test 3</h3><p>100Q + Answer Key</p><span class="tag t-mock">MOCK</span></div>
         </div>
     </div>
 
-    <!-- STUDY RESOURCES -->
-    <div class="section">
-        <h2>Study Resources</h2>
-        <div class="card-grid">
-            <div class="card" onclick="openFile('resources/study_plan_and_links.md','Study Plan')">
-                <h3>Study Plan & Links</h3>
-                <p>Week-wise study plan with useful resources</p>
-                <span class="tag tag-low">PLANNING</span>
-            </div>
-            <div class="card" onclick="openFile('papers/previous_paper_analysis.md','Previous Paper Analysis')">
-                <h3>Previous Paper Analysis</h3>
-                <p>Computer Supervisor exam patterns</p>
-                <span class="tag tag-low">ANALYSIS</span>
-            </div>
+    <!-- HARDEST + SURAT -->
+    <div class="sec" style="border-color: #ef4444;">
+        <div class="sec-title red">HARDEST Papers + Surat History</div>
+        <div class="sec-sub">Advanced level practice + Complete Surat history (150 MCQs)</div>
+        <div class="grid">
+            <div class="c" onclick="openF('docs/advanced_hard_paper_computer_supervisor.md','HARD - CS')" style="border-color:#ef4444;"><h3>HARDEST - Computer Supervisor</h3><p>150 MCQs — Advanced (EN+GJ)</p><span class="tag t-high">HARD</span></div>
+            <div class="c" onclick="openF('docs/advanced_hard_paper_clerk.md','HARD - Clerk')" style="border-color:#ef4444;"><h3>HARDEST - Clerk</h3><p>150 MCQs — Tricky (EN+GJ)</p><span class="tag t-high">HARD</span></div>
+            <div class="c" onclick="openF('docs/surat_history_complete.md','Surat History')"><h3>Surat History Complete</h3><p>150 MCQs — 1507 to 2023 (EN+GJ)</p><span class="tag t-high">MUST READ</span></div>
+            <div class="c" onclick="openF('docs/practical_exam_complete.md','Practical')"><h3>Practical Exam Guide</h3><p>MS Office + InScript + Typing</p><span class="tag t-low">PRACTICAL</span></div>
         </div>
     </div>
 
-    <div class="center" style="margin: 30px 0;">
-        <a class="download-btn" href="https://github.com/abhiiibabariya-dev/SMC-Computer-Supervisor-Exam-Prep/archive/refs/heads/master.zip">Download Everything (ZIP)</a>
-        <a class="download-btn" href="https://github.com/abhiiibabariya-dev/SMC-Computer-Supervisor-Exam-Prep" style="background: linear-gradient(135deg, #6c63ff, #4ecca3);">View on GitHub</a>
+    <!-- RESOURCES -->
+    <div class="sec">
+        <div class="sec-title green">Study Resources</div>
+        <div class="grid">
+            <div class="c" onclick="openF('resources/study_plan_and_links.md','Study Plan')"><h3>Study Plan & Links</h3><p>Week-wise plan + resources</p><span class="tag t-low">PLAN</span></div>
+            <div class="c" onclick="openF('papers/previous_paper_analysis.md','Paper Analysis')"><h3>Previous Paper Analysis</h3><p>CS exam patterns</p><span class="tag t-low">ANALYSIS</span></div>
+        </div>
+    </div>
+
+    <div class="dl-bar" style="margin: 24px 0;">
+        <a class="dl-btn" href="https://github.com/abhiiibabariya-dev/SMC-Computer-Supervisor-Exam-Prep/archive/refs/heads/master.zip">Download ZIP</a>
+        <a class="dl-btn" href="https://github.com/abhiiibabariya-dev/SMC-Computer-Supervisor-Exam-Prep" target="_blank" style="background: linear-gradient(135deg, #3b82f6, #6366f1); margin-left: 8px;">GitHub</a>
     </div>
 
 </div>
 
 <div class="footer">
-    <p>Made with dedication for SMC exam aspirants</p>
-    <p style="margin-top: 8px;">
-        <a href="https://github.com/abhiiibabariya-dev/SMC-Computer-Supervisor-Exam-Prep">GitHub Repository</a>
-    </p>
-    <p style="margin-top: 8px; color: #555;">Best of luck for your exam!</p>
+    <p>Made for SMC exam aspirants | All content is FREE</p>
+    <p style="margin-top: 6px;"><a href="https://github.com/abhiiibabariya-dev/SMC-Computer-Supervisor-Exam-Prep">GitHub Repository</a></p>
+    <p style="margin-top: 6px;">Best of luck for your exam!</p>
 </div>
 
-</div><!-- end main-page -->
+</div><!-- main -->
 
 <script>
-const BASE_RAW = 'https://raw.githubusercontent.com/abhiiibabariya-dev/SMC-Computer-Supervisor-Exam-Prep/master/';
-
-function openFile(path, title) {
-    const overlay = document.getElementById('viewer-overlay');
-    const content = document.getElementById('viewer-content');
-    const vtitle = document.getElementById('viewer-title');
-
-    vtitle.textContent = title;
-    content.innerHTML = '<div id="loading-msg">Loading content...</div>';
-    overlay.classList.add('active');
-    document.body.style.overflow = 'hidden';
-    overlay.scrollTop = 0;
-
-    fetch(BASE_RAW + path)
-        .then(r => {
-            if (!r.ok) throw new Error('Failed to load');
-            return r.text();
-        })
-        .then(md => {
-            content.innerHTML = marked.parse(md);
-        })
-        .catch(err => {
-            content.innerHTML = '<div id="loading-msg">Could not load content. <br><br><a href="https://github.com/abhiiibabariya-dev/SMC-Computer-Supervisor-Exam-Prep/blob/master/' + path + '" style="color:#f7c948;">Open on GitHub instead</a></div>';
-        });
+const R='https://raw.githubusercontent.com/abhiiibabariya-dev/SMC-Computer-Supervisor-Exam-Prep/master/';
+function openF(p,t){
+    const v=document.getElementById('viewer'),b=document.getElementById('v-body');
+    document.getElementById('vt').textContent=t;
+    b.innerHTML='<div class="loading">Loading...</div>';
+    v.classList.add('on');document.body.style.overflow='hidden';v.scrollTop=0;
+    history.pushState({v:1},'','#'+p.replace(/[\/.]/g,'-'));
+    fetch(R+p).then(r=>{if(!r.ok)throw 0;return r.text()}).then(md=>{b.innerHTML=marked.parse(md)})
+    .catch(()=>{b.innerHTML='<div class="loading">Could not load.<br><br><a href="https://github.com/abhiiibabariya-dev/SMC-Computer-Supervisor-Exam-Prep/blob/master/'+p+'" style="color:#f59e0b">Open on GitHub</a></div>'});
 }
-
-function closeViewer() {
-    document.getElementById('viewer-overlay').classList.remove('active');
-    document.body.style.overflow = '';
-}
-
-// Handle back button on phone
-window.addEventListener('popstate', function() {
-    if (document.getElementById('viewer-overlay').classList.contains('active')) {
-        closeViewer();
-    }
-});
-
-// Push state when opening viewer so back button works
-const origOpen = openFile;
-openFile = function(path, title) {
-    history.pushState({ viewer: true }, '', '#' + path.replace(/[\/\.]/g, '-'));
-    origOpen(path, title);
-};
+function closeV(){document.getElementById('viewer').classList.remove('on');document.body.style.overflow='';}
+window.addEventListener('popstate',()=>{if(document.getElementById('viewer').classList.contains('on'))closeV();});
 </script>
-
 </body>
 </html>
