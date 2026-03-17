@@ -541,3 +541,273 @@ A) કિલ્લા | B) વેપારી મથકો (Trading Posts) ✅ |
 > - 1994 plague transformation is a FAVOURITE question
 > - Diamond & Textile industry facts = guaranteed questions
 > - Tapi river details (origin, length, where it meets sea) = frequently asked
+
+---
+
+# PART 3: ADDITIONAL IMPORTANT TOPICS (From Research)
+
+## 3.1 Surat Split of 1907 (INC Session) — VERY IMPORTANT
+
+| Detail | Info |
+|--------|------|
+| **Event** | 23rd Session of Indian National Congress |
+| **Year** | 1907 |
+| **Location** | Surat |
+| **What happened** | Congress split into Moderates and Extremists |
+| **Moderates (Naram Dal)** | Gopal Krishna Gokhale, Pherozeshah Mehta, Surendranath Banerjee |
+| **Extremists (Garam Dal)** | Bal Gangadhar Tilak, Lala Lajpat Rai, Bipin Chandra Pal (Lal-Bal-Pal) |
+| **Dispute** | Over presidency — Moderates wanted Rash Behari Ghosh; Extremists opposed |
+
+## 3.2 Surat's Famous Food & Culture
+
+| Food Item | Details |
+|-----------|---------|
+| **ઘારી (Ghari)** | Famous sweet of Surat, eaten on Chandani Padvo festival |
+| **લોચો (Locho)** | Steamed snack, unique to Surat |
+| **Surti Undhiyu** | Mixed vegetable dish |
+| **પોંક (Ponk)** | Winter delicacy from green sorghum |
+| **Surti Sev Khamani** | Famous street food |
+
+**Chandani Padvo (ચાંદની પડવો):** Festival unique to Surat, celebrated a day after Sharad Purnima. Massive consumption of Ghari sweet.
+
+## 3.3 Education in Surat
+
+| Institution | Details |
+|-------------|---------|
+| **VNSGU** | Veer Narmad South Gujarat University (Est. 1967) |
+| **SVNIT** | Sardar Vallabhbhai National Institute of Technology |
+| **SMIMER** | Surat Municipal Institute of Medical Education & Research |
+| **Sarvajanik Education Society** | One of the oldest, established 1860s |
+| **Government Medical College** | Major medical institution |
+
+## 3.4 Surat Fire Tragedy 2019
+
+- **Date:** 24 May 2019
+- **Location:** Takshashila Arcade, coaching center
+- **Deaths:** 22 students killed
+- **Impact:** Led to nationwide fire safety awareness & stricter building codes
+- This may appear in current affairs questions
+
+## 3.5 Surat Metro Rail (Under Construction)
+
+| Line | Route | Length |
+|------|-------|--------|
+| Line 1 | Sarthana to Dream City | ~21 km |
+| Line 2 | Bhesan to Saroli | ~21 km |
+
+## 3.6 Tapi River - East to West Flowing
+
+Tapi is one of only **3 major peninsular rivers** flowing **East to West**:
+1. **Narmada**
+2. **Tapi**
+3. **Mahi**
+
+---
+
+# PART 4: 50 MORE MCQs — Surat Advanced (Q101-Q150)
+
+## English Medium (Q101-Q125)
+
+**Q101.** The Surat Split of 1907 happened in which session of INC?
+A) 21st | B) 23rd ✅ | C) 25th | D) 27th
+
+**Q102.** During the Surat Split, the Moderates were led by:
+A) Tilak | B) Gokhale ✅ | C) Gandhi | D) Nehru
+
+**Q103.** The Extremists (Garam Dal) during the Surat Split included:
+A) Lal-Bal-Pal ✅ | B) Gandhi-Nehru-Patel | C) Gokhale-Mehta | D) Roy-Bose
+
+**Q104.** Veer Narmad South Gujarat University (VNSGU) was established in:
+A) 1950 | B) 1960 | C) 1967 ✅ | D) 1975
+
+**Q105.** VNSGU is named after:
+A) Sardar Patel | B) Narmad (poet) ✅ | C) Mahatma Gandhi | D) Dadabhai Naoroji
+
+**Q106.** SVNIT Surat is a:
+A) Medical college | B) Engineering institute ✅ | C) Law college | D) Arts college
+
+**Q107.** Surat's famous sweet 'Ghari' is eaten on which festival?
+A) Diwali | B) Navratri | C) Chandani Padvo ✅ | D) Makar Sankranti
+
+**Q108.** 'Locho' is a famous ___ of Surat:
+A) Sweet | B) Steamed snack ✅ | C) Drink | D) Curry
+
+**Q109.** Surat Fire Tragedy (Takshashila Arcade) occurred in:
+A) 2017 | B) 2018 | C) 2019 ✅ | D) 2020
+
+**Q110.** How many students died in the 2019 Surat fire tragedy?
+A) 10 | B) 15 | C) 22 ✅ | D) 30
+
+**Q111.** Tapi river flows in which direction?
+A) West to East | B) East to West ✅ | C) North to South | D) South to North
+
+**Q112.** How many major peninsular rivers flow East to West?
+A) 1 | B) 2 | C) 3 ✅ | D) 4
+
+**Q113.** Which of these is NOT an East-to-West flowing river?
+A) Narmada | B) Tapi | C) Mahi | D) Godavari ✅
+
+**Q114.** The Dutch established their factory in Surat in:
+A) 1612 | B) 1616 ✅ | C) 1650 | D) 1700
+
+**Q115.** The French established their factory in Surat in:
+A) 1612 | B) 1650 | C) 1668 ✅ | D) 1700
+
+**Q116.** Surat Metro Rail Line 1 runs from:
+A) Bhesan to Saroli | B) Sarthana to Dream City ✅ | C) Udhna to Hazira | D) Adajan to Varachha
+
+**Q117.** DREAM City in Surat stands for:
+A) Diamond Research and Mercantile City ✅ | B) District Research Education Art City | C) Development Research Energy Art City | D) None
+
+**Q118.** Chintamani Jain Temple in Surat is located at:
+A) Adajan | B) Shahpore ✅ | C) Rander | D) Athwa
+
+**Q119.** The STD code of Surat is:
+A) 0265 | B) 0261 ✅ | C) 079 | D) 0253
+
+**Q120.** Surat's literacy rate (2011 census) was approximately:
+A) 75% | B) 80% | C) 89.53% ✅ | D) 95%
+
+**Q121.** Surat's sex ratio (2011 census) is low mainly because:
+A) Female mortality | B) Large male migrant workforce ✅ | C) Low birth rate | D) Natural causes
+
+**Q122.** Ponk (પોંક) is a Surati delicacy made from:
+A) Rice | B) Wheat | C) Green sorghum/jowar ✅ | D) Corn
+
+**Q123.** The British shifted their EIC headquarters from Surat to Bombay in:
+A) 1664 | B) 1687 ✅ | C) 1700 | D) 1759
+
+**Q124.** Surat is considered one of the ___ growing cities in the world:
+A) Slowest | B) Fastest ✅ | C) Smallest | D) Oldest
+
+**Q125.** Surat Ring Road textile market is one of the largest ___ markets in Asia:
+A) Diamond | B) Textile ✅ | C) Vegetable | D) Electronics
+
+---
+
+## ગુજરાતી માધ્યમ (Q126-Q150)
+
+**Q126.** ૧૯૦૭ માં સુરતમાં કોંગ્રેસનું કયું અધિવેશન થયું?
+A) ૨૧મું | B) ૨૩મું ✅ | C) ૨૫મું | D) ૨૭મું
+
+**Q127.** સુરત સ્પ્લિટ (૧૯૦૭) માં નરમ દળના નેતા = ?
+A) તિલક | B) ગોખલે ✅ | C) ગાંધી | D) નેહરુ
+
+**Q128.** 'લાલ-બાલ-પાલ' = ?
+A) લાલા લાજપત રાય, બાલ ગંગાધર તિલક, બિપિન ચંદ્ર પાલ ✅ | B) ગાંધી, નેહરુ, પટેલ | C) ગોખલે, મહેતા, રાય | D) બોઝ, ભગત, રાજગુરુ
+
+**Q129.** વીર નર્મદ સાઉથ ગુજરાત યુનિવર્સિટી ક્યારે સ્થપાઈ?
+A) ૧૯૫૦ | B) ૧૯૬૦ | C) ૧૯૬૭ ✅ | D) ૧૯૭૫
+
+**Q130.** SVNIT = ?
+A) મેડિકલ કોલેજ | B) એન્જિનિયરિંગ સંસ્થા ✅ | C) લો કોલેજ | D) આર્ટ્સ
+
+**Q131.** સુરતની પ્રખ્યાત 'ઘારી' મીઠાઈ ક્યા તહેવારે ખાવાય?
+A) દિવાળી | B) નવરાત્રી | C) ચાંદની પડવો ✅ | D) ઉત્તરાયણ
+
+**Q132.** 'લોચો' સુરતનું પ્રખ્યાત = ?
+A) મીઠાઈ | B) વરાળથી બનતું નાસ્તો ✅ | C) પીણું | D) શાક
+
+**Q133.** ૨૦૧૯ માં સુરતમાં તક્ષશિલા આર્કેડ આગ દુર્ઘટનામાં કેટલા વિદ્યાર્થી મૃત્યુ પામ્યા?
+A) ૧૦ | B) ૧૫ | C) ૨૨ ✅ | D) ૩૦
+
+**Q134.** તાપી નદી કઈ દિશામાં વહે છે?
+A) પશ્ચિમ થી પૂર્વ | B) પૂર્વ થી પશ્ચિમ ✅ | C) ઉત્તર થી દક્ષિણ | D) દક્ષિણ થી ઉત્તર
+
+**Q135.** પૂર્વ થી પશ્ચિમ વહેતી ત્રણ મોટી નદીઓ = ?
+A) ગંગા, યમુના, ગોદાવરી | B) નર્મદા, તાપી, માહી ✅ | C) કૃષ્ણા, કાવેરી, ગોદાવરી | D) સાબરમતી, તાપી, નર્મદા
+
+**Q136.** ડચ લોકોએ સુરતમાં ફેક્ટરી ક્યારે સ્થાપી?
+A) ૧૬૧૨ | B) ૧૬૧૬ ✅ | C) ૧૬૫૦ | D) ૧૭૦૦
+
+**Q137.** ફ્રેંચ લોકોએ સુરતમાં ફેક્ટરી ક્યારે સ્થાપી?
+A) ૧૬૧૨ | B) ૧૬૫૦ | C) ૧૬૬૮ ✅ | D) ૧૭૦૦
+
+**Q138.** DREAM City = ?
+A) Diamond Research and Mercantile City ✅ | B) Development Research City | C) District Residential City | D) None
+
+**Q139.** ચિંતામણિ જૈન મંદિર સુરતમાં ક્યાં છે?
+A) અડાજણ | B) શાહપોર ✅ | C) રાંદેર | D) અઠવા
+
+**Q140.** સુરતનો STD કોડ = ?
+A) ૦૨૬૫ | B) ૦૨૬૧ ✅ | C) ૦૭૯ | D) ૦૨૫૩
+
+**Q141.** 'પોંક' શેમાંથી બને છે?
+A) ચોખા | B) ઘઉં | C) લીલા જુવાર ✅ | D) મકાઈ
+
+**Q142.** EIC મુખ્ય મથક સુરતથી મુંબઈ ક્યારે ખસેડ્યું?
+A) ૧૬૬૪ | B) ૧૬૮૭ ✅ | C) ૧૭૦૦ | D) ૧૭૫૯
+
+**Q143.** સુરતની સરવૈજનિક એજ્યુકેશન સોસાયટી ક્યારે સ્થપાઈ?
+A) ૧૮૪૦ | B) ૧૮૬૦s ✅ | C) ૧૯૦૦ | D) ૧૯૪૭
+
+**Q144.** ૨૦૦૬ માં સુરતમાં પૂર કઈ નદીને કારણે આવ્યું?
+A) નર્મદા | B) તાપી (ઉકાઈ ડેમ) ✅ | C) સાબરમતી | D) માહી
+
+**Q145.** સુરત 'Safe City Project' શેના માટે જાણીતું છે?
+A) પોલીસ સ્ટેશન | B) CCTV સર્વેલન્સ નેટવર્ક ✅ | C) આર્મી | D) ફાયર સ્ટેશન
+
+**Q146.** સુરત મેટ્રો રેલ — લાઈન ૧ = ?
+A) ભેસાણ થી સરોળી | B) સરથાણા થી DREAM City ✅ | C) ઉધના થી હઝીરા | D) અડાજણ થી વરાછા
+
+**Q147.** સુરત રિંગ રોડ ટેક્ષટાઈલ માર્કેટ એશિયાની સૌથી મોટી ___ માર્કેટમાંની એક છે:
+A) હીરા | B) કાપડ ✅ | C) શાકભાજી | D) ઈલેક્ટ્રોનિક્સ
+
+**Q148.** ૧૫૦૭ માં સુરત પર સૌ પ્રથમ કોણે હુમલો કર્યો?
+A) બ્રિટિશ | B) ડચ | C) પોર્ટુગીઝ ✅ | D) ફ્રેંચ
+
+**Q149.** સુરતમાં 'હાજી પીર દરગાહ' ક્યાં આવેલી છે?
+A) રાંદેર | B) તાપી નદી પર ✅ | C) અઠવા | D) કતારગામ
+
+**Q150.** સુરત જિલ્લામાં 'બારડોલી' તાલુકો પ્રખ્યાત છે:
+A) હીરા ઉદ્યોગ | B) ૧૯૨૮ના સત્યાગ્રહ માટે ✅ | C) કાપડ ઉદ્યોગ | D) મંદિર
+
+---
+
+### Updated Quick Reference: ALL Surat Key Facts
+
+| Fact | Answer |
+|------|--------|
+| Ancient name | Suryapur (સૂર્યપુર) |
+| River | Tapi (તાપી) — East to West |
+| Tapi origin | Multai, Madhya Pradesh |
+| Tapi length | 724 km |
+| Municipality | 1852 |
+| Corporation | 1966 |
+| SMC Zones | 8 |
+| SMC Corporators | ~116 |
+| Portuguese attack | 1507 |
+| British factory | 1612 |
+| Dutch factory | 1616 |
+| Akbar captured | 1573 |
+| Sir Thomas Roe | 1615 |
+| Shivaji's raid | 1664, 1670 |
+| French factory | 1668 |
+| EIC HQ shifted to Bombay | 1687 |
+| **Surat Split (INC)** | **1907** |
+| **Bardoli Satyagraha** | **1928 — Sardar Patel** |
+| 1994 event | Plague (pneumonic) |
+| 2006 event | Floods (Ukai Dam) |
+| **2019 event** | **Takshashila fire — 22 students** |
+| Diamond % | 90% of world |
+| Textile % | 40% of India's man-made fabric |
+| Diamond Bourse | Khajod, 67 acres, Dec 2023 |
+| VNSGU | Est. 1967 |
+| Famous sweet | Ghari (ઘારી) — Chandani Padvo |
+| Famous snack | Locho (લોચો) |
+| STD code | 0261 |
+| Population (2011) | ~45 lakh |
+| Literacy (2011) | 89.53% |
+| BRTS | Sitilink |
+| Metro | Under construction (2 lines) |
+| DREAM City | Diamond Research & Mercantile City |
+| Narmad (poet) | Born in Surat |
+| Airport | Magdalla |
+| Port | Hazira |
+| Rank in Gujarat | 2nd largest city |
+| Rank in India | 8th largest city |
+
+---
+
+> **Total Surat MCQs in this guide: 150 questions (English + Gujarati)**
+> This covers EVERYTHING that can be asked about Surat in any SMC exam!
