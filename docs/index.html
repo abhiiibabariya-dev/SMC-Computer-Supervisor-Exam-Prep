@@ -4,107 +4,141 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SMC Exam Prep 2026 - Computer Supervisor & Clerk</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background: #0a0a0f; color: #d1d5db; min-height: 100vh; }
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Inter',sans-serif;background:#050510;color:#d1d5db;min-height:100vh;overflow-x:hidden}
 
-        /* HEADER */
-        .hero { background: linear-gradient(135deg, #1e3a5f 0%, #0d1b2a 50%, #1b2838 100%); padding: 40px 20px 30px; text-align: center; border-bottom: 3px solid #f59e0b; }
-        .hero h1 { font-size: 2em; font-weight: 800; background: linear-gradient(90deg, #f59e0b, #ef4444, #f59e0b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-        .hero .sub { color: #94a3b8; font-size: 0.95em; margin-top: 6px; }
-        .hero .badges { margin-top: 14px; display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; }
-        .hero .badges span { background: rgba(245,158,11,0.15); color: #f59e0b; padding: 6px 16px; border-radius: 20px; font-size: 0.8em; font-weight: 700; border: 1px solid rgba(245,158,11,0.3); }
+        /* PARTICLE BG */
+        #particles{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none}
 
-        /* ALERT BAR */
-        .alert-bar { background: linear-gradient(90deg, #ef4444, #dc2626); color: #fff; padding: 12px 20px; text-align: center; font-weight: 700; font-size: 0.9em; cursor: pointer; animation: pulse 2s infinite; }
-        .alert-bar:hover { background: linear-gradient(90deg, #dc2626, #b91c1c); }
-        @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.85; } }
+        /* ANIMATED GRADIENT BG */
+        .glow-bg{position:fixed;top:-50%;left:-50%;width:200%;height:200%;z-index:0;pointer-events:none;background:radial-gradient(circle at 30% 40%,rgba(245,158,11,0.06) 0%,transparent 50%),radial-gradient(circle at 70% 60%,rgba(59,130,246,0.05) 0%,transparent 50%),radial-gradient(circle at 50% 80%,rgba(239,68,68,0.04) 0%,transparent 50%);animation:glowMove 20s ease-in-out infinite}
+        @keyframes glowMove{0%,100%{transform:translate(0,0)}25%{transform:translate(2%,3%)}50%{transform:translate(-2%,1%)}75%{transform:translate(1%,-2%)}}
 
-        .container { max-width: 960px; margin: 0 auto; padding: 16px; }
+        /* SCROLL ANIMATIONS */
+        .reveal{opacity:0;transform:translateY(30px);transition:opacity 0.7s ease,transform 0.7s ease}
+        .reveal.visible{opacity:1;transform:translateY(0)}
+        .reveal-delay-1{transition-delay:0.1s}
+        .reveal-delay-2{transition-delay:0.2s}
+        .reveal-delay-3{transition-delay:0.3s}
+
+        /* HERO */
+        .hero{position:relative;z-index:1;padding:50px 20px 40px;text-align:center;overflow:hidden}
+        .hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(180deg,rgba(245,158,11,0.08) 0%,transparent 60%);pointer-events:none}
+        .hero h1{font-size:2.4em;font-weight:900;background:linear-gradient(90deg,#f59e0b,#ef4444,#ec4899,#f59e0b);background-size:300% 100%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:gradientShift 4s ease infinite;letter-spacing:-0.5px}
+        @keyframes gradientShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+        .hero .sub{color:#94a3b8;font-size:1em;margin-top:8px;animation:fadeUp 1s ease 0.3s both}
+        .hero .badges{margin-top:16px;display:flex;justify-content:center;gap:8px;flex-wrap:wrap}
+        .hero .badges span{background:rgba(245,158,11,0.1);color:#f59e0b;padding:7px 18px;border-radius:25px;font-size:0.8em;font-weight:700;border:1px solid rgba(245,158,11,0.25);backdrop-filter:blur(10px);animation:fadeUp 1s ease 0.5s both;transition:all 0.3s}
+        .hero .badges span:hover{background:rgba(245,158,11,0.25);transform:scale(1.05);box-shadow:0 0 20px rgba(245,158,11,0.2)}
+        @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+        /* ALERT */
+        .alert-bar{position:relative;z-index:1;background:linear-gradient(90deg,#ef4444,#dc2626,#ef4444);background-size:200% 100%;animation:alertSlide 3s linear infinite;color:#fff;padding:14px 20px;text-align:center;font-weight:700;font-size:0.9em;cursor:pointer;overflow:hidden}
+        .alert-bar::after{content:'';position:absolute;top:0;left:-100%;width:50%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.15),transparent);animation:alertShine 3s ease infinite}
+        @keyframes alertSlide{0%{background-position:0% 50%}100%{background-position:200% 50%}}
+        @keyframes alertShine{0%{left:-100%}100%{left:200%}}
+        .alert-bar:hover{filter:brightness(1.1)}
+
+        .container{max-width:960px;margin:0 auto;padding:16px;position:relative;z-index:1}
 
         /* STATS */
-        .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 20px 0; }
-        .stat-card { background: linear-gradient(135deg, #1e293b, #0f172a); border-radius: 14px; padding: 18px 10px; text-align: center; border: 1px solid #1e293b; }
-        .stat-card .num { font-size: 1.8em; font-weight: 800; color: #f59e0b; }
-        .stat-card .lbl { font-size: 0.7em; color: #64748b; margin-top: 2px; text-transform: uppercase; letter-spacing: 1px; }
+        .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:24px 0}
+        .stat-card{background:rgba(17,24,39,0.7);backdrop-filter:blur(20px);border-radius:16px;padding:20px 10px;text-align:center;border:1px solid rgba(255,255,255,0.06);transition:all 0.4s;position:relative;overflow:hidden}
+        .stat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#f59e0b,transparent);opacity:0;transition:opacity 0.4s}
+        .stat-card:hover{transform:translateY(-4px);border-color:rgba(245,158,11,0.3);box-shadow:0 8px 30px rgba(245,158,11,0.15)}
+        .stat-card:hover::before{opacity:1}
+        .stat-card .num{font-size:2em;font-weight:900;background:linear-gradient(135deg,#f59e0b,#fbbf24);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+        .stat-card .lbl{font-size:0.7em;color:#64748b;margin-top:4px;text-transform:uppercase;letter-spacing:1.5px}
 
-        /* DOWNLOAD */
-        .dl-bar { text-align: center; margin: 16px 0; }
-        .dl-btn { display: inline-block; background: linear-gradient(135deg, #f59e0b, #ef4444); color: #fff; padding: 14px 36px; border-radius: 30px; text-decoration: none; font-weight: 700; font-size: 1em; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 20px rgba(245,158,11,0.3); }
-        .dl-btn:hover { transform: scale(1.04); box-shadow: 0 6px 30px rgba(245,158,11,0.5); }
+        /* BUTTONS */
+        .dl-bar{text-align:center;margin:20px 0}
+        .dl-btn{display:inline-block;padding:15px 38px;border-radius:50px;text-decoration:none;font-weight:700;font-size:1em;transition:all 0.3s;position:relative;overflow:hidden;margin:6px}
+        .dl-btn-primary{background:linear-gradient(135deg,#f59e0b,#ef4444);color:#fff;box-shadow:0 4px 25px rgba(245,158,11,0.3)}
+        .dl-btn-primary:hover{transform:translateY(-3px);box-shadow:0 8px 35px rgba(245,158,11,0.5)}
+        .dl-btn-green{background:linear-gradient(135deg,#10b981,#059669);color:#fff;box-shadow:0 4px 25px rgba(16,185,129,0.3)}
+        .dl-btn-green:hover{transform:translateY(-3px);box-shadow:0 8px 35px rgba(16,185,129,0.5)}
+        .dl-btn-blue{background:linear-gradient(135deg,#3b82f6,#6366f1);color:#fff;box-shadow:0 4px 25px rgba(59,130,246,0.3)}
+        .dl-btn-blue:hover{transform:translateY(-3px);box-shadow:0 8px 35px rgba(59,130,246,0.5)}
+        .dl-btn::after{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.15),transparent);transition:left 0.5s}
+        .dl-btn:hover::after{left:150%}
 
         /* SECTIONS */
-        .sec { background: #111827; border-radius: 16px; padding: 22px; margin: 20px 0; border: 1px solid #1f2937; }
-        .sec-title { font-size: 1.25em; font-weight: 700; margin-bottom: 4px; }
-        .sec-title.gold { color: #f59e0b; }
-        .sec-title.red { color: #ef4444; }
-        .sec-title.green { color: #10b981; }
-        .sec-title.blue { color: #3b82f6; }
-        .sec-sub { color: #6b7280; font-size: 0.85em; margin-bottom: 14px; }
+        .sec{background:rgba(17,24,39,0.6);backdrop-filter:blur(20px);border-radius:20px;padding:24px;margin:24px 0;border:1px solid rgba(255,255,255,0.06);transition:border-color 0.4s}
+        .sec:hover{border-color:rgba(255,255,255,0.12)}
+        .sec-title{font-size:1.3em;font-weight:800;margin-bottom:4px;display:flex;align-items:center;gap:8px}
+        .sec-title.gold{color:#f59e0b}.sec-title.red{color:#ef4444}.sec-title.green{color:#10b981}.sec-title.blue{color:#3b82f6}
+        .sec-sub{color:#6b7280;font-size:0.85em;margin-bottom:16px}
 
         /* CARDS */
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; }
-        .c { background: #1a2332; border-radius: 12px; padding: 14px; cursor: pointer; border: 1px solid #1f2937; transition: all 0.2s; text-decoration: none; color: inherit; display: block; }
-        .c:hover { background: #1e3a5f; border-color: #f59e0b; transform: translateY(-2px); box-shadow: 0 4px 15px rgba(0,0,0,0.4); }
-        .c h3 { font-size: 0.92em; color: #f1f5f9; margin-bottom: 3px; font-weight: 600; }
-        .c p { font-size: 0.78em; color: #6b7280; line-height: 1.3; }
-        .tag { display: inline-block; padding: 2px 8px; border-radius: 6px; font-size: 0.68em; margin-top: 6px; font-weight: 700; }
-        .t-high { background: rgba(239,68,68,0.15); color: #ef4444; }
-        .t-med { background: rgba(245,158,11,0.15); color: #f59e0b; }
-        .t-low { background: rgba(16,185,129,0.15); color: #10b981; }
-        .t-mock { background: rgba(99,102,241,0.15); color: #818cf8; }
-        .t-new { background: rgba(239,68,68,0.2); color: #ef4444; border: 1px solid rgba(239,68,68,0.3); }
+        .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+        .c{background:rgba(26,35,50,0.8);backdrop-filter:blur(10px);border-radius:14px;padding:16px;cursor:pointer;border:1px solid rgba(255,255,255,0.06);transition:all 0.35s cubic-bezier(0.4,0,0.2,1);text-decoration:none;color:inherit;display:block;position:relative;overflow:hidden}
+        .c::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(135deg,rgba(245,158,11,0.05),transparent);opacity:0;transition:opacity 0.35s}
+        .c:hover{transform:translateY(-4px);border-color:rgba(245,158,11,0.4);box-shadow:0 8px 30px rgba(0,0,0,0.4),0 0 40px rgba(245,158,11,0.08)}
+        .c:hover::before{opacity:1}
+        .c:active{transform:translateY(-1px);transition:all 0.1s}
+        .c h3{font-size:0.92em;color:#f1f5f9;margin-bottom:4px;font-weight:700;position:relative}
+        .c p{font-size:0.78em;color:#6b7280;line-height:1.4;position:relative}
+        .tag{display:inline-block;padding:3px 10px;border-radius:8px;font-size:0.68em;margin-top:8px;font-weight:700;position:relative}
+        .t-high{background:rgba(239,68,68,0.12);color:#ef4444}.t-med{background:rgba(245,158,11,0.12);color:#f59e0b}
+        .t-low{background:rgba(16,185,129,0.12);color:#10b981}.t-mock{background:rgba(99,102,241,0.12);color:#818cf8}
+        .t-new{background:rgba(239,68,68,0.15);color:#ef4444;border:1px solid rgba(239,68,68,0.3);animation:tagPulse 2s ease infinite}
+        @keyframes tagPulse{0%,100%{box-shadow:0 0 0 0 rgba(239,68,68,0.3)}50%{box-shadow:0 0 12px 2px rgba(239,68,68,0.15)}}
 
-        .divider { height: 1px; background: #1f2937; margin: 14px 0; }
-        .sub-title { color: #6b7280; font-size: 0.9em; margin-bottom: 10px; font-weight: 600; }
+        .divider{height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.08),transparent);margin:16px 0}
+        .sub-title{color:#6b7280;font-size:0.9em;margin-bottom:10px;font-weight:600}
 
         /* FOOTER */
-        .footer { text-align: center; padding: 30px 20px; color: #4b5563; font-size: 0.82em; }
-        .footer a { color: #f59e0b; text-decoration: none; }
+        .footer{text-align:center;padding:40px 20px;color:#4b5563;font-size:0.82em;position:relative;z-index:1}
+        .footer a{color:#f59e0b;text-decoration:none;transition:color 0.3s}.footer a:hover{color:#fbbf24}
 
         /* VIEWER */
-        #viewer { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: #0a0a0f; z-index: 1000; overflow-y: auto; -webkit-overflow-scrolling: touch; }
-        #viewer.on { display: block; }
-        #v-bar { position: sticky; top: 0; background: #111827; padding: 10px 16px; display: flex; align-items: center; gap: 12px; z-index: 1001; border-bottom: 2px solid #f59e0b; }
-        #v-bar button { background: #f59e0b; color: #0a0a0f; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 700; cursor: pointer; font-size: 0.9em; }
-        #v-bar .vt { color: #f1f5f9; font-weight: 600; font-size: 0.95em; flex: 1; text-align: center; }
-        #v-body { max-width: 900px; margin: 0 auto; padding: 20px; line-height: 1.75; font-size: 15px; }
-        #v-body h1 { color: #f59e0b; font-size: 1.5em; margin: 20px 0 10px; }
-        #v-body h2 { color: #ef4444; font-size: 1.25em; margin: 18px 0 8px; border-bottom: 1px solid #1f2937; padding-bottom: 6px; }
-        #v-body h3 { color: #10b981; font-size: 1.05em; margin: 14px 0 6px; }
-        #v-body strong { color: #f1f5f9; }
-        #v-body table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 0.88em; }
-        #v-body th { background: #1e293b; color: #f59e0b; padding: 8px; text-align: left; }
-        #v-body td { padding: 8px; border-bottom: 1px solid #1f2937; }
-        #v-body tr:hover { background: rgba(255,255,255,0.02); }
-        #v-body code { background: #1e293b; padding: 2px 6px; border-radius: 4px; font-size: 0.9em; }
-        #v-body pre { background: #0d1117; padding: 12px; border-radius: 8px; overflow-x: auto; margin: 10px 0; }
-        #v-body pre code { background: none; }
-        #v-body blockquote { border-left: 3px solid #f59e0b; padding: 10px 16px; margin: 12px 0; background: #111827; border-radius: 0 8px 8px 0; }
-        #v-body a { color: #3b82f6; }
-        #v-body hr { border: none; border-top: 1px solid #1f2937; margin: 16px 0; }
-        #v-body ul, #v-body ol { padding-left: 24px; margin: 8px 0; }
-        #v-body li { margin: 4px 0; }
-        .loading { text-align: center; padding: 80px 20px; color: #f59e0b; font-size: 1.1em; }
+        #viewer{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:#050510;z-index:1000;overflow-y:auto;-webkit-overflow-scrolling:touch}
+        #viewer.on{display:block;animation:viewerIn 0.3s ease}
+        @keyframes viewerIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+        #v-bar{position:sticky;top:0;background:rgba(17,24,39,0.95);backdrop-filter:blur(20px);padding:12px 16px;display:flex;align-items:center;gap:12px;z-index:1001;border-bottom:2px solid #f59e0b}
+        #v-bar button{background:linear-gradient(135deg,#f59e0b,#fbbf24);color:#0a0a0f;border:none;padding:9px 22px;border-radius:10px;font-weight:700;cursor:pointer;font-size:0.9em;transition:all 0.3s}
+        #v-bar button:hover{transform:scale(1.05);box-shadow:0 4px 15px rgba(245,158,11,0.4)}
+        #v-bar .vt{color:#f1f5f9;font-weight:600;font-size:0.95em;flex:1;text-align:center}
+        #v-body{max-width:900px;margin:0 auto;padding:20px;line-height:1.75;font-size:15px}
+        #v-body h1{color:#f59e0b;font-size:1.5em;margin:20px 0 10px}
+        #v-body h2{color:#ef4444;font-size:1.25em;margin:18px 0 8px;border-bottom:1px solid #1f2937;padding-bottom:6px}
+        #v-body h3{color:#10b981;font-size:1.05em;margin:14px 0 6px}
+        #v-body strong{color:#f1f5f9}
+        #v-body table{width:100%;border-collapse:collapse;margin:10px 0;font-size:0.88em}
+        #v-body th{background:#1e293b;color:#f59e0b;padding:8px;text-align:left}
+        #v-body td{padding:8px;border-bottom:1px solid #1f2937}
+        #v-body tr:hover{background:rgba(255,255,255,0.02)}
+        #v-body code{background:#1e293b;padding:2px 6px;border-radius:4px;font-size:0.9em}
+        #v-body pre{background:#0d1117;padding:12px;border-radius:8px;overflow-x:auto;margin:10px 0}
+        #v-body pre code{background:none}
+        #v-body blockquote{border-left:3px solid #f59e0b;padding:10px 16px;margin:12px 0;background:rgba(17,24,39,0.6);border-radius:0 8px 8px 0}
+        #v-body a{color:#3b82f6}
+        #v-body hr{border:none;border-top:1px solid #1f2937;margin:16px 0}
+        #v-body ul,#v-body ol{padding-left:24px;margin:8px 0}
+        #v-body li{margin:4px 0}
+        .loading{text-align:center;padding:80px 20px;color:#f59e0b;font-size:1.1em}
 
-        @media (max-width: 640px) {
-            .hero h1 { font-size: 1.4em; }
-            .stats { grid-template-columns: repeat(2, 1fr); }
-            .grid { grid-template-columns: 1fr; }
-            .stat-card .num { font-size: 1.4em; }
+        @media(max-width:640px){
+            .hero h1{font-size:1.6em}
+            .stats{grid-template-columns:repeat(2,1fr)}
+            .grid{grid-template-columns:1fr}
+            .stat-card .num{font-size:1.5em}
+            .dl-btn{padding:12px 28px;font-size:0.9em}
         }
     </style>
 </head>
 <body>
 
+<!-- ANIMATED BG -->
+<div class="glow-bg"></div>
+<canvas id="particles"></canvas>
+
 <!-- VIEWER -->
 <div id="viewer">
-    <div id="v-bar">
-        <button onclick="closeV()">Back</button>
-        <span class="vt" id="vt">Loading...</span>
-    </div>
+    <div id="v-bar"><button onclick="closeV()">Back</button><span class="vt" id="vt">Loading...</span><div style="width:70px"></div></div>
     <div id="v-body"><div class="loading">Loading...</div></div>
 </div>
 
@@ -121,77 +155,63 @@
     </div>
 </div>
 
-<!-- ALERT -->
 <div class="alert-bar" onclick="openF('docs/smc_recruitment_2026.md','SMC Recruitment 2026')">
-    NEW: SMC Recruitment 2026 — 2,295 Posts — Apply 1-15 April 2026 — Click Here for Full Details & Form Guide
+    NEW: SMC Recruitment 2026 — 2,295 Posts — Apply 1-15 April 2026 — Click Here
 </div>
 
 <div class="container">
 
-    <!-- STATS -->
-    <div class="stats">
-        <div class="stat-card"><div class="num">3500+</div><div class="lbl">MCQs</div></div>
-        <div class="stat-card"><div class="num">6</div><div class="lbl">Mock Tests</div></div>
-        <div class="stat-card"><div class="num">20+</div><div class="lbl">Guides</div></div>
-        <div class="stat-card"><div class="num">717</div><div class="lbl">Clerk Posts</div></div>
+    <div class="stats reveal">
+        <div class="stat-card"><div class="num" data-target="3500">0</div><div class="lbl">MCQs</div></div>
+        <div class="stat-card"><div class="num" data-target="6">0</div><div class="lbl">Mock Tests</div></div>
+        <div class="stat-card"><div class="num" data-target="20">0</div><div class="lbl">Guides</div></div>
+        <div class="stat-card"><div class="num" data-target="717">0</div><div class="lbl">Clerk Posts</div></div>
     </div>
 
-    <div class="dl-bar">
-        <a class="dl-btn" href="exam.html" style="background:linear-gradient(135deg,#10b981,#059669);">Take Online Exam</a>
-        <a class="dl-btn" href="https://github.com/abhiiibabariya-dev/SMC-Computer-Supervisor-Exam-Prep/archive/refs/heads/master.zip">Download ZIP</a>
+    <div class="dl-bar reveal">
+        <a class="dl-btn dl-btn-green" href="exam.html">Take Online Exam</a>
+        <a class="dl-btn dl-btn-primary" href="https://github.com/abhiiibabariya-dev/SMC-Computer-Supervisor-Exam-Prep/archive/refs/heads/master.zip">Download ZIP</a>
     </div>
 
-    <!-- RECRUITMENT 2026 -->
-    <div class="sec" style="border-color: #ef4444;">
+    <!-- RECRUITMENT -->
+    <div class="sec reveal" style="border-color:rgba(239,68,68,0.3)">
         <div class="sec-title red">SMC Recruitment 2026 (NEW!)</div>
         <div class="sec-sub">Apply Online: 1 April - 15 April 2026 | 2,295 Vacancies</div>
         <div class="grid">
-            <div class="c" onclick="openF('docs/smc_recruitment_2026.md','Recruitment 2026 Guide')" style="border-color: #ef4444;">
-                <h3>Complete Recruitment Guide + SOP</h3>
-                <p>How to fill form, documents, fees, salary, eligibility, step-by-step</p>
-                <span class="tag t-new">LATEST UPDATE</span>
-            </div>
-            <a class="c" href="https://www.suratmunicipal.gov.in/recruitment/" target="_blank" style="border-color: #ef4444;">
-                <h3>Apply Online (Official)</h3>
-                <p>suratmunicipal.gov.in — Apply from 1 April 2026</p>
-                <span class="tag t-new">OFFICIAL LINK</span>
-            </a>
-            <div class="c" onclick="openF('docs/smc_official_papers.md','Official Papers & Answer Keys')" style="border-color: #f59e0b;">
-                <h3>Old Papers + Answer Keys (Official)</h3>
-                <p>Question papers, answer keys, results from SMC website + MaruGujarat</p>
-                <span class="tag t-new">DOWNLOAD PDFs</span>
-            </div>
+            <div class="c" onclick="openF('docs/smc_recruitment_2026.md','Recruitment 2026')" style="border-color:rgba(239,68,68,0.3)"><h3>Recruitment Guide + SOP</h3><p>Form filling, documents, fees, salary, step-by-step</p><span class="tag t-new">LATEST</span></div>
+            <a class="c" href="https://www.suratmunicipal.gov.in/recruitment/" target="_blank" style="border-color:rgba(239,68,68,0.3)"><h3>Apply Online (Official)</h3><p>suratmunicipal.gov.in</p><span class="tag t-new">OFFICIAL</span></a>
+            <div class="c" onclick="openF('docs/smc_official_papers.md','Official Papers')" style="border-color:rgba(245,158,11,0.3)"><h3>Old Papers + Answer Keys</h3><p>Official papers from SMC + MaruGujarat</p><span class="tag t-new">PDFs</span></div>
         </div>
     </div>
 
     <!-- COMPUTER SUPERVISOR -->
-    <div class="sec">
+    <div class="sec reveal">
         <div class="sec-title gold">Computer Supervisor (Code-513)</div>
-        <div class="sec-sub">100 MCQs | 120 Min | No Negative Marking | Salary: ₹39,900-1,26,600</div>
+        <div class="sec-sub">100 MCQs | 120 Min | No Negative | Salary: 39,900-1,26,600</div>
         <div class="grid">
             <div class="c" onclick="openF('ALL_IN_ONE_EXAM_GUIDE.md','All-in-One Guide')"><h3>All-in-One Guide</h3><p>820+ MCQs — every topic</p><span class="tag t-high">COMPLETE</span></div>
             <div class="c" onclick="openF('subjects/01_computer_knowledge.md','Computer Knowledge')"><h3>Computer Knowledge</h3><p>Hardware, Software, OS, Networks</p><span class="tag t-high">HIGH</span></div>
-            <div class="c" onclick="openF('subjects/02_general_knowledge.md','General Knowledge')"><h3>General Knowledge</h3><p>Gujarat GK, Polity, History</p><span class="tag t-high">HIGH</span></div>
+            <div class="c" onclick="openF('subjects/02_general_knowledge.md','GK')"><h3>General Knowledge</h3><p>Gujarat GK, Polity, History</p><span class="tag t-high">HIGH</span></div>
             <div class="c" onclick="openF('subjects/03_gujarati_language.md','Gujarati')"><h3>Gujarati Language</h3><p>Vyakaran, Sahitya</p><span class="tag t-med">MEDIUM</span></div>
             <div class="c" onclick="openF('subjects/04_english_language.md','English')"><h3>English Language</h3><p>Grammar, Vocabulary</p><span class="tag t-med">MEDIUM</span></div>
-            <div class="c" onclick="openF('subjects/05_mathematics.md','Mathematics')"><h3>Mathematics</h3><p>Quant, Reasoning</p><span class="tag t-med">MEDIUM</span></div>
-            <div class="c" onclick="openF('subjects/06_advanced_computer_supervisor.md','Advanced Computer')"><h3>Advanced Computer</h3><p>220 MCQs — Networking, DB</p><span class="tag t-high">HIGH</span></div>
+            <div class="c" onclick="openF('subjects/05_mathematics.md','Maths')"><h3>Mathematics</h3><p>Quant, Reasoning</p><span class="tag t-med">MEDIUM</span></div>
+            <div class="c" onclick="openF('subjects/06_advanced_computer_supervisor.md','Advanced')"><h3>Advanced Computer</h3><p>220 MCQs — Networking, DB</p><span class="tag t-high">HIGH</span></div>
             <div class="c" onclick="openF('subjects/07_exam_strategy_and_practical.md','Strategy')"><h3>Exam Strategy</h3><p>Time management, tips</p><span class="tag t-low">STRATEGY</span></div>
             <div class="c" onclick="openF('subjects/08_gujarati_typing_complete_guide.md','Typing')"><h3>Gujarati Typing</h3><p>InScript, practice plan</p><span class="tag t-low">PRACTICAL</span></div>
         </div>
         <div class="divider"></div>
         <div class="sub-title">Mock Tests</div>
         <div class="grid">
-            <div class="c" onclick="openF('papers/mock_test_1.md','Mock Test 1')"><h3>Mock Test 1</h3><p>100Q + Answer Key</p><span class="tag t-mock">MOCK</span></div>
-            <div class="c" onclick="openF('papers/mock_test_2.md','Mock Test 2')"><h3>Mock Test 2</h3><p>100Q + Answer Key</p><span class="tag t-mock">MOCK</span></div>
-            <div class="c" onclick="openF('papers/mock_test_3.md','Mock Test 3')"><h3>Mock Test 3</h3><p>100Q + Answer Key</p><span class="tag t-mock">MOCK</span></div>
+            <div class="c" onclick="openF('papers/mock_test_1.md','Mock 1')"><h3>Mock Test 1</h3><p>100Q + Answer Key</p><span class="tag t-mock">MOCK</span></div>
+            <div class="c" onclick="openF('papers/mock_test_2.md','Mock 2')"><h3>Mock Test 2</h3><p>100Q + Answer Key</p><span class="tag t-mock">MOCK</span></div>
+            <div class="c" onclick="openF('papers/mock_test_3.md','Mock 3')"><h3>Mock Test 3</h3><p>100Q + Answer Key</p><span class="tag t-mock">MOCK</span></div>
         </div>
     </div>
 
     <!-- CLERK -->
-    <div class="sec">
+    <div class="sec reveal">
         <div class="sec-title blue">Clerk Exam (Code-502)</div>
-        <div class="sec-sub">100 MCQs | 120 Min | -0.25 Negative | 717 Posts | Salary: ₹19,900-63,200</div>
+        <div class="sec-sub">100 MCQs | 120 Min | -0.25 Negative | 717 Posts | Salary: 19,900-63,200</div>
         <div class="grid">
             <div class="c" onclick="openF('clerk_exam/02_complete_clerk_exam_guide.md','Clerk Guide')"><h3>All-in-One Clerk Guide</h3><p>330+ MCQs all subjects</p><span class="tag t-high">COMPLETE</span></div>
             <div class="c" onclick="openF('clerk_exam_complete/subjects/01_gujarati_language.md','Gujarati')"><h3>Gujarati Language</h3><p>155 MCQs — Sandhi, Samaas</p><span class="tag t-high">HIGH</span></div>
@@ -212,43 +232,84 @@
         </div>
     </div>
 
-    <!-- HARDEST + SURAT -->
-    <div class="sec" style="border-color: #ef4444;">
+    <!-- HARDEST -->
+    <div class="sec reveal" style="border-color:rgba(239,68,68,0.3)">
         <div class="sec-title red">HARDEST Papers + Surat History</div>
-        <div class="sec-sub">Advanced level practice + Complete Surat history (150 MCQs)</div>
+        <div class="sec-sub">Advanced practice + Complete Surat history (150 MCQs)</div>
         <div class="grid">
-            <div class="c" onclick="openF('docs/advanced_hard_paper_computer_supervisor.md','HARD - CS')" style="border-color:#ef4444;"><h3>HARDEST - Computer Supervisor</h3><p>150 MCQs — Advanced (EN+GJ)</p><span class="tag t-high">HARD</span></div>
-            <div class="c" onclick="openF('docs/advanced_hard_paper_clerk.md','HARD - Clerk')" style="border-color:#ef4444;"><h3>HARDEST - Clerk</h3><p>150 MCQs — Tricky (EN+GJ)</p><span class="tag t-high">HARD</span></div>
+            <div class="c" onclick="openF('docs/advanced_hard_paper_computer_supervisor.md','HARD CS')" style="border-color:rgba(239,68,68,0.2)"><h3>HARDEST - Computer Supervisor</h3><p>150 MCQs — Advanced (EN+GJ)</p><span class="tag t-high">HARD</span></div>
+            <div class="c" onclick="openF('docs/advanced_hard_paper_clerk.md','HARD Clerk')" style="border-color:rgba(239,68,68,0.2)"><h3>HARDEST - Clerk</h3><p>150 MCQs — Tricky (EN+GJ)</p><span class="tag t-high">HARD</span></div>
             <div class="c" onclick="openF('docs/surat_history_complete.md','Surat History')"><h3>Surat History Complete</h3><p>150 MCQs — 1507 to 2023 (EN+GJ)</p><span class="tag t-high">MUST READ</span></div>
             <div class="c" onclick="openF('docs/practical_exam_complete.md','Practical')"><h3>Practical Exam Guide</h3><p>MS Office + InScript + Typing</p><span class="tag t-low">PRACTICAL</span></div>
         </div>
     </div>
 
     <!-- RESOURCES -->
-    <div class="sec">
+    <div class="sec reveal">
         <div class="sec-title green">Study Resources</div>
         <div class="grid">
             <div class="c" onclick="openF('resources/study_plan_and_links.md','Study Plan')"><h3>Study Plan & Links</h3><p>Week-wise plan + resources</p><span class="tag t-low">PLAN</span></div>
-            <div class="c" onclick="openF('papers/previous_paper_analysis.md','Paper Analysis')"><h3>Previous Paper Analysis</h3><p>CS exam patterns</p><span class="tag t-low">ANALYSIS</span></div>
+            <div class="c" onclick="openF('papers/previous_paper_analysis.md','Analysis')"><h3>Previous Paper Analysis</h3><p>CS exam patterns</p><span class="tag t-low">ANALYSIS</span></div>
         </div>
     </div>
 
-    <div class="dl-bar" style="margin: 24px 0;">
-        <a class="dl-btn" href="https://github.com/abhiiibabariya-dev/SMC-Computer-Supervisor-Exam-Prep/archive/refs/heads/master.zip">Download ZIP</a>
-        <a class="dl-btn" href="https://github.com/abhiiibabariya-dev/SMC-Computer-Supervisor-Exam-Prep" target="_blank" style="background: linear-gradient(135deg, #3b82f6, #6366f1); margin-left: 8px;">GitHub</a>
+    <div class="dl-bar reveal" style="margin:30px 0">
+        <a class="dl-btn dl-btn-green" href="exam.html">Take Exam</a>
+        <a class="dl-btn dl-btn-primary" href="https://github.com/abhiiibabariya-dev/SMC-Computer-Supervisor-Exam-Prep/archive/refs/heads/master.zip">Download</a>
+        <a class="dl-btn dl-btn-blue" href="https://github.com/abhiiibabariya-dev/SMC-Computer-Supervisor-Exam-Prep" target="_blank">GitHub</a>
     </div>
 
 </div>
 
 <div class="footer">
-    <p>Made for SMC exam aspirants | All content is FREE</p>
-    <p style="margin-top: 6px;"><a href="https://github.com/abhiiibabariya-dev/SMC-Computer-Supervisor-Exam-Prep">GitHub Repository</a></p>
-    <p style="margin-top: 6px;">Best of luck for your exam!</p>
+    <p>Made for SMC exam aspirants | 100% FREE</p>
+    <p style="margin-top:8px"><a href="https://github.com/abhiiibabariya-dev/SMC-Computer-Supervisor-Exam-Prep">GitHub Repository</a></p>
+    <p style="margin-top:8px">Best of luck for your exam!</p>
 </div>
 
-</div><!-- main -->
+</div>
 
 <script>
+// PARTICLES
+const canvas=document.getElementById('particles'),ctx=canvas.getContext('2d');
+let W,H,particles=[];
+function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight;}
+window.addEventListener('resize',resize);resize();
+for(let i=0;i<60;i++)particles.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*2+0.5,dx:(Math.random()-0.5)*0.4,dy:(Math.random()-0.5)*0.4,o:Math.random()*0.3+0.1});
+function drawParticles(){
+    ctx.clearRect(0,0,W,H);
+    particles.forEach(p=>{
+        p.x+=p.dx;p.y+=p.dy;
+        if(p.x<0)p.x=W;if(p.x>W)p.x=0;if(p.y<0)p.y=H;if(p.y>H)p.y=0;
+        ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+        ctx.fillStyle=`rgba(245,158,11,${p.o})`;ctx.fill();
+    });
+    // Lines between nearby particles
+    for(let i=0;i<particles.length;i++)for(let j=i+1;j<particles.length;j++){
+        let dx=particles[i].x-particles[j].x,dy=particles[i].y-particles[j].y,d=Math.sqrt(dx*dx+dy*dy);
+        if(d<120){ctx.beginPath();ctx.moveTo(particles[i].x,particles[i].y);ctx.lineTo(particles[j].x,particles[j].y);ctx.strokeStyle=`rgba(245,158,11,${0.06*(1-d/120)})`;ctx.stroke();}
+    }
+    requestAnimationFrame(drawParticles);
+}
+drawParticles();
+
+// SCROLL REVEAL
+const obs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+// COUNTER ANIMATION
+let counted=false;
+const counterObs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting&&!counted){counted=true;animateCounters();}});},{threshold:0.5});
+const statsEl=document.querySelector('.stats');if(statsEl)counterObs.observe(statsEl);
+
+function animateCounters(){
+    document.querySelectorAll('.stat-card .num[data-target]').forEach(el=>{
+        let target=parseInt(el.dataset.target),current=0,step=Math.ceil(target/60),suffix=target>=100?'+':'';
+        let timer=setInterval(()=>{current+=step;if(current>=target){current=target;clearInterval(timer);}el.textContent=current.toLocaleString()+suffix;},25);
+    });
+}
+
+// VIEWER
 const R='https://raw.githubusercontent.com/abhiiibabariya-dev/SMC-Computer-Supervisor-Exam-Prep/master/';
 function openF(p,t){
     const v=document.getElementById('viewer'),b=document.getElementById('v-body');
@@ -257,7 +318,7 @@ function openF(p,t){
     v.classList.add('on');document.body.style.overflow='hidden';v.scrollTop=0;
     history.pushState({v:1},'','#'+p.replace(/[\/.]/g,'-'));
     fetch(R+p).then(r=>{if(!r.ok)throw 0;return r.text()}).then(md=>{b.innerHTML=marked.parse(md)})
-    .catch(()=>{b.innerHTML='<div class="loading">Could not load.<br><br><a href="https://github.com/abhiiibabariya-dev/SMC-Computer-Supervisor-Exam-Prep/blob/master/'+p+'" style="color:#f59e0b">Open on GitHub</a></div>'});
+    .catch(()=>{b.innerHTML='<div class="loading">Could not load.<br><br><a href="https://github.com/abhiiibabariya-dev/SMC-Computer-Supervisor-Exam-Prep/blob/master/'+p+'" style="color:#f59e0b">Open on GitHub</a></div>';});
 }
 function closeV(){document.getElementById('viewer').classList.remove('on');document.body.style.overflow='';}
 window.addEventListener('popstate',()=>{if(document.getElementById('viewer').classList.contains('on'))closeV();});
