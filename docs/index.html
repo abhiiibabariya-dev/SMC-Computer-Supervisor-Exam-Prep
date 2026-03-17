@@ -4,295 +4,346 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SMC Exam Prep 2026</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <style>
-        :root{--bg:#09090b;--card:#18181b;--card2:#1c1c22;--border:#27272a;--text:#e4e4e7;--muted:#71717a;--white:#fafafa;--accent:#e2e8f0}
+        :root{--bg:#06060a;--s1:#0c0c14;--s2:#12121c;--border:rgba(255,255,255,0.06);--border2:rgba(255,255,255,0.1);--txt:#a1a1aa;--white:#f4f4f5;--dim:#52525b}
         *{margin:0;padding:0;box-sizing:border-box}
-        body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
+        body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--bg);color:var(--txt);overflow-x:hidden}
+        ::selection{background:rgba(139,92,246,0.3);color:#fff}
 
-        /* === AURORA BG === */
-        .aurora{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;overflow:hidden}
-        .aurora .a1,.aurora .a2,.aurora .a3{position:absolute;border-radius:50%;filter:blur(120px);opacity:0.07;animation:auroraFloat 15s ease-in-out infinite}
-        .aurora .a1{width:600px;height:600px;background:#3b82f6;top:-10%;left:-10%;animation-delay:0s}
-        .aurora .a2{width:500px;height:500px;background:#8b5cf6;bottom:-10%;right:-10%;animation-delay:-5s}
-        .aurora .a3{width:400px;height:400px;background:#06b6d4;top:40%;left:50%;animation-delay:-10s}
-        @keyframes auroraFloat{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(80px,-60px) scale(1.1)}66%{transform:translate(-60px,80px) scale(0.9)}}
+        /* ============ MESH GRADIENT BG ============ */
+        .mesh{position:fixed;inset:0;z-index:0;pointer-events:none}
+        .mesh i{position:absolute;border-radius:50%;filter:blur(100px);mix-blend-mode:screen;animation:mesh 20s ease-in-out infinite alternate}
+        .mesh .m1{width:40vw;height:40vw;background:rgba(99,102,241,0.12);top:-15%;left:-10%;animation-delay:0s}
+        .mesh .m2{width:35vw;height:35vw;background:rgba(139,92,246,0.1);bottom:-10%;right:-5%;animation-delay:-7s}
+        .mesh .m3{width:30vw;height:30vw;background:rgba(14,165,233,0.08);top:50%;left:40%;animation-delay:-14s}
+        @keyframes mesh{0%{transform:translate(0,0) scale(1) rotate(0deg)}50%{transform:translate(60px,-40px) scale(1.15) rotate(20deg)}100%{transform:translate(-40px,60px) scale(0.9) rotate(-10deg)}}
 
-        /* === GRID PATTERN === */
-        .grid-pattern{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,0.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.02) 1px,transparent 1px);background-size:60px 60px}
+        /* ============ NOISE TEXTURE ============ */
+        .noise{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:0.03;background:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 
-        /* === SCROLL REVEAL === */
-        .sr{opacity:0;transform:translateY(40px);transition:all 0.8s cubic-bezier(0.16,1,0.3,1)}
-        .sr.show{opacity:1;transform:none}
+        /* ============ NAV ============ */
+        .nav{position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:100;background:rgba(12,12,20,0.7);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid var(--border);border-radius:16px;padding:10px 8px;display:flex;align-items:center;gap:6px;transition:all 0.4s}
+        .nav.scrolled{box-shadow:0 8px 32px rgba(0,0,0,0.4);border-color:var(--border2)}
+        .nav-logo{color:var(--white);font-weight:800;font-size:0.85em;padding:0 12px;white-space:nowrap}
+        .nav a{color:var(--txt);text-decoration:none;padding:8px 14px;border-radius:10px;font-size:0.8em;font-weight:600;transition:all 0.25s;white-space:nowrap}
+        .nav a:hover{color:var(--white);background:rgba(255,255,255,0.06)}
+        .nav a.accent{background:rgba(139,92,246,0.15);color:#c4b5fd}
+        .nav a.accent:hover{background:rgba(139,92,246,0.25)}
 
-        /* === HERO === */
-        .hero{position:relative;z-index:1;padding:60px 24px 50px;text-align:center}
-        .hero-label{display:inline-block;border:1px solid var(--border);color:var(--muted);padding:6px 16px;border-radius:100px;font-size:0.75em;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:20px;animation:fadeIn 1s ease}
-        .hero h1{font-size:clamp(2em,5vw,3.2em);font-weight:800;color:var(--white);line-height:1.15;letter-spacing:-1px;animation:heroIn 1s ease 0.2s both}
-        .hero h1 span{color:var(--muted);font-weight:600}
-        .hero .desc{color:var(--muted);font-size:1.05em;margin-top:12px;max-width:500px;margin-left:auto;margin-right:auto;line-height:1.6;animation:heroIn 1s ease 0.4s both}
-        .hero-btns{margin-top:28px;display:flex;justify-content:center;gap:12px;flex-wrap:wrap;animation:heroIn 1s ease 0.6s both}
-        @keyframes heroIn{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:none}}
-        @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+        .page{position:relative;z-index:1}
 
-        /* === BUTTONS === */
-        .btn{display:inline-flex;align-items:center;gap:8px;padding:13px 28px;border-radius:12px;text-decoration:none;font-weight:600;font-size:0.9em;transition:all 0.3s cubic-bezier(0.16,1,0.3,1);border:none;cursor:pointer}
-        .btn-white{background:var(--white);color:var(--bg)}
-        .btn-white:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(255,255,255,0.15)}
-        .btn-outline{background:transparent;color:var(--text);border:1px solid var(--border)}
-        .btn-outline:hover{background:var(--card);transform:translateY(-2px);border-color:#52525b}
-        .btn-sm{padding:10px 20px;font-size:0.82em;border-radius:10px}
+        /* ============ HERO ============ */
+        .hero{min-height:90vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:100px 24px 60px;position:relative}
+        .hero-chip{display:inline-flex;align-items:center;gap:8px;background:var(--s2);border:1px solid var(--border2);border-radius:100px;padding:5px 6px 5px 8px;font-size:0.78em;color:var(--txt);margin-bottom:28px;animation:chipIn 0.8s ease 0.2s both}
+        .hero-chip .live{display:inline-block;width:6px;height:6px;border-radius:50%;background:#22c55e;animation:blink 1.5s ease infinite}
+        .hero-chip span{background:rgba(139,92,246,0.15);color:#c4b5fd;padding:3px 10px;border-radius:100px;font-weight:700;font-size:0.9em}
+        @keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
+        @keyframes chipIn{from{opacity:0;transform:translateY(12px) scale(0.95)}to{opacity:1;transform:none}}
 
-        .container{max-width:960px;margin:0 auto;padding:0 20px;position:relative;z-index:1}
+        .hero h1{font-size:clamp(2.2em,6vw,4.5em);font-weight:900;color:var(--white);line-height:1.08;letter-spacing:-2px;max-width:700px;animation:heroUp 1s cubic-bezier(0.16,1,0.3,1) 0.3s both}
+        .hero h1 .gr{background:linear-gradient(135deg,#818cf8,#c084fc,#e879f9);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+        .hero p{color:var(--txt);font-size:1.05em;margin-top:18px;max-width:480px;line-height:1.7;animation:heroUp 1s cubic-bezier(0.16,1,0.3,1) 0.5s both}
+        .hero-actions{margin-top:32px;display:flex;gap:12px;flex-wrap:wrap;justify-content:center;animation:heroUp 1s cubic-bezier(0.16,1,0.3,1) 0.7s both}
+        @keyframes heroUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
 
-        /* === ALERT === */
-        .alert{margin:0 auto;max-width:960px;padding:0 20px;position:relative;z-index:1}
-        .alert-inner{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:14px 20px;display:flex;align-items:center;gap:12px;cursor:pointer;transition:all 0.3s;margin-bottom:8px}
-        .alert-inner:hover{border-color:#52525b;background:var(--card2)}
-        .alert-dot{width:8px;height:8px;border-radius:50%;background:#ef4444;flex-shrink:0;animation:dotPulse 2s ease infinite}
-        @keyframes dotPulse{0%,100%{box-shadow:0 0 0 0 rgba(239,68,68,0.4)}50%{box-shadow:0 0 0 8px rgba(239,68,68,0)}}
-        .alert-text{font-size:0.85em;color:var(--text);font-weight:500;flex:1}
-        .alert-text strong{color:var(--white)}
-        .alert-arrow{color:var(--muted);font-size:1.2em;transition:transform 0.3s}
-        .alert-inner:hover .alert-arrow{transform:translateX(4px)}
+        /* Buttons */
+        .b{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:14px;font-weight:700;font-size:0.88em;text-decoration:none;transition:all 0.35s cubic-bezier(0.16,1,0.3,1);cursor:pointer;border:none;font-family:inherit;position:relative;overflow:hidden}
+        .b-primary{background:linear-gradient(135deg,#7c3aed,#6366f1);color:#fff;box-shadow:0 4px 24px rgba(124,58,237,0.35)}
+        .b-primary:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 12px 40px rgba(124,58,237,0.45)}
+        .b-ghost{background:var(--s2);color:var(--white);border:1px solid var(--border2)}
+        .b-ghost:hover{background:rgba(255,255,255,0.06);border-color:rgba(255,255,255,0.15);transform:translateY(-3px)}
 
-        /* === STATS === */
-        .stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border-radius:16px;overflow:hidden;margin:32px 0}
-        .stat-item{background:var(--card);padding:24px 12px;text-align:center;transition:background 0.3s}
-        .stat-item:hover{background:var(--card2)}
-        .stat-item .n{font-size:2em;font-weight:800;color:var(--white);font-variant-numeric:tabular-nums}
-        .stat-item .l{font-size:0.7em;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;margin-top:4px}
+        /* ============ MARQUEE ============ */
+        .marquee-wrap{overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:14px 0;background:var(--s1)}
+        .marquee{display:flex;width:max-content;animation:scroll 30s linear infinite}
+        .marquee span{white-space:nowrap;padding:0 32px;font-size:0.82em;font-weight:600;color:var(--dim)}
+        .marquee span b{color:var(--txt)}
+        @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
-        /* === SECTIONS === */
-        .section{margin:24px 0}
-        .section-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;padding:0 4px}
-        .section-title{font-size:1.15em;font-weight:700;color:var(--white);display:flex;align-items:center;gap:10px}
-        .section-title .dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
-        .section-badge{font-size:0.72em;color:var(--muted);font-weight:500;border:1px solid var(--border);padding:4px 12px;border-radius:100px}
+        .main{max-width:1000px;margin:0 auto;padding:0 24px}
 
-        /* === CARDS === */
-        .card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px}
-        .card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px;cursor:pointer;transition:all 0.35s cubic-bezier(0.16,1,0.3,1);text-decoration:none;color:inherit;display:block;position:relative}
-        .card:hover{background:var(--card2);border-color:#3f3f46;transform:translateY(-3px);box-shadow:0 16px 40px rgba(0,0,0,0.3)}
-        .card:active{transform:translateY(0);transition:all 0.1s}
-        .card-title{font-size:0.88em;font-weight:700;color:var(--white);margin-bottom:4px}
-        .card-desc{font-size:0.75em;color:var(--muted);line-height:1.4}
-        .card-tag{display:inline-block;padding:3px 8px;border-radius:6px;font-size:0.65em;margin-top:8px;font-weight:700;letter-spacing:0.5px}
-        .tag-r{background:rgba(239,68,68,0.1);color:#f87171}
-        .tag-y{background:rgba(234,179,8,0.1);color:#facc15}
-        .tag-g{background:rgba(34,197,94,0.1);color:#4ade80}
-        .tag-b{background:rgba(96,165,250,0.1);color:#93c5fd}
-        .tag-p{background:rgba(168,85,247,0.1);color:#c084fc}
-        .tag-live{background:rgba(239,68,68,0.1);color:#f87171;border:1px solid rgba(239,68,68,0.2);animation:livePulse 2.5s ease infinite}
-        @keyframes livePulse{0%,100%{opacity:1}50%{opacity:0.6}}
+        /* ============ ALERT ============ */
+        .al{background:var(--s1);border:1px solid var(--border2);border-radius:16px;padding:16px 20px;display:flex;align-items:center;gap:14px;margin:40px 0 0;cursor:pointer;transition:all 0.35s;position:relative;overflow:hidden}
+        .al::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(139,92,246,0.04),transparent,rgba(139,92,246,0.04));opacity:0;transition:opacity 0.35s}
+        .al:hover{border-color:rgba(139,92,246,0.3);transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,0,0,0.3)}
+        .al:hover::before{opacity:1}
+        .al-dot{width:10px;height:10px;border-radius:50%;background:#ef4444;flex-shrink:0;position:relative;z-index:1;box-shadow:0 0 12px rgba(239,68,68,0.5);animation:adot 2s ease infinite}
+        @keyframes adot{0%,100%{transform:scale(1)}50%{transform:scale(1.3)}}
+        .al-body{flex:1;position:relative;z-index:1}
+        .al-title{color:var(--white);font-weight:700;font-size:0.9em}
+        .al-desc{color:var(--dim);font-size:0.78em;margin-top:2px}
+        .al-go{color:var(--dim);font-size:1.5em;transition:transform 0.35s;position:relative;z-index:1}
+        .al:hover .al-go{transform:translateX(6px);color:#c4b5fd}
 
-        .sep{height:1px;background:var(--border);margin:16px 0}
-        .sub-label{font-size:0.8em;color:var(--muted);font-weight:600;margin-bottom:10px;padding-left:4px}
+        /* ============ STATS ============ */
+        .stats{display:grid;grid-template-columns:repeat(4,1fr);margin:32px 0;border-radius:20px;overflow:hidden;border:1px solid var(--border)}
+        .st{padding:28px 12px;text-align:center;background:var(--s1);position:relative;transition:background 0.3s}
+        .st:not(:last-child)::after{content:'';position:absolute;right:0;top:20%;height:60%;width:1px;background:var(--border)}
+        .st:hover{background:var(--s2)}
+        .st .n{font-size:2.2em;font-weight:900;color:var(--white);font-variant-numeric:tabular-nums}
+        .st .l{font-size:0.68em;color:var(--dim);text-transform:uppercase;letter-spacing:2px;margin-top:6px}
 
-        /* === FOOTER === */
-        .footer{text-align:center;padding:48px 20px;color:#52525b;font-size:0.8em;position:relative;z-index:1;border-top:1px solid var(--border);margin-top:40px}
-        .footer a{color:var(--muted);text-decoration:none;transition:color 0.3s}.footer a:hover{color:var(--white)}
+        /* ============ SECTIONS ============ */
+        .sec{margin-top:48px}
+        .sec-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+        .sec-name{display:flex;align-items:center;gap:10px;font-size:1.2em;font-weight:800;color:var(--white)}
+        .sec-name i{display:inline-block;width:8px;height:8px;border-radius:3px}
+        .sec-info{font-size:0.72em;color:var(--dim);font-weight:500;border:1px solid var(--border);padding:5px 14px;border-radius:100px}
 
-        /* === VIEWER === */
-        #viewer{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:var(--bg);z-index:2000;overflow-y:auto;-webkit-overflow-scrolling:touch}
-        #viewer.on{display:block;animation:viewIn 0.35s cubic-bezier(0.16,1,0.3,1)}
-        @keyframes viewIn{from{opacity:0}to{opacity:1}}
-        #v-bar{position:sticky;top:0;background:rgba(9,9,11,0.9);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);padding:12px 20px;display:flex;align-items:center;gap:12px;z-index:2001;border-bottom:1px solid var(--border)}
-        #v-bar .back{background:var(--card);color:var(--white);border:1px solid var(--border);padding:8px 20px;border-radius:10px;font-weight:600;cursor:pointer;font-size:0.85em;transition:all 0.3s;font-family:inherit}
-        #v-bar .back:hover{background:var(--card2);border-color:#52525b}
-        #v-bar .vt{color:var(--muted);font-weight:500;font-size:0.85em;flex:1;text-align:center}
-        #v-body{max-width:780px;margin:0 auto;padding:24px 20px 60px;line-height:1.8;font-size:15px}
-        #v-body h1{color:var(--white);font-size:1.5em;margin:24px 0 12px;font-weight:800}
-        #v-body h2{color:var(--white);font-size:1.2em;margin:20px 0 10px;font-weight:700;padding-bottom:8px;border-bottom:1px solid var(--border)}
-        #v-body h3{color:var(--accent);font-size:1em;margin:16px 0 8px;font-weight:700}
-        #v-body strong{color:var(--white)}
-        #v-body table{width:100%;border-collapse:collapse;margin:12px 0;font-size:0.88em}
-        #v-body th{background:var(--card);color:var(--white);padding:10px;text-align:left;font-weight:600;border-bottom:1px solid var(--border)}
-        #v-body td{padding:10px;border-bottom:1px solid rgba(39,39,42,0.5)}
-        #v-body tr:hover{background:rgba(255,255,255,0.02)}
-        #v-body code{background:var(--card);padding:2px 7px;border-radius:5px;font-size:0.88em}
-        #v-body pre{background:var(--card);padding:14px;border-radius:10px;overflow-x:auto;margin:12px 0;border:1px solid var(--border)}
-        #v-body pre code{background:none;padding:0}
-        #v-body blockquote{border-left:3px solid #52525b;padding:12px 18px;margin:14px 0;background:var(--card);border-radius:0 10px 10px 0}
-        #v-body a{color:#60a5fa;text-decoration:none}
-        #v-body a:hover{text-decoration:underline}
-        #v-body hr{border:none;border-top:1px solid var(--border);margin:20px 0}
-        #v-body ul,#v-body ol{padding-left:24px;margin:8px 0}
-        #v-body li{margin:4px 0}
-        .ld{text-align:center;padding:80px 20px;color:var(--muted)}
+        /* ============ CARDS ============ */
+        .g{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+        .g2{grid-template-columns:repeat(auto-fill,minmax(200px,1fr))}
+        .k{background:var(--s1);border:1px solid var(--border);border-radius:16px;padding:18px;cursor:pointer;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);text-decoration:none;color:inherit;display:flex;flex-direction:column;position:relative;overflow:hidden}
+        .k::after{content:'';position:absolute;inset:0;border-radius:16px;background:linear-gradient(135deg,rgba(139,92,246,0.06),transparent);opacity:0;transition:opacity 0.4s}
+        .k:hover{border-color:rgba(139,92,246,0.25);transform:translateY(-4px);box-shadow:0 20px 50px rgba(0,0,0,0.4),0 0 0 1px rgba(139,92,246,0.1)}
+        .k:hover::after{opacity:1}
+        .k:active{transform:translateY(-1px);transition:0.1s}
+        .k-t{font-size:0.88em;font-weight:700;color:var(--white);margin-bottom:5px;position:relative;z-index:1}
+        .k-d{font-size:0.75em;color:var(--dim);line-height:1.45;position:relative;z-index:1;flex:1}
+        .k-tag{display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border-radius:8px;font-size:0.65em;margin-top:10px;font-weight:700;letter-spacing:0.3px;position:relative;z-index:1;width:fit-content}
+        .tr{background:rgba(248,113,113,0.08);color:#fca5a5}
+        .ty{background:rgba(250,204,21,0.08);color:#fde68a}
+        .tg{background:rgba(74,222,128,0.08);color:#86efac}
+        .tp{background:rgba(192,132,252,0.08);color:#d8b4fe}
+        .tl{background:rgba(248,113,113,0.12);color:#fca5a5;border:1px solid rgba(248,113,113,0.15)}
 
-        @media(max-width:640px){
-            .hero{padding:40px 20px 30px}
-            .hero h1{font-size:1.8em}
-            .stats-row{grid-template-columns:repeat(2,1fr)}
-            .card-grid{grid-template-columns:1fr}
-            .stat-item .n{font-size:1.5em}
+        .sep{height:1px;background:var(--border);margin:18px 0}
+        .sl{font-size:0.78em;color:var(--dim);font-weight:600;margin-bottom:12px;display:flex;align-items:center;gap:6px}
+        .sl::before{content:'';width:16px;height:1px;background:var(--dim)}
+
+        /* ============ CTA ============ */
+        .cta{text-align:center;margin:56px 0 20px;padding:48px 24px;background:var(--s1);border:1px solid var(--border);border-radius:24px;position:relative;overflow:hidden}
+        .cta::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle at center,rgba(139,92,246,0.06),transparent 60%);pointer-events:none}
+        .cta h2{font-size:1.6em;font-weight:800;color:var(--white);position:relative}
+        .cta p{color:var(--dim);margin:10px 0 24px;position:relative;font-size:0.92em}
+        .cta .btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;position:relative}
+
+        /* ============ FOOTER ============ */
+        .foot{text-align:center;padding:40px 24px;color:var(--dim);font-size:0.78em;border-top:1px solid var(--border);margin-top:40px}
+        .foot a{color:var(--txt);text-decoration:none}.foot a:hover{color:var(--white)}
+
+        /* ============ VIEWER ============ */
+        #vw{display:none;position:fixed;inset:0;background:var(--bg);z-index:2000;overflow-y:auto;-webkit-overflow-scrolling:touch}
+        #vw.on{display:block;animation:vi .3s ease}
+        @keyframes vi{from{opacity:0}to{opacity:1}}
+        #vb{position:sticky;top:0;background:rgba(6,6,10,0.85);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);padding:12px 20px;display:flex;align-items:center;gap:12px;z-index:2001;border-bottom:1px solid var(--border)}
+        #vb .bk{background:var(--s2);color:var(--white);border:1px solid var(--border2);padding:8px 20px;border-radius:10px;font-weight:600;cursor:pointer;font-size:0.82em;transition:all 0.3s;font-family:inherit}
+        #vb .bk:hover{background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.15)}
+        #vb .vn{color:var(--dim);font-weight:500;font-size:0.82em;flex:1;text-align:center}
+        #vc{max-width:780px;margin:0 auto;padding:28px 20px 80px;line-height:1.8;font-size:15px}
+        #vc h1{color:var(--white);font-size:1.5em;margin:24px 0 12px;font-weight:800}
+        #vc h2{color:var(--white);font-size:1.2em;margin:20px 0 10px;font-weight:700;padding-bottom:8px;border-bottom:1px solid var(--border)}
+        #vc h3{color:#d4d4d8;font-size:1em;margin:16px 0 8px;font-weight:700}
+        #vc strong{color:var(--white)}
+        #vc table{width:100%;border-collapse:collapse;margin:12px 0;font-size:0.86em}
+        #vc th{background:var(--s2);color:var(--white);padding:10px 12px;text-align:left;font-weight:600}
+        #vc td{padding:10px 12px;border-bottom:1px solid var(--border)}
+        #vc tr:hover{background:rgba(255,255,255,0.015)}
+        #vc code{background:var(--s2);padding:2px 7px;border-radius:5px;font-size:0.88em}
+        #vc pre{background:var(--s1);padding:16px;border-radius:12px;overflow-x:auto;margin:12px 0;border:1px solid var(--border)}
+        #vc pre code{background:none;padding:0}
+        #vc blockquote{border-left:3px solid rgba(139,92,246,0.5);padding:12px 18px;margin:14px 0;background:var(--s1);border-radius:0 12px 12px 0}
+        #vc a{color:#93c5fd;text-decoration:none}#vc a:hover{text-decoration:underline}
+        #vc hr{border:none;border-top:1px solid var(--border);margin:20px 0}
+        #vc ul,#vc ol{padding-left:24px;margin:8px 0}#vc li{margin:4px 0}
+        .ld{text-align:center;padding:100px 20px;color:var(--dim)}
+
+        /* ============ SCROLL ANIM ============ */
+        .sr{opacity:0;transform:translateY(50px)}
+        .sr.v{opacity:1;transform:none;transition:all 0.9s cubic-bezier(0.16,1,0.3,1)}
+        .sr.v .k{opacity:0;transform:translateY(20px);animation:cardIn 0.6s cubic-bezier(0.16,1,0.3,1) forwards}
+        .sr.v .k:nth-child(1){animation-delay:0.05s}.sr.v .k:nth-child(2){animation-delay:0.1s}.sr.v .k:nth-child(3){animation-delay:0.15s}
+        .sr.v .k:nth-child(4){animation-delay:0.2s}.sr.v .k:nth-child(5){animation-delay:0.25s}.sr.v .k:nth-child(6){animation-delay:0.3s}
+        .sr.v .k:nth-child(7){animation-delay:0.35s}.sr.v .k:nth-child(8){animation-delay:0.4s}.sr.v .k:nth-child(9){animation-delay:0.45s}
+        @keyframes cardIn{to{opacity:1;transform:none}}
+
+        @media(max-width:768px){
+            .nav{top:10px;padding:8px 6px;border-radius:14px}
+            .nav-logo{font-size:0.75em;padding:0 8px}
+            .nav a{padding:7px 10px;font-size:0.72em}
+            .hero{min-height:auto;padding:90px 20px 40px}
+            .hero h1{letter-spacing:-1px}
+            .stats{grid-template-columns:repeat(2,1fr)}
+            .st:nth-child(2)::after{display:none}
+            .g,.g2{grid-template-columns:1fr}
+            .st .n{font-size:1.6em}
+            .cta h2{font-size:1.3em}
         }
     </style>
 </head>
 <body>
 
-<div class="aurora"><div class="a1"></div><div class="a2"></div><div class="a3"></div></div>
-<div class="grid-pattern"></div>
+<div class="mesh"><i class="m1"></i><i class="m2"></i><i class="m3"></i></div>
+<div class="noise"></div>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+    <div class="nav-logo">SMC Prep</div>
+    <a href="#cs">Supervisor</a>
+    <a href="#cl">Clerk</a>
+    <a href="exam.html" class="accent">Exam</a>
+</nav>
 
 <!-- VIEWER -->
-<div id="viewer">
-    <div id="v-bar"><button class="back" onclick="closeV()">Back</button><span class="vt" id="vt"></span><div style="width:70px"></div></div>
-    <div id="v-body"><div class="ld">Loading...</div></div>
-</div>
+<div id="vw"><div id="vb"><button class="bk" onclick="X()">Back</button><span class="vn" id="vn"></span><div style="width:70px"></div></div><div id="vc"><div class="ld">Loading...</div></div></div>
 
-<!-- MAIN -->
-<div id="main">
+<div class="page">
 
-<div class="hero">
-    <div class="hero-label">SMC Exam Prep 2026</div>
-    <h1>Crack Your SMC Exam<br><span>Computer Supervisor & Clerk</span></h1>
-    <div class="desc">3500+ MCQs, mock tests, Surat history, typing guides, and everything you need to clear the Surat Municipal Corporation exam.</div>
-    <div class="hero-btns">
-        <a class="btn btn-white" href="exam.html">Take Online Exam</a>
-        <a class="btn btn-outline" href="https://github.com/abhiiibabariya-dev/SMC-Computer-Supervisor-Exam-Prep/archive/refs/heads/master.zip">Download All</a>
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-chip"><div class="live"></div> SMC Recruitment 2026 &mdash; 2,295 Posts <span>Apply Now</span></div>
+    <h1>Everything to<br><span class="gr">Crack Your Exam</span></h1>
+    <p>3,500+ MCQs, 6 mock tests, Surat history, old papers, typing guides. Free, open-source, made for SMC aspirants.</p>
+    <div class="hero-actions">
+        <a class="b b-primary" href="exam.html">Take Online Exam</a>
+        <a class="b b-ghost" href="https://github.com/abhiiibabariya-dev/SMC-Computer-Supervisor-Exam-Prep/archive/refs/heads/master.zip">Download All</a>
+    </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+    <div class="marquee">
+        <span><b>3500+</b> MCQs</span><span><b>6</b> Mock Tests</span><span><b>717</b> Clerk Posts</span><span><b>Code-513</b> Computer Supervisor</span><span><b>Code-502</b> Clerk</span><span><b>150</b> Surat History MCQs</span><span>Online Exam with Timer</span><span>English + Gujarati</span>
+        <span><b>3500+</b> MCQs</span><span><b>6</b> Mock Tests</span><span><b>717</b> Clerk Posts</span><span><b>Code-513</b> Computer Supervisor</span><span><b>Code-502</b> Clerk</span><span><b>150</b> Surat History MCQs</span><span>Online Exam with Timer</span><span>English + Gujarati</span>
     </div>
 </div>
 
-<!-- ALERT -->
-<div class="alert">
-    <div class="alert-inner" onclick="openF('docs/smc_recruitment_2026.md','SMC Recruitment 2026')">
-        <div class="alert-dot"></div>
-        <div class="alert-text"><strong>SMC Recruitment 2026</strong> — 2,295 Posts — Apply 1-15 April 2026 — Clerk (717 posts) + Computer Supervisor</div>
-        <div class="alert-arrow">&rarr;</div>
-    </div>
-</div>
+<div class="main">
 
-<div class="container">
+    <!-- ALERT -->
+    <div class="al sr" onclick="O('docs/smc_recruitment_2026.md','Recruitment 2026')">
+        <div class="al-dot"></div>
+        <div class="al-body">
+            <div class="al-title">SMC Recruitment 2026 &mdash; Complete Guide + How to Apply</div>
+            <div class="al-desc">2,295 posts &middot; Apply 1-15 April 2026 &middot; Clerk 717 posts &middot; Step-by-step form guide</div>
+        </div>
+        <div class="al-go">&rarr;</div>
+    </div>
 
     <!-- STATS -->
-    <div class="stats-row sr">
-        <div class="stat-item"><div class="n" data-t="3500">0</div><div class="l">MCQs</div></div>
-        <div class="stat-item"><div class="n" data-t="6">0</div><div class="l">Mock Tests</div></div>
-        <div class="stat-item"><div class="n" data-t="20">0</div><div class="l">Guides</div></div>
-        <div class="stat-item"><div class="n" data-t="717">0</div><div class="l">Clerk Posts</div></div>
+    <div class="stats sr">
+        <div class="st"><div class="n" data-t="3500">0</div><div class="l">MCQs</div></div>
+        <div class="st"><div class="n" data-t="6">0</div><div class="l">Mocks</div></div>
+        <div class="st"><div class="n" data-t="20">0</div><div class="l">Guides</div></div>
+        <div class="st"><div class="n" data-t="717">0</div><div class="l">Clerk Posts</div></div>
     </div>
 
     <!-- RECRUITMENT -->
-    <div class="section sr">
-        <div class="section-head">
-            <div class="section-title"><span class="dot" style="background:#ef4444"></span>Recruitment 2026</div>
-            <span class="section-badge">New</span>
-        </div>
-        <div class="card-grid">
-            <div class="card" onclick="openF('docs/smc_recruitment_2026.md','Recruitment Guide')"><div class="card-title">Complete Guide + SOP</div><div class="card-desc">Form filling, docs, fees, salary, eligibility</div><span class="card-tag tag-live">LIVE</span></div>
-            <a class="card" href="https://www.suratmunicipal.gov.in/recruitment/" target="_blank"><div class="card-title">Apply Online</div><div class="card-desc">suratmunicipal.gov.in</div><span class="card-tag tag-live">OFFICIAL</span></a>
-            <div class="card" onclick="openF('docs/smc_official_papers.md','Papers & Keys')"><div class="card-title">Old Papers + Answer Keys</div><div class="card-desc">Official PDFs from SMC & MaruGujarat</div><span class="card-tag tag-y">PDFs</span></div>
+    <div class="sec sr">
+        <div class="sec-top"><div class="sec-name"><i style="background:#ef4444"></i>Recruitment 2026</div><span class="sec-info">Apply Now</span></div>
+        <div class="g">
+            <div class="k" onclick="O('docs/smc_recruitment_2026.md','Recruitment Guide')"><div class="k-t">Complete Guide + SOP</div><div class="k-d">How to apply, documents, fees, salary, eligibility</div><span class="k-tag tl">LIVE</span></div>
+            <a class="k" href="https://www.suratmunicipal.gov.in/recruitment/" target="_blank"><div class="k-t">Apply Online</div><div class="k-d">Official SMC portal</div><span class="k-tag tl">OFFICIAL</span></a>
+            <div class="k" onclick="O('docs/smc_official_papers.md','Papers')"><div class="k-t">Old Papers + Answer Keys</div><div class="k-d">Official PDFs from SMC website</div><span class="k-tag ty">PDFs</span></div>
         </div>
     </div>
 
-    <!-- COMPUTER SUPERVISOR -->
-    <div class="section sr">
-        <div class="section-head">
-            <div class="section-title"><span class="dot" style="background:#facc15"></span>Computer Supervisor</div>
-            <span class="section-badge">Code-513</span>
-        </div>
-        <div class="card-grid">
-            <div class="card" onclick="openF('ALL_IN_ONE_EXAM_GUIDE.md','All-in-One')"><div class="card-title">All-in-One Guide</div><div class="card-desc">820+ MCQs, every topic covered</div><span class="card-tag tag-r">COMPLETE</span></div>
-            <div class="card" onclick="openF('subjects/01_computer_knowledge.md','Computer')"><div class="card-title">Computer Knowledge</div><div class="card-desc">Hardware, Software, OS, Networks</div><span class="card-tag tag-r">HIGH</span></div>
-            <div class="card" onclick="openF('subjects/02_general_knowledge.md','GK')"><div class="card-title">General Knowledge</div><div class="card-desc">Gujarat GK, Polity, History</div><span class="card-tag tag-r">HIGH</span></div>
-            <div class="card" onclick="openF('subjects/03_gujarati_language.md','Gujarati')"><div class="card-title">Gujarati Language</div><div class="card-desc">Vyakaran, Sahitya</div><span class="card-tag tag-y">MEDIUM</span></div>
-            <div class="card" onclick="openF('subjects/04_english_language.md','English')"><div class="card-title">English Language</div><div class="card-desc">Grammar, Vocabulary</div><span class="card-tag tag-y">MEDIUM</span></div>
-            <div class="card" onclick="openF('subjects/05_mathematics.md','Maths')"><div class="card-title">Mathematics</div><div class="card-desc">Quant, Reasoning</div><span class="card-tag tag-y">MEDIUM</span></div>
-            <div class="card" onclick="openF('subjects/06_advanced_computer_supervisor.md','Advanced')"><div class="card-title">Advanced Computer</div><div class="card-desc">220 MCQs, Networking, DB, Security</div><span class="card-tag tag-r">HIGH</span></div>
-            <div class="card" onclick="openF('subjects/07_exam_strategy_and_practical.md','Strategy')"><div class="card-title">Exam Strategy</div><div class="card-desc">Time management, tips</div><span class="card-tag tag-g">STRATEGY</span></div>
-            <div class="card" onclick="openF('subjects/08_gujarati_typing_complete_guide.md','Typing')"><div class="card-title">Gujarati Typing</div><div class="card-desc">InScript layout, 30-day plan</div><span class="card-tag tag-g">PRACTICAL</span></div>
+    <!-- CS -->
+    <div class="sec sr" id="cs">
+        <div class="sec-top"><div class="sec-name"><i style="background:#a78bfa"></i>Computer Supervisor</div><span class="sec-info">Code-513 &middot; No Negative</span></div>
+        <div class="g g2">
+            <div class="k" onclick="O('ALL_IN_ONE_EXAM_GUIDE.md','All-in-One')"><div class="k-t">All-in-One Guide</div><div class="k-d">820+ MCQs, every topic</div><span class="k-tag tr">COMPLETE</span></div>
+            <div class="k" onclick="O('subjects/01_computer_knowledge.md','Computer')"><div class="k-t">Computer Knowledge</div><div class="k-d">Hardware, Software, OS</div><span class="k-tag tr">HIGH</span></div>
+            <div class="k" onclick="O('subjects/02_general_knowledge.md','GK')"><div class="k-t">General Knowledge</div><div class="k-d">Gujarat GK, Polity</div><span class="k-tag tr">HIGH</span></div>
+            <div class="k" onclick="O('subjects/03_gujarati_language.md','Gujarati')"><div class="k-t">Gujarati Language</div><div class="k-d">Vyakaran, Sahitya</div><span class="k-tag ty">MEDIUM</span></div>
+            <div class="k" onclick="O('subjects/04_english_language.md','English')"><div class="k-t">English Language</div><div class="k-d">Grammar, Vocabulary</div><span class="k-tag ty">MEDIUM</span></div>
+            <div class="k" onclick="O('subjects/05_mathematics.md','Maths')"><div class="k-t">Mathematics</div><div class="k-d">Quant, Reasoning</div><span class="k-tag ty">MEDIUM</span></div>
+            <div class="k" onclick="O('subjects/06_advanced_computer_supervisor.md','Advanced')"><div class="k-t">Advanced Computer</div><div class="k-d">220 MCQs, Networking, DB</div><span class="k-tag tr">HIGH</span></div>
+            <div class="k" onclick="O('subjects/07_exam_strategy_and_practical.md','Strategy')"><div class="k-t">Exam Strategy</div><div class="k-d">Time management</div><span class="k-tag tg">STRATEGY</span></div>
+            <div class="k" onclick="O('subjects/08_gujarati_typing_complete_guide.md','Typing')"><div class="k-t">Gujarati Typing</div><div class="k-d">InScript, 30-day plan</div><span class="k-tag tg">PRACTICAL</span></div>
         </div>
         <div class="sep"></div>
-        <div class="sub-label">Mock Tests</div>
-        <div class="card-grid">
-            <div class="card" onclick="openF('papers/mock_test_1.md','Mock 1')"><div class="card-title">Mock Test 1</div><div class="card-desc">100Q + Answer Key</div><span class="card-tag tag-p">MOCK</span></div>
-            <div class="card" onclick="openF('papers/mock_test_2.md','Mock 2')"><div class="card-title">Mock Test 2</div><div class="card-desc">100Q + Answer Key</div><span class="card-tag tag-p">MOCK</span></div>
-            <div class="card" onclick="openF('papers/mock_test_3.md','Mock 3')"><div class="card-title">Mock Test 3</div><div class="card-desc">100Q + Answer Key</div><span class="card-tag tag-p">MOCK</span></div>
+        <div class="sl">Mock Tests</div>
+        <div class="g">
+            <div class="k" onclick="O('papers/mock_test_1.md','Mock 1')"><div class="k-t">Mock Test 1</div><div class="k-d">100Q + Answers</div><span class="k-tag tp">MOCK</span></div>
+            <div class="k" onclick="O('papers/mock_test_2.md','Mock 2')"><div class="k-t">Mock Test 2</div><div class="k-d">100Q + Answers</div><span class="k-tag tp">MOCK</span></div>
+            <div class="k" onclick="O('papers/mock_test_3.md','Mock 3')"><div class="k-t">Mock Test 3</div><div class="k-d">100Q + Answers</div><span class="k-tag tp">MOCK</span></div>
         </div>
     </div>
 
     <!-- CLERK -->
-    <div class="section sr">
-        <div class="section-head">
-            <div class="section-title"><span class="dot" style="background:#60a5fa"></span>Clerk Exam</div>
-            <span class="section-badge">Code-502 &middot; 717 Posts</span>
-        </div>
-        <div class="card-grid">
-            <div class="card" onclick="openF('clerk_exam/02_complete_clerk_exam_guide.md','Clerk Guide')"><div class="card-title">All-in-One Clerk Guide</div><div class="card-desc">330+ MCQs, all subjects</div><span class="card-tag tag-r">COMPLETE</span></div>
-            <div class="card" onclick="openF('clerk_exam_complete/subjects/01_gujarati_language.md','Gujarati')"><div class="card-title">Gujarati Language</div><div class="card-desc">155 MCQs, Sandhi, Samaas</div><span class="card-tag tag-r">HIGH</span></div>
-            <div class="card" onclick="openF('clerk_exam_complete/subjects/02_general_knowledge.md','GK')"><div class="card-title">General Knowledge</div><div class="card-desc">155 MCQs, Gujarat, Polity</div><span class="card-tag tag-r">HIGH</span></div>
-            <div class="card" onclick="openF('clerk_exam_complete/subjects/03_english_language.md','English')"><div class="card-title">English Language</div><div class="card-desc">120 MCQs, Tenses, Vocab</div><span class="card-tag tag-y">MEDIUM</span></div>
-            <div class="card" onclick="openF('clerk_exam_complete/subjects/04_mathematics.md','Maths')"><div class="card-title">Mathematics</div><div class="card-desc">135 MCQs, Percentage, SI/CI</div><span class="card-tag tag-y">MEDIUM</span></div>
-            <div class="card" onclick="openF('clerk_exam_complete/subjects/05_reasoning.md','Reasoning')"><div class="card-title">Reasoning</div><div class="card-desc">120 MCQs, Series, Coding</div><span class="card-tag tag-y">MEDIUM</span></div>
-            <div class="card" onclick="openF('clerk_exam_complete/subjects/06_computer_knowledge.md','Computer')"><div class="card-title">Computer Knowledge</div><div class="card-desc">85 MCQs, Shortcuts, Office</div><span class="card-tag tag-g">EASY</span></div>
-            <div class="card" onclick="openF('clerk_exam_complete/practical/01_typing_test_guide.md','Typing')"><div class="card-title">Typing Test Guide</div><div class="card-desc">EN + GJ, InScript, 30-day plan</div><span class="card-tag tag-g">PRACTICAL</span></div>
-            <div class="card" onclick="openF('clerk_exam_complete/previous_papers/previous_paper_analysis.md','Analysis')"><div class="card-title">Previous Paper Analysis</div><div class="card-desc">Weightage, strategy, cutoffs</div><span class="card-tag tag-g">STRATEGY</span></div>
+    <div class="sec sr" id="cl">
+        <div class="sec-top"><div class="sec-name"><i style="background:#60a5fa"></i>Clerk Exam</div><span class="sec-info">Code-502 &middot; 717 Posts &middot; -0.25</span></div>
+        <div class="g g2">
+            <div class="k" onclick="O('clerk_exam/02_complete_clerk_exam_guide.md','Clerk')"><div class="k-t">All-in-One Clerk</div><div class="k-d">330+ MCQs, all subjects</div><span class="k-tag tr">COMPLETE</span></div>
+            <div class="k" onclick="O('clerk_exam_complete/subjects/01_gujarati_language.md','Gujarati')"><div class="k-t">Gujarati Language</div><div class="k-d">155 MCQs, Sandhi, Samaas</div><span class="k-tag tr">HIGH</span></div>
+            <div class="k" onclick="O('clerk_exam_complete/subjects/02_general_knowledge.md','GK')"><div class="k-t">General Knowledge</div><div class="k-d">155 MCQs, Gujarat, Polity</div><span class="k-tag tr">HIGH</span></div>
+            <div class="k" onclick="O('clerk_exam_complete/subjects/03_english_language.md','English')"><div class="k-t">English Language</div><div class="k-d">120 MCQs, Tenses, Vocab</div><span class="k-tag ty">MEDIUM</span></div>
+            <div class="k" onclick="O('clerk_exam_complete/subjects/04_mathematics.md','Maths')"><div class="k-t">Mathematics</div><div class="k-d">135 MCQs, %, SI/CI</div><span class="k-tag ty">MEDIUM</span></div>
+            <div class="k" onclick="O('clerk_exam_complete/subjects/05_reasoning.md','Reasoning')"><div class="k-t">Reasoning</div><div class="k-d">120 MCQs, Series, Coding</div><span class="k-tag ty">MEDIUM</span></div>
+            <div class="k" onclick="O('clerk_exam_complete/subjects/06_computer_knowledge.md','Computer')"><div class="k-t">Computer Knowledge</div><div class="k-d">85 MCQs, Shortcuts</div><span class="k-tag tg">EASY</span></div>
+            <div class="k" onclick="O('clerk_exam_complete/practical/01_typing_test_guide.md','Typing')"><div class="k-t">Typing Guide</div><div class="k-d">EN + GJ, InScript</div><span class="k-tag tg">PRACTICAL</span></div>
+            <div class="k" onclick="O('clerk_exam_complete/previous_papers/previous_paper_analysis.md','Analysis')"><div class="k-t">Paper Analysis</div><div class="k-d">Weightage, cutoffs</div><span class="k-tag tg">STRATEGY</span></div>
         </div>
         <div class="sep"></div>
-        <div class="sub-label">Mock Tests</div>
-        <div class="card-grid">
-            <div class="card" onclick="openF('clerk_exam_complete/mock_tests/mock_test_1.md','Clerk Mock 1')"><div class="card-title">Mock Test 1</div><div class="card-desc">100Q + Answer Key</div><span class="card-tag tag-p">MOCK</span></div>
-            <div class="card" onclick="openF('clerk_exam_complete/mock_tests/mock_test_2.md','Clerk Mock 2')"><div class="card-title">Mock Test 2</div><div class="card-desc">100Q + Answer Key</div><span class="card-tag tag-p">MOCK</span></div>
-            <div class="card" onclick="openF('clerk_exam_complete/mock_tests/mock_test_3.md','Clerk Mock 3')"><div class="card-title">Mock Test 3</div><div class="card-desc">100Q + Answer Key</div><span class="card-tag tag-p">MOCK</span></div>
+        <div class="sl">Mock Tests</div>
+        <div class="g">
+            <div class="k" onclick="O('clerk_exam_complete/mock_tests/mock_test_1.md','Mock 1')"><div class="k-t">Mock Test 1</div><div class="k-d">100Q + Answers</div><span class="k-tag tp">MOCK</span></div>
+            <div class="k" onclick="O('clerk_exam_complete/mock_tests/mock_test_2.md','Mock 2')"><div class="k-t">Mock Test 2</div><div class="k-d">100Q + Answers</div><span class="k-tag tp">MOCK</span></div>
+            <div class="k" onclick="O('clerk_exam_complete/mock_tests/mock_test_3.md','Mock 3')"><div class="k-t">Mock Test 3</div><div class="k-d">100Q + Answers</div><span class="k-tag tp">MOCK</span></div>
         </div>
     </div>
 
-    <!-- HARDEST -->
-    <div class="section sr">
-        <div class="section-head">
-            <div class="section-title"><span class="dot" style="background:#f87171"></span>Hardest Papers + Surat History</div>
-            <span class="section-badge">Advanced</span>
-        </div>
-        <div class="card-grid">
-            <div class="card" onclick="openF('docs/advanced_hard_paper_computer_supervisor.md','Hard CS')"><div class="card-title">Hardest - Computer Supervisor</div><div class="card-desc">150 advanced MCQs (EN+GJ)</div><span class="card-tag tag-r">HARD</span></div>
-            <div class="card" onclick="openF('docs/advanced_hard_paper_clerk.md','Hard Clerk')"><div class="card-title">Hardest - Clerk</div><div class="card-desc">150 tricky MCQs (EN+GJ)</div><span class="card-tag tag-r">HARD</span></div>
-            <div class="card" onclick="openF('docs/surat_history_complete.md','Surat History')"><div class="card-title">Surat History Complete</div><div class="card-desc">150 MCQs, 1507-2023 (EN+GJ)</div><span class="card-tag tag-r">MUST READ</span></div>
-            <div class="card" onclick="openF('docs/practical_exam_complete.md','Practical')"><div class="card-title">Practical Exam Guide</div><div class="card-desc">MS Office + InScript + Typing</div><span class="card-tag tag-g">PRACTICAL</span></div>
+    <!-- HARD -->
+    <div class="sec sr">
+        <div class="sec-top"><div class="sec-name"><i style="background:#f87171"></i>Hardest Papers + Surat</div><span class="sec-info">Advanced</span></div>
+        <div class="g g2">
+            <div class="k" onclick="O('docs/advanced_hard_paper_computer_supervisor.md','Hard CS')"><div class="k-t">Hardest - Supervisor</div><div class="k-d">150 MCQs, Advanced</div><span class="k-tag tr">HARD</span></div>
+            <div class="k" onclick="O('docs/advanced_hard_paper_clerk.md','Hard Clerk')"><div class="k-t">Hardest - Clerk</div><div class="k-d">150 MCQs, Tricky</div><span class="k-tag tr">HARD</span></div>
+            <div class="k" onclick="O('docs/surat_history_complete.md','Surat')"><div class="k-t">Surat History</div><div class="k-d">150 MCQs, 1507-2023</div><span class="k-tag tr">MUST READ</span></div>
+            <div class="k" onclick="O('docs/practical_exam_complete.md','Practical')"><div class="k-t">Practical Exam</div><div class="k-d">MS Office + Typing</div><span class="k-tag tg">PRACTICAL</span></div>
         </div>
     </div>
 
     <!-- RESOURCES -->
-    <div class="section sr">
-        <div class="section-head">
-            <div class="section-title"><span class="dot" style="background:#4ade80"></span>Resources</div>
-        </div>
-        <div class="card-grid">
-            <div class="card" onclick="openF('resources/study_plan_and_links.md','Study Plan')"><div class="card-title">Study Plan & Links</div><div class="card-desc">Week-wise plan + resources</div><span class="card-tag tag-g">PLAN</span></div>
-            <div class="card" onclick="openF('papers/previous_paper_analysis.md','Analysis')"><div class="card-title">Previous Paper Analysis</div><div class="card-desc">Exam patterns & strategy</div><span class="card-tag tag-g">ANALYSIS</span></div>
+    <div class="sec sr">
+        <div class="sec-top"><div class="sec-name"><i style="background:#4ade80"></i>Resources</div></div>
+        <div class="g">
+            <div class="k" onclick="O('resources/study_plan_and_links.md','Plan')"><div class="k-t">Study Plan</div><div class="k-d">Week-wise plan + links</div><span class="k-tag tg">PLAN</span></div>
+            <div class="k" onclick="O('papers/previous_paper_analysis.md','Analysis')"><div class="k-t">Paper Analysis</div><div class="k-d">Patterns & strategy</div><span class="k-tag tg">ANALYSIS</span></div>
         </div>
     </div>
 
-    <div style="text-align:center;margin:36px 0" class="sr">
-        <a class="btn btn-white" href="exam.html">Take Online Exam</a>
-        <a class="btn btn-outline" href="https://github.com/abhiiibabariya-dev/SMC-Computer-Supervisor-Exam-Prep/archive/refs/heads/master.zip">Download ZIP</a>
-        <a class="btn btn-outline" href="https://github.com/abhiiibabariya-dev/SMC-Computer-Supervisor-Exam-Prep" target="_blank">GitHub</a>
+    <!-- CTA -->
+    <div class="cta sr">
+        <h2>Ready to start preparing?</h2>
+        <p>Take a mock exam or download all materials for offline study.</p>
+        <div class="btns">
+            <a class="b b-primary" href="exam.html">Take Online Exam</a>
+            <a class="b b-ghost" href="https://github.com/abhiiibabariya-dev/SMC-Computer-Supervisor-Exam-Prep/archive/refs/heads/master.zip">Download ZIP</a>
+            <a class="b b-ghost" href="https://github.com/abhiiibabariya-dev/SMC-Computer-Supervisor-Exam-Prep" target="_blank">GitHub</a>
+        </div>
     </div>
 </div>
 
-<div class="footer">
-    <p>Built for SMC exam aspirants &middot; 100% Free &middot; Open Source</p>
+<div class="foot">
+    <p>Built for SMC aspirants &middot; 100% Free &middot; Open Source</p>
     <p style="margin-top:8px"><a href="https://github.com/abhiiibabariya-dev/SMC-Computer-Supervisor-Exam-Prep">github.com/abhiiibabariya-dev</a></p>
 </div>
 
 </div>
 
 <script>
-// Scroll reveal
-const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')})},{threshold:0.08,rootMargin:'0px 0px -40px 0px'});
+// Nav scroll
+const nv=document.getElementById('nav');
+window.addEventListener('scroll',()=>{nv.classList.toggle('scrolled',scrollY>50)});
+
+// Scroll reveal + staggered cards
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('v')}})},{threshold:0.06,rootMargin:'0px 0px -30px 0px'});
 document.querySelectorAll('.sr').forEach(e=>io.observe(e));
 
 // Counter
-let counted=false;
-const cio=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting&&!counted){counted=true;document.querySelectorAll('[data-t]').forEach(el=>{let t=+el.dataset.t,c=0,s=Math.ceil(t/50),suf=t>=100?'+':'';let iv=setInterval(()=>{c+=s;if(c>=t){c=t;clearInterval(iv)}el.textContent=c.toLocaleString()+suf},30)});}})},{threshold:0.5});
-const sr=document.querySelector('.stats-row');if(sr)cio.observe(sr);
+let ct=false;
+const ci=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting&&!ct){ct=true;document.querySelectorAll('[data-t]').forEach(el=>{let t=+el.dataset.t,c=0,s=Math.ceil(t/55),sf=t>=20?'+':'';let iv=setInterval(()=>{c+=s;if(c>=t){c=t;clearInterval(iv)}el.textContent=c.toLocaleString()+sf},28)})}})},{threshold:0.4});
+const ss=document.querySelector('.stats');if(ss)ci.observe(ss);
 
 // Viewer
 const R='https://raw.githubusercontent.com/abhiiibabariya-dev/SMC-Computer-Supervisor-Exam-Prep/master/';
-function openF(p,t){const v=document.getElementById('viewer'),b=document.getElementById('v-body');document.getElementById('vt').textContent=t;b.innerHTML='<div class="ld">Loading...</div>';v.classList.add('on');document.body.style.overflow='hidden';v.scrollTop=0;history.pushState({v:1},'','#'+p.replace(/[\/.]/g,'-'));fetch(R+p).then(r=>{if(!r.ok)throw 0;return r.text()}).then(md=>{b.innerHTML=marked.parse(md)}).catch(()=>{b.innerHTML='<div class="ld">Could not load.<br><br><a href="https://github.com/abhiiibabariya-dev/SMC-Computer-Supervisor-Exam-Prep/blob/master/'+p+'">Open on GitHub</a></div>'});}
-function closeV(){document.getElementById('viewer').classList.remove('on');document.body.style.overflow='';}
-window.addEventListener('popstate',()=>{if(document.getElementById('viewer').classList.contains('on'))closeV()});
+function O(p,t){const v=document.getElementById('vw'),b=document.getElementById('vc');document.getElementById('vn').textContent=t;b.innerHTML='<div class="ld">Loading...</div>';v.classList.add('on');document.body.style.overflow='hidden';v.scrollTop=0;history.pushState({v:1},'','#'+p.replace(/[\/.]/g,'-'));fetch(R+p).then(r=>{if(!r.ok)throw 0;return r.text()}).then(md=>{b.innerHTML=marked.parse(md)}).catch(()=>{b.innerHTML='<div class="ld">Could not load.<br><br><a href="https://github.com/abhiiibabariya-dev/SMC-Computer-Supervisor-Exam-Prep/blob/master/'+p+'" style="color:#93c5fd">Open on GitHub</a></div>'});}
+function X(){document.getElementById('vw').classList.remove('on');document.body.style.overflow='';}
+window.addEventListener('popstate',()=>{if(document.getElementById('vw').classList.contains('on'))X()});
 </script>
 </body>
 </html>
