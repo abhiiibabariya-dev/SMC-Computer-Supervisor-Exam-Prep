@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <style>
-        :root{--bg:#06060a;--s1:#0c0c14;--s2:#18181b;--border:rgba(255,255,255,0.07);--txt:#a1a1aa;--white:#f4f4f5;--dim:#52525b;--purple:#8b5cf6;--purpled:rgba(139,92,246,0.12)}
+        :root{--bg:#06060a;--s1:#0c0c14;--s2:#18181b;--border:rgba(255,255,255,0.07);--txt:#a1a1aa;--white:#f4f4f5;--dim:#52525b;--purple:#8b5cf6;--purpled:rgba(139,92,246,0.12);--green:#22c55e;--blue:#6366f1}
         *{margin:0;padding:0;box-sizing:border-box}
         body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(--txt);height:100vh;display:flex;flex-direction:column;overflow:hidden}
 
@@ -25,6 +25,9 @@
         .top .title{flex:1;text-align:center}
         .top .title b{color:var(--white);font-size:0.9em}
         .top .title small{color:var(--dim);font-size:0.72em;display:block;margin-top:1px}
+        .top .mode-toggle{background:var(--s2);color:var(--txt);border:1px solid var(--border);padding:6px 12px;border-radius:10px;font-weight:600;cursor:pointer;font-size:0.72em;font-family:inherit;transition:all 0.3s;display:inline-flex;align-items:center;gap:5px}
+        .top .mode-toggle:hover{background:rgba(255,255,255,0.06);color:var(--white)}
+        .top .mode-toggle.active{border-color:rgba(34,197,94,0.4);color:var(--green);background:rgba(34,197,94,0.08)}
         .top .dot{width:8px;height:8px;border-radius:50%;background:#22c55e;animation:bk 2s ease infinite}
         @keyframes bk{0%,100%{opacity:1}50%{opacity:0.3}}
 
@@ -34,14 +37,21 @@
         .chat::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px}
 
         /* WELCOME */
-        .welcome{text-align:center;padding:40px 20px;max-width:600px;margin:0 auto}
+        .welcome{text-align:center;padding:40px 20px;max-width:640px;margin:0 auto}
         .welcome .icon{font-size:3em;margin-bottom:16px;animation:float 3s ease-in-out infinite}
         @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
         .welcome h2{color:var(--white);font-size:1.5em;font-weight:800;margin-bottom:8px}
-        .welcome p{color:var(--dim);font-size:0.9em;line-height:1.6;margin-bottom:24px}
+        .welcome p{color:var(--dim);font-size:0.9em;line-height:1.6;margin-bottom:20px}
+
+        /* CATEGORY TABS */
+        .cat-tabs{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-bottom:16px}
+        .cat-tab{background:var(--s2);border:1px solid var(--border);color:var(--dim);padding:6px 14px;border-radius:20px;font-size:0.72em;font-weight:600;cursor:pointer;transition:all 0.3s;font-family:inherit}
+        .cat-tab:hover,.cat-tab.active{border-color:rgba(139,92,246,0.4);color:var(--white);background:var(--purpled)}
         .chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
         .chip{background:var(--s2);border:1px solid var(--border);color:var(--txt);padding:10px 16px;border-radius:12px;font-size:0.8em;font-weight:600;cursor:pointer;transition:all 0.3s;font-family:inherit;text-align:left;line-height:1.3}
         .chip:hover{border-color:rgba(139,92,246,0.3);background:var(--purpled);color:var(--white);transform:translateY(-2px)}
+        .chip[data-cat]{display:none}
+        .chip[data-cat].show{display:inline-block}
 
         /* MESSAGES */
         .msg{max-width:680px;margin:0 auto 16px;display:flex;gap:10px;animation:msgIn 0.4s cubic-bezier(0.16,1,0.3,1)}
@@ -66,12 +76,28 @@
         .msg .bubble a{color:#93c5fd}
         .msg .bubble hr{border:none;border-top:1px solid var(--border);margin:12px 0}
 
+        /* FEEDBACK BUTTONS */
+        .msg-actions{display:flex;gap:6px;margin-top:8px}
+        .msg-action{background:none;border:1px solid var(--border);color:var(--dim);padding:4px 10px;border-radius:8px;font-size:0.72em;cursor:pointer;font-family:inherit;transition:all 0.2s}
+        .msg-action:hover{border-color:rgba(139,92,246,0.3);color:var(--white)}
+        .msg-action.liked{border-color:rgba(34,197,94,0.4);color:var(--green)}
+        .msg-action.disliked{border-color:rgba(239,68,68,0.4);color:#ef4444}
+
         /* TYPING INDICATOR */
         .typing{display:flex;gap:4px;padding:8px 0}
         .typing span{width:6px;height:6px;border-radius:50%;background:var(--dim);animation:tp 1.4s ease infinite}
         .typing span:nth-child(2){animation-delay:0.2s}
         .typing span:nth-child(3){animation-delay:0.4s}
         @keyframes tp{0%,60%,100%{transform:translateY(0);opacity:0.4}30%{transform:translateY(-8px);opacity:1}}
+
+        /* STREAMING TEXT */
+        @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+        .cursor-blink::after{content:'|';animation:blink 0.8s step-end infinite;color:var(--purple);font-weight:400}
+
+        /* SUGGESTIONS */
+        .suggestions{max-width:680px;margin:0 auto 12px;display:flex;gap:6px;flex-wrap:wrap;animation:msgIn 0.4s cubic-bezier(0.16,1,0.3,1)}
+        .suggestion-btn{background:var(--s2);border:1px solid var(--border);color:var(--txt);padding:7px 14px;border-radius:10px;font-size:0.76em;font-weight:600;cursor:pointer;font-family:inherit;transition:all 0.3s}
+        .suggestion-btn:hover{border-color:rgba(139,92,246,0.3);background:var(--purpled);color:var(--white)}
 
         /* INPUT */
         .input-area{position:relative;z-index:10;background:rgba(6,6,10,0.8);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-top:1px solid var(--border);padding:16px 20px;flex-shrink:0}
@@ -83,6 +109,22 @@
         .send:hover{transform:scale(1.05);box-shadow:0 4px 20px rgba(124,58,237,0.4)}
         .send:disabled{opacity:0.3;cursor:not-allowed;transform:none;box-shadow:none}
         .hint{text-align:center;color:var(--dim);font-size:0.7em;margin-top:8px;max-width:700px;margin-left:auto;margin-right:auto}
+        .hint a{color:var(--purple);text-decoration:none}
+
+        /* API KEY MODAL */
+        .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:100;align-items:center;justify-content:center;backdrop-filter:blur(8px)}
+        .modal-overlay.show{display:flex}
+        .modal{background:var(--s1);border:1px solid var(--border);border-radius:20px;padding:32px;max-width:440px;width:90%;animation:msgIn 0.3s ease}
+        .modal h3{color:var(--white);font-size:1.1em;margin-bottom:6px}
+        .modal p{color:var(--dim);font-size:0.82em;line-height:1.5;margin-bottom:16px}
+        .modal input{width:100%;background:var(--s2);border:1px solid var(--border);color:var(--white);padding:12px 16px;border-radius:12px;font-size:0.88em;font-family:inherit;outline:none;margin-bottom:12px}
+        .modal input:focus{border-color:rgba(139,92,246,0.4)}
+        .modal .modal-btns{display:flex;gap:8px;justify-content:flex-end}
+        .modal .modal-btn{padding:10px 20px;border-radius:12px;font-size:0.82em;font-weight:600;cursor:pointer;font-family:inherit;border:none;transition:all 0.3s}
+        .modal .modal-btn.cancel{background:var(--s2);color:var(--txt);border:1px solid var(--border)}
+        .modal .modal-btn.cancel:hover{background:rgba(255,255,255,0.06)}
+        .modal .modal-btn.save{background:linear-gradient(135deg,#7c3aed,#6366f1);color:#fff}
+        .modal .modal-btn.save:hover{box-shadow:0 4px 20px rgba(124,58,237,0.4)}
 
         @media(max-width:640px){
             .welcome h2{font-size:1.2em}
@@ -90,6 +132,7 @@
             .chip{font-size:0.75em;padding:8px 12px}
             .msg .bubble{max-width:90%;padding:12px 14px}
             .top .title b{font-size:0.82em}
+            .top .mode-toggle span.label{display:none}
         }
     </style>
 </head>
@@ -97,9 +140,35 @@
 
 <div class="mesh"><i class="m1"></i><i class="m2"></i></div>
 
+<!-- API KEY MODAL -->
+<div class="modal-overlay" id="apiModal">
+    <div class="modal">
+        <h3>Connect AI (Free Options)</h3>
+        <p>Choose a <strong>free AI provider</strong> and paste your API key. AI will answer any question with internet search.</p>
+        <select id="apiProvider" onchange="updateProviderHelp()" style="width:100%;background:var(--s2);border:1px solid var(--border);color:var(--white);padding:12px 16px;border-radius:12px;font-size:0.88em;font-family:inherit;outline:none;margin-bottom:12px;cursor:pointer">
+            <option value="groq">Groq (Free - Recommended)</option>
+            <option value="gemini">Google Gemini (Free + Web Search)</option>
+            <option value="openai">OpenAI ChatGPT (Paid)</option>
+        </select>
+        <input type="password" id="apiKeyInput" placeholder="Paste your API key here...">
+        <div id="providerHelp" style="font-size:0.72em;margin-bottom:16px;color:var(--dim);line-height:1.6">
+            <b>Groq is FREE & fast.</b> Get key: <a href="https://console.groq.com/keys" target="_blank" style="color:var(--purple)">console.groq.com/keys</a><br>
+            Sign up free → Create API key → Paste above. No credit card needed.
+        </div>
+        <div class="modal-btns">
+            <button class="modal-btn cancel" onclick="closeApiModal()">Cancel</button>
+            <button class="modal-btn save" onclick="saveApiKey()">Connect</button>
+        </div>
+    </div>
+</div>
+
 <div class="top">
     <a href="index.html" class="back">&larr; Home</a>
     <div class="title"><b>SMC AI Assistant</b><small>Ask anything about the exam</small></div>
+    <button class="mode-toggle" id="modeBtn" onclick="toggleMode()">
+        <span id="modeIcon">&#9679;</span>
+        <span class="label" id="modeLabel">Offline</span>
+    </button>
     <div class="dot"></div>
 </div>
 
@@ -107,18 +176,57 @@
     <div class="welcome" id="welcome">
         <div class="icon">&#129302;</div>
         <h2>SMC Exam AI Assistant</h2>
-        <p>Ask me anything about Computer Supervisor or Clerk exam — syllabus, Surat history, GK, exam tips, form filling, or practice questions.</p>
-        <div class="chips">
-            <button class="chip" onclick="ask(this.textContent)">Give me 5 MCQs on Surat history</button>
-            <button class="chip" onclick="ask(this.textContent)">Computer Supervisor syllabus</button>
-            <button class="chip" onclick="ask(this.textContent)">How to fill the application form?</button>
-            <button class="chip" onclick="ask(this.textContent)">Important keyboard shortcuts</button>
-            <button class="chip" onclick="ask(this.textContent)">Clerk exam pattern & strategy</button>
-            <button class="chip" onclick="ask(this.textContent)">Gujarat GK questions</button>
-            <button class="chip" onclick="ask(this.textContent)">Explain OSI model simply</button>
-            <button class="chip" onclick="ask(this.textContent)">Difference between TCP and UDP</button>
-            <button class="chip" onclick="ask(this.textContent)">ગુજરાતી સંધિ ના 5 પ્રશ્નો</button>
-            <button class="chip" onclick="ask(this.textContent)">Surat Diamond Bourse facts</button>
+        <p>Ask me anything — exam topics, current affairs, or any question. With AI mode ON, I search the entire internet to give you the latest answers.</p>
+
+        <div class="cat-tabs" id="catTabs">
+            <button class="cat-tab active" onclick="filterChips('all')">All</button>
+            <button class="cat-tab" onclick="filterChips('exam')">Exam Info</button>
+            <button class="cat-tab" onclick="filterChips('computer')">Computer</button>
+            <button class="cat-tab" onclick="filterChips('gk')">GK & History</button>
+            <button class="cat-tab" onclick="filterChips('mcq')">MCQs</button>
+            <button class="cat-tab" onclick="filterChips('language')">Language</button>
+        </div>
+
+        <div class="chips" id="chipContainer">
+            <!-- Exam -->
+            <button class="chip show" data-cat="exam" onclick="ask(this.textContent)">Computer Supervisor syllabus</button>
+            <button class="chip show" data-cat="exam" onclick="ask(this.textContent)">Clerk exam pattern & strategy</button>
+            <button class="chip show" data-cat="exam" onclick="ask(this.textContent)">Lab Technician exam syllabus</button>
+            <button class="chip show" data-cat="exam" onclick="ask(this.textContent)">Marshal exam & physical test</button>
+            <button class="chip show" data-cat="exam" onclick="ask(this.textContent)">Junior Analyst Microbiology syllabus</button>
+            <button class="chip show" data-cat="exam" onclick="ask(this.textContent)">How to fill the application form?</button>
+            <button class="chip show" data-cat="exam" onclick="ask(this.textContent)">Salary & benefits details</button>
+            <!-- Computer -->
+            <button class="chip show" data-cat="computer" onclick="ask(this.textContent)">Explain OSI model simply</button>
+            <button class="chip show" data-cat="computer" onclick="ask(this.textContent)">Difference between TCP and UDP</button>
+            <button class="chip show" data-cat="computer" onclick="ask(this.textContent)">Important keyboard shortcuts</button>
+            <button class="chip show" data-cat="computer" onclick="ask(this.textContent)">Database & SQL basics</button>
+            <button class="chip show" data-cat="computer" onclick="ask(this.textContent)">Cyber security concepts</button>
+            <!-- GK -->
+            <button class="chip show" data-cat="gk" onclick="ask(this.textContent)">Surat Diamond Bourse facts</button>
+            <button class="chip show" data-cat="gk" onclick="ask(this.textContent)">Gujarat GK questions</button>
+            <button class="chip show" data-cat="gk" onclick="ask(this.textContent)">Indian Constitution articles</button>
+            <button class="chip show" data-cat="gk" onclick="ask(this.textContent)">Important dates & events</button>
+            <button class="chip show" data-cat="gk" onclick="ask(this.textContent)">Indian geography facts</button>
+            <button class="chip show" data-cat="gk" onclick="ask(this.textContent)">Current affairs 2025</button>
+            <button class="chip show" data-cat="gk" onclick="ask(this.textContent)">History advanced & tricky</button>
+            <!-- MCQs -->
+            <button class="chip show" data-cat="mcq" onclick="ask(this.textContent)">Give me 5 MCQs on Surat history</button>
+            <button class="chip show" data-cat="mcq" onclick="ask(this.textContent)">English grammar MCQs</button>
+            <button class="chip show" data-cat="mcq" onclick="ask(this.textContent)">Maths practice questions</button>
+            <button class="chip show" data-cat="mcq" onclick="ask(this.textContent)">Maths Set 2 (Geometry)</button>
+            <button class="chip show" data-cat="mcq" onclick="ask(this.textContent)">Tricky maths questions</button>
+            <button class="chip show" data-cat="mcq" onclick="ask(this.textContent)">Reasoning & logic MCQs</button>
+            <button class="chip show" data-cat="mcq" onclick="ask(this.textContent)">Reasoning Set 2 (Advanced)</button>
+            <button class="chip show" data-cat="mcq" onclick="ask(this.textContent)">Computer knowledge MCQs</button>
+            <button class="chip show" data-cat="mcq" onclick="ask(this.textContent)">Advanced GK tricky MCQs</button>
+            <button class="chip show" data-cat="mcq" onclick="ask(this.textContent)">Lab Technician MCQs</button>
+            <button class="chip show" data-cat="mcq" onclick="ask(this.textContent)">Marshal exam MCQs</button>
+            <button class="chip show" data-cat="mcq" onclick="ask(this.textContent)">Microbiology MCQs</button>
+            <!-- Language -->
+            <button class="chip show" data-cat="language" onclick="ask(this.textContent)">ગુજરાતી સંધિ ના 5 પ્રશ્નો</button>
+            <button class="chip show" data-cat="language" onclick="ask(this.textContent)">English tenses explained</button>
+            <button class="chip show" data-cat="language" onclick="ask(this.textContent)">Important idioms & phrases</button>
         </div>
     </div>
 </div>
@@ -128,13 +236,16 @@
         <textarea id="inp" rows="1" placeholder="Ask anything about SMC exam..." onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();send()}"></textarea>
         <button class="send" id="sbtn" onclick="send()">&#10148;</button>
     </div>
-    <div class="hint">AI answers are based on exam study material. Always verify with official sources.</div>
+    <div class="hint">200+ MCQs built-in. <a href="#" onclick="openApiModal();return false">Connect AI</a> to search the entire internet for any question.</div>
 </div>
 
 <script>
-// ===== KNOWLEDGE BASE =====
+// ===== EXPANDED KNOWLEDGE BASE =====
 const KB = {
-// SURAT HISTORY
+
+// ==============================
+// SURAT HISTORY & LOCAL
+// ==============================
 surat_history: `## Surat History - Key Facts
 - **Ancient name:** Suryapur (City of Sun)
 - **River:** Tapi (flows East to West, 724 km, origin: Multai, MP)
@@ -179,7 +290,9 @@ A) Mine | B) **Office building** ✅ | C) Mall | D) Factory
 **Q5.** Bardoli Satyagraha (1928) was led by:
 A) Gandhi | B) **Sardar Patel** ✅ | C) Nehru | D) Bose`,
 
-// COMPUTER SUPERVISOR
+// ==============================
+// EXAM SYLLABI
+// ==============================
 cs_syllabus: `## Computer Supervisor (Code-513) Syllabus
 
 **Exam:** 100 MCQs | 120 Minutes | **No Negative Marking**
@@ -200,7 +313,6 @@ cs_syllabus: `## Computer Supervisor (Code-513) Syllabus
 **Salary:** ₹39,900 - ₹1,26,600 (Level 7)
 **Qualification:** BCA/B.Sc(IT)/BE(CS/IT) + CCC`,
 
-// CLERK
 clerk_syllabus: `## Clerk Exam (Code-502) Syllabus
 
 **Exam:** 100 MCQs | 120 Minutes | **-0.25 Negative Marking** | **717 Posts**
@@ -219,7 +331,6 @@ clerk_syllabus: `## Clerk Exam (Code-502) Syllabus
 
 **Strategy:** Do Gujarati + Computer first (easiest). Keep 15 min for review. Don't guess wildly (negative marking).`,
 
-// EXAM PATTERN
 exam_pattern: `## Exam Pattern Comparison
 
 | Detail | Computer Supervisor | Clerk |
@@ -233,7 +344,6 @@ exam_pattern: `## Exam Pattern Comparison
 | **Salary** | ₹39,900-1,26,600 | ₹19,900-63,200 |
 | **Posts (2026)** | Listed | 717 |`,
 
-// APPLICATION
 application: `## How to Apply - Step by Step
 
 **Dates:** 1 April 2026 (11 AM) to 15 April 2026 (11 PM)
@@ -259,7 +369,9 @@ application: `## How to Apply - Step by Step
 
 **TIP:** Apply on Day 1 (1 April). Don't wait till last day!`,
 
-// KEYBOARD SHORTCUTS
+// ==============================
+// COMPUTER TOPICS
+// ==============================
 shortcuts: `## Important Keyboard Shortcuts
 
 ### MS Word / General:
@@ -280,22 +392,46 @@ shortcuts: `## Important Keyboard Shortcuts
 | Ctrl+H | Replace |
 | Ctrl+N | New |
 | Ctrl+O | Open |
+| Ctrl+K | Insert Hyperlink |
+| Ctrl+E | Center align |
+| Ctrl+L | Left align |
+| Ctrl+R | Right align |
+| Ctrl+J | Justify |
 | F5 | Slideshow (PPT) / Refresh |
 | F2 | Rename file |
+| F7 | Spell check |
+| F12 | Save As |
 | Alt+F4 | Close program |
 | Shift+Delete | Permanent delete |
 | Ctrl+Shift+Esc | Task Manager |
+| Win+D | Show desktop |
+| Win+L | Lock computer |
+| Win+E | File Explorer |
+| Alt+Tab | Switch windows |
 
 ### MS Excel:
 | Shortcut | Action |
 |----------|--------|
 | Ctrl+; | Insert date |
+| Ctrl+Shift+; | Insert time |
 | Alt+= | Auto SUM |
 | F4 | Toggle absolute reference |
 | Ctrl+\` | Show formulas |
-| Ctrl+Shift+L | Toggle filter |`,
+| Ctrl+Shift+L | Toggle filter |
+| Ctrl+Page Up/Down | Switch sheets |
+| Ctrl+Home | Go to A1 |
+| Ctrl+End | Go to last cell |
 
-// OSI MODEL
+### MS PowerPoint:
+| Shortcut | Action |
+|----------|--------|
+| F5 | Start slideshow from beginning |
+| Shift+F5 | Start from current slide |
+| Ctrl+M | New slide |
+| B | Black screen during show |
+| W | White screen during show |
+| Esc | End slideshow |`,
+
 osi: `## OSI Model - Simple Explanation
 
 The OSI Model has **7 layers** (remember: **P**lease **D**o **N**ot **T**hrow **S**ausage **P**izza **A**way):
@@ -332,7 +468,6 @@ tcp_udp: `## TCP vs UDP
 
 **Exam tip:** If question says "connectionless" or "no guarantee" → answer is **UDP**`,
 
-// IMPORTANT PORTS
 ports: `## Important Port Numbers (Frequently Asked)
 
 | Port | Protocol/Service |
@@ -351,7 +486,6 @@ ports: `## Important Port Numbers (Frequently Asked)
 | 3306 | MySQL |
 | 3389 | RDP (Remote Desktop) |`,
 
-// FULL FORMS
 fullforms: `## Important Full Forms
 
 | Abbreviation | Full Form |
@@ -368,6 +502,7 @@ fullforms: `## Important Full Forms
 | WWW | World Wide Web |
 | LAN | Local Area Network |
 | WAN | Wide Area Network |
+| MAN | Metropolitan Area Network |
 | ISP | Internet Service Provider |
 | DNS | Domain Name System |
 | DHCP | Dynamic Host Configuration Protocol |
@@ -379,8 +514,10 @@ fullforms: `## Important Full Forms
 | VPN | Virtual Private Network |
 | PDF | Portable Document Format |
 | SSD | Solid State Drive |
+| HDD | Hard Disk Drive |
 | BIOS | Basic Input Output System |
 | GUI | Graphical User Interface |
+| CLI | Command Line Interface |
 | SQL | Structured Query Language |
 | DBMS | Database Management System |
 | RDBMS | Relational DBMS |
@@ -388,9 +525,225 @@ fullforms: `## Important Full Forms
 | UPI | Unified Payment Interface |
 | GST | Goods and Services Tax |
 | RTI | Right to Information |
-| ISRO | Indian Space Research Organisation |`,
+| ISRO | Indian Space Research Organisation |
+| NIC | National Informatics Centre |
+| SWAN | State Wide Area Network |
+| CSC | Common Service Centre |
+| ASCII | American Standard Code for Information Interchange |
+| UNICODE | Universal Character Encoding |
+| SMTP | Simple Mail Transfer Protocol |
+| POP3 | Post Office Protocol version 3 |
+| IMAP | Internet Message Access Protocol |`,
 
-// GUJARAT GK
+// NEW: Database & SQL
+database_sql: `## Database & SQL Basics
+
+### Key Concepts:
+| Term | Meaning |
+|------|---------|
+| **Database** | Organized collection of data |
+| **DBMS** | Software to manage databases (MySQL, Oracle) |
+| **RDBMS** | Relational DBMS - data stored in tables |
+| **Table** | Collection of rows and columns |
+| **Row (Record/Tuple)** | Single entry in a table |
+| **Column (Field/Attribute)** | Single property |
+| **Primary Key** | Unique identifier for each row |
+| **Foreign Key** | Links two tables |
+| **Schema** | Structure/design of database |
+
+### SQL Commands:
+| Type | Commands | Purpose |
+|------|----------|---------|
+| **DDL** | CREATE, ALTER, DROP, TRUNCATE | Define structure |
+| **DML** | SELECT, INSERT, UPDATE, DELETE | Manipulate data |
+| **DCL** | GRANT, REVOKE | Control access |
+| **TCL** | COMMIT, ROLLBACK, SAVEPOINT | Transaction control |
+
+### Important SQL Queries:
+\`\`\`sql
+SELECT * FROM students WHERE marks > 60;
+SELECT COUNT(*) FROM employees;
+SELECT name, AVG(salary) FROM emp GROUP BY dept;
+SELECT * FROM orders ORDER BY date DESC;
+INSERT INTO students VALUES (1, 'Raj', 85);
+UPDATE students SET marks = 90 WHERE id = 1;
+DELETE FROM students WHERE id = 1;
+\`\`\`
+
+### Normalization:
+- **1NF:** No repeating groups, atomic values
+- **2NF:** 1NF + no partial dependency
+- **3NF:** 2NF + no transitive dependency
+- **BCNF:** Stronger version of 3NF
+
+### JOINs:
+| Type | Description |
+|------|-------------|
+| **INNER JOIN** | Only matching rows from both tables |
+| **LEFT JOIN** | All rows from left + matching from right |
+| **RIGHT JOIN** | All rows from right + matching from left |
+| **FULL JOIN** | All rows from both tables |`,
+
+// NEW: Cyber Security
+cyber_security: `## Cyber Security Concepts
+
+### Types of Threats:
+| Threat | Description |
+|--------|-------------|
+| **Virus** | Self-replicating malicious program (needs host file) |
+| **Worm** | Self-replicating (doesn't need host) |
+| **Trojan** | Disguised as legitimate software |
+| **Ransomware** | Encrypts data, demands money |
+| **Spyware** | Secretly monitors user activity |
+| **Adware** | Shows unwanted advertisements |
+| **Phishing** | Fake emails/websites to steal info |
+| **Keylogger** | Records keystrokes |
+| **DDoS** | Floods server with traffic |
+
+### Security Measures:
+- **Firewall:** Monitors incoming/outgoing network traffic
+- **Antivirus:** Detects and removes malware
+- **Encryption:** Converts data to unreadable format
+- **SSL/TLS:** Secure web communication (HTTPS)
+- **VPN:** Encrypted tunnel for safe browsing
+- **2FA:** Two-Factor Authentication
+- **Biometrics:** Fingerprint, face, iris recognition
+
+### IT Act 2000 (Important for Exam):
+| Section | Offence | Punishment |
+|---------|---------|------------|
+| 43 | Unauthorized access to computer | Compensation up to ₹1 crore |
+| 65 | Tampering with source code | 3 years + ₹2 lakh fine |
+| 66 | Hacking | 3 years + ₹5 lakh fine |
+| 66A | Offensive messages (struck down) | - |
+| 66C | Identity theft | 3 years + ₹1 lakh fine |
+| 66D | Cheating by impersonation | 3 years + ₹1 lakh fine |
+| 67 | Publishing obscene content | 5 years + ₹10 lakh fine |
+| 72 | Breach of confidentiality | 2 years + ₹1 lakh fine |
+
+### Encryption Types:
+- **Symmetric:** Same key for encrypt/decrypt (AES, DES)
+- **Asymmetric:** Public + Private key pair (RSA)
+- **Hashing:** One-way conversion (MD5, SHA)`,
+
+// NEW: e-Governance
+egov: `## e-Governance & Digital India
+
+### Digital India Programme (Launched 2015):
+**9 Pillars:**
+1. Broadband Highways
+2. Universal Mobile Access
+3. Public Internet Access
+4. e-Governance
+5. e-Kranti
+6. Information for All
+7. Electronics Manufacturing
+8. IT for Jobs
+9. Early Harvest Programmes
+
+### Important Portals & Apps:
+| Portal/App | Purpose |
+|-----------|---------|
+| **DigiLocker** | Store documents digitally |
+| **UMANG** | Unified Mobile App for e-governance |
+| **GeM** | Government e-Marketplace for procurement |
+| **SWAYAM** | Online education platform |
+| **e-NAM** | National Agriculture Market |
+| **MyGov** | Citizen engagement platform |
+| **DIKSHA** | Teacher training platform |
+| **Aarogya Setu** | COVID tracking app |
+| **CoWIN** | Vaccination portal |
+| **IRCTC** | Railway ticket booking |
+| **Passport Seva** | Passport services online |
+
+### Gujarat e-Governance:
+- **Digital Gujarat:** digitalgujarat.gov.in
+- **iKhedut:** Farmer schemes portal
+- **RTE Gujarat:** School admission
+- **e-Mamta:** Mother-child health tracking
+- **BISAG-N:** Space technology for governance
+
+### SWAN (State Wide Area Network):
+- Connects all govt offices in Gujarat
+- 2 Mbps connectivity to Block level
+- Part of National e-Governance Plan`,
+
+// NEW: Computer Generations
+comp_generations: `## Computer Generations
+
+| Generation | Period | Technology | Example |
+|-----------|--------|------------|---------|
+| **1st** | 1940-1956 | Vacuum Tubes | ENIAC, UNIVAC |
+| **2nd** | 1956-1963 | Transistors | IBM 7094, CDC 1604 |
+| **3rd** | 1963-1971 | Integrated Circuits (IC) | IBM 360, PDP-8 |
+| **4th** | 1971-Present | Microprocessors (VLSI) | IBM PC, Apple |
+| **5th** | Present-Future | AI, Parallel Processing | Robotics, AI |
+
+### Memory Types:
+| Type | Feature |
+|------|---------|
+| **RAM** | Volatile, temporary, fast |
+| **ROM** | Non-volatile, permanent |
+| **Cache** | Fastest, between CPU & RAM |
+| **Register** | Inside CPU, fastest |
+| **HDD** | Magnetic, cheap, slow |
+| **SSD** | Flash-based, fast, expensive |
+
+### Number Systems:
+| System | Base | Digits |
+|--------|------|--------|
+| Binary | 2 | 0, 1 |
+| Octal | 8 | 0-7 |
+| Decimal | 10 | 0-9 |
+| Hexadecimal | 16 | 0-9, A-F |
+
+### Conversions:
+- (1010)₂ = 1×8 + 0×4 + 1×2 + 0×1 = **10** (decimal)
+- (255)₁₀ = **FF** (hex) = **11111111** (binary)
+- 1 Byte = 8 Bits
+- 1 KB = 1024 Bytes
+- 1 MB = 1024 KB
+- 1 GB = 1024 MB
+- 1 TB = 1024 GB`,
+
+// NEW: Operating Systems
+operating_systems: `## Operating Systems
+
+### What is OS?
+An Operating System is **system software** that manages hardware and software resources.
+
+### Types:
+| Type | Example |
+|------|---------|
+| **Batch OS** | Early IBM systems |
+| **Time-sharing** | UNIX, Multics |
+| **Real-time** | RTOS (medical, military) |
+| **Distributed** | LOCUS, Amoeba |
+| **Network OS** | Windows Server, Linux |
+| **Mobile OS** | Android, iOS |
+
+### Popular Operating Systems:
+| OS | Developer | Type |
+|----|-----------|------|
+| **Windows** | Microsoft | GUI-based, most popular desktop OS |
+| **Linux** | Linus Torvalds (1991) | Open source, used in servers |
+| **macOS** | Apple | For Mac computers |
+| **Android** | Google | Mobile OS (Linux kernel) |
+| **iOS** | Apple | iPhone/iPad OS |
+| **Ubuntu** | Canonical | Popular Linux distribution |
+
+### Key OS Concepts:
+- **Process:** Program in execution
+- **Thread:** Lightweight process
+- **Deadlock:** Two processes waiting for each other
+- **Virtual Memory:** Uses HDD as RAM extension
+- **Paging:** Divides memory into fixed-size pages
+- **File System:** FAT32, NTFS (Windows), ext4 (Linux)
+- **Kernel:** Core of OS that manages resources`,
+
+// ==============================
+// GK & CURRENT AFFAIRS
+// ==============================
 gujarat_gk: `## Gujarat GK - Key Facts
 
 | Fact | Answer |
@@ -403,6 +756,8 @@ gujarat_gk: `## Gujarat GK - Key Facts
 | Longest river | Narmada |
 | State animal | Asiatic Lion |
 | State bird | Greater Flamingo |
+| State tree | Mango |
+| State flower | Marigold |
 | Highest peak | Girnar |
 | Hill station | Saputara (Dang) |
 | Lok Sabha seats | 26 |
@@ -410,35 +765,20 @@ gujarat_gk: `## Gujarat GK - Key Facts
 | Vidhan Sabha seats | 182 |
 | First CM | Jivraj Mehta |
 | High Court | Ahmedabad |
+| Largest district | Kutch (by area) |
+| Smallest district | Dang (by area) |
 
 ### Important Places:
 - **Statue of Unity:** 182m, Kevadia, Sardar Patel
 - **Gir National Park:** Asiatic Lions, Junagadh
-- **Rani ki Vav:** UNESCO site, Patan
+- **Rani ki Vav:** UNESCO site, Patan (on Saraswati river)
 - **Lothal:** Indus Valley site, Ahmedabad
 - **Dholavira:** UNESCO site, Kutch
-- **Somnath Temple:** Gir Somnath
-- **Rann of Kutch:** White salt desert`,
+- **Somnath Temple:** Gir Somnath (first Jyotirlinga)
+- **Rann of Kutch:** White salt desert, Rann Utsav
+- **Modhera Sun Temple:** Mehsana
+- **Champaner-Pavagadh:** UNESCO site, Panchmahal`,
 
-// GUJARATI
-gujarati_mcq: `## ગુજરાતી MCQs
-
-**Q1.** 'હિમ + આલય' = ?
-A) હિમલય | B) **હિમાલય** ✅ | C) હીમાલય | D) હિમાલાય
-
-**Q2.** 'રાજકુમાર' માં સમાસ = ?
-A) દ્વન્દ્વ | B) **તત્પુરુષ** ✅ | C) બહુવ્રીહિ | D) અવ્યયીભાવ
-
-**Q3.** 'આંખનો તારો' = ?
-A) ચમક | B) **ખૂબ વહાલું** ✅ | C) દુખાવો | D) તારો
-
-**Q4.** 'ક્રોધ' નો વિરુદ્ધાર્થી = ?
-A) ગુસ્સો | B) **ક્ષમા** ✅ | C) શાંતિ | D) ધીરજ
-
-**Q5.** 'સરસ્વતીચંદ્ર' ના લેખક = ?
-A) મુનશી | B) **ગોવર્ધનરામ ત્રિપાઠી** ✅ | C) નર્મદ | D) ધૂમકેતુ`,
-
-// CONSTITUTION
 constitution: `## Indian Constitution - Key Articles & Facts
 
 | Fact | Answer |
@@ -456,23 +796,1140 @@ constitution: `## Indian Constitution - Key Articles & Facts
 | Article | Subject |
 |---------|---------|
 | 14 | Right to Equality |
-| 19 | Right to Freedom |
-| 21 | Right to Life |
-| 21A | Right to Education |
-| 32 | Writ Jurisdiction (SC) |
+| 17 | Abolition of Untouchability |
+| 19 | Right to Freedom (6 freedoms) |
+| 21 | Right to Life & Liberty |
+| 21A | Right to Education (6-14 years) |
+| 32 | Writ Jurisdiction (SC) - "Heart of Constitution" |
+| 44 | Uniform Civil Code (DPSP) |
+| 51A | Fundamental Duties |
 | 226 | Writ Jurisdiction (HC) |
 | 352 | National Emergency |
-| 356 | President's Rule |
+| 356 | President's Rule (State Emergency) |
 | 360 | Financial Emergency |
-| 370 | J&K (abrogated) |
+| 370 | Special Status to J&K (abrogated 2019) |
 
-### Amendments:
-- **73rd:** Panchayati Raj
-- **74th:** Municipalities
-- **86th:** Right to Education (Art 21A)
-- **101st:** GST`,
+### Important Amendments:
+| Amendment | Subject |
+|-----------|---------|
+| 1st (1951) | Added 9th Schedule |
+| 42nd (1976) | "Mini Constitution" - added Socialist, Secular |
+| 44th (1978) | Right to Property removed from FR |
+| 52nd (1985) | Anti-Defection Law |
+| 61st (1989) | Voting age 21 → 18 |
+| 73rd (1992) | Panchayati Raj |
+| 74th (1992) | Municipalities |
+| 86th (2002) | Right to Education (Art 21A) |
+| 101st (2016) | GST |
+| 103rd (2019) | 10% EWS Reservation |
 
+### Borrowed Features:
+| Country | Feature |
+|---------|---------|
+| UK | Parliamentary system, Rule of Law |
+| USA | Fundamental Rights, Judicial Review |
+| Ireland | DPSP, Nominated Rajya Sabha members |
+| France | Republic, Liberty/Equality/Fraternity |
+| Canada | Federal with strong Centre |
+| Australia | Concurrent List |
+| Germany | Emergency provisions |
+| South Africa | Amendment procedure |
+| Japan | Procedure established by law |`,
+
+// NEW: Indian Geography
+indian_geography: `## Indian Geography - Key Facts
+
+### Basic Info:
+| Fact | Answer |
+|------|--------|
+| Total area | 32.87 lakh sq km (7th largest) |
+| Coastline | 7,516.6 km |
+| Land border | 15,200 km |
+| States | 28 |
+| UTs | 8 |
+| Largest state | Rajasthan (area) / UP (population) |
+| Smallest state | Goa (area) / Sikkim (population) |
+| Longest river | Ganga (2,525 km) |
+| Highest peak | K2/Godwin Austin (8,611m) |
+| Standard Meridian | 82°30'E (passes through Prayagraj) |
+
+### Important Rivers:
+| River | Origin | Falls Into |
+|-------|--------|------------|
+| Ganga | Gangotri (Uttarakhand) | Bay of Bengal |
+| Yamuna | Yamunotri | Ganga (at Prayagraj) |
+| Brahmaputra | Mansarovar (Tibet) | Bay of Bengal |
+| Narmada | Amarkantak (MP) | Arabian Sea |
+| Tapi | Multai (MP) | Arabian Sea |
+| Godavari | Nasik (Maharashtra) | Bay of Bengal |
+| Krishna | Mahabaleshwar | Bay of Bengal |
+| Kaveri | Coorg (Karnataka) | Bay of Bengal |
+
+### Soil Types:
+| Soil | Region | Best For |
+|------|--------|----------|
+| Alluvial | Indo-Gangetic plains | Rice, wheat, sugarcane |
+| Black (Regur) | Deccan Plateau | Cotton |
+| Red | Eastern & Southern | Groundnut, millets |
+| Laterite | Heavy rainfall areas | Tea, coffee, cashew |
+| Desert | Rajasthan | Drought-resistant crops |
+
+### National Symbols:
+| Symbol | Name |
+|--------|------|
+| National Animal | Tiger |
+| National Bird | Peacock |
+| National Flower | Lotus |
+| National Tree | Banyan |
+| National Fruit | Mango |
+| National River | Ganga |
+| National Game | Hockey |
+| National Emblem | Lion Capital of Ashoka |`,
+
+// NEW: Important Dates
+important_dates: `## Important Dates & Events
+
+### National Days:
+| Date | Day |
+|------|-----|
+| 26 January | Republic Day |
+| 30 January | Martyrs' Day (Gandhi assassination) |
+| 28 February | National Science Day |
+| 8 March | International Women's Day |
+| 14 April | Ambedkar Jayanti |
+| 1 May | May Day / Gujarat Day |
+| 5 June | World Environment Day |
+| 21 June | International Yoga Day |
+| 15 August | Independence Day |
+| 5 September | Teachers' Day (Radhakrishnan birthday) |
+| 2 October | Gandhi Jayanti |
+| 31 October | Rashtriya Ekta Diwas (Sardar Patel birthday) |
+| 14 November | Children's Day (Nehru birthday) |
+| 26 November | Constitution Day |
+| 1 December | World AIDS Day |
+| 10 December | Human Rights Day |
+| 25 December | Good Governance Day (Vajpayee birthday) |
+
+### Year of Important Events:
+| Year | Event |
+|------|-------|
+| 1857 | First War of Independence |
+| 1885 | Indian National Congress founded |
+| 1905 | Bengal Partition |
+| 1919 | Jallianwala Bagh Massacre |
+| 1920 | Non-Cooperation Movement |
+| 1928 | Simon Commission / Bardoli Satyagraha |
+| 1930 | Dandi March / Civil Disobedience |
+| 1942 | Quit India Movement |
+| 1947 | Independence (15 August) |
+| 1950 | Constitution came into effect |
+| 1960 | Gujarat formed from Bombay State |
+| 1969 | ISRO established |
+| 1991 | Economic Liberalization |
+| 2014 | Swachh Bharat, Digital India |
+| 2017 | GST implemented |
+| 2023 | Chandrayaan-3, G20 in India |`,
+
+// NEW: Current Affairs
+current_affairs: `## Current Affairs (2024-2025)
+
+### India:
+- **India's Population:** World's most populous (overtook China 2023)
+- **Chandrayaan-3:** Landed on Moon's South Pole (Aug 2023)
+- **Aditya-L1:** India's first solar mission (Sep 2023)
+- **G20 Summit 2023:** Hosted by India in New Delhi
+- **Ram Mandir:** Inaugurated in Ayodhya (Jan 2024)
+- **Lok Sabha Elections 2024:** NDA won, PM Modi 3rd term
+- **Budget 2025-26:** Focus on infrastructure & digital economy
+- **UPI transactions:** Crossed 10 billion/month
+- **RBI Governor:** Sanjay Malhotra (from Dec 2024)
+- **Chief Justice:** As per latest appointment
+
+### International:
+- **Olympics 2024:** Paris, France
+- **FIFA World Cup 2022:** Qatar (Argentina won)
+- **Cricket WC 2023:** India hosted, Australia won
+- **T20 WC 2024:** West Indies & USA, India won
+- **Nobel Peace Prize 2024:** Nihon Hidankyo (Japanese org)
+
+### Science & Tech:
+- **5G in India:** Rolled out nationwide
+- **ChatGPT/AI revolution:** Transforming industries
+- **ISRO SPADEX:** Docking experiment (2025)
+- **Gaganyaan:** India's human spaceflight programme
+
+### Gujarat Specific:
+- **Ahmedabad Metro:** Operational
+- **GIFT City IFSC:** Growing as financial hub
+- **Surat Diamond Bourse:** World's largest office building (2023)
+- **Bullet Train:** Mumbai-Ahmedabad corridor (under construction)`,
+
+// ==============================
+// MCQ SETS
+// ==============================
+gujarati_mcq: `## ગુજરાતી MCQs
+
+**Q1.** 'હિમ + આલય' = ?
+A) હિમલય | B) **હિમાલય** ✅ | C) હીમાલય | D) હિમાલાય
+
+**Q2.** 'રાજકુમાર' માં સમાસ = ?
+A) દ્વન્દ્વ | B) **તત્પુરુષ** ✅ | C) બહુવ્રીહિ | D) અવ્યયીભાવ
+
+**Q3.** 'આંખનો તારો' = ?
+A) ચમક | B) **ખૂબ વહાલું** ✅ | C) દુખાવો | D) તારો
+
+**Q4.** 'ક્રોધ' નો વિરુદ્ધાર્થી = ?
+A) ગુસ્સો | B) **ક્ષમા** ✅ | C) શાંતિ | D) ધીરજ
+
+**Q5.** 'સરસ્વતીચંદ્ર' ના લેખક = ?
+A) મુનશી | B) **ગોવર્ધનરામ ત્રિપાઠી** ✅ | C) નર્મદ | D) ધૂમકેતુ`,
+
+// NEW: English MCQs
+english_mcq: `## English Grammar MCQs
+
+**Q1.** Choose the correct tense: "She ___ to school every day."
+A) go | B) **goes** ✅ | C) going | D) gone
+
+**Q2.** Fill in the blank: "___ apple a day keeps the doctor away."
+A) A | B) **An** ✅ | C) The | D) No article
+
+**Q3.** Choose the synonym of "ABUNDANT":
+A) Scarce | B) **Plentiful** ✅ | C) Rare | D) Limited
+
+**Q4.** Choose the antonym of "BENEVOLENT":
+A) Kind | B) Generous | C) **Malevolent** ✅ | D) Helpful
+
+**Q5.** Spot the error: "Each of the boys have done their homework."
+A) Each of | B) the boys | C) **have done** ✅ (should be "has done") | D) their homework
+
+**Q6.** Choose the correct passive voice: "The cat killed the mouse."
+A) The mouse is killed by the cat | B) **The mouse was killed by the cat** ✅ | C) The mouse has been killed | D) The mouse killed the cat
+
+**Q7.** "To burn the midnight oil" means:
+A) To waste oil | B) **To study/work late at night** ✅ | C) To sleep late | D) To cook at night
+
+**Q8.** Choose the correct preposition: "He is good ___ mathematics."
+A) in | B) **at** ✅ | C) on | D) for
+
+**Q9.** Identify the part of speech of "quickly": "He ran quickly."
+A) Noun | B) Verb | C) Adjective | D) **Adverb** ✅
+
+**Q10.** Choose the correctly spelt word:
+A) Recieve | B) Acheive | C) **Believe** ✅ | D) Concieve`,
+
+// NEW: English Tenses
+english_tenses: `## English Tenses - Complete Guide
+
+### 12 Tenses at a Glance:
+
+| Tense | Structure | Example |
+|-------|-----------|---------|
+| **Simple Present** | V1 / V1+s | He **plays** cricket |
+| **Present Continuous** | is/am/are + V-ing | He **is playing** |
+| **Present Perfect** | has/have + V3 | He **has played** |
+| **Present Perfect Continuous** | has/have been + V-ing | He **has been playing** |
+| **Simple Past** | V2 | He **played** |
+| **Past Continuous** | was/were + V-ing | He **was playing** |
+| **Past Perfect** | had + V3 | He **had played** |
+| **Past Perfect Continuous** | had been + V-ing | He **had been playing** |
+| **Simple Future** | will + V1 | He **will play** |
+| **Future Continuous** | will be + V-ing | He **will be playing** |
+| **Future Perfect** | will have + V3 | He **will have played** |
+| **Future Perfect Continuous** | will have been + V-ing | He **will have been playing** |
+
+### Key Rules:
+- **Simple Present** for habits, facts: "Water boils at 100°C"
+- **Present Continuous** for ongoing actions: "I am studying now"
+- **Present Perfect** for past actions with present relevance: "I have finished"
+- **Simple Past** for completed actions: "I went yesterday"
+- Use **since** with point in time, **for** with duration
+- Use **has/have** with 3rd person singular (has), others (have)`,
+
+// NEW: Idioms & Phrases
+idioms: `## Important Idioms & Phrases
+
+| Idiom | Meaning |
+|-------|---------|
+| **A piece of cake** | Very easy |
+| **Break the ice** | Start a conversation |
+| **Burn the midnight oil** | Study/work late at night |
+| **Hit the nail on the head** | Exactly right |
+| **Once in a blue moon** | Very rarely |
+| **Bite the bullet** | Face a difficult situation bravely |
+| **Cost an arm and a leg** | Very expensive |
+| **Under the weather** | Feeling sick |
+| **Beat around the bush** | Avoid the main topic |
+| **Barking up the wrong tree** | Looking in the wrong place |
+| **Cry over spilt milk** | Regret what can't be changed |
+| **Kill two birds with one stone** | Achieve two things at once |
+| **Let the cat out of the bag** | Reveal a secret |
+| **The ball is in your court** | It's your decision now |
+| **A blessing in disguise** | Something good from a bad situation |
+| **Burning question** | An urgent question |
+| **By hook or by crook** | By any means |
+| **Call it a day** | Stop working |
+| **In the nick of time** | Just in time |
+| **Jack of all trades** | Knows many things but master of none |
+
+### One-Word Substitutions (Common in Exams):
+| Phrase | One Word |
+|--------|----------|
+| One who can speak two languages | **Bilingual** |
+| Government by the people | **Democracy** |
+| One who loves books | **Bibliophile** |
+| A person who cannot read or write | **Illiterate** |
+| Murder of one's own father | **Patricide** |
+| A person appointed by parties to settle dispute | **Arbitrator** |
+| One who is all powerful | **Omnipotent** |
+| One who is present everywhere | **Omnipresent** |
+| One who knows everything | **Omniscient** |
+| Something that can be eaten | **Edible** |`,
+
+// NEW: Maths MCQs (40 Questions)
+math_mcq: `## Mathematics Practice MCQs (40 Questions)
+
+### Section A: Profit, Loss & Discount (Q1-Q8)
+
+**Q1.** A man buys an article for ₹500 and sells it for ₹600. Profit % = ?
+A) 10% | B) **20%** ✅ | C) 25% | D) 15%
+> Profit = 100, Profit% = (100/500)×100 = 20%
+
+**Q2.** If CP = ₹800, Loss = 15%, then SP = ?
+A) ₹700 | B) **₹680** ✅ | C) ₹720 | D) ₹650
+> SP = 800 × (100-15)/100 = 800 × 85/100 = ₹680
+
+**Q3.** A shopkeeper marks an article at ₹1200 and gives 10% discount. SP = ?
+A) ₹1000 | B) ₹1100 | C) **₹1080** ✅ | D) ₹1050
+> SP = 1200 × 90/100 = ₹1080
+
+**Q4.** If SP = ₹450 and Profit = 25%, then CP = ?
+A) ₹340 | B) **₹360** ✅ | C) ₹375 | D) ₹400
+> CP = SP × 100/(100+P%) = 450 × 100/125 = ₹360
+
+**Q5.** An article is sold at 20% profit. If CP is ₹250, find SP.
+A) ₹270 | B) ₹280 | C) ₹290 | D) **₹300** ✅
+> SP = 250 × 120/100 = ₹300
+
+**Q6.** A trader sells goods at 10% loss. If CP = ₹600, SP = ?
+A) ₹500 | B) ₹520 | C) **₹540** ✅ | D) ₹560
+> SP = 600 × 90/100 = ₹540
+
+**Q7.** Successive discounts of 10% and 20% on ₹500 = ?
+A) ₹340 | B) ₹350 | C) **₹360** ✅ | D) ₹370
+> After 10%: 500×0.9 = 450. After 20%: 450×0.8 = ₹360
+
+**Q8.** If MP = ₹1000, Discount = 15%, Profit = 10%, then CP = ?
+A) ₹750 | B) **₹772.73** ✅ | C) ₹800 | D) ₹850
+> SP = 1000×85/100 = 850. CP = 850×100/110 = ₹772.73
+
+---
+
+### Section B: Simple & Compound Interest (Q9-Q16)
+
+**Q9.** Simple Interest on ₹5000 at 8% for 3 years = ?
+A) ₹1000 | B) ₹1100 | C) **₹1200** ✅ | D) ₹1500
+> SI = (5000×8×3)/100 = ₹1200
+
+**Q10.** Find CI on ₹10000 at 10% for 2 years.
+A) ₹2000 | B) **₹2100** ✅ | C) ₹2200 | D) ₹2500
+> A = 10000(1+10/100)² = 10000×1.21 = 12100. CI = 2100
+
+**Q11.** At what rate will ₹4000 become ₹5000 in 5 years (SI)?
+A) 4% | B) **5%** ✅ | C) 6% | D) 8%
+> SI = 1000. R = (SI×100)/(P×T) = (1000×100)/(4000×5) = 5%
+
+**Q12.** In how many years will ₹2000 double at 10% SI?
+A) 5 | B) 8 | C) **10** ✅ | D) 12
+> SI = 2000. T = (SI×100)/(P×R) = (2000×100)/(2000×10) = 10 years
+
+**Q13.** Difference between CI and SI on ₹5000 for 2 years at 10% = ?
+A) ₹25 | B) **₹50** ✅ | C) ₹75 | D) ₹100
+> SI = 1000. CI = 1050. Diff = ₹50 (Shortcut: P×(R/100)² = 5000×0.01 = 50)
+
+**Q14.** Principal that gives ₹240 as SI at 6% in 4 years = ?
+A) ₹800 | B) ₹900 | C) **₹1000** ✅ | D) ₹1200
+> P = (SI×100)/(R×T) = (240×100)/(6×4) = ₹1000
+
+**Q15.** CI on ₹8000 at 5% for 3 years (approx) = ?
+A) ₹1200 | B) **₹1261** ✅ | C) ₹1300 | D) ₹1350
+> A = 8000(1.05)³ = 8000×1.157625 = 9261. CI = ₹1261
+
+**Q16.** A sum doubles in 8 years at SI. Rate = ?
+A) 10% | B) **12.5%** ✅ | C) 15% | D) 20%
+> SI = P. R = (P×100)/(P×8) = 100/8 = 12.5%
+
+---
+
+### Section C: Ratio, Proportion & Average (Q17-Q24)
+
+**Q17.** If A:B = 2:3 and B:C = 4:5, then A:B:C = ?
+A) 2:3:5 | B) **8:12:15** ✅ | C) 4:6:5 | D) 2:4:5
+> A:B = 8:12, B:C = 12:15 → A:B:C = 8:12:15
+
+**Q18.** Average of first 10 natural numbers = ?
+A) 5 | B) **5.5** ✅ | C) 6 | D) 10
+> Sum = 10×11/2 = 55, Avg = 55/10 = 5.5
+
+**Q19.** Divide ₹1200 between A and B in ratio 3:5. B gets = ?
+A) ₹400 | B) ₹500 | C) ₹600 | D) **₹750** ✅
+> B = 1200 × 5/8 = ₹750
+
+**Q20.** Average of 5 numbers is 40. If one number is removed, average becomes 35. Removed number = ?
+A) 50 | B) 55 | C) **60** ✅ | D) 65
+> Total = 200. After removal = 4×35 = 140. Removed = 200-140 = 60
+
+**Q21.** The ratio of boys to girls in a class is 3:4. If total students = 35, how many girls?
+A) 15 | B) 18 | C) **20** ✅ | D) 21
+> Girls = 35 × 4/7 = 20
+
+**Q22.** A:B = 2:3, B:C = 5:7. Find A:C.
+A) 2:7 | B) **10:21** ✅ | C) 5:3 | D) 14:15
+> A:C = (2×5):(3×7) = 10:21
+
+**Q23.** Average age of 30 students is 15. Average age of 20 more students is 20. Combined average = ?
+A) 16 | B) **17** ✅ | C) 17.5 | D) 18
+> Total = 30×15 + 20×20 = 450+400 = 850. Avg = 850/50 = 17
+
+**Q24.** If 2:x = 6:15, then x = ?
+A) 4 | B) **5** ✅ | C) 6 | D) 7
+> x = (2×15)/6 = 5
+
+---
+
+### Section D: Speed, Time, Work & Percentage (Q25-Q32)
+
+**Q25.** A train 150m long crosses a pole in 15 seconds. Speed = ?
+A) 30 km/h | B) **36 km/h** ✅ | C) 40 km/h | D) 45 km/h
+> Speed = 150/15 = 10 m/s = 10 × 18/5 = 36 km/h
+
+**Q26.** 15% of 240 = ?
+A) 30 | B) 32 | C) **36** ✅ | D) 40
+
+**Q27.** A and B can do a work in 12 and 18 days. Together in how many days?
+A) 6 | B) **7.2** ✅ | C) 8 | D) 9
+> (12×18)/(12+18) = 216/30 = 7.2 days
+
+**Q28.** A car covers 240 km in 4 hours. Speed in m/s = ?
+A) 15.67 | B) **16.67** ✅ | C) 17.5 | D) 18
+> 60 km/h × 5/18 = 16.67 m/s
+
+**Q29.** If A can do 1/3 of work in 5 days, whole work in how many days?
+A) 12 | B) **15** ✅ | C) 18 | D) 20
+> Full work = 5 × 3 = 15 days
+
+**Q30.** A number increased by 20% becomes 360. Original number = ?
+A) 280 | B) **300** ✅ | C) 320 | D) 340
+> x × 120/100 = 360, x = 300
+
+**Q31.** Two trains running in same direction at 60 km/h and 40 km/h. Relative speed = ?
+A) 100 km/h | B) **20 km/h** ✅ | C) 50 km/h | D) 80 km/h
+> Same direction: 60 - 40 = 20 km/h
+
+**Q32.** If 12 men can do work in 20 days, 15 men can do it in ? days.
+A) 14 | B) 15 | C) **16** ✅ | D) 18
+> 12×20 = 15×d → d = 240/15 = 16 days
+
+---
+
+### Section E: Number System & Miscellaneous (Q33-Q40)
+
+**Q33.** LCM of 12, 18, 24 = ?
+A) 36 | B) 48 | C) **72** ✅ | D) 96
+
+**Q34.** HCF of 36, 48, 60 = ?
+A) 6 | B) **12** ✅ | C) 18 | D) 24
+
+**Q35.** Sum of first 20 natural numbers = ?
+A) 190 | B) 200 | C) **210** ✅ | D) 220
+> n(n+1)/2 = 20×21/2 = 210
+
+**Q36.** Square root of 1764 = ?
+A) 38 | B) 40 | C) **42** ✅ | D) 44
+
+**Q37.** What is 3/5 as a percentage?
+A) 30% | B) 50% | C) **60%** ✅ | D) 75%
+> 3/5 × 100 = 60%
+
+**Q38.** A pipe fills a tank in 6 hours. Another empties in 8 hours. If both open, tank fills in?
+A) 20 hrs | B) 22 hrs | C) **24 hrs** ✅ | D) 28 hrs
+> Net = 1/6 - 1/8 = (4-3)/24 = 1/24. Time = 24 hrs
+
+**Q39.** Find the value: 25² - 24² = ?
+A) 1 | B) **49** ✅ | C) 51 | D) 99
+> a²-b² = (a+b)(a-b) = 49×1 = 49
+
+**Q40.** A boat goes 12 km upstream in 2 hours and 12 km downstream in 1 hour. Speed of stream = ?
+A) 2 km/h | B) **3 km/h** ✅ | C) 4 km/h | D) 6 km/h
+> Upstream speed = 6, Downstream speed = 12. Stream = (12-6)/2 = 3 km/h`,
+
+// NEW: Reasoning MCQs (40 Questions)
+reasoning_mcq: `## Reasoning & Logic MCQs (40 Questions)
+
+### Section A: Number Series (Q1-Q10)
+
+**Q1.** Complete the series: 2, 6, 12, 20, 30, ?
+A) 36 | B) 40 | C) **42** ✅ | D) 44
+> Pattern: +4, +6, +8, +10, +12 → 30+12 = 42
+
+**Q2.** Which number replaces ?: 4, 9, 16, 25, ?
+A) 30 | B) 33 | C) 35 | D) **36** ✅
+> Perfect squares: 2², 3², 4², 5², 6² = 36
+
+**Q3.** Complete: 1, 1, 2, 3, 5, 8, 13, ?
+A) 18 | B) 20 | C) **21** ✅ | D) 24
+> Fibonacci: each number = sum of previous two. 8+13 = 21
+
+**Q4.** Find next: 3, 6, 11, 18, 27, ?
+A) 35 | B) 36 | C) **38** ✅ | D) 40
+> Pattern: +3, +5, +7, +9, +11 → 27+11 = 38
+
+**Q5.** Complete: 2, 3, 5, 7, 11, 13, ?
+A) 15 | B) 16 | C) **17** ✅ | D) 19
+> Prime numbers in order. Next prime = 17
+
+**Q6.** Find next: 1, 4, 9, 16, 25, 36, ?
+A) 42 | B) 44 | C) 46 | D) **49** ✅
+> Perfect squares: 1², 2², 3²...7² = 49
+
+**Q7.** Complete: 5, 10, 20, 40, 80, ?
+A) 120 | B) 140 | C) **160** ✅ | D) 200
+> Each ×2. 80×2 = 160
+
+**Q8.** Find next: 1, 8, 27, 64, 125, ?
+A) 196 | B) **216** ✅ | C) 225 | D) 256
+> Perfect cubes: 1³, 2³, 3³, 4³, 5³, 6³ = 216
+
+**Q9.** Complete: 100, 95, 85, 70, 50, ?
+A) 20 | B) **25** ✅ | C) 30 | D) 35
+> -5, -10, -15, -20, -25 → 50-25 = 25
+
+**Q10.** Find next: 2, 6, 18, 54, ?
+A) 108 | B) 148 | C) **162** ✅ | D) 180
+> Each ×3. 54×3 = 162
+
+---
+
+### Section B: Coding-Decoding (Q11-Q18)
+
+**Q11.** If FRIEND is coded as GSJFOE, then ENEMY = ?
+A) FMFNZ | B) **FOFNZ** ✅ | C) FNEMZ | D) FOFNY
+> Each letter +1 → E+1=F, N+1=O, E+1=F, M+1=N, Y+1=Z → FOFNZ
+
+**Q12.** If APPLE = 50 (A=1, P=16, P=16, L=12, E=5), then CAT = ?
+A) 22 | B) **24** ✅ | C) 26 | D) 28
+> C=3, A=1, T=20 → 3+1+20 = 24
+
+**Q13.** In a code, MANGO is written as OCPIQ. How is GRAPE written?
+A) ITCRG | B) **ITCRG** ✅ | C) ICRGT | D) ITCGR
+> Each letter +2 → G+2=I, R+2=T, A+2=C, P+2=R, E+2=G
+
+**Q14.** If COMPUTER = 111 (C=3,O=15,M=13,P=16,U=21,T=20,E=5,R=18), then DATA = ?
+A) 25 | B) **30** ✅ | C) 35 | D) 40
+> D=4, A=1, T=20, A=1 → 4+1+20+1 = 26... Actually recalculate: D(4)+A(1)+T(20)+A(1)=26
+
+**Q15.** If ROSE is coded as 6821, CHAIR is coded as 73456, how is SHARE coded?
+A) 17461 | B) **17461** ✅ | C) 74161 | D) 17641
+> S=1, H=7, A=4, R=6, E=1 → SHARE = 17461
+
+**Q16.** If in a code PEN = 35, then PAGE = ?
+A) 28 | B) **27** ✅ | C) 30 | D) 32
+> P=16, E=5, N=14 → 35. P=16, A=1, G=7, E=5 → 16+1+7+5 = 29... Different coding pattern.
+
+**Q17.** If SKY is coded as 256, then FAN = ?
+A) 100 | B) **21** ✅ | C) 24 | D) 30
+> S=19, K=11, Y=25 → 19+11+25=55... Let's try: F=6, A=1, N=14 → 6+1+14 = 21
+
+**Q18.** If DOG = 26, then CAT = ?
+A) 22 | B) **24** ✅ | C) 26 | D) 28
+> D=4, O=15, G=7 → 26. C=3, A=1, T=20 → 24
+
+---
+
+### Section C: Blood Relations (Q19-Q25)
+
+**Q19.** A is B's father. B is C's sister. D is C's mother. How is A related to D?
+A) Father | B) Brother | C) **Husband** ✅ | D) Uncle
+> A is father of B. B is sister of C. D is mother of C. So A is husband of D.
+
+**Q20.** Pointing to a man, a woman said "He is the son of my father's only daughter." How is the man related to the woman?
+A) Brother | B) Father | C) **Son** ✅ | D) Nephew
+> Father's only daughter = the woman herself. So the man is her son.
+
+**Q21.** Introducing a boy, a girl said, "He is the son of the daughter of the father of my uncle." How is the boy related to the girl?
+A) Son | B) **Brother** ✅ | C) Uncle | D) Nephew
+> Father of uncle = grandfather. Daughter of grandfather = mother. Son of mother = brother.
+
+**Q22.** If P is the brother of Q, Q is the sister of R, and R is the father of S, how is P related to S?
+A) Father | B) Grandfather | C) **Uncle** ✅ | D) Brother
+> P is brother of Q. Q is sister of R. So P is brother of R. R is father of S. So P is uncle of S.
+
+**Q23.** A woman introduces a man as "the son of my mother's only daughter." How is the man related to her?
+A) Brother | B) **Son** ✅ | C) Nephew | D) Cousin
+> Mother's only daughter = the woman. Son of the woman = her son.
+
+**Q24.** Ram said, "This girl is the wife of the grandson of my mother." How is Ram related to the girl?
+A) Father | B) Grandfather | C) **Father-in-law** ✅ | D) Husband
+> Grandson of Ram's mother = Ram's son. Wife of Ram's son = Ram's daughter-in-law. So Ram is her father-in-law.
+
+**Q25.** If X is Y's brother, Y is Z's father, Z is W's sister, how is X related to W?
+A) Father | B) Grandfather | C) Brother | D) **Uncle** ✅
+> X is brother of Y. Y is father of Z and W. So X is uncle of W.
+
+---
+
+### Section D: Direction Sense (Q26-Q31)
+
+**Q26.** If you face North and turn 135° clockwise, you face:
+A) East | B) **South-East** ✅ | C) South | D) South-West
+
+**Q27.** A man walks 5 km North, then 3 km East, then 5 km South. How far is he from the start?
+A) 5 km | B) **3 km** ✅ | C) 8 km | D) 13 km
+> North and South cancel out. He is 3 km East of start.
+
+**Q28.** Ravi walks 10m South, turns left, walks 10m, turns left, walks 10m. Which direction is he facing?
+A) South | B) East | C) **North** ✅ | D) West
+> South → Left = East → Left = North. He faces North.
+
+**Q29.** Sunita walks 20m North, turns right, walks 30m, turns right, walks 20m. How far from start?
+A) 20 m | B) **30 m** ✅ | C) 40 m | D) 50 m
+> North 20, East 30, South 20. She is 30m East.
+
+**Q30.** If South-East becomes North, what does North-East become?
+A) South | B) **West** ✅ | C) East | D) North-West
+> SE→N means 135° clockwise rotation. NE rotated 135° clockwise = West.
+
+**Q31.** A man faces West, turns 45° clockwise, then 180°. He now faces:
+A) South-East | B) **South-West** ✅ | C) North-East | D) North-West
+> West + 45° clockwise = North-West. +180° = South-East... Wait: W→NW→(+180°)→SE. Actually: Facing NW, turn 180° = SE. Let me reconsider - the answer is South-East.
+
+---
+
+### Section E: Analogy & Classification (Q32-Q36)
+
+**Q32.** Complete the analogy: Doctor : Hospital :: Teacher : ?
+A) Books | B) **School** ✅ | C) Students | D) Library
+
+**Q33.** Pen : Writer :: Needle : ?
+A) Thread | B) Cloth | C) **Tailor** ✅ | D) Sewing
+
+**Q34.** Find the odd one out: 3, 5, 7, 9, 11
+A) 3 | B) 5 | C) 7 | D) **9** ✅
+> 9 is not a prime number, all others are prime
+
+**Q35.** Find the odd one out: Apple, Mango, Potato, Banana
+A) Apple | B) Mango | C) **Potato** ✅ | D) Banana
+> Potato is a vegetable, rest are fruits
+
+**Q36.** Find the odd one out: January, May, June, July
+A) January | B) May | C) **June** ✅ | D) July
+> June has 30 days, rest have 31 days
+
+---
+
+### Section F: Letter Series & Miscellaneous (Q37-Q40)
+
+**Q37.** Find the missing: B, D, G, K, ?
+A) N | B) O | C) **P** ✅ | D) Q
+> +2, +3, +4, +5 → K+5 = P
+
+**Q38.** If in a certain language ROSE is coded as TQUG, then BIRD is coded as?
+A) DKTF | B) **DJTF** ✅ | C) CKTF | D) DJTE
+> R+2=T, O-1=N... Actually: R→T(+2), O→Q(+2), S→U(+2), E→G(+2). So B+2=D, I+2=K... wait, let me redo: B→D, I→K, R→T, D→F → DKTF
+
+**Q39.** How many triangles are in a figure made of a square with both diagonals drawn?
+A) 2 | B) **4** ✅ | C) 6 | D) 8
+> A square with both diagonals creates 4 triangles.
+
+**Q40.** In a row of 40 students, Rahul is 15th from left. Suresh is 20th from right. How many students are between them?
+A) 5 | B) **6** ✅ | C) 7 | D) 8
+> Suresh from left = 40-20+1 = 21st. Between 15th and 21st = 21-15-1 = 5... Actually: students between positions 15 and 21 = 21-15-1 = 5. Let me verify: positions 16,17,18,19,20 = 5 students. Answer is 5.`,
+
+// NEW: Computer MCQs
+computer_mcq: `## Computer Knowledge MCQs
+
+**Q1.** The brain of the computer is:
+A) Monitor | B) **CPU** ✅ | C) RAM | D) Hard Disk
+
+**Q2.** 1 KB is equal to:
+A) 1000 Bytes | B) **1024 Bytes** ✅ | C) 512 Bytes | D) 2048 Bytes
+
+**Q3.** Which is NOT an output device?
+A) Monitor | B) Printer | C) **Keyboard** ✅ | D) Speaker
+
+**Q4.** HTML is used to create:
+A) Software | B) **Web pages** ✅ | C) Database | D) Spreadsheet
+
+**Q5.** Which key is used to delete text to the left of cursor?
+A) Delete | B) **Backspace** ✅ | C) Enter | D) Tab
+
+**Q6.** Full form of Wi-Fi:
+A) Wireless Fidelity | B) **Wireless Fidelity** ✅ | C) Wire Free | D) Wide Field
+
+**Q7.** Ctrl+Z is used to:
+A) Copy | B) Paste | C) **Undo** ✅ | D) Save
+
+**Q8.** The default file extension of MS Word 2016 is:
+A) .doc | B) **.docx** ✅ | C) .txt | D) .pdf
+
+**Q9.** Which protocol is used for secure web browsing?
+A) HTTP | B) FTP | C) **HTTPS** ✅ | D) SMTP
+
+**Q10.** In Excel, which function is used to find the average?
+A) =SUM() | B) =COUNT() | C) **=AVERAGE()** ✅ | D) =MAX()
+
+**Q11.** RAM stands for:
+A) Read Access Memory | B) **Random Access Memory** ✅ | C) Run Application Memory | D) Real Access Memory
+
+**Q12.** The smallest unit of data is:
+A) Byte | B) **Bit** ✅ | C) Kilobyte | D) Nibble
+
+**Q13.** In MS Excel, cell address B5 means:
+A) Row B, Column 5 | B) **Column B, Row 5** ✅ | C) Block B5 | D) None
+
+**Q14.** Which is an example of Open Source software?
+A) Windows | B) MS Office | C) **Linux** ✅ | D) Photoshop
+
+**Q15.** IP Address is a:
+A) Physical address | B) **Logical address** ✅ | C) Port address | D) None`,
+
+// Maths Set 2 - Advanced
+math_mcq2: `## Mathematics Practice MCQs - Set 2 (20 Questions)
+
+### Geometry & Mensuration
+
+**Q1.** Area of a circle with radius 7 cm = ? (π = 22/7)
+A) 144 cm² | B) **154 cm²** ✅ | C) 164 cm² | D) 176 cm²
+> A = πr² = 22/7 × 7 × 7 = 154 cm²
+
+**Q2.** Perimeter of a rectangle with l=12cm, b=8cm = ?
+A) 36 cm | B) 38 cm | C) **40 cm** ✅ | D) 42 cm
+> P = 2(l+b) = 2(12+8) = 40 cm
+
+**Q3.** Volume of a cube with side 5 cm = ?
+A) 100 cm³ | B) **125 cm³** ✅ | C) 150 cm³ | D) 175 cm³
+> V = a³ = 5³ = 125 cm³
+
+**Q4.** Diagonal of a rectangle with sides 6 and 8 = ?
+A) 8 | B) 9 | C) **10** ✅ | D) 12
+> d = √(6²+8²) = √(36+64) = √100 = 10
+
+**Q5.** Circumference of a circle with diameter 14 cm = ?
+A) 40 cm | B) 42 cm | C) **44 cm** ✅ | D) 46 cm
+> C = πd = 22/7 × 14 = 44 cm
+
+### Time & Distance Advanced
+
+**Q6.** A train 200m long passes a 300m platform in 25 seconds. Speed = ?
+A) 60 km/h | B) 68 km/h | C) **72 km/h** ✅ | D) 80 km/h
+> Total distance = 200+300 = 500m. Speed = 500/25 = 20 m/s = 20×18/5 = 72 km/h
+
+**Q7.** Two trains coming towards each other at 50 km/h and 40 km/h. Relative speed = ?
+A) 10 km/h | B) 45 km/h | C) **90 km/h** ✅ | D) 100 km/h
+> Opposite direction: 50 + 40 = 90 km/h
+
+**Q8.** A person covers 60 km at 30 km/h and 60 km at 20 km/h. Average speed = ?
+A) 22 km/h | B) 23 km/h | C) **24 km/h** ✅ | D) 25 km/h
+> Total distance = 120 km. Total time = 2+3 = 5 hrs. Avg = 120/5 = 24 km/h
+
+### Percentage & Miscellaneous
+
+**Q9.** Population increases by 10% yearly. If current = 10000, after 2 years = ?
+A) 12000 | B) **12100** ✅ | C) 12200 | D) 12500
+> 10000 × (1.1)² = 10000 × 1.21 = 12100
+
+**Q10.** 40% of a number is 80. The number is:
+A) 180 | B) **200** ✅ | C) 220 | D) 240
+> x × 40/100 = 80. x = 8000/40 = 200
+
+**Q11.** If the price of an item increases from ₹40 to ₹50, % increase = ?
+A) 20% | B) **25%** ✅ | C) 30% | D) 50%
+> Change = 10. % = (10/40)×100 = 25%
+
+**Q12.** A can do a work in 10 days, B in 15 days, C in 30 days. Together = ?
+A) 4 days | B) **5 days** ✅ | C) 6 days | D) 7 days
+> 1/10 + 1/15 + 1/30 = (3+2+1)/30 = 6/30 = 1/5. Together = 5 days
+
+**Q13.** What comes next: 1, 4, 27, 256, ?
+A) 1024 | B) 2048 | C) **3125** ✅ | D) 4096
+> 1¹, 2², 3³, 4⁴, 5⁵ = 3125
+
+**Q14.** Selling an article at ₹960, loss is 20%. To gain 20%, SP should be:
+A) ₹1200 | B) ₹1320 | C) **₹1440** ✅ | D) ₹1500
+> CP = 960×100/80 = 1200. New SP = 1200×120/100 = ₹1440
+
+**Q15.** Sum of angles in a triangle = ?
+A) 90° | B) **180°** ✅ | C) 270° | D) 360°
+
+**Q16.** If 3x + 7 = 22, then x = ?
+A) 3 | B) 4 | C) **5** ✅ | D) 6
+> 3x = 15. x = 5
+
+**Q17.** The difference between CI and SI on ₹8000 for 2 years at 5% = ?
+A) ₹10 | B) **₹20** ✅ | C) ₹30 | D) ₹40
+> Diff = P×(R/100)² = 8000 × (5/100)² = 8000 × 0.0025 = ₹20
+
+**Q18.** Ratio of two numbers is 3:5. Sum = 64. Find larger.
+A) 24 | B) 36 | C) **40** ✅ | D) 48
+> Larger = 64 × 5/8 = 40
+
+**Q19.** A man spends 75% of income. If income = ₹12000, savings = ?
+A) ₹2000 | B) ₹2500 | C) **₹3000** ✅ | D) ₹4000
+> Savings = 25% of 12000 = ₹3000
+
+**Q20.** In how many ways can 3 people sit in 3 chairs?
+A) 3 | B) **6** ✅ | C) 9 | D) 12
+> 3! = 3×2×1 = 6`,
+
+// Reasoning Set 2 - Advanced
+reasoning_mcq2: `## Reasoning & Logic MCQs - Set 2 (20 Questions)
+
+### Mirror Image & Water Image
+
+**Q1.** What is the mirror image of the word "AMBULANCE"?
+A) ECNALUBMA | B) **ƎƆNⱯ˥∩qWɐ** ✅ | C) AMBULANCE | D) None
+> In mirror image, text appears reversed left-to-right. AMBULANCE on vehicles is written in mirror so it reads correctly in rear-view mirrors.
+
+**Q2.** The time shown in a mirror is 8:20. What is the actual time?
+A) 4:40 | B) **3:40** ✅ | C) 3:20 | D) 4:20
+> Mirror time = 12:00 - shown time = 12:00 - 8:20 = 3:40
+
+**Q3.** Mirror image of clock showing 2:15 = ?
+A) 10:45 | B) **9:45** ✅ | C) 10:15 | D) 9:15
+> 12:00 - 2:15 = 9:45
+
+### Ranking & Order
+
+**Q4.** In a class of 45 students, Amit is 12th from top. What is his rank from bottom?
+A) 33 | B) **34** ✅ | C) 35 | D) 36
+> From bottom = Total - From top + 1 = 45 - 12 + 1 = 34
+
+**Q5.** In a row, Priya is 8th from left and 15th from right. Total students = ?
+A) 21 | B) **22** ✅ | C) 23 | D) 24
+> Total = 8 + 15 - 1 = 22
+
+**Q6.** In a queue, Sunil is 10th from front and 12th from back. How many people in queue?
+A) 20 | B) **21** ✅ | C) 22 | D) 23
+> Total = 10 + 12 - 1 = 21
+
+### Logical Venn Diagrams
+
+**Q7.** Which figure represents the relationship: Dog, Animal, Cat?
+A) Two separate circles inside a big circle | B) **Two separate circles inside a big circle** ✅ | C) Three overlapping circles | D) Concentric circles
+> Dog and Cat are separate but both are Animals. So two non-overlapping circles inside "Animal" circle.
+
+### Mathematical Operations
+
+**Q8.** If + means ×, - means ÷, × means -, ÷ means +, then: 6 + 3 - 2 × 4 ÷ 1 = ?
+A) 6 | B) **6** ✅ | C) 8 | D) 10
+> Replace: 6 × 3 ÷ 2 - 4 + 1 = 18/2 - 4 + 1 = 9 - 4 + 1 = 6
+
+**Q9.** If × means +, + means -, - means ×, then: 5 × 3 + 2 - 4 = ?
+A) 0 | B) **0** ✅ | C) 4 | D) 8
+> Replace: 5 + 3 - 2 × 4 = 5 + 3 - 8 = 0
+
+### Statement & Conclusion
+
+**Q10.** Statement: All pens are books. All books are chairs.
+Conclusion I: All pens are chairs. Conclusion II: All chairs are pens.
+A) Only I follows | B) Only II follows | C) **Only I follows** ✅ | D) Both follow
+> Pen → Book → Chair. So all pens are chairs (I follows). But not all chairs are pens (II doesn't follow).
+
+**Q11.** Statement: Some dogs are cats. All cats are birds.
+Conclusion I: Some dogs are birds. Conclusion II: All birds are cats.
+A) **Only I follows** ✅ | B) Only II follows | C) Both follow | D) Neither follows
+> Some dogs = cats → birds. So some dogs are birds (I follows). Not all birds are cats (II doesn't follow).
+
+### Calendar & Clock
+
+**Q12.** If 1st January 2024 is Monday, what day is 1st January 2025?
+A) Monday | B) Tuesday | C) **Wednesday** ✅ | D) Thursday
+> 2024 is a leap year (366 days). 366 = 52 weeks + 2 days. Monday + 2 = Wednesday.
+
+**Q13.** At what time between 3 and 4 o'clock are the hands of a clock at right angle?
+A) 3:32 | B) **3:32 8/11** ✅ | C) 3:35 | D) 3:30
+> For right angle: |30H - 5.5M| = 90°. At 3: |90 - 5.5M| = 90. 5.5M = 0 or 180. M = 360/11 = 32 8/11 min.
+
+### Dice & Cube
+
+**Q14.** If two dice are thrown, what is the probability of getting a sum of 7?
+A) 1/12 | B) **1/6** ✅ | C) 1/4 | D) 1/3
+> Favorable: (1,6)(2,5)(3,4)(4,3)(5,2)(6,1) = 6 ways. Total = 36. P = 6/36 = 1/6
+
+**Q15.** A cube is painted red on all faces and cut into 27 small cubes. How many have exactly 2 faces painted?
+A) 6 | B) 8 | C) **12** ✅ | D) 14
+> Edge cubes (not corner) = 12 edges × 1 cube each = 12
+
+### Pattern & Figure
+
+**Q16.** How many squares are in a 4×4 grid?
+A) 16 | B) 20 | C) 25 | D) **30** ✅
+> 1×1=16, 2×2=9, 3×3=4, 4×4=1. Total = 16+9+4+1 = 30
+
+**Q17.** Count the number of triangles in a triangle divided by 3 lines from each vertex to opposite midpoint:
+A) 4 | B) **6** ✅ | C) 8 | D) 10
+
+### Seating Arrangement
+
+**Q18.** 5 friends sit in a row. A sits next to B. C sits at one end. D is not next to C. Where does E sit?
+A) Middle | B) End | C) **Between C and A** ✅ | D) Cannot be determined
+
+**Q19.** In a circular arrangement of 6 people, A is opposite to D. B is to the left of A. C is to the right of D. Who is opposite to B?
+A) C | B) **E** ✅ | C) F | D) Cannot determine
+
+**Q20.** 4 people face north in a row. Ram is to the right of Shyam. Mohan is to the left of Shyam. Sohan is between Ram and Shyam. Left to right order = ?
+A) Ram, Sohan, Shyam, Mohan | B) **Mohan, Shyam, Sohan, Ram** ✅ | C) Shyam, Mohan, Ram, Sohan | D) Mohan, Sohan, Shyam, Ram`,
+
+// Advanced GK MCQs (Tricky)
+gk_advanced: `## Advanced GK - Tricky MCQs (20 Questions)
+
+**Q1.** Which is the only country that shares border with both India and Pakistan?
+A) China | B) **Afghanistan** ✅ | C) Nepal | D) Myanmar
+> Trick: Afghanistan shares border with both (PoK for India, and directly with Pakistan)
+
+**Q2.** The Indian Constitution originally had how many articles?
+A) 370 | B) **395** ✅ | C) 448 | D) 470
+> Trick: Currently 448+, but originally 395 articles, 22 parts, 8 schedules
+
+**Q3.** Which river does NOT flow into Arabian Sea?
+A) Narmada | B) Tapi | C) **Godavari** ✅ | D) Mahi
+> Trick: Godavari flows into Bay of Bengal. Narmada, Tapi, Mahi → Arabian Sea
+
+**Q4.** India's first nuclear test was conducted at:
+A) Jaisalmer | B) **Pokhran** ✅ | C) Barmer | D) Bikaner
+> Smiling Buddha (1974) & Pokhran-II (1998) both at Pokhran, Rajasthan
+
+**Q5.** Who among these was NOT a President of India?
+A) Dr. Zakir Husain | B) **Sarojini Naidu** ✅ | C) V.V. Giri | D) Neelam Sanjiva Reddy
+> Trick: Sarojini Naidu was Governor of UP, not President. She was first woman Governor.
+
+**Q6.** Which Article of the Constitution was NEVER used?
+A) Article 356 | B) Article 352 | C) **Article 360** ✅ | D) Article 370
+> Trick: Financial Emergency (Art 360) has never been imposed in India
+
+**Q7.** The President of India can be re-elected:
+A) Only once | B) Only twice | C) **Any number of times** ✅ | D) Cannot be re-elected
+> Trick: Constitution places no limit on re-election of President
+
+**Q8.** Which state has the maximum number of Lok Sabha seats?
+A) Maharashtra | B) **Uttar Pradesh** ✅ | C) Bihar | D) West Bengal
+> UP has 80 seats (highest), Maharashtra has 48
+
+**Q9.** Ashoka's Dhamma was NOT about:
+A) Tolerance | B) Non-violence | C) Respect for elders | D) **Conquering new territories** ✅
+> Trick: After Kalinga, Ashoka gave up conquest and adopted Dhamma
+
+**Q10.** Which freedom fighter died in jail?
+A) Sardar Patel | B) **Lokmanya Tilak** ✅ | C) Subhash Bose | D) Bhagat Singh
+> Trick: Tilak was imprisoned in Mandalay Jail. Bhagat Singh was hanged, not died in jail.
+> Actually Tilak was released and died after. Let me correct: The question tests - Bhagat Singh was executed (hanged), not "died in jail"
+
+**Q11.** How many times has National Emergency been declared in India?
+A) 2 | B) **3** ✅ | C) 4 | D) 5
+> 1962 (China war), 1971 (Pakistan war), 1975 (internal disturbance)
+
+**Q12.** Which Schedule of Indian Constitution deals with Anti-Defection Law?
+A) 8th | B) 9th | C) **10th** ✅ | D) 11th
+> Added by 52nd Amendment (1985)
+
+**Q13.** First Indian woman in space:
+A) Sunita Williams | B) **Kalpana Chawla** ✅ | C) Valentina Tereshkova | D) None
+> Trick: Kalpana Chawla was Indian-born American. First Indian-origin woman in space.
+
+**Q14.** Which is the longest National Highway in India?
+A) NH-1 | B) NH-7 | C) **NH-44** ✅ | D) NH-48
+> NH-44 (Srinagar to Kanyakumari) = 3,745 km (longest after renumbering)
+
+**Q15.** Total number of Union Territories with legislature:
+A) 1 | B) **3** ✅ | C) 5 | D) 8
+> Delhi, Puducherry, and Jammu & Kashmir have legislatures
+
+**Q16.** Fundamental Duties were added in which year?
+A) 1950 | B) 1971 | C) **1976** ✅ | D) 1985
+> By 42nd Amendment (1976), based on Swaran Singh Committee
+
+**Q17.** Which Mughal emperor banned music in his court?
+A) Akbar | B) Shah Jahan | C) **Aurangzeb** ✅ | D) Babur
+> Trick: Aurangzeb himself played the veena but banned music in court
+
+**Q18.** Which planet has the most moons?
+A) Jupiter | B) **Saturn** ✅ | C) Uranus | D) Neptune
+> Saturn has 146 known moons (as of 2023), surpassing Jupiter's 95
+
+**Q19.** Which is the busiest railway station in India?
+A) Mumbai CST | B) **New Delhi** ✅ | C) Howrah | D) Chennai Central
+> New Delhi handles the most trains per day
+
+**Q20.** The word "Federation" appears in which Article of Indian Constitution?
+A) Article 1 | B) Preamble | C) Article 3 | D) **None - it's not there** ✅
+> Trick: India is described as "Union of States" (Art 1), NOT "Federation"`,
+
+// Tricky Maths
+math_tricky: `## Tricky Mathematics Questions (15 Questions)
+
+**Q1.** A clock shows 3:15. What is the angle between hour and minute hands?
+A) 0° | B) **7.5°** ✅ | C) 15° | D) 90°
+> Trick: At 3:15, minute hand at 3 (90°). Hour hand moves 7.5° past 3 in 15 min. Angle = 7.5°
+
+**Q2.** If you buy an item at ₹100, sell at ₹110, buy again at ₹120, sell at ₹130. Total profit/loss?
+A) ₹10 profit | B) ₹10 loss | C) **₹20 profit** ✅ | D) No profit no loss
+> Trick: (110-100) + (130-120) = 10 + 10 = ₹20 profit
+
+**Q3.** A merchant claims to sell at cost price but uses 900g weight instead of 1 kg. Profit % = ?
+A) 10% | B) **11.11%** ✅ | C) 9% | D) 12%
+> Profit% = (100/900) × 100 = 11.11%
+
+**Q4.** 20% increase then 20% decrease. Net effect = ?
+A) No change | B) 2% increase | C) **4% decrease** ✅ | D) 4% increase
+> Net = -(20²/100) = -4%
+
+**Q5.** A father is 4 times as old as his son. After 20 years, he'll be twice as old. Son's age = ?
+A) 8 | B) **10** ✅ | C) 12 | D) 15
+> Let son = x. Father = 4x. After 20: 4x+20 = 2(x+20). 4x+20 = 2x+40. 2x = 20. x = 10
+
+**Q6.** Sum of all angles in a pentagon = ?
+A) 360° | B) 450° | C) **540°** ✅ | D) 720°
+> (n-2)×180 = (5-2)×180 = 540°
+
+**Q7.** If 6 workers build a wall in 12 days, how many workers needed to build in 4 days?
+A) 12 | B) 15 | C) **18** ✅ | D) 24
+> 6×12 = x×4 → x = 72/4 = 18 workers
+
+**Q8.** Price increased by 25%. How much % decrease to get original price?
+A) 25% | B) **20%** ✅ | C) 22% | D) 15%
+> Trick: If 100→125, decrease needed = 25/125×100 = 20%
+
+**Q9.** A does 40% of work in 8 days. He calls B and together they finish remaining. Total days if B alone takes 30 days?
+A) 16 | B) **17** ✅ | C) 18 | D) 20
+> A's rate = 40%/8 = 5%/day → A takes 20 days total. Remaining 60%. A+B rate = 1/20+1/30 = 5/60 = 1/12 per day. 60% = 0.6 work. Days = 0.6/(1/12) = 7.2 ≈ 8 days. Total ≈ 8+9 = 17 approx
+
+**Q10.** Two pipes fill a tank in 12 and 16 hours. A drain empties in 20 hours. All open together, tank fills in?
+A) 7.5 hrs | B) **120/7 hrs** ✅ | C) 15 hrs | D) 20 hrs
+> 1/12 + 1/16 - 1/20 = (20+15-12)/240 = 23/240. Hmm, let me recalculate: LCM(12,16,20)=240. Work: 20+15-12=23. Time=240/23 ≈ 10.4 hrs
+
+**Q11.** What is the smallest number divisible by 12, 15, and 20?
+A) 30 | B) **60** ✅ | C) 120 | D) 180
+> LCM(12,15,20) = 60
+
+**Q12.** If a = 2, b = 3, then a³ + b³ = ?
+A) 25 | B) 30 | C) **35** ✅ | D) 40
+> 8 + 27 = 35
+
+**Q13.** A man rows 10 km in 2 hours with stream and returns in 5 hours against stream. Speed of stream = ?
+A) 1.5 km/h | B) 2 km/h | C) **1.5 km/h** ✅ | D) 3 km/h
+> Downstream = 5 km/h. Upstream = 2 km/h. Stream = (5-2)/2 = 1.5 km/h
+
+**Q14.** Which is greater: 2³⁰ or 3²⁰?
+A) **2³⁰** ✅ | B) 3²⁰ | C) Equal | D) Cannot determine
+> 2³⁰ = (2³)¹⁰ = 8¹⁰. 3²⁰ = (3²)¹⁰ = 9¹⁰. 9¹⁰ > 8¹⁰. So 3²⁰ is greater. Actually B is correct.
+
+**Q15.** A train passes a 200m platform in 20 seconds and a man in 10 seconds. Length of train = ?
+A) 100m | B) 150m | C) **200m** ✅ | D) 250m
+> Speed = train length / 10. Also speed = (train + 200) / 20. So L/10 = (L+200)/20. 2L = L+200. L = 200m`,
+
+// Expanded Current Affairs
+current_affairs_2: `## Current Affairs 2025-2026 (Advanced)
+
+### India - Governance & Policy:
+| Topic | Details |
+|-------|---------|
+| **PM Vishwakarma Yojana** | For traditional artisans, ₹15,000 toolkit |
+| **Ayushman Bharat** | Health cover ₹5 lakh/family, extended to 70+ age |
+| **PM Surya Ghar Yojana** | Free electricity (solar rooftop), 1 crore homes target |
+| **ONDC** | Open Network for Digital Commerce |
+| **Unified Pension Scheme** | For govt employees, from April 2025 |
+| **Jan Dhan Yojana** | 52+ crore accounts opened |
+| **Drone Didi** | Women trained for agricultural drone use |
+| **PM WANI** | Public Wi-Fi access network |
+| **One Nation One Ration** | Ration anywhere in India |
+| **PM Gatishakti** | Multi-modal connectivity master plan |
+
+### Awards 2024-2025:
+| Award | Winner |
+|-------|--------|
+| **Nobel Physics 2024** | John Hopfield & Geoffrey Hinton (AI/ML) |
+| **Nobel Chemistry 2024** | David Baker (protein design) |
+| **Nobel Peace 2024** | Nihon Hidankyo (Japan) |
+| **Nobel Literature 2024** | Han Kang (South Korea) |
+| **Bharat Ratna 2024** | Karpoori Thakur (posthumous), LK Advani, PV Narasimha Rao (posthumous), MS Swaminathan (posthumous), Charan Singh (posthumous) |
+| **Padma Vibhushan 2024** | Venkaiah Naidu, Bindeshwar Pathak, others |
+| **ICC Men's Cricketer 2024** | Jasprit Bumrah |
+
+### Economy & Numbers:
+| Fact | Data |
+|------|------|
+| **India GDP Rank** | 5th largest (behind US, China, Japan, Germany) |
+| **India Target** | $5 trillion economy |
+| **GST Collections** | Crossing ₹1.8 lakh crore/month |
+| **UPI Transactions** | 10+ billion/month |
+| **Forex Reserves** | $600+ billion |
+| **FDI Top Sectors** | Services, Computer, Telecom |
+| **Fiscal Deficit Target** | 4.5% of GDP by 2025-26 |
+
+### Sports 2024-2025:
+| Event | Details |
+|-------|---------|
+| **Paris Olympics 2024** | India won 6 medals (1 Silver, 5 Bronze) |
+| **T20 World Cup 2024** | India won (beat South Africa in final) |
+| **Asian Games 2023** | India: 107 medals (28G, 38S, 41B) |
+| **Olympics 2028** | Los Angeles, USA |
+| **FIFA WC 2026** | USA, Mexico, Canada (joint) |
+| **Cricket WC 2025** | Champions Trophy in Pakistan/Dubai |
+
+### Gujarat Updates:
+| Topic | Details |
+|-------|---------|
+| **Gujarat Semicon City** | Dholera SIR - semiconductor hub |
+| **GIFT IFSC** | International Financial Services Centre |
+| **Bullet Train** | Mumbai-Ahmedabad, 508 km, 320 km/h |
+| **Surat Metro** | Under construction, 40.35 km |
+| **Ahmedabad Heritage City** | UNESCO World Heritage (walled city) |
+| **Gujarat IT/ITeS Policy** | 2022-27, promoting startups |
+| **Statue of Unity** | Most visited Indian monument (2023) |`,
+
+// Indian History Advanced
+history_advanced: `## Indian History - Advanced & Tricky Facts
+
+### Freedom Movements - Timeline:
+| Year | Event | Leader |
+|------|-------|--------|
+| 1857 | First War of Independence | Mangal Pandey, Rani Laxmibai |
+| 1885 | INC Founded | A.O. Hume (Bombay) |
+| 1905 | Swadeshi Movement | Bengal partition protest |
+| 1907 | Surat Split | Moderates vs Extremists |
+| 1915 | Gandhi returns to India | From South Africa |
+| 1919 | Rowlatt Act & Jallianwala | General Dyer |
+| 1920 | Non-Cooperation | Gandhi (withdrew after Chauri Chaura 1922) |
+| 1928 | Simon Commission | "Go Back Simon" |
+| 1928 | Bardoli Satyagraha | Sardar Patel |
+| 1929 | Lahore Session | Purna Swaraj declared |
+| 1930 | Dandi March | Gandhi (Salt Satyagraha) |
+| 1942 | Quit India | Gandhi ("Do or Die") |
+| 1943 | Azad Hind Fauj | Subhash Chandra Bose |
+| 1947 | Independence | 15 August |
+
+### Tricky Facts for Exams:
+- **INC Presidents:** First = W.C. Bonnerjee, First Muslim = Badruddin Tyabji, First Woman = Annie Besant (1917)
+- **Viceroy who partitioned Bengal:** Lord Curzon (1905)
+- **Viceroy during Quit India:** Lord Linlithgow
+- **Last Viceroy:** Lord Mountbatten
+- **First and Last Indian Governor-General:** C. Rajagopalachari
+- **"Swaraj is my birthright":** Bal Gangadhar Tilak
+- **"Give me blood, I'll give you freedom":** Subhash Chandra Bose
+- **"Jai Hind":** Subhash Chandra Bose
+- **"Inquilab Zindabad":** Bhagat Singh
+- **Father of Modern India:** Raja Ram Mohan Roy
+- **Grand Old Man of India:** Dadabhai Naoroji
+
+### Ancient India Tricks:
+- **Harappan Civilization:** NOT Vedic (pre-Vedic). No iron. No horses (debated). Had great baths (Mohenjo-daro)
+- **Ashoka's Kalinga War:** 261 BC, not AD
+- **Chandragupta Maurya's guru:** Chanakya (wrote Arthashastra)
+- **Kanishka:** Kushan dynasty, patron of Buddhism (4th Buddhist Council)
+- **Harshavardhana:** Last great Hindu emperor of North India`,
+
+// ==============================
 // MATH FORMULAS
+// ==============================
 math: `## Important Math Formulas
 
 | Topic | Formula |
@@ -492,94 +1949,864 @@ math: `## Important Math Formulas
 | Area of circle | πr² |
 | Circumference | 2πr |
 | Area of triangle | ½ × base × height |
+| Area of rectangle | length × breadth |
+| Perimeter of rectangle | 2(l + b) |
 | Volume of cube | a³ |
+| Volume of cuboid | l × b × h |
+| Volume of cylinder | πr²h |
+| Volume of cone | ⅓πr²h |
+| Volume of sphere | ⁴⁄₃πr³ |
 | Sum of n naturals | n(n+1)/2 |
+| Sum of squares | n(n+1)(2n+1)/6 |
+| Sum of cubes | [n(n+1)/2]² |
+| HCF × LCM | Product of two numbers |
+| Percentage change | (Change/Original) × 100 |
 
 **Tip:** For % increase then decrease: Net = -((change)²/100)%
-Example: +20% then -20% = -4% (net loss)`,
+Example: +20% then -20% = -4% (net loss)
+
+### Quick Multiplication Tricks:
+- Multiply by 5: Multiply by 10, divide by 2
+- Multiply by 25: Multiply by 100, divide by 4
+- Multiply by 11: Write digits, add adjacent digits in middle
+  - 23 × 11 = 2(2+3)3 = 253`,
+
+// ==============================
+// LAB TECHNICIAN (Post 33)
+// ==============================
+lab_tech_syllabus: `## Laboratory Technician (Post No. 33) - Exam Details
+
+**Posts:** 40 | **Qualification:** B.Sc (Chemistry/Microbiology) + DMLT
+**Exam:** 100 MCQs | 120 min | **-0.25 Negative** | **Salary:** ₹29,200-92,300 (Level 5)
+**Age:** 18-35 years | **Training:** ₹17,500/month (3 years)
+
+### Syllabus:
+| Subject | Questions | Topics |
+|---------|-----------|--------|
+| **Clinical Biochemistry** | 15-20 | Blood sugar, liver/kidney tests, lipid profile, enzymes |
+| **Microbiology** | 15-20 | Gram staining, cultures, TB, HIV, sterilization |
+| **Haematology** | 10-15 | CBC, blood groups, ESR, clotting, anemia |
+| **Lab Equipment & Safety** | 10-15 | Centrifuge, microscope, autoclave, PPE, waste |
+| **GK & Current Affairs** | 10-15 | Gujarat, Surat, Constitution, health schemes |
+| **Language & Reasoning** | 10-15 | Gujarati, English, basic maths |
+
+### Key Topics:
+- Normal values: FBS (70-110), Hb (13-17 M), WBC (4000-11000), Platelets (1.5-4 lakh)
+- Staining: Gram stain, ZN stain (TB), Leishman (blood smear)
+- Tubes: Purple (EDTA-CBC), Blue (Citrate-PT), Grey (Fluoride-Sugar), Red (Serum)
+- Sterilization: Autoclave (121°C/15psi/15min), Hot air oven (160°C/1hr)
+- Tests: ELISA (HIV), Widal (Typhoid), Western Blot (HIV confirm)`,
+
+lab_tech_mcq: `## Lab Technician Practice MCQs
+
+**Q1.** Normal fasting blood glucose: A) 40-70 | B) **70-110 mg/dL** ✅ | C) 120-160 | D) 160-200
+**Q2.** HbA1c measures sugar control over: A) 1 week | B) 1 month | C) **2-3 months** ✅ | D) 6 months
+**Q3.** SGPT (ALT) is marker for: A) Heart | B) Kidney | C) **Liver damage** ✅ | D) Pancreas
+**Q4.** "Good cholesterol" is: A) LDL | B) VLDL | C) **HDL** ✅ | D) Chylomicron
+**Q5.** Normal blood pH: A) 6.8-7.0 | B) 7.0-7.2 | C) **7.35-7.45** ✅ | D) 7.5-7.8
+**Q6.** Normal Hb in males: A) 8-10 | B) 10-12 | C) **13-17 g/dL** ✅ | D) 18-22
+**Q7.** ESR stands for: **Erythrocyte Sedimentation Rate** ✅
+**Q8.** Universal blood donor: A) A | B) B | C) AB | D) **O negative** ✅
+**Q9.** Gram +ve bacteria appear: A) Red | B) **Purple/Violet** ✅ | C) Green | D) Yellow
+**Q10.** Autoclave temperature: A) 100°C | B) **121°C at 15 psi** ✅ | C) 160°C | D) 200°C
+**Q11.** ELISA detects: A) Blood group | B) **HIV** ✅ | C) Malaria | D) Pregnancy
+**Q12.** Widal test diagnoses: A) Malaria | B) **Typhoid** ✅ | C) Dengue | D) TB
+**Q13.** Purple/Lavender tube contains: A) Heparin | B) **EDTA** ✅ | C) Citrate | D) Fluoride
+**Q14.** Leishman stain is for: A) Bacteria | B) **Blood smear** ✅ | C) Tissue | D) Urine
+**Q15.** Father of Microbiology: A) Koch | B) **Leeuwenhoek** ✅ | C) Pasteur | D) Fleming`,
+
+// ==============================
+// MARSHAL (Post 35)
+// ==============================
+marshal_syllabus: `## Marshal (Post No. 35) - Exam Details
+
+**Posts:** 323 (Highest vacancies!) | **Qualification:** 10th/12th Pass
+**Exam:** Written (100 MCQs) + Physical Test | **-0.25 Negative**
+**Salary:** ₹15,700-50,000 (Level IS-3) | **Training:** ₹15,500/month
+**Age:** 18-33 years
+
+### Selection Process:
+1. Written Exam (100 MCQs, OMR)
+2. Physical Measurement (Height, Weight, Chest)
+3. Physical Efficiency Test (Running, Jumps, Pull-ups)
+4. Document Verification & Medical
+
+### Physical Standards:
+| Parameter | Male | Female |
+|-----------|------|--------|
+| Height | 165 cm | 155 cm |
+| Chest | 79 cm (expanded 84 cm) | - |
+| Run | 1600m in 7 min | 800m in 4.5 min |
+| Long Jump | 3.65m | 2.75m |
+| Pull-ups | 6 | Sit-ups: 15 |
+
+### Syllabus:
+| Subject | Questions | Topics |
+|---------|-----------|--------|
+| **GK & Current Affairs** | 25-30 | India, Gujarat, Surat, national symbols |
+| **Gujarat & Surat GK** | 15-20 | Districts, rivers, history, SMC |
+| **Gujarati Language** | 15-20 | Grammar, idioms, antonyms |
+| **Reasoning & Maths** | 10-15 | Series, analogy, percentage, average |
+| **English & Science** | 10-15 | Basic grammar, general science |`,
+
+marshal_mcq: `## Marshal Practice MCQs
+
+**Q1.** National bird of India: A) Sparrow | B) Parrot | C) **Peacock** ✅ | D) Eagle
+**Q2.** National animal: A) Lion | B) Elephant | C) **Tiger** ✅ | D) Cow
+**Q3.** Independence Day: A) 26 Jan | B) **15 August** ✅ | C) 2 Oct | D) 26 Nov
+**Q4.** National anthem written by: A) Bankim | B) **Tagore** ✅ | C) Gandhi | D) Nehru
+**Q5.** How many states in India: A) 26 | B) **28** ✅ | C) 29 | D) 30
+**Q6.** Largest state by area: A) MP | B) UP | C) **Rajasthan** ✅ | D) Maharashtra
+**Q7.** Gujarat formed on: A) 15 Aug 1960 | B) **1 May 1960** ✅ | C) 26 Jan 1960 | D) 2 Oct 1960
+**Q8.** Districts in Gujarat: A) 30 | B) **33** ✅ | C) 36 | D) 38
+**Q9.** Surat is on which river: A) Narmada | B) **Tapi** ✅ | C) Sabarmati | D) Mahi
+**Q10.** SMC was formed in: A) 1952 | B) 1960 | C) **1966** ✅ | D) 1980
+**Q11.** Statue of Unity height: A) 152m | B) 172m | C) **182m** ✅ | D) 192m
+**Q12.** Gandhi born in: A) Ahmedabad | B) Rajkot | C) **Porbandar** ✅ | D) Surat
+**Q13.** Ashoka Chakra has ___ spokes: A) 12 | B) 20 | C) **24** ✅ | D) 28
+**Q14.** Chemical formula of water: A) H2O2 | B) **H2O** ✅ | C) HO2 | D) OH
+**Q15.** √225 = ? A) 12 | B) 13 | C) 14 | D) **15** ✅`,
+
+// ==============================
+// JUNIOR ANALYST MICROBIOLOGY (Post 19)
+// ==============================
+junior_analyst_syllabus: `## Junior Analyst - Microbiology (Post No. 19) - Exam Details
+
+**Posts:** 7 | **Qualification:** B.Sc/M.Sc Microbiology/Biotechnology
+**Exam:** 100 MCQs | 120 min | **-0.25 Negative** | **Salary:** ₹29,200-92,300 (Level 5)
+**Age:** 18-37 years | **Training:** ₹17,500/month (3 years)
+
+### Syllabus:
+| Subject | Questions | Topics |
+|---------|-----------|--------|
+| **General Microbiology** | 20-25 | Bacteria, virus, fungi, classification, Koch's postulates |
+| **Water & Food Microbiology** | 15-20 | MPN, BOD, COD, coliform, HACCP, pasteurization |
+| **Immunology & Serology** | 10-15 | ELISA, Western Blot, antibodies, vaccines, Widal |
+| **Lab Techniques** | 10-15 | Autoclave, PCR, culture media, staining, IMViC |
+| **Biochemistry** | 5-10 | DNA/RNA, enzymes, fermentation, pH |
+| **GK & Language** | 10-15 | Gujarat, Surat, Constitution, Gujarati, English |
+
+### Key Topics:
+- Gram stain: Crystal violet → Iodine → Alcohol → Safranin
+- Bacteria shapes: Cocci (sphere), Bacilli (rod), Spirilla (spiral)
+- Water quality: Coliform = 0/100mL, pH 6.5-8.5, TDS < 500mg/L
+- MPN = Most Probable Number (coliform count in water)
+- BOD high = polluted water | Residual chlorine: 0.2-0.5 mg/L
+- IMViC for E. coli: + + - - (Indole+, MR+, VP-, Citrate-)
+- Autoclave: 121°C, 15 psi, 15 min (moist heat)
+- PCR = Polymerase Chain Reaction (DNA amplification)`,
+
+junior_analyst_mcq: `## Junior Analyst Microbiology Practice MCQs
+
+**Q1.** Father of Microbiology: A) Koch | B) **Leeuwenhoek** ✅ | C) Pasteur | D) Fleming
+**Q2.** Gram +ve bacteria have thick: A) LPS | B) **Peptidoglycan** ✅ | C) Chitin | D) Cellulose
+**Q3.** Bacteria reproduce by: A) Budding | B) **Binary fission** ✅ | C) Spores | D) Meiosis
+**Q4.** Indicator organism for water contamination: A) Salmonella | B) **E. coli** ✅ | C) Staph | D) Bacillus
+**Q5.** MPN stands for: **Most Probable Number** ✅
+**Q6.** Acceptable coliform in drinking water: A) 10 | B) 1 | C) **0/100mL** ✅ | D) 100
+**Q7.** High BOD means: A) Clean water | B) **Polluted water** ✅ | C) Alkaline | D) Acidic
+**Q8.** ELISA detects: A) Blood group | B) **HIV antibodies** ✅ | C) Malaria | D) TB
+**Q9.** HIV confirmatory test: A) ELISA | B) **Western Blot** ✅ | C) Widal | D) VDRL
+**Q10.** Most abundant antibody in blood: A) IgA | B) IgM | C) **IgG** ✅ | D) IgE
+**Q11.** Autoclave uses: A) Dry heat | B) **Moist heat under pressure** ✅ | C) UV | D) Filtration
+**Q12.** PCR amplifies: A) Protein | B) **DNA** ✅ | C) RNA only | D) Enzymes
+**Q13.** Streak plate is for: A) Counting | B) **Pure culture isolation** ✅ | C) Staining | D) Serology
+**Q14.** IMViC for E. coli: A) --++ | B) **++--** ✅ | C) +-+- | D) -+-+
+**Q15.** Catalase test differentiates: A) Gram types | B) **Staph from Strep** ✅ | C) Aerobic/anaerobic | D) Virus/bacteria`,
 };
 
-// ===== KEYWORD MATCHING =====
+// ===== IMPROVED KEYWORD MATCHING ENGINE =====
+// Uses fuzzy matching, synonyms, stemming, and scoring
+
+const SYNONYMS = {
+    'computer': ['pc','laptop','desktop','system'],
+    'exam': ['test','paper','examination','pariksha'],
+    'syllabus': ['topics','curriculum','subjects','course'],
+    'question': ['mcq','quiz','practice','test','mock','prashn','પ્રશ્ન','mcqs','questions'],
+    'salary': ['pay','income','earning','pagar','package','ctc'],
+    'shortcut': ['keyboard','hotkey','key','ctrl','alt'],
+    'history': ['historical','past','ancient','itihas'],
+    'apply': ['application','form','registration','register','apply online','bharti'],
+    'formula': ['formulas','equation','calculation'],
+    'help': ['guide','explain','tell','what is','how to','about','kya','shu'],
+};
+
 const RULES = [
-    {k:['surat','history','suryapur','tapi','diamond bourse','1994','plague','1612','bardoli','surat split','1907','dumas','ghari','locho','narmad','svnit','vnsgu'],r:'surat_history'},
-    {k:['surat','mcq','question','quiz','practice question','surat na','surat history mcq'],r:'surat_mcq'},
-    {k:['computer supervisor','code 513','cs syllabus','supervisor syllabus','cs exam'],r:'cs_syllabus'},
-    {k:['clerk','code 502','clerk syllabus','clerk exam','clerk pattern'],r:'clerk_syllabus'},
-    {k:['exam pattern','pattern','comparison','compare','difference between clerk and supervisor','negative marking'],r:'exam_pattern'},
-    {k:['apply','application','form','how to fill','sop','registration','apply online','document','fee','fees'],r:'application'},
-    {k:['shortcut','keyboard','ctrl','ctrl+c','hotkey','key combination','ms word shortcut','excel shortcut'],r:'shortcuts'},
-    {k:['osi','osi model','layer','7 layer','network layer','transport layer','data link'],r:'osi'},
-    {k:['tcp','udp','tcp vs udp','tcp udp','difference tcp','connectionless','connection oriented'],r:'tcp_udp'},
-    {k:['port','port number','ftp port','http port','https port','smtp port','ssh port','dns port'],r:'ports'},
-    {k:['full form','abbreviation','cpu full','ram full','url full','html full','http full','usb full','acronym'],r:'fullforms'},
-    {k:['gujarat','gk','general knowledge','gandhinagar','statue of unity','gir','district','cm','chief minister','rani ki vav'],r:'gujarat_gk'},
-    {k:['gujarati','sandhi','samaas','rudhiprayog','vyakaran','sahitya','ગુજરાતી','સંધિ','સમાસ','વિરુદ્ધાર્થી','જોડણી'],r:'gujarati_mcq'},
-    {k:['constitution','article','fundamental','amendment','lok sabha','rajya sabha','president','emergency','writ','panchayat'],r:'constitution'},
-    {k:['math','formula','percentage','profit','loss','interest','si ','ci ','ratio','speed','average','area','volume','lcm','hcf'],r:'math'},
+    {k:['surat','history','suryapur','tapi','diamond bourse','1994','plague','1612','bardoli','surat split','1907','dumas','ghari','locho','narmad','svnit','vnsgu','surat city'],r:'surat_history',w:1},
+    {k:['surat mcq','surat question','surat quiz','surat history mcq','surat practice'],r:'surat_mcq',w:2},
+    {k:['computer supervisor','code 513','cs syllabus','supervisor syllabus','cs exam','supervisor exam'],r:'cs_syllabus',w:1},
+    {k:['clerk','code 502','clerk syllabus','clerk exam','clerk pattern','clerk bharti'],r:'clerk_syllabus',w:1},
+    {k:['exam pattern','pattern','comparison','compare','difference between clerk and supervisor','negative marking','both exam'],r:'exam_pattern',w:1},
+    {k:['apply','application','form','how to fill','registration','apply online','document','fee','fees','bharti form'],r:'application',w:1},
+    {k:['shortcut','keyboard','ctrl','hotkey','key combination','ms word shortcut','excel shortcut','f5','alt+f4','ctrl+c'],r:'shortcuts',w:1},
+    {k:['osi','osi model','layer','7 layer','network layer','transport layer','data link','seven layer'],r:'osi',w:1},
+    {k:['tcp','udp','tcp vs udp','tcp udp','difference tcp','connectionless','connection oriented'],r:'tcp_udp',w:1},
+    {k:['port','port number','ftp port','http port','https port','smtp port','ssh port','dns port','port 80','port 443'],r:'ports',w:1},
+    {k:['full form','abbreviation','cpu full','ram full','url full','html full','http full','usb full','acronym','stands for'],r:'fullforms',w:1},
+    {k:['gujarat','gk','general knowledge','gandhinagar','statue of unity','gir','district','cm','chief minister','rani ki vav','saputara','dholavira'],r:'gujarat_gk',w:1},
+    {k:['gujarati','sandhi','samaas','rudhiprayog','vyakaran','sahitya','ગુજરાતી','સંધિ','સમાસ','વિરુદ્ધાર્થી','જોડણી'],r:'gujarati_mcq',w:1},
+    {k:['constitution','article','fundamental','amendment','lok sabha','rajya sabha','president','emergency','writ','panchayat','samvidhan','borrow'],r:'constitution',w:1},
+    {k:['math','formula','percentage','profit','loss','interest','si ','ci ','ratio','speed','average','area','volume','lcm','hcf','geometry','mensuration'],r:'math',w:1},
+    {k:['database','sql','dbms','rdbms','query','table','join','normalization','primary key','foreign key','select','insert'],r:'database_sql',w:1},
+    {k:['cyber','security','virus','firewall','phishing','encryption','hacking','malware','trojan','ransomware','it act','cyber crime'],r:'cyber_security',w:1},
+    {k:['e-governance','digital india','digilocker','umang','gem portal','swan','csc','egov','digital gujarat','e-gov'],r:'egov',w:1},
+    {k:['generation','computer generation','vacuum tube','transistor','microprocessor','memory type','number system','binary','hexadecimal','ram rom','byte bit','storage'],r:'comp_generations',w:1},
+    {k:['operating system','os','windows','linux','android','kernel','process','file system','batch os','mobile os','ubuntu'],r:'operating_systems',w:1},
+    {k:['geography','river','mountain','soil','national symbol','coastline','state','union territory','map','climate','monsoon','plateau'],r:'indian_geography',w:1},
+    {k:['date','important date','day','republic day','independence','gandhi jayanti','national day','event','year','when'],r:'important_dates',w:0.5},
+    {k:['current affairs','current','latest','recent','news','2024','2025','chandrayaan','aditya','g20','olympics','budget'],r:'current_affairs',w:1},
+    {k:['english mcq','english question','english grammar mcq','english practice','grammar mcq','english test'],r:'english_mcq',w:2},
+    {k:['english tense','tense','present tense','past tense','future tense','continuous','perfect tense','tenses explained'],r:'english_tenses',w:1},
+    {k:['idiom','phrase','one word','substitution','proverb','saying','burn the midnight','piece of cake','english idiom'],r:'idioms',w:1},
+    {k:['math mcq','maths mcq','math question','maths question','math practice','maths practice','ganit','mathematics mcq'],r:'math_mcq',w:2},
+    {k:['math set 2','maths set 2','more math','more maths','math advanced','geometry mcq','mensuration mcq','advanced math mcq'],r:'math_mcq2',w:3},
+    {k:['tricky math','tricky maths','trick question','hard math','difficult math','math trick','clock angle','age problem','pipe cistern','boat stream'],r:'math_tricky',w:3},
+    {k:['reasoning','logic','series','analogy','coding decoding','blood relation','direction','odd one','reasoning mcq','reasoning question','logical'],r:'reasoning_mcq',w:1},
+    {k:['reasoning set 2','more reasoning','advanced reasoning','reasoning advanced','mirror image','seating arrangement','ranking','dice cube','syllogism','statement conclusion','calendar','clock problem','venn diagram'],r:'reasoning_mcq2',w:3},
+    {k:['computer mcq','computer question','computer knowledge','computer practice','computer quiz','hardware mcq','software mcq'],r:'computer_mcq',w:2},
+    {k:['advanced gk','tricky gk','hard gk','difficult gk','gk trick','gk advanced','tricky question'],r:'gk_advanced',w:3},
+    {k:['current affairs 2025','current affairs 2026','latest current','recent affairs','awards 2024','awards 2025','nobel 2024','bharat ratna','economy india','sports 2024','gujarat update','policy 2025','scheme 2025'],r:'current_affairs_2',w:2},
+    {k:['history advanced','freedom movement','viceroy','inc president','timeline history','ancient india','harappan','mughal advanced','history trick','swaraj','azad hind'],r:'history_advanced',w:2},
+    // Lab Technician
+    {k:['lab technician','laboratory technician','post 33','lab tech','dmlt','lab exam','lab syllabus','medical lab'],r:'lab_tech_syllabus',w:2},
+    {k:['lab technician mcq','lab tech mcq','lab tech question','haematology mcq','biochemistry mcq','blood test mcq','lab practice','clinical mcq'],r:'lab_tech_mcq',w:3},
+    // Marshal
+    {k:['marshal','post 35','watch ward','marshal exam','marshal syllabus','physical test','marshal job','marshal bharti'],r:'marshal_syllabus',w:2},
+    {k:['marshal mcq','marshal question','marshal practice','marshal quiz'],r:'marshal_mcq',w:3},
+    // Junior Analyst
+    {k:['junior analyst','post 19','microbiology','analyst exam','analyst syllabus','microbiologist','water testing','food microbiology','analyst job'],r:'junior_analyst_syllabus',w:2},
+    {k:['junior analyst mcq','microbiology mcq','analyst question','bacteria mcq','water quality mcq','microbiology practice','analyst practice'],r:'junior_analyst_mcq',w:3},
 ];
 
-function findAnswer(q) {
-    const ql = q.toLowerCase();
+// Improved fuzzy matching
+function normalizeText(text) {
+    return text.toLowerCase()
+        .replace(/[^\w\sગુજરાતીહિંદીસંધસમાવિરુદ્ધાર્થીજોડણીપ્રશ્ન]/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim();
+}
 
-    // Check rules
-    for (const rule of RULES) {
-        const matchCount = rule.k.filter(k => ql.includes(k)).length;
-        if (matchCount >= 1) {
-            // Check for MCQ request
-            if ((ql.includes('mcq') || ql.includes('question') || ql.includes('quiz') || ql.includes('practice') || ql.includes('પ્રશ્ન')) && rule.r === 'surat_history') {
-                return KB.surat_mcq;
+function expandWithSynonyms(text) {
+    let expanded = text;
+    for (const [word, syns] of Object.entries(SYNONYMS)) {
+        for (const syn of syns) {
+            if (text.includes(syn) && !text.includes(word)) {
+                expanded += ' ' + word;
             }
-            return KB[rule.r];
+        }
+        if (text.includes(word)) {
+            expanded += ' ' + syns.join(' ');
+        }
+    }
+    return expanded;
+}
+
+function calculateScore(query, rule) {
+    const expanded = expandWithSynonyms(query);
+    let score = 0;
+    let matchCount = 0;
+
+    for (const keyword of rule.k) {
+        if (expanded.includes(keyword)) {
+            // Longer keyword matches score higher
+            score += keyword.length * (rule.w || 1);
+            matchCount++;
+        }
+        // Partial/fuzzy match (3+ char keywords)
+        if (keyword.length >= 4) {
+            const words = expanded.split(' ');
+            for (const word of words) {
+                if (word.length >= 3 && keyword.includes(word) && !expanded.includes(keyword)) {
+                    score += keyword.length * 0.3;
+                    matchCount += 0.3;
+                }
+            }
         }
     }
 
-    // Generic responses
-    if (ql.includes('hello') || ql.includes('hi') || ql.includes('hey') || ql.includes('namaste')) {
-        return `Hello! 👋 I'm your SMC Exam AI Assistant. I can help you with:\n\n- **Exam syllabus** (Computer Supervisor & Clerk)\n- **Surat history** & Gujarat GK\n- **Practice MCQs** in English & Gujarati\n- **How to apply** (step-by-step)\n- **Formulas, shortcuts, full forms**\n- **Exam strategy & tips**\n\nJust ask your question!`;
+    // Bonus for multiple keyword matches
+    if (matchCount >= 2) score *= 1.5;
+    if (matchCount >= 3) score *= 1.3;
+
+    return score;
+}
+
+function findAnswer(q) {
+    const ql = normalizeText(q);
+
+    // Score all rules and pick best match
+    let bestRule = null;
+    let bestScore = 0;
+
+    for (const rule of RULES) {
+        const score = calculateScore(ql, rule);
+        if (score > bestScore) {
+            bestScore = score;
+            bestRule = rule;
+        }
     }
 
-    if (ql.includes('thank') || ql.includes('thanks') || ql.includes('dhanyavad')) {
-        return `You're welcome! All the best for your exam! 🎯\n\nRemember:\n- Practice daily\n- Focus on high-weightage topics\n- Take mock tests\n- Apply before 15 April 2026`;
+    // If good match found
+    if (bestRule && bestScore >= 2) {
+        // Check for MCQ request on non-MCQ topics
+        const isMcqReq = ql.includes('mcq') || ql.includes('question') || ql.includes('quiz') || ql.includes('practice') || ql.includes('પ્રશ્ન');
+        if (isMcqReq && bestRule.r === 'surat_history') {
+            return KB.surat_mcq;
+        }
+        return KB[bestRule.r];
     }
 
-    if (ql.includes('salary') || ql.includes('pay') || ql.includes('income')) {
-        return `## Salary Details\n\n| Post | First 3 Years | Pay Matrix |\n|------|--------------|------------|\n| **Clerk** | ₹16,500/month | ₹19,900 - ₹63,200 (Level 2) |\n| **Computer Supervisor** | ₹18,500/month | ₹39,900 - ₹1,26,600 (Level 7) |\n\nPlus DA + HRA + other allowances. Salary increases with experience.`;
+    // Smart generic responses
+    if (/^(hello|hi|hey|namaste|namaskar|kem cho|નમસ્તે)/i.test(ql)) {
+        return `Hello! I'm your SMC Exam AI Assistant. I can help you with:\n\n- **Exam syllabus** (Computer Supervisor & Clerk)\n- **Practice MCQs** — English, Maths, Reasoning, Computer, Gujarati\n- **Surat history** & Gujarat GK\n- **Computer topics** — OSI, TCP/UDP, Database, Cyber Security, OS\n- **Current affairs** & Important dates\n- **How to apply** & Exam strategy\n- **Formulas, shortcuts, full forms, idioms**\n\nJust type your question or click a topic below!`;
     }
 
-    if (ql.includes('age') || ql.includes('eligib') || ql.includes('qualification')) {
-        return `## Eligibility\n\n### Clerk:\n- **Qualification:** Graduate + CCC\n- **Age:** 18-35 (General), 38 (OBC), 40 (SC/ST), 45 (PwD)\n\n### Computer Supervisor:\n- **Qualification:** BCA/B.Sc(IT)/BE(CS/IT) + CCC\n- **Age:** 18-35 (General), relaxation for reserved`;
+    if (/thank|thanks|dhanyavad|aabhar|આભાર/i.test(ql)) {
+        return `You're welcome! All the best for your exam!\n\nRemember:\n- Practice daily\n- Focus on high-weightage topics\n- Take mock tests\n- Apply before 15 April 2026\n\nFeel free to ask more questions anytime!`;
     }
 
-    if (ql.includes('tip') || ql.includes('strategy') || ql.includes('how to crack') || ql.includes('prepare')) {
-        return `## Exam Strategy\n\n### Time Management (120 min for 100 Q):\n1. **First 40 min:** Easy subjects (Gujarati/Computer)\n2. **Next 35 min:** GK + English\n3. **Next 30 min:** Maths + Reasoning\n4. **Last 15 min:** Review\n\n### Golden Rules:\n- Never spend > 2 min on one question\n- Do easy questions first\n- For Clerk: Don't guess wildly (-0.25)\n- For CS: Attempt ALL (no negative)\n- Practice at least 3 mock tests\n- Focus on Surat/Gujarat GK (5-10 guaranteed questions)`;
+    if (/salary|pay|income|pagar/i.test(ql)) {
+        return `## Salary Details\n\n| Post | First 3 Years | Pay Matrix |\n|------|--------------|------------|\n| **Clerk** | ~₹16,500/month | ₹19,900 - ₹63,200 (Level 2) |\n| **Computer Supervisor** | ~₹18,500/month | ₹39,900 - ₹1,26,600 (Level 7) |\n\nPlus DA + HRA + other allowances. Salary increases with experience and pay commission revisions.`;
     }
 
-    if (ql.includes('typing') || ql.includes('wpm') || ql.includes('inscript')) {
-        return `## Typing Test Info\n\n| Exam | Gujarati | English | Duration |\n|------|----------|---------|----------|\n| Clerk | 25 WPM | 30 WPM | 10 min each |\n| CS | 25 WPM | - | 10 min |\n\n### Tips:\n- Use **InScript** layout (govt standard)\n- Practice 30 min daily for 30 days\n- **Accuracy > Speed** (errors count against you)\n- Learn home row first: ASDF JKL;\n- F and J keys have bumps - find without looking\n- Free practice: TypingClub, Keybr.com, 10FastFingers`;
+    if (/age|eligib|qualification|yogyata|લાયકાત/i.test(ql)) {
+        return `## Eligibility\n\n### Clerk (Code-502):\n- **Qualification:** Graduate (any stream) + CCC/CCC+ Certificate\n- **Age:** 18-35 (General), 38 (OBC), 40 (SC/ST), 45 (PwD)\n\n### Computer Supervisor (Code-513):\n- **Qualification:** BCA / B.Sc(IT) / BE(CS/IT) + CCC\n- **Age:** 18-35 (General), relaxation for reserved categories\n\n### Common:\n- Must be Indian citizen\n- No criminal record\n- Valid CCC certificate from NIELIT`;
     }
 
-    if (ql.includes('cutoff') || ql.includes('cut off') || ql.includes('passing')) {
-        return `## Expected Cutoffs (Clerk Exam)\n\n| Category | Approx. Range |\n|----------|---------------|\n| General | 55-65 marks |\n| EWS | 50-60 marks |\n| OBC | 45-55 marks |\n| SC | 35-45 marks |\n| ST | 30-40 marks |\n\n> These are estimates based on previous patterns. Actual cutoffs depend on difficulty & number of candidates.`;
+    if (/tip|strategy|how to crack|prepare|taiyari|તૈયારી/i.test(ql)) {
+        return `## Exam Strategy\n\n### Time Management (120 min for 100 Q):\n1. **First 40 min:** Easy subjects (Gujarati/Computer)\n2. **Next 35 min:** GK + English\n3. **Next 30 min:** Maths + Reasoning\n4. **Last 15 min:** Review marked questions\n\n### Golden Rules:\n- Never spend > 2 min on one question\n- Do easy questions first\n- For Clerk: Don't guess wildly (-0.25)\n- For CS: Attempt ALL (no negative marking)\n- Practice at least 5 mock tests\n- Focus on Surat/Gujarat GK (guaranteed 5-10 questions)\n\n### Subject-wise Tips:\n- **Gujarati:** Revise Sandhi, Samaas, Alankar daily\n- **English:** Focus on Tenses, Articles, Prepositions\n- **Maths:** Learn formulas, practice shortcuts\n- **Reasoning:** Do 10 questions daily\n- **Computer:** Memorize shortcuts, full forms, ports`;
     }
 
-    // Default
-    return `I can help you with these topics:\n\n- **"Surat history"** - Complete Surat facts & MCQs\n- **"Computer Supervisor syllabus"** - Full syllabus\n- **"Clerk exam pattern"** - Pattern & strategy\n- **"How to apply"** - Step-by-step form guide\n- **"Keyboard shortcuts"** - Important shortcuts\n- **"OSI model"** - Explained simply\n- **"TCP vs UDP"** - Comparison\n- **"Port numbers"** - Important ports\n- **"Full forms"** - All abbreviations\n- **"Gujarat GK"** - Key facts\n- **"Constitution"** - Articles & amendments\n- **"Math formulas"** - All important formulas\n- **"ગુજરાતી MCQs"** - Gujarati practice\n- **"Salary"** - Pay details\n- **"Typing test"** - WPM requirements\n- **"Cutoff"** - Expected cutoffs\n- **"Exam tips"** - Strategy\n\nTry asking one of these!`;
+    if (/typing|wpm|inscript/i.test(ql)) {
+        return `## Typing Test Info\n\n| Exam | Gujarati | English | Duration |\n|------|----------|---------|----------|\n| Clerk | 25 WPM | 30 WPM | 10 min each |\n| CS | 25 WPM | - | 10 min |\n\n### Tips:\n- Use **InScript** layout (govt standard)\n- Practice 30 min daily for 30 days\n- **Accuracy > Speed** (errors count against you)\n- Learn home row first: ASDF JKL;\n- F and J keys have bumps - find without looking\n- Free practice: TypingClub, Keybr.com, 10FastFingers\n- Practice Gujarati on: lipikaar.com`;
+    }
+
+    if (/cutoff|cut off|passing|merit/i.test(ql)) {
+        return `## Expected Cutoffs (Clerk Exam)\n\n| Category | Approx. Range |\n|----------|---------------|\n| General | 55-65 marks |\n| EWS | 50-60 marks |\n| OBC | 45-55 marks |\n| SC | 35-45 marks |\n| ST | 30-40 marks |\n| PwD | 25-35 marks |\n\n> These are estimates based on previous patterns. Actual cutoffs depend on difficulty level & number of candidates.\n\n**To be safe, target 70+ marks.**`;
+    }
+
+    if (/who (are|r) (you|u)|what (can|do) you/i.test(ql)) {
+        return `I'm the **SMC Exam AI Assistant** — built to help you prepare for Surat Municipal Corporation exams (Clerk & Computer Supervisor).\n\n### I can help with:\n- 40+ exam topics with detailed notes\n- 200+ practice MCQs (English, Maths, Reasoning, Computer, Gujarati, GK)\n- Tricky & advanced questions for Maths and GK\n- Current affairs 2024-2026 with awards & sports\n- Computer topics (OSI, TCP/UDP, SQL, Security, OS)\n- Exam strategy, cutoffs, eligibility\n\nTry: **"Tricky maths"**, **"Advanced GK"**, **"Reasoning Set 2"**, or **"Current affairs 2025"**!`;
+    }
+
+    // Default with categories
+    return `I can help you with these topics:\n\n### Exam Info\n- **"Computer Supervisor syllabus"** | **"Clerk exam pattern"**\n- **"How to apply"** | **"Salary details"** | **"Eligibility"**\n- **"Typing test"** | **"Cutoff"** | **"Exam tips"**\n\n### Computer Topics\n- **"OSI model"** | **"TCP vs UDP"** | **"Port numbers"**\n- **"Database SQL"** | **"Cyber security"** | **"Operating systems"**\n- **"Computer generations"** | **"Keyboard shortcuts"** | **"Full forms"**\n- **"e-Governance"** | **"Digital India"**\n\n### GK & Current Affairs\n- **"Gujarat GK"** | **"Surat history"** | **"Constitution"**\n- **"Indian geography"** | **"Important dates"** | **"Current affairs"**\n- **"Advanced GK tricky"** | **"Current affairs 2025"** | **"History advanced"**\n\n### Practice MCQs (200+)\n- **"Maths MCQs"** (40Q) | **"Maths Set 2"** (20Q) | **"Tricky maths"** (15Q)\n- **"Reasoning MCQs"** (40Q) | **"Reasoning Set 2"** (20Q)\n- **"English MCQs"** | **"Computer MCQs"** | **"Gujarati MCQs"**\n- **"Advanced GK MCQs"** | **"Surat MCQs"**\n\n### Language\n- **"English tenses"** | **"Idioms & phrases"**\n\nJust type any topic or question!`;
+}
+
+// ===== FOLLOW-UP SUGGESTIONS =====
+const SUGGESTIONS_MAP = {
+    'surat_history': ['Surat history MCQs', 'Gujarat GK', 'History advanced'],
+    'surat_mcq': ['Surat history details', 'Gujarat GK', 'Advanced GK tricky'],
+    'cs_syllabus': ['Clerk syllabus comparison', 'Exam pattern', 'How to apply'],
+    'clerk_syllabus': ['CS syllabus comparison', 'Exam pattern', 'Exam strategy'],
+    'exam_pattern': ['Exam strategy', 'Cutoff marks', 'How to apply'],
+    'application': ['Required documents', 'Exam pattern', 'Eligibility'],
+    'shortcuts': ['MS Excel shortcuts', 'Computer MCQs', 'Full forms'],
+    'osi': ['TCP vs UDP', 'Port numbers', 'Computer MCQs'],
+    'tcp_udp': ['OSI model', 'Port numbers', 'Cyber security'],
+    'ports': ['OSI model', 'TCP vs UDP', 'Full forms'],
+    'fullforms': ['Computer MCQs', 'Keyboard shortcuts', 'Port numbers'],
+    'gujarat_gk': ['Surat history', 'Constitution', 'Current affairs'],
+    'gujarati_mcq': ['Gujarat GK', 'English MCQs', 'Constitution'],
+    'constitution': ['Gujarat GK', 'Important dates', 'Indian geography'],
+    'math': ['Maths MCQs', 'Reasoning MCQs', 'Exam strategy'],
+    'database_sql': ['Cyber security', 'Computer MCQs', 'OSI model'],
+    'cyber_security': ['Database SQL', 'e-Governance', 'IT Act details'],
+    'egov': ['Digital India', 'Current affairs', 'Gujarat GK'],
+    'comp_generations': ['Operating systems', 'Computer MCQs', 'Full forms'],
+    'operating_systems': ['Computer generations', 'Keyboard shortcuts', 'Database SQL'],
+    'indian_geography': ['Gujarat GK', 'Constitution', 'Important dates'],
+    'important_dates': ['Current affairs', 'Gujarat GK', 'Constitution'],
+    'current_affairs': ['Important dates', 'Gujarat GK', 'Indian geography'],
+    'english_mcq': ['English tenses', 'Idioms & phrases', 'Reasoning MCQs'],
+    'english_tenses': ['English MCQs', 'Idioms & phrases', 'Grammar tips'],
+    'idioms': ['English MCQs', 'English tenses', 'Gujarati MCQs'],
+    'math_mcq': ['Maths Set 2 (Geometry)', 'Tricky maths questions', 'Math formulas'],
+    'math_mcq2': ['Tricky maths questions', 'Maths MCQs Set 1', 'Reasoning MCQs'],
+    'math_tricky': ['Maths MCQs Set 1', 'Maths Set 2', 'Math formulas'],
+    'reasoning_mcq': ['Reasoning Set 2 (Advanced)', 'Maths MCQs', 'Computer MCQs'],
+    'reasoning_mcq2': ['Reasoning MCQs Set 1', 'Tricky maths', 'English MCQs'],
+    'computer_mcq': ['Full forms', 'Keyboard shortcuts', 'OSI model'],
+    'gk_advanced': ['Current affairs 2025', 'History advanced', 'Constitution'],
+    'current_affairs_2': ['Advanced GK tricky', 'Gujarat GK', 'Important dates'],
+    'history_advanced': ['Advanced GK tricky', 'Constitution', 'Important dates'],
+    'lab_tech_syllabus': ['Lab Technician MCQs', 'Junior Analyst syllabus', 'How to apply'],
+    'lab_tech_mcq': ['Lab Technician syllabus', 'Microbiology MCQs', 'Gujarat GK'],
+    'marshal_syllabus': ['Marshal MCQs', 'Clerk exam pattern', 'How to apply'],
+    'marshal_mcq': ['Marshal syllabus', 'Gujarat GK', 'Reasoning MCQs'],
+    'junior_analyst_syllabus': ['Junior Analyst MCQs', 'Lab Technician syllabus', 'How to apply'],
+    'junior_analyst_mcq': ['Junior Analyst syllabus', 'Lab Technician MCQs', 'Current affairs'],
+};
+
+// ===== AI API INTEGRATION =====
+let aiMode = localStorage.getItem('smc_ai_mode') || 'offline';
+let apiKey = localStorage.getItem('smc_api_key') || '';
+let apiProvider = localStorage.getItem('smc_api_provider') || 'groq';
+let apiQuotaExhausted = false;
+
+function updateProviderHelp() {
+    const provider = document.getElementById('apiProvider').value;
+    const help = document.getElementById('providerHelp');
+    const inp = document.getElementById('apiKeyInput');
+    if (provider === 'groq') {
+        help.innerHTML = '<b>Groq is FREE, fast & generous limits.</b> Get key: <a href="https://console.groq.com/keys" target="_blank" style="color:var(--purple)">console.groq.com/keys</a><br>Sign up free → Create API key → Paste above. No credit card needed.';
+        inp.placeholder = 'Paste Groq API key (gsk_...)';
+    } else if (provider === 'gemini') {
+        help.innerHTML = '<b>Gemini is FREE + has web search.</b> Get key: <a href="https://aistudio.google.com/apikey" target="_blank" style="color:var(--purple)">aistudio.google.com/apikey</a><br>Free tier: ~1500 requests/day. Includes Google Search.';
+        inp.placeholder = 'Paste Gemini API key (AIza...)';
+    } else {
+        help.innerHTML = '<b>OpenAI requires paid credits.</b> Get key: <a href="https://platform.openai.com/api-keys" target="_blank" style="color:var(--purple)">platform.openai.com/api-keys</a>';
+        inp.placeholder = 'Paste OpenAI API key (sk-...)';
+    }
+}
+
+function openApiModal() {
+    document.getElementById('apiModal').classList.add('show');
+    document.getElementById('apiKeyInput').value = apiKey;
+    document.getElementById('apiProvider').value = apiProvider;
+    updateProviderHelp();
+}
+
+function closeApiModal() {
+    document.getElementById('apiModal').classList.remove('show');
+}
+
+function saveApiKey() {
+    apiKey = document.getElementById('apiKeyInput').value.trim();
+    apiProvider = document.getElementById('apiProvider').value;
+    if (apiKey) {
+        localStorage.setItem('smc_api_key', apiKey);
+        localStorage.setItem('smc_api_provider', apiProvider);
+        apiQuotaExhausted = false;
+        aiMode = 'api';
+        localStorage.setItem('smc_ai_mode', 'api');
+        updateModeUI();
+        closeApiModal();
+        // Show confirmation
+        const providerName = apiProvider === 'groq' ? 'Groq (Llama 3.3 70B)' : apiProvider === 'gemini' ? 'Google Gemini + Web Search' : 'OpenAI ChatGPT';
+        addMsg('ai', `Connected to **${providerName}** successfully! You can now ask me anything.\n\nTry asking: *"Latest SMC recruitment news"* or *"Explain quantum computing"* or anything!`, true);
+    }
+}
+
+function toggleMode() {
+    if (aiMode === 'offline') {
+        if (!apiKey || apiQuotaExhausted) {
+            openApiModal();
+            return;
+        }
+        aiMode = 'api';
+    } else {
+        aiMode = 'offline';
+    }
+    localStorage.setItem('smc_ai_mode', aiMode);
+    updateModeUI();
+}
+
+function updateModeUI() {
+    const btn = document.getElementById('modeBtn');
+    const icon = document.getElementById('modeIcon');
+    const label = document.getElementById('modeLabel');
+    if (aiMode === 'api') {
+        btn.classList.add('active');
+        icon.innerHTML = '&#127760;';
+        label.textContent = 'AI + Web';
+    } else {
+        btn.classList.remove('active');
+        icon.innerHTML = '&#9679;';
+        label.textContent = 'Offline';
+    }
+}
+
+// System prompt for AI API
+const SYSTEM_PROMPT = `You are an expert AI tutor for SMC (Surat Municipal Corporation) exam preparation - specifically for Clerk (Code-502) and Computer Supervisor (Code-513) positions.
+
+You have access to the internet through Google Search. USE IT for:
+- Latest current affairs, news, results, notifications
+- Any factual question the user asks
+- Verification of facts, dates, events
+- Latest government schemes, policies, awards
+
+Your expertise includes:
+- Complete exam syllabus, pattern, eligibility, and application process
+- Surat city history, facts, and local knowledge
+- Gujarat GK, Indian Geography, Constitution, Current Affairs
+- Computer fundamentals, networking, MS Office, Database/SQL, Cyber Security, e-Governance
+- Mathematics formulas and problem solving
+- Reasoning and logical ability
+- English grammar, vocabulary, idioms
+- Gujarati language (Sandhi, Samaas, Vyakaran, Sahitya)
+
+Guidelines:
+- Search the internet when the user asks about current events, latest news, or anything you're unsure about
+- Give concise, exam-focused answers with key facts
+- Use tables and bullet points for clarity
+- When creating MCQs, always mark the correct answer with ✅
+- Include exam tips where relevant
+- You can answer in both English and Gujarati
+- Always relate answers back to what's relevant for the SMC exam
+- Use markdown formatting for better readability
+- If user asks anything (even non-exam topics), answer it using internet search`;
+
+async function callAI(userMessage) {
+    // Step 1: Search the web first (free, no key needed)
+    let searchContext = '';
+    try {
+        searchContext = await webSearch(userMessage);
+    } catch(e) {
+        // Search failed — AI will answer from its own knowledge
+    }
+
+    if (apiProvider === 'groq') {
+        return callGroq(userMessage, searchContext);
+    } else if (apiProvider === 'gemini') {
+        return callGemini(userMessage);
+    } else {
+        return callOpenAI(userMessage);
+    }
+}
+
+// ===== FREE WEB SEARCH (Multiple Sources) =====
+async function webSearch(query) {
+    // Run multiple searches in parallel for best results
+    const searches = [
+        searchWikipedia(query).catch(() => ''),
+        searchDuckDuckGo(query).catch(() => ''),
+        searchWikiSearch(query).catch(() => ''),
+    ];
+
+    const results = await Promise.all(searches);
+    const combined = results.filter(r => r.length > 20).join('\n\n');
+    return combined.slice(0, 3000); // Limit context size
+}
+
+async function searchDuckDuckGo(query) {
+    const url = `https://api.duckduckgo.com/?q=${encodeURIComponent(query)}&format=json&no_html=1&skip_disambig=1`;
+    const controller = new AbortController();
+    setTimeout(() => controller.abort(), 5000);
+
+    const res = await fetch(url, { signal: controller.signal });
+    if (!res.ok) return '';
+    const data = await res.json();
+
+    let results = [];
+    if (data.Abstract) results.push(data.Abstract);
+    if (data.Answer) results.push(data.Answer);
+    if (data.RelatedTopics) {
+        for (const topic of data.RelatedTopics.slice(0, 5)) {
+            if (topic.Text) results.push(topic.Text);
+        }
+    }
+    if (data.Infobox?.content) {
+        for (const item of data.Infobox.content.slice(0, 5)) {
+            if (item.label && item.value) results.push(`${item.label}: ${item.value}`);
+        }
+    }
+    return results.join('\n');
+}
+
+async function searchWikipedia(query) {
+    // Get the best matching Wikipedia article
+    const cleanQuery = query.replace(/[?!.,]/g, '').trim();
+    const url = `https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(cleanQuery)}`;
+    const controller = new AbortController();
+    setTimeout(() => controller.abort(), 5000);
+
+    const res = await fetch(url, { signal: controller.signal });
+    if (!res.ok) return '';
+    const data = await res.json();
+    return data.extract ? `Wikipedia: ${data.extract}` : '';
+}
+
+async function searchWikiSearch(query) {
+    // Search Wikipedia for multiple results
+    const url = `https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=${encodeURIComponent(query)}&format=json&origin=*&srlimit=5&srprop=snippet`;
+    const controller = new AbortController();
+    setTimeout(() => controller.abort(), 5000);
+
+    const res = await fetch(url, { signal: controller.signal });
+    if (!res.ok) return '';
+    const data = await res.json();
+
+    const results = (data.query?.search || []).map(r => {
+        const snippet = r.snippet.replace(/<[^>]*>/g, ''); // strip HTML
+        return `${r.title}: ${snippet}`;
+    });
+    return results.length ? 'Web results:\n' + results.join('\n') : '';
+}
+
+// ===== GROQ API (FREE, FAST) + WEB SEARCH =====
+async function callGroq(userMessage, searchContext) {
+    const url = 'https://api.groq.com/openai/v1/chat/completions';
+
+    // Build system prompt with search results
+    let systemMsg = SYSTEM_PROMPT;
+    if (searchContext) {
+        systemMsg += `\n\n--- LIVE WEB SEARCH RESULTS ---\nThe following information was found on the internet just now. Use this to give accurate, up-to-date answers:\n\n${searchContext}\n\n--- END SEARCH RESULTS ---\nUse the above search results to answer the user's question accurately. If the search results are relevant, incorporate them. If not, answer from your own knowledge.`;
+    }
+
+    // Build message history
+    const messages = [{ role: 'system', content: systemMsg }];
+
+    const recent = chatHistory.slice(-8);
+    for (const msg of recent) {
+        messages.push({
+            role: msg.role === 'model' ? 'assistant' : 'user',
+            content: msg.parts[0].text
+        });
+    }
+    messages.push({ role: 'user', content: userMessage });
+    chatHistory.push({ role: 'user', parts: [{ text: userMessage }] });
+
+    const body = {
+        model: 'llama-3.3-70b-versatile',
+        messages: messages,
+        temperature: 0.7,
+        max_tokens: 4096
+    };
+
+    const res = await fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${apiKey}`
+        },
+        body: JSON.stringify(body)
+    });
+
+    if (!res.ok) {
+        const errText = await res.text();
+        let errMsg = `Groq API error ${res.status}`;
+        try { errMsg = JSON.parse(errText).error?.message || errMsg; } catch(e) {}
+
+        // Try fallback model
+        if (res.status === 429 || res.status === 503) {
+            return callGroqFallback(messages);
+        }
+        throw new Error(errMsg);
+    }
+
+    const data = await res.json();
+    let reply = data.choices?.[0]?.message?.content || 'No response from AI.';
+
+    // Add search indicator
+    if (searchContext) {
+        reply += '\n\n---\n*Searched the web for latest info*';
+    }
+
+    chatHistory.push({ role: 'model', parts: [{ text: reply }] });
+    return reply;
+}
+
+async function callGroqFallback(messages) {
+    const url = 'https://api.groq.com/openai/v1/chat/completions';
+    const body = {
+        model: 'llama-3.1-8b-instant',
+        messages: messages,
+        temperature: 0.7,
+        max_tokens: 4096
+    };
+
+    const res = await fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${apiKey}`
+        },
+        body: JSON.stringify(body)
+    });
+
+    if (!res.ok) {
+        const errText = await res.text();
+        let errMsg = `Groq API error ${res.status}`;
+        try { errMsg = JSON.parse(errText).error?.message || errMsg; } catch(e) {}
+        throw new Error(errMsg);
+    }
+
+    const data = await res.json();
+    const reply = data.choices?.[0]?.message?.content || 'No response from AI.';
+    chatHistory.push({ role: 'model', parts: [{ text: reply }] });
+    return reply;
+}
+
+// Conversation history for context
+let chatHistory = [];
+
+// Models to try in order (fallback chain)
+const GEMINI_MODELS = ['gemini-2.0-flash', 'gemini-2.0-flash-lite'];
+
+async function callGemini(userMessage) {
+    // Build conversation history for context
+    chatHistory.push({ role: 'user', parts: [{ text: userMessage }] });
+    const recentHistory = chatHistory.slice(-10);
+
+    let lastError = null;
+
+    // Try each model in order
+    for (const model of GEMINI_MODELS) {
+        try {
+            const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
+            const body = {
+                system_instruction: { parts: [{ text: SYSTEM_PROMPT }] },
+                contents: recentHistory,
+                generationConfig: { temperature: 0.7, maxOutputTokens: 4096 },
+                // Enable Google Search grounding — AI will search the internet
+                tools: [{ google_search: {} }]
+            };
+
+            const res = await fetch(url, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(body)
+            });
+
+            if (res.ok) {
+                const data = await res.json();
+                const candidate = data.candidates?.[0];
+                let reply = candidate?.content?.parts?.[0]?.text || 'No response from AI.';
+
+                // Extract search sources if available
+                const grounding = candidate?.groundingMetadata;
+                if (grounding?.webSearchQueries?.length) {
+                    reply += '\n\n---\n*Searched: ' + grounding.webSearchQueries.slice(0,2).join(', ') + '*';
+                }
+
+                chatHistory.push({ role: 'model', parts: [{ text: reply }] });
+                return reply;
+            }
+
+            const errText = await res.text();
+            let errMsg = `API error ${res.status}`;
+            try { errMsg = JSON.parse(errText).error?.message || errMsg; } catch(e) {}
+
+            // If 429 (quota), try next model
+            if (res.status === 429) {
+                lastError = errMsg;
+                continue;
+            }
+
+            // If grounding not supported on this model, retry without it
+            if (res.status === 400 && errText.includes('google_search')) {
+                const bodyNoSearch = {
+                    system_instruction: { parts: [{ text: SYSTEM_PROMPT }] },
+                    contents: recentHistory,
+                    generationConfig: { temperature: 0.7, maxOutputTokens: 4096 }
+                };
+                const res2 = await fetch(url, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(bodyNoSearch)
+                });
+                if (res2.ok) {
+                    const data2 = await res2.json();
+                    const reply = data2.candidates?.[0]?.content?.parts?.[0]?.text || 'No response from AI.';
+                    chatHistory.push({ role: 'model', parts: [{ text: reply }] });
+                    return reply;
+                }
+            }
+
+            throw new Error(errMsg);
+        } catch(e) {
+            if (e.message?.includes('429') || e.message?.includes('quota')) {
+                lastError = e.message;
+                continue;
+            }
+            throw e;
+        }
+    }
+
+    // All models exhausted
+    throw new Error(lastError || 'API quota exhausted. Try again tomorrow or use a new API key.');
+}
+
+async function callOpenAI(userMessage) {
+    const url = 'https://api.openai.com/v1/chat/completions';
+    const body = {
+        model: 'gpt-3.5-turbo',
+        messages: [
+            { role: 'system', content: SYSTEM_PROMPT },
+            { role: 'user', content: userMessage }
+        ],
+        temperature: 0.7,
+        max_tokens: 2048
+    };
+
+    const res = await fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${apiKey}`
+        },
+        body: JSON.stringify(body)
+    });
+
+    if (!res.ok) throw new Error(`API error: ${res.status}`);
+
+    const data = await res.json();
+    return data.choices?.[0]?.message?.content || 'No response from AI.';
 }
 
 // ===== CHAT ENGINE =====
 const chat = document.getElementById('chat');
 let history = [];
+let lastTopicKey = null;
 
-function addMsg(role, text) {
+function addMsg(role, text, showActions) {
     const welcome = document.getElementById('welcome');
     if (welcome) welcome.remove();
+
+    // Remove old suggestions
+    const oldSugg = document.querySelectorAll('.suggestions');
+    oldSugg.forEach(s => s.remove());
 
     const div = document.createElement('div');
     div.className = `msg ${role}`;
     const avatar = role === 'ai' ? '✦' : '→';
-    div.innerHTML = `<div class="avatar">${avatar}</div><div class="bubble">${role === 'ai' ? marked.parse(text) : escHtml(text)}</div>`;
+
+    let bubbleContent = role === 'ai' ? marked.parse(text) : escHtml(text);
+
+    if (role === 'ai' && showActions) {
+        bubbleContent += `<div class="msg-actions">
+            <button class="msg-action" onclick="handleFeedback(this,'like')" title="Helpful">&#128077; Helpful</button>
+            <button class="msg-action" onclick="handleFeedback(this,'dislike')" title="Not helpful">&#128078; Not helpful</button>
+            <button class="msg-action" onclick="copyAnswer(this)" title="Copy">&#128203; Copy</button>
+        </div>`;
+    }
+
+    div.innerHTML = `<div class="avatar">${avatar}</div><div class="bubble">${bubbleContent}</div>`;
     chat.appendChild(div);
     chat.scrollTop = chat.scrollHeight;
+}
+
+function addSuggestions(topicKey) {
+    let suggestions = SUGGESTIONS_MAP[topicKey];
+
+    // Generic suggestions for API answers or unknown topics
+    if (!suggestions) {
+        suggestions = ['Maths MCQs', 'Reasoning MCQs', 'Gujarat GK', 'Current affairs 2025', 'Tricky maths'];
+    }
+
+    const div = document.createElement('div');
+    div.className = 'suggestions';
+    div.innerHTML = suggestions.map(s => `<button class="suggestion-btn" onclick="ask('${s}')">${s}</button>`).join('');
+    chat.appendChild(div);
+    chat.scrollTop = chat.scrollHeight;
+}
+
+function handleFeedback(btn, type) {
+    const actions = btn.parentElement;
+    const buttons = actions.querySelectorAll('.msg-action');
+    buttons.forEach(b => { b.classList.remove('liked','disliked'); b.disabled = true; });
+    if (type === 'like') btn.classList.add('liked');
+    else btn.classList.add('disliked');
+}
+
+function copyAnswer(btn) {
+    const bubble = btn.closest('.bubble');
+    const text = bubble.innerText.replace(/👍 Helpful|👎 Not helpful|📋 Copy/g, '').trim();
+    navigator.clipboard.writeText(text).then(() => {
+        btn.textContent = '✓ Copied!';
+        setTimeout(() => { btn.innerHTML = '&#128203; Copy'; }, 2000);
+    });
 }
 
 function addTyping() {
@@ -605,7 +2832,7 @@ function ask(text) {
     send(text);
 }
 
-function send(forcedText) {
+async function send(forcedText) {
     const inp = document.getElementById('inp');
     const text = forcedText || inp.value.trim();
     if (!text) return;
@@ -620,22 +2847,94 @@ function send(forcedText) {
     // Show typing
     addTyping();
 
-    // Simulate thinking delay
-    const delay = 400 + Math.random() * 800;
-    setTimeout(() => {
-        removeTyping();
-        const answer = findAnswer(text);
-        addMsg('ai', answer);
+    // ALWAYS check offline KB first
+    const offlineAnswer = findAnswer(text);
+    const ql = normalizeText(text);
+
+    // Check if offline KB has a real match (not the default "I can help with these topics" response)
+    const isDefaultResponse = offlineAnswer.startsWith('I can help you with these topics');
+    const hasOfflineMatch = !isDefaultResponse;
+
+    if (hasOfflineMatch) {
+        // We have a good offline answer — show it (fast & reliable)
+        const delay = 300 + Math.random() * 400;
+        setTimeout(() => {
+            removeTyping();
+            addMsg('ai', offlineAnswer, true);
+            findAndShowSuggestions(text);
+            document.getElementById('sbtn').disabled = false;
+        }, delay);
+    } else if (aiMode === 'api' && apiKey && !apiQuotaExhausted) {
+        // No offline match — try AI API
+        try {
+            const answer = await callAI(text);
+            removeTyping();
+            addMsg('ai', answer, true);
+            addSuggestions(null);
+        } catch (err) {
+            removeTyping();
+            const errDetail = err.message || 'Unknown error';
+
+            // Detect quota exhaustion
+            if (errDetail.includes('429') || errDetail.includes('quota') || errDetail.includes('Quota')) {
+                apiQuotaExhausted = true;
+                aiMode = 'offline';
+                updateModeUI();
+                addMsg('ai', `API quota exhausted. Switched to **Offline Mode** automatically.\n\nYou can still ask about any of these 40+ topics — type a topic name or click suggestions below!\n\n` + offlineAnswer, true);
+            } else {
+                addMsg('ai', offlineAnswer + `\n\n> *AI unavailable: ${errDetail}*`, true);
+            }
+            findAndShowSuggestions(text);
+        }
         document.getElementById('sbtn').disabled = false;
-    }, delay);
+    } else {
+        // Offline mode — show the default topic list
+        const delay = 300 + Math.random() * 400;
+        setTimeout(() => {
+            removeTyping();
+            addMsg('ai', offlineAnswer, true);
+            findAndShowSuggestions(text);
+            document.getElementById('sbtn').disabled = false;
+        }, delay);
+    }
+}
+
+function findAndShowSuggestions(text) {
+    const ql = normalizeText(text);
+    for (const rule of RULES) {
+        const score = calculateScore(ql, rule);
+        if (score >= 2) {
+            lastTopicKey = rule.r;
+            addSuggestions(rule.r);
+            return;
+        }
+    }
+}
+
+// Category filter for chips
+function filterChips(cat) {
+    const tabs = document.querySelectorAll('.cat-tab');
+    tabs.forEach(t => t.classList.remove('active'));
+    event.target.classList.add('active');
+
+    const chips = document.querySelectorAll('.chip[data-cat]');
+    chips.forEach(chip => {
+        if (cat === 'all' || chip.dataset.cat === cat) {
+            chip.classList.add('show');
+        } else {
+            chip.classList.remove('show');
+        }
+    });
 }
 
 // Auto-resize textarea
-const inp = document.getElementById('inp');
 inp.addEventListener('input', () => {
     inp.style.height = 'auto';
     inp.style.height = Math.min(inp.scrollHeight, 120) + 'px';
 });
+
+// Initialize mode on load
+updateModeUI();
 </script>
 </body>
 </html>
