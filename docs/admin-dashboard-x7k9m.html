@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#06060a;--s1:#0c0c14;--s2:#18181b;--border:rgba(255,255,255,0.07);--txt:#a1a1aa;--white:#f4f4f5;--dim:#52525b}
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(--txt);min-height:100vh;padding:20px}
+        .top{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px}
+        .top h1{color:var(--white);font-size:1.3em}
+        .top .back{color:var(--txt);text-decoration:none;font-size:0.85em}
+        .stats-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;margin-bottom:24px}
+        .stat-card{background:var(--s1);border:1px solid var(--border);border-radius:14px;padding:18px;text-align:center}
+        .stat-card .num{font-size:2em;font-weight:900;color:var(--white)}
+        .stat-card .label{font-size:0.7em;color:var(--dim);text-transform:uppercase;letter-spacing:1px;margin-top:4px}
+        .section{background:var(--s1);border:1px solid var(--border);border-radius:16px;padding:20px;margin-bottom:20px}
+        .section h2{color:var(--white);font-size:1em;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+        .section h2 .dot{width:8px;height:8px;border-radius:50%}
+        table{width:100%;border-collapse:collapse;font-size:0.8em}
+        th{background:var(--s2);color:var(--white);padding:10px;text-align:left;font-weight:600;position:sticky;top:0}
+        td{padding:8px 10px;border-bottom:1px solid var(--border)}
+        tr:hover{background:rgba(255,255,255,0.02)}
+        .scroll{max-height:400px;overflow-y:auto}
+        .scroll::-webkit-scrollbar{width:4px}
+        .scroll::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px}
+        .bar{height:20px;border-radius:4px;min-width:4px;display:inline-block}
+        .tag{padding:2px 8px;border-radius:6px;font-size:0.75em;font-weight:600}
+        .tag-mob{background:rgba(34,197,94,0.1);color:#86efac}
+        .tag-desk{background:rgba(96,165,250,0.1);color:#93c5fd}
+        .filter-row{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}
+        .filter-btn{background:var(--s2);border:1px solid var(--border);color:var(--txt);padding:6px 14px;border-radius:8px;font-size:0.75em;cursor:pointer;font-family:inherit;transition:all 0.2s}
+        .filter-btn:hover,.filter-btn.active{border-color:rgba(139,92,246,0.4);color:var(--white);background:rgba(139,92,246,0.1)}
+        .export-btn{background:linear-gradient(135deg,#7c3aed,#6366f1);color:#fff;border:none;padding:10px 20px;border-radius:10px;font-weight:700;font-size:0.82em;cursor:pointer;font-family:inherit;transition:all 0.3s}
+        .export-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(124,58,237,0.3)}
+        .clear-btn{background:var(--s2);color:#ef4444;border:1px solid rgba(239,68,68,0.2);padding:10px 20px;border-radius:10px;font-weight:700;font-size:0.82em;cursor:pointer;font-family:inherit}
+        .empty{text-align:center;padding:40px;color:var(--dim)}
+        @media(max-width:640px){.stats-grid{grid-template-columns:repeat(2,1fr)}body{padding:12px}table{font-size:0.72em}}
+    </style>
+</head>
+<body>
+
+<div class="top">
+    <h1>SMC Admin Dashboard</h1>
+    <a href="index.html" class="back">&larr; Back to Site</a>
+</div>
+
+<div class="stats-grid" id="statsGrid"></div>
+
+<div class="section">
+    <h2><span class="dot" style="background:#8b5cf6"></span> Recent Visitors</h2>
+    <div class="filter-row">
+        <button class="filter-btn active" onclick="filterVisits('all')">All</button>
+        <button class="filter-btn" onclick="filterVisits('Mobile')">Mobile</button>
+        <button class="filter-btn" onclick="filterVisits('Desktop')">Desktop</button>
+        <button class="filter-btn" onclick="filterVisits('today')">Today</button>
+        <div style="flex:1"></div>
+        <button class="export-btn" onclick="exportCSV()">Export CSV</button>
+        <button class="clear-btn" onclick="clearData()">Clear Data</button>
+    </div>
+    <div class="scroll">
+        <table>
+            <thead><tr><th>Time</th><th>Device</th><th>OS</th><th>Browser</th><th>Screen</th><th>Network</th><th>Battery</th><th>CPU/RAM</th><th>Page</th><th>From</th><th>Duration</th></tr></thead>
+            <tbody id="visitTable"></tbody>
+        </table>
+    </div>
+    <div class="empty" id="emptyMsg" style="display:none">No visitor data yet. Data appears after people visit your site.</div>
+</div>
+
+<div class="section">
+    <h2><span class="dot" style="background:#f59e0b"></span> Popular Clicks</h2>
+    <div class="scroll" style="max-height:250px">
+        <table>
+            <thead><tr><th>Time</th><th>Button/Link Clicked</th><th>Page</th></tr></thead>
+            <tbody id="clickTable"></tbody>
+        </table>
+    </div>
+</div>
+
+<div class="section">
+    <h2><span class="dot" style="background:#22c55e"></span> Device Breakdown</h2>
+    <div id="deviceChart"></div>
+</div>
+
+<div class="section">
+    <h2><span class="dot" style="background:#3b82f6"></span> Top Pages</h2>
+    <div id="pageChart"></div>
+</div>
+
+<script>
+const visits = JSON.parse(localStorage.getItem('smc_visitors') || '[]');
+const clicks = JSON.parse(localStorage.getItem('smc_clicks') || '[]');
+
+// Stats
+function renderStats() {
+    const today = new Date().toLocaleDateString('en-IN');
+    const todayVisits = visits.filter(v => {
+        try { return new Date(v.t || v.timestamp).toLocaleDateString('en-IN') === today; } catch(e) { return false; }
+    });
+    const mobiles = visits.filter(v => v.mob || v.deviceType === 'Mobile');
+    const desktops = visits.length - mobiles.length;
+    const uniqueDevices = [...new Set(visits.map(v => v.dev || v.deviceModel || 'Unknown'))];
+
+    document.getElementById('statsGrid').innerHTML = `
+        <div class="stat-card"><div class="num">${visits.length}</div><div class="label">Total Visits</div></div>
+        <div class="stat-card"><div class="num">${todayVisits.length}</div><div class="label">Today</div></div>
+        <div class="stat-card"><div class="num">${mobiles.length}</div><div class="label">Mobile</div></div>
+        <div class="stat-card"><div class="num">${desktops}</div><div class="label">Desktop</div></div>
+        <div class="stat-card"><div class="num">${uniqueDevices.length}</div><div class="label">Unique Devices</div></div>
+        <div class="stat-card"><div class="num">${clicks.length}</div><div class="label">Clicks Tracked</div></div>
+    `;
+}
+
+// Visit table
+function renderVisits(filter) {
+    let data = [...visits].reverse();
+    if (filter === 'Mobile') data = data.filter(v => v.mob || v.deviceType === 'Mobile');
+    if (filter === 'Desktop') data = data.filter(v => !v.mob && v.deviceType !== 'Mobile');
+    if (filter === 'today') {
+        const today = new Date().toLocaleDateString('en-IN');
+        data = data.filter(v => { try { return new Date(v.t || v.timestamp).toLocaleDateString('en-IN') === today; } catch(e) { return false; } });
+    }
+
+    if (!data.length) {
+        document.getElementById('visitTable').innerHTML = '';
+        document.getElementById('emptyMsg').style.display = 'block';
+        return;
+    }
+    document.getElementById('emptyMsg').style.display = 'none';
+
+    document.getElementById('visitTable').innerHTML = data.map(v => {
+        const time = v.lt || v.localTime || new Date(v.t || v.timestamp).toLocaleString('en-IN');
+        const dev = v.dev || v.deviceModel || 'Unknown';
+        const os = v.os || 'Unknown';
+        const br = v.br || v.browser || 'Unknown';
+        const scr = v.scr || (v.screenWidth + 'x' + v.screenHeight) || '?';
+        const net = typeof v.net === 'object' ? v.net.type : (v.net || v.connection || '?');
+        const bat = v.bat || v.battery || '?';
+        const cpu = (v.cores || '?') + ' cores / ' + (v.ram || '?') + (typeof v.ram === 'number' ? 'GB' : '');
+        const pg = v.pg || v.page || '?';
+        const ref = v.ref || v.referrer || 'Direct';
+        const dur = v.dur || v.timeSpent || '-';
+        const isMob = v.mob || v.deviceType === 'Mobile';
+
+        return `<tr>
+            <td style="white-space:nowrap;font-size:0.85em">${time}</td>
+            <td><b style="color:var(--white)">${dev}</b></td>
+            <td>${os}</td>
+            <td>${br}</td>
+            <td>${scr}</td>
+            <td><span class="tag ${isMob?'tag-mob':'tag-desk'}">${net}</span></td>
+            <td>${bat}</td>
+            <td style="font-size:0.8em">${cpu}</td>
+            <td>${pg}</td>
+            <td style="max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${ref}</td>
+            <td>${dur}</td>
+        </tr>`;
+    }).join('');
+}
+
+function filterVisits(type) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    event.target.classList.add('active');
+    renderVisits(type);
+}
+
+// Clicks table
+function renderClicks() {
+    document.getElementById('clickTable').innerHTML = [...clicks].reverse().slice(0, 100).map(c =>
+        `<tr><td>${c.t || c.time || '?'}</td><td style="color:var(--white)">${c.x || c.text || '?'}</td><td>${c.p || c.page || '?'}</td></tr>`
+    ).join('');
+}
+
+// Device breakdown chart
+function renderDeviceChart() {
+    const counts = {};
+    visits.forEach(v => {
+        const dev = v.dev || v.deviceModel || 'Unknown';
+        counts[dev] = (counts[dev] || 0) + 1;
+    });
+    const sorted = Object.entries(counts).sort((a, b) => b[1] - a[1]);
+    const max = sorted[0]?.[1] || 1;
+    const colors = ['#8b5cf6','#6366f1','#3b82f6','#22d3ee','#14b8a6','#22c55e','#f59e0b','#ef4444','#ec4899','#a78bfa'];
+
+    document.getElementById('deviceChart').innerHTML = sorted.map(([dev, count], i) =>
+        `<div style="display:flex;align-items:center;gap:10px;margin:6px 0">
+            <span style="width:120px;font-size:0.82em;color:var(--white);font-weight:600;text-align:right">${dev}</span>
+            <div class="bar" style="width:${(count/max)*100}%;background:${colors[i%colors.length]}"></div>
+            <span style="font-size:0.78em;color:var(--dim)">${count}</span>
+        </div>`
+    ).join('');
+}
+
+// Page breakdown
+function renderPageChart() {
+    const counts = {};
+    visits.forEach(v => {
+        const pg = v.pg || v.page || 'unknown';
+        counts[pg] = (counts[pg] || 0) + 1;
+    });
+    const sorted = Object.entries(counts).sort((a, b) => b[1] - a[1]);
+    const max = sorted[0]?.[1] || 1;
+    const colors = ['#22c55e','#3b82f6','#f59e0b','#ef4444','#8b5cf6','#ec4899','#14b8a6','#22d3ee'];
+
+    document.getElementById('pageChart').innerHTML = sorted.map(([pg, count], i) =>
+        `<div style="display:flex;align-items:center;gap:10px;margin:6px 0">
+            <span style="width:140px;font-size:0.82em;color:var(--white);font-weight:600;text-align:right">${pg}</span>
+            <div class="bar" style="width:${(count/max)*100}%;background:${colors[i%colors.length]}"></div>
+            <span style="font-size:0.78em;color:var(--dim)">${count}</span>
+        </div>`
+    ).join('');
+}
+
+// Export CSV
+function exportCSV() {
+    const headers = ['Time','Device','OS','Browser','Screen','Network','Battery','Cores','RAM','Page','Referrer','Duration'];
+    const rows = visits.map(v => [
+        v.lt || v.localTime || '',
+        v.dev || v.deviceModel || '',
+        v.os || '',
+        v.br || v.browser || '',
+        v.scr || '',
+        typeof v.net === 'object' ? v.net.type : (v.net || ''),
+        v.bat || v.battery || '',
+        v.cores || '',
+        v.ram || '',
+        v.pg || v.page || '',
+        v.ref || v.referrer || '',
+        v.dur || v.timeSpent || ''
+    ]);
+    const csv = [headers, ...rows].map(r => r.map(c => '"' + String(c).replace(/"/g,'""') + '"').join(',')).join('\n');
+    const blob = new Blob([csv], { type: 'text/csv' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'smc_visitors_' + new Date().toISOString().split('T')[0] + '.csv';
+    a.click();
+    URL.revokeObjectURL(url);
+}
+
+// Clear data
+function clearData() {
+    if (confirm('This will delete all visitor tracking data. Are you sure?')) {
+        localStorage.removeItem('smc_visitors');
+        localStorage.removeItem('smc_clicks');
+        location.reload();
+    }
+}
+
+// Render everything
+renderStats();
+renderVisits('all');
+renderClicks();
+renderDeviceChart();
+renderPageChart();
+</script>
+</body>
+</html>
