@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Supervisor Exam Guide - SMC 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        :root{--bg:#06060a;--s1:#0c0c14;--s2:#18181b;--border:rgba(255,255,255,0.07);--txt:#a1a1aa;--white:#f4f4f5;--dim:#52525b;--accent:#a78bfa}
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(--txt);min-height:100vh}
+        .mesh{position:fixed;inset:0;pointer-events:none;z-index:0}.mesh i{position:absolute;border-radius:50%;filter:blur(120px);mix-blend-mode:screen;animation:m 25s ease-in-out infinite alternate}.mesh .m1{width:35vw;height:35vw;background:rgba(167,139,250,0.08);top:-10%;right:-5%}.mesh .m2{width:30vw;height:30vw;background:rgba(99,102,241,0.06);bottom:-10%;left:-5%;animation-delay:-8s}@keyframes m{0%{transform:translate(0,0) scale(1)}100%{transform:translate(40px,-40px) scale(1.1)}}
+        .top{position:sticky;top:0;z-index:10;background:rgba(6,6,10,0.85);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);padding:14px 24px;display:flex;align-items:center;gap:14px}.top a{background:var(--s2);color:var(--white);border:1px solid var(--border);padding:8px 18px;border-radius:10px;font-weight:600;font-size:0.82em;text-decoration:none;font-family:inherit;transition:all 0.3s}.top a:hover{background:rgba(255,255,255,0.06)}.top h1{flex:1;text-align:center;color:var(--white);font-size:1em;font-weight:700}.top .badge{background:rgba(167,139,250,0.12);color:var(--accent);padding:4px 12px;border-radius:8px;font-size:0.72em;font-weight:700}
+        .wrap{max-width:800px;margin:0 auto;padding:32px 20px 80px;position:relative;z-index:1}
+        .card{background:var(--s1);border:1px solid var(--border);border-radius:16px;padding:24px;margin-bottom:20px}.card h2{color:var(--white);font-size:1.1em;margin-bottom:14px;display:flex;align-items:center;gap:8px}.card h2 .dot{width:8px;height:8px;border-radius:50%}
+        table{width:100%;border-collapse:collapse;font-size:0.85em;margin:8px 0}th{background:var(--s2);color:var(--white);padding:10px 12px;text-align:left;font-weight:600}td{padding:10px 12px;border-bottom:1px solid var(--border)}
+        .tag{display:inline-block;padding:3px 10px;border-radius:6px;font-size:0.7em;font-weight:700}.tag-high{background:rgba(248,113,113,0.1);color:#fca5a5}.tag-med{background:rgba(250,204,21,0.1);color:#fde68a}.tag-low{background:rgba(74,222,128,0.1);color:#86efac}
+        .key-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;margin-top:12px}.key-item{background:var(--s2);border:1px solid var(--border);border-radius:10px;padding:12px;font-size:0.82em}.key-item b{color:var(--white);display:block;margin-bottom:4px}
+        details{background:var(--s1);border:1px solid var(--border);border-radius:14px;margin-bottom:12px;overflow:hidden}summary{padding:16px 20px;cursor:pointer;color:var(--white);font-weight:700;font-size:0.95em;list-style:none;display:flex;align-items:center;justify-content:space-between;transition:background 0.3s}summary:hover{background:rgba(255,255,255,0.03)}summary::after{content:'+';font-size:1.2em;color:var(--dim);transition:transform 0.3s}details[open] summary::after{transform:rotate(45deg);color:var(--accent)}details[open] summary{border-bottom:1px solid var(--border)}
+        .mcq-content{padding:20px;font-size:0.88em;line-height:1.7}.mcq-content strong{color:var(--white)}.mcq-content h2,.mcq-content h3{color:var(--white);margin:16px 0 8px}.mcq-content hr{border:none;border-top:1px solid var(--border);margin:16px 0}.mcq-content table{width:100%;border-collapse:collapse;margin:10px 0}.mcq-content th{background:var(--s2);color:var(--white);padding:8px;text-align:left}.mcq-content td{padding:8px;border-bottom:1px solid var(--border)}
+        .cta-bar{text-align:center;margin-top:32px}.cta-bar a{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:14px;font-weight:700;font-size:0.88em;text-decoration:none;background:linear-gradient(135deg,#7c3aed,#6366f1);color:#fff;transition:all 0.3s}.cta-bar a:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(124,58,237,0.4)}
+        .no-neg{display:inline-block;background:rgba(74,222,128,0.1);color:#86efac;padding:4px 12px;border-radius:8px;font-weight:700;font-size:0.82em}
+        @media(max-width:640px){.top h1{font-size:0.82em}.wrap{padding:20px 14px 60px}.key-grid{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+<div class="mesh"><i class="m1"></i><i class="m2"></i></div>
+<div class="top">
+    <a href="index.html">&larr; Home</a>
+    <h1>Computer Supervisor - Code 513</h1>
+    <span class="badge">Posts Open</span>
+</div>
+<div class="wrap">
+    <div class="card">
+        <h2><span class="dot" style="background:var(--accent)"></span> Exam Overview</h2>
+        <table>
+            <tr><td><b>Post</b></td><td>Computer Supervisor (Code-513)</td></tr>
+            <tr><td><b>Qualification</b></td><td>BCA / B.Sc(IT) / BE(CS/IT) + CCC</td></tr>
+            <tr><td><b>Exam</b></td><td>100 MCQs | 120 Minutes | OMR Based</td></tr>
+            <tr><td><b>Negative Marking</b></td><td><span class="no-neg">NO Negative Marking</span></td></tr>
+            <tr><td><b>Age Limit</b></td><td>18-35 years (relaxation for reserved)</td></tr>
+            <tr><td><b>Salary</b></td><td>Rs. 39,900 - 1,26,600 (Level 7)</td></tr>
+            <tr><td><b>Training Salary</b></td><td>Rs. 18,500/month (first 3 years)</td></tr>
+            <tr><td><b>Stage 2</b></td><td>Practical Test (MS Office + Gujarati Typing 25 WPM)</td></tr>
+            <tr><td><b>Fee</b></td><td>General ₹500 | SC/ST/OBC ₹250 | PwD Free</td></tr>
+        </table>
+    </div>
+    <div class="card">
+        <h2><span class="dot" style="background:#f87171"></span> Syllabus Weightage</h2>
+        <table>
+            <tr><th>Subject</th><th>Questions</th><th>Priority</th></tr>
+            <tr><td>Computer Fundamentals</td><td>20-25</td><td><span class="tag tag-high">HIGH</span></td></tr>
+            <tr><td>MS Office (Word, Excel, PPT)</td><td>15-20</td><td><span class="tag tag-high">HIGH</span></td></tr>
+            <tr><td>Networking & Internet</td><td>10-15</td><td><span class="tag tag-high">HIGH</span></td></tr>
+            <tr><td>Gujarat / Surat GK</td><td>10-15</td><td><span class="tag tag-med">MEDIUM</span></td></tr>
+            <tr><td>Database & SQL</td><td>5-8</td><td><span class="tag tag-med">MEDIUM</span></td></tr>
+            <tr><td>Cyber Security & e-Governance</td><td>5-10</td><td><span class="tag tag-med">MEDIUM</span></td></tr>
+            <tr><td>Programming Basics</td><td>5-8</td><td><span class="tag tag-med">MEDIUM</span></td></tr>
+            <tr><td>English & Gujarati</td><td>10-15</td><td><span class="tag tag-low">LOW</span></td></tr>
+        </table>
+    </div>
+    <div class="card">
+        <h2><span class="dot" style="background:#4ade80"></span> Key Topics & Strategy</h2>
+        <div class="key-grid">
+            <div class="key-item"><b>Computer Fundamentals</b>Hardware, Software, OS, Memory types, Generations, Number systems, I/O devices</div>
+            <div class="key-item"><b>Networking</b>OSI Model (7 layers), TCP vs UDP, Port numbers, IP addressing, HTTP/FTP/SMTP</div>
+            <div class="key-item"><b>MS Office</b>Word (Mail Merge), Excel (Formulas, VLOOKUP, Charts), PowerPoint shortcuts</div>
+            <div class="key-item"><b>Database & SQL</b>RDBMS, Primary/Foreign Key, SELECT, JOIN, Normalization, DDL/DML/DCL</div>
+            <div class="key-item"><b>Cyber Security</b>Virus types, Firewall, IT Act 2000, Encryption (Symmetric/Asymmetric), Phishing</div>
+            <div class="key-item"><b>e-Governance</b>Digital India, DigiLocker, UMANG, GeM, SWAN, CSC, Digital Gujarat portals</div>
+        </div>
+        <div style="margin-top:16px;padding:14px;background:var(--s2);border-radius:10px;font-size:0.82em">
+            <b style="color:var(--white)">Exam Strategy:</b> <span class="no-neg" style="font-size:0.85em">No negative marking</span> — Attempt ALL 100 questions! Focus on Computer + Networking (35-40Q guaranteed). Memorize ports, shortcuts, OSI layers, full forms.
+        </div>
+    </div>
+    <h2 style="color:var(--white);font-size:1.2em;margin:28px 0 16px">Practice MCQs (820+ Questions)</h2>
+    <details><summary>All-in-One Complete Guide (820+ MCQs)</summary><div class="mcq-content" id="allinone"></div></details>
+    <details><summary>Computer Knowledge</summary><div class="mcq-content" id="computer"></div></details>
+    <details><summary>General Knowledge</summary><div class="mcq-content" id="gk"></div></details>
+    <details><summary>Gujarati Language</summary><div class="mcq-content" id="gujarati"></div></details>
+    <details><summary>English Language</summary><div class="mcq-content" id="english"></div></details>
+    <details><summary>Mathematics</summary><div class="mcq-content" id="maths"></div></details>
+    <details><summary>Advanced Computer (220 MCQs)</summary><div class="mcq-content" id="advanced"></div></details>
+    <details><summary>Exam Strategy & Practical</summary><div class="mcq-content" id="strategy"></div></details>
+    <details><summary>Gujarati Typing Guide</summary><div class="mcq-content" id="typing"></div></details>
+    <div class="cta-bar"><a href="ai.html">Ask AI for More Questions &rarr;</a></div>
+</div>
+<script>
+const R='https://raw.githubusercontent.com/abhiiibabariya-dev/SMC-Computer-Supervisor-Exam-Prep/master/';
+const files={
+    allinone:'ALL_IN_ONE_EXAM_GUIDE.md',
+    computer:'subjects/01_computer_knowledge.md',
+    gk:'subjects/02_general_knowledge.md',
+    gujarati:'subjects/03_gujarati_language.md',
+    english:'subjects/04_english_language.md',
+    maths:'subjects/05_mathematics.md',
+    advanced:'subjects/06_advanced_computer_supervisor.md',
+    strategy:'subjects/07_exam_strategy_and_practical.md',
+    typing:'subjects/08_gujarati_typing_complete_guide.md'
+};
+document.querySelectorAll('details').forEach(d=>{
+    d.addEventListener('toggle',function(){
+        if(!this.open)return;
+        const el=this.querySelector('.mcq-content');
+        if(el.dataset.loaded)return;
+        el.dataset.loaded='1';
+        const file=files[el.id];
+        if(!file){el.innerHTML='<p>Content not available</p>';return}
+        el.innerHTML='<p style="color:var(--dim)">Loading...</p>';
+        fetch(R+file).then(r=>{if(!r.ok)throw 0;return r.text()}).then(md=>{el.innerHTML=marked.parse(md)}).catch(()=>{el.innerHTML='<p>Could not load. <a href="https://github.com/abhiiibabariya-dev/SMC-Computer-Supervisor-Exam-Prep/blob/master/'+file+'" style="color:#93c5fd">View on GitHub</a></p>'});
+    });
+});
+</script>
+</body>
+</html>
