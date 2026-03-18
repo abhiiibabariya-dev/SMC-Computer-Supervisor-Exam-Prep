@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SMC Exam Prep 2026</title>
+    <!-- Google Analytics - Replace G-XXXXXXXXXX with your GA4 Measurement ID -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <style>
@@ -123,6 +126,8 @@
         /* ============ FOOTER ============ */
         .foot{text-align:center;padding:40px 24px;color:var(--dim);font-size:0.78em;border-top:1px solid var(--border);margin-top:40px}
         .foot a{color:var(--txt);text-decoration:none}.foot a:hover{color:var(--white)}
+
+        /* (analytics only - no visible UI needed) */
 
         /* ============ VIEWER ============ */
         #vw{display:none;position:fixed;inset:0;background:var(--bg);z-index:2000;overflow-y:auto;-webkit-overflow-scrolling:touch}
@@ -369,6 +374,7 @@
 
 </div>
 
+
 <script>
 // Nav scroll
 const nv=document.getElementById('nav');
@@ -388,6 +394,11 @@ const R='https://raw.githubusercontent.com/abhiiibabariya-dev/SMC-Computer-Super
 function O(p,t){const v=document.getElementById('vw'),b=document.getElementById('vc');document.getElementById('vn').textContent=t;b.innerHTML='<div class="ld">Loading...</div>';v.classList.add('on');document.body.style.overflow='hidden';v.scrollTop=0;history.pushState({v:1},'','#'+p.replace(/[\/.]/g,'-'));fetch(R+p).then(r=>{if(!r.ok)throw 0;return r.text()}).then(md=>{b.innerHTML=marked.parse(md)}).catch(()=>{b.innerHTML='<div class="ld">Could not load.<br><br><a href="https://github.com/abhiiibabariya-dev/SMC-Computer-Supervisor-Exam-Prep/blob/master/'+p+'" style="color:#93c5fd">Open on GitHub</a></div>'});}
 function X(){document.getElementById('vw').classList.remove('on');document.body.style.overflow='';}
 window.addEventListener('popstate',()=>{if(document.getElementById('vw').classList.contains('on'))X()});
+
+// ===== VISITOR TRACKING =====
+// Google Analytics tracks: visitors, pages, device, location, duration
+// To set up: replace G-XXXXXXXXXX in the head tag with your GA4 Measurement ID
+// Get free GA4 ID: https://analytics.google.com → Create Account → Get Measurement ID
 </script>
 </body>
 </html>
