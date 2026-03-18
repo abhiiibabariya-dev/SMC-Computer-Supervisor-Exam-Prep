@@ -571,6 +571,158 @@ function nextDailyQ(){
     showDailyQ();
 }
 showDailyQ();
+
+// ===== VISITOR INTELLIGENCE TRACKER =====
+(function(){
+    // Collect everything the browser allows
+    const ua = navigator.userAgent;
+    const visit = {
+        // Time
+        timestamp: new Date().toISOString(),
+        localTime: new Date().toLocaleString('en-IN',{timeZone:'Asia/Kolkata'}),
+
+        // Device
+        deviceType: /Mobile|Android|iPhone|iPad/i.test(ua) ? 'Mobile' : /Tablet|iPad/i.test(ua) ? 'Tablet' : 'Desktop',
+        os: getOS(ua),
+        browser: getBrowser(ua),
+        screenWidth: screen.width,
+        screenHeight: screen.height,
+        screenRatio: window.devicePixelRatio || 1,
+        colorDepth: screen.colorDepth + '-bit',
+        touchScreen: 'ontouchstart' in window || navigator.maxTouchPoints > 0,
+        cores: navigator.hardwareConcurrency || 'unknown',
+        ram: navigator.deviceMemory ? navigator.deviceMemory + ' GB' : 'unknown',
+
+        // Network
+        connection: getConnection(),
+        online: navigator.onLine,
+
+        // Browser info
+        language: navigator.language,
+        languages: navigator.languages ? navigator.languages.join(', ') : navigator.language,
+        cookiesEnabled: navigator.cookieEnabled,
+        doNotTrack: navigator.doNotTrack,
+        timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+
+        // Page
+        page: location.pathname + location.hash,
+        referrer: document.referrer || 'Direct',
+        fullURL: location.href,
+
+        // Battery (if available)
+        battery: 'checking...'
+    };
+
+    function getOS(ua) {
+        if (/Android (\d+[\.\d]*)/.test(ua)) return 'Android ' + RegExp.$1;
+        if (/iPhone OS (\d+[_\d]*)/.test(ua)) return 'iOS ' + RegExp.$1.replace(/_/g,'.');
+        if (/iPad/.test(ua)) return 'iPadOS';
+        if (/Windows NT 10/.test(ua)) return /Windows NT 10.*build.*[2-9]\d{4}/i.test(ua) ? 'Windows 11' : 'Windows 10';
+        if (/Windows NT 6\.3/.test(ua)) return 'Windows 8.1';
+        if (/Mac OS X (\d+[_\d]*)/.test(ua)) return 'macOS ' + RegExp.$1.replace(/_/g,'.');
+        if (/Linux/.test(ua)) return 'Linux';
+        if (/CrOS/.test(ua)) return 'Chrome OS';
+        return 'Unknown OS';
+    }
+
+    function getBrowser(ua) {
+        if (/Edg\/(\d+)/.test(ua)) return 'Edge ' + RegExp.$1;
+        if (/OPR\/(\d+)/.test(ua)) return 'Opera ' + RegExp.$1;
+        if (/Chrome\/(\d+)/.test(ua)) return 'Chrome ' + RegExp.$1;
+        if (/Firefox\/(\d+)/.test(ua)) return 'Firefox ' + RegExp.$1;
+        if (/Safari\/(\d+)/.test(ua) && !/Chrome/.test(ua)) return 'Safari';
+        if (/MSIE|Trident/.test(ua)) return 'IE';
+        return 'Unknown Browser';
+    }
+
+    function getConnection() {
+        const conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+        if (!conn) return 'unknown';
+        return {
+            type: conn.effectiveType || conn.type || 'unknown',
+            downlink: conn.downlink ? conn.downlink + ' Mbps' : 'unknown',
+            saveData: conn.saveData || false
+        };
+    }
+
+    // Get device model from UA (rough detection)
+    function getDeviceModel(ua) {
+        // Samsung
+        if (/SM-[A-Z]\d{3}/i.test(ua)) return 'Samsung ' + ua.match(/SM-[A-Z]\d{3}[A-Z]?/i)?.[0];
+        if (/Samsung/i.test(ua)) return 'Samsung';
+        // Xiaomi/Redmi
+        if (/Redmi/i.test(ua)) return ua.match(/Redmi[^;)\/]*/i)?.[0]?.trim() || 'Redmi';
+        if (/POCO/i.test(ua)) return ua.match(/POCO[^;)\/]*/i)?.[0]?.trim() || 'POCO';
+        if (/Mi \d/i.test(ua)) return ua.match(/Mi [^;)\/]*/i)?.[0]?.trim() || 'Xiaomi';
+        // OnePlus
+        if (/OnePlus/i.test(ua)) return ua.match(/OnePlus[^;)\/]*/i)?.[0]?.trim() || 'OnePlus';
+        // Realme
+        if (/RMX\d{4}/i.test(ua)) return 'Realme ' + ua.match(/RMX\d{4}/i)?.[0];
+        // Vivo
+        if (/vivo/i.test(ua)) return ua.match(/vivo[^;)\/]*/i)?.[0]?.trim() || 'Vivo';
+        // Oppo
+        if (/OPPO|CPH\d{4}/i.test(ua)) return 'Oppo';
+        // iPhone
+        if (/iPhone/.test(ua)) return 'iPhone';
+        if (/iPad/.test(ua)) return 'iPad';
+        // Pixel
+        if (/Pixel/i.test(ua)) return ua.match(/Pixel[^;)\/]*/i)?.[0]?.trim() || 'Google Pixel';
+        // Desktop
+        if (/Macintosh/.test(ua)) return 'Mac';
+        if (/Windows/.test(ua)) return 'Windows PC';
+        if (/Linux/.test(ua) && !/Android/.test(ua)) return 'Linux PC';
+        return 'Unknown Device';
+    }
+    visit.deviceModel = getDeviceModel(ua);
+
+    // Battery info
+    if (navigator.getBattery) {
+        navigator.getBattery().then(b => {
+            visit.battery = Math.round(b.level * 100) + '% ' + (b.charging ? '(charging)' : '(not charging)');
+            saveVisit(visit);
+        }).catch(() => { visit.battery = 'unavailable'; saveVisit(visit); });
+    } else {
+        visit.battery = 'not supported';
+        saveVisit(visit);
+    }
+
+    function saveVisit(v) {
+        // Save to localStorage
+        const visits = JSON.parse(localStorage.getItem('smc_visitors') || '[]');
+        visits.push(v);
+        if (visits.length > 200) visits.splice(0, visits.length - 200);
+        localStorage.setItem('smc_visitors', JSON.stringify(visits));
+
+        // Track page time
+        const startTime = Date.now();
+        window.addEventListener('beforeunload', () => {
+            const duration = Math.round((Date.now() - startTime) / 1000);
+            v.timeSpent = duration + 's';
+            const allVisits = JSON.parse(localStorage.getItem('smc_visitors') || '[]');
+            if (allVisits.length) {
+                allVisits[allVisits.length - 1].timeSpent = duration + 's';
+                localStorage.setItem('smc_visitors', JSON.stringify(allVisits));
+            }
+        });
+
+        // Silent tracking - view data at admin-dashboard-x7k9m.html
+    }
+
+    // Track which sections user clicks
+    document.addEventListener('click', (e) => {
+        const card = e.target.closest('.k, .opt, .chip, .b');
+        if (card) {
+            const clicks = JSON.parse(localStorage.getItem('smc_clicks') || '[]');
+            clicks.push({
+                text: card.textContent.trim().substring(0, 50),
+                time: new Date().toLocaleTimeString('en-IN'),
+                page: location.pathname
+            });
+            if (clicks.length > 500) clicks.splice(0, clicks.length - 500);
+            localStorage.setItem('smc_clicks', JSON.stringify(clicks));
+        }
+    });
+})();
 </script>
 </body>
 </html>
