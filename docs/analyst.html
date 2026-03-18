@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Junior Analyst Microbiology Exam Guide - SMC 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        :root{--bg:#06060a;--s1:#0c0c14;--s2:#18181b;--border:rgba(255,255,255,0.07);--txt:#a1a1aa;--white:#f4f4f5;--dim:#52525b;--accent:#34d399}
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(--txt);min-height:100vh}
+        .mesh{position:fixed;inset:0;pointer-events:none;z-index:0}
+        .mesh i{position:absolute;border-radius:50%;filter:blur(120px);mix-blend-mode:screen;animation:m 25s ease-in-out infinite alternate}
+        .mesh .m1{width:35vw;height:35vw;background:rgba(52,211,153,0.08);top:-10%;right:-5%}
+        .mesh .m2{width:30vw;height:30vw;background:rgba(139,92,246,0.06);bottom:-10%;left:-5%;animation-delay:-8s}
+        @keyframes m{0%{transform:translate(0,0) scale(1)}100%{transform:translate(40px,-40px) scale(1.1)}}
+        .top{position:sticky;top:0;z-index:10;background:rgba(6,6,10,0.85);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);padding:14px 24px;display:flex;align-items:center;gap:14px}
+        .top a{background:var(--s2);color:var(--white);border:1px solid var(--border);padding:8px 18px;border-radius:10px;font-weight:600;font-size:0.82em;text-decoration:none;font-family:inherit;transition:all 0.3s}
+        .top a:hover{background:rgba(255,255,255,0.06)}
+        .top h1{flex:1;text-align:center;color:var(--white);font-size:1em;font-weight:700}
+        .top .badge{background:rgba(52,211,153,0.12);color:var(--accent);padding:4px 12px;border-radius:8px;font-size:0.72em;font-weight:700}
+        .wrap{max-width:800px;margin:0 auto;padding:32px 20px 80px;position:relative;z-index:1}
+        .card{background:var(--s1);border:1px solid var(--border);border-radius:16px;padding:24px;margin-bottom:20px}
+        .card h2{color:var(--white);font-size:1.1em;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+        .card h2 .dot{width:8px;height:8px;border-radius:50%}
+        table{width:100%;border-collapse:collapse;font-size:0.85em;margin:8px 0}
+        th{background:var(--s2);color:var(--white);padding:10px 12px;text-align:left;font-weight:600}
+        td{padding:10px 12px;border-bottom:1px solid var(--border)}
+        .tag{display:inline-block;padding:3px 10px;border-radius:6px;font-size:0.7em;font-weight:700}
+        .tag-high{background:rgba(248,113,113,0.1);color:#fca5a5}
+        .tag-med{background:rgba(250,204,21,0.1);color:#fde68a}
+        .tag-low{background:rgba(74,222,128,0.1);color:#86efac}
+        .key-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;margin-top:12px}
+        .key-item{background:var(--s2);border:1px solid var(--border);border-radius:10px;padding:12px;font-size:0.82em}
+        .key-item b{color:var(--white);display:block;margin-bottom:4px}
+        details{background:var(--s1);border:1px solid var(--border);border-radius:14px;margin-bottom:12px;overflow:hidden}
+        summary{padding:16px 20px;cursor:pointer;color:var(--white);font-weight:700;font-size:0.95em;list-style:none;display:flex;align-items:center;justify-content:space-between;transition:background 0.3s}
+        summary:hover{background:rgba(255,255,255,0.03)}
+        summary::after{content:'+';font-size:1.2em;color:var(--dim);transition:transform 0.3s}
+        details[open] summary::after{transform:rotate(45deg);color:var(--accent)}
+        details[open] summary{border-bottom:1px solid var(--border)}
+        .mcq-content{padding:20px;font-size:0.88em;line-height:1.7}
+        .mcq-content strong{color:var(--white)}
+        .mcq-content h2,.mcq-content h3{color:var(--white);margin:16px 0 8px}
+        .mcq-content hr{border:none;border-top:1px solid var(--border);margin:16px 0}
+        .cta-bar{text-align:center;margin-top:32px}
+        .cta-bar a{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:14px;font-weight:700;font-size:0.88em;text-decoration:none;background:linear-gradient(135deg,#7c3aed,#6366f1);color:#fff;transition:all 0.3s}
+        .cta-bar a:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(124,58,237,0.4)}
+        @media(max-width:640px){.top h1{font-size:0.82em}.wrap{padding:20px 14px 60px}.key-grid{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+<div class="mesh"><i class="m1"></i><i class="m2"></i></div>
+
+<div class="top">
+    <a href="index.html">&larr; Home</a>
+    <h1>Junior Analyst - Microbiology (Post 19)</h1>
+    <span class="badge">7 Posts</span>
+</div>
+
+<div class="wrap">
+    <div class="card">
+        <h2><span class="dot" style="background:var(--accent)"></span> Exam Overview</h2>
+        <table>
+            <tr><td><b>Post</b></td><td>Junior Analyst - Microbiology (Post 19)</td></tr>
+            <tr><td><b>Total Posts</b></td><td>7</td></tr>
+            <tr><td><b>Qualification</b></td><td>B.Sc / M.Sc in Microbiology / Biotechnology / Biochemistry</td></tr>
+            <tr><td><b>Exam</b></td><td>100 MCQs | 120 Minutes | OMR Based</td></tr>
+            <tr><td><b>Negative Marking</b></td><td>-0.25 per wrong answer</td></tr>
+            <tr><td><b>Age Limit</b></td><td>18-37 years (relaxation for reserved)</td></tr>
+            <tr><td><b>Salary</b></td><td>Rs. 29,200 - 92,300 (Level 5)</td></tr>
+            <tr><td><b>Training Salary</b></td><td>Rs. 17,500/month (first 3 years)</td></tr>
+        </table>
+    </div>
+
+    <div class="card">
+        <h2><span class="dot" style="background:#a78bfa"></span> Syllabus Weightage</h2>
+        <table>
+            <tr><th>Subject</th><th>Questions</th><th>Priority</th></tr>
+            <tr><td>General Microbiology</td><td>20-25</td><td><span class="tag tag-high">HIGH</span></td></tr>
+            <tr><td>Water & Food Microbiology</td><td>15-20</td><td><span class="tag tag-high">HIGH</span></td></tr>
+            <tr><td>Immunology & Serology</td><td>10-15</td><td><span class="tag tag-high">HIGH</span></td></tr>
+            <tr><td>Lab Techniques & Instruments</td><td>10-15</td><td><span class="tag tag-med">MEDIUM</span></td></tr>
+            <tr><td>Biochemistry</td><td>5-10</td><td><span class="tag tag-med">MEDIUM</span></td></tr>
+            <tr><td>GK & Language</td><td>10-15</td><td><span class="tag tag-low">LOW</span></td></tr>
+        </table>
+    </div>
+
+    <div class="card">
+        <h2><span class="dot" style="background:#4ade80"></span> Key Topics to Remember</h2>
+        <div class="key-grid">
+            <div class="key-item"><b>Gram Stain Steps</b>Crystal Violet → Iodine (mordant) → Alcohol (decolorize) → Safranin (counterstain)</div>
+            <div class="key-item"><b>Bacteria Shapes</b>Cocci (sphere) | Bacilli (rod) | Spirilla (spiral) | Vibrio (comma)</div>
+            <div class="key-item"><b>Water Quality</b>Coliform: 0/100mL | pH: 6.5-8.5 | TDS: &lt;500mg/L | Chlorine: 0.2-0.5mg/L</div>
+            <div class="key-item"><b>MPN & BOD</b>MPN = Most Probable Number | High BOD = Polluted water | COD = Chemical O2 Demand</div>
+            <div class="key-item"><b>IMViC Test</b>E. coli: + + - - | Klebsiella: - - + + | (Indole, MR, VP, Citrate)</div>
+            <div class="key-item"><b>Sterilization</b>Autoclave: 121°C/15psi/15min | Hot air: 160°C/1hr | Pasteurize: 63°C/30min</div>
+            <div class="key-item"><b>Immunoglobulins</b>IgG (most abundant) | IgM (first response) | IgE (allergy) | IgA (mucosa)</div>
+            <div class="key-item"><b>Key Tests</b>ELISA → HIV screen | Western Blot → HIV confirm | Widal → Typhoid | VDRL → Syphilis</div>
+        </div>
+    </div>
+
+    <h2 style="color:var(--white);font-size:1.2em;margin:28px 0 16px">Practice MCQs (100 Questions)</h2>
+
+    <details><summary>A. General Microbiology (Q1-Q25)</summary><div class="mcq-content" id="sec1"></div></details>
+    <details><summary>B. Water & Food Microbiology (Q26-Q45)</summary><div class="mcq-content" id="sec2"></div></details>
+    <details><summary>C. Immunology & Serology (Q46-Q60)</summary><div class="mcq-content" id="sec3"></div></details>
+    <details><summary>D. Lab Techniques & Instruments (Q61-Q80)</summary><div class="mcq-content" id="sec4"></div></details>
+    <details><summary>E. Biochemistry & General (Q81-Q100)</summary><div class="mcq-content" id="sec5"></div></details>
+
+    <div class="cta-bar">
+        <a href="ai.html">Ask AI for More Questions &rarr;</a>
+    </div>
+</div>
+
+<script>
+const R='https://raw.githubusercontent.com/abhiiibabariya-dev/SMC-Computer-Supervisor-Exam-Prep/master/clerk_exam/05_junior_analyst_microbiology_exam.md';
+fetch(R).then(r=>r.text()).then(md=>{
+    const parts=md.split(/## [A-E]\./);
+    if(parts.length>=6){
+        document.getElementById('sec1').innerHTML=marked.parse('## A.'+parts[1]);
+        document.getElementById('sec2').innerHTML=marked.parse('## B.'+parts[2]);
+        document.getElementById('sec3').innerHTML=marked.parse('## C.'+parts[3]);
+        document.getElementById('sec4').innerHTML=marked.parse('## D.'+parts[4]);
+        document.getElementById('sec5').innerHTML=marked.parse('## E.'+parts[5]);
+    } else {
+        document.getElementById('sec1').innerHTML=marked.parse(md);
+    }
+}).catch(()=>{
+    document.querySelectorAll('.mcq-content').forEach(el=>{el.innerHTML='<p>Loading... <a href="https://github.com/abhiiibabariya-dev/SMC-Computer-Supervisor-Exam-Prep/blob/master/clerk_exam/05_junior_analyst_microbiology_exam.md" style="color:#93c5fd">View on GitHub</a></p>'});
+});
+</script>
+</body>
+</html>
