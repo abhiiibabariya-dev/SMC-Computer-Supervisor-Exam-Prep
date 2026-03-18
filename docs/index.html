@@ -127,7 +127,34 @@
         .foot{text-align:center;padding:40px 24px;color:var(--dim);font-size:0.78em;border-top:1px solid var(--border);margin-top:40px}
         .foot a{color:var(--txt);text-decoration:none}.foot a:hover{color:var(--white)}
 
-        /* (analytics only - no visible UI needed) */
+        /* ============ COUNTDOWN ============ */
+        .countdown{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:24px 0}
+        .cd-item{background:var(--s1);border:1px solid var(--border);border-radius:16px;padding:20px 12px;text-align:center}
+        .cd-item .cd-n{font-size:2.2em;font-weight:900;color:var(--white);font-variant-numeric:tabular-nums}
+        .cd-item .cd-l{font-size:0.65em;color:var(--dim);text-transform:uppercase;letter-spacing:2px;margin-top:4px}
+
+        /* ============ DAILY QUIZ WIDGET ============ */
+        .quiz-widget{background:var(--s1);border:1px solid var(--border);border-radius:20px;padding:24px;margin:24px 0;position:relative;overflow:hidden}
+        .quiz-widget::before{content:'';position:absolute;top:-50%;right:-30%;width:60%;height:200%;background:radial-gradient(circle,rgba(139,92,246,0.06),transparent 60%);pointer-events:none}
+        .quiz-widget h3{color:var(--white);font-size:1.05em;margin-bottom:4px;position:relative}
+        .quiz-widget .quiz-sub{color:var(--dim);font-size:0.78em;margin-bottom:16px;position:relative}
+        .quiz-q{color:var(--white);font-size:0.95em;font-weight:600;margin-bottom:14px;line-height:1.5;position:relative}
+        .quiz-opts{display:grid;gap:8px;position:relative}
+        .quiz-opt{background:var(--s2);border:1px solid var(--border);border-radius:12px;padding:12px 16px;cursor:pointer;transition:all 0.2s;font-size:0.85em;font-family:inherit;color:var(--txt);text-align:left;display:flex;align-items:center;gap:10px}
+        .quiz-opt:hover{border-color:rgba(139,92,246,0.3);background:rgba(139,92,246,0.06)}
+        .quiz-opt.correct{border-color:#22c55e;background:rgba(34,197,94,0.1);color:#86efac}
+        .quiz-opt.wrong{border-color:#ef4444;background:rgba(239,68,68,0.1);color:#fca5a5}
+        .quiz-opt.disabled{pointer-events:none;opacity:0.6}
+        .quiz-opt .qo-letter{background:rgba(255,255,255,0.06);width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.8em;flex-shrink:0}
+        .quiz-result{margin-top:14px;padding:12px 16px;border-radius:12px;font-size:0.85em;font-weight:600;display:none;position:relative}
+        .quiz-result.show{display:block}
+        .quiz-result.right{background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.2);color:#86efac}
+        .quiz-result.wro{background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.2);color:#fca5a5}
+        .quiz-next{margin-top:12px;background:linear-gradient(135deg,#7c3aed,#6366f1);color:#fff;border:none;padding:10px 24px;border-radius:10px;font-weight:700;font-size:0.82em;cursor:pointer;font-family:inherit;transition:all 0.3s;display:none;position:relative}
+        .quiz-next.show{display:inline-block}
+        .quiz-next:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(124,58,237,0.3)}
+        .quiz-score{position:absolute;top:24px;right:24px;color:var(--dim);font-size:0.78em;font-weight:700}
+        .quiz-score b{color:var(--white)}
 
         /* ============ VIEWER ============ */
         #vw{display:none;position:fixed;inset:0;background:var(--bg);z-index:2000;overflow-y:auto;-webkit-overflow-scrolling:touch}
@@ -237,6 +264,28 @@
         <div class="st"><div class="n" data-t="5">0</div><div class="l">Exam Posts</div></div>
         <div class="st"><div class="n" data-t="2295">0</div><div class="l">Total Vacancies</div></div>
         <div class="st"><div class="n" data-t="41">0</div><div class="l">AI Topics</div></div>
+    </div>
+
+    <!-- COUNTDOWN -->
+    <div class="sec sr">
+        <div class="sec-top"><div class="sec-name"><i style="background:#ef4444"></i>Application Deadline</div><span class="sec-info" id="cd-status">Loading...</span></div>
+        <div class="countdown" id="countdown">
+            <div class="cd-item"><div class="cd-n" id="cd-days">--</div><div class="cd-l">Days</div></div>
+            <div class="cd-item"><div class="cd-n" id="cd-hours">--</div><div class="cd-l">Hours</div></div>
+            <div class="cd-item"><div class="cd-n" id="cd-mins">--</div><div class="cd-l">Minutes</div></div>
+            <div class="cd-item"><div class="cd-n" id="cd-secs">--</div><div class="cd-l">Seconds</div></div>
+        </div>
+    </div>
+
+    <!-- DAILY QUIZ -->
+    <div class="quiz-widget sr" id="quizWidget">
+        <div class="quiz-score">Score: <b id="dq-score">0</b>/<span id="dq-total">0</span></div>
+        <h3>Daily Quiz Challenge</h3>
+        <div class="quiz-sub">Test yourself with 5 random questions every day</div>
+        <div class="quiz-q" id="dq-question">Loading...</div>
+        <div class="quiz-opts" id="dq-options"></div>
+        <div class="quiz-result" id="dq-result"></div>
+        <button class="quiz-next" id="dq-next" onclick="nextDailyQ()">Next Question &rarr;</button>
     </div>
 
     <!-- RECRUITMENT -->
@@ -397,10 +446,131 @@ function O(p,t){const v=document.getElementById('vw'),b=document.getElementById(
 function X(){document.getElementById('vw').classList.remove('on');document.body.style.overflow='';}
 window.addEventListener('popstate',()=>{if(document.getElementById('vw').classList.contains('on'))X()});
 
-// ===== VISITOR TRACKING =====
-// Google Analytics tracks: visitors, pages, device, location, duration
-// To set up: replace G-XXXXXXXXXX in the head tag with your GA4 Measurement ID
-// Get free GA4 ID: https://analytics.google.com → Create Account → Get Measurement ID
+// ===== COUNTDOWN TIMER =====
+(function(){
+    const deadline=new Date('2026-04-15T23:00:00+05:30').getTime();
+    function update(){
+        const now=Date.now(),diff=deadline-now;
+        if(diff<=0){
+            document.getElementById('cd-status').textContent='Closed';
+            document.getElementById('cd-days').textContent='0';
+            document.getElementById('cd-hours').textContent='0';
+            document.getElementById('cd-mins').textContent='0';
+            document.getElementById('cd-secs').textContent='0';
+            return;
+        }
+        const d=Math.floor(diff/(1000*60*60*24));
+        const h=Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+        const m=Math.floor((diff%(1000*60*60))/(1000*60));
+        const s=Math.floor((diff%(1000*60))/1000);
+        document.getElementById('cd-days').textContent=d;
+        document.getElementById('cd-hours').textContent=h;
+        document.getElementById('cd-mins').textContent=m;
+        document.getElementById('cd-secs').textContent=s;
+        document.getElementById('cd-status').textContent=d+' days left';
+        document.getElementById('cd-status').style.color='#fca5a5';
+    }
+    update();
+    setInterval(update,1000);
+})();
+
+// ===== DAILY QUIZ =====
+const DQ_BANK=[
+{q:"OSI Model has how many layers?",o:["4","5","7","6"],a:2},
+{q:"Gujarat was formed on:",o:["15 Aug 1947","1 May 1960","26 Jan 1950","2 Oct 1966"],a:1},
+{q:"SMC was established in:",o:["1947","1960","1966","1980"],a:2},
+{q:"Surat is on which river?",o:["Narmada","Sabarmati","Tapi","Mahi"],a:2},
+{q:"Normal blood pH:",o:["6.5-7.0","7.0-7.2","7.35-7.45","7.5-8.0"],a:2},
+{q:"Father of Indian Constitution:",o:["Gandhi","Nehru","Dr. B.R. Ambedkar","Patel"],a:2},
+{q:"Ctrl+Z is used for:",o:["Copy","Paste","Undo","Save"],a:2},
+{q:"SQL command to fetch data:",o:["INSERT","UPDATE","SELECT","DELETE"],a:2},
+{q:"Largest state of India (area):",o:["MP","UP","Rajasthan","Maharashtra"],a:2},
+{q:"ELISA test detects:",o:["Blood group","HIV","Malaria","TB"],a:1},
+{q:"Statue of Unity height:",o:["152m","172m","182m","192m"],a:2},
+{q:"HTTP default port:",o:["21","25","80","443"],a:2},
+{q:"Gram +ve bacteria appear:",o:["Red","Purple/Violet","Green","Yellow"],a:1},
+{q:"1 KB = ? bytes:",o:["1000","1024","512","2048"],a:1},
+{q:"Capital of Gujarat:",o:["Ahmedabad","Surat","Gandhinagar","Vadodara"],a:2},
+{q:"Universal blood donor:",o:["A+","B+","AB+","O-"],a:3},
+{q:"Republic Day:",o:["15 Aug","26 Jan","2 Oct","14 Nov"],a:1},
+{q:"MPN stands for:",o:["Maximum Probable Number","Most Probable Number","Minimum Possible Number","Most Possible Number"],a:1},
+{q:"Autoclave temperature:",o:["100°C","121°C","160°C","200°C"],a:1},
+{q:"Which is NOT output device?",o:["Monitor","Printer","Keyboard","Speaker"],a:2},
+{q:"Ashoka Chakra has ___ spokes:",o:["12","20","24","28"],a:2},
+{q:"First President of India:",o:["Gandhi","Dr. Rajendra Prasad","Nehru","Patel"],a:1},
+{q:"Chemical formula of water:",o:["H2O2","H2O","HO2","OH"],a:1},
+{q:"Quit India Movement year:",o:["1920","1930","1942","1947"],a:2},
+{q:"Full form of CPU:",o:["Computer Personal Unit","Central Processing Unit","Central Program Unit","Computer Processing Unit"],a:1},
+{q:"Rann of Kutch is famous for:",o:["Forest","White Salt Desert","Waterfalls","Mountains"],a:1},
+{q:"Mahatma Gandhi born in:",o:["Ahmedabad","Rajkot","Porbandar","Surat"],a:2},
+{q:"BOD high means:",o:["Clean water","Polluted water","Alkaline water","Hot water"],a:1},
+{q:"Gir Forest is famous for:",o:["Tiger","Asiatic Lion","Elephant","Deer"],a:1},
+{q:"PCR amplifies:",o:["Protein","DNA","RNA only","Enzymes"],a:1},
+];
+
+let dqIndex=0,dqScore=0,dqTotal=0,dqAnswered=false;
+// Seed based on date for daily rotation
+const today=new Date().toDateString();
+let dqSeed=0;for(let i=0;i<today.length;i++)dqSeed+=today.charCodeAt(i);
+function seededShuffle(arr,seed){const a=[...arr];for(let i=a.length-1;i>0;i--){seed=(seed*9301+49297)%233280;const j=Math.floor((seed/233280)*i);[a[i],a[j]]=[a[j],a[i]];}return a;}
+let dqQuestions=seededShuffle(DQ_BANK,dqSeed).slice(0,5);
+
+function showDailyQ(){
+    if(dqIndex>=dqQuestions.length){
+        document.getElementById('dq-question').innerHTML='<b>Daily Quiz Complete!</b><br>Score: '+dqScore+'/'+dqQuestions.length;
+        document.getElementById('dq-options').innerHTML='';
+        document.getElementById('dq-result').className='quiz-result';
+        document.getElementById('dq-next').className='quiz-next';
+        // Save score
+        const history=JSON.parse(localStorage.getItem('smc_quiz_history')||'[]');
+        history.push({date:today,score:dqScore,total:dqQuestions.length});
+        if(history.length>30)history.shift();
+        localStorage.setItem('smc_quiz_history',JSON.stringify(history));
+        return;
+    }
+    const q=dqQuestions[dqIndex];
+    dqAnswered=false;
+    document.getElementById('dq-question').textContent='Q'+(dqIndex+1)+'. '+q.q;
+    document.getElementById('dq-result').className='quiz-result';
+    document.getElementById('dq-next').className='quiz-next';
+    const letters=['A','B','C','D'];
+    document.getElementById('dq-options').innerHTML=q.o.map((opt,i)=>
+        `<button class="quiz-opt" onclick="answerDQ(${i})"><span class="qo-letter">${letters[i]}</span>${opt}</button>`
+    ).join('');
+    document.getElementById('dq-score').textContent=dqScore;
+    document.getElementById('dq-total').textContent=dqIndex;
+}
+
+function answerDQ(idx){
+    if(dqAnswered)return;
+    dqAnswered=true;
+    dqTotal++;
+    const q=dqQuestions[dqIndex];
+    const opts=document.querySelectorAll('.quiz-opt');
+    opts.forEach((o,i)=>{
+        o.classList.add('disabled');
+        if(i===q.a)o.classList.add('correct');
+        if(i===idx&&idx!==q.a)o.classList.add('wrong');
+    });
+    const res=document.getElementById('dq-result');
+    if(idx===q.a){
+        dqScore++;
+        res.textContent='Correct!';
+        res.className='quiz-result show right';
+    }else{
+        res.textContent='Wrong! Correct: '+q.o[q.a];
+        res.className='quiz-result show wro';
+    }
+    document.getElementById('dq-score').textContent=dqScore;
+    document.getElementById('dq-total').textContent=dqTotal;
+    document.getElementById('dq-next').className='quiz-next show';
+}
+
+function nextDailyQ(){
+    dqIndex++;
+    showDailyQ();
+}
+showDailyQ();
 </script>
 </body>
 </html>

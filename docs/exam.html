@@ -93,9 +93,23 @@
         .review-btn{background:#1e293b;color:#f59e0b;border:2px solid #f59e0b;padding:12px 32px;border-radius:10px;font-weight:700;cursor:pointer;font-size:0.95em;margin:8px;transition:all .2s}
         .review-btn:hover{background:#f59e0b;color:#0a0a0f}
 
+        /* SCORE HISTORY */
+        .history{background:#111827;border-radius:14px;padding:20px;margin-top:20px;border:1px solid #1f2937}
+        .history h3{color:#f59e0b;font-size:0.9em;margin-bottom:12px}
+        .history-list{max-height:200px;overflow-y:auto}
+        .history-item{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #1f2937;font-size:0.82em}
+        .history-item .h-exam{color:#f1f5f9;font-weight:600}
+        .history-item .h-score{color:#10b981;font-weight:700}
+        .history-item .h-date{color:#6b7280;font-size:0.85em}
+        .share-btn{background:linear-gradient(135deg,#10b981,#059669);color:#fff;border:none;padding:12px 32px;border-radius:10px;font-weight:700;cursor:pointer;font-size:0.95em;margin:8px;transition:all .2s}
+        .share-btn:hover{transform:scale(1.05);box-shadow:0 4px 20px rgba(16,185,129,0.3)}
+        .bookmark-btn{position:absolute;top:12px;right:12px;background:none;border:none;font-size:1.3em;cursor:pointer;opacity:0.4;transition:all 0.2s}
+        .bookmark-btn:hover,.bookmark-btn.saved{opacity:1}
+        .q-card{position:relative}
+
         @media(max-width:640px){
             #select-screen h1{font-size:1.3em}
-            .opt-grid{grid-template-columns:1fr}
+            .opt-grid{grid-template-columns:1fr 1fr}
             .exam-info{gap:10px}
             .exam-info .val{font-size:1em}
             .q-dot{width:30px;height:30px;font-size:0.7em}
@@ -207,9 +221,15 @@
         <div class="r-stat s"><div class="n" id="r-skip">0</div><div class="l">Skipped</div></div>
     </div>
     <div id="r-extra" style="color:#6b7280;font-size:0.85em;margin:10px 0"></div>
+    <button class="share-btn" onclick="shareResult()">Share Result</button>
     <button class="review-btn" onclick="reviewAnswers()">Review Answers</button>
     <button class="review-btn" onclick="location.reload()">Take Another Exam</button>
     <button class="review-btn" onclick="location.href='index.html'">Back to Home</button>
+
+    <div class="history" id="scoreHistory">
+        <h3>Your Score History</h3>
+        <div class="history-list" id="historyList"></div>
+    </div>
 </div>
 
 <script>
@@ -692,7 +712,53 @@ function submitExam(){
 
     let extra='';
     if(exam==='clerk'&&negMarks>0)extra='Negative marks: -'+negMarks.toFixed(2)+' ('+wrong+' wrong × 0.25)';
+    if(exam==='lab'&&negMarks>0)extra='Negative marks: -'+negMarks.toFixed(2)+' ('+wrong+' wrong × 0.25)';
+    if(exam==='marshal'&&negMarks>0)extra='Negative marks: -'+negMarks.toFixed(2)+' ('+wrong+' wrong × 0.25)';
+    if(exam==='analyst'&&negMarks>0)extra='Negative marks: -'+negMarks.toFixed(2)+' ('+wrong+' wrong × 0.25)';
     document.getElementById('r-extra').textContent=extra;
+
+    // Save to history
+    const examNames={cs:'Computer Supervisor',clerk:'Clerk',lab:'Lab Technician',marshal:'Marshal',analyst:'Jr. Analyst'};
+    const history=JSON.parse(localStorage.getItem('smc_exam_history')||'[]');
+    history.push({
+        exam:examNames[exam]||exam,
+        score:score,
+        total:questions.length,
+        correct:correct,
+        wrong:wrong,
+        pct:pct,
+        time:Math.floor(seconds/60)+'m '+seconds%60+'s',
+        date:new Date().toLocaleDateString('en-IN')
+    });
+    if(history.length>50)history.shift();
+    localStorage.setItem('smc_exam_history',JSON.stringify(history));
+    showHistory();
+}
+
+// Share result
+function shareResult(){
+    const examNames={cs:'Computer Supervisor',clerk:'Clerk',lab:'Lab Technician',marshal:'Marshal',analyst:'Jr. Analyst'};
+    const text=`SMC ${examNames[exam]} Exam Practice\nScore: ${document.getElementById('r-score').textContent}/${questions.length}\nCorrect: ${document.getElementById('r-correct').textContent} | Wrong: ${document.getElementById('r-wrong').textContent}\n\nPractice free: https://abhiiibabariya-dev.github.io/SMC-Computer-Supervisor-Exam-Prep/exam.html`;
+
+    if(navigator.share){
+        navigator.share({title:'My SMC Exam Score',text:text}).catch(()=>{});
+    }else{
+        navigator.clipboard.writeText(text).then(()=>{
+            const btn=document.querySelector('.share-btn');
+            btn.textContent='Copied!';
+            setTimeout(()=>{btn.textContent='Share Result';},2000);
+        });
+    }
+}
+
+// Score history
+function showHistory(){
+    const history=JSON.parse(localStorage.getItem('smc_exam_history')||'[]');
+    const list=document.getElementById('historyList');
+    if(!history.length){list.innerHTML='<p style="color:#6b7280;font-size:0.82em">No exams taken yet</p>';return;}
+    list.innerHTML=history.slice().reverse().map(h=>
+        `<div class="history-item"><span class="h-exam">${h.exam}</span><span class="h-score">${h.correct}/${h.total} (${h.pct}%)</span><span class="h-date">${h.date} | ${h.time}</span></div>`
+    ).join('');
 }
 
 function reviewAnswers(){
@@ -703,6 +769,9 @@ function reviewAnswers(){
     document.getElementById('timer').classList.remove('warn');
     showQ();
 }
+
+// Show history on load
+showHistory();
 </script>
 </body>
 </html>
