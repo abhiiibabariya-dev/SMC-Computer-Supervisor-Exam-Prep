@@ -17,7 +17,7 @@
         #select-screen{text-align:center;padding:30px 16px}
         #select-screen h1{font-size:1.8em;font-weight:800;background:linear-gradient(90deg,#f59e0b,#ef4444);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:8px}
         #select-screen .sub{color:#6b7280;margin-bottom:30px}
-        .opt-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:500px;margin:0 auto 20px}
+        .opt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:14px;max-width:600px;margin:0 auto 20px}
         .opt{background:#1a2332;border:2px solid #1f2937;border-radius:14px;padding:20px;cursor:pointer;transition:all .2s;text-align:center}
         .opt:hover,.opt.sel{border-color:#f59e0b;background:#1e3a5f;transform:translateY(-2px)}
         .opt.sel{box-shadow:0 0 20px rgba(245,158,11,0.3)}
@@ -125,7 +125,22 @@
         <div class="opt" onclick="selExam('clerk')" id="opt-clerk">
             <div class="icon">📝</div>
             <h3>Clerk</h3>
-            <p>Code-502 | -0.25 Negative</p>
+            <p>Code-502 | -0.25</p>
+        </div>
+        <div class="opt" onclick="selExam('lab')" id="opt-lab">
+            <div class="icon">🔬</div>
+            <h3>Lab Technician</h3>
+            <p>Post-33 | -0.25</p>
+        </div>
+        <div class="opt" onclick="selExam('marshal')" id="opt-marshal">
+            <div class="icon">🛡️</div>
+            <h3>Marshal</h3>
+            <p>Post-35 | -0.25</p>
+        </div>
+        <div class="opt" onclick="selExam('analyst')" id="opt-analyst">
+            <div class="icon">🧬</div>
+            <h3>Jr. Analyst</h3>
+            <p>Post-19 | Micro | -0.25</p>
         </div>
     </div>
 
@@ -378,12 +393,181 @@ clerk_gj: [
 {q:"'ત્રિભુવન' - સમાસ:",o:["તત્પુરુષ","દ્વિગુ","દ્વન્દ્વ","બહુવ્રીહિ"],a:1},
 {q:"Universal Donor blood group:",o:["A","B","AB","O"],a:3},
 ],
+
+// ===== LAB TECHNICIAN =====
+lab_en: [
+{q:"Normal fasting blood glucose level:",o:["40-70 mg/dL","70-110 mg/dL","120-160 mg/dL","160-200 mg/dL"],a:1},
+{q:"HbA1c measures blood sugar over:",o:["1 week","1 month","2-3 months","6 months"],a:2},
+{q:"Normal serum creatinine in adults:",o:["0.7-1.3 mg/dL","2-4 mg/dL","5-7 mg/dL","8-10 mg/dL"],a:0},
+{q:"SGPT (ALT) is marker for:",o:["Heart damage","Kidney damage","Liver damage","Pancreas damage"],a:2},
+{q:"'Good cholesterol' is:",o:["LDL","VLDL","HDL","Chylomicron"],a:2},
+{q:"Normal blood pH:",o:["6.8-7.0","7.0-7.2","7.35-7.45","7.5-7.8"],a:2},
+{q:"Troponin test diagnoses:",o:["Diabetes","Liver disease","Heart attack (MI)","Kidney failure"],a:2},
+{q:"Normal serum sodium level:",o:["100-120 mEq/L","136-145 mEq/L","150-170 mEq/L","180-200 mEq/L"],a:1},
+{q:"GTT stands for:",o:["General Test for Thyroid","Glucose Tolerance Test","Globulin Total Test","Growth Tissue Test"],a:1},
+{q:"Uric acid is elevated in:",o:["Diabetes","Gout","Anemia","TB"],a:1},
+{q:"Normal haemoglobin in adult males:",o:["8-10 g/dL","10-12 g/dL","13-17 g/dL","18-22 g/dL"],a:2},
+{q:"Normal WBC count:",o:["1000-2000/cu mm","4000-11000/cu mm","15000-20000/cu mm","25000-30000/cu mm"],a:1},
+{q:"Normal platelet count:",o:["50,000-1,00,000","1,50,000-4,00,000","5,00,000-8,00,000","10,00,000+"],a:1},
+{q:"ESR stands for:",o:["Estimated Serum Rate","Erythrocyte Sedimentation Rate","Enzyme Substrate Reaction","Electrolyte Serum Ratio"],a:1},
+{q:"Universal blood donor group:",o:["A positive","B positive","AB positive","O negative"],a:3},
+{q:"Universal blood recipient:",o:["O negative","A positive","B negative","AB positive"],a:3},
+{q:"Leishman stain is used for:",o:["Bacteria","Blood smear","Tissue section","Urine"],a:1},
+{q:"Sickle cell anemia is caused by defect in:",o:["WBC","Platelets","Haemoglobin (HbS)","Plasma"],a:2},
+{q:"Which WBC type is most abundant?",o:["Lymphocyte","Monocyte","Neutrophil","Eosinophil"],a:2},
+{q:"PT and APTT tests are for:",o:["Liver function","Kidney function","Blood clotting disorders","Diabetes"],a:2},
+{q:"Gram positive bacteria appear:",o:["Red/Pink","Purple/Violet","Green","Yellow"],a:1},
+{q:"Gram negative bacteria appear:",o:["Purple","Red/Pink","Blue","Green"],a:1},
+{q:"TB is caused by:",o:["Streptococcus","Mycobacterium tuberculosis","E. coli","Staphylococcus"],a:1},
+{q:"Ziehl-Neelsen staining detects:",o:["Fungi","Virus","Acid-fast bacteria (TB)","Parasites"],a:2},
+{q:"ELISA test detects:",o:["Blood group","HIV","Malaria","Pregnancy"],a:1},
+{q:"Widal test diagnoses:",o:["Malaria","Typhoid fever","Dengue","TB"],a:1},
+{q:"Autoclave temperature:",o:["100°C","121°C at 15 psi","160°C","200°C"],a:1},
+{q:"Culture media for TB:",o:["Blood agar","MacConkey agar","Lowenstein-Jensen medium","Chocolate agar"],a:2},
+{q:"Penicillin was discovered by:",o:["Robert Koch","Louis Pasteur","Alexander Fleming","Edward Jenner"],a:2},
+{q:"EDTA anticoagulant tube color:",o:["Red top","Blue top","Purple/Lavender top","Green top"],a:2},
+{q:"Sodium citrate (blue top) tube for:",o:["CBC","Coagulation tests (PT, APTT)","Blood sugar","Culture"],a:1},
+{q:"Grey top tube (sodium fluoride) for:",o:["CBC","PT test","Blood glucose","Culture"],a:2},
+{q:"Centrifuge is used to:",o:["Heat samples","Separate blood components","Sterilize","Count cells"],a:1},
+{q:"Haemocytometer counts:",o:["Bacteria","Blood cells","Protein","Glucose"],a:1},
+{q:"Hot air oven temperature:",o:["100°C for 1 hr","121°C for 15 min","160°C for 1 hour","200°C for 30 min"],a:2},
+{q:"PPE stands for:",o:["Personal Physical Equipment","Personal Protective Equipment","Professional Protocol Equipment","Patient Protection Equipment"],a:1},
+{q:"Cold chain vaccine temperature:",o:["-20°C","0°C","2-8°C","15-20°C"],a:2},
+{q:"Incubator standard temperature:",o:["25°C","37°C","45°C","56°C"],a:1},
+{q:"Father of Microbiology:",o:["Robert Koch","Antonie van Leeuwenhoek","Louis Pasteur","Joseph Lister"],a:1},
+{q:"Benedict's test detects:",o:["Protein in urine","Glucose/reducing sugars","Blood in urine","Bacteria"],a:1},
+{q:"Red bag waste is for:",o:["General waste","Contaminated/infectious waste","Sharps","Chemicals"],a:1},
+],
+lab_gj: [
+{q:"સામાન્ય ફાસ્ટિંગ બ્લડ ગ્લુકોઝ:",o:["40-70 mg/dL","70-110 mg/dL","120-160 mg/dL","160-200 mg/dL"],a:1},
+{q:"HbA1c ટેસ્ટ કેટલા મહિનાનું બ્લડ શુગર માપે છે?",o:["1 અઠવાડિયું","1 મહિનો","2-3 મહિના","6 મહિના"],a:2},
+{q:"SGPT (ALT) કયા અંગનું માર્કર છે?",o:["હૃદય","કિડની","લિવર","પેન્ક્રિયાસ"],a:2},
+{q:"સામાન્ય બ્લડ pH:",o:["6.8-7.0","7.0-7.2","7.35-7.45","7.5-7.8"],a:2},
+{q:"પુરુષોમાં સામાન્ય Hb:",o:["8-10 g/dL","10-12 g/dL","13-17 g/dL","18-22 g/dL"],a:2},
+{q:"ગ્રામ પોઝિટિવ બેક્ટેરિયા કયા રંગના દેખાય?",o:["લાલ","જાંબલી/વાયોલેટ","લીલા","પીળા"],a:1},
+{q:"ઓટોક્લેવ તાપમાન:",o:["100°C","121°C, 15 psi","160°C","200°C"],a:1},
+{q:"ELISA ટેસ્ટ શેના માટે વપરાય?",o:["બ્લડ ગ્રુપ","HIV","મેલેરિયા","પ્રેગ્નન્સી"],a:1},
+{q:"વિડાલ ટેસ્ટ શેનું નિદાન કરે?",o:["મેલેરિયા","ટાઇફોઇડ","ડેન્ગ્યુ","TB"],a:1},
+{q:"યુનિવર્સલ બ્લડ ડોનર ગ્રુપ:",o:["A","B","AB","O નેગેટિવ"],a:3},
+],
+
+// ===== MARSHAL =====
+marshal_en: [
+{q:"National bird of India:",o:["Sparrow","Parrot","Peacock","Eagle"],a:2},
+{q:"National animal of India:",o:["Lion","Elephant","Tiger","Cow"],a:2},
+{q:"Independence Day of India:",o:["26 January","15 August","2 October","26 November"],a:1},
+{q:"National anthem written by:",o:["Bankim Chandra","Rabindranath Tagore","Mahatma Gandhi","Sarojini Naidu"],a:1},
+{q:"How many states in India?",o:["26","28","29","30"],a:1},
+{q:"Largest state by area:",o:["Madhya Pradesh","Uttar Pradesh","Rajasthan","Maharashtra"],a:2},
+{q:"First President of India:",o:["Mahatma Gandhi","Dr. Rajendra Prasad","Jawaharlal Nehru","Sardar Patel"],a:1},
+{q:"'Iron Man of India' is:",o:["Bhagat Singh","Nehru","Sardar Vallabhbhai Patel","Bose"],a:2},
+{q:"Quit India Movement year:",o:["1940","1942","1944","1946"],a:1},
+{q:"Ashoka Chakra has how many spokes?",o:["12","20","24","28"],a:2},
+{q:"Gujarat formed on:",o:["15 Aug 1960","1 May 1960","26 Jan 1960","2 Oct 1960"],a:1},
+{q:"Districts in Gujarat:",o:["30","33","36","38"],a:1},
+{q:"Capital of Gujarat:",o:["Ahmedabad","Surat","Gandhinagar","Vadodara"],a:2},
+{q:"Gir Forest is famous for:",o:["Tiger","Asiatic Lion","Elephant","Deer"],a:1},
+{q:"Statue of Unity height:",o:["152m","172m","182m","192m"],a:2},
+{q:"Mahatma Gandhi born in:",o:["Ahmedabad","Rajkot","Porbandar","Surat"],a:2},
+{q:"SMC was formed in:",o:["1952","1960","1966","1980"],a:2},
+{q:"Surat is on which river?",o:["Narmada","Tapi","Sabarmati","Mahi"],a:1},
+{q:"Surat is known as city of:",o:["Lakes","Diamonds","Temples","Gardens"],a:1},
+{q:"Navratri lasts for:",o:["7 days","9 days","10 days","15 days"],a:1},
+{q:"Chemical formula of water:",o:["H2O2","H2O","HO2","OH"],a:1},
+{q:"Which gas for breathing?",o:["Nitrogen","Oxygen","Carbon Dioxide","Hydrogen"],a:1},
+{q:"Bones in adult human body:",o:["106","206","306","406"],a:1},
+{q:"Speed of light (approx):",o:["3×10⁶ m/s","3×10⁸ m/s","3×10¹⁰ m/s","3×10⁴ m/s"],a:1},
+{q:"Full form of CPU:",o:["Computer Personal Unit","Central Processing Unit","Central Program Unit","Computer Processing Unit"],a:1},
+{q:"Ctrl+C is used for:",o:["Paste","Cut","Copy","Close"],a:2},
+{q:"Largest organ of human body:",o:["Heart","Liver","Skin","Brain"],a:2},
+{q:"Planet nearest to Sun:",o:["Venus","Mercury","Earth","Mars"],a:1},
+{q:"25% of 400 = ?",o:["50","75","100","125"],a:2},
+{q:"√225 = ?",o:["12","13","14","15"],a:3},
+{q:"Complete: 2, 4, 8, 16, ?",o:["24","28","32","36"],a:2},
+{q:"Average of 10,20,30,40,50:",o:["25","30","35","40"],a:1},
+{q:"Synonym of BRAVE:",o:["Weak","Afraid","Courageous","Timid"],a:2},
+{q:"Antonym of HONEST:",o:["Truthful","Sincere","Dishonest","Loyal"],a:2},
+{q:"LCM of 6, 8, 12:",o:["12","24","36","48"],a:1},
+{q:"G20 Summit 2023 hosted by:",o:["Japan","USA","India","Brazil"],a:2},
+{q:"T20 World Cup 2024 winner:",o:["Australia","England","India","South Africa"],a:2},
+{q:"Olympics 2024 held in:",o:["Tokyo","London","Paris","Los Angeles"],a:2},
+{q:"UPI stands for:",o:["Universal Payment Interface","Unified Payments Interface","United Payment India","Unified Pay India"],a:1},
+{q:"GST implemented from:",o:["1 April 2016","1 July 2017","1 January 2018","1 April 2019"],a:1},
+],
+marshal_gj: [
+{q:"ભારતનું રાષ્ટ્રીય પક્ષી:",o:["ચકલી","પોપટ","મોર","ગરુડ"],a:2},
+{q:"ભારતનો સ્વતંત્રતા દિવસ:",o:["26 જાન્યુઆરી","15 ઓગસ્ટ","2 ઓક્ટોબર","26 નવેમ્બર"],a:1},
+{q:"ભારતમાં કેટલા રાજ્યો છે?",o:["26","28","29","30"],a:1},
+{q:"ગુજરાતની રચના:",o:["15 ઓગસ્ટ 1960","1 મે 1960","26 જાન્યુઆરી 1960","2 ઓક્ટોબર 1960"],a:1},
+{q:"ગુજરાતની રાજધાની:",o:["અમદાવાદ","સુરત","ગાંધીનગર","વડોદરા"],a:2},
+{q:"સ્ટેચ્યુ ઓફ યુનિટીની ઊંચાઈ:",o:["152m","172m","182m","192m"],a:2},
+{q:"સુરત કઈ નદી પર છે?",o:["નર્મદા","તાપી","સાબરમતી","મહી"],a:1},
+{q:"SMC ની સ્થાપના:",o:["1952","1960","1966","1980"],a:2},
+{q:"ગુજરાતમાં કેટલા જિલ્લા?",o:["30","33","36","38"],a:1},
+{q:"મહાત્મા ગાંધીનું જન્મસ્થળ:",o:["અમદાવાદ","રાજકોટ","પોરબંદર","સુરત"],a:2},
+],
+
+// ===== JUNIOR ANALYST (MICROBIOLOGY) =====
+analyst_en: [
+{q:"Father of Microbiology:",o:["Robert Koch","Antonie van Leeuwenhoek","Louis Pasteur","Alexander Fleming"],a:1},
+{q:"Gram positive bacteria have thick:",o:["Lipopolysaccharide","Peptidoglycan","Chitin","Cellulose"],a:1},
+{q:"Bacteria reproduce by:",o:["Budding","Binary fission","Spore formation","Meiosis"],a:1},
+{q:"Endospores formed by:",o:["E. coli","Bacillus & Clostridium","Staphylococcus","Streptococcus"],a:1},
+{q:"Obligate anaerobes are killed by:",o:["Water","Heat","Oxygen","Light"],a:2},
+{q:"Viruses are:",o:["Prokaryotic","Eukaryotic","Obligate intracellular parasites","Free-living"],a:2},
+{q:"Salmonella causes:",o:["Cholera","Typhoid fever","TB","Plague"],a:1},
+{q:"Vibrio cholerae causes:",o:["Typhoid","Dysentery","Cholera","Plague"],a:2},
+{q:"Indicator organism for water contamination:",o:["Salmonella","E. coli (Coliform)","Staphylococcus","Bacillus"],a:1},
+{q:"MPN stands for:",o:["Maximum Probable Number","Most Probable Number","Minimum Possible Number","Most Possible Number"],a:1},
+{q:"Acceptable coliform in drinking water:",o:["10/100mL","1/100mL","0/100mL (zero)","100/100mL"],a:2},
+{q:"BOD stands for:",o:["Basic Oxygen Demand","Biochemical Oxygen Demand","Biological Oxygen Density","Base Oxidation Demand"],a:1},
+{q:"High BOD indicates:",o:["Clean water","Polluted water","Alkaline water","Acidic water"],a:1},
+{q:"Residual chlorine should be:",o:["0 mg/L","0.2-0.5 mg/L","2-5 mg/L","10 mg/L"],a:1},
+{q:"Pasteurization of milk:",o:["50°C for 10 min","63°C for 30 min","100°C for 1 min","121°C for 15 min"],a:1},
+{q:"HACCP stands for:",o:["Health And Control Critical Points","Hazard Analysis Critical Control Points","Hospital And Clinical Control Plan","Health Assessment Care Plan"],a:1},
+{q:"FSSAI stands for:",o:["Food Safety Standards Agency","Food Safety and Standards Authority of India","Federal Safety Standards","Food Security and Safety Authority"],a:1},
+{q:"pH of safe drinking water:",o:["4.0-5.0","6.5-8.5","9.0-10.0","11.0-12.0"],a:1},
+{q:"TDS in drinking water below:",o:["100 mg/L","500 mg/L","1000 mg/L","2000 mg/L"],a:1},
+{q:"ELISA stands for:",o:["Enzyme Limited Immune Sorbent","Enzyme-Linked Immunosorbent Assay","Electronic Liquid Immune Standard","Enzymatic Linked Immune Standard"],a:1},
+{q:"HIV confirmatory test:",o:["ELISA","Western Blot","Widal","VDRL"],a:1},
+{q:"Most abundant antibody in blood:",o:["IgA","IgM","IgG","IgE"],a:2},
+{q:"IgE is associated with:",o:["Immunity","Allergic reactions","Blood clotting","Digestion"],a:1},
+{q:"First antibody produced:",o:["IgG","IgM","IgA","IgD"],a:1},
+{q:"Widal test detects antibodies against:",o:["E. coli","Salmonella typhi","Malaria","TB"],a:1},
+{q:"VDRL test for:",o:["Hepatitis","HIV","Syphilis","Malaria"],a:2},
+{q:"Mantoux test for:",o:["Typhoid","HIV","Tuberculosis","Hepatitis"],a:2},
+{q:"Autoclave uses:",o:["Dry heat","Moist heat under pressure","Filtration","Radiation"],a:1},
+{q:"PCR stands for:",o:["Protein Chain Reaction","Polymerase Chain Reaction","Peptide Cross Reaction","Primary Culture Reaction"],a:1},
+{q:"PCR is used to:",o:["Count bacteria","Amplify DNA","Measure pH","Stain cells"],a:1},
+{q:"Pour plate method for:",o:["Staining","Counting CFU","Biochemical test","Serology"],a:1},
+{q:"Streak plate for:",o:["Counting bacteria","Isolating pure cultures","Staining","Biochemical test"],a:1},
+{q:"IMViC for E. coli:",o:["- - + +","+ + - -","+ - + -","- + - +"],a:1},
+{q:"Catalase test differentiates:",o:["Gram types","Staphylococcus from Streptococcus","Aerobic/anaerobic","Virus/bacteria"],a:1},
+{q:"Crystal violet in Gram stain is:",o:["Counterstain","Mordant","Decolorizer","Primary stain"],a:3},
+{q:"Safranin in Gram stain is:",o:["Primary stain","Mordant","Decolorizer","Counterstain"],a:3},
+{q:"DNA stands for:",o:["Di-Nucleic Acid","Deoxyribonucleic Acid","Dynamic Nucleic Acid","Deoxyribo Natural Acid"],a:1},
+{q:"Fermentation is:",o:["Aerobic process","Anaerobic breakdown of glucose","Sterilization","Filtration"],a:1},
+{q:"Yogurt made by:",o:["Yeast","Lactobacillus bacteria","Fungi","Virus"],a:1},
+{q:"ISO stands for:",o:["Indian Standards Org","International Organization for Standardization","International Safety Org","Indian Safety Org"],a:1},
+],
+analyst_gj: [
+{q:"માઇક્રોબાયોલોજીના પિતા:",o:["રોબર્ટ કોક","એન્ટોની વેન લીવેનહુક","લુઈ પાશ્ચર","ફ્લેમિંગ"],a:1},
+{q:"ગ્રામ પોઝિટિવ બેક્ટેરિયામાં જાડું:",o:["LPS","પેપ્ટિડોગ્લાયકેન","ચિટિન","સેલ્યુલોઝ"],a:1},
+{q:"બેક્ટેરિયા કેવી રીતે પ્રજનન કરે?",o:["બડિંગ","બાઈનરી ફિશન","સ્પોર","મીયોસિસ"],a:1},
+{q:"પાણીમાં પ્રદૂષણનું સૂચક:",o:["સાલ્મોનેલા","ઈ. કોલાય","સ્ટેફ","બેસિલસ"],a:1},
+{q:"MPN નું પૂરું નામ:",o:["Maximum Probable Number","Most Probable Number","Minimum Possible Number","Most Possible Number"],a:1},
+{q:"ઊંચું BOD એટલે:",o:["સ્વચ્છ પાણી","પ્રદૂષિત પાણી","આલ્કલાઈન","એસિડિક"],a:1},
+{q:"ELISA ટેસ્ટ શેના માટે?",o:["બ્લડ ગ્રુપ","HIV","મેલેરિયા","TB"],a:1},
+{q:"HIV કન્ફર્મેટરી ટેસ્ટ:",o:["ELISA","વેસ્ટર્ન બ્લોટ","વિડાલ","VDRL"],a:1},
+{q:"PCR શું એમ્પ્લિફાય કરે?",o:["પ્રોટીન","DNA","RNA","એન્ઝાઇમ"],a:1},
+{q:"ઓટોક્લેવ:",o:["ડ્રાય હીટ","મોઈસ્ટ હીટ અન્ડર પ્રેશર","ફિલ્ટ્રેશન","રેડિએશન"],a:1},
+],
 };
 
 // STATE
 let exam='',lang='',qCount=0,questions=[],answers=[],current=0,timerInt,seconds=0,reviewing=false;
 
-function selExam(e){exam=e;document.querySelectorAll('#opt-cs,#opt-clerk').forEach(x=>x.classList.remove('sel'));document.getElementById('opt-'+e).classList.add('sel');checkReady();}
+function selExam(e){exam=e;document.querySelectorAll('#opt-cs,#opt-clerk,#opt-lab,#opt-marshal,#opt-analyst').forEach(x=>x.classList.remove('sel'));document.getElementById('opt-'+e).classList.add('sel');checkReady();}
 function selLang(l){lang=l;document.querySelectorAll('#opt-en,#opt-gj').forEach(x=>x.classList.remove('sel'));document.getElementById('opt-'+l).classList.add('sel');checkReady();}
 function selCount(n){qCount=n;document.querySelectorAll('.q-opt').forEach(x=>x.classList.remove('sel'));document.getElementById('qc-'+n).classList.add('sel');checkReady();}
 function checkReady(){document.getElementById('start-btn').disabled=!(exam&&lang&&qCount);}
@@ -400,7 +584,8 @@ function startExam(){
 
     document.getElementById('select-screen').style.display='none';
     document.getElementById('exam-screen').style.display='block';
-    document.getElementById('e-name').textContent=exam==='cs'?'Computer Supervisor':'Clerk';
+    const examNames={cs:'Computer Supervisor',clerk:'Clerk',lab:'Lab Technician',marshal:'Marshal',analyst:'Jr. Analyst (Micro)'};
+    document.getElementById('e-name').textContent=examNames[exam]||exam;
 
     buildPalette();
     showQ();
