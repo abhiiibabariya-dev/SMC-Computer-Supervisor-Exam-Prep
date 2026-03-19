@@ -3,7 +3,7 @@
 // Instructions: https://console.firebase.google.com
 // 1. Create project → 2. Create Realtime Database → 3. Copy URL → 4. Paste below
 
-window.SMC_FIREBASE_URL = '';
+window.SMC_FIREBASE_URL = 'https://smc-exam-prep-38d22-default-rtdb.asia-southeast1.firebasedatabase.app';
 // Example: window.SMC_FIREBASE_URL = 'https://your-project-default-rtdb.firebaseio.com';
 
 // When empty, tracker works in localStorage-only mode (current behavior).
