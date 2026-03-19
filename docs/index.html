@@ -199,6 +199,83 @@
         .ad-slot ins{display:block;width:100%}
         .ad-slot .ad-placeholder{color:var(--dim);font-size:0.7em;text-align:center;display:none}
 
+        /* ============ MOUSE SPOTLIGHT ============ */
+        .spotlight{position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(600px circle at var(--mx,50%) var(--my,50%),rgba(139,92,246,0.06),transparent 40%);transition:background 0.3s ease}
+
+        /* ============ ANIMATED GRADIENT TEXT ============ */
+        .hero h1 .gr{background:linear-gradient(270deg,#818cf8,#c084fc,#e879f9,#f472b6,#818cf8);background-size:400% 400%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:gradFlow 6s ease infinite}
+        @keyframes gradFlow{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+
+        /* ============ GLOW ORBS ============ */
+        .glow-orbs{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+        .glow-orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:0.07;animation:orbFloat 20s ease-in-out infinite}
+        .glow-orb:nth-child(1){width:400px;height:400px;background:#7c3aed;top:-10%;left:20%;animation-delay:0s}
+        .glow-orb:nth-child(2){width:300px;height:300px;background:#ec4899;bottom:10%;right:-5%;animation-delay:-7s;animation-duration:25s}
+        .glow-orb:nth-child(3){width:250px;height:250px;background:#06b6d4;top:50%;left:-5%;animation-delay:-12s;animation-duration:22s}
+        .glow-orb:nth-child(4){width:200px;height:200px;background:#f59e0b;top:30%;right:20%;animation-delay:-5s;animation-duration:18s}
+        @keyframes orbFloat{0%{transform:translate(0,0) scale(1)}25%{transform:translate(80px,-60px) scale(1.2)}50%{transform:translate(-40px,80px) scale(0.8)}75%{transform:translate(60px,40px) scale(1.1)}100%{transform:translate(0,0) scale(1)}}
+
+        /* ============ SVG WAVE ============ */
+        .hero-wave{position:absolute;bottom:-2px;left:0;width:100%;overflow:hidden;line-height:0}
+        .hero-wave svg{display:block;width:100%;height:60px}
+
+        /* ============ NEON TEXT GLOW ============ */
+        .hero h1{text-shadow:0 0 40px rgba(139,92,246,0.15),0 0 80px rgba(139,92,246,0.05)}
+        .sec-name{text-shadow:0 0 20px rgba(139,92,246,0.1)}
+
+        /* ============ ANIMATED CARD SHINE ============ */
+        .k::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:linear-gradient(135deg,transparent 40%,rgba(255,255,255,0.03) 50%,transparent 60%);transform:rotate(0deg);transition:transform 0.6s}
+        .k:hover::before{transform:rotate(180deg)}
+
+        /* ============ STAGGERED SECTION REVEALS ============ */
+        .sr{opacity:0;transform:translateY(40px)}
+        .sr.v{opacity:1;transform:none;transition:all 1s cubic-bezier(0.16,1,0.3,1)}
+        .sr:nth-child(even){transform:translateY(40px)}
+        .sr:nth-child(odd){transform:translateY(40px)}
+
+        /* ============ HERO GLOW RING ============ */
+        .hero-glow{position:absolute;width:500px;height:500px;border-radius:50%;border:1px solid rgba(139,92,246,0.08);top:50%;left:50%;transform:translate(-50%,-50%);animation:glowRing 8s ease-in-out infinite;pointer-events:none}
+        .hero-glow:nth-child(2){width:700px;height:700px;animation-delay:-3s;border-color:rgba(99,102,241,0.05)}
+        .hero-glow:nth-child(3){width:900px;height:900px;animation-delay:-6s;border-color:rgba(236,72,153,0.04)}
+        @keyframes glowRing{0%{transform:translate(-50%,-50%) scale(1);opacity:0.5}50%{transform:translate(-50%,-50%) scale(1.1);opacity:1}100%{transform:translate(-50%,-50%) scale(1);opacity:0.5}}
+
+        /* ============ STAT COUNTER GLOW ============ */
+        .st .n{text-shadow:0 0 20px rgba(139,92,246,0.3)}
+        .st:hover .n{text-shadow:0 0 30px rgba(139,92,246,0.5);transition:text-shadow 0.3s}
+
+        /* ============ COUNTDOWN FLIP STYLE ============ */
+        .cd-n{position:relative}
+        .cd-item{background:linear-gradient(180deg,var(--s1) 0%,var(--s1) 49.5%,rgba(255,255,255,0.02) 49.5%,rgba(255,255,255,0.02) 50.5%,var(--s1) 50.5%);border:1px solid var(--border);box-shadow:0 4px 20px rgba(0,0,0,0.3)}
+
+        /* ============ BUTTON SHIMMER ============ */
+        .b-primary{position:relative;overflow:hidden}
+        .b-primary .shimmer{position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.15),transparent);animation:shimmer 3s infinite}
+        @keyframes shimmer{0%{left:-100%}100%{left:200%}}
+
+        /* ============ SCROLL INDICATOR ============ */
+        .scroll-hint{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;animation:scrollHint 2s ease infinite}
+        .scroll-hint span{color:var(--dim);font-size:0.7em;font-weight:600;letter-spacing:2px;text-transform:uppercase}
+        .scroll-mouse{width:24px;height:38px;border:2px solid rgba(255,255,255,0.2);border-radius:12px;position:relative}
+        .scroll-mouse::before{content:'';width:4px;height:8px;background:rgba(255,255,255,0.4);border-radius:2px;position:absolute;top:6px;left:50%;transform:translateX(-50%);animation:scrollDot 2s ease infinite}
+        @keyframes scrollDot{0%{top:6px;opacity:1}100%{top:22px;opacity:0}}
+        @keyframes scrollHint{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
+
+        /* ============ HERO BADGE GLOW ============ */
+        .hero-chip{box-shadow:0 0 20px rgba(139,92,246,0.1);animation:chipIn 0.8s ease 0.2s both,chipGlow 4s ease infinite 1s}
+        @keyframes chipGlow{0%,100%{box-shadow:0 0 20px rgba(139,92,246,0.1)}50%{box-shadow:0 0 30px rgba(139,92,246,0.2),0 0 60px rgba(139,92,246,0.05)}}
+
+        /* ============ ANIMATED NOISE ============ */
+        .noise{animation:noiseMove 0.5s steps(8) infinite}
+        @keyframes noiseMove{0%{transform:translate(0,0)}100%{transform:translate(-10px,-10px)}}
+
+        /* ============ ENHANCED MARQUEE ============ */
+        .marquee-wrap{background:linear-gradient(90deg,var(--s1),rgba(12,12,20,0.8),var(--s1));backdrop-filter:blur(12px)}
+        .marquee span b{background:linear-gradient(135deg,#818cf8,#c084fc);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+        /* ============ FOOTER GLOW ============ */
+        .foot{position:relative;overflow:hidden}
+        .foot::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:200px;height:1px;background:linear-gradient(90deg,transparent,rgba(139,92,246,0.5),transparent)}
+
         /* ============ LOADING SCREEN ============ */
         .loader-screen{position:fixed;inset:0;z-index:9999;background:#06060a;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity 0.6s,visibility 0.6s}
         .loader-screen.hide{opacity:0;visibility:hidden;pointer-events:none}
@@ -443,6 +520,12 @@
 <div class="cursor-dot" id="cursorDot"></div>
 <div class="cursor-ring" id="cursorRing"></div>
 
+<!-- MOUSE SPOTLIGHT -->
+<div class="spotlight" id="spotlight"></div>
+
+<!-- GLOW ORBS -->
+<div class="glow-orbs"><div class="glow-orb"></div><div class="glow-orb"></div><div class="glow-orb"></div><div class="glow-orb"></div></div>
+
 <!-- AURORA -->
 <div class="aurora"><div class="aurora-beam"></div><div class="aurora-beam"></div><div class="aurora-beam"></div></div>
 
@@ -477,10 +560,13 @@
     <h1>Everything to<br><span class="gr">Crack Your Exam</span></h1>
     <p>4,000+ MCQs across 5 posts — Clerk, Computer Supervisor, Lab Technician, Marshal & Junior Analyst. Free & open-source.</p>
     <div class="hero-actions">
-        <a class="b b-primary" href="ai.html">Ask AI Assistant</a>
+        <a class="b b-primary" href="ai.html"><span class="shimmer"></span>Ask AI Assistant</a>
         <a class="b b-ghost" href="mock-test.html">Free Mock Tests</a>
         <a class="b b-ghost" href="exam.html">Take Exam</a>
     </div>
+    <div class="scroll-hint"><div class="scroll-mouse"></div><span>Scroll</span></div>
+    <div class="hero-glow"></div><div class="hero-glow"></div><div class="hero-glow"></div>
+    <div class="hero-wave"><svg viewBox="0 0 1200 60" preserveAspectRatio="none"><path d="M0,40 C200,60 400,0 600,30 C800,60 1000,10 1200,40 L1200,60 L0,60 Z" fill="#06060a"/></svg></div>
 </section>
 
 <!-- MARQUEE -->
@@ -1302,6 +1388,12 @@ function sendToCloud(collection,data){
 // ========================================
 // NEXT-LEVEL FEATURES
 // ========================================
+
+// ===== MOUSE SPOTLIGHT =====
+document.addEventListener('mousemove',e=>{
+    document.documentElement.style.setProperty('--mx',e.clientX+'px');
+    document.documentElement.style.setProperty('--my',e.clientY+'px');
+});
 
 // ===== LOADING SCREEN =====
 window.addEventListener('load',()=>{
