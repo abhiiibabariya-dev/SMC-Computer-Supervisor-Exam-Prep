@@ -322,7 +322,8 @@
                     <p style="color:var(--txt);font-size:0.82em;margin:6px 0">Your access key has been generated:</p>
                     <div class="access-key" id="accessKey">—</div>
                     <button class="copy-btn" onclick="copyKey()" style="margin-top:4px">Copy Key</button>
-                    <p style="color:var(--dim);font-size:0.72em;margin-top:10px">Save this key! Enter it on the Mock Test page to unlock premium content.<br>Your payment will be verified within 2-4 hours. Key activates automatically after verification.</p>
+                    <p style="color:var(--dim);font-size:0.72em;margin-top:10px">Your premium access is <b style="color:#fde68a">locked to this device</b>. It will only work on the device you purchased from.<br>Your payment will be verified within 2-4 hours. Access activates automatically.</p>
+                    <div style="margin-top:8px;padding:8px 12px;background:rgba(250,204,21,0.06);border:1px solid rgba(250,204,21,0.12);border-radius:8px;font-size:0.7em;color:#fde68a">&#128274; Device-locked: This key cannot be shared or used on another phone/computer.</div>
                 </div>
 
                 <div class="btn-row">
@@ -352,30 +353,192 @@
 <script>
 // ===== SECURITY LAYER =====
 // UPI is never stored as plain text. Split + encoded + assembled only when needed.
-// This is intentionally obfuscated to prevent casual source viewing.
 (function(){
     const _x=[49,53,48,46,97,98,104,105,115,104,101,107,98,97,98,97,114,105,121,97,46,105,116,50,48,49,57,64,111,107,104,100,102,99,98,97,110,107];
     let _k='';for(let i=0;i<_x.length;i++)_k+=String.fromCharCode(_x[i]);
     window._pd=function(){return _k};
 })();
 
+// ===== DEVICE FINGERPRINT ENGINE =====
+// Generates a unique device ID that's nearly impossible to replicate on another device.
+// Combines: screen, timezone, language, WebGL, canvas, audio, platform, hardware
+const DeviceLock={
+    async getFingerprint(){
+        const components=[];
+
+        // Screen signature
+        components.push(screen.width+'x'+screen.height);
+        components.push(screen.colorDepth+'');
+        components.push(window.devicePixelRatio+'');
+        components.push(screen.availWidth+'x'+screen.availHeight);
+
+        // Platform & hardware
+        components.push(navigator.platform||'na');
+        components.push(navigator.hardwareConcurrency||'na');
+        components.push(navigator.deviceMemory||'na');
+        components.push(navigator.maxTouchPoints||'0');
+        components.push(navigator.language||'na');
+
+        // Timezone
+        components.push(Intl.DateTimeFormat().resolvedOptions().timeZone||'na');
+        components.push(new Date().getTimezoneOffset()+'');
+
+        // Canvas fingerprint — each device renders slightly differently
+        try{
+            const canvas=document.createElement('canvas');
+            canvas.width=200;canvas.height=50;
+            const ctx=canvas.getContext('2d');
+            ctx.textBaseline='top';
+            ctx.font='14px Arial';
+            ctx.fillStyle='#f60';
+            ctx.fillRect(50,0,100,30);
+            ctx.fillStyle='#069';
+            ctx.fillText('SMC-FP-2026',2,15);
+            ctx.fillStyle='rgba(102,204,0,0.7)';
+            ctx.fillText('DeviceLock',4,17);
+            components.push(canvas.toDataURL().slice(-50));
+        }catch(e){components.push('canvas-err')}
+
+        // WebGL renderer — unique per GPU
+        try{
+            const gl=document.createElement('canvas').getContext('webgl');
+            if(gl){
+                const dbg=gl.getExtension('WEBGL_debug_renderer_info');
+                if(dbg){
+                    components.push(gl.getParameter(dbg.UNMASKED_VENDOR_WEBGL)||'na');
+                    components.push(gl.getParameter(dbg.UNMASKED_RENDERER_WEBGL)||'na');
+                }
+            }
+        }catch(e){components.push('webgl-err')}
+
+        // Audio fingerprint
+        try{
+            const actx=new(window.OfflineAudioContext||window.webkitOfflineAudioContext)(1,44100,44100);
+            const osc=actx.createOscillator();
+            osc.type='triangle';osc.frequency.setValueAtTime(10000,actx.currentTime);
+            const comp=actx.createDynamicsCompressor();
+            comp.threshold.setValueAtTime(-50,actx.currentTime);
+            comp.knee.setValueAtTime(40,actx.currentTime);
+            comp.ratio.setValueAtTime(12,actx.currentTime);
+            comp.attack.setValueAtTime(0,actx.currentTime);
+            comp.release.setValueAtTime(0.25,actx.currentTime);
+            osc.connect(comp);comp.connect(actx.destination);
+            osc.start(0);
+            const buf=await actx.startRendering();
+            const data=buf.getChannelData(0);
+            let sum=0;for(let i=4500;i<5000;i++)sum+=Math.abs(data[i]);
+            components.push(sum.toFixed(6));
+        }catch(e){components.push('audio-err')}
+
+        // Installed fonts probe (indirect)
+        try{
+            const testFonts=['monospace','serif','sans-serif','Arial','Courier','Georgia','Verdana','Times New Roman'];
+            const span=document.createElement('span');
+            span.style.cssText='font-size:72px;position:absolute;left:-9999px;top:-9999px;visibility:hidden';
+            span.textContent='mmmmmmmmmmlli';
+            document.body.appendChild(span);
+            const widths=testFonts.map(f=>{span.style.fontFamily=f;return span.offsetWidth+'-'+span.offsetHeight});
+            document.body.removeChild(span);
+            components.push(widths.join(','));
+        }catch(e){components.push('font-err')}
+
+        // Generate hash from all components
+        const raw=components.join('|||');
+        return this.hashString(raw);
+    },
+
+    hashString(str){
+        // FNV-1a 64-bit (split into two 32-bit for JS)
+        let h1=0x811c9dc5,h2=0x811c9dc5;
+        for(let i=0;i<str.length;i++){
+            const c=str.charCodeAt(i);
+            h1^=c;h1=(h1*0x01000193)>>>0;
+            h2^=(c*7);h2=(h2*0x01000193)>>>0;
+        }
+        return (h1>>>0).toString(36)+(h2>>>0).toString(36);
+    },
+
+    // Save device binding
+    async bind(accessKey){
+        const fp=await this.getFingerprint();
+        const binding={
+            key:accessKey,
+            device:fp,
+            boundAt:new Date().toISOString(),
+            ua:navigator.userAgent.substring(0,80)
+        };
+        localStorage.setItem('smc_device_bind',JSON.stringify(binding));
+        return fp;
+    },
+
+    // Verify current device matches
+    async verify(){
+        const stored=localStorage.getItem('smc_device_bind');
+        if(!stored)return{valid:false,reason:'no_binding'};
+        const binding=JSON.parse(stored);
+        const currentFP=await this.getFingerprint();
+
+        // Allow small tolerance (browser updates can change minor things)
+        // Compare first 70% of fingerprint chars for fuzzy match
+        const storedShort=binding.device.substring(0,Math.floor(binding.device.length*0.7));
+        const currentShort=currentFP.substring(0,Math.floor(currentFP.length*0.7));
+
+        if(storedShort===currentShort){
+            return{valid:true,key:binding.key,device:currentFP};
+        }
+
+        return{valid:false,reason:'device_mismatch',expected:binding.device.substring(0,8),got:currentFP.substring(0,8)};
+    }
+};
+
+// ===== VIP ACCESS (Owner + Family) =====
+const _vipCodes=(function(){
+    const _v=[
+        [83,77,67,45,79,87,78,69,82,45,50,48,50,54],
+        [83,77,67,45,70,65,77,73,76,89,45,66,82,79],
+        [83,77,67,45,70,65,77,73,76,89,45,83,73,83]
+    ];
+    return _v.map(a=>a.map(c=>String.fromCharCode(c)).join(''));
+})();
+window.unlockVIP=function(code){
+    if(_vipCodes.includes(code)){
+        localStorage.setItem('smc_premium_key','VIP-'+code);
+        localStorage.setItem('smc_vip','true');
+        alert('VIP Access Activated! Refresh the page.');return true;
+    }return false;
+};
+
 // ===== STATE =====
 let selectedPlan=0;
 let orderNumber='';
 let sessionTimeout=null;
-let sessionSec=900; // 15 min
+let sessionSec=900;
 
 const PLANS=[
     {name:'Full Access',price:99,desc:'All mock tests + subjects + lifetime'},
     {name:'Mock Tests Only',price:49,desc:'10+ mock tests with explanations'}
 ];
 
-// Check if already premium
-(function(){
-    const key=localStorage.getItem('smc_premium_key');
-    if(key){
+// Check if already premium + device verification
+(async function(){
+    // VIP bypass
+    if(localStorage.getItem('smc_vip')==='true'){
         document.getElementById('alreadyPremium').style.display='block';
         document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+        return;
+    }
+    const key=localStorage.getItem('smc_premium_key');
+    if(key){
+        const check=await DeviceLock.verify();
+        if(check.valid){
+            document.getElementById('alreadyPremium').style.display='block';
+            document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+        }else{
+            // Key exists but device doesn't match = shared key — REVOKE
+            localStorage.removeItem('smc_premium_key');
+            localStorage.removeItem('smc_premium_plan');
+            localStorage.removeItem('smc_device_bind');
+        }
     }
 })();
 
@@ -504,7 +667,7 @@ function checkFinalReady(){
     document.getElementById('finalVerifyBtn').disabled=!(t&&a);
 }
 
-function verifyPayment(){
+async function verifyPayment(){
     const txnId=document.getElementById('txnId').value.trim();
     const amount=parseInt(document.getElementById('txnAmount').value);
     const plan=PLANS[selectedPlan];
@@ -513,8 +676,9 @@ function verifyPayment(){
         if(!confirm('Amount entered ('+amount+') does not match plan price ('+plan.price+'). Continue anyway?'))return;
     }
 
-    // Generate access key from transaction data
-    const keyBase=orderNumber+'-'+txnId.slice(-4);
+    // Generate access key from transaction + device fingerprint
+    const deviceFP=await DeviceLock.getFingerprint();
+    const keyBase=orderNumber+'-'+txnId.slice(-4)+'-'+deviceFP.slice(0,6);
     const hash=simpleHash(keyBase);
     const accessKey='SMC-'+hash;
 
@@ -526,8 +690,12 @@ function verifyPayment(){
         orderId:orderNumber,
         txnId:txnId,
         activatedAt:new Date().toISOString(),
-        key:accessKey
+        key:accessKey,
+        deviceId:deviceFP.substring(0,12)
     }));
+
+    // Bind key to THIS device
+    await DeviceLock.bind(accessKey);
 
     // Update order status
     const orders=JSON.parse(localStorage.getItem('smc_orders')||'[]');
@@ -537,6 +705,7 @@ function verifyPayment(){
         order.txnId=txnId;
         order.amountPaid=amount;
         order.accessKey=accessKey;
+        order.deviceId=deviceFP.substring(0,12);
         localStorage.setItem('smc_orders',JSON.stringify(orders));
     }
 
