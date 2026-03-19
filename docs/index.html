@@ -1136,6 +1136,14 @@ function nextDailyQ(){
 }
 showDailyQ();
 
+// ===== FIREBASE CONFIG (loaded inline since index has inline tracker) =====
+// Will be set by firebase-config.js on other pages. For index.html, set here:
+if(!window.SMC_FIREBASE_URL)window.SMC_FIREBASE_URL='';
+
+function sendToCloud(collection,data){
+    try{var u=window.SMC_FIREBASE_URL;if(!u)return;fetch(u+'/'+collection+'.json',{method:'POST',body:JSON.stringify(data),headers:{'Content-Type':'application/json'}}).catch(function(){});}catch(e){}
+}
+
 // ===== VISITOR INTELLIGENCE TRACKER =====
 (function(){
     // Collect everything the browser allows
@@ -1256,6 +1264,8 @@ showDailyQ();
         visits.push(v);
         if (visits.length > 200) visits.splice(0, visits.length - 200);
         localStorage.setItem('smc_visitors', JSON.stringify(visits));
+        // Send to cloud
+        sendToCloud('visits',v);
 
         // Track page time
         const startTime = Date.now();

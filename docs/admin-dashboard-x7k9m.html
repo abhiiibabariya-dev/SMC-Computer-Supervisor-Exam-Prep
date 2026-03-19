@@ -328,20 +328,56 @@ function addSecLog(type,msg,level){
     localStorage.setItem('smc_security_log',JSON.stringify(log));
 }
 
+// ===== FIREBASE CONFIG =====
+const FIREBASE_URL=''; // Set your Firebase Realtime Database URL here
+
 // ===== DASHBOARD =====
 let refreshTimer=null;
+let cloudVisits=[],cloudClicks=[];
 
 function initDashboard(){
     renderAll();
-    // Real-time auto-refresh every 5 seconds
-    refreshTimer=setInterval(renderAll,5000);
+    // Fetch from cloud first
+    fetchCloud();
+    // Auto-refresh every 5 seconds
+    refreshTimer=setInterval(()=>{fetchCloud();renderAll()},5000);
+}
+
+async function fetchCloud(){
+    if(!FIREBASE_URL)return;
+    try{
+        // Fetch visits from Firebase
+        const vRes=await fetch(FIREBASE_URL+'/visits.json?orderBy="$key"&limitToLast=500');
+        if(vRes.ok){
+            const vData=await vRes.json();
+            if(vData){
+                cloudVisits=Object.values(vData).filter(v=>v&&v.t&&!v.update);
+            }
+        }
+        // Fetch clicks from Firebase
+        const cRes=await fetch(FIREBASE_URL+'/clicks.json?orderBy="$key"&limitToLast=300');
+        if(cRes.ok){
+            const cData=await cRes.json();
+            if(cData){
+                cloudClicks=Object.values(cData).filter(c=>c&&c.t);
+            }
+        }
+    }catch(e){console.log('Cloud fetch error:',e)}
+    renderAll();
 }
 
 function renderAll(){
-    const visits=JSON.parse(localStorage.getItem('smc_visitors')||'[]');
-    const clicks=JSON.parse(localStorage.getItem('smc_clicks')||'[]');
+    // Merge cloud + local data (cloud takes priority, local as fallback)
+    const localVisits=JSON.parse(localStorage.getItem('smc_visitors')||'[]');
+    const localClicks=JSON.parse(localStorage.getItem('smc_clicks')||'[]');
+    const visits=cloudVisits.length>0?cloudVisits:localVisits;
+    const clicks=cloudClicks.length>0?cloudClicks:localClicks;
     const orders=JSON.parse(localStorage.getItem('smc_orders')||'[]');
     const secLog=JSON.parse(localStorage.getItem('smc_security_log')||'[]');
+
+    // Show data source indicator
+    const srcEl=document.getElementById('refreshInterval');
+    if(srcEl)srcEl.innerHTML=cloudVisits.length>0?'5s <span style="color:#22c55e">(Cloud: '+cloudVisits.length+' visits)</span>':'5s (Local only)';
 
     renderStats(visits,clicks,orders);
     renderVisits('all',visits);
