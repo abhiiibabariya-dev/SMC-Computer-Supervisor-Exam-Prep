@@ -251,9 +251,9 @@
                 </div>
             </div>
 
-            <!-- Mock Test 3 - FREE -->
-            <div class="test-card" onclick="startMock(3)">
-                <span class="tc-badge free">FREE</span>
+            <!-- Mock Test 3 - PREMIUM (locked for free users) -->
+            <div class="test-card" id="mock3Card" onclick="tryMock3()">
+                <span class="tc-badge premium" id="mock3Badge">PREMIUM</span>
                 <span class="tc-icon">&#128293;</span>
                 <div class="tc-title">Mock Test 3 &mdash; Hard</div>
                 <div class="tc-desc">Advanced level! Traps, confusing options, exam-level pressure. Can you score 80%+?</div>
@@ -268,6 +268,11 @@
                     <div class="tc-dot fill hard"></div>
                     <div class="tc-dot fill hard"></div>
                     <div class="tc-dot"></div>
+                </div>
+                <div class="lock-overlay" id="mock3Lock" onclick="event.stopPropagation();window.location.href='premium.html'">
+                    <div class="lock-icon">&#128274;</div>
+                    <div class="lock-text">Unlock with Premium</div>
+                    <div class="lock-sub">&#8377;49 &mdash; Tap to unlock</div>
                 </div>
             </div>
 
@@ -482,8 +487,31 @@ async function isPremium(){
 }
 
 function handleLocked(){
-    alert('These mock tests are coming soon! We are preparing 700+ new questions. For now, try the 3 free mock tests available above.');
+    alert('These mock tests are coming soon! We are preparing 700+ new questions. For now, try the available mock tests above.');
 }
+
+function tryMock3(){
+    // Check if premium/VIP
+    if(localStorage.getItem('smc_vip')==='true' || localStorage.getItem('smc_premium_key')){
+        startMock(3);
+    }
+    // else lock-overlay handles the click
+}
+
+// On page load: check premium status and unlock Mock 3 if premium
+(function(){
+    const isVip=localStorage.getItem('smc_vip')==='true';
+    const hasKey=!!localStorage.getItem('smc_premium_key');
+    if(isVip||hasKey){
+        // Unlock Mock 3
+        const lock=document.getElementById('mock3Lock');
+        const badge=document.getElementById('mock3Badge');
+        const card=document.getElementById('mock3Card');
+        if(lock)lock.style.display='none';
+        if(badge){badge.textContent='UNLOCKED';badge.className='tc-badge free'}
+        if(card)card.classList.remove('locked');
+    }
+})();
 
 // ===== MOCK TEST QUESTION BANKS =====
 const MOCK={

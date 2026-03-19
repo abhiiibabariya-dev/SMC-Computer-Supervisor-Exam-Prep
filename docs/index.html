@@ -330,6 +330,18 @@
         .fun-streak .fire{animation:firePulse 0.5s ease infinite alternate}
         @keyframes firePulse{from{transform:scale(1)}to{transform:scale(1.2)}}
 
+        /* ============ CONTENT PAYWALL / TEASER ============ */
+        .paywall-wrap{position:relative}
+        .paywall-fade{position:relative;max-height:320px;overflow:hidden;transition:max-height 0.5s}
+        .paywall-fade.unlocked{max-height:none}
+        .paywall-fade::after{content:'';position:absolute;bottom:0;left:0;right:0;height:160px;background:linear-gradient(transparent,var(--bg));pointer-events:none;transition:opacity 0.4s}
+        .paywall-fade.unlocked::after{opacity:0;height:0}
+        .paywall-overlay{text-align:center;padding:20px;margin-top:-20px;position:relative;z-index:2}
+        .paywall-overlay.hide{display:none}
+        .paywall-btn{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#7c3aed,#6366f1);color:#fff;padding:12px 28px;border-radius:14px;font-weight:700;font-size:0.85em;cursor:pointer;border:none;font-family:inherit;transition:all 0.35s;text-decoration:none}
+        .paywall-btn:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(124,58,237,0.35)}
+        .paywall-hint{color:var(--dim);font-size:0.72em;margin-top:6px}
+
         /* ============ MOTIVATIONAL BANNER ============ */
         .moti-banner{background:linear-gradient(135deg,rgba(124,58,237,0.12),rgba(99,102,241,0.08));border:1px solid rgba(139,92,246,0.2);border-radius:16px;padding:18px 24px;margin:24px 0;text-align:center;position:relative;overflow:hidden}
         .moti-banner::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.02),transparent);animation:motiShine 3s linear infinite}
@@ -674,20 +686,30 @@
             <a class="k" href="supervisor.html"><div class="k-t">Complete Exam Guide</div><div class="k-d">Syllabus, eligibility, key topics</div><span class="k-tag tr">COMPLETE</span></a>
             <div class="k" onclick="O('ALL_IN_ONE_EXAM_GUIDE.md','All-in-One')"><div class="k-t">All-in-One 820+ MCQs</div><div class="k-d">Every topic covered</div><span class="k-tag tr">ALL MCQs</span></div>
             <div class="k" onclick="O('subjects/01_computer_knowledge.md','Computer')"><div class="k-t">Computer Knowledge</div><div class="k-d">Hardware, Software, OS</div><span class="k-tag tr">HIGH</span></div>
-            <div class="k" onclick="O('subjects/02_general_knowledge.md','GK')"><div class="k-t">General Knowledge</div><div class="k-d">Gujarat GK, Polity</div><span class="k-tag tr">HIGH</span></div>
-            <div class="k" onclick="O('subjects/03_gujarati_language.md','Gujarati')"><div class="k-t">Gujarati Language</div><div class="k-d">Vyakaran, Sahitya</div><span class="k-tag ty">MEDIUM</span></div>
-            <div class="k" onclick="O('subjects/04_english_language.md','English')"><div class="k-t">English Language</div><div class="k-d">Grammar, Vocabulary</div><span class="k-tag ty">MEDIUM</span></div>
-            <div class="k" onclick="O('subjects/05_mathematics.md','Maths')"><div class="k-t">Mathematics</div><div class="k-d">Quant, Reasoning</div><span class="k-tag ty">MEDIUM</span></div>
-            <div class="k" onclick="O('subjects/06_advanced_computer_supervisor.md','Advanced')"><div class="k-t">Advanced Computer</div><div class="k-d">220 MCQs, Networking, DB</div><span class="k-tag tr">HIGH</span></div>
-            <div class="k" onclick="O('subjects/07_exam_strategy_and_practical.md','Strategy')"><div class="k-t">Exam Strategy</div><div class="k-d">Time management</div><span class="k-tag tg">STRATEGY</span></div>
-            <div class="k" onclick="O('subjects/08_gujarati_typing_complete_guide.md','Typing')"><div class="k-t">Gujarati Typing</div><div class="k-d">InScript, 30-day plan</div><span class="k-tag tg">PRACTICAL</span></div>
         </div>
-        <div class="sep"></div>
-        <div class="sl">Mock Tests</div>
-        <div class="g">
-            <div class="k" onclick="O('papers/mock_test_1.md','Mock 1')"><div class="k-t">Mock Test 1</div><div class="k-d">100Q + Answers</div><span class="k-tag tp">MOCK</span></div>
-            <div class="k" onclick="O('papers/mock_test_2.md','Mock 2')"><div class="k-t">Mock Test 2</div><div class="k-d">100Q + Answers</div><span class="k-tag tp">MOCK</span></div>
-            <div class="k" onclick="O('papers/mock_test_3.md','Mock 3')"><div class="k-t">Mock Test 3</div><div class="k-d">100Q + Answers</div><span class="k-tag tp">MOCK</span></div>
+        <div class="paywall-wrap">
+            <div class="paywall-fade pw-section" id="pw-cs">
+                <div class="g g2" style="margin-top:10px">
+                    <div class="k" onclick="O('subjects/02_general_knowledge.md','GK')"><div class="k-t">General Knowledge</div><div class="k-d">Gujarat GK, Polity</div><span class="k-tag tr">HIGH</span></div>
+                    <div class="k" onclick="O('subjects/03_gujarati_language.md','Gujarati')"><div class="k-t">Gujarati Language</div><div class="k-d">Vyakaran, Sahitya</div><span class="k-tag ty">MEDIUM</span></div>
+                    <div class="k" onclick="O('subjects/04_english_language.md','English')"><div class="k-t">English Language</div><div class="k-d">Grammar, Vocabulary</div><span class="k-tag ty">MEDIUM</span></div>
+                    <div class="k" onclick="O('subjects/05_mathematics.md','Maths')"><div class="k-t">Mathematics</div><div class="k-d">Quant, Reasoning</div><span class="k-tag ty">MEDIUM</span></div>
+                    <div class="k" onclick="O('subjects/06_advanced_computer_supervisor.md','Advanced')"><div class="k-t">Advanced Computer</div><div class="k-d">220 MCQs, Networking, DB</div><span class="k-tag tr">HIGH</span></div>
+                    <div class="k" onclick="O('subjects/07_exam_strategy_and_practical.md','Strategy')"><div class="k-t">Exam Strategy</div><div class="k-d">Time management</div><span class="k-tag tg">STRATEGY</span></div>
+                    <div class="k" onclick="O('subjects/08_gujarati_typing_complete_guide.md','Typing')"><div class="k-t">Gujarati Typing</div><div class="k-d">InScript, 30-day plan</div><span class="k-tag tg">PRACTICAL</span></div>
+                </div>
+                <div class="sep"></div>
+                <div class="sl">Mock Tests</div>
+                <div class="g">
+                    <div class="k" onclick="O('papers/mock_test_1.md','Mock 1')"><div class="k-t">Mock Test 1</div><div class="k-d">100Q + Answers</div><span class="k-tag tp">MOCK</span></div>
+                    <div class="k" onclick="O('papers/mock_test_2.md','Mock 2')"><div class="k-t">Mock Test 2</div><div class="k-d">100Q + Answers</div><span class="k-tag tp">MOCK</span></div>
+                    <div class="k" onclick="O('papers/mock_test_3.md','Mock 3')"><div class="k-t">Mock Test 3</div><div class="k-d">100Q + Answers</div><span class="k-tag tp">MOCK</span></div>
+                </div>
+            </div>
+            <div class="paywall-overlay pw-overlay" id="pwo-cs">
+                <a class="paywall-btn" href="premium.html">&#128274; Unlock All Content &mdash; &#8377;49</a>
+                <div class="paywall-hint">Get access to all subjects, mock tests & more</div>
+            </div>
         </div>
     </div>
 
@@ -698,20 +720,30 @@
             <a class="k" href="clerk.html"><div class="k-t">Complete Exam Guide</div><div class="k-d">Syllabus, eligibility, key topics</div><span class="k-tag tr">COMPLETE</span></a>
             <div class="k" onclick="O('clerk_exam/02_complete_clerk_exam_guide.md','Clerk')"><div class="k-t">All-in-One 330+ MCQs</div><div class="k-d">All subjects covered</div><span class="k-tag tr">ALL MCQs</span></div>
             <div class="k" onclick="O('clerk_exam_complete/subjects/01_gujarati_language.md','Gujarati')"><div class="k-t">Gujarati Language</div><div class="k-d">155 MCQs, Sandhi, Samaas</div><span class="k-tag tr">HIGH</span></div>
-            <div class="k" onclick="O('clerk_exam_complete/subjects/02_general_knowledge.md','GK')"><div class="k-t">General Knowledge</div><div class="k-d">155 MCQs, Gujarat, Polity</div><span class="k-tag tr">HIGH</span></div>
-            <div class="k" onclick="O('clerk_exam_complete/subjects/03_english_language.md','English')"><div class="k-t">English Language</div><div class="k-d">120 MCQs, Tenses, Vocab</div><span class="k-tag ty">MEDIUM</span></div>
-            <div class="k" onclick="O('clerk_exam_complete/subjects/04_mathematics.md','Maths')"><div class="k-t">Mathematics</div><div class="k-d">135 MCQs, %, SI/CI</div><span class="k-tag ty">MEDIUM</span></div>
-            <div class="k" onclick="O('clerk_exam_complete/subjects/05_reasoning.md','Reasoning')"><div class="k-t">Reasoning</div><div class="k-d">120 MCQs, Series, Coding</div><span class="k-tag ty">MEDIUM</span></div>
-            <div class="k" onclick="O('clerk_exam_complete/subjects/06_computer_knowledge.md','Computer')"><div class="k-t">Computer Knowledge</div><div class="k-d">85 MCQs, Shortcuts</div><span class="k-tag tg">EASY</span></div>
-            <div class="k" onclick="O('clerk_exam_complete/practical/01_typing_test_guide.md','Typing')"><div class="k-t">Typing Guide</div><div class="k-d">EN + GJ, InScript</div><span class="k-tag tg">PRACTICAL</span></div>
-            <div class="k" onclick="O('clerk_exam_complete/previous_papers/previous_paper_analysis.md','Analysis')"><div class="k-t">Paper Analysis</div><div class="k-d">Weightage, cutoffs</div><span class="k-tag tg">STRATEGY</span></div>
         </div>
-        <div class="sep"></div>
-        <div class="sl">Mock Tests</div>
-        <div class="g">
-            <div class="k" onclick="O('clerk_exam_complete/mock_tests/mock_test_1.md','Mock 1')"><div class="k-t">Mock Test 1</div><div class="k-d">100Q + Answers</div><span class="k-tag tp">MOCK</span></div>
-            <div class="k" onclick="O('clerk_exam_complete/mock_tests/mock_test_2.md','Mock 2')"><div class="k-t">Mock Test 2</div><div class="k-d">100Q + Answers</div><span class="k-tag tp">MOCK</span></div>
-            <div class="k" onclick="O('clerk_exam_complete/mock_tests/mock_test_3.md','Mock 3')"><div class="k-t">Mock Test 3</div><div class="k-d">100Q + Answers</div><span class="k-tag tp">MOCK</span></div>
+        <div class="paywall-wrap">
+            <div class="paywall-fade pw-section" id="pw-cl">
+                <div class="g g2" style="margin-top:10px">
+                    <div class="k" onclick="O('clerk_exam_complete/subjects/02_general_knowledge.md','GK')"><div class="k-t">General Knowledge</div><div class="k-d">155 MCQs, Gujarat, Polity</div><span class="k-tag tr">HIGH</span></div>
+                    <div class="k" onclick="O('clerk_exam_complete/subjects/03_english_language.md','English')"><div class="k-t">English Language</div><div class="k-d">120 MCQs, Tenses, Vocab</div><span class="k-tag ty">MEDIUM</span></div>
+                    <div class="k" onclick="O('clerk_exam_complete/subjects/04_mathematics.md','Maths')"><div class="k-t">Mathematics</div><div class="k-d">135 MCQs, %, SI/CI</div><span class="k-tag ty">MEDIUM</span></div>
+                    <div class="k" onclick="O('clerk_exam_complete/subjects/05_reasoning.md','Reasoning')"><div class="k-t">Reasoning</div><div class="k-d">120 MCQs, Series, Coding</div><span class="k-tag ty">MEDIUM</span></div>
+                    <div class="k" onclick="O('clerk_exam_complete/subjects/06_computer_knowledge.md','Computer')"><div class="k-t">Computer Knowledge</div><div class="k-d">85 MCQs, Shortcuts</div><span class="k-tag tg">EASY</span></div>
+                    <div class="k" onclick="O('clerk_exam_complete/practical/01_typing_test_guide.md','Typing')"><div class="k-t">Typing Guide</div><div class="k-d">EN + GJ, InScript</div><span class="k-tag tg">PRACTICAL</span></div>
+                    <div class="k" onclick="O('clerk_exam_complete/previous_papers/previous_paper_analysis.md','Analysis')"><div class="k-t">Paper Analysis</div><div class="k-d">Weightage, cutoffs</div><span class="k-tag tg">STRATEGY</span></div>
+                </div>
+                <div class="sep"></div>
+                <div class="sl">Mock Tests</div>
+                <div class="g">
+                    <div class="k" onclick="O('clerk_exam_complete/mock_tests/mock_test_1.md','Mock 1')"><div class="k-t">Mock Test 1</div><div class="k-d">100Q + Answers</div><span class="k-tag tp">MOCK</span></div>
+                    <div class="k" onclick="O('clerk_exam_complete/mock_tests/mock_test_2.md','Mock 2')"><div class="k-t">Mock Test 2</div><div class="k-d">100Q + Answers</div><span class="k-tag tp">MOCK</span></div>
+                    <div class="k" onclick="O('clerk_exam_complete/mock_tests/mock_test_3.md','Mock 3')"><div class="k-t">Mock Test 3</div><div class="k-d">100Q + Answers</div><span class="k-tag tp">MOCK</span></div>
+                </div>
+            </div>
+            <div class="paywall-overlay pw-overlay" id="pwo-cl">
+                <a class="paywall-btn" href="premium.html">&#128274; Unlock All Content &mdash; &#8377;49</a>
+                <div class="paywall-hint">Get access to all subjects, mock tests & more</div>
+            </div>
         </div>
     </div>
 
@@ -1616,6 +1648,21 @@ function filterNews(cat){
         }
     }
     setTimeout(type,1200);
+})();
+
+// ===== PAYWALL: CHECK PREMIUM/VIP AND UNLOCK =====
+(function(){
+    const isVip=localStorage.getItem('smc_vip')==='true';
+    const hasKey=!!localStorage.getItem('smc_premium_key');
+    if(isVip||hasKey){
+        // Unlock all paywall sections
+        document.querySelectorAll('.pw-section').forEach(el=>{
+            el.classList.add('unlocked');
+        });
+        document.querySelectorAll('.pw-overlay').forEach(el=>{
+            el.classList.add('hide');
+        });
+    }
 })();
 </script>
 </body>
