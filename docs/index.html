@@ -354,6 +354,22 @@
         .daily-tip .tip-text{color:var(--txt);font-size:0.82em;line-height:1.5}
         .daily-tip .tip-text b{color:var(--white)}
 
+        /* ============ MEGA TABS (News + Daily + Fun combined) ============ */
+        .mega-tabs{display:flex;gap:4px;margin-bottom:14px;flex-wrap:wrap}
+        .mega-tab{background:var(--s2);border:1px solid var(--border);color:var(--dim);padding:8px 16px;border-radius:100px;font-size:0.75em;font-weight:700;cursor:pointer;transition:all 0.3s;font-family:inherit}
+        .mega-tab.active{background:rgba(139,92,246,0.12);color:#c4b5fd;border-color:rgba(139,92,246,0.3)}
+        .mega-tab:hover{color:var(--white);border-color:rgba(139,92,246,0.2)}
+        .mega-panel{display:none}
+        .mega-panel.active{display:block}
+
+        /* ============ COLLAPSIBLE SECTIONS ============ */
+        .collapse-toggle{background:var(--s2);border:1px solid var(--border);color:var(--txt);padding:10px 20px;border-radius:10px;font-size:0.78em;font-weight:700;cursor:pointer;font-family:inherit;transition:all 0.3s;display:inline-flex;align-items:center;gap:6px;margin-top:12px}
+        .collapse-toggle:hover{border-color:rgba(139,92,246,0.3);color:var(--white)}
+        .collapse-toggle .arrow{transition:transform 0.3s;display:inline-block}
+        .collapse-toggle.open .arrow{transform:rotate(180deg)}
+        .collapsible{max-height:0;overflow:hidden;transition:max-height 0.5s ease}
+        .collapsible.open{max-height:2000px}
+
         /* ============ CONTENT PAYWALL / TEASER ============ */
         .paywall-wrap{position:relative}
         .paywall-fade{position:relative;max-height:320px;overflow:hidden;transition:max-height 0.5s}
@@ -510,9 +526,18 @@
         </div>
     </div>
 
-    <!-- LIVE NEWS & JOB OPENINGS -->
-    <div class="sec news-section sr" id="newsSection">
-        <div class="sec-top"><div class="sec-name"><i style="background:#22c55e"></i>Live News & Job Openings</div><span class="sec-info tag-live" style="font-size:0.72em">LIVE</span></div>
+    <!-- QUICK ACCESS TOGGLES -->
+    <div class="sec sr" style="margin-top:24px">
+        <div class="sec-top"><div class="sec-name"><i style="background:#818cf8"></i>Quick Access</div></div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <button class="collapse-toggle" onclick="toggleSection('newsSection',this)">&#128240; News & Jobs <span class="arrow">&#9660;</span></button>
+            <button class="collapse-toggle" onclick="toggleSection('dailySection',this)">&#128218; Today's Learning <span class="arrow">&#9660;</span></button>
+            <button class="collapse-toggle" onclick="toggleSection('funSection',this);toggleSection('motiBanner')">&#128514; Fun Zone <span class="arrow">&#9660;</span></button>
+        </div>
+    </div>
+
+    <!-- LIVE NEWS (Collapsed) -->
+    <div class="sec news-section sr" id="newsSection" style="display:none">
 
         <!-- Tabs -->
         <div class="news-tabs">
@@ -697,8 +722,8 @@
         <button class="quiz-next" id="dq-next" onclick="nextDailyQ()">Next Question &rarr;</button>
     </div>
 
-    <!-- DAILY CONTENT (Auto-refreshes every day) -->
-    <div class="sec sr">
+    <!-- DAILY CONTENT (Hidden by default) -->
+    <div class="sec sr" id="dailySection" style="display:none">
         <div class="sec-top"><div class="sec-name"><i style="background:#c084fc"></i>Today's Learning</div><span class="sec-info" id="dc-date">Loading...</span></div>
         <div class="daily-grid">
             <div class="daily-card">
@@ -732,7 +757,6 @@
             <div class="tip-text"><b>Exam Tip:</b> <span id="dc-tip">Loading...</span></div>
         </div>
     </div>
-
     <!-- RECRUITMENT -->
     <div class="sec sr">
         <div class="sec-top"><div class="sec-name"><i style="background:#ef4444"></i>Recruitment 2026</div><span class="sec-info">Apply Now</span></div>
@@ -880,14 +904,14 @@
         <!-- ADSENSE_AD_3 -->
     </div>
 
-    <!-- MOTIVATIONAL BANNER -->
-    <div class="moti-banner sr" id="motiBanner">
+    <!-- MOTIVATIONAL BANNER (Hidden) -->
+    <div class="moti-banner sr" id="motiBanner" style="display:none">
         <div class="moti-text" id="motiText">Loading motivation...</div>
         <div class="moti-author" id="motiAuthor"></div>
     </div>
 
-    <!-- FUN ZONE -->
-    <div class="sec fun-zone sr">
+    <!-- FUN ZONE (Hidden by default) -->
+    <div class="sec fun-zone sr" id="funSection" style="display:none">
         <div class="sec-top"><div class="sec-name"><i style="background:#fde68a"></i><span class="sparkle">Fun Zone</span> &mdash; Learn with a Smile</div><span class="sec-info">Daily Refresh</span></div>
         <div class="fun-grid">
             <!-- Daily Tech Joke -->
@@ -1721,6 +1745,20 @@ function filterNews(cat){
     }
     setTimeout(type,1200);
 })();
+
+// ===== TOGGLE SECTIONS =====
+function toggleSection(id,btn){
+    const el=document.getElementById(id);
+    if(!el)return;
+    if(el.style.display==='none'){
+        el.style.display='';
+        if(btn)btn.classList.add('open');
+        el.scrollIntoView({behavior:'smooth',block:'start'});
+    }else{
+        el.style.display='none';
+        if(btn)btn.classList.remove('open');
+    }
+}
 
 // ===== DAILY CONTENT ENGINE =====
 (function(){
