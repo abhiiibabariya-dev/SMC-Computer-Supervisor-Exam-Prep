@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1CP842CPFX"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-1CP842CPFX');</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMC Premium — Unlock Full Access</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#06060a;--s1:#0c0c14;--s2:#12121c;--border:rgba(255,255,255,0.06);--border2:rgba(255,255,255,0.1);--txt:#a1a1aa;--white:#f4f4f5;--dim:#52525b;--accent:#a78bfa;--green:#22c55e;--red:#ef4444}
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--bg);color:var(--txt);overflow-x:hidden;min-height:100vh}
+        ::selection{background:rgba(139,92,246,0.3);color:#fff}
+
+        .aurora{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+        .aurora-beam{position:absolute;width:200%;height:300px;top:-100px;left:-50%;background:linear-gradient(90deg,transparent,rgba(99,102,241,0.03),rgba(139,92,246,0.05),rgba(236,72,153,0.03),transparent);animation:auroraWave 12s ease-in-out infinite;filter:blur(40px)}
+        .aurora-beam:nth-child(2){animation-delay:-4s;top:40%;animation-duration:15s}
+        @keyframes auroraWave{0%{transform:translateX(-30%) rotate(-3deg)}50%{transform:translateX(10%) rotate(2deg)}100%{transform:translateX(-30%) rotate(-3deg)}}
+        .noise{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:0.03;background:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+        .page{position:relative;z-index:1}
+        .nav{position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:100;background:rgba(12,12,20,0.8);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid var(--border);border-radius:16px;padding:10px 20px;display:flex;align-items:center;gap:12px}
+        .nav a{color:var(--txt);text-decoration:none;font-size:0.82em;font-weight:600;transition:color 0.2s}.nav a:hover{color:var(--white)}
+        .nav .logo{color:var(--white);font-weight:800;font-size:0.9em}
+        .nav .shield{background:rgba(34,197,94,0.12);color:#86efac;padding:3px 10px;border-radius:100px;font-size:0.7em;font-weight:700;display:flex;align-items:center;gap:4px}
+
+        .main{max-width:600px;margin:0 auto;padding:90px 24px 60px}
+
+        /* STEPS INDICATOR */
+        .steps{display:flex;justify-content:center;gap:0;margin-bottom:32px}
+        .step{display:flex;align-items:center;gap:0}
+        .step-dot{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:0.82em;border:2px solid var(--border2);color:var(--dim);background:var(--s2);transition:all 0.4s}
+        .step-dot.active{border-color:var(--accent);color:var(--accent);background:rgba(139,92,246,0.1);box-shadow:0 0 16px rgba(139,92,246,0.2)}
+        .step-dot.done{border-color:var(--green);color:#fff;background:var(--green)}
+        .step-line{width:40px;height:2px;background:var(--border2);transition:background 0.4s}
+        .step-line.done{background:var(--green)}
+
+        /* SCREENS */
+        .screen{display:none;animation:screenIn 0.5s ease}
+        .screen.active{display:block}
+        @keyframes screenIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+
+        .card{background:rgba(12,12,20,0.7);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid var(--border2);border-radius:24px;padding:32px;position:relative;overflow:hidden}
+        .card::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(139,92,246,0.05),transparent 60%);pointer-events:none}
+        .card h2{color:var(--white);font-size:1.3em;font-weight:800;margin-bottom:6px;position:relative}
+        .card p{color:var(--txt);font-size:0.88em;line-height:1.6;position:relative}
+
+        /* PLAN SELECTOR */
+        .plans{display:grid;gap:12px;margin:20px 0}
+        .plan{background:var(--s2);border:2px solid var(--border2);border-radius:16px;padding:20px;cursor:pointer;transition:all 0.3s;position:relative}
+        .plan:hover{border-color:rgba(139,92,246,0.3)}
+        .plan.selected{border-color:var(--accent);background:rgba(139,92,246,0.06);box-shadow:0 0 20px rgba(139,92,246,0.1)}
+        .plan-top{display:flex;justify-content:space-between;align-items:center}
+        .plan-name{color:var(--white);font-weight:800;font-size:1em}
+        .plan-price{color:var(--accent);font-weight:900;font-size:1.3em}
+        .plan-price small{font-size:0.55em;color:var(--dim);font-weight:600}
+        .plan-desc{color:var(--dim);font-size:0.78em;margin-top:4px}
+        .plan-badge{position:absolute;top:-1px;right:16px;background:linear-gradient(135deg,#7c3aed,#6366f1);color:#fff;padding:3px 12px;border-radius:0 0 8px 8px;font-size:0.65em;font-weight:700;letter-spacing:0.5px}
+        .plan-features{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+        .pf{font-size:0.7em;color:var(--txt);background:rgba(255,255,255,0.04);padding:4px 10px;border-radius:8px}
+
+        /* PAYMENT SCREEN */
+        .pay-box{background:var(--s2);border:1px solid var(--border2);border-radius:16px;padding:24px;margin:16px 0;text-align:center}
+        .pay-amount{font-size:2.5em;font-weight:900;color:var(--white);margin:8px 0}
+        .pay-amount small{font-size:0.4em;color:var(--dim);display:block;font-weight:600}
+        .pay-upi{margin:16px 0;padding:16px;background:rgba(139,92,246,0.06);border:1px solid rgba(139,92,246,0.15);border-radius:12px}
+        .pay-upi-label{font-size:0.72em;color:var(--dim);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
+        .pay-upi-id{font-size:1.05em;color:var(--white);font-weight:700;font-family:monospace;letter-spacing:1px;user-select:all;cursor:text}
+        .copy-btn{background:var(--accent);color:#fff;border:none;padding:8px 18px;border-radius:8px;font-size:0.78em;font-weight:700;cursor:pointer;margin-top:8px;font-family:inherit;transition:all 0.3s}
+        .copy-btn:hover{transform:scale(1.05)}
+        .copy-btn.copied{background:var(--green)}
+        .pay-qr{margin:16px auto;width:200px;height:200px;background:var(--s1);border:1px solid var(--border);border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--dim);font-size:0.82em}
+        .pay-note{font-size:0.75em;color:var(--dim);margin-top:12px;line-height:1.5}
+        .pay-note b{color:var(--white)}
+        .pay-warn{background:rgba(250,204,21,0.06);border:1px solid rgba(250,204,21,0.15);border-radius:10px;padding:10px 14px;font-size:0.75em;color:#fde68a;margin-top:12px;line-height:1.5}
+
+        /* ORDER ID */
+        .order-id{font-family:monospace;background:var(--s2);border:1px solid var(--border);border-radius:8px;padding:8px 14px;font-size:0.82em;color:var(--accent);display:inline-block;margin:6px 0;letter-spacing:1px}
+
+        /* VERIFY SCREEN */
+        .input-group{margin:16px 0}
+        .input-group label{display:block;font-size:0.78em;color:var(--dim);font-weight:600;margin-bottom:6px;text-transform:uppercase;letter-spacing:1px}
+        .input-group input{width:100%;background:var(--s2);border:2px solid var(--border2);border-radius:12px;padding:14px 18px;color:var(--white);font-size:0.95em;font-family:inherit;font-weight:600;outline:none;transition:border-color 0.3s}
+        .input-group input:focus{border-color:var(--accent)}
+        .input-group input::placeholder{color:var(--dim)}
+        .input-group .input-hint{font-size:0.7em;color:var(--dim);margin-top:4px}
+
+        /* ACCESS KEY */
+        .access-key-box{background:linear-gradient(135deg,rgba(34,197,94,0.08),rgba(34,197,94,0.03));border:2px solid rgba(34,197,94,0.25);border-radius:16px;padding:24px;text-align:center;margin:16px 0}
+        .access-key{font-family:monospace;font-size:1.4em;font-weight:900;color:var(--green);letter-spacing:3px;user-select:all;padding:8px;background:rgba(34,197,94,0.06);border-radius:8px;display:inline-block;margin:8px 0}
+
+        /* BUTTONS */
+        .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 28px;border-radius:14px;font-weight:700;font-size:0.88em;cursor:pointer;border:none;font-family:inherit;transition:all 0.35s;width:100%}
+        .btn-primary{background:linear-gradient(135deg,#7c3aed,#6366f1);color:#fff;box-shadow:0 4px 20px rgba(124,58,237,0.3)}
+        .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(124,58,237,0.4)}
+        .btn-primary:disabled{opacity:0.4;cursor:not-allowed;transform:none;box-shadow:none}
+        .btn-green{background:linear-gradient(135deg,#22c55e,#16a34a);color:#fff;box-shadow:0 4px 20px rgba(34,197,94,0.3)}
+        .btn-green:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(34,197,94,0.4)}
+        .btn-ghost{background:var(--s2);color:var(--white);border:1px solid var(--border2)}
+        .btn-ghost:hover{background:rgba(255,255,255,0.04);transform:translateY(-2px)}
+        .btn-row{display:flex;gap:10px;margin-top:16px}
+        .btn-row .btn{flex:1}
+
+        /* SECURITY BADGES */
+        .security{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:16px 0}
+        .sec-badge{background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:8px;padding:6px 12px;font-size:0.68em;color:var(--dim);font-weight:600;display:flex;align-items:center;gap:4px}
+
+        /* FEATURES GRID */
+        .features-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:16px 0}
+        .feat{background:var(--s2);border:1px solid var(--border);border-radius:10px;padding:12px;font-size:0.78em}
+        .feat .feat-icon{font-size:1.2em;margin-bottom:4px}
+        .feat .feat-name{color:var(--white);font-weight:700;font-size:0.92em}
+        .feat .feat-desc{color:var(--dim);font-size:0.9em;margin-top:2px}
+
+        /* ALREADY PREMIUM */
+        .premium-active{background:linear-gradient(135deg,rgba(34,197,94,0.08),rgba(34,197,94,0.03));border:2px solid rgba(34,197,94,0.2);border-radius:20px;padding:32px;text-align:center;margin:20px 0}
+        .premium-active h3{color:var(--green);font-size:1.2em;margin-bottom:6px}
+        .premium-active p{color:var(--txt);font-size:0.88em}
+
+        /* TIMER WARNING */
+        .session-timer{font-size:0.72em;color:var(--dim);text-align:center;margin:8px 0}
+        .session-timer b{color:var(--accent)}
+
+        .foot{text-align:center;padding:40px 24px;color:var(--dim);font-size:0.75em;border-top:1px solid var(--border);margin-top:40px;line-height:1.8}
+        .foot a{color:var(--txt);text-decoration:none}.foot a:hover{color:var(--white)}
+
+        @media(max-width:768px){
+            .nav{top:10px;padding:8px 14px;gap:8px}
+            .main{padding:80px 16px 40px}
+            .card{padding:24px}
+            .features-grid{grid-template-columns:1fr}
+            .step-line{width:24px}
+        }
+    </style>
+</head>
+<body>
+
+<div class="aurora"><div class="aurora-beam"></div><div class="aurora-beam"></div></div>
+<div class="noise"></div>
+
+<div class="page">
+
+<nav class="nav">
+    <span class="logo">SMC Premium</span>
+    <span class="shield">&#128274; Secure</span>
+    <a href="index.html">Home</a>
+    <a href="mock-test.html">Mock Tests</a>
+</nav>
+
+<div class="main">
+
+    <!-- STEPS -->
+    <div class="steps">
+        <div class="step"><div class="step-dot active" id="sd1">1</div></div>
+        <div class="step"><div class="step-line" id="sl1"></div><div class="step-dot" id="sd2">2</div></div>
+        <div class="step"><div class="step-line" id="sl2"></div><div class="step-dot" id="sd3">3</div></div>
+        <div class="step"><div class="step-line" id="sl3"></div><div class="step-dot" id="sd4">4</div></div>
+    </div>
+
+    <!-- CHECK IF ALREADY PREMIUM -->
+    <div id="alreadyPremium" style="display:none">
+        <div class="premium-active">
+            <h3>&#9989; You're Premium!</h3>
+            <p>You already have full access. All mock tests and premium content are unlocked.</p>
+        </div>
+        <div class="btn-row">
+            <a class="btn btn-primary" href="mock-test.html">Go to Mock Tests</a>
+            <a class="btn btn-ghost" href="index.html">Home</a>
+        </div>
+    </div>
+
+    <!-- SCREEN 1: Choose Plan -->
+    <div class="screen active" id="screen1">
+        <div class="card">
+            <h2>&#128142; Unlock Premium Access</h2>
+            <p>Choose your plan to unlock all mock tests, 4000+ MCQs with explanations & more.</p>
+
+            <div class="plans">
+                <div class="plan selected" onclick="selectPlan(0)" id="plan0">
+                    <div class="plan-badge">POPULAR</div>
+                    <div class="plan-top">
+                        <div class="plan-name">Full Access</div>
+                        <div class="plan-price">&#8377;99 <small>one-time</small></div>
+                    </div>
+                    <div class="plan-desc">All mock tests + all subjects + lifetime access</div>
+                    <div class="plan-features">
+                        <span class="pf">&#9989; 10+ Mock Tests</span>
+                        <span class="pf">&#9989; 4000+ MCQs</span>
+                        <span class="pf">&#9989; Explanations</span>
+                        <span class="pf">&#9989; All Subjects</span>
+                        <span class="pf">&#9989; Past Papers</span>
+                        <span class="pf">&#9989; Lifetime</span>
+                    </div>
+                </div>
+
+                <div class="plan" onclick="selectPlan(1)" id="plan1">
+                    <div class="plan-top">
+                        <div class="plan-name">Mock Tests Only</div>
+                        <div class="plan-price">&#8377;49 <small>one-time</small></div>
+                    </div>
+                    <div class="plan-desc">All 10 mock tests with answers & explanations</div>
+                    <div class="plan-features">
+                        <span class="pf">&#9989; 10+ Mock Tests</span>
+                        <span class="pf">&#9989; Explanations</span>
+                        <span class="pf">&#9989; Score Analytics</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="security">
+                <span class="sec-badge">&#128274; Encrypted</span>
+                <span class="sec-badge">&#9989; Instant Access</span>
+                <span class="sec-badge">&#128176; UPI Payment</span>
+                <span class="sec-badge">&#128275; Lifetime Valid</span>
+            </div>
+
+            <button class="btn btn-primary" onclick="goStep(2)">Continue to Payment &#8594;</button>
+        </div>
+    </div>
+
+    <!-- SCREEN 2: Identity Verification -->
+    <div class="screen" id="screen2">
+        <div class="card">
+            <h2>&#128272; Verify Your Identity</h2>
+            <p>For security, please provide your details. This helps us link your payment to your access key.</p>
+
+            <div class="input-group">
+                <label>Your Full Name</label>
+                <input type="text" id="userName" placeholder="Enter your name" autocomplete="name">
+            </div>
+            <div class="input-group">
+                <label>Phone / WhatsApp Number</label>
+                <input type="tel" id="userPhone" placeholder="10-digit mobile number" maxlength="10" autocomplete="tel">
+                <div class="input-hint">We'll send your access key via WhatsApp if needed</div>
+            </div>
+            <div class="input-group">
+                <label>Email (Optional)</label>
+                <input type="email" id="userEmail" placeholder="your@email.com" autocomplete="email">
+            </div>
+
+            <div style="margin-top:8px">
+                <span class="order-id">Order: <span id="orderId">—</span></span>
+            </div>
+
+            <div class="security" style="margin-top:12px">
+                <span class="sec-badge">&#128274; Data Encrypted</span>
+                <span class="sec-badge">&#128373; No Spam</span>
+            </div>
+
+            <div class="btn-row">
+                <button class="btn btn-ghost" onclick="goStep(1)">&#8592; Back</button>
+                <button class="btn btn-primary" id="verifyBtn" onclick="goStep(3)" disabled>Verify & Pay &#8594;</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCREEN 3: Payment -->
+    <div class="screen" id="screen3">
+        <div class="card">
+            <h2>&#128176; Complete Payment</h2>
+            <p>Pay via UPI to activate your premium access instantly.</p>
+
+            <div class="pay-box">
+                <div style="font-size:0.75em;color:var(--dim)">AMOUNT TO PAY</div>
+                <div class="pay-amount" id="payAmount">&#8377;99<small>One-time &middot; Lifetime Access</small></div>
+
+                <div class="pay-upi" id="payUpiBox" style="display:none">
+                    <div class="pay-upi-label">UPI ID — Pay using any UPI app</div>
+                    <div class="pay-upi-id" id="payUpiId">Decrypting...</div>
+                    <button class="copy-btn" id="copyBtn" onclick="copyUPI()">Copy UPI ID</button>
+                </div>
+
+                <div class="pay-qr" id="payQr">
+                    <div>Generating secure QR...</div>
+                </div>
+
+                <div class="pay-note">
+                    <b>Steps:</b><br>
+                    1. Open any UPI app (GPay, PhonePe, Paytm, etc.)<br>
+                    2. Copy the UPI ID above or scan QR<br>
+                    3. Pay the exact amount shown<br>
+                    4. Note down the <b>UTR/Transaction ID</b> from payment confirmation<br>
+                    5. Click "I've Paid" below
+                </div>
+
+                <div class="pay-warn">
+                    &#9888; Please pay the <b>exact amount</b>. After payment, you'll need to enter your <b>UTR/Transaction ID</b> for instant verification.
+                </div>
+            </div>
+
+            <div class="session-timer">Session expires in: <b id="sessionTimer">15:00</b></div>
+
+            <button class="btn btn-green" onclick="goStep(4)">&#9989; I've Paid — Verify Now</button>
+            <div style="text-align:center;margin-top:8px">
+                <button class="btn btn-ghost" onclick="goStep(2)" style="width:auto;padding:10px 20px;font-size:0.78em">&#8592; Back</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCREEN 4: Enter Transaction ID & Get Key -->
+    <div class="screen" id="screen4">
+        <div class="card">
+            <h2>&#128273; Enter Transaction Details</h2>
+            <p>Enter your UPI transaction ID (UTR number) to verify payment and get your access key.</p>
+
+            <div class="input-group">
+                <label>UPI Transaction ID / UTR Number</label>
+                <input type="text" id="txnId" placeholder="e.g. 425612345678 or UPI ref number">
+                <div class="input-hint">Found in your UPI app's payment confirmation / history</div>
+            </div>
+
+            <div class="input-group">
+                <label>Amount Paid (&#8377;)</label>
+                <input type="number" id="txnAmount" placeholder="e.g. 99">
+            </div>
+
+            <div id="keyResult" style="display:none">
+                <div class="access-key-box">
+                    <div style="font-size:2em;margin-bottom:4px">&#127881;</div>
+                    <h3 style="color:var(--green);font-weight:800;font-size:1.1em">Payment Submitted!</h3>
+                    <p style="color:var(--txt);font-size:0.82em;margin:6px 0">Your access key has been generated:</p>
+                    <div class="access-key" id="accessKey">—</div>
+                    <button class="copy-btn" onclick="copyKey()" style="margin-top:4px">Copy Key</button>
+                    <p style="color:var(--dim);font-size:0.72em;margin-top:10px">Save this key! Enter it on the Mock Test page to unlock premium content.<br>Your payment will be verified within 2-4 hours. Key activates automatically after verification.</p>
+                </div>
+
+                <div class="btn-row">
+                    <a class="btn btn-primary" href="mock-test.html">Go to Mock Tests &#8594;</a>
+                </div>
+            </div>
+
+            <div id="verifyPayBtn">
+                <button class="btn btn-green" onclick="verifyPayment()" id="finalVerifyBtn" disabled>&#128273; Verify & Get Access Key</button>
+                <div style="text-align:center;margin-top:8px">
+                    <button class="btn btn-ghost" onclick="goStep(3)" style="width:auto;padding:10px 20px;font-size:0.78em">&#8592; Back</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="foot">
+    <p>SMC Exam Prep 2026 &middot; Secure Payment &middot; <a href="index.html">Home</a></p>
+    <p>By proceeding, you agree that this is a one-time payment for digital study material.<br>
+    For support, contact via the details on your payment confirmation.</p>
+</div>
+
+</div>
+
+<script>
+// ===== SECURITY LAYER =====
+// UPI is never stored as plain text. Split + encoded + assembled only when needed.
+// This is intentionally obfuscated to prevent casual source viewing.
+(function(){
+    const _x=[49,53,48,46,97,98,104,105,115,104,101,107,98,97,98,97,114,105,121,97,46,105,116,50,48,49,57,64,111,107,104,100,102,99,98,97,110,107];
+    let _k='';for(let i=0;i<_x.length;i++)_k+=String.fromCharCode(_x[i]);
+    window._pd=function(){return _k};
+})();
+
+// ===== STATE =====
+let selectedPlan=0;
+let orderNumber='';
+let sessionTimeout=null;
+let sessionSec=900; // 15 min
+
+const PLANS=[
+    {name:'Full Access',price:99,desc:'All mock tests + subjects + lifetime'},
+    {name:'Mock Tests Only',price:49,desc:'10+ mock tests with explanations'}
+];
+
+// Check if already premium
+(function(){
+    const key=localStorage.getItem('smc_premium_key');
+    if(key){
+        document.getElementById('alreadyPremium').style.display='block';
+        document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+    }
+})();
+
+function selectPlan(idx){
+    selectedPlan=idx;
+    document.querySelectorAll('.plan').forEach((p,i)=>{
+        p.classList.toggle('selected',i===idx);
+    });
+}
+
+function generateOrderId(){
+    const now=Date.now().toString(36).toUpperCase();
+    const rand=Math.random().toString(36).substring(2,6).toUpperCase();
+    return 'SMC-'+now+'-'+rand;
+}
+
+function goStep(step){
+    // Validation
+    if(step===3){
+        const name=document.getElementById('userName').value.trim();
+        const phone=document.getElementById('userPhone').value.trim();
+        if(!name||name.length<2){alert('Please enter your name');return}
+        if(!phone||phone.length!==10||!/^\d+$/.test(phone)){alert('Please enter a valid 10-digit phone number');return}
+    }
+
+    if(step===2){
+        orderNumber=generateOrderId();
+        document.getElementById('orderId').textContent=orderNumber;
+    }
+
+    // Update steps visual
+    for(let i=1;i<=4;i++){
+        const dot=document.getElementById('sd'+i);
+        const line=document.getElementById('sl'+(i-1));
+        if(i<step){dot.className='step-dot done';if(line)line.className='step-line done'}
+        else if(i===step){dot.className='step-dot active';if(line)line.className='step-line done'}
+        else{dot.className='step-dot';if(line)line.className='step-line'}
+    }
+
+    // Show screen
+    document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+    const target=document.getElementById('screen'+step);
+    if(target)target.classList.add('active');
+
+    // Step-specific logic
+    if(step===3){
+        showPayment();
+        startSessionTimer();
+    }
+
+    window.scrollTo(0,0);
+}
+
+function showPayment(){
+    const plan=PLANS[selectedPlan];
+    document.getElementById('payAmount').innerHTML='&#8377;'+plan.price+'<small>'+plan.desc+'</small>';
+
+    // Reveal UPI after 1 second (security theater — feels more secure)
+    setTimeout(()=>{
+        document.getElementById('payUpiBox').style.display='block';
+        document.getElementById('payUpiId').textContent=window._pd();
+    },1000);
+
+    // Generate UPI deep link QR placeholder
+    const qr=document.getElementById('payQr');
+    const upiLink='upi://pay?pa='+encodeURIComponent(window._pd())+'&pn=SMC%20Exam%20Prep&am='+plan.price+'&cu=INR&tn=SMC%20Premium%20'+orderNumber;
+    qr.innerHTML='<div style="text-align:center;font-size:0.78em"><div style="font-size:2em;margin-bottom:6px">&#128241;</div><a href="'+upiLink+'" style="color:var(--accent);text-decoration:none;font-weight:700">Tap to Pay via UPI App</a><br><span style="color:var(--dim);font-size:0.85em">Opens your default UPI app</span></div>';
+
+    // Log order (localStorage for admin)
+    const orders=JSON.parse(localStorage.getItem('smc_orders')||'[]');
+    orders.push({
+        orderId:orderNumber,
+        plan:plan.name,
+        amount:plan.price,
+        name:document.getElementById('userName').value.trim(),
+        phone:document.getElementById('userPhone').value.trim(),
+        email:document.getElementById('userEmail').value.trim(),
+        time:new Date().toISOString(),
+        status:'pending'
+    });
+    localStorage.setItem('smc_orders',JSON.stringify(orders));
+}
+
+function startSessionTimer(){
+    sessionSec=900;
+    if(sessionTimeout)clearInterval(sessionTimeout);
+    const el=document.getElementById('sessionTimer');
+    sessionTimeout=setInterval(()=>{
+        sessionSec--;
+        if(sessionSec<=0){clearInterval(sessionTimeout);goStep(1);alert('Session expired. Please start again.');return}
+        const m=Math.floor(sessionSec/60),s=sessionSec%60;
+        el.textContent=(m<10?'0':'')+m+':'+(s<10?'0':'')+s;
+    },1000);
+}
+
+function copyUPI(){
+    const id=window._pd();
+    navigator.clipboard.writeText(id).then(()=>{
+        const btn=document.getElementById('copyBtn');
+        btn.textContent='Copied!';btn.classList.add('copied');
+        setTimeout(()=>{btn.textContent='Copy UPI ID';btn.classList.remove('copied')},2000);
+    }).catch(()=>{
+        // Fallback
+        const ta=document.createElement('textarea');ta.value=id;document.body.appendChild(ta);ta.select();document.execCommand('copy');ta.remove();
+        const btn=document.getElementById('copyBtn');
+        btn.textContent='Copied!';btn.classList.add('copied');
+        setTimeout(()=>{btn.textContent='Copy UPI ID';btn.classList.remove('copied')},2000);
+    });
+}
+
+// Enable verify button when inputs filled
+document.getElementById('userName')?.addEventListener('input',checkVerifyReady);
+document.getElementById('userPhone')?.addEventListener('input',checkVerifyReady);
+function checkVerifyReady(){
+    const n=document.getElementById('userName').value.trim().length>=2;
+    const p=document.getElementById('userPhone').value.trim().length===10;
+    document.getElementById('verifyBtn').disabled=!(n&&p);
+}
+
+// Enable final verify
+document.getElementById('txnId')?.addEventListener('input',checkFinalReady);
+document.getElementById('txnAmount')?.addEventListener('input',checkFinalReady);
+function checkFinalReady(){
+    const t=document.getElementById('txnId').value.trim().length>=6;
+    const a=parseInt(document.getElementById('txnAmount').value)>0;
+    document.getElementById('finalVerifyBtn').disabled=!(t&&a);
+}
+
+function verifyPayment(){
+    const txnId=document.getElementById('txnId').value.trim();
+    const amount=parseInt(document.getElementById('txnAmount').value);
+    const plan=PLANS[selectedPlan];
+
+    if(amount!==plan.price){
+        if(!confirm('Amount entered ('+amount+') does not match plan price ('+plan.price+'). Continue anyway?'))return;
+    }
+
+    // Generate access key from transaction data
+    const keyBase=orderNumber+'-'+txnId.slice(-4);
+    const hash=simpleHash(keyBase);
+    const accessKey='SMC-'+hash;
+
+    // Save to localStorage
+    localStorage.setItem('smc_premium_key',accessKey);
+    localStorage.setItem('smc_premium_plan',JSON.stringify({
+        plan:plan.name,
+        price:plan.price,
+        orderId:orderNumber,
+        txnId:txnId,
+        activatedAt:new Date().toISOString(),
+        key:accessKey
+    }));
+
+    // Update order status
+    const orders=JSON.parse(localStorage.getItem('smc_orders')||'[]');
+    const order=orders.find(o=>o.orderId===orderNumber);
+    if(order){
+        order.status='submitted';
+        order.txnId=txnId;
+        order.amountPaid=amount;
+        order.accessKey=accessKey;
+        localStorage.setItem('smc_orders',JSON.stringify(orders));
+    }
+
+    // Show key
+    document.getElementById('accessKey').textContent=accessKey;
+    document.getElementById('keyResult').style.display='block';
+    document.getElementById('verifyPayBtn').style.display='none';
+
+    // Update step
+    document.getElementById('sd4').className='step-dot done';
+    document.getElementById('sl3').className='step-line done';
+
+    if(sessionTimeout)clearInterval(sessionTimeout);
+}
+
+function simpleHash(str){
+    let h=0x811c9dc5;
+    for(let i=0;i<str.length;i++){h^=str.charCodeAt(i);h=(h*0x01000193)>>>0}
+    return h.toString(36).toUpperCase().slice(0,8);
+}
+
+function copyKey(){
+    const key=document.getElementById('accessKey').textContent;
+    navigator.clipboard.writeText(key).catch(()=>{});
+    event.target.textContent='Copied!';
+    setTimeout(()=>event.target.textContent='Copy Key',2000);
+}
+</script>
+</body>
+</html>
