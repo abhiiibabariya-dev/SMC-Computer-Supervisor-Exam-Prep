@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMC Prep</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Plus Jakarta Sans',sans-serif;background:#06060a;color:#a1a1aa;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px}
+        .card{background:#0c0c14;border:1px solid rgba(255,255,255,0.1);border-radius:24px;padding:40px;max-width:400px;width:100%;text-align:center;position:relative;overflow:hidden}
+        .card::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(139,92,246,0.04),transparent 60%);pointer-events:none}
+        .icon{font-size:3.5em;margin-bottom:14px;position:relative}
+        h2{color:#f4f4f5;font-size:1.3em;margin-bottom:6px;position:relative}
+        p{color:#52525b;font-size:0.85em;margin-bottom:24px;position:relative;line-height:1.5}
+        .input{width:100%;background:#18181b;border:2px solid rgba(255,255,255,0.1);border-radius:14px;padding:16px 20px;color:#f4f4f5;font-size:1.1em;font-family:inherit;font-weight:700;outline:none;text-align:center;letter-spacing:2px;transition:all 0.3s}
+        .input:focus{border-color:#a78bfa;box-shadow:0 0 20px rgba(139,92,246,0.15)}
+        .input.error{border-color:#ef4444;animation:shake 0.4s ease}
+        .input.success{border-color:#22c55e;box-shadow:0 0 20px rgba(34,197,94,0.2)}
+        @keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+        .btn{width:100%;background:linear-gradient(135deg,#7c3aed,#6366f1);color:#fff;border:none;padding:16px;border-radius:14px;font-weight:700;font-size:0.95em;cursor:pointer;margin-top:16px;font-family:inherit;transition:all 0.3s;position:relative}
+        .btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(124,58,237,0.3)}
+        .msg{margin-top:14px;font-size:0.82em;min-height:24px;position:relative;font-weight:600}
+        .msg.err{color:#fca5a5}
+        .msg.ok{color:#86efac}
+
+        /* SUCCESS STATE */
+        .success-view{display:none;position:relative}
+        .success-view.show{display:block}
+        .success-icon{font-size:4em;margin-bottom:12px}
+        .success-view h2{color:#22c55e;font-size:1.4em;margin-bottom:8px}
+        .success-view p{color:#a1a1aa;margin-bottom:20px}
+        .go-btn{display:inline-block;background:linear-gradient(135deg,#22c55e,#16a34a);color:#fff;padding:14px 32px;border-radius:14px;font-weight:700;font-size:0.92em;text-decoration:none;transition:all 0.3s}
+        .go-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(34,197,94,0.3)}
+
+        .form-view{position:relative}
+        .form-view.hide{display:none}
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <!-- FORM -->
+    <div class="form-view" id="formView">
+        <div class="icon">&#128274;</div>
+        <h2>Enter Access Code</h2>
+        <p>Enter your secret code to unlock full access</p>
+        <input type="text" class="input" id="codeInput" placeholder="Enter code here" autocomplete="off" autocapitalize="off" spellcheck="false">
+        <button class="btn" onclick="checkCode()">Unlock Access</button>
+        <div class="msg" id="msg"></div>
+    </div>
+
+    <!-- SUCCESS -->
+    <div class="success-view" id="successView">
+        <div class="success-icon">&#127881;</div>
+        <h2>Access Unlocked!</h2>
+        <p>Full premium access has been activated on this device. You can now access all mock tests and premium content.</p>
+        <a class="go-btn" href="mock-test.html">Go to Mock Tests &#8594;</a>
+        <br><br>
+        <a href="index.html" style="color:#a1a1aa;font-size:0.82em;text-decoration:none">or go to Home</a>
+    </div>
+</div>
+
+<script>
+// Codes stored as char arrays — not readable in source
+const _codes=(function(){
+    const _c=[
+        [97,98,104,105,50,48,50,54],                          // abhi2026
+        [98,104,97,105,106,97,97,110],                        // bhaijaan
+        [98,101,104,101,110,106,105],                         // behenji
+    ];
+    return _c.map(a=>a.map(c=>String.fromCharCode(c)).join(''));
+})();
+
+let attempts=0;
+
+function checkCode(){
+    const code=document.getElementById('codeInput').value.trim().toLowerCase();
+    const input=document.getElementById('codeInput');
+    const msg=document.getElementById('msg');
+
+    if(!code){msg.className='msg err';msg.textContent='Please enter a code';return}
+
+    if(attempts>=10){
+        msg.className='msg err';msg.textContent='Too many attempts. Try later.';
+        return;
+    }
+
+    if(_codes.includes(code)){
+        // Success!
+        input.classList.add('success');
+        localStorage.setItem('smc_premium_key','VIP-FAMILY-'+Date.now());
+        localStorage.setItem('smc_vip','true');
+
+        setTimeout(()=>{
+            document.getElementById('formView').classList.add('hide');
+            document.getElementById('successView').classList.add('show');
+        },500);
+    }else{
+        attempts++;
+        input.classList.add('error');
+        setTimeout(()=>input.classList.remove('error'),400);
+        input.value='';
+        const left=10-attempts;
+        msg.className='msg err';
+        msg.textContent='Wrong code. '+left+' attempts left.';
+    }
+}
+
+// Enter key support
+document.getElementById('codeInput').addEventListener('keydown',e=>{if(e.key==='Enter')checkCode()});
+
+// Already activated?
+if(localStorage.getItem('smc_vip')==='true'){
+    document.getElementById('formView').classList.add('hide');
+    document.getElementById('successView').classList.add('show');
+}
+</script>
+</body>
+</html>
