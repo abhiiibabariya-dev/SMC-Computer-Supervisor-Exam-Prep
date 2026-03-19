@@ -16,13 +16,15 @@
         ::selection{background:rgba(139,92,246,0.3);color:#fff}
 
         .aurora{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
-        .aurora-beam{position:absolute;width:200%;height:300px;top:-100px;left:-50%;background:linear-gradient(90deg,transparent,rgba(99,102,241,0.03),rgba(139,92,246,0.05),rgba(236,72,153,0.03),transparent);animation:auroraWave 12s ease-in-out infinite;filter:blur(40px)}
+        .aurora-beam{position:absolute;width:200%;height:300px;top:-100px;left:-50%;background:linear-gradient(90deg,transparent,rgba(99,102,241,0.03),rgba(139,92,246,0.05),rgba(236,72,153,0.03),transparent);animation:auroraWave 12s ease-in-out infinite;filter:blur(20px);will-change:transform}
         .aurora-beam:nth-child(2){animation-delay:-4s;top:40%;animation-duration:15s}
         @keyframes auroraWave{0%{transform:translateX(-30%) rotate(-3deg)}50%{transform:translateX(10%) rotate(2deg)}100%{transform:translateX(-30%) rotate(-3deg)}}
+        @media(max-width:768px){.aurora-beam{animation:none !important;filter:none !important;opacity:0.3}}
         .noise{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:0.03;background:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 
         .page{position:relative;z-index:1}
-        .nav{position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:100;background:rgba(12,12,20,0.8);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid var(--border);border-radius:16px;padding:10px 20px;display:flex;align-items:center;gap:12px}
+        .nav{position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:100;background:rgba(12,12,20,0.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:10px 20px;display:flex;align-items:center;gap:12px;will-change:transform}
+        @media(max-width:768px){.nav{backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(12,12,20,0.95)}}
         .nav a{color:var(--txt);text-decoration:none;font-size:0.82em;font-weight:600;transition:color 0.2s}.nav a:hover{color:var(--white)}
         .nav .logo{color:var(--white);font-weight:800;font-size:0.9em}
         .nav .shield{background:rgba(34,197,94,0.12);color:#86efac;padding:3px 10px;border-radius:100px;font-size:0.7em;font-weight:700;display:flex;align-items:center;gap:4px}
@@ -43,7 +45,8 @@
         .screen.active{display:block}
         @keyframes screenIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
 
-        .card{background:rgba(12,12,20,0.7);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid var(--border2);border-radius:24px;padding:32px;position:relative;overflow:hidden}
+        .card{background:rgba(12,12,20,0.85);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid var(--border2);border-radius:24px;padding:32px;position:relative;overflow:hidden}
+        @media(max-width:768px){.card{backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(12,12,20,0.95)}}
         .card::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(139,92,246,0.05),transparent 60%);pointer-events:none}
         .card h2{color:var(--white);font-size:1.3em;font-weight:800;margin-bottom:6px;position:relative}
         .card p{color:var(--txt);font-size:0.88em;line-height:1.6;position:relative}
@@ -450,36 +453,40 @@ const DeviceLock={
             }
         }catch(e){components.push('webgl-err')}
 
-        // Audio fingerprint
-        try{
-            const actx=new(window.OfflineAudioContext||window.webkitOfflineAudioContext)(1,44100,44100);
-            const osc=actx.createOscillator();
-            osc.type='triangle';osc.frequency.setValueAtTime(10000,actx.currentTime);
-            const comp=actx.createDynamicsCompressor();
-            comp.threshold.setValueAtTime(-50,actx.currentTime);
-            comp.knee.setValueAtTime(40,actx.currentTime);
-            comp.ratio.setValueAtTime(12,actx.currentTime);
-            comp.attack.setValueAtTime(0,actx.currentTime);
-            comp.release.setValueAtTime(0.25,actx.currentTime);
-            osc.connect(comp);comp.connect(actx.destination);
-            osc.start(0);
-            const buf=await actx.startRendering();
-            const data=buf.getChannelData(0);
-            let sum=0;for(let i=4500;i<5000;i++)sum+=Math.abs(data[i]);
-            components.push(sum.toFixed(6));
-        }catch(e){components.push('audio-err')}
+        // Audio fingerprint (skip on mobile for performance)
+        if(window.innerWidth>=769){
+            try{
+                const actx=new(window.OfflineAudioContext||window.webkitOfflineAudioContext)(1,44100,44100);
+                const osc=actx.createOscillator();
+                osc.type='triangle';osc.frequency.setValueAtTime(10000,actx.currentTime);
+                const comp=actx.createDynamicsCompressor();
+                comp.threshold.setValueAtTime(-50,actx.currentTime);
+                comp.knee.setValueAtTime(40,actx.currentTime);
+                comp.ratio.setValueAtTime(12,actx.currentTime);
+                comp.attack.setValueAtTime(0,actx.currentTime);
+                comp.release.setValueAtTime(0.25,actx.currentTime);
+                osc.connect(comp);comp.connect(actx.destination);
+                osc.start(0);
+                const buf=await actx.startRendering();
+                const data=buf.getChannelData(0);
+                let sum=0;for(let i=4500;i<5000;i++)sum+=Math.abs(data[i]);
+                components.push(sum.toFixed(6));
+            }catch(e){components.push('audio-err')}
+        }else{components.push('mobile-skip')}
 
-        // Installed fonts probe (indirect)
-        try{
-            const testFonts=['monospace','serif','sans-serif','Arial','Courier','Georgia','Verdana','Times New Roman'];
-            const span=document.createElement('span');
-            span.style.cssText='font-size:72px;position:absolute;left:-9999px;top:-9999px;visibility:hidden';
-            span.textContent='mmmmmmmmmmlli';
-            document.body.appendChild(span);
-            const widths=testFonts.map(f=>{span.style.fontFamily=f;return span.offsetWidth+'-'+span.offsetHeight});
-            document.body.removeChild(span);
-            components.push(widths.join(','));
-        }catch(e){components.push('font-err')}
+        // Installed fonts probe (skip on mobile for performance)
+        if(window.innerWidth>=769){
+            try{
+                const testFonts=['monospace','serif','sans-serif','Arial','Courier','Georgia','Verdana','Times New Roman'];
+                const span=document.createElement('span');
+                span.style.cssText='font-size:72px;position:absolute;left:-9999px;top:-9999px;visibility:hidden';
+                span.textContent='mmmmmmmmmmlli';
+                document.body.appendChild(span);
+                const widths=testFonts.map(f=>{span.style.fontFamily=f;return span.offsetWidth+'-'+span.offsetHeight});
+                document.body.removeChild(span);
+                components.push(widths.join(','));
+            }catch(e){components.push('font-err')}
+        }else{components.push('mobile-skip')}
 
         // Generate hash from all components
         const raw=components.join('|||');
