@@ -191,6 +191,13 @@
         .sr.v .k:nth-child(7){animation-delay:0.35s}.sr.v .k:nth-child(8){animation-delay:0.4s}.sr.v .k:nth-child(9){animation-delay:0.45s}
         @keyframes cardIn{to{opacity:1;transform:none}}
 
+        /* ============ AD SLOTS ============ */
+        .ad-slot{background:var(--s1);border:1px solid var(--border);border-radius:14px;padding:0;margin:24px 0;min-height:90px;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
+        .ad-slot.ad-banner{min-height:90px}
+        .ad-slot.ad-rect{min-height:250px}
+        .ad-slot ins{display:block;width:100%}
+        .ad-slot .ad-placeholder{color:var(--dim);font-size:0.7em;text-align:center;display:none}
+
         /* ============ LOADING SCREEN ============ */
         .loader-screen{position:fixed;inset:0;z-index:9999;background:#06060a;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity 0.6s,visibility 0.6s}
         .loader-screen.hide{opacity:0;visibility:hidden;pointer-events:none}
@@ -471,6 +478,11 @@
         <div class="st"><div class="n" data-t="41">0</div><div class="l">AI Topics</div></div>
     </div>
 
+    <!-- AD SLOT 1: After Stats -->
+    <div class="ad-slot ad-banner" id="ad-slot-1">
+        <!-- ADSENSE_AD_1 -->
+    </div>
+
     <!-- COUNTDOWN -->
     <div class="sec sr">
         <div class="sec-top"><div class="sec-name"><i style="background:#ef4444"></i>Application Deadline</div><span class="sec-info" id="cd-status">Loading...</span></div>
@@ -713,6 +725,11 @@
         </div>
     </div>
 
+    <!-- AD SLOT 2: Between Supervisor & Clerk -->
+    <div class="ad-slot ad-rect" id="ad-slot-2">
+        <!-- ADSENSE_AD_2 -->
+    </div>
+
     <!-- CLERK -->
     <div class="sec sr" id="cl">
         <div class="sec-top"><div class="sec-name"><i style="background:#60a5fa"></i>Clerk Exam</div><span class="sec-info">Code-502 &middot; 717 Posts &middot; -0.25</span></div>
@@ -804,6 +821,11 @@
             <div class="k" onclick="O('resources/study_plan_and_links.md','Plan')"><div class="k-t">Study Plan</div><div class="k-d">Week-wise plan + links</div><span class="k-tag tg">PLAN</span></div>
             <div class="k" onclick="O('papers/previous_paper_analysis.md','Analysis')"><div class="k-t">Paper Analysis</div><div class="k-d">Patterns & strategy</div><span class="k-tag tg">ANALYSIS</span></div>
         </div>
+    </div>
+
+    <!-- AD SLOT 3: Before Fun Zone -->
+    <div class="ad-slot ad-banner" id="ad-slot-3">
+        <!-- ADSENSE_AD_3 -->
     </div>
 
     <!-- MOTIVATIONAL BANNER -->
