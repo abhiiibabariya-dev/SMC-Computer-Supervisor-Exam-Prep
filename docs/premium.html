@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SMC Premium — Unlock Full Access</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
     <style>
         :root{--bg:#06060a;--s1:#0c0c14;--s2:#12121c;--border:rgba(255,255,255,0.06);--border2:rgba(255,255,255,0.1);--txt:#a1a1aa;--white:#f4f4f5;--dim:#52525b;--accent:#a78bfa;--green:#22c55e;--red:#ef4444}
         *{margin:0;padding:0;box-sizing:border-box}
@@ -70,7 +71,11 @@
         .copy-btn{background:var(--accent);color:#fff;border:none;padding:8px 18px;border-radius:8px;font-size:0.78em;font-weight:700;cursor:pointer;margin-top:8px;font-family:inherit;transition:all 0.3s}
         .copy-btn:hover{transform:scale(1.05)}
         .copy-btn.copied{background:var(--green)}
-        .pay-qr{margin:16px auto;width:200px;height:200px;background:var(--s1);border:1px solid var(--border);border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--dim);font-size:0.82em}
+        .pay-qr{margin:16px auto;background:#fff;border-radius:12px;padding:12px;display:inline-block;position:relative}
+        .pay-qr img{display:block;border-radius:4px}
+        .pay-qr-wrap{text-align:center}
+        .pay-qr-label{font-size:0.72em;color:var(--dim);margin-top:8px;text-align:center}
+        .pay-or{color:var(--dim);font-size:0.78em;margin:12px 0;font-weight:600;text-align:center}
         .pay-note{font-size:0.75em;color:var(--dim);margin-top:12px;line-height:1.5}
         .pay-note b{color:var(--white)}
         .pay-warn{background:rgba(250,204,21,0.06);border:1px solid rgba(250,204,21,0.15);border-radius:10px;padding:10px 14px;font-size:0.75em;color:#fde68a;margin-top:12px;line-height:1.5}
@@ -271,9 +276,13 @@
                     <button class="copy-btn" id="copyBtn" onclick="copyUPI()">Copy UPI ID</button>
                 </div>
 
-                <div class="pay-qr" id="payQr">
-                    <div>Generating secure QR...</div>
+                <div class="pay-qr-wrap">
+                    <div class="pay-qr" id="payQr">
+                        <div style="color:#666;font-size:0.8em;padding:40px">Generating QR...</div>
+                    </div>
+                    <div class="pay-qr-label">Scan with any UPI app (GPay, PhonePe, Paytm)</div>
                 </div>
+                <div class="pay-or">&mdash; OR pay using UPI ID &mdash;</div>
 
                 <div class="pay-note">
                     <b>Steps:</b><br>
@@ -602,10 +611,18 @@ function showPayment(){
         document.getElementById('payUpiId').textContent=window._pd();
     },1000);
 
-    // Generate UPI deep link QR placeholder
-    const qr=document.getElementById('payQr');
-    const upiLink='upi://pay?pa='+encodeURIComponent(window._pd())+'&pn=SMC%20Exam%20Prep&am='+plan.price+'&cu=INR&tn=SMC%20Premium%20'+orderNumber;
-    qr.innerHTML='<div style="text-align:center;font-size:0.78em"><div style="font-size:2em;margin-bottom:6px">&#128241;</div><a href="'+upiLink+'" style="color:var(--accent);text-decoration:none;font-weight:700">Tap to Pay via UPI App</a><br><span style="color:var(--dim);font-size:0.85em">Opens your default UPI app</span></div>';
+    // Generate real UPI QR code
+    const qrEl=document.getElementById('payQr');
+    const upiLink='upi://pay?pa='+encodeURIComponent(window._pd())+'&pn=SMC+Exam+Prep&am='+plan.price+'&cu=INR&tn=SMC+Premium+'+orderNumber;
+    try{
+        const qr=qrcode(0,'M');
+        qr.addData(upiLink);
+        qr.make();
+        qrEl.innerHTML=qr.createImgTag(5,8);
+    }catch(e){
+        // Fallback: use Google Charts API for QR
+        qrEl.innerHTML='<img src="https://chart.googleapis.com/chart?cht=qr&chs=200x200&chl='+encodeURIComponent(upiLink)+'&choe=UTF-8" width="200" height="200" alt="UPI QR Code">';
+    }
 
     // Log order (localStorage for admin)
     const orders=JSON.parse(localStorage.getItem('smc_orders')||'[]');
