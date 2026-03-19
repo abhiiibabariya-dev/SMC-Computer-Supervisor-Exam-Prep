@@ -25,15 +25,23 @@ window.addEventListener('beforeunload',function(){
     sendToCloud('visits',{t:v.t,dur:d+'s',pg:v.pg,dev:v.dev,update:true});
 });
 
+// Debounced click tracking
+var clickTimeout=null;
+var clickQueue=[];
 document.addEventListener('click',function(e){
     var c=e.target.closest('a,button,.k,.opt,.chip');
     if(c){
         var click={t:new Date().toLocaleTimeString('en-IN'),x:c.textContent.trim().substring(0,40),p:location.pathname};
-        var k=JSON.parse(localStorage.getItem('smc_clicks')||'[]');
-        k.push(click);if(k.length>500)k.splice(0,k.length-500);
-        localStorage.setItem('smc_clicks',JSON.stringify(k));
-        // Send to cloud
-        sendToCloud('clicks',click);
+        clickQueue.push(click);
+        if(clickTimeout)clearTimeout(clickTimeout);
+        clickTimeout=setTimeout(function(){
+            var k=JSON.parse(localStorage.getItem('smc_clicks')||'[]');
+            for(var i=0;i<clickQueue.length;i++)k.push(clickQueue[i]);
+            if(k.length>500)k.splice(0,k.length-500);
+            localStorage.setItem('smc_clicks',JSON.stringify(k));
+            if(clickQueue.length>0)sendToCloud('clicks',clickQueue[clickQueue.length-1]);
+            clickQueue=[];
+        },500);
     }
 });
 

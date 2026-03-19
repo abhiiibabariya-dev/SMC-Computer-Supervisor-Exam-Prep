@@ -14,11 +14,11 @@
         *{margin:0;padding:0;box-sizing:border-box}
         body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(--txt);min-height:100vh}
         .mesh{position:fixed;inset:0;pointer-events:none;z-index:0}
-        .mesh i{position:absolute;border-radius:50%;filter:blur(120px);mix-blend-mode:screen;animation:m 25s ease-in-out infinite alternate}
+        .mesh i{position:absolute;border-radius:50%;filter:blur(120px);mix-blend-mode:screen;animation:m 25s ease-in-out infinite alternate;will-change:transform}
         .mesh .m1{width:35vw;height:35vw;background:rgba(52,211,153,0.08);top:-10%;right:-5%}
         .mesh .m2{width:30vw;height:30vw;background:rgba(139,92,246,0.06);bottom:-10%;left:-5%;animation-delay:-8s}
         @keyframes m{0%{transform:translate(0,0) scale(1)}100%{transform:translate(40px,-40px) scale(1.1)}}
-        .top{position:sticky;top:0;z-index:10;background:rgba(6,6,10,0.85);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);padding:14px 24px;display:flex;align-items:center;gap:14px}
+        .top{position:sticky;top:0;z-index:10;background:rgba(6,6,10,0.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:14px 24px;display:flex;align-items:center;gap:14px;will-change:transform}
         .top a{background:var(--s2);color:var(--white);border:1px solid var(--border);padding:8px 18px;border-radius:10px;font-weight:600;font-size:0.82em;text-decoration:none;font-family:inherit;transition:all 0.3s}
         .top a:hover{background:rgba(255,255,255,0.06)}
         .top h1{flex:1;text-align:center;color:var(--white);font-size:1em;font-weight:700}
@@ -51,6 +51,7 @@
         .cta-bar a{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:14px;font-weight:700;font-size:0.88em;text-decoration:none;background:linear-gradient(135deg,#7c3aed,#6366f1);color:#fff;transition:all 0.3s}
         .cta-bar a:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(124,58,237,0.4)}
         @media(max-width:640px){.top h1{font-size:0.82em}.wrap{padding:20px 14px 60px}.key-grid{grid-template-columns:1fr}}
+        @media(max-width:768px){.mesh i{animation:none !important;opacity:0.5}.top{backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(12,12,20,0.95)}}
     </style>
 </head>
 <body>
