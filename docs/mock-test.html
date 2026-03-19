@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1CP842CPFX"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-1CP842CPFX');</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMC Free Mock Tests 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#06060a;--s1:#0c0c14;--s2:#12121c;--border:rgba(255,255,255,0.06);--border2:rgba(255,255,255,0.1);--txt:#a1a1aa;--white:#f4f4f5;--dim:#52525b;--accent:#a78bfa;--green:#22c55e;--red:#ef4444;--orange:#f59e0b}
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--bg);color:var(--txt);overflow-x:hidden;min-height:100vh}
+        ::selection{background:rgba(139,92,246,0.3);color:#fff}
+
+        /* AURORA BG */
+        .aurora{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+        .aurora-beam{position:absolute;width:200%;height:300px;top:-100px;left:-50%;background:linear-gradient(90deg,transparent,rgba(99,102,241,0.03),rgba(139,92,246,0.05),rgba(236,72,153,0.03),transparent);transform-origin:center;animation:auroraWave 12s ease-in-out infinite;filter:blur(40px)}
+        .aurora-beam:nth-child(2){animation-delay:-4s;top:30%;background:linear-gradient(90deg,transparent,rgba(14,165,233,0.03),rgba(139,92,246,0.04),transparent);animation-duration:15s}
+        @keyframes auroraWave{0%{transform:translateX(-30%) rotate(-3deg)}50%{transform:translateX(10%) rotate(2deg)}100%{transform:translateX(-30%) rotate(-3deg)}}
+
+        /* NOISE */
+        .noise{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:0.03;background:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+        /* PARTICLES */
+        #particles{position:fixed;inset:0;z-index:0;pointer-events:none}
+
+        .page{position:relative;z-index:1}
+
+        /* NAV */
+        .nav{position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:100;background:rgba(12,12,20,0.8);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid var(--border);border-radius:16px;padding:10px 20px;display:flex;align-items:center;gap:12px}
+        .nav a{color:var(--txt);text-decoration:none;font-size:0.82em;font-weight:600;transition:color 0.2s}
+        .nav a:hover{color:var(--white)}
+        .nav .logo{color:var(--white);font-weight:800;font-size:0.9em}
+        .nav .free-tag{background:rgba(34,197,94,0.15);color:#86efac;padding:3px 10px;border-radius:100px;font-size:0.72em;font-weight:700}
+
+        /* SCROLL PROGRESS */
+        .scroll-progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,#7c3aed,#c084fc,#e879f9);z-index:9998;width:0%;box-shadow:0 0 10px rgba(139,92,246,0.5)}
+
+        /* HERO */
+        .hero{text-align:center;padding:100px 24px 40px;position:relative}
+        .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.2);border-radius:100px;padding:6px 16px;font-size:0.78em;color:#86efac;font-weight:700;margin-bottom:20px;animation:fadeUp 0.8s ease 0.2s both}
+        .hero h1{font-size:clamp(2em,5vw,3.5em);font-weight:900;color:var(--white);line-height:1.1;letter-spacing:-2px;animation:fadeUp 0.8s ease 0.3s both}
+        .hero h1 .gr{background:linear-gradient(135deg,#818cf8,#c084fc,#e879f9);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+        .hero p{color:var(--txt);font-size:1em;margin-top:12px;max-width:500px;margin-left:auto;margin-right:auto;line-height:1.6;animation:fadeUp 0.8s ease 0.5s both}
+        @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+
+        /* TEST SELECTOR */
+        .main{max-width:900px;margin:0 auto;padding:0 24px 60px}
+        .test-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;margin-top:30px}
+
+        .test-card{background:rgba(12,12,20,0.7);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid var(--border2);border-radius:20px;padding:28px;cursor:pointer;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);position:relative;overflow:hidden;text-decoration:none;color:inherit}
+        .test-card:hover{border-color:rgba(139,92,246,0.3);transform:translateY(-6px);box-shadow:0 24px 60px rgba(0,0,0,0.5),0 0 0 1px rgba(139,92,246,0.1)}
+        .test-card::before{content:'';position:absolute;top:-50%;right:-50%;width:100%;height:100%;background:radial-gradient(circle,rgba(139,92,246,0.08),transparent);pointer-events:none;opacity:0;transition:opacity 0.4s}
+        .test-card:hover::before{opacity:1}
+        .test-card.locked{opacity:0.6;cursor:not-allowed}
+        .test-card.locked:hover{transform:none;box-shadow:none}
+        .tc-icon{font-size:2.5em;margin-bottom:12px;display:block}
+        .tc-badge{position:absolute;top:16px;right:16px;font-size:0.65em;padding:4px 12px;border-radius:100px;font-weight:700;letter-spacing:0.5px}
+        .tc-badge.free{background:rgba(34,197,94,0.12);color:#86efac;border:1px solid rgba(34,197,94,0.2)}
+        .tc-badge.premium{background:rgba(250,204,21,0.1);color:#fde68a;border:1px solid rgba(250,204,21,0.15)}
+        .tc-badge.locked{background:rgba(239,68,68,0.1);color:#fca5a5;border:1px solid rgba(239,68,68,0.15)}
+        .tc-title{color:var(--white);font-weight:800;font-size:1.15em;margin-bottom:4px;position:relative;z-index:1}
+        .tc-desc{color:var(--txt);font-size:0.82em;line-height:1.5;position:relative;z-index:1}
+        .tc-stats{display:flex;gap:14px;margin-top:14px;position:relative;z-index:1}
+        .tc-stat{font-size:0.72em;color:var(--dim);font-weight:600}
+        .tc-stat b{color:var(--white)}
+        .tc-difficulty{display:flex;gap:3px;margin-top:10px;position:relative;z-index:1}
+        .tc-dot{width:8px;height:8px;border-radius:50%;background:var(--border2)}
+        .tc-dot.fill{background:var(--accent)}
+        .tc-dot.fill.easy{background:#22c55e}
+        .tc-dot.fill.med{background:#f59e0b}
+        .tc-dot.fill.hard{background:#ef4444}
+
+        /* LOCK OVERLAY */
+        .lock-overlay{position:absolute;inset:0;background:rgba(6,6,10,0.7);backdrop-filter:blur(4px);display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:20px;z-index:2}
+        .lock-icon{font-size:2.5em;margin-bottom:8px}
+        .lock-text{color:var(--white);font-weight:700;font-size:0.9em}
+        .lock-sub{color:var(--dim);font-size:0.75em;margin-top:4px}
+
+        /* EXAM UI */
+        #examUI{display:none}
+        .exam-top{background:rgba(12,12,20,0.8);backdrop-filter:blur(24px);border:1px solid var(--border2);border-radius:20px;padding:18px 24px;margin-bottom:16px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+        .exam-info{display:flex;gap:20px;flex-wrap:wrap}
+        .exam-info .ei{text-align:center}
+        .exam-info .ei-val{font-size:1.4em;font-weight:900;color:var(--accent)}
+        .exam-info .ei-lbl{font-size:0.65em;color:var(--dim);text-transform:uppercase;letter-spacing:1.5px}
+        .timer{font-size:1.5em;font-weight:900;color:var(--green);font-variant-numeric:tabular-nums;position:relative}
+        .timer.warn{color:var(--red);animation:pulse 1s infinite}
+        @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
+
+        .progress{background:rgba(255,255,255,0.06);border-radius:10px;height:6px;margin-bottom:16px;overflow:hidden}
+        .progress-bar{height:100%;background:linear-gradient(90deg,#7c3aed,#c084fc);border-radius:10px;transition:width 0.4s cubic-bezier(0.16,1,0.3,1)}
+
+        .q-card{background:rgba(12,12,20,0.7);backdrop-filter:blur(16px);border:1px solid var(--border2);border-radius:20px;padding:28px;margin-bottom:14px;position:relative}
+        .q-num{color:var(--accent);font-weight:700;font-size:0.82em;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+        .q-num .q-tag{background:rgba(139,92,246,0.1);padding:3px 10px;border-radius:100px;font-size:0.85em}
+        .q-text{color:var(--white);font-size:1.1em;font-weight:700;line-height:1.6;margin-bottom:18px}
+        .options{display:grid;gap:10px}
+        .option{background:var(--s2);border:2px solid var(--border2);border-radius:14px;padding:14px 18px;cursor:pointer;transition:all 0.25s cubic-bezier(0.16,1,0.3,1);display:flex;align-items:center;gap:12px}
+        .option:hover{border-color:rgba(139,92,246,0.3);background:rgba(139,92,246,0.04);transform:translateX(4px)}
+        .option.selected{border-color:var(--accent);background:rgba(139,92,246,0.08)}
+        .option.correct{border-color:var(--green);background:rgba(34,197,94,0.08)}
+        .option.wrong{border-color:var(--red);background:rgba(239,68,68,0.08)}
+        .option .ol{background:rgba(255,255,255,0.06);color:var(--txt);width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:0.82em;flex-shrink:0;transition:all 0.25s}
+        .option.selected .ol{background:var(--accent);color:#fff}
+        .option.correct .ol{background:var(--green);color:#fff}
+        .option.wrong .ol{background:var(--red);color:#fff}
+        .option .ot{font-size:0.92em;line-height:1.4}
+
+        .q-palette{display:flex;flex-wrap:wrap;gap:6px;margin:16px 0;padding:16px;background:rgba(12,12,20,0.5);border:1px solid var(--border);border-radius:14px}
+        .q-dot{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:0.75em;font-weight:700;cursor:pointer;background:var(--s2);border:1px solid var(--border);color:var(--dim);transition:all 0.2s}
+        .q-dot:hover{border-color:var(--accent)}
+        .q-dot.answered{background:rgba(139,92,246,0.12);border-color:rgba(139,92,246,0.3);color:var(--accent)}
+        .q-dot.current{background:var(--accent);color:#fff;border-color:var(--accent);transform:scale(1.1)}
+        .q-dot.correct{background:rgba(34,197,94,0.15);border-color:var(--green);color:var(--green)}
+        .q-dot.wrong{background:rgba(239,68,68,0.15);border-color:var(--red);color:var(--red)}
+
+        .nav-btns{display:flex;justify-content:space-between;gap:10px;margin-top:16px}
+        .nbtn{padding:14px 28px;border-radius:14px;font-weight:700;font-size:0.88em;cursor:pointer;border:none;font-family:inherit;transition:all 0.3s cubic-bezier(0.16,1,0.3,1)}
+        .nbtn-ghost{background:var(--s2);color:var(--white);border:1px solid var(--border2)}
+        .nbtn-ghost:hover{background:rgba(255,255,255,0.06);transform:translateY(-2px)}
+        .nbtn-primary{background:linear-gradient(135deg,#7c3aed,#6366f1);color:#fff;box-shadow:0 4px 20px rgba(124,58,237,0.3)}
+        .nbtn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(124,58,237,0.4)}
+        .nbtn-submit{background:linear-gradient(135deg,#22c55e,#16a34a);color:#fff;box-shadow:0 4px 20px rgba(34,197,94,0.3)}
+        .nbtn-submit:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(34,197,94,0.4)}
+
+        /* RESULT */
+        #resultUI{display:none;text-align:center;padding-top:40px}
+        .result-card{background:rgba(12,12,20,0.7);backdrop-filter:blur(20px);border:1px solid var(--border2);border-radius:24px;padding:40px;max-width:500px;margin:0 auto;position:relative;overflow:hidden}
+        .result-card::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(139,92,246,0.06),transparent 60%);pointer-events:none}
+        .result-emoji{font-size:4em;margin-bottom:8px;position:relative}
+        .result-title{font-size:1.8em;font-weight:900;color:var(--white);position:relative}
+        .result-sub{color:var(--txt);margin-top:6px;font-size:0.92em;position:relative}
+
+        .score-ring{width:180px;height:180px;margin:24px auto;position:relative}
+        .score-ring svg{transform:rotate(-90deg)}
+        .score-ring .score-text{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+        .score-ring .score-num{font-size:2.8em;font-weight:900;color:var(--white)}
+        .score-ring .score-of{font-size:0.82em;color:var(--dim)}
+
+        .result-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:20px 0}
+        .rs{background:var(--s2);border-radius:14px;padding:16px;border:1px solid var(--border)}
+        .rs .rs-n{font-size:1.6em;font-weight:900}
+        .rs .rs-l{font-size:0.68em;color:var(--dim);text-transform:uppercase;letter-spacing:1px;margin-top:2px}
+        .rs.g .rs-n{color:var(--green)}
+        .rs.w .rs-n{color:var(--red)}
+        .rs.s .rs-n{color:var(--dim)}
+
+        .result-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:20px}
+
+        /* PREMIUM CTA */
+        .premium-cta{background:linear-gradient(135deg,rgba(124,58,237,0.12),rgba(99,102,241,0.08));border:1px solid rgba(139,92,246,0.2);border-radius:20px;padding:32px;margin-top:30px;text-align:center;position:relative;overflow:hidden}
+        .premium-cta::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.02),transparent);animation:shine 3s linear infinite}
+        @keyframes shine{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
+        .premium-cta h3{color:var(--white);font-size:1.3em;font-weight:800;position:relative}
+        .premium-cta p{color:var(--txt);font-size:0.88em;margin:8px 0 18px;position:relative;line-height:1.6}
+        .premium-features{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:16px;position:relative}
+        .pf{background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:10px;padding:8px 14px;font-size:0.78em;color:var(--white);font-weight:600}
+        .premium-cta .coming{background:rgba(250,204,21,0.1);color:#fde68a;border:1px solid rgba(250,204,21,0.2);padding:10px 28px;border-radius:12px;font-weight:700;font-size:0.88em;display:inline-block;position:relative;cursor:default}
+
+        /* CONFETTI */
+        .confetti{position:fixed;width:10px;height:10px;z-index:9999;pointer-events:none}
+
+        /* EXPLANATION */
+        .explanation{margin-top:12px;padding:14px 18px;background:rgba(34,197,94,0.06);border:1px solid rgba(34,197,94,0.15);border-radius:12px;font-size:0.82em;color:#86efac;line-height:1.5;display:none}
+        .explanation.show{display:block}
+        .explanation b{color:var(--white)}
+
+        /* FOOTER */
+        .foot{text-align:center;padding:40px 24px;color:var(--dim);font-size:0.78em;border-top:1px solid var(--border);margin-top:40px}
+        .foot a{color:var(--txt);text-decoration:none}.foot a:hover{color:var(--white)}
+
+        @media(max-width:768px){
+            .nav{top:10px;padding:8px 14px;border-radius:14px;gap:8px}
+            .nav .logo{font-size:0.8em}
+            .test-grid{grid-template-columns:1fr}
+            .hero h1{letter-spacing:-1px}
+            .exam-top{padding:14px}
+            .exam-info{gap:12px}
+            .q-card{padding:20px}
+            .result-stats{grid-template-columns:repeat(3,1fr);gap:8px}
+            .q-dot{width:32px;height:32px;font-size:0.7em}
+        }
+    </style>
+</head>
+<body>
+
+<div class="aurora"><div class="aurora-beam"></div><div class="aurora-beam"></div></div>
+<div class="noise"></div>
+<canvas id="particles"></canvas>
+<div class="scroll-progress" id="scrollProg"></div>
+
+<div class="page">
+
+<nav class="nav">
+    <span class="logo">SMC Mock Tests</span>
+    <span class="free-tag">3 FREE</span>
+    <a href="index.html">Home</a>
+    <a href="exam.html">Full Exam</a>
+    <a href="ai.html">AI</a>
+</nav>
+
+<!-- SELECT SCREEN -->
+<div id="selectUI">
+    <section class="hero">
+        <div class="hero-badge">&#127942; FREE Mock Tests &mdash; Real Exam Pattern</div>
+        <h1>SMC Mock Tests<br><span class="gr">2026 Edition</span></h1>
+        <p>Practice with real exam-pattern questions. 3 free mock tests to get you started. Timed, scored & reviewed.</p>
+    </section>
+
+    <div class="main">
+        <div class="test-grid">
+            <!-- Mock Test 1 - FREE -->
+            <div class="test-card" onclick="startMock(1)">
+                <span class="tc-badge free">FREE</span>
+                <span class="tc-icon">&#128640;</span>
+                <div class="tc-title">Mock Test 1 &mdash; Mixed</div>
+                <div class="tc-desc">All subjects combined: Computer, GK, English, Maths, Reasoning. Perfect warm-up!</div>
+                <div class="tc-stats">
+                    <span class="tc-stat"><b>25</b> Questions</span>
+                    <span class="tc-stat"><b>20</b> Minutes</span>
+                    <span class="tc-stat"><b>-0.25</b> Marking</span>
+                </div>
+                <div class="tc-difficulty">
+                    <div class="tc-dot fill easy"></div>
+                    <div class="tc-dot fill easy"></div>
+                    <div class="tc-dot"></div>
+                    <div class="tc-dot"></div>
+                    <div class="tc-dot"></div>
+                </div>
+            </div>
+
+            <!-- Mock Test 2 - FREE -->
+            <div class="test-card" onclick="startMock(2)">
+                <span class="tc-badge free">FREE</span>
+                <span class="tc-icon">&#9889;</span>
+                <div class="tc-title">Mock Test 2 &mdash; Tricky</div>
+                <div class="tc-desc">Moderate difficulty with tricky options. Computer, Gujarat GK, Surat, Current Affairs.</div>
+                <div class="tc-stats">
+                    <span class="tc-stat"><b>25</b> Questions</span>
+                    <span class="tc-stat"><b>18</b> Minutes</span>
+                    <span class="tc-stat"><b>-0.25</b> Marking</span>
+                </div>
+                <div class="tc-difficulty">
+                    <div class="tc-dot fill med"></div>
+                    <div class="tc-dot fill med"></div>
+                    <div class="tc-dot fill med"></div>
+                    <div class="tc-dot"></div>
+                    <div class="tc-dot"></div>
+                </div>
+            </div>
+
+            <!-- Mock Test 3 - FREE -->
+            <div class="test-card" onclick="startMock(3)">
+                <span class="tc-badge free">FREE</span>
+                <span class="tc-icon">&#128293;</span>
+                <div class="tc-title">Mock Test 3 &mdash; Hard</div>
+                <div class="tc-desc">Advanced level! Traps, confusing options, exam-level pressure. Can you score 80%+?</div>
+                <div class="tc-stats">
+                    <span class="tc-stat"><b>25</b> Questions</span>
+                    <span class="tc-stat"><b>15</b> Minutes</span>
+                    <span class="tc-stat"><b>-0.25</b> Marking</span>
+                </div>
+                <div class="tc-difficulty">
+                    <div class="tc-dot fill hard"></div>
+                    <div class="tc-dot fill hard"></div>
+                    <div class="tc-dot fill hard"></div>
+                    <div class="tc-dot fill hard"></div>
+                    <div class="tc-dot"></div>
+                </div>
+            </div>
+
+            <!-- Mock 4 - LOCKED -->
+            <div class="test-card locked">
+                <span class="tc-badge premium">PREMIUM</span>
+                <span class="tc-icon">&#128171;</span>
+                <div class="tc-title">Mock Test 4-10</div>
+                <div class="tc-desc">7 more full-length mock tests with 100 questions each, detailed explanations.</div>
+                <div class="tc-stats">
+                    <span class="tc-stat"><b>700</b> Questions</span>
+                    <span class="tc-stat"><b>100</b> Each</span>
+                </div>
+                <div class="lock-overlay">
+                    <div class="lock-icon">&#128274;</div>
+                    <div class="lock-text">Premium &mdash; Coming Soon</div>
+                    <div class="lock-sub">Full-length exams with explanations</div>
+                </div>
+            </div>
+
+            <!-- Subject-wise - LOCKED -->
+            <div class="test-card locked">
+                <span class="tc-badge premium">PREMIUM</span>
+                <span class="tc-icon">&#128218;</span>
+                <div class="tc-title">Subject-Wise Tests</div>
+                <div class="tc-desc">Separate tests for Computer, GK, English, Maths, Gujarati with topic breakdown.</div>
+                <div class="tc-stats">
+                    <span class="tc-stat"><b>500+</b> Questions</span>
+                    <span class="tc-stat"><b>10</b> Tests</span>
+                </div>
+                <div class="lock-overlay">
+                    <div class="lock-icon">&#128274;</div>
+                    <div class="lock-text">Premium &mdash; Coming Soon</div>
+                    <div class="lock-sub">Deep-dive into each subject</div>
+                </div>
+            </div>
+
+            <!-- Previous Year - LOCKED -->
+            <div class="test-card locked">
+                <span class="tc-badge locked">LOCKED</span>
+                <span class="tc-icon">&#128196;</span>
+                <div class="tc-title">Previous Year Papers</div>
+                <div class="tc-desc">Real questions from past SMC exams with answer keys and analysis.</div>
+                <div class="tc-stats">
+                    <span class="tc-stat"><b>300+</b> Questions</span>
+                    <span class="tc-stat">Past Papers</span>
+                </div>
+                <div class="lock-overlay">
+                    <div class="lock-icon">&#128274;</div>
+                    <div class="lock-text">Premium &mdash; Coming Soon</div>
+                    <div class="lock-sub">Actual past exam questions</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PREMIUM CTA -->
+        <div class="premium-cta">
+            <h3>&#128142; Unlock All Mock Tests</h3>
+            <p>Get access to 10+ full-length mock tests, 2000+ questions with detailed explanations, subject-wise practice & previous year papers.</p>
+            <div class="premium-features">
+                <div class="pf">&#9989; 10+ Mock Tests</div>
+                <div class="pf">&#9989; 2000+ MCQs</div>
+                <div class="pf">&#9989; Explanations</div>
+                <div class="pf">&#9989; Subject-wise</div>
+                <div class="pf">&#9989; Past Papers</div>
+                <div class="pf">&#9989; Performance Analytics</div>
+            </div>
+            <div class="coming">&#128276; Coming Soon &mdash; Stay Tuned!</div>
+        </div>
+    </div>
+</div>
+
+<!-- EXAM SCREEN -->
+<div id="examUI" class="main">
+    <div class="exam-top">
+        <div class="exam-info">
+            <div class="ei"><div class="ei-val" id="eName">Mock 1</div><div class="ei-lbl">Test</div></div>
+            <div class="ei"><div class="ei-val" id="eQn">1/25</div><div class="ei-lbl">Question</div></div>
+            <div class="ei"><div class="ei-val" id="eAns">0</div><div class="ei-lbl">Answered</div></div>
+        </div>
+        <div class="timer" id="timer">20:00</div>
+    </div>
+    <div class="progress"><div class="progress-bar" id="prog"></div></div>
+
+    <div class="q-card">
+        <div class="q-num" id="qNum">Question 1 <span class="q-tag" id="qTag">Computer</span></div>
+        <div class="q-text" id="qText"></div>
+        <div class="options" id="opts"></div>
+        <div class="explanation" id="explanation"></div>
+    </div>
+
+    <div class="q-palette" id="palette"></div>
+
+    <div class="nav-btns">
+        <button class="nbtn nbtn-ghost" onclick="navQ(-1)">&#8592; Previous</button>
+        <button class="nbtn nbtn-primary" id="nextBtn" onclick="navQ(1)">Next &#8594;</button>
+        <button class="nbtn nbtn-submit" id="submitBtn" onclick="submitTest()" style="display:none">Submit Test</button>
+    </div>
+</div>
+
+<!-- RESULT SCREEN -->
+<div id="resultUI" class="main">
+    <div class="result-card">
+        <div class="result-emoji" id="rEmoji">&#127942;</div>
+        <div class="result-title" id="rTitle">Great Job!</div>
+        <div class="result-sub" id="rSub">You completed Mock Test 1</div>
+
+        <div class="score-ring">
+            <svg width="180" height="180">
+                <circle cx="90" cy="90" r="80" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="10"/>
+                <circle cx="90" cy="90" r="80" fill="none" stroke="#7c3aed" stroke-width="10" stroke-linecap="round" stroke-dasharray="502" stroke-dashoffset="502" id="scoreCircle"/>
+            </svg>
+            <div class="score-text">
+                <div class="score-num" id="rScore">0</div>
+                <div class="score-of" id="rOf">out of 25</div>
+            </div>
+        </div>
+
+        <div class="result-stats">
+            <div class="rs g"><div class="rs-n" id="rCorrect">0</div><div class="rs-l">Correct</div></div>
+            <div class="rs w"><div class="rs-n" id="rWrong">0</div><div class="rs-l">Wrong</div></div>
+            <div class="rs s"><div class="rs-n" id="rSkip">0</div><div class="rs-l">Skipped</div></div>
+        </div>
+
+        <div id="rNeg" style="color:var(--red);font-size:0.85em;margin:8px 0;font-weight:600"></div>
+        <div id="rTime" style="color:var(--dim);font-size:0.82em"></div>
+    </div>
+
+    <div class="result-btns">
+        <button class="nbtn nbtn-primary" onclick="reviewTest()">&#128270; Review Answers</button>
+        <button class="nbtn nbtn-ghost" onclick="location.reload()">&#128260; Try Again</button>
+        <button class="nbtn nbtn-ghost" onclick="location.href='index.html'">&#127968; Home</button>
+    </div>
+
+    <div class="premium-cta" style="margin-top:30px">
+        <h3>&#127775; Want more mock tests?</h3>
+        <p>You've completed a free mock test! Unlock 10+ premium tests with detailed explanations for every question.</p>
+        <div class="coming">&#128276; Premium Coming Soon!</div>
+    </div>
+</div>
+
+<div class="foot">
+    <p>SMC Exam Prep 2026 &middot; Free Mock Tests &middot; <a href="index.html">Back to Home</a></p>
+</div>
+
+</div>
+
+<script>
+// ===== MOCK TEST QUESTION BANKS =====
+const MOCK={
+1:{name:'Mock Test 1 — Mixed',time:20,questions:[
+{q:"OSI Model has how many layers?",o:["5","6","7","8"],a:2,t:"Computer",e:"OSI = Open Systems Interconnection. 7 layers: Physical, Data Link, Network, Transport, Session, Presentation, Application."},
+{q:"Gujarat was formed on which date?",o:["15 Aug 1947","1 May 1960","26 Jan 1950","2 Oct 1966"],a:1,t:"GK",e:"Gujarat was carved out of Bombay State on 1 May 1960. Maharashtra was also formed on the same day."},
+{q:"Ctrl+Z is the shortcut for:",o:["Copy","Paste","Undo","Redo"],a:2,t:"Computer",e:"Ctrl+Z = Undo, Ctrl+Y = Redo, Ctrl+C = Copy, Ctrl+V = Paste. Very common exam question!"},
+{q:"Surat is situated on which river?",o:["Sabarmati","Narmada","Tapi","Mahi"],a:2,t:"Gujarat GK",e:"Surat is on the banks of Tapi (Tapti) river. Ahmedabad is on Sabarmati."},
+{q:"SQL command to retrieve data from database:",o:["INSERT","UPDATE","SELECT","DELETE"],a:2,t:"Computer",e:"SELECT is DQL (Data Query Language). INSERT, UPDATE, DELETE are DML commands."},
+{q:"Who is known as the Father of Indian Constitution?",o:["Mahatma Gandhi","Jawaharlal Nehru","Dr. B.R. Ambedkar","Sardar Patel"],a:2,t:"GK",e:"Dr. Bhimrao Ambedkar was chairman of the Drafting Committee of the Constitution."},
+{q:"1 KB equals how many bytes?",o:["1000","1024","512","2048"],a:1,t:"Computer",e:"In computing: 1 KB = 2^10 = 1024 bytes. NOT 1000 (that's the metric system). Exam trap!"},
+{q:"Statue of Unity is how many meters tall?",o:["152m","172m","182m","200m"],a:2,t:"Gujarat GK",e:"182 meters tall, located in Kevadia, Gujarat. World's tallest statue. Dedicated to Sardar Patel."},
+{q:"Simple Interest: P=5000, R=10%, T=2 years. SI=?",o:["500","1000","1500","2000"],a:1,t:"Maths",e:"SI = (P × R × T) / 100 = (5000 × 10 × 2) / 100 = Rs 1000."},
+{q:"Synonym of 'Brave':",o:["Coward","Courageous","Timid","Afraid"],a:1,t:"English",e:"Brave = Courageous (having courage). Antonym = Coward/Timid."},
+{q:"HTTP default port number:",o:["21","25","80","443"],a:2,t:"Computer",e:"HTTP = Port 80, HTTPS = Port 443, FTP = Port 21, SMTP = Port 25."},
+{q:"Gir National Park is famous for:",o:["Royal Bengal Tiger","Asiatic Lion","One-horned Rhino","Indian Elephant"],a:1,t:"Gujarat GK",e:"Gir Forest, Gujarat = Only home of Asiatic Lions in the world."},
+{q:"25% of 400 = ?",o:["80","100","120","150"],a:1,t:"Maths",e:"25% of 400 = (25/100) × 400 = 100."},
+{q:"Complete the series: 2, 6, 18, 54, ?",o:["108","162","72","216"],a:1,t:"Reasoning",e:"Pattern: ×3 each time. 2→6→18→54→162."},
+{q:"Full form of RAM:",o:["Random Access Memory","Read Access Memory","Run Access Memory","Rapid Access Memory"],a:0,t:"Computer",e:"RAM = Random Access Memory. It's volatile (data lost when power off)."},
+{q:"Ashoka Chakra has how many spokes?",o:["12","20","24","28"],a:2,t:"GK",e:"24 spokes representing 24 hours (Dharma through time). Present on Indian flag."},
+{q:"Antonym of 'Ancient':",o:["Old","Historic","Modern","Traditional"],a:2,t:"English",e:"Ancient = very old. Antonym = Modern (new/current)."},
+{q:"SMC was formed as a Corporation in:",o:["1947","1960","1966","1980"],a:2,t:"Gujarat GK",e:"Surat Municipal Corporation was formed in 1966. Surat Municipality existed since 1852."},
+{q:"What does DNS stand for?",o:["Data Network Service","Domain Name System","Digital Network Standard","Domain Network Service"],a:1,t:"Computer",e:"DNS = Domain Name System. Converts domain names (google.com) to IP addresses."},
+{q:"Dandi March was in which year?",o:["1920","1930","1942","1947"],a:1,t:"GK",e:"Salt March/Dandi March = 1930. Gandhi marched from Sabarmati to Dandi (Gujarat) against salt tax."},
+{q:"Average of 10, 20, 30, 40, 50 = ?",o:["25","30","35","40"],a:1,t:"Maths",e:"Average = Sum/Count = 150/5 = 30."},
+{q:"LAN stands for:",o:["Local Area Network","Long Area Network","Large Area Network","Linked Area Network"],a:0,t:"Computer",e:"LAN = Local Area Network (small area). WAN = Wide Area Network (large area). MAN = Metropolitan."},
+{q:"Which is NOT an output device?",o:["Monitor","Printer","Keyboard","Speaker"],a:2,t:"Computer",e:"Keyboard = Input device. Monitor, Printer, Speaker = Output devices."},
+{q:"Mahatma Gandhi was born in:",o:["Ahmedabad","Rajkot","Porbandar","Surat"],a:2,t:"Gujarat GK",e:"Gandhi was born in Porbandar on 2 October 1869. He established Sabarmati Ashram in Ahmedabad."},
+{q:"What is 15% of 200?",o:["20","25","30","35"],a:2,t:"Maths",e:"15% of 200 = (15/100) × 200 = 30."},
+]},
+
+2:{name:'Mock Test 2 — Tricky',time:18,questions:[
+{q:"Which layer of OSI is responsible for routing?",o:["Transport Layer","Network Layer","Data Link Layer","Session Layer"],a:1,t:"Computer",e:"Network Layer (Layer 3) handles routing. Routers work at this layer. Transport = Layer 4."},
+{q:"Gujarat High Court is located in:",o:["Gandhinagar","Ahmedabad","Surat","Vadodara"],a:1,t:"Gujarat GK",e:"Tricky! Capital is Gandhinagar, but High Court is in Ahmedabad. Common exam trap!"},
+{q:"GIFT City is located in:",o:["Ahmedabad","Surat","Gandhinagar","Vadodara"],a:2,t:"Gujarat GK",e:"GIFT (Gujarat International Finance Tec-City) is in Gandhinagar, NOT Ahmedabad."},
+{q:"Which is NOT a programming language?",o:["Python","Java","HTML","C++"],a:2,t:"Computer",e:"HTML is a MARKUP language, not a programming language. This is a classic trap question!"},
+{q:"Article 370 was related to:",o:["Emergency","J&K Special Status","Fundamental Rights","RTI"],a:1,t:"GK",e:"Article 370 gave special status to J&K. Abrogated on 5 August 2019."},
+{q:"If CP = Rs 800, Profit = 25%, then SP = ?",o:["Rs 900","Rs 950","Rs 1000","Rs 1050"],a:2,t:"Maths",e:"SP = CP × (1 + Profit%/100) = 800 × 1.25 = Rs 1000."},
+{q:"F1 key in MS Word opens:",o:["Find","Help","Print","Save"],a:1,t:"Computer",e:"F1 = Help in almost all Microsoft applications. Ctrl+F = Find. Ctrl+P = Print."},
+{q:"Surat Diamond Bourse was inaugurated in:",o:["2021","2022","2023","2024"],a:2,t:"Gujarat GK",e:"Inaugurated in December 2023 by PM Modi. World's largest office building by area."},
+{q:"UDP is:",o:["Connection-oriented","Connectionless","Both","Neither"],a:1,t:"Computer",e:"UDP = Connectionless (no handshake). TCP = Connection-oriented (3-way handshake). Very important!"},
+{q:"First British factory in India was at:",o:["Calcutta","Bombay","Surat","Madras"],a:2,t:"GK",e:"The first English factory was established in Surat in 1613. Important Gujarat GK fact!"},
+{q:"Binary 1010 in decimal:",o:["8","10","12","14"],a:1,t:"Computer",e:"1010 = 1×8 + 0×4 + 1×2 + 0×1 = 8+0+2+0 = 10 in decimal."},
+{q:"Bardoli Satyagraha (1928) was led by:",o:["Mahatma Gandhi","Sardar Patel","Jawaharlal Nehru","Subhas Bose"],a:1,t:"Gujarat GK",e:"Sardar Patel led the Bardoli Satyagraha in 1928 against tax increase. He got the title 'Sardar' here."},
+{q:"Which key is used to refresh a webpage?",o:["F1","F3","F5","F7"],a:2,t:"Computer",e:"F5 = Refresh/Reload. F1 = Help. F3 = Search. F7 = Spell check (in Word)."},
+{q:"If a clock shows 3:15, the angle between hands is:",o:["0°","7.5°","15°","22.5°"],a:1,t:"Reasoning",e:"At 3:15, minute hand at 3. Hour hand moves 7.5° past 3 (0.5° per minute × 15 = 7.5°). NOT 0°!"},
+{q:"Surat split of Indian National Congress was in:",o:["1905","1907","1910","1915"],a:1,t:"GK",e:"INC split into Moderates and Extremists at Surat session in 1907. Important for Surat GK!"},
+{q:"IPv4 address uses how many bits?",o:["16","32","64","128"],a:1,t:"Computer",e:"IPv4 = 32 bits (4 octets × 8 bits). IPv6 = 128 bits. Very common exam question."},
+{q:"RTI Act was passed in which year?",o:["2000","2003","2005","2010"],a:2,t:"GK",e:"Right to Information Act was passed in 2005. Effective from 12 October 2005."},
+{q:"Which of these is volatile memory?",o:["Hard Disk","SSD","RAM","DVD"],a:2,t:"Computer",e:"RAM is volatile (loses data when power off). HDD, SSD, DVD are non-volatile (permanent)."},
+{q:"Complete: A, C, F, J, ?",o:["M","N","O","P"],a:2,t:"Reasoning",e:"Gaps: +2, +3, +4, +5. A→C(+2), C→F(+3), F→J(+4), J→O(+5). Answer: O."},
+{q:"Ctrl+P is used to:",o:["Paste","Print","Save","Preview"],a:1,t:"Computer",e:"Ctrl+P = Print. Ctrl+V = Paste. Ctrl+S = Save. Over 30% students confuse P with Paste!"},
+{q:"Which is the longest coastline state in India?",o:["Maharashtra","Tamil Nadu","Gujarat","Kerala"],a:2,t:"Gujarat GK",e:"Gujarat has the longest coastline in India at approximately 1,600 km."},
+{q:"Hexadecimal FF in decimal:",o:["127","255","256","512"],a:1,t:"Computer",e:"FF = 15×16 + 15 = 240 + 15 = 255. This represents the max value in one byte (0-255)."},
+{q:"GST was implemented from:",o:["1 Apr 2016","1 Jul 2017","1 Jan 2018","1 Apr 2018"],a:1,t:"GK",e:"GST (Goods and Services Tax) was implemented on 1 July 2017 under 101st Constitutional Amendment."},
+{q:"A does work in 10 days, B in 15 days. Together = ?",o:["5 days","6 days","7 days","8 days"],a:1,t:"Maths",e:"A's 1 day = 1/10, B's 1 day = 1/15. Together = 1/10 + 1/15 = 5/30 = 1/6. So 6 days."},
+{q:"Cloud computing SaaS stands for:",o:["Software as a Service","System as a Service","Storage as a Service","Security as a Service"],a:0,t:"Computer",e:"SaaS = Software as a Service (Gmail, Office 365). PaaS = Platform. IaaS = Infrastructure."},
+]},
+
+3:{name:'Mock Test 3 — Hard',time:15,questions:[
+{q:"Which protocol uses 3-way handshake?",o:["UDP","TCP","ICMP","ARP"],a:1,t:"Computer",e:"TCP uses SYN → SYN-ACK → ACK (3-way handshake) to establish connection. UDP has no handshake."},
+{q:"Indian Constitution originally had how many articles?",o:["370","395","448","470"],a:1,t:"GK",e:"Originally 395 articles, 22 parts, 8 schedules. Now 470+ articles, 25 parts, 12 schedules. Exam asks 'original'!"},
+{q:"MAC address has how many bits?",o:["32","48","64","128"],a:1,t:"Computer",e:"MAC = 48 bits (6 bytes). Written as XX:XX:XX:XX:XX:XX. IP = 32 bits. Don't confuse!"},
+{q:"Normal body temperature is:",o:["97.6°F","98.4°F","98.6°F","99.4°F"],a:2,t:"Science",e:"98.6°F = 37°C. Students often confuse 98.4 with 98.6. This is a classic exam trap!"},
+{q:"VPN creates a:",o:["Physical network","Secure tunnel over internet","New ISP connection","Firewall"],a:1,t:"Computer",e:"VPN = Virtual Private Network. Creates encrypted tunnel over public internet for secure communication."},
+{q:"Which amendment added Fundamental Duties?",o:["42nd","44th","73rd","86th"],a:0,t:"GK",e:"42nd Amendment (1976) added Fundamental Duties (Part IVA, Article 51A). 10 duties, later 11th added."},
+{q:"Normalization in database prevents:",o:["Data entry","Data redundancy","Data retrieval","Data backup"],a:1,t:"Computer",e:"Normalization reduces data redundancy (duplicate data) and dependency. 1NF, 2NF, 3NF, BCNF."},
+{q:"Surat was devastated by plague in which year?",o:["1990","1992","1994","1996"],a:2,t:"Gujarat GK",e:"Surat plague outbreak was in September 1994. After that, Surat was transformed into one of India's cleanest cities."},
+{q:"Which is NOT a valid IP address?",o:["192.168.1.1","10.0.0.1","256.100.50.0","172.16.0.1"],a:2,t:"Computer",e:"Each octet in IPv4 ranges 0-255. 256 is invalid (>255). This is a tricky but important question."},
+{q:"Panchayati Raj system was constitutionalized by:",o:["42nd Amendment","73rd Amendment","74th Amendment","86th Amendment"],a:1,t:"GK",e:"73rd Amendment = Panchayati Raj (rural). 74th Amendment = Municipalities (urban). Don't confuse!"},
+{q:"RAID stands for:",o:["Rapid Access of Integrated Disks","Redundant Array of Independent Disks","Random Array of Integrated Drives","Redundant Access of Internal Data"],a:1,t:"Computer",e:"RAID = Redundant Array of Independent Disks. Used for data redundancy and performance."},
+{q:"What percentage of world's diamonds are polished in Surat?",o:["50%","70%","90%","100%"],a:2,t:"Gujarat GK",e:"About 90% of the world's diamonds are cut and polished in Surat. That's why it's called Diamond City!"},
+{q:"In SQL, which is DDL command?",o:["SELECT","INSERT","CREATE","UPDATE"],a:2,t:"Computer",e:"DDL = CREATE, ALTER, DROP, TRUNCATE. DML = INSERT, UPDATE, DELETE. DQL = SELECT. Important distinction!"},
+{q:"Who wrote 'Sarasvatichandra'?",o:["K.M. Munshi","Govardhanram Tripathi","Narmad","Jhaverchand Meghani"],a:1,t:"Gujarati Literature",e:"Govardhanram Tripathi wrote Sarasvatichandra (1887-1901). It's considered a masterpiece of Gujarati literature."},
+{q:"SMTP is used for:",o:["File transfer","Sending emails","Web browsing","Remote login"],a:1,t:"Computer",e:"SMTP = Simple Mail Transfer Protocol (sending). POP3/IMAP = receiving. FTP = file. HTTP = web. Telnet = remote."},
+{q:"Total Lok Sabha seats:",o:["543","545","550","552"],a:3,t:"GK",e:"552 maximum (530 states + 20 UTs + 2 Anglo-Indian). Currently 543 elected. Tricky: 543 vs 552!"},
+{q:"Subroutine in programming is also called:",o:["Variable","Function/Procedure","Array","Loop"],a:1,t:"Computer",e:"Subroutine = Function/Procedure. A reusable block of code that performs specific task."},
+{q:"Gujarat shares border with how many states?",o:["2","3","4","5"],a:1,t:"Gujarat GK",e:"Gujarat borders: Rajasthan (N), Madhya Pradesh (E), Maharashtra (S) = 3 states + Pakistan (W)."},
+{q:"Process scheduling algorithm SJF stands for:",o:["Shortest Job First","System Job Format","Sequential Job Flow","Shortest Job Function"],a:0,t:"Computer",e:"SJF = Shortest Job First. Other algorithms: FCFS, Round Robin, Priority Scheduling."},
+{q:"Who led the Kheda Satyagraha (1918)?",o:["Sardar Patel","Mahatma Gandhi","Nehru","Tilak"],a:1,t:"GK",e:"Gandhi led Kheda Satyagraha (1918) in Gujarat. Champaran (1917) was his first satyagraha in India."},
+{q:"Deadlock requires how many conditions simultaneously?",o:["2","3","4","5"],a:2,t:"Computer",e:"4 conditions: Mutual Exclusion, Hold & Wait, No Preemption, Circular Wait. All 4 must hold simultaneously."},
+{q:"Which district is Statue of Unity located in?",o:["Vadodara","Narmada","Bharuch","Panchmahals"],a:1,t:"Gujarat GK",e:"Statue of Unity is in Kevadia colony, Narmada district. NOT Vadodara (common confusion)!"},
+{q:"DHCP assigns:",o:["MAC addresses","IP addresses automatically","DNS records","Firewall rules"],a:1,t:"Computer",e:"DHCP = Dynamic Host Configuration Protocol. Automatically assigns IP addresses to devices on network."},
+{q:"Jhaverchand Meghani was given the title:",o:["Kavishreshtha","Rashtriya Shayar","Sahitya Ratna","Kaviraj"],a:1,t:"Gujarati Literature",e:"Mahatma Gandhi called Meghani 'Rashtriya Shayar' (National Poet). He wrote 'Sindhudo' and folk literature."},
+{q:"What is the output of 10 + '5' in JavaScript?",o:["15","105","Error","NaN"],a:1,t:"Computer",e:"JavaScript concatenates when one operand is string. 10 + '5' = '105' (string). This is type coercion. Tricky!"},
+]},
+};
+
+// STATE
+let mockId=0,questions=[],answers=[],current=0,timerSec=0,maxTime=0,timerInt=null,reviewing=false;
+
+function startMock(id){
+    mockId=id;
+    const mock=MOCK[id];
+    questions=[...mock.questions];
+    // Shuffle questions
+    for(let i=questions.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[questions[i],questions[j]]=[questions[j],questions[i]]}
+    answers=new Array(questions.length).fill(-1);
+    current=0;timerSec=mock.time*60;maxTime=timerSec;reviewing=false;
+
+    document.getElementById('selectUI').style.display='none';
+    document.getElementById('examUI').style.display='block';
+    document.getElementById('eName').textContent='Mock '+id;
+
+    buildPalette();showQ();startTimer();
+}
+
+function buildPalette(){
+    const p=document.getElementById('palette');p.innerHTML='';
+    for(let i=0;i<questions.length;i++){
+        const d=document.createElement('div');d.className='q-dot';d.textContent=i+1;
+        d.onclick=()=>{current=i;showQ()};
+        p.appendChild(d);
+    }
+}
+
+function showQ(){
+    const q=questions[current];
+    document.getElementById('qNum').innerHTML='Question '+(current+1)+' <span class="q-tag">'+q.t+'</span>';
+    document.getElementById('qText').textContent=q.q;
+    document.getElementById('eQn').textContent=(current+1)+'/'+questions.length;
+    document.getElementById('eAns').textContent=answers.filter(a=>a>=0).length;
+    document.getElementById('prog').style.width=((current+1)/questions.length*100)+'%';
+
+    // Show/hide submit button
+    document.getElementById('nextBtn').style.display=(current===questions.length-1&&!reviewing)?'none':'inline-flex';
+    document.getElementById('submitBtn').style.display=(current===questions.length-1&&!reviewing)?'inline-flex':'none';
+
+    const opts=document.getElementById('opts');opts.innerHTML='';
+    const letters=['A','B','C','D'];
+    q.o.forEach((o,i)=>{
+        const div=document.createElement('div');
+        div.className='option'+(answers[current]===i?' selected':'');
+        if(reviewing){
+            if(i===q.a)div.className='option correct';
+            else if(answers[current]===i&&i!==q.a)div.className='option wrong';
+        }
+        div.innerHTML='<div class="ol">'+letters[i]+'</div><div class="ot">'+o+'</div>';
+        if(!reviewing)div.onclick=()=>{answers[current]=i;showQ()};
+        opts.appendChild(div);
+    });
+
+    // Explanation
+    const exp=document.getElementById('explanation');
+    if(reviewing&&q.e){
+        exp.innerHTML='<b>Explanation:</b> '+q.e;
+        exp.classList.add('show');
+    }else{
+        exp.classList.remove('show');
+    }
+
+    // Update palette
+    document.querySelectorAll('.q-dot').forEach((d,i)=>{
+        d.className='q-dot';
+        if(i===current)d.classList.add('current');
+        else if(reviewing){
+            if(answers[i]===questions[i].a)d.classList.add('correct');
+            else if(answers[i]>=0)d.classList.add('wrong');
+        }
+        else if(answers[i]>=0)d.classList.add('answered');
+    });
+}
+
+function navQ(dir){
+    current=Math.max(0,Math.min(questions.length-1,current+dir));
+    showQ();
+}
+
+function startTimer(){
+    const el=document.getElementById('timer');
+    timerInt=setInterval(()=>{
+        timerSec--;
+        if(timerSec<=0){clearInterval(timerInt);submitTest();return}
+        const m=Math.floor(timerSec/60),s=timerSec%60;
+        el.textContent=(m<10?'0':'')+m+':'+(s<10?'0':'')+s;
+        if(timerSec<=60)el.classList.add('warn');
+    },1000);
+}
+
+function submitTest(){
+    clearInterval(timerInt);
+    let correct=0,wrong=0,skip=0;
+    questions.forEach((q,i)=>{
+        if(answers[i]<0)skip++;
+        else if(answers[i]===q.a)correct++;
+        else wrong++;
+    });
+
+    const negMarks=wrong*0.25;
+    const finalScore=Math.max(0,correct-negMarks);
+    const pct=Math.round((correct/questions.length)*100);
+    const timeTaken=MOCK[mockId].time*60-timerSec;
+    const mins=Math.floor(timeTaken/60),secs=timeTaken%60;
+
+    document.getElementById('examUI').style.display='none';
+    document.getElementById('resultUI').style.display='block';
+
+    // Animate score circle
+    const circle=document.getElementById('scoreCircle');
+    const circumference=2*Math.PI*80;
+    const offset=circumference-(correct/questions.length)*circumference;
+    setTimeout(()=>{circle.style.transition='stroke-dashoffset 1.5s ease';circle.style.strokeDashoffset=offset},100);
+    if(pct>=80)circle.style.stroke='#22c55e';
+    else if(pct>=50)circle.style.stroke='#f59e0b';
+    else circle.style.stroke='#ef4444';
+
+    document.getElementById('rScore').textContent=correct;
+    document.getElementById('rOf').textContent='out of '+questions.length;
+    document.getElementById('rCorrect').textContent=correct;
+    document.getElementById('rWrong').textContent=wrong;
+    document.getElementById('rSkip').textContent=skip;
+    document.getElementById('rNeg').textContent=wrong>0?'Negative marking: -'+negMarks.toFixed(2)+' | Net score: '+finalScore.toFixed(2):'No negative marks!';
+    document.getElementById('rTime').textContent='Time taken: '+mins+'m '+secs+'s';
+    document.getElementById('rSub').textContent='You completed '+MOCK[mockId].name;
+
+    if(pct>=80){
+        document.getElementById('rEmoji').textContent='\u{1F3C6}';
+        document.getElementById('rTitle').textContent='Excellent!';
+        fireConfetti();
+    }else if(pct>=60){
+        document.getElementById('rEmoji').textContent='\u{1F44F}';
+        document.getElementById('rTitle').textContent='Good Job!';
+    }else if(pct>=40){
+        document.getElementById('rEmoji').textContent='\u{1F4AA}';
+        document.getElementById('rTitle').textContent='Keep Practicing!';
+    }else{
+        document.getElementById('rEmoji').textContent='\u{1F4DA}';
+        document.getElementById('rTitle').textContent='Need More Study!';
+    }
+
+    // Save history
+    const history=JSON.parse(localStorage.getItem('smc_mock_history')||'[]');
+    history.push({mock:mockId,correct,wrong,skip,total:questions.length,pct,date:new Date().toLocaleDateString('en-IN'),time:mins+'m '+secs+'s'});
+    if(history.length>50)history.shift();
+    localStorage.setItem('smc_mock_history',JSON.stringify(history));
+
+    window.scrollTo(0,0);
+}
+
+function reviewTest(){
+    reviewing=true;current=0;
+    document.getElementById('resultUI').style.display='none';
+    document.getElementById('examUI').style.display='block';
+    document.getElementById('timer').textContent='REVIEW';
+    document.getElementById('timer').classList.remove('warn');
+    document.getElementById('submitBtn').style.display='none';
+    document.getElementById('nextBtn').style.display='inline-flex';
+    showQ();
+}
+
+// CONFETTI
+function fireConfetti(){
+    const colors=['#7c3aed','#c084fc','#e879f9','#22c55e','#fde68a','#818cf8','#f472b6','#34d399'];
+    for(let i=0;i<40;i++){
+        const c=document.createElement('div');c.className='confetti';
+        c.style.left=Math.random()*100+'vw';c.style.top='-10px';
+        c.style.background=colors[Math.floor(Math.random()*colors.length)];
+        c.style.width=Math.random()*8+4+'px';c.style.height=Math.random()*8+4+'px';
+        c.style.borderRadius=Math.random()>0.5?'50%':'2px';
+        document.body.appendChild(c);
+        const x=(Math.random()-0.5)*200;
+        const duration=1500+Math.random()*2000;
+        c.animate([
+            {transform:'translateY(0) translateX(0) rotate(0deg)',opacity:1},
+            {transform:`translateY(${window.innerHeight+100}px) translateX(${x}px) rotate(${Math.random()*720}deg)`,opacity:0}
+        ],{duration,easing:'cubic-bezier(0.25,0.46,0.45,0.94)'});
+        setTimeout(()=>c.remove(),duration);
+    }
+}
+
+// PARTICLES
+(function(){
+    const c=document.getElementById('particles'),ctx=c.getContext('2d');
+    let w,h,particles=[];
+    function resize(){w=c.width=window.innerWidth;h=c.height=window.innerHeight}
+    resize();window.addEventListener('resize',resize);
+    class P{
+        constructor(){this.x=Math.random()*w;this.y=Math.random()*h;this.vx=(Math.random()-0.5)*0.2;this.vy=(Math.random()-0.5)*0.2;this.size=Math.random()*1.5+0.5;this.alpha=Math.random()*0.2+0.05}
+        update(){this.x+=this.vx;this.y+=this.vy;if(this.x<0||this.x>w)this.vx*=-1;if(this.y<0||this.y>h)this.vy*=-1}
+        draw(){ctx.beginPath();ctx.arc(this.x,this.y,this.size,0,Math.PI*2);ctx.fillStyle=`rgba(167,139,250,${this.alpha})`;ctx.fill()}
+    }
+    for(let i=0;i<(window.innerWidth<769?20:40);i++)particles.push(new P());
+    function anim(){ctx.clearRect(0,0,w,h);particles.forEach(p=>{p.update();p.draw()});requestAnimationFrame(anim)}
+    anim();
+})();
+
+// SCROLL PROGRESS
+window.addEventListener('scroll',()=>{
+    const h=document.documentElement.scrollHeight-window.innerHeight;
+    document.getElementById('scrollProg').style.width=(window.scrollY/h*100)+'%';
+});
+</script>
+</body>
+</html>
