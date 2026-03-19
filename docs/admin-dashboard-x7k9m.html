@@ -378,7 +378,7 @@ function renderAll(){
         return{
             t:v.t||v.timestamp||'',lt:v.lt||v.localTime||'',dev:v.dev||v.deviceModel||'?',
             os:v.os||'?',br:v.br||v.browser||'?',scr:v.scr||(v.screenWidth?v.screenWidth+'x'+v.screenHeight:'?'),
-            mob:v.mob!=null?v.mob:(v.deviceType==='Mobile'),net:netVal,
+            mob:v.mob===true||v.deviceType==='Mobile'||/Mobile|Android|iPhone/i.test(v.os||''),net:netVal,
             bat:v.bat||v.battery||'?',cores:v.cores||'?',ram:v.ram||(v.deviceMemory?v.deviceMemory+'GB':'?'),
             pg:v.pg||v.page||'?',ref:v.ref||v.referrer||'Direct',dur:v.dur||v.timeSpent||'-'
         };
