@@ -371,13 +371,17 @@ function renderAll(){
     const localVisits=JSON.parse(localStorage.getItem('smc_visitors')||'[]');
     const localClicks=JSON.parse(localStorage.getItem('smc_clicks')||'[]');
     // Normalize cloud data field names to match what renderVisits expects
-    const normalizedCloud=cloudVisits.map(v=>({
-        t:v.t||v.timestamp||'',lt:v.lt||v.localTime||'',dev:v.dev||v.deviceModel||'?',
-        os:v.os||'?',br:v.br||v.browser||'?',scr:v.scr||(v.screenWidth?v.screenWidth+'x'+v.screenHeight:'')||'?',
-        mob:v.mob||(v.deviceType==='Mobile'),net:v.net||(v.connection?v.connection.type||v.connection:'?'),
-        bat:v.bat||v.battery||'?',cores:v.cores||'?',ram:v.ram||'?',
-        pg:v.pg||v.page||'?',ref:v.ref||v.referrer||'Direct',dur:v.dur||v.timeSpent||'-'
-    }));
+    const normalizedCloud=cloudVisits.map(v=>{
+        let netVal='?';
+        try{netVal=v.net||(typeof v.connection==='object'?(v.connection.type||v.connection.effectiveType||'?'):(v.connection||'?'))}catch(e){}
+        return{
+            t:v.t||v.timestamp||'',lt:v.lt||v.localTime||'',dev:v.dev||v.deviceModel||'?',
+            os:v.os||'?',br:v.br||v.browser||'?',scr:v.scr||(v.screenWidth?v.screenWidth+'x'+v.screenHeight:'?'),
+            mob:v.mob!=null?v.mob:(v.deviceType==='Mobile'),net:netVal,
+            bat:v.bat||v.battery||'?',cores:v.cores||'?',ram:v.ram||(v.deviceMemory?v.deviceMemory+'GB':'?'),
+            pg:v.pg||v.page||'?',ref:v.ref||v.referrer||'Direct',dur:v.dur||v.timeSpent||'-'
+        };
+    });
     const visits=normalizedCloud.length>0?normalizedCloud:localVisits;
     const clicks=cloudClicks.length>0?cloudClicks:localClicks;
     const orders=JSON.parse(localStorage.getItem('smc_orders')||'[]');
