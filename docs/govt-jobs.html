@@ -72,6 +72,30 @@
 
         .empty{text-align:center;padding:40px;color:var(--dim);font-size:0.9em}
 
+        /* EXPANDABLE JOB DETAILS */
+        .job-expand{max-height:0;overflow:hidden;transition:max-height 0.5s ease}
+        .job-expand.open{max-height:3000px}
+        .job-toggle{background:rgba(139,92,246,0.08);border:1px solid rgba(139,92,246,0.15);color:var(--accent);padding:8px 16px;border-radius:10px;font-size:0.75em;font-weight:700;cursor:pointer;font-family:inherit;margin-top:10px;transition:all 0.2s;position:relative;z-index:1}
+        .job-toggle:hover{background:rgba(139,92,246,0.15)}
+        .job-details{padding:16px 0 0;position:relative;z-index:1}
+        .jd-section{margin-bottom:14px}
+        .jd-title{color:var(--white);font-weight:700;font-size:0.82em;margin-bottom:6px;display:flex;align-items:center;gap:6px}
+        .jd-body{color:var(--txt);font-size:0.78em;line-height:1.6}
+        .jd-body ul{padding-left:18px;margin:4px 0}
+        .jd-body li{margin:3px 0}
+        .jd-body a{color:var(--accent);text-decoration:none}.jd-body a:hover{text-decoration:underline}
+        .jd-steps{counter-reset:step;padding-left:0;list-style:none}
+        .jd-steps li{counter-increment:step;padding:8px 0 8px 32px;position:relative;border-left:2px solid var(--border);margin-left:10px}
+        .jd-steps li::before{content:counter(step);position:absolute;left:-12px;top:6px;width:22px;height:22px;border-radius:50%;background:var(--accent);color:#fff;font-size:0.7em;font-weight:800;display:flex;align-items:center;justify-content:center}
+        .jd-links{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+        .jd-link{background:var(--s2);border:1px solid var(--border);padding:8px 14px;border-radius:10px;color:var(--txt);font-size:0.75em;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:4px;transition:all 0.2s}
+        .jd-link:hover{border-color:var(--accent);color:var(--white)}
+        .jd-study{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:6px;margin-top:8px}
+        .jd-study-card{background:var(--s2);border:1px solid var(--border);border-radius:10px;padding:10px;font-size:0.75em;text-align:center;transition:all 0.2s;cursor:pointer;text-decoration:none;color:var(--txt);display:block}
+        .jd-study-card:hover{border-color:var(--accent);color:var(--white);transform:translateY(-2px)}
+        .jd-study-card .sicon{font-size:1.3em;display:block;margin-bottom:4px}
+        .jd-study-card .sname{font-weight:700;color:var(--white);font-size:0.95em}
+
         @media(max-width:768px){.nav{top:10px;padding:8px 14px;gap:8px}.hero{padding:80px 20px 20px}.job-top{flex-direction:column}}
     </style>
 </head>
@@ -137,7 +161,28 @@ const JOBS=[
 desc:"Clerk (717), Driver (444), Marshal (323), Staff Nurse (150), Lab Tech (40), Computer Supervisor (12), Jr Analyst (7), Medical Officer (69), Engineers & more across 45+ cadres.",
 qual:"10th to PG (varies by post)",salary:"Rs 15,700 — 1,31,000",
 apply:"1 Apr 2026",last:"15 Apr 2026",status:"live",
-link:"https://www.suratmunicipal.gov.in/Information/RecruitmentDashboard"},
+link:"https://www.suratmunicipal.gov.in/Information/RecruitmentDashboard",
+details:{
+    eligibility:`<ul><li><b>Clerk:</b> Bachelor's degree + CCC computer certificate + Gujarati/Hindi</li><li><b>Computer Supervisor:</b> Graduate with computer knowledge + Gujarati proficiency</li><li><b>Marshal:</b> 10th Pass + Physical standards (Height/Weight/Chest)</li><li><b>Lab Technician:</b> B.Sc + DMLT or Lab Technician course</li><li><b>Junior Analyst:</b> M.Sc Microbiology</li><li><b>Age:</b> 18-35 years (relaxation for reserved categories)</li></ul>`,
+    fee:`<ul><li>General / OBC (Creamy Layer): <b>Rs 500</b></li><li>OBC (Non-Creamy Layer) / SC / ST: <b>Rs 250</b></li><li>PwD (Divyang): <b>Exempt</b></li><li>Payment: Online only (Debit/Credit/Net Banking)</li></ul>`,
+    howToApply:`<ol class="jd-steps"><li>Visit <a href="https://www.suratmunicipal.gov.in/Information/RecruitmentDashboard" target="_blank">suratmunicipal.gov.in</a></li><li>Click on "Apply Online" (opens 1 April 2026)</li><li>Register with mobile number + email</li><li>Fill personal details, education, experience</li><li>Upload photo (recent, passport size) + signature</li><li>Select post(s) you want to apply for</li><li>Pay application fee online</li><li>Download & save confirmation receipt</li></ol>`,
+    examPattern:`<ul><li><b>Clerk:</b> 100 MCQs, 60 min, -0.25 negative marking + Typing Test (25 WPM)</li><li><b>Computer Supervisor:</b> 100 MCQs, 60 min, No negative + Practical Test</li><li><b>Marshal:</b> 100 MCQs, 60 min, -0.25 + Physical Test (Running, Jump)</li><li><b>Lab Tech:</b> 100 MCQs, 60 min, -0.25</li><li><b>Format:</b> OMR Sheet based</li></ul>`,
+    links:[
+        {name:'Apply Online',url:'https://www.suratmunicipal.gov.in/Information/RecruitmentDashboard',icon:'📝'},
+        {name:'Official Notification',url:'https://www.suratmunicipal.gov.in/information/recruitment',icon:'📄'},
+        {name:'Recruitment Dashboard',url:'https://www.suratmunicipal.gov.in/Information/RecruitmentDashboard',icon:'📊'},
+    ],
+    studyMaterial:[
+        {name:'Computer Supervisor',url:'supervisor.html',icon:'💻'},
+        {name:'Clerk Guide',url:'clerk.html',icon:'📝'},
+        {name:'Lab Tech Guide',url:'lab-tech.html',icon:'🔬'},
+        {name:'Marshal Guide',url:'marshal.html',icon:'🛡️'},
+        {name:'Analyst Guide',url:'analyst.html',icon:'🧬'},
+        {name:'Mock Tests',url:'mock-test.html',icon:'📋'},
+        {name:'AI Assistant',url:'ai.html',icon:'🤖'},
+        {name:'Online Exam',url:'exam.html',icon:'⏱️'},
+    ]
+}},
 
 {org:"Ahmedabad Municipal Corporation (AMC)",title:"AMC Recruitment — PwD/Divyang Special Drive",cat:"municipal",posts:"Multiple",
 desc:"Assistant Manager, Office Superintendent, Assistant Junior Clerk posts. Special recruitment drive for PwBD candidates.",
@@ -168,13 +213,44 @@ link:"https://ojas.gujarat.gov.in"},
 desc:"Administrative Service, Police Service, Civil Service, Municipal Chief Officer & other Class 1-2 posts. Prelims + Mains + Interview.",
 qual:"Graduate (any discipline)",salary:"Rs 56,100 — 1,77,500",
 apply:"Check gpsc.gujarat.gov.in",last:"Varies",status:"upcoming",
-link:"https://gpsc.gujarat.gov.in"},
+link:"https://gpsc.gujarat.gov.in",
+details:{
+    eligibility:`<ul><li><b>Age:</b> 21-35 years (relaxation for reserved)</li><li><b>Education:</b> Bachelor's degree from recognized university</li><li><b>Attempts:</b> General: 6, OBC: 9, SC/ST: Unlimited (till age limit)</li></ul>`,
+    fee:`<ul><li>General: <b>Rs 100 + portal charges</b></li><li>SC/ST/SEBC/PwD: <b>Exempt</b></li></ul>`,
+    howToApply:`<ol class="jd-steps"><li>Visit <a href="https://gpsc.gujarat.gov.in" target="_blank">gpsc.gujarat.gov.in</a></li><li>Click "Apply Online" → Register with mobile + email</li><li>Fill form: personal, education, experience details</li><li>Upload photo + signature (as per specifications)</li><li>Pay fee online → Submit → Download confirmation</li></ol>`,
+    examPattern:`<ul><li><b>Prelims:</b> 200 marks, 2 papers (GS + CSAT), MCQ, negative marking</li><li><b>Mains:</b> 8 papers, descriptive, Gujarati + English compulsory</li><li><b>Interview:</b> 100 marks</li><li><b>Final:</b> Mains + Interview combined merit</li></ul>`,
+    links:[
+        {name:'GPSC Official',url:'https://gpsc.gujarat.gov.in',icon:'🏛️'},
+        {name:'OJAS Apply',url:'https://ojas.gujarat.gov.in',icon:'📝'},
+    ],
+    studyMaterial:[
+        {name:'GK & Current Affairs',url:'ai.html',icon:'📰'},
+        {name:'Mock Tests',url:'mock-test.html',icon:'📋'},
+        {name:'AI Assistant',url:'ai.html',icon:'🤖'},
+    ]
+}},
 
 {org:"Gujarat Subordinate Service Selection Board (GSSSB)",title:"GSSSB Clerk, Head Clerk & Other Posts",cat:"state",posts:"1000+",
 desc:"Bin Sachivalay Clerk, Head Clerk, Office Assistant, Senior Clerk, Accountant, Statistical Assistant & more.",
 qual:"Graduate + CCC",salary:"Rs 19,900 — 63,200",
 apply:"Check gsssb.gujarat.gov.in",last:"Varies",status:"upcoming",
-link:"https://gsssb.gujarat.gov.in"},
+link:"https://gsssb.gujarat.gov.in",
+details:{
+    eligibility:`<ul><li><b>Bin Sachivalay Clerk:</b> Graduate + CCC/CCC+ certificate</li><li><b>Head Clerk:</b> Graduate + 3 years experience + CCC</li><li><b>Age:</b> 18-33 years (relaxation for reserved)</li><li><b>Language:</b> Gujarati or Hindi proficiency required</li></ul>`,
+    fee:`<ul><li>General: <b>Rs 100 + portal charges</b></li><li>SC/ST/SEBC/PwD/Ex-Serviceman: <b>Exempt</b></li></ul>`,
+    howToApply:`<ol class="jd-steps"><li>Visit <a href="https://ojas.gujarat.gov.in" target="_blank">ojas.gujarat.gov.in</a></li><li>Find GSSSB recruitment → Click Apply</li><li>Register → Fill form → Upload documents</li><li>Pay fee → Submit → Save confirmation</li><li>Download admit card when released</li></ol>`,
+    examPattern:`<ul><li><b>Bin Sachivalay Clerk:</b> 100 MCQs, 60 min, -0.33 negative</li><li><b>Subjects:</b> Gujarati (40), English (15), GK (25), Maths (10), Computer (10)</li><li><b>Medium:</b> Gujarati + English bilingual</li></ul>`,
+    links:[
+        {name:'GSSSB Official',url:'https://gsssb.gujarat.gov.in',icon:'🏛️'},
+        {name:'OJAS Apply',url:'https://ojas.gujarat.gov.in',icon:'📝'},
+    ],
+    studyMaterial:[
+        {name:'Clerk Guide (similar)',url:'clerk.html',icon:'📝'},
+        {name:'Mock Tests',url:'mock-test.html',icon:'📋'},
+        {name:'AI Assistant',url:'ai.html',icon:'🤖'},
+        {name:'Online Exam',url:'exam.html',icon:'⏱️'},
+    ]
+}},
 
 {org:"Gujarat Revenue Department",title:"Talati cum Mantri Recruitment 2026",cat:"state",posts:"2,000+",
 desc:"Village level revenue officer. Written exam + Computer test. Most popular Gujarat govt exam.",
@@ -218,7 +294,21 @@ link:"https://www.gujaratmetrorail.com"},
 desc:"Police Constable (Unarmed), Armed Constable, Jail Sepoy, Sub Inspector. Written + Physical + Medical.",
 qual:"12th / Graduate (SI)",salary:"Rs 19,900 — 63,200",
 apply:"Expected 2026",last:"TBA",status:"upcoming",
-link:"https://lrdgujarat2021.in"},
+link:"https://lrdgujarat2021.in",
+details:{
+    eligibility:`<ul><li><b>Constable (Unarmed):</b> 12th Pass, Age 18-33</li><li><b>Armed Constable:</b> 12th Pass, Age 18-28</li><li><b>Sub Inspector:</b> Graduate, Age 21-35</li><li><b>Physical:</b> Male: Height 165cm, Chest 79cm. Female: Height 155cm</li><li><b>Running:</b> Male: 5km in 25 min. Female: 1.6km in 9 min</li></ul>`,
+    howToApply:`<ol class="jd-steps"><li>Visit <a href="https://lrdgujarat2021.in" target="_blank">lrdgujarat2021.in</a> or OJAS</li><li>Register → Fill application form</li><li>Upload photo, signature, documents</li><li>Pay fee → Submit → Save receipt</li><li>Download admit card for written exam</li><li>Pass written → Physical test → Medical → Final selection</li></ol>`,
+    examPattern:`<ul><li><b>Written:</b> 100 MCQs, 60 min (Constable) / 200 MCQs, 120 min (SI)</li><li><b>Subjects:</b> GK, Gujarat GK, Law, Reasoning, Maths, English/Gujarati</li><li><b>Physical:</b> Running, Long Jump, Shot Put</li><li><b>Medical:</b> Eyesight, hearing, general fitness</li><li><b>Negative Marking:</b> -0.25 per wrong answer</li></ul>`,
+    links:[
+        {name:'LRD Official',url:'https://lrdgujarat2021.in',icon:'🚔'},
+        {name:'OJAS Gujarat',url:'https://ojas.gujarat.gov.in',icon:'📝'},
+    ],
+    studyMaterial:[
+        {name:'GK & Gujarat',url:'ai.html',icon:'📰'},
+        {name:'Marshal Guide (similar)',url:'marshal.html',icon:'🛡️'},
+        {name:'Mock Tests',url:'mock-test.html',icon:'📋'},
+    ]
+}},
 
 {org:"Gujarat Forest Department",title:"Forest Guard & Deputy Range Forest Officer",cat:"police",posts:"800+",
 desc:"Forest Guard, Forest Ranger, DRFO. Physical test + Written exam. Posted across Gujarat forests.",
@@ -284,10 +374,36 @@ function renderJobs(filter){
     }
 }
 
+let cardCount=0;
 function jobCard(j){
+    const id='job-'+cardCount++;
     const statusTag=j.status==='live'?'tag-live':j.status==='closed'?'tag-closed':'tag-date';
     const statusText=j.status==='live'?'LIVE — Apply Now':j.status==='closed'?'CLOSED':'UPCOMING';
-    return`<a class="job-card" href="${j.link}" target="_blank" data-cat="${j.cat}">
+    const hasDetails=j.details;
+
+    let detailsHTML='';
+    if(hasDetails){
+        const d=j.details;
+        detailsHTML=`<div class="job-expand" id="${id}"><div class="job-details">`;
+
+        if(d.eligibility) detailsHTML+=`<div class="jd-section"><div class="jd-title">&#128221; Eligibility & Qualification</div><div class="jd-body">${d.eligibility}</div></div>`;
+        if(d.fee) detailsHTML+=`<div class="jd-section"><div class="jd-title">&#128176; Application Fee</div><div class="jd-body">${d.fee}</div></div>`;
+        if(d.howToApply) detailsHTML+=`<div class="jd-section"><div class="jd-title">&#128203; How to Apply (Step by Step)</div><div class="jd-body">${d.howToApply}</div></div>`;
+        if(d.examPattern) detailsHTML+=`<div class="jd-section"><div class="jd-title">&#128218; Exam Pattern</div><div class="jd-body">${d.examPattern}</div></div>`;
+        if(d.links&&d.links.length){
+            detailsHTML+=`<div class="jd-section"><div class="jd-title">&#128279; Official Links</div><div class="jd-links">`;
+            d.links.forEach(l=>{detailsHTML+=`<a class="jd-link" href="${l.url}" target="_blank">${l.icon} ${l.name}</a>`});
+            detailsHTML+=`</div></div>`;
+        }
+        if(d.studyMaterial&&d.studyMaterial.length){
+            detailsHTML+=`<div class="jd-section"><div class="jd-title">&#128218; Study Material & Preparation</div><div class="jd-study">`;
+            d.studyMaterial.forEach(s=>{detailsHTML+=`<a class="jd-study-card" href="${s.url}"><span class="sicon">${s.icon}</span><span class="sname">${s.name}</span></a>`});
+            detailsHTML+=`</div></div>`;
+        }
+        detailsHTML+=`</div></div>`;
+    }
+
+    return`<div class="job-card" data-cat="${j.cat}" onclick="if(event.target.tagName!=='A'&&!event.target.closest('a'))toggleJob('${id}')">
         <div class="job-top">
             <div>
                 <div class="job-org">${j.org}</div>
@@ -304,7 +420,14 @@ function jobCard(j){
             <span class="job-tag tag-salary">${j.salary}</span>
             <span class="job-tag tag-qual">${j.qual}</span>
         </div>
-    </a>`;
+        ${hasDetails?`<button class="job-toggle" onclick="event.stopPropagation();toggleJob('${id}')">&#128204; View Full Details — SOP, How to Apply, Study Material</button>`:`<a class="job-link" href="${j.link}" target="_blank">Visit Official Website &rarr;</a>`}
+        ${detailsHTML}
+    </div>`;
+}
+
+function toggleJob(id){
+    const el=document.getElementById(id);
+    if(el)el.classList.toggle('open');
 }
 
 function filterJobs(cat,btn){
