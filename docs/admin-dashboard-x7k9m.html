@@ -5,259 +5,530 @@
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-1CP842CPFX');</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
+    <title>Admin Panel</title>
     <meta name="robots" content="noindex, nofollow">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
-        :root{--bg:#06060a;--s1:#0c0c14;--s2:#18181b;--border:rgba(255,255,255,0.07);--txt:#a1a1aa;--white:#f4f4f5;--dim:#52525b}
+        :root{--bg:#06060a;--s1:#0c0c14;--s2:#18181b;--border:rgba(255,255,255,0.07);--border2:rgba(255,255,255,0.12);--txt:#a1a1aa;--white:#f4f4f5;--dim:#52525b;--accent:#a78bfa;--green:#22c55e;--red:#ef4444;--orange:#f59e0b}
         *{margin:0;padding:0;box-sizing:border-box}
-        body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(--txt);min-height:100vh;padding:20px}
-        .top{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px}
-        .top h1{color:var(--white);font-size:1.3em}
-        .top .back{color:var(--txt);text-decoration:none;font-size:0.85em}
-        .stats-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;margin-bottom:24px}
-        .stat-card{background:var(--s1);border:1px solid var(--border);border-radius:14px;padding:18px;text-align:center}
+        body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(--txt);min-height:100vh}
+        ::selection{background:rgba(139,92,246,0.3);color:#fff}
+
+        /* AUTH SCREEN */
+        #authScreen{position:fixed;inset:0;background:var(--bg);z-index:9999;display:flex;align-items:center;justify-content:center}
+        #authScreen.hide{display:none}
+        .auth-box{background:var(--s1);border:1px solid var(--border2);border-radius:24px;padding:40px;max-width:380px;width:100%;text-align:center;position:relative;overflow:hidden}
+        .auth-box::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(139,92,246,0.04),transparent 60%);pointer-events:none}
+        .auth-icon{font-size:3em;margin-bottom:12px;position:relative}
+        .auth-box h2{color:var(--white);font-size:1.2em;margin-bottom:4px;position:relative}
+        .auth-box p{color:var(--dim);font-size:0.82em;margin-bottom:20px;position:relative}
+        .auth-input{width:100%;background:var(--s2);border:2px solid var(--border2);border-radius:12px;padding:14px 18px;color:var(--white);font-size:1em;font-family:inherit;font-weight:600;outline:none;text-align:center;letter-spacing:3px;transition:border-color 0.3s}
+        .auth-input:focus{border-color:var(--accent)}
+        .auth-input.error{border-color:var(--red);animation:authShake 0.4s ease}
+        @keyframes authShake{0%,100%{transform:translateX(0)}25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+        .auth-btn{width:100%;background:linear-gradient(135deg,#7c3aed,#6366f1);color:#fff;border:none;padding:14px;border-radius:12px;font-weight:700;font-size:0.92em;cursor:pointer;margin-top:14px;font-family:inherit;transition:all 0.3s}
+        .auth-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(124,58,237,0.3)}
+        .auth-attempts{color:var(--red);font-size:0.75em;margin-top:10px;position:relative;min-height:18px}
+        .auth-lockout{color:var(--red);font-size:0.85em;font-weight:700;position:relative}
+
+        /* DASHBOARD */
+        #dashboard{display:none;padding:20px}
+        #dashboard.show{display:block}
+        .top{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;flex-wrap:wrap;gap:10px}
+        .top h1{color:var(--white);font-size:1.3em;display:flex;align-items:center;gap:10px}
+        .top .shield{background:rgba(34,197,94,0.12);color:#86efac;padding:4px 12px;border-radius:100px;font-size:0.6em;font-weight:700}
+        .top-actions{display:flex;gap:8px;align-items:center}
+        .top .back{color:var(--txt);text-decoration:none;font-size:0.82em;padding:8px 16px;border:1px solid var(--border);border-radius:10px;transition:all 0.2s}
+        .top .back:hover{border-color:var(--accent);color:var(--white)}
+        .live-dot{width:8px;height:8px;border-radius:50%;background:var(--green);animation:liveBlink 1.5s ease infinite;display:inline-block}
+        @keyframes liveBlink{0%,100%{opacity:1}50%{opacity:0.3}}
+        .refresh-info{font-size:0.7em;color:var(--dim);display:flex;align-items:center;gap:6px}
+
+        /* TABS */
+        .tabs{display:flex;gap:4px;margin-bottom:20px;flex-wrap:wrap;border-bottom:1px solid var(--border);padding-bottom:10px}
+        .tab{background:none;border:none;color:var(--dim);padding:10px 18px;border-radius:10px;font-size:0.82em;font-weight:700;cursor:pointer;font-family:inherit;transition:all 0.2s}
+        .tab:hover{color:var(--white);background:rgba(255,255,255,0.03)}
+        .tab.active{color:var(--accent);background:rgba(139,92,246,0.08)}
+        .tab-panel{display:none}.tab-panel.active{display:block}
+
+        /* STATS */
+        .stats-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin-bottom:20px}
+        .stat-card{background:var(--s1);border:1px solid var(--border);border-radius:14px;padding:16px;text-align:center;transition:all 0.3s}
+        .stat-card:hover{border-color:rgba(139,92,246,0.2);transform:translateY(-2px)}
         .stat-card .num{font-size:2em;font-weight:900;color:var(--white)}
-        .stat-card .label{font-size:0.7em;color:var(--dim);text-transform:uppercase;letter-spacing:1px;margin-top:4px}
-        .section{background:var(--s1);border:1px solid var(--border);border-radius:16px;padding:20px;margin-bottom:20px}
-        .section h2{color:var(--white);font-size:1em;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+        .stat-card .label{font-size:0.65em;color:var(--dim);text-transform:uppercase;letter-spacing:1px;margin-top:2px}
+        .stat-card.revenue .num{color:var(--green)}
+        .stat-card.warning .num{color:var(--orange)}
+
+        /* SECTIONS */
+        .section{background:var(--s1);border:1px solid var(--border);border-radius:16px;padding:20px;margin-bottom:16px}
+        .section h2{color:var(--white);font-size:0.95em;margin-bottom:14px;display:flex;align-items:center;gap:8px}
         .section h2 .dot{width:8px;height:8px;border-radius:50%}
-        table{width:100%;border-collapse:collapse;font-size:0.8em}
-        th{background:var(--s2);color:var(--white);padding:10px;text-align:left;font-weight:600;position:sticky;top:0}
+        table{width:100%;border-collapse:collapse;font-size:0.78em}
+        th{background:var(--s2);color:var(--white);padding:10px;text-align:left;font-weight:600;position:sticky;top:0;z-index:1}
         td{padding:8px 10px;border-bottom:1px solid var(--border)}
         tr:hover{background:rgba(255,255,255,0.02)}
         .scroll{max-height:400px;overflow-y:auto}
         .scroll::-webkit-scrollbar{width:4px}
         .scroll::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px}
         .bar{height:20px;border-radius:4px;min-width:4px;display:inline-block}
-        .tag{padding:2px 8px;border-radius:6px;font-size:0.75em;font-weight:600}
+        .tag{padding:2px 8px;border-radius:6px;font-size:0.72em;font-weight:600}
         .tag-mob{background:rgba(34,197,94,0.1);color:#86efac}
         .tag-desk{background:rgba(96,165,250,0.1);color:#93c5fd}
+        .tag-paid{background:rgba(34,197,94,0.1);color:#86efac;border:1px solid rgba(34,197,94,0.2)}
+        .tag-pending{background:rgba(250,204,21,0.08);color:#fde68a;border:1px solid rgba(250,204,21,0.15)}
+        .tag-vip{background:rgba(139,92,246,0.1);color:#c4b5fd;border:1px solid rgba(139,92,246,0.2)}
+        .tag-blocked{background:rgba(239,68,68,0.1);color:#fca5a5;border:1px solid rgba(239,68,68,0.2)}
         .filter-row{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}
         .filter-btn{background:var(--s2);border:1px solid var(--border);color:var(--txt);padding:6px 14px;border-radius:8px;font-size:0.75em;cursor:pointer;font-family:inherit;transition:all 0.2s}
         .filter-btn:hover,.filter-btn.active{border-color:rgba(139,92,246,0.4);color:var(--white);background:rgba(139,92,246,0.1)}
+        .action-btn{background:var(--s2);border:1px solid var(--border);color:var(--txt);padding:6px 14px;border-radius:8px;font-size:0.75em;cursor:pointer;font-family:inherit;transition:all 0.2s;font-weight:600}
+        .action-btn:hover{border-color:var(--accent);color:var(--white)}
         .export-btn{background:linear-gradient(135deg,#7c3aed,#6366f1);color:#fff;border:none;padding:10px 20px;border-radius:10px;font-weight:700;font-size:0.82em;cursor:pointer;font-family:inherit;transition:all 0.3s}
         .export-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(124,58,237,0.3)}
-        .clear-btn{background:var(--s2);color:#ef4444;border:1px solid rgba(239,68,68,0.2);padding:10px 20px;border-radius:10px;font-weight:700;font-size:0.82em;cursor:pointer;font-family:inherit}
+        .clear-btn{background:var(--s2);color:var(--red);border:1px solid rgba(239,68,68,0.2);padding:10px 20px;border-radius:10px;font-weight:700;font-size:0.82em;cursor:pointer;font-family:inherit}
         .empty{text-align:center;padding:40px;color:var(--dim)}
-        @media(max-width:640px){.stats-grid{grid-template-columns:repeat(2,1fr)}body{padding:12px}table{font-size:0.72em}}
+
+        /* SECURITY LOG */
+        .log-entry{padding:8px 12px;border-bottom:1px solid var(--border);font-size:0.78em;display:flex;justify-content:space-between;align-items:center}
+        .log-entry .log-time{color:var(--dim);font-size:0.88em}
+        .log-entry .log-msg{color:var(--white)}
+        .log-entry.log-warn{background:rgba(239,68,68,0.03)}
+        .log-entry.log-ok{background:rgba(34,197,94,0.02)}
+
+        @media(max-width:640px){.stats-grid{grid-template-columns:repeat(2,1fr)}#dashboard{padding:12px}table{font-size:0.7em}.tabs{gap:2px}.tab{padding:8px 12px;font-size:0.75em}}
     </style>
 </head>
 <body>
 
-<div class="top">
-    <h1>SMC Admin Dashboard</h1>
-    <a href="index.html" class="back">&larr; Back to Site</a>
-</div>
-
-<div class="stats-grid" id="statsGrid"></div>
-
-<div class="section">
-    <h2><span class="dot" style="background:#8b5cf6"></span> Recent Visitors</h2>
-    <div class="filter-row">
-        <button class="filter-btn active" onclick="filterVisits('all')">All</button>
-        <button class="filter-btn" onclick="filterVisits('Mobile')">Mobile</button>
-        <button class="filter-btn" onclick="filterVisits('Desktop')">Desktop</button>
-        <button class="filter-btn" onclick="filterVisits('today')">Today</button>
-        <div style="flex:1"></div>
-        <button class="export-btn" onclick="exportCSV()">Export CSV</button>
-        <button class="clear-btn" onclick="clearData()">Clear Data</button>
-    </div>
-    <div class="scroll">
-        <table>
-            <thead><tr><th>Time</th><th>Device</th><th>OS</th><th>Browser</th><th>Screen</th><th>Network</th><th>Battery</th><th>CPU/RAM</th><th>Page</th><th>From</th><th>Duration</th></tr></thead>
-            <tbody id="visitTable"></tbody>
-        </table>
-    </div>
-    <div class="empty" id="emptyMsg" style="display:none">No visitor data yet. Data appears after people visit your site.</div>
-</div>
-
-<div class="section">
-    <h2><span class="dot" style="background:#f59e0b"></span> Popular Clicks</h2>
-    <div class="scroll" style="max-height:250px">
-        <table>
-            <thead><tr><th>Time</th><th>Button/Link Clicked</th><th>Page</th></tr></thead>
-            <tbody id="clickTable"></tbody>
-        </table>
+<!-- ===== AUTHENTICATION SCREEN ===== -->
+<div id="authScreen">
+    <div class="auth-box">
+        <div class="auth-icon">&#128272;</div>
+        <h2>Admin Access Required</h2>
+        <p>Enter your admin PIN to continue</p>
+        <input type="password" class="auth-input" id="authPin" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;" maxlength="10" autocomplete="off">
+        <button class="auth-btn" onclick="authenticate()">Unlock Dashboard</button>
+        <div class="auth-attempts" id="authMsg"></div>
     </div>
 </div>
 
-<div class="section">
-    <h2><span class="dot" style="background:#22c55e"></span> Device Breakdown</h2>
-    <div id="deviceChart"></div>
-</div>
+<!-- ===== DASHBOARD ===== -->
+<div id="dashboard">
 
-<div class="section">
-    <h2><span class="dot" style="background:#3b82f6"></span> Top Pages</h2>
-    <div id="pageChart"></div>
+    <div class="top">
+        <h1>&#128737; SMC Admin Panel <span class="shield">&#128274; Secured</span></h1>
+        <div class="top-actions">
+            <div class="refresh-info"><span class="live-dot"></span> Live &mdash; Refreshing every <b id="refreshInterval">5s</b></div>
+            <a href="index.html" class="back">&larr; Site</a>
+            <button class="action-btn" onclick="logout()" style="color:var(--red)">Logout</button>
+        </div>
+    </div>
+
+    <!-- TABS -->
+    <div class="tabs">
+        <button class="tab active" onclick="switchTab('overview')">Overview</button>
+        <button class="tab" onclick="switchTab('visitors')">Visitors</button>
+        <button class="tab" onclick="switchTab('orders')">Orders & Revenue</button>
+        <button class="tab" onclick="switchTab('premium')">Premium Users</button>
+        <button class="tab" onclick="switchTab('security')">Security Log</button>
+        <button class="tab" onclick="switchTab('clicks')">Clicks</button>
+        <button class="tab" onclick="switchTab('charts')">Charts</button>
+    </div>
+
+    <!-- OVERVIEW TAB -->
+    <div class="tab-panel active" id="tab-overview">
+        <div class="stats-grid" id="statsGrid"></div>
+    </div>
+
+    <!-- VISITORS TAB -->
+    <div class="tab-panel" id="tab-visitors">
+        <div class="section">
+            <h2><span class="dot" style="background:#8b5cf6"></span> Recent Visitors <span style="font-size:0.7em;color:var(--dim);margin-left:auto" id="visitorCount"></span></h2>
+            <div class="filter-row">
+                <button class="filter-btn active" onclick="filterVisits('all')">All</button>
+                <button class="filter-btn" onclick="filterVisits('Mobile')">Mobile</button>
+                <button class="filter-btn" onclick="filterVisits('Desktop')">Desktop</button>
+                <button class="filter-btn" onclick="filterVisits('today')">Today</button>
+                <div style="flex:1"></div>
+                <button class="export-btn" onclick="exportCSV()">Export CSV</button>
+                <button class="clear-btn" onclick="clearData()">Clear Data</button>
+            </div>
+            <div class="scroll"><table>
+                <thead><tr><th>Time</th><th>Device</th><th>OS</th><th>Browser</th><th>Screen</th><th>Network</th><th>Battery</th><th>CPU/RAM</th><th>Page</th><th>From</th><th>Duration</th></tr></thead>
+                <tbody id="visitTable"></tbody>
+            </table></div>
+            <div class="empty" id="emptyMsg" style="display:none">No visitor data yet.</div>
+        </div>
+    </div>
+
+    <!-- ORDERS TAB -->
+    <div class="tab-panel" id="tab-orders">
+        <div class="section">
+            <h2><span class="dot" style="background:var(--green)"></span> Payment Orders <span style="font-size:0.7em;color:var(--dim);margin-left:auto" id="orderCount"></span></h2>
+            <div class="scroll"><table>
+                <thead><tr><th>Time</th><th>Order ID</th><th>Name</th><th>Phone</th><th>Plan</th><th>Amount</th><th>Status</th><th>Txn ID</th><th>Device ID</th><th>Access Key</th></tr></thead>
+                <tbody id="orderTable"></tbody>
+            </table></div>
+            <div class="empty" id="orderEmpty" style="display:none">No orders yet.</div>
+        </div>
+    </div>
+
+    <!-- PREMIUM USERS TAB -->
+    <div class="tab-panel" id="tab-premium">
+        <div class="section">
+            <h2><span class="dot" style="background:var(--orange)"></span> Premium Activations</h2>
+            <div class="scroll"><table>
+                <thead><tr><th>Activated</th><th>Plan</th><th>Order ID</th><th>Txn ID</th><th>Device ID</th><th>Access Key</th><th>Type</th></tr></thead>
+                <tbody id="premiumTable"></tbody>
+            </table></div>
+        </div>
+    </div>
+
+    <!-- SECURITY LOG TAB -->
+    <div class="tab-panel" id="tab-security">
+        <div class="section">
+            <h2><span class="dot" style="background:var(--red)"></span> Security & Access Log</h2>
+            <div class="filter-row">
+                <button class="filter-btn active" onclick="filterLog('all')">All</button>
+                <button class="filter-btn" onclick="filterLog('auth')">Auth</button>
+                <button class="filter-btn" onclick="filterLog('share')">Share Attempts</button>
+                <button class="filter-btn" onclick="filterLog('vip')">VIP</button>
+                <div style="flex:1"></div>
+                <button class="clear-btn" onclick="clearLog()">Clear Log</button>
+            </div>
+            <div class="scroll" id="securityLog"></div>
+        </div>
+    </div>
+
+    <!-- CLICKS TAB -->
+    <div class="tab-panel" id="tab-clicks">
+        <div class="section">
+            <h2><span class="dot" style="background:var(--orange)"></span> Popular Clicks</h2>
+            <div class="scroll" style="max-height:400px"><table>
+                <thead><tr><th>Time</th><th>Button/Link Clicked</th><th>Page</th></tr></thead>
+                <tbody id="clickTable"></tbody>
+            </table></div>
+        </div>
+    </div>
+
+    <!-- CHARTS TAB -->
+    <div class="tab-panel" id="tab-charts">
+        <div class="section">
+            <h2><span class="dot" style="background:var(--green)"></span> Device Breakdown</h2>
+            <div id="deviceChart"></div>
+        </div>
+        <div class="section">
+            <h2><span class="dot" style="background:#3b82f6"></span> Top Pages</h2>
+            <div id="pageChart"></div>
+        </div>
+    </div>
+
 </div>
 
 <script>
-const visits = JSON.parse(localStorage.getItem('smc_visitors') || '[]');
-const clicks = JSON.parse(localStorage.getItem('smc_clicks') || '[]');
+// ===== AAA: AUTHENTICATION =====
+// Admin PIN stored as hash, never plain text
+const ADMIN_PIN_HASH='umlmyw'; // Hash of PIN
+const MAX_ATTEMPTS=5;
+const LOCKOUT_TIME=300000; // 5 min lockout
 
-// Stats
-function renderStats() {
-    const today = new Date().toLocaleDateString('en-IN');
-    const todayVisits = visits.filter(v => {
-        try { return new Date(v.t || v.timestamp).toLocaleDateString('en-IN') === today; } catch(e) { return false; }
-    });
-    const mobiles = visits.filter(v => v.mob || v.deviceType === 'Mobile');
-    const desktops = visits.length - mobiles.length;
-    const uniqueDevices = [...new Set(visits.map(v => v.dev || v.deviceModel || 'Unknown'))];
+function hashPin(pin){
+    let h=0x811c9dc5;
+    for(let i=0;i<pin.length;i++){h^=pin.charCodeAt(i);h=(h*0x01000193)>>>0}
+    return(h>>>0).toString(36);
+}
 
-    document.getElementById('statsGrid').innerHTML = `
+// Set the admin PIN hash (PIN: 271205)
+// To change PIN: open console, type setAdminPin('yourNewPin')
+window.setAdminPin=function(pin){
+    const hash=hashPin(pin);
+    console.log('New PIN hash:',hash,'- Update ADMIN_PIN_HASH in code');
+};
+
+function authenticate(){
+    const pin=document.getElementById('authPin').value;
+    if(!pin){return}
+
+    // Check lockout
+    const lockData=JSON.parse(localStorage.getItem('smc_admin_lock')||'{}');
+    if(lockData.lockedUntil&&Date.now()<lockData.lockedUntil){
+        const remaining=Math.ceil((lockData.lockedUntil-Date.now())/1000);
+        document.getElementById('authMsg').innerHTML='<span class="auth-lockout">&#128683; Locked out. Try again in '+remaining+'s</span>';
+        return;
+    }
+
+    const hash=hashPin(pin);
+    if(hash===ADMIN_PIN_HASH){
+        // Success — log it
+        addSecLog('auth','Admin login successful','ok');
+        localStorage.setItem('smc_admin_session',JSON.stringify({
+            loggedIn:true,
+            loginTime:Date.now(),
+            expiry:Date.now()+3600000 // 1 hour session
+        }));
+        localStorage.removeItem('smc_admin_lock');
+        document.getElementById('authScreen').classList.add('hide');
+        document.getElementById('dashboard').classList.add('show');
+        initDashboard();
+    }else{
+        // Failed attempt
+        const attempts=parseInt(lockData.attempts||0)+1;
+        document.getElementById('authPin').classList.add('error');
+        setTimeout(()=>document.getElementById('authPin').classList.remove('error'),400);
+
+        if(attempts>=MAX_ATTEMPTS){
+            localStorage.setItem('smc_admin_lock',JSON.stringify({attempts,lockedUntil:Date.now()+LOCKOUT_TIME}));
+            document.getElementById('authMsg').innerHTML='<span class="auth-lockout">&#128683; Too many attempts. Locked for 5 minutes.</span>';
+            addSecLog('auth','Admin login LOCKED after '+attempts+' failed attempts','warn');
+        }else{
+            localStorage.setItem('smc_admin_lock',JSON.stringify({attempts}));
+            document.getElementById('authMsg').textContent='Wrong PIN. '+(MAX_ATTEMPTS-attempts)+' attempts left.';
+            addSecLog('auth','Failed admin login attempt #'+attempts,'warn');
+        }
+        document.getElementById('authPin').value='';
+    }
+}
+
+// Enter key to login
+document.getElementById('authPin').addEventListener('keydown',e=>{if(e.key==='Enter')authenticate()});
+
+// Check existing session
+(function(){
+    const session=JSON.parse(localStorage.getItem('smc_admin_session')||'{}');
+    if(session.loggedIn&&session.expiry>Date.now()){
+        document.getElementById('authScreen').classList.add('hide');
+        document.getElementById('dashboard').classList.add('show');
+        initDashboard();
+    }
+
+    // Check lockout timer display
+    const lockData=JSON.parse(localStorage.getItem('smc_admin_lock')||'{}');
+    if(lockData.lockedUntil&&Date.now()<lockData.lockedUntil){
+        const remaining=Math.ceil((lockData.lockedUntil-Date.now())/1000);
+        document.getElementById('authMsg').innerHTML='<span class="auth-lockout">&#128683; Locked. Try again in '+remaining+'s</span>';
+        const lti=setInterval(()=>{
+            const r=Math.ceil((lockData.lockedUntil-Date.now())/1000);
+            if(r<=0){clearInterval(lti);document.getElementById('authMsg').textContent='';localStorage.removeItem('smc_admin_lock')}
+            else document.getElementById('authMsg').innerHTML='<span class="auth-lockout">&#128683; Locked. '+r+'s remaining</span>';
+        },1000);
+    }
+})();
+
+function logout(){
+    addSecLog('auth','Admin logged out','ok');
+    localStorage.removeItem('smc_admin_session');
+    location.reload();
+}
+
+// ===== AAA: ACCOUNTING (Security Log) =====
+function addSecLog(type,msg,level){
+    const log=JSON.parse(localStorage.getItem('smc_security_log')||'[]');
+    log.push({time:new Date().toISOString(),localTime:new Date().toLocaleString('en-IN'),type,msg,level});
+    if(log.length>500)log.splice(0,log.length-500);
+    localStorage.setItem('smc_security_log',JSON.stringify(log));
+}
+
+// ===== DASHBOARD =====
+let refreshTimer=null;
+
+function initDashboard(){
+    renderAll();
+    // Real-time auto-refresh every 5 seconds
+    refreshTimer=setInterval(renderAll,5000);
+}
+
+function renderAll(){
+    const visits=JSON.parse(localStorage.getItem('smc_visitors')||'[]');
+    const clicks=JSON.parse(localStorage.getItem('smc_clicks')||'[]');
+    const orders=JSON.parse(localStorage.getItem('smc_orders')||'[]');
+    const secLog=JSON.parse(localStorage.getItem('smc_security_log')||'[]');
+
+    renderStats(visits,clicks,orders);
+    renderVisits('all',visits);
+    renderClicks(clicks);
+    renderOrders(orders);
+    renderPremium(orders);
+    renderSecLog(secLog);
+    renderDeviceChart(visits);
+    renderPageChart(visits);
+}
+
+function renderStats(visits,clicks,orders){
+    const today=new Date().toLocaleDateString('en-IN');
+    const todayV=visits.filter(v=>{try{return new Date(v.t||v.timestamp).toLocaleDateString('en-IN')===today}catch(e){return false}});
+    const mobs=visits.filter(v=>v.mob||v.deviceType==='Mobile');
+    const desks=visits.length-mobs.length;
+    const unique=[...new Set(visits.map(v=>v.dev||v.deviceModel||'?'))];
+    const totalRevenue=orders.filter(o=>o.status==='submitted').reduce((s,o)=>s+(o.amountPaid||o.amount||0),0);
+    const pendingOrders=orders.filter(o=>o.status==='pending').length;
+    const paidOrders=orders.filter(o=>o.status==='submitted').length;
+
+    document.getElementById('statsGrid').innerHTML=`
         <div class="stat-card"><div class="num">${visits.length}</div><div class="label">Total Visits</div></div>
-        <div class="stat-card"><div class="num">${todayVisits.length}</div><div class="label">Today</div></div>
-        <div class="stat-card"><div class="num">${mobiles.length}</div><div class="label">Mobile</div></div>
-        <div class="stat-card"><div class="num">${desktops}</div><div class="label">Desktop</div></div>
-        <div class="stat-card"><div class="num">${uniqueDevices.length}</div><div class="label">Unique Devices</div></div>
-        <div class="stat-card"><div class="num">${clicks.length}</div><div class="label">Clicks Tracked</div></div>
+        <div class="stat-card"><div class="num">${todayV.length}</div><div class="label">Today</div></div>
+        <div class="stat-card"><div class="num">${mobs.length}</div><div class="label">Mobile</div></div>
+        <div class="stat-card"><div class="num">${desks}</div><div class="label">Desktop</div></div>
+        <div class="stat-card"><div class="num">${unique.length}</div><div class="label">Unique Devices</div></div>
+        <div class="stat-card"><div class="num">${clicks.length}</div><div class="label">Clicks</div></div>
+        <div class="stat-card revenue"><div class="num">&#8377;${totalRevenue}</div><div class="label">Revenue</div></div>
+        <div class="stat-card"><div class="num">${paidOrders}</div><div class="label">Paid Orders</div></div>
+        <div class="stat-card warning"><div class="num">${pendingOrders}</div><div class="label">Pending</div></div>
+        <div class="stat-card"><div class="num">${orders.length}</div><div class="label">Total Orders</div></div>
     `;
 }
 
-// Visit table
-function renderVisits(filter) {
-    let data = [...visits].reverse();
-    if (filter === 'Mobile') data = data.filter(v => v.mob || v.deviceType === 'Mobile');
-    if (filter === 'Desktop') data = data.filter(v => !v.mob && v.deviceType !== 'Mobile');
-    if (filter === 'today') {
-        const today = new Date().toLocaleDateString('en-IN');
-        data = data.filter(v => { try { return new Date(v.t || v.timestamp).toLocaleDateString('en-IN') === today; } catch(e) { return false; } });
+function renderVisits(filter,visits){
+    if(!visits)visits=JSON.parse(localStorage.getItem('smc_visitors')||'[]');
+    let data=[...visits].reverse();
+    if(filter==='Mobile')data=data.filter(v=>v.mob||v.deviceType==='Mobile');
+    if(filter==='Desktop')data=data.filter(v=>!v.mob&&v.deviceType!=='Mobile');
+    if(filter==='today'){
+        const today=new Date().toLocaleDateString('en-IN');
+        data=data.filter(v=>{try{return new Date(v.t||v.timestamp).toLocaleDateString('en-IN')===today}catch(e){return false}});
     }
-
-    if (!data.length) {
-        document.getElementById('visitTable').innerHTML = '';
-        document.getElementById('emptyMsg').style.display = 'block';
-        return;
-    }
-    document.getElementById('emptyMsg').style.display = 'none';
-
-    document.getElementById('visitTable').innerHTML = data.map(v => {
-        const time = v.lt || v.localTime || new Date(v.t || v.timestamp).toLocaleString('en-IN');
-        const dev = v.dev || v.deviceModel || 'Unknown';
-        const os = v.os || 'Unknown';
-        const br = v.br || v.browser || 'Unknown';
-        const scr = v.scr || (v.screenWidth + 'x' + v.screenHeight) || '?';
-        const net = typeof v.net === 'object' ? v.net.type : (v.net || v.connection || '?');
-        const bat = v.bat || v.battery || '?';
-        const cpu = (v.cores || '?') + ' cores / ' + (v.ram || '?') + (typeof v.ram === 'number' ? 'GB' : '');
-        const pg = v.pg || v.page || '?';
-        const ref = v.ref || v.referrer || 'Direct';
-        const dur = v.dur || v.timeSpent || '-';
-        const isMob = v.mob || v.deviceType === 'Mobile';
-
-        return `<tr>
-            <td style="white-space:nowrap;font-size:0.85em">${time}</td>
-            <td><b style="color:var(--white)">${dev}</b></td>
-            <td>${os}</td>
-            <td>${br}</td>
-            <td>${scr}</td>
-            <td><span class="tag ${isMob?'tag-mob':'tag-desk'}">${net}</span></td>
-            <td>${bat}</td>
-            <td style="font-size:0.8em">${cpu}</td>
-            <td>${pg}</td>
-            <td style="max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${ref}</td>
-            <td>${dur}</td>
-        </tr>`;
+    document.getElementById('visitorCount').textContent=data.length+' records';
+    if(!data.length){document.getElementById('visitTable').innerHTML='';document.getElementById('emptyMsg').style.display='block';return}
+    document.getElementById('emptyMsg').style.display='none';
+    document.getElementById('visitTable').innerHTML=data.slice(0,200).map(v=>{
+        const time=v.lt||v.localTime||new Date(v.t||v.timestamp).toLocaleString('en-IN');
+        const dev=v.dev||v.deviceModel||'?';const os=v.os||'?';const br=v.br||v.browser||'?';
+        const scr=v.scr||(v.screenWidth+'x'+v.screenHeight)||'?';
+        const net=typeof v.net==='object'?v.net.type:(v.net||v.connection||'?');
+        const bat=v.bat||v.battery||'?';const cpu=(v.cores||'?')+' / '+(v.ram||'?')+(typeof v.ram==='number'?'GB':'');
+        const pg=v.pg||v.page||'?';const ref=v.ref||v.referrer||'Direct';const dur=v.dur||v.timeSpent||'-';
+        const isMob=v.mob||v.deviceType==='Mobile';
+        return `<tr><td style="white-space:nowrap;font-size:0.85em">${time}</td><td><b style="color:var(--white)">${dev}</b></td><td>${os}</td><td>${br}</td><td>${scr}</td><td><span class="tag ${isMob?'tag-mob':'tag-desk'}">${net}</span></td><td>${bat}</td><td style="font-size:0.8em">${cpu}</td><td>${pg}</td><td style="max-width:100px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${ref}</td><td>${dur}</td></tr>`;
     }).join('');
 }
 
-function filterVisits(type) {
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+function filterVisits(type){
+    document.querySelectorAll('#tab-visitors .filter-btn').forEach(b=>b.classList.remove('active'));
     event.target.classList.add('active');
     renderVisits(type);
 }
 
-// Clicks table
-function renderClicks() {
-    document.getElementById('clickTable').innerHTML = [...clicks].reverse().slice(0, 100).map(c =>
-        `<tr><td>${c.t || c.time || '?'}</td><td style="color:var(--white)">${c.x || c.text || '?'}</td><td>${c.p || c.page || '?'}</td></tr>`
+function renderClicks(clicks){
+    if(!clicks)clicks=JSON.parse(localStorage.getItem('smc_clicks')||'[]');
+    document.getElementById('clickTable').innerHTML=[...clicks].reverse().slice(0,100).map(c=>
+        `<tr><td>${c.t||c.time||'?'}</td><td style="color:var(--white)">${c.x||c.text||'?'}</td><td>${c.p||c.page||'?'}</td></tr>`
     ).join('');
 }
 
-// Device breakdown chart
-function renderDeviceChart() {
-    const counts = {};
-    visits.forEach(v => {
-        const dev = v.dev || v.deviceModel || 'Unknown';
-        counts[dev] = (counts[dev] || 0) + 1;
-    });
-    const sorted = Object.entries(counts).sort((a, b) => b[1] - a[1]);
-    const max = sorted[0]?.[1] || 1;
-    const colors = ['#8b5cf6','#6366f1','#3b82f6','#22d3ee','#14b8a6','#22c55e','#f59e0b','#ef4444','#ec4899','#a78bfa'];
+function renderOrders(orders){
+    if(!orders)orders=JSON.parse(localStorage.getItem('smc_orders')||'[]');
+    document.getElementById('orderCount').textContent=orders.length+' orders';
+    if(!orders.length){document.getElementById('orderEmpty').style.display='block';return}
+    document.getElementById('orderEmpty').style.display='none';
+    document.getElementById('orderTable').innerHTML=[...orders].reverse().map(o=>{
+        const time=o.time?new Date(o.time).toLocaleString('en-IN'):'?';
+        const statusTag=o.status==='submitted'?'tag-paid':o.status==='pending'?'tag-pending':'tag-blocked';
+        return `<tr>
+            <td style="font-size:0.85em;white-space:nowrap">${time}</td>
+            <td style="font-family:monospace;color:var(--accent);font-size:0.85em">${o.orderId||'?'}</td>
+            <td style="color:var(--white);font-weight:600">${o.name||'?'}</td>
+            <td>${o.phone||'?'}</td>
+            <td>${o.plan||'?'}</td>
+            <td style="color:var(--green);font-weight:700">&#8377;${o.amountPaid||o.amount||'?'}</td>
+            <td><span class="tag ${statusTag}">${o.status||'?'}</span></td>
+            <td style="font-family:monospace;font-size:0.82em">${o.txnId||'-'}</td>
+            <td style="font-family:monospace;font-size:0.78em;color:var(--dim)">${o.deviceId||'-'}</td>
+            <td style="font-family:monospace;font-size:0.78em">${o.accessKey||'-'}</td>
+        </tr>`;
+    }).join('');
+}
 
-    document.getElementById('deviceChart').innerHTML = sorted.map(([dev, count], i) =>
-        `<div style="display:flex;align-items:center;gap:10px;margin:6px 0">
-            <span style="width:120px;font-size:0.82em;color:var(--white);font-weight:600;text-align:right">${dev}</span>
-            <div class="bar" style="width:${(count/max)*100}%;background:${colors[i%colors.length]}"></div>
-            <span style="font-size:0.78em;color:var(--dim)">${count}</span>
-        </div>`
+function renderPremium(orders){
+    if(!orders)orders=JSON.parse(localStorage.getItem('smc_orders')||'[]');
+    const paid=orders.filter(o=>o.status==='submitted');
+    document.getElementById('premiumTable').innerHTML=paid.map(o=>{
+        const time=o.time?new Date(o.time).toLocaleString('en-IN'):'?';
+        return `<tr>
+            <td style="font-size:0.85em">${time}</td>
+            <td>${o.plan||'?'}</td>
+            <td style="font-family:monospace;color:var(--accent)">${o.orderId||'?'}</td>
+            <td style="font-family:monospace">${o.txnId||'-'}</td>
+            <td style="font-family:monospace;font-size:0.78em">${o.deviceId||'-'}</td>
+            <td style="font-family:monospace">${o.accessKey||'-'}</td>
+            <td><span class="tag tag-paid">PAID</span></td>
+        </tr>`;
+    }).join('');
+}
+
+function renderSecLog(log,filter){
+    if(!log)log=JSON.parse(localStorage.getItem('smc_security_log')||'[]');
+    let data=[...log].reverse();
+    if(filter==='auth')data=data.filter(l=>l.type==='auth');
+    if(filter==='share')data=data.filter(l=>l.type==='share');
+    if(filter==='vip')data=data.filter(l=>l.type==='vip');
+    document.getElementById('securityLog').innerHTML=data.slice(0,200).map(l=>{
+        const cls=l.level==='warn'?'log-warn':'log-ok';
+        const icon=l.level==='warn'?'&#9888;':'&#9989;';
+        return `<div class="log-entry ${cls}"><span class="log-msg">${icon} ${l.msg}</span><span class="log-time">${l.localTime||new Date(l.time).toLocaleString('en-IN')}</span></div>`;
+    }).join('')||'<div class="empty">No security events yet.</div>';
+}
+
+function filterLog(type){
+    document.querySelectorAll('#tab-security .filter-btn').forEach(b=>b.classList.remove('active'));
+    event.target.classList.add('active');
+    renderSecLog(null,type);
+}
+
+function renderDeviceChart(visits){
+    if(!visits)visits=JSON.parse(localStorage.getItem('smc_visitors')||'[]');
+    const counts={};visits.forEach(v=>{const d=v.dev||v.deviceModel||'?';counts[d]=(counts[d]||0)+1});
+    const sorted=Object.entries(counts).sort((a,b)=>b[1]-a[1]);
+    const max=sorted[0]?.[1]||1;
+    const colors=['#8b5cf6','#6366f1','#3b82f6','#22d3ee','#14b8a6','#22c55e','#f59e0b','#ef4444','#ec4899','#a78bfa'];
+    document.getElementById('deviceChart').innerHTML=sorted.map(([d,c],i)=>
+        `<div style="display:flex;align-items:center;gap:10px;margin:6px 0"><span style="width:120px;font-size:0.82em;color:var(--white);font-weight:600;text-align:right">${d}</span><div class="bar" style="width:${(c/max)*100}%;background:${colors[i%colors.length]}"></div><span style="font-size:0.78em;color:var(--dim)">${c}</span></div>`
     ).join('');
 }
 
-// Page breakdown
-function renderPageChart() {
-    const counts = {};
-    visits.forEach(v => {
-        const pg = v.pg || v.page || 'unknown';
-        counts[pg] = (counts[pg] || 0) + 1;
-    });
-    const sorted = Object.entries(counts).sort((a, b) => b[1] - a[1]);
-    const max = sorted[0]?.[1] || 1;
-    const colors = ['#22c55e','#3b82f6','#f59e0b','#ef4444','#8b5cf6','#ec4899','#14b8a6','#22d3ee'];
-
-    document.getElementById('pageChart').innerHTML = sorted.map(([pg, count], i) =>
-        `<div style="display:flex;align-items:center;gap:10px;margin:6px 0">
-            <span style="width:140px;font-size:0.82em;color:var(--white);font-weight:600;text-align:right">${pg}</span>
-            <div class="bar" style="width:${(count/max)*100}%;background:${colors[i%colors.length]}"></div>
-            <span style="font-size:0.78em;color:var(--dim)">${count}</span>
-        </div>`
+function renderPageChart(visits){
+    if(!visits)visits=JSON.parse(localStorage.getItem('smc_visitors')||'[]');
+    const counts={};visits.forEach(v=>{const p=v.pg||v.page||'?';counts[p]=(counts[p]||0)+1});
+    const sorted=Object.entries(counts).sort((a,b)=>b[1]-a[1]);
+    const max=sorted[0]?.[1]||1;
+    const colors=['#22c55e','#3b82f6','#f59e0b','#ef4444','#8b5cf6','#ec4899','#14b8a6'];
+    document.getElementById('pageChart').innerHTML=sorted.map(([p,c],i)=>
+        `<div style="display:flex;align-items:center;gap:10px;margin:6px 0"><span style="width:140px;font-size:0.82em;color:var(--white);font-weight:600;text-align:right">${p}</span><div class="bar" style="width:${(c/max)*100}%;background:${colors[i%colors.length]}"></div><span style="font-size:0.78em;color:var(--dim)">${c}</span></div>`
     ).join('');
 }
 
-// Export CSV
-function exportCSV() {
-    const headers = ['Time','Device','OS','Browser','Screen','Network','Battery','Cores','RAM','Page','Referrer','Duration'];
-    const rows = visits.map(v => [
-        v.lt || v.localTime || '',
-        v.dev || v.deviceModel || '',
-        v.os || '',
-        v.br || v.browser || '',
-        v.scr || '',
-        typeof v.net === 'object' ? v.net.type : (v.net || ''),
-        v.bat || v.battery || '',
-        v.cores || '',
-        v.ram || '',
-        v.pg || v.page || '',
-        v.ref || v.referrer || '',
-        v.dur || v.timeSpent || ''
-    ]);
-    const csv = [headers, ...rows].map(r => r.map(c => '"' + String(c).replace(/"/g,'""') + '"').join(',')).join('\n');
-    const blob = new Blob([csv], { type: 'text/csv' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'smc_visitors_' + new Date().toISOString().split('T')[0] + '.csv';
-    a.click();
-    URL.revokeObjectURL(url);
+// TAB SWITCHING
+function switchTab(name){
+    document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+    event.target.classList.add('active');
+    document.getElementById('tab-'+name).classList.add('active');
 }
 
-// Clear data
-function clearData() {
-    if (confirm('This will delete all visitor tracking data. Are you sure?')) {
-        localStorage.removeItem('smc_visitors');
-        localStorage.removeItem('smc_clicks');
-        location.reload();
+// EXPORT CSV
+function exportCSV(){
+    const visits=JSON.parse(localStorage.getItem('smc_visitors')||'[]');
+    const headers=['Time','Device','OS','Browser','Screen','Network','Battery','Cores','RAM','Page','Referrer','Duration'];
+    const rows=visits.map(v=>[v.lt||v.localTime||'',v.dev||v.deviceModel||'',v.os||'',v.br||v.browser||'',v.scr||'',typeof v.net==='object'?v.net.type:(v.net||''),v.bat||v.battery||'',v.cores||'',v.ram||'',v.pg||v.page||'',v.ref||v.referrer||'',v.dur||v.timeSpent||'']);
+    const csv=[headers,...rows].map(r=>r.map(c=>'"'+String(c).replace(/"/g,'""')+'"').join(',')).join('\n');
+    const blob=new Blob([csv],{type:'text/csv'});
+    const url=URL.createObjectURL(blob);
+    const a=document.createElement('a');a.href=url;a.download='smc_visitors_'+new Date().toISOString().split('T')[0]+'.csv';a.click();URL.revokeObjectURL(url);
+}
+
+function clearData(){
+    if(confirm('Delete ALL visitor tracking data?')){
+        addSecLog('auth','Admin cleared all visitor data','warn');
+        localStorage.removeItem('smc_visitors');localStorage.removeItem('smc_clicks');
+        renderAll();
     }
 }
 
-// Render everything
-renderStats();
-renderVisits('all');
-renderClicks();
-renderDeviceChart();
-renderPageChart();
+function clearLog(){
+    if(confirm('Clear security log?')){
+        localStorage.removeItem('smc_security_log');
+        renderAll();
+    }
+}
 </script>
 </body>
 </html>
