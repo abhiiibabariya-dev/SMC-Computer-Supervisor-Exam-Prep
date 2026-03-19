@@ -122,6 +122,22 @@
         .elig-tip{background:linear-gradient(135deg,rgba(250,204,21,0.06),rgba(250,204,21,0.02));border:1px solid rgba(250,204,21,0.15);border-radius:12px;padding:14px;margin-top:12px;font-size:0.78em;color:#fde68a;line-height:1.5}
         .elig-tip b{color:var(--white)}
 
+        /* SMART CHARTS */
+        .charts-wrap{margin-bottom:28px}
+        .chart-card{background:var(--s1);border:1px solid var(--border);border-radius:16px;padding:22px;margin-bottom:14px}
+        .chart-card h3{color:var(--white);font-size:0.92em;font-weight:800;margin-bottom:16px}
+        .smart-bar{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+        .sb-label{width:110px;font-size:0.78em;color:var(--white);font-weight:600;text-align:right;flex-shrink:0}
+        .sb-track{flex:1;height:32px;background:rgba(255,255,255,0.04);border-radius:10px;overflow:hidden;position:relative}
+        .sb-fill{height:100%;border-radius:10px;display:flex;align-items:center;justify-content:flex-end;padding-right:10px;font-size:0.72em;font-weight:800;color:#fff;width:0;transition:width 2s cubic-bezier(0.16,1,0.3,1)}
+        .sb-count{width:60px;font-size:0.82em;color:var(--white);font-weight:800;text-align:left;flex-shrink:0;padding-left:6px}
+        .chart-stats{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px;margin-bottom:20px}
+        .cs-item{background:var(--s1);border:1px solid var(--border);border-radius:14px;padding:16px;text-align:center;transition:all 0.3s}
+        .cs-item:hover{transform:translateY(-3px);border-color:rgba(34,197,94,0.3);box-shadow:0 8px 24px rgba(0,0,0,0.3)}
+        .cs-num{font-size:1.8em;font-weight:900}
+        .cs-label{font-size:0.65em;color:var(--dim);text-transform:uppercase;letter-spacing:1.5px;margin-top:2px}
+        @media(max-width:768px){.sb-label{width:80px;font-size:0.7em}.sb-track{height:26px}.chart-stats{grid-template-columns:repeat(2,1fr)}}
+
         @media(max-width:768px){.nav{top:10px;padding:8px 14px;gap:8px}.hero{padding:80px 20px 20px}.job-top{flex-direction:column}}
     </style>
 </head>
@@ -154,6 +170,30 @@
         <a class="ql" href="https://gpsc.gujarat.gov.in" target="_blank">&#128218; GPSC</a>
         <a class="ql" href="https://gsssb.gujarat.gov.in" target="_blank">&#128218; GSSSB</a>
         <a class="ql" href="https://www.sarkariresult.com/gov-jobs/gujarat/" target="_blank">&#128270; Sarkari Result</a>
+    </div>
+
+    <!-- STATS OVERVIEW -->
+    <div class="chart-stats">
+        <div class="cs-item"><div class="cs-num" style="color:#22c55e">25,000+</div><div class="cs-label">Total Vacancies</div></div>
+        <div class="cs-item"><div class="cs-num" style="color:#3b82f6">20+</div><div class="cs-label">Organizations</div></div>
+        <div class="cs-item"><div class="cs-num" style="color:#f59e0b">6</div><div class="cs-label">Categories</div></div>
+        <div class="cs-item"><div class="cs-num" style="color:#a78bfa">2026</div><div class="cs-label">Recruitment Year</div></div>
+    </div>
+
+    <!-- SMART BAR CHARTS -->
+    <div class="charts-wrap">
+        <div class="chart-card">
+            <h3>&#128202; Jobs by Organization — 2026</h3>
+            <div id="orgChart"></div>
+        </div>
+        <div class="chart-card">
+            <h3>&#128200; Jobs by Category</h3>
+            <div id="catChart"></div>
+        </div>
+        <div class="chart-card">
+            <h3>&#128176; Salary Range Comparison</h3>
+            <div id="salaryChart"></div>
+        </div>
     </div>
 
     <!-- ELIGIBILITY GUIDE: What can I apply for? -->
@@ -779,6 +819,76 @@ function switchElig(id,btn){
     if(btn)btn.classList.add('active');
     document.getElementById('elig-'+id).classList.add('active');
 }
+
+// ===== SMART BAR CHARTS =====
+function renderCharts(){
+    // Jobs by Organization
+    const orgData=[
+        {name:'Gujarat Police (LRD)',count:10000,color:'#ef4444'},
+        {name:'SSC CGL/CHSL',count:12000,color:'#f59e0b'},
+        {name:'Railways NTPC',count:35000,color:'#3b82f6'},
+        {name:'SMC Surat',count:2295,color:'#a78bfa'},
+        {name:'GSSSB',count:1000,color:'#22c55e'},
+        {name:'GPSC Class 1-2',count:300,color:'#ec4899'},
+        {name:'NHM Gujarat',count:2000,color:'#14b8a6'},
+        {name:'GMERS Health',count:1000,color:'#06b6d4'},
+        {name:'Talati',count:2000,color:'#f97316'},
+        {name:'TET/TAT Teacher',count:5000,color:'#8b5cf6'},
+    ];
+    const maxOrg=Math.max(...orgData.map(d=>d.count));
+    document.getElementById('orgChart').innerHTML=orgData.map(d=>
+        `<div class="smart-bar"><span class="sb-label">${d.name}</span><div class="sb-track"><div class="sb-fill" style="background:${d.color};width:0" data-w="${(d.count/maxOrg*100).toFixed(0)}%"></div></div><span class="sb-count">${d.count>=1000?(d.count/1000).toFixed(d.count>=10000?0:1)+'K':d.count}</span></div>`
+    ).join('');
+
+    // Jobs by Category
+    const catData=[
+        {name:'Police/Defence',count:11800,color:'#ef4444'},
+        {name:'Municipal',count:3536,color:'#a78bfa'},
+        {name:'Education',count:5200,color:'#22c55e'},
+        {name:'Health',count:3050,color:'#ec4899'},
+        {name:'State Govt',count:3800,color:'#3b82f6'},
+        {name:'PSU/Board',count:350,color:'#f59e0b'},
+    ];
+    const maxCat=Math.max(...catData.map(d=>d.count));
+    document.getElementById('catChart').innerHTML=catData.map(d=>
+        `<div class="smart-bar"><span class="sb-label">${d.name}</span><div class="sb-track"><div class="sb-fill" style="background:${d.color};width:0" data-w="${(d.count/maxCat*100).toFixed(0)}%"></div></div><span class="sb-count">${d.count>=1000?(d.count/1000).toFixed(1)+'K':d.count}</span></div>`
+    ).join('');
+
+    // Salary comparison
+    const salData=[
+        {name:'GPSC Class 1',min:56,max:177,color:'#f59e0b'},
+        {name:'SSC CGL',min:25,max:151,color:'#3b82f6'},
+        {name:'Banking PO',min:36,max:95,color:'#22c55e'},
+        {name:'SMC Supervisor',min:25,max:81,color:'#a78bfa'},
+        {name:'SMC Clerk',min:19,max:63,color:'#818cf8'},
+        {name:'Police SI',min:39,max:126,color:'#ef4444'},
+        {name:'Constable',min:19,max:63,color:'#f97316'},
+        {name:'Talati',min:19,max:63,color:'#14b8a6'},
+    ];
+    const maxSal=Math.max(...salData.map(d=>d.max));
+    document.getElementById('salaryChart').innerHTML=salData.map(d=>
+        `<div class="smart-bar"><span class="sb-label">${d.name}</span><div class="sb-track"><div class="sb-fill" style="background:linear-gradient(90deg,${d.color}88,${d.color});width:0;margin-left:${(d.min/maxSal*100).toFixed(0)}%" data-w="${((d.max-d.min)/maxSal*100).toFixed(0)}%"></div></div><span class="sb-count">&#8377;${d.min}K-${d.max}K</span></div>`
+    ).join('');
+
+    // Animate bars on scroll
+    setTimeout(()=>{
+        document.querySelectorAll('.sb-fill').forEach(bar=>{
+            bar.style.width=bar.dataset.w;
+        });
+    },500);
+}
+
+renderCharts();
+
+// Re-animate on scroll into view
+const chartObs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+        if(e.isIntersecting){
+            e.target.querySelectorAll('.sb-fill').forEach(bar=>{bar.style.width=bar.dataset.w});
+        }
+    });
+},{threshold:0.2});
+document.querySelectorAll('.chart-card').forEach(c=>chartObs.observe(c));
 
 // Initial render
 renderJobs('all');
