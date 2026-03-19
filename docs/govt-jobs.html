@@ -16,13 +16,21 @@
         .noise{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:0.03;background:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
         .page{position:relative;z-index:1}
 
+        /* UNIQUE GREEN GLOW MESH BACKGROUND */
+        .gj-mesh{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+        .gj-mesh i{position:absolute;border-radius:50%;filter:blur(100px);mix-blend-mode:screen;animation:gjMesh 20s ease-in-out infinite alternate}
+        .gj-mesh .g1{width:35vw;height:35vw;background:rgba(34,197,94,0.06);top:-10%;left:10%;animation-delay:0s}
+        .gj-mesh .g2{width:30vw;height:30vw;background:rgba(14,165,233,0.05);bottom:10%;right:-5%;animation-delay:-8s}
+        .gj-mesh .g3{width:25vw;height:25vw;background:rgba(250,204,21,0.04);top:50%;left:60%;animation-delay:-14s}
+        @keyframes gjMesh{0%{transform:translate(0,0) scale(1)}50%{transform:translate(50px,-30px) scale(1.15)}100%{transform:translate(-30px,50px) scale(0.9)}}
+
         .nav{position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:100;background:rgba(12,12,20,0.8);backdrop-filter:blur(24px);border:1px solid var(--border);border-radius:16px;padding:10px 20px;display:flex;align-items:center;gap:12px}
         .nav a{color:var(--txt);text-decoration:none;font-size:0.82em;font-weight:600;transition:color 0.2s}.nav a:hover{color:var(--white)}
         .nav .logo{color:var(--white);font-weight:800;font-size:0.9em}
 
         .hero{text-align:center;padding:90px 24px 30px}
         .hero h1{font-size:clamp(1.8em,4vw,2.8em);font-weight:900;color:var(--white);letter-spacing:-1px;line-height:1.1}
-        .hero h1 .gr{background:linear-gradient(135deg,#818cf8,#c084fc,#e879f9);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+        .hero h1 .gr{background:linear-gradient(135deg,#22c55e,#14b8a6,#06b6d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
         .hero p{color:var(--txt);font-size:0.95em;margin-top:10px;max-width:500px;margin-left:auto;margin-right:auto}
 
         .main{max-width:900px;margin:0 auto;padding:0 24px 60px}
@@ -96,11 +104,30 @@
         .jd-study-card .sicon{font-size:1.3em;display:block;margin-bottom:4px}
         .jd-study-card .sname{font-weight:700;color:var(--white);font-size:0.95em}
 
+        /* ELIGIBILITY GUIDE */
+        .elig-section{margin-bottom:24px}
+        .elig-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+        .elig-tab{background:var(--s2);border:1px solid var(--border);color:var(--dim);padding:10px 18px;border-radius:12px;font-size:0.78em;font-weight:700;cursor:pointer;font-family:inherit;transition:all 0.2s}
+        .elig-tab.active{background:rgba(139,92,246,0.12);color:#c4b5fd;border-color:rgba(139,92,246,0.3)}
+        .elig-tab:hover{color:var(--white);border-color:rgba(139,92,246,0.2)}
+        .elig-panel{display:none}
+        .elig-panel.active{display:block}
+        .elig-card{background:var(--s1);border:1px solid var(--border);border-radius:14px;padding:16px;margin-bottom:10px;transition:all 0.3s}
+        .elig-card:hover{border-color:rgba(139,92,246,0.2)}
+        .elig-org{font-size:0.68em;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:1px}
+        .elig-title{color:var(--white);font-weight:800;font-size:0.92em;margin:4px 0}
+        .elig-info{color:var(--txt);font-size:0.78em;line-height:1.5}
+        .elig-info b{color:var(--white)}
+        .elig-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+        .elig-tip{background:linear-gradient(135deg,rgba(250,204,21,0.06),rgba(250,204,21,0.02));border:1px solid rgba(250,204,21,0.15);border-radius:12px;padding:14px;margin-top:12px;font-size:0.78em;color:#fde68a;line-height:1.5}
+        .elig-tip b{color:var(--white)}
+
         @media(max-width:768px){.nav{top:10px;padding:8px 14px;gap:8px}.hero{padding:80px 20px 20px}.job-top{flex-direction:column}}
     </style>
 </head>
 <body>
 
+<div class="gj-mesh"><i class="g1"></i><i class="g2"></i><i class="g3"></i></div>
 <div class="noise"></div>
 <div class="page">
 
@@ -127,6 +154,315 @@
         <a class="ql" href="https://gpsc.gujarat.gov.in" target="_blank">&#128218; GPSC</a>
         <a class="ql" href="https://gsssb.gujarat.gov.in" target="_blank">&#128218; GSSSB</a>
         <a class="ql" href="https://www.sarkariresult.com/gov-jobs/gujarat/" target="_blank">&#128270; Sarkari Result</a>
+    </div>
+
+    <!-- ELIGIBILITY GUIDE: What can I apply for? -->
+    <div class="elig-section">
+        <div class="cat-header"><span class="dot" style="background:#f59e0b"></span>What Can I Apply For?</div>
+
+        <div class="elig-tabs">
+            <button class="elig-tab active" onclick="switchElig('below10',this)">&#128546; 10th Fail / Below 10th</button>
+            <button class="elig-tab" onclick="switchElig('pass10',this)">&#128218; 10th Pass</button>
+            <button class="elig-tab" onclick="switchElig('pass12',this)">&#127891; 12th Pass</button>
+            <button class="elig-tab" onclick="switchElig('iti',this)">&#128295; ITI Pass</button>
+            <button class="elig-tab" onclick="switchElig('graduate',this)">&#127891; Graduate</button>
+        </div>
+
+        <!-- 10th FAIL -->
+        <div class="elig-panel active" id="elig-below10">
+            <div class="elig-card">
+                <div class="elig-org">Gujarat Government</div>
+                <div class="elig-title">Class 4 / Group D Posts</div>
+                <div class="elig-info">
+                    <b>Posts:</b> Peon, Sweeper, Mali (Gardener), Watchman, Safai Kamdar<br>
+                    <b>Where:</b> Municipal Corporations, Panchayats, Government Offices<br>
+                    <b>Salary:</b> Rs 14,800 — 47,100<br>
+                    <b>How to apply:</b> Check OJAS Gujarat or local municipal corporation websites<br>
+                    <b>Exam:</b> Usually no written exam — interview or merit based
+                </div>
+                <div class="elig-tags">
+                    <span class="job-tag tag-salary">Rs 14,800+</span>
+                    <span class="job-tag tag-qual">No exam usually</span>
+                </div>
+            </div>
+            <div class="elig-card">
+                <div class="elig-org">Indian Railways</div>
+                <div class="elig-title">Track Man, Helper, Safai Karamchari</div>
+                <div class="elig-info">
+                    <b>Posts:</b> Track Maintainer, Helper, Safai Karamchari in Railway zones<br>
+                    <b>Salary:</b> Rs 18,000 — 56,900<br>
+                    <b>How to apply:</b> <a href="https://www.rrcwcr.in" target="_blank">rrcwcr.in</a> (Railway Recruitment Cell)<br>
+                    <b>Exam:</b> Written test or merit + physical
+                </div>
+            </div>
+            <div class="elig-tip">
+                &#128161; <b>Tip:</b> If you haven't passed 10th, consider appearing for NIOS (National Institute of Open Schooling) — you can complete 10th through open schooling while working. This will open many more government job opportunities for you.
+            </div>
+        </div>
+
+        <!-- 10th PASS -->
+        <div class="elig-panel" id="elig-pass10">
+            <div class="elig-card">
+                <div class="elig-org">SMC / Municipal Corporations</div>
+                <div class="elig-title">Marshal (Watch & Ward) — 323 Posts in SMC</div>
+                <div class="elig-info">
+                    <b>Qualification:</b> 10th Pass<br>
+                    <b>Salary:</b> Rs 15,700 — 50,000<br>
+                    <b>Selection:</b> Written Exam (100 MCQs) + Physical Test (Running, Jump, Height/Weight)<br>
+                    <b>Age:</b> 18-33 years<br>
+                    <b>Physical:</b> Male: Height 165cm, Chest 79cm | Female: Height 155cm
+                </div>
+                <div class="elig-tags">
+                    <span class="job-tag tag-posts">323 Posts</span>
+                    <span class="job-tag tag-salary">Rs 15,700+</span>
+                    <span class="job-tag tag-live">SMC 2026</span>
+                </div>
+            </div>
+            <div class="elig-card">
+                <div class="elig-org">SMC / Municipal Corporations</div>
+                <div class="elig-title">Driver — 444 Posts in SMC</div>
+                <div class="elig-info">
+                    <b>Qualification:</b> 10th Pass + Valid Driving License (LMV/HMV)<br>
+                    <b>Salary:</b> Rs 19,900 — 63,200<br>
+                    <b>Selection:</b> Driving Test + Written Exam<br>
+                    <b>Age:</b> 21-35 years
+                </div>
+                <div class="elig-tags">
+                    <span class="job-tag tag-posts">444 Posts</span>
+                    <span class="job-tag tag-salary">Rs 19,900+</span>
+                    <span class="job-tag tag-live">SMC 2026</span>
+                </div>
+            </div>
+            <div class="elig-card">
+                <div class="elig-org">Gujarat Police (LRD)</div>
+                <div class="elig-title">Police Constable / Armed Constable / Jail Sepoy</div>
+                <div class="elig-info">
+                    <b>Qualification:</b> 10th Pass (some posts) / 12th (most posts)<br>
+                    <b>Salary:</b> Rs 19,900 — 63,200<br>
+                    <b>Selection:</b> Written + Physical Test + Medical<br>
+                    <b>Posts:</b> 10,000+ expected in next recruitment
+                </div>
+                <div class="elig-tags">
+                    <span class="job-tag tag-posts">10,000+ Posts</span>
+                    <span class="job-tag tag-salary">Rs 19,900+</span>
+                </div>
+            </div>
+            <div class="elig-card">
+                <div class="elig-org">Indian Army / Navy / Air Force</div>
+                <div class="elig-title">Soldier GD, Tradesman, Indian Navy MR</div>
+                <div class="elig-info">
+                    <b>Qualification:</b> 10th Pass<br>
+                    <b>Salary:</b> Rs 21,700 — 69,100 + allowances<br>
+                    <b>Selection:</b> Rally → Physical → Medical → Written (CEE)<br>
+                    <b>Apply:</b> <a href="https://joinindianarmy.nic.in" target="_blank">joinindianarmy.nic.in</a>
+                </div>
+            </div>
+            <div class="elig-card">
+                <div class="elig-org">Gujarat / India Post</div>
+                <div class="elig-title">Postman, Mail Guard, MTS</div>
+                <div class="elig-info">
+                    <b>Qualification:</b> 10th Pass<br>
+                    <b>Salary:</b> Rs 18,000 — 56,900<br>
+                    <b>Apply:</b> <a href="https://www.indiapost.gov.in" target="_blank">indiapost.gov.in</a>
+                </div>
+            </div>
+            <div class="elig-tip">
+                &#128161; <b>Tip:</b> With 10th pass you can apply for 700+ posts in SMC alone (Marshal + Driver). Also prepare for LRD (Police) — 10,000+ posts expected. Our <a href="marshal.html" style="color:#c4b5fd">Marshal Guide</a> covers all the topics.
+            </div>
+        </div>
+
+        <!-- 12th PASS -->
+        <div class="elig-panel" id="elig-pass12">
+            <div class="elig-card">
+                <div class="elig-org">Gujarat Police (LRD)</div>
+                <div class="elig-title">Police Constable (Unarmed) + Armed Constable</div>
+                <div class="elig-info">
+                    <b>Qualification:</b> 12th Pass<br>
+                    <b>Posts:</b> 10,000+ (Constable, SRPF, Jail Sepoy)<br>
+                    <b>Salary:</b> Rs 19,900 — 63,200<br>
+                    <b>Selection:</b> Written (100 MCQs) + Physical + Medical
+                </div>
+                <div class="elig-tags">
+                    <span class="job-tag tag-posts">10,000+ Posts</span>
+                    <span class="job-tag tag-salary">Rs 19,900+</span>
+                </div>
+            </div>
+            <div class="elig-card">
+                <div class="elig-org">Gujarat Forest Department</div>
+                <div class="elig-title">Forest Guard / Vanrakshak</div>
+                <div class="elig-info">
+                    <b>Qualification:</b> 12th Pass<br>
+                    <b>Posts:</b> 800+ expected<br>
+                    <b>Salary:</b> Rs 19,900 — 63,200<br>
+                    <b>Selection:</b> Written + Physical (Running 25km!) + Medical
+                </div>
+            </div>
+            <div class="elig-card">
+                <div class="elig-org">SSC (Staff Selection Commission)</div>
+                <div class="elig-title">SSC CHSL — LDC, DEO, PA/SA</div>
+                <div class="elig-info">
+                    <b>Qualification:</b> 12th Pass<br>
+                    <b>Posts:</b> 4,000+ (All India)<br>
+                    <b>Salary:</b> Rs 25,500 — 81,100<br>
+                    <b>Selection:</b> Tier 1 (MCQ) + Tier 2 (Descriptive + MCQ) + Typing Test<br>
+                    <b>Apply:</b> <a href="https://ssc.nic.in" target="_blank">ssc.nic.in</a>
+                </div>
+            </div>
+            <div class="elig-card">
+                <div class="elig-org">Indian Railways</div>
+                <div class="elig-title">RRB NTPC — Station Master, Goods Guard, Clerk</div>
+                <div class="elig-info">
+                    <b>Qualification:</b> 12th Pass (some posts Graduate)<br>
+                    <b>Posts:</b> 35,000+ (All India)<br>
+                    <b>Salary:</b> Rs 19,900 — 92,300<br>
+                    <b>Apply:</b> <a href="https://www.rrbcdg.gov.in" target="_blank">rrbcdg.gov.in</a>
+                </div>
+            </div>
+            <div class="elig-card">
+                <div class="elig-org">Indian Defence</div>
+                <div class="elig-title">Agniveer (Army, Navy, Air Force)</div>
+                <div class="elig-info">
+                    <b>Qualification:</b> 12th Pass (Science for Navy/AF tech)<br>
+                    <b>Salary:</b> Rs 30,000/month (Year 1) to Rs 40,000 (Year 4)<br>
+                    <b>Age:</b> 17.5 — 21 years<br>
+                    <b>Apply:</b> <a href="https://joinindianarmy.nic.in" target="_blank">joinindianarmy.nic.in</a>
+                </div>
+            </div>
+            <div class="elig-tip">
+                &#128161; <b>Tip:</b> 12th pass opens HUGE opportunities — Police (10,000+), SSC CHSL (4,000+), Railways NTPC (35,000+), Agniveer. Start with our <a href="mock-test.html" style="color:#c4b5fd">Mock Tests</a> for GK practice.
+            </div>
+        </div>
+
+        <!-- ITI PASS -->
+        <div class="elig-panel" id="elig-iti">
+            <div class="elig-card">
+                <div class="elig-org">Indian Railways</div>
+                <div class="elig-title">RRB ALP (Assistant Loco Pilot) & Technician</div>
+                <div class="elig-info">
+                    <b>Qualification:</b> 10th + ITI (relevant trade) OR Diploma<br>
+                    <b>Posts:</b> 5,000+ (All India)<br>
+                    <b>Salary:</b> Rs 19,900 — 63,200 (ALP: Rs 35,000+ with allowances)<br>
+                    <b>Trades:</b> Electrician, Fitter, Mechanic, Welder, Turner, Machinist<br>
+                    <b>Apply:</b> <a href="https://www.rrbcdg.gov.in" target="_blank">rrbcdg.gov.in</a>
+                </div>
+                <div class="elig-tags">
+                    <span class="job-tag tag-posts">5,000+ Posts</span>
+                    <span class="job-tag tag-salary">Rs 35,000+</span>
+                </div>
+            </div>
+            <div class="elig-card">
+                <div class="elig-org">Gujarat State Electricity (GSECL/GETCO/DGVCL)</div>
+                <div class="elig-title">Vidyut Sahayak (Junior), Lineman, Technician</div>
+                <div class="elig-info">
+                    <b>Qualification:</b> ITI (Electrician/Wireman/Electronics)<br>
+                    <b>Salary:</b> Rs 16,500 — 25,000 (fixed) then regular<br>
+                    <b>Selection:</b> Written Exam + Interview<br>
+                    <b>Apply:</b> Check respective company website (GSECL, GETCO, DGVCL, MGVCL, PGVCL)
+                </div>
+            </div>
+            <div class="elig-card">
+                <div class="elig-org">ONGC / IOCL / BPCL / HPCL</div>
+                <div class="elig-title">Technician Apprentice, Junior Assistant</div>
+                <div class="elig-info">
+                    <b>Qualification:</b> ITI + NCVT certificate<br>
+                    <b>Trades:</b> Fitter, Electrician, Mechanic, Instrument, Welder<br>
+                    <b>Salary:</b> Rs 25,000 — 65,000<br>
+                    <b>Apply:</b> Check respective PSU websites
+                </div>
+            </div>
+            <div class="elig-card">
+                <div class="elig-org">Gujarat Industrial Development</div>
+                <div class="elig-title">Factory Jobs — ITI Apprentice in GIDC Companies</div>
+                <div class="elig-info">
+                    <b>Qualification:</b> ITI in any trade<br>
+                    <b>Stipend:</b> Rs 7,000 — 9,000/month during apprenticeship<br>
+                    <b>After:</b> Regular job with Rs 15,000 — 30,000<br>
+                    <b>Apply:</b> <a href="https://apprenticeshipindia.gov.in" target="_blank">apprenticeshipindia.gov.in</a>
+                </div>
+            </div>
+            <div class="elig-card">
+                <div class="elig-org">Municipal Corporations</div>
+                <div class="elig-title">Technical Assistant, Wireman, Plumber, Fitter</div>
+                <div class="elig-info">
+                    <b>Qualification:</b> ITI in relevant trade<br>
+                    <b>Where:</b> SMC, AMC, VMC, RMC — various technical posts<br>
+                    <b>Salary:</b> Rs 19,900 — 63,200<br>
+                    <b>Apply:</b> Check respective municipal corporation websites
+                </div>
+            </div>
+            <div class="elig-tip">
+                &#128161; <b>Tip:</b> ITI pass is GOLD for government technical jobs! Railway ALP (5000+ posts) and Electricity Board jobs are the best options. Register on <a href="https://apprenticeshipindia.gov.in" target="_blank" style="color:#c4b5fd">apprenticeshipindia.gov.in</a> for apprenticeship opportunities too.
+            </div>
+        </div>
+
+        <!-- GRADUATE -->
+        <div class="elig-panel" id="elig-graduate">
+            <div class="elig-card">
+                <div class="elig-org">SMC 2026</div>
+                <div class="elig-title">Clerk (717) + Computer Supervisor (12) + More</div>
+                <div class="elig-info">
+                    <b>Clerk:</b> Bachelor's + CCC certificate | <b>Salary:</b> Rs 19,900 — 63,200<br>
+                    <b>Computer Supervisor:</b> Graduate + Computer knowledge | <b>Salary:</b> Rs 25,500 — 81,100<br>
+                    <b>Lab Tech:</b> B.Sc + DMLT | <b>Jr Analyst:</b> M.Sc Microbiology
+                </div>
+                <div class="elig-tags">
+                    <span class="job-tag tag-posts">770+ Posts</span>
+                    <span class="job-tag tag-live">APPLY APR 2026</span>
+                </div>
+            </div>
+            <div class="elig-card">
+                <div class="elig-org">GSSSB</div>
+                <div class="elig-title">Bin Sachivalay Clerk, Head Clerk, Office Assistant</div>
+                <div class="elig-info">
+                    <b>Qualification:</b> Graduate + CCC certificate<br>
+                    <b>Posts:</b> 1,000+ expected<br>
+                    <b>Salary:</b> Rs 19,900 — 63,200<br>
+                    <b>Exam:</b> 100 MCQs — Gujarati, English, GK, Maths, Computer
+                </div>
+            </div>
+            <div class="elig-card">
+                <div class="elig-org">GPSC</div>
+                <div class="elig-title">Class 1-2 (IAS/IPS level for Gujarat)</div>
+                <div class="elig-info">
+                    <b>Qualification:</b> Graduate (any discipline)<br>
+                    <b>Salary:</b> Rs 56,100 — 1,77,500 (Class 1)<br>
+                    <b>Selection:</b> Prelims + Mains + Interview<br>
+                    <b>Posts:</b> Deputy Collector, DSP, Mamlatdar, Municipal Chief Officer
+                </div>
+            </div>
+            <div class="elig-card">
+                <div class="elig-org">Gujarat Revenue</div>
+                <div class="elig-title">Talati cum Mantri (Village Revenue Officer)</div>
+                <div class="elig-info">
+                    <b>Qualification:</b> Graduate + CCC + Gujarati typing<br>
+                    <b>Salary:</b> Rs 19,900 — 63,200<br>
+                    <b>Posts:</b> 2,000+ expected<br>
+                    <b>Most popular Gujarat govt exam!</b>
+                </div>
+            </div>
+            <div class="elig-card">
+                <div class="elig-org">Banking</div>
+                <div class="elig-title">IBPS Clerk, PO, SBI Clerk, RBI Assistant</div>
+                <div class="elig-info">
+                    <b>Qualification:</b> Graduate (any stream)<br>
+                    <b>Salary:</b> Rs 26,000 — 65,000 (Clerk) | Rs 36,000 — 95,000 (PO)<br>
+                    <b>Apply:</b> <a href="https://www.ibps.in" target="_blank">ibps.in</a> | <a href="https://sbi.co.in" target="_blank">sbi.co.in</a>
+                </div>
+            </div>
+            <div class="elig-card">
+                <div class="elig-org">SSC (Central Govt)</div>
+                <div class="elig-title">SSC CGL — Inspector, Auditor, Tax Assistant</div>
+                <div class="elig-info">
+                    <b>Qualification:</b> Graduate<br>
+                    <b>Salary:</b> Rs 25,500 — 1,51,100<br>
+                    <b>Posts:</b> 8,000+ (All India) — Income Tax, Customs, CBI, NIA<br>
+                    <b>Apply:</b> <a href="https://ssc.nic.in" target="_blank">ssc.nic.in</a>
+                </div>
+            </div>
+            <div class="elig-tip">
+                &#128161; <b>Tip:</b> Graduates have the MOST options — SMC (770+), GSSSB (1000+), GPSC, Talati (2000+), Banking, SSC CGL (8000+). Start with our <a href="clerk.html" style="color:#c4b5fd">Clerk Guide</a> and <a href="supervisor.html" style="color:#c4b5fd">Supervisor Guide</a> for SMC. Use <a href="mock-test.html" style="color:#c4b5fd">Mock Tests</a> for practice.
+            </div>
+        </div>
     </div>
 
     <!-- FILTERS -->
@@ -434,6 +770,14 @@ function filterJobs(cat,btn){
     document.querySelectorAll('.filter').forEach(f=>f.classList.remove('active'));
     if(btn)btn.classList.add('active');
     renderJobs(cat);
+}
+
+// Eligibility tab switching
+function switchElig(id,btn){
+    document.querySelectorAll('.elig-tab').forEach(t=>t.classList.remove('active'));
+    document.querySelectorAll('.elig-panel').forEach(p=>p.classList.remove('active'));
+    if(btn)btn.classList.add('active');
+    document.getElementById('elig-'+id).classList.add('active');
 }
 
 // Initial render
