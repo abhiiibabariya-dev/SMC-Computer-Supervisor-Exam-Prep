@@ -1,0 +1,32 @@
+name: Daily Content Update
+
+on:
+  schedule:
+    # Runs every day at 1:00 AM IST (7:30 PM UTC previous day)
+    - cron: '30 19 * * *'
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  update-daily:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Update last-updated timestamp
+        run: |
+          # Update the last-updated date in index.html
+          DATE=$(TZ='Asia/Kolkata' date '+%d %B %Y')
+          sed -i "s/Last updated: .* &middot;/Last updated: $DATE \&middot;/" docs/index.html
+          echo "Updated date to: $DATE"
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "actions@github.com"
+          git add -A
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Auto-update: Daily content refresh $(TZ='Asia/Kolkata' date '+%d-%b-%Y')"
+            git push
+          fi
