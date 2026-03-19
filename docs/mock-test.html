@@ -271,9 +271,9 @@
                 </div>
             </div>
 
-            <!-- Mock 4 - LOCKED -->
-            <div class="test-card locked">
-                <span class="tc-badge premium">PREMIUM</span>
+            <!-- Mock 4 - COMING SOON -->
+            <div class="test-card locked" id="card4">
+                <span class="tc-badge premium">COMING SOON</span>
                 <span class="tc-icon">&#128171;</span>
                 <div class="tc-title">Mock Test 4-10</div>
                 <div class="tc-desc">7 more full-length mock tests with 100 questions each, detailed explanations.</div>
@@ -281,16 +281,16 @@
                     <span class="tc-stat"><b>700</b> Questions</span>
                     <span class="tc-stat"><b>100</b> Each</span>
                 </div>
-                <div class="lock-overlay" onclick="window.location.href='premium.html'">
-                    <div class="lock-icon">&#128274;</div>
-                    <div class="lock-text">Premium &mdash; Unlock Now</div>
-                    <div class="lock-sub">Tap to get access</div>
+                <div class="lock-overlay" onclick="handleLocked()">
+                    <div class="lock-icon">&#128679;</div>
+                    <div class="lock-text">Coming Soon</div>
+                    <div class="lock-sub">These tests are being prepared</div>
                 </div>
             </div>
 
-            <!-- Subject-wise - LOCKED -->
-            <div class="test-card locked">
-                <span class="tc-badge premium">PREMIUM</span>
+            <!-- Subject-wise - COMING SOON -->
+            <div class="test-card locked" id="card5">
+                <span class="tc-badge premium">COMING SOON</span>
                 <span class="tc-icon">&#128218;</span>
                 <div class="tc-title">Subject-Wise Tests</div>
                 <div class="tc-desc">Separate tests for Computer, GK, English, Maths, Gujarati with topic breakdown.</div>
@@ -298,16 +298,16 @@
                     <span class="tc-stat"><b>500+</b> Questions</span>
                     <span class="tc-stat"><b>10</b> Tests</span>
                 </div>
-                <div class="lock-overlay" onclick="window.location.href='premium.html'">
-                    <div class="lock-icon">&#128274;</div>
-                    <div class="lock-text">Premium &mdash; Unlock Now</div>
-                    <div class="lock-sub">Tap to get access</div>
+                <div class="lock-overlay" onclick="handleLocked()">
+                    <div class="lock-icon">&#128679;</div>
+                    <div class="lock-text">Coming Soon</div>
+                    <div class="lock-sub">These tests are being prepared</div>
                 </div>
             </div>
 
-            <!-- Previous Year - LOCKED -->
-            <div class="test-card locked">
-                <span class="tc-badge locked">LOCKED</span>
+            <!-- Previous Year - COMING SOON -->
+            <div class="test-card locked" id="card6">
+                <span class="tc-badge locked">COMING SOON</span>
                 <span class="tc-icon">&#128196;</span>
                 <div class="tc-title">Previous Year Papers</div>
                 <div class="tc-desc">Real questions from past SMC exams with answer keys and analysis.</div>
@@ -315,10 +315,10 @@
                     <span class="tc-stat"><b>300+</b> Questions</span>
                     <span class="tc-stat">Past Papers</span>
                 </div>
-                <div class="lock-overlay" onclick="window.location.href='premium.html'">
-                    <div class="lock-icon">&#128274;</div>
-                    <div class="lock-text">Premium &mdash; Unlock Now</div>
-                    <div class="lock-sub">Tap to get access</div>
+                <div class="lock-overlay" onclick="handleLocked()">
+                    <div class="lock-icon">&#128679;</div>
+                    <div class="lock-text">Coming Soon</div>
+                    <div class="lock-sub">These tests are being prepared</div>
                 </div>
             </div>
         </div>
@@ -479,6 +479,10 @@ async function isPremium(){
         return false;
     }
     return true;
+}
+
+function handleLocked(){
+    alert('These mock tests are coming soon! We are preparing 700+ new questions. For now, try the 3 free mock tests available above.');
 }
 
 // ===== MOCK TEST QUESTION BANKS =====
