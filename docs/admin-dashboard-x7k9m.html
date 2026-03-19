@@ -347,19 +347,19 @@ async function fetchCloud(){
     if(!FIREBASE_URL)return;
     try{
         // Fetch visits from Firebase
-        const vRes=await fetch(FIREBASE_URL+'/visits.json?orderBy="$key"&limitToLast=500');
+        const vRes=await fetch(FIREBASE_URL+'/visits.json');
         if(vRes.ok){
             const vData=await vRes.json();
             if(vData){
-                cloudVisits=Object.values(vData).filter(v=>v&&v.t&&!v.update);
+                cloudVisits=Object.values(vData).filter(v=>v&&(v.t||v.timestamp||v.localTime)&&!v.update);
             }
         }
         // Fetch clicks from Firebase
-        const cRes=await fetch(FIREBASE_URL+'/clicks.json?orderBy="$key"&limitToLast=300');
+        const cRes=await fetch(FIREBASE_URL+'/clicks.json');
         if(cRes.ok){
             const cData=await cRes.json();
             if(cData){
-                cloudClicks=Object.values(cData).filter(c=>c&&c.t);
+                cloudClicks=Object.values(cData).filter(c=>c&&(c.t||c.time));
             }
         }
     }catch(e){console.log('Cloud fetch error:',e)}
@@ -370,7 +370,15 @@ function renderAll(){
     // Merge cloud + local data (cloud takes priority, local as fallback)
     const localVisits=JSON.parse(localStorage.getItem('smc_visitors')||'[]');
     const localClicks=JSON.parse(localStorage.getItem('smc_clicks')||'[]');
-    const visits=cloudVisits.length>0?cloudVisits:localVisits;
+    // Normalize cloud data field names to match what renderVisits expects
+    const normalizedCloud=cloudVisits.map(v=>({
+        t:v.t||v.timestamp||'',lt:v.lt||v.localTime||'',dev:v.dev||v.deviceModel||'?',
+        os:v.os||'?',br:v.br||v.browser||'?',scr:v.scr||(v.screenWidth?v.screenWidth+'x'+v.screenHeight:'')||'?',
+        mob:v.mob||(v.deviceType==='Mobile'),net:v.net||(v.connection?v.connection.type||v.connection:'?'),
+        bat:v.bat||v.battery||'?',cores:v.cores||'?',ram:v.ram||'?',
+        pg:v.pg||v.page||'?',ref:v.ref||v.referrer||'Direct',dur:v.dur||v.timeSpent||'-'
+    }));
+    const visits=normalizedCloud.length>0?normalizedCloud:localVisits;
     const clicks=cloudClicks.length>0?cloudClicks:localClicks;
     const orders=JSON.parse(localStorage.getItem('smc_orders')||'[]');
     const secLog=JSON.parse(localStorage.getItem('smc_security_log')||'[]');
