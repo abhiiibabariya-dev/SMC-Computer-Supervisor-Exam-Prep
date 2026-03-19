@@ -191,6 +191,128 @@
         .sr.v .k:nth-child(7){animation-delay:0.35s}.sr.v .k:nth-child(8){animation-delay:0.4s}.sr.v .k:nth-child(9){animation-delay:0.45s}
         @keyframes cardIn{to{opacity:1;transform:none}}
 
+        /* ============ LOADING SCREEN ============ */
+        .loader-screen{position:fixed;inset:0;z-index:9999;background:#06060a;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity 0.6s,visibility 0.6s}
+        .loader-screen.hide{opacity:0;visibility:hidden;pointer-events:none}
+        .loader-ring{width:60px;height:60px;border-radius:50%;border:3px solid rgba(139,92,246,0.1);border-top-color:#a78bfa;animation:loaderSpin 0.8s linear infinite}
+        @keyframes loaderSpin{to{transform:rotate(360deg)}}
+        .loader-text{margin-top:18px;color:#a78bfa;font-weight:700;font-size:0.9em;letter-spacing:2px;animation:loaderPulse 1.5s ease infinite}
+        @keyframes loaderPulse{0%,100%{opacity:0.5}50%{opacity:1}}
+
+        /* ============ SCROLL PROGRESS BAR ============ */
+        .scroll-progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,#7c3aed,#c084fc,#e879f9,#818cf8);z-index:9998;width:0%;transition:width 0.1s linear;box-shadow:0 0 10px rgba(139,92,246,0.5)}
+
+        /* ============ CUSTOM CURSOR ============ */
+        .cursor-dot{position:fixed;width:8px;height:8px;background:#a78bfa;border-radius:50%;pointer-events:none;z-index:9997;transition:transform 0.1s;mix-blend-mode:screen}
+        .cursor-ring{position:fixed;width:35px;height:35px;border:2px solid rgba(167,139,250,0.4);border-radius:50%;pointer-events:none;z-index:9997;transition:all 0.15s ease-out;mix-blend-mode:screen}
+        .cursor-ring.hover{width:50px;height:50px;border-color:rgba(167,139,250,0.8);background:rgba(167,139,250,0.05)}
+        @media(max-width:768px){.cursor-dot,.cursor-ring{display:none}}
+
+        /* ============ AURORA EFFECT ============ */
+        .aurora{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+        .aurora-beam{position:absolute;width:200%;height:300px;top:-100px;left:-50%;background:linear-gradient(90deg,transparent,rgba(99,102,241,0.03),rgba(139,92,246,0.05),rgba(236,72,153,0.03),transparent);transform-origin:center;animation:auroraWave 12s ease-in-out infinite;filter:blur(40px)}
+        .aurora-beam:nth-child(2){animation-delay:-4s;top:30%;background:linear-gradient(90deg,transparent,rgba(14,165,233,0.03),rgba(139,92,246,0.04),rgba(99,102,241,0.03),transparent);animation-duration:15s}
+        .aurora-beam:nth-child(3){animation-delay:-8s;top:60%;background:linear-gradient(90deg,transparent,rgba(52,211,153,0.02),rgba(99,102,241,0.04),rgba(167,139,250,0.03),transparent);animation-duration:18s}
+        @keyframes auroraWave{0%{transform:translateX(-30%) rotate(-3deg) scaleY(1)}33%{transform:translateX(10%) rotate(2deg) scaleY(1.5)}66%{transform:translateX(-10%) rotate(-1deg) scaleY(0.8)}100%{transform:translateX(-30%) rotate(-3deg) scaleY(1)}}
+
+        /* ============ PARTICLE CANVAS ============ */
+        #particles{position:fixed;inset:0;z-index:0;pointer-events:none}
+
+        /* ============ FLOATING ELEMENTS ============ */
+        .floaters{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+        .floater{position:absolute;font-size:1.5em;opacity:0.06;animation:floatUp linear infinite}
+        @keyframes floatUp{0%{transform:translateY(100vh) rotate(0deg) scale(0.5);opacity:0}10%{opacity:0.06}90%{opacity:0.06}100%{transform:translateY(-100px) rotate(360deg) scale(1);opacity:0}}
+
+        /* ============ TYPEWRITER ============ */
+        .typewriter{display:inline}
+        .tw-cursor{display:inline-block;width:3px;height:0.9em;background:#a78bfa;margin-left:4px;animation:twBlink 0.7s step-end infinite;vertical-align:text-bottom}
+        @keyframes twBlink{0%,100%{opacity:1}50%{opacity:0}}
+
+        /* ============ 3D TILT CARDS ============ */
+        .k{transform-style:preserve-3d;perspective:800px}
+        .k .k-t,.k .k-d,.k .k-tag{transform:translateZ(20px)}
+
+        /* ============ CONFETTI ============ */
+        .confetti-piece{position:fixed;width:10px;height:10px;z-index:9999;pointer-events:none;animation:confettiFall 1.5s ease-out forwards}
+        @keyframes confettiFall{0%{transform:translateY(0) rotate(0deg) scale(1);opacity:1}100%{transform:translateY(400px) rotate(720deg) scale(0);opacity:0}}
+
+        /* ============ RIPPLE EFFECT ============ */
+        .ripple{position:absolute;border-radius:50%;background:rgba(167,139,250,0.3);transform:scale(0);animation:rippleOut 0.6s ease-out;pointer-events:none}
+        @keyframes rippleOut{to{transform:scale(4);opacity:0}}
+
+        /* ============ NEON GLOW SECTIONS ============ */
+        .sec-name i{box-shadow:0 0 8px currentColor,0 0 16px currentColor;animation:neonPulse 3s ease infinite}
+        @keyframes neonPulse{0%,100%{box-shadow:0 0 8px currentColor,0 0 16px currentColor}50%{box-shadow:0 0 12px currentColor,0 0 24px currentColor,0 0 36px currentColor}}
+
+        /* ============ GLASSMORPHISM UPGRADE ============ */
+        .quiz-widget{background:rgba(12,12,20,0.6);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(139,92,246,0.15)}
+        .al{background:rgba(12,12,20,0.6);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+        .cta{background:rgba(12,12,20,0.5);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(139,92,246,0.12)}
+
+        /* ============ MAGNETIC BUTTON EFFECTS ============ */
+        .b-primary{position:relative;overflow:hidden}
+        .b-primary::before{content:'';position:absolute;inset:-2px;background:linear-gradient(135deg,#7c3aed,#6366f1,#c084fc,#7c3aed);z-index:-1;border-radius:16px;animation:borderRotate 3s linear infinite;background-size:300% 300%}
+        @keyframes borderRotate{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+        .b-primary::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,0.1),transparent);opacity:0;transition:opacity 0.3s}
+        .b-primary:hover::after{opacity:1}
+
+        /* ============ ANIMATED GRADIENT BORDER ON STATS ============ */
+        .stats{position:relative;background:var(--s1)}
+        .stats::before{content:'';position:absolute;inset:-2px;border-radius:22px;background:linear-gradient(135deg,#7c3aed,#6366f1,#c084fc,#ec4899,#7c3aed);background-size:400% 400%;animation:borderRotate 4s linear infinite;z-index:-1}
+
+        /* ============ FUN ZONE ============ */
+        .fun-zone{margin-top:48px}
+        .fun-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
+        .fun-card{background:rgba(12,12,20,0.7);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid var(--border2);border-radius:20px;padding:22px;position:relative;overflow:hidden;transition:all 0.4s cubic-bezier(0.16,1,0.3,1)}
+        .fun-card:hover{border-color:rgba(139,92,246,0.3);transform:translateY(-4px);box-shadow:0 20px 50px rgba(0,0,0,0.4)}
+        .fun-card::before{content:'';position:absolute;top:-50%;right:-50%;width:100%;height:100%;background:radial-gradient(circle,rgba(139,92,246,0.08),transparent);pointer-events:none;transition:opacity 0.4s}
+        .fun-card:hover::before{opacity:1}
+        .fun-icon{font-size:2em;margin-bottom:10px;display:inline-block;animation:funBounce 2s ease infinite}
+        @keyframes funBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+        .fun-label{font-size:0.65em;text-transform:uppercase;letter-spacing:2px;color:var(--dim);margin-bottom:8px;font-weight:700}
+        .fun-title{color:var(--white);font-weight:800;font-size:1.05em;margin-bottom:8px;line-height:1.4}
+        .fun-body{color:var(--txt);font-size:0.85em;line-height:1.6}
+        .fun-body .answer{color:#86efac;font-weight:700;cursor:pointer;display:inline-block;background:rgba(34,197,94,0.1);padding:4px 14px;border-radius:8px;border:1px solid rgba(34,197,94,0.2);margin-top:8px;transition:all 0.3s;user-select:none}
+        .fun-body .answer:hover{background:rgba(34,197,94,0.2);transform:scale(1.05)}
+        .fun-body .answer.blur{filter:blur(6px);transition:filter 0.3s}
+        .fun-body .punchline{color:#fde68a;font-weight:700;cursor:pointer;display:inline-block;background:rgba(250,204,21,0.08);padding:4px 14px;border-radius:8px;border:1px solid rgba(250,204,21,0.15);margin-top:8px;transition:all 0.3s;user-select:none}
+        .fun-body .punchline:hover{background:rgba(250,204,21,0.15);transform:scale(1.05)}
+        .fun-body .punchline.blur{filter:blur(6px);transition:filter 0.3s}
+        .fun-refresh{position:absolute;top:16px;right:16px;background:rgba(255,255,255,0.06);border:1px solid var(--border);color:var(--txt);width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:0.9em;transition:all 0.3s}
+        .fun-refresh:hover{background:rgba(139,92,246,0.15);color:var(--white);transform:rotate(180deg)}
+        .fun-fact-highlight{background:linear-gradient(135deg,rgba(99,102,241,0.1),rgba(139,92,246,0.1));border-color:rgba(99,102,241,0.2)}
+        .fun-streak{display:flex;align-items:center;gap:6px;margin-top:10px;padding:8px 12px;background:rgba(250,204,21,0.06);border-radius:10px;font-size:0.78em;color:#fde68a;font-weight:600}
+        .fun-streak .fire{animation:firePulse 0.5s ease infinite alternate}
+        @keyframes firePulse{from{transform:scale(1)}to{transform:scale(1.2)}}
+
+        /* ============ MOTIVATIONAL BANNER ============ */
+        .moti-banner{background:linear-gradient(135deg,rgba(124,58,237,0.12),rgba(99,102,241,0.08));border:1px solid rgba(139,92,246,0.2);border-radius:16px;padding:18px 24px;margin:24px 0;text-align:center;position:relative;overflow:hidden}
+        .moti-banner::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.02),transparent);animation:motiShine 3s linear infinite}
+        @keyframes motiShine{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
+        .moti-text{color:var(--white);font-size:1em;font-weight:700;position:relative}
+        .moti-author{color:var(--dim);font-size:0.78em;margin-top:4px;position:relative}
+
+        /* ============ ENHANCED CARD HOVER GLOW ============ */
+        .k:hover{box-shadow:0 20px 50px rgba(0,0,0,0.4),0 0 0 1px rgba(139,92,246,0.1),0 0 30px rgba(139,92,246,0.05)}
+
+        /* ============ ANIMATED SECTION HEADERS ============ */
+        .sec-name{position:relative}
+        .sec-name::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:linear-gradient(90deg,#7c3aed,transparent);transition:width 0.6s cubic-bezier(0.16,1,0.3,1)}
+        .sr.v .sec-name::after{width:60px}
+
+        /* ============ ENHANCED COUNTDOWN ============ */
+        .cd-item{position:relative;overflow:hidden}
+        .cd-item::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(239,68,68,0.04),transparent);animation:cdPulse 4s ease infinite;pointer-events:none}
+        @keyframes cdPulse{0%,100%{opacity:0.5;transform:scale(0.8)}50%{opacity:1;transform:scale(1.1)}}
+        .cd-n{background:linear-gradient(135deg,#fff,#fca5a5);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+        /* ============ SPARKLE TEXT ============ */
+        .sparkle{position:relative;display:inline-block}
+        .sparkle::before,.sparkle::after{content:'';position:absolute;width:4px;height:4px;background:#fde68a;border-radius:50%;animation:sparkleAnim 2s ease infinite}
+        .sparkle::before{top:-4px;right:-4px;animation-delay:0s}
+        .sparkle::after{bottom:-2px;left:-4px;animation-delay:1s}
+        @keyframes sparkleAnim{0%,100%{opacity:0;transform:scale(0)}50%{opacity:1;transform:scale(1)}}
+
         @media(max-width:768px){
             .nav{top:10px;padding:8px 6px;border-radius:14px}
             .nav-logo{font-size:0.75em;padding:0 8px}
@@ -202,10 +324,35 @@
             .g,.g2{grid-template-columns:1fr}
             .st .n{font-size:1.6em}
             .cta h2{font-size:1.3em}
+            .fun-grid{grid-template-columns:1fr}
+            .aurora-beam{filter:blur(60px);opacity:0.7}
+            .countdown{grid-template-columns:repeat(2,1fr)}
         }
     </style>
 </head>
 <body>
+
+<!-- LOADING SCREEN -->
+<div class="loader-screen" id="loader">
+    <div class="loader-ring"></div>
+    <div class="loader-text">SMC PREP 2026</div>
+</div>
+
+<!-- SCROLL PROGRESS -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- CUSTOM CURSOR -->
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- AURORA -->
+<div class="aurora"><div class="aurora-beam"></div><div class="aurora-beam"></div><div class="aurora-beam"></div></div>
+
+<!-- PARTICLES -->
+<canvas id="particles"></canvas>
+
+<!-- FLOATING ICONS -->
+<div class="floaters" id="floaters"></div>
 
 <div class="mesh"><i class="m1"></i><i class="m2"></i><i class="m3"></i></div>
 <div class="noise"></div>
@@ -402,6 +549,72 @@
         <div class="g">
             <div class="k" onclick="O('resources/study_plan_and_links.md','Plan')"><div class="k-t">Study Plan</div><div class="k-d">Week-wise plan + links</div><span class="k-tag tg">PLAN</span></div>
             <div class="k" onclick="O('papers/previous_paper_analysis.md','Analysis')"><div class="k-t">Paper Analysis</div><div class="k-d">Patterns & strategy</div><span class="k-tag tg">ANALYSIS</span></div>
+        </div>
+    </div>
+
+    <!-- MOTIVATIONAL BANNER -->
+    <div class="moti-banner sr" id="motiBanner">
+        <div class="moti-text" id="motiText">Loading motivation...</div>
+        <div class="moti-author" id="motiAuthor"></div>
+    </div>
+
+    <!-- FUN ZONE -->
+    <div class="sec fun-zone sr">
+        <div class="sec-top"><div class="sec-name"><i style="background:#fde68a"></i><span class="sparkle">Fun Zone</span> &mdash; Learn with a Smile</div><span class="sec-info">Daily Refresh</span></div>
+        <div class="fun-grid">
+            <!-- Daily Tech Joke -->
+            <div class="fun-card" id="funJoke">
+                <button class="fun-refresh" onclick="refreshJoke()" title="New Joke">&#8635;</button>
+                <div class="fun-icon">&#128514;</div>
+                <div class="fun-label">Daily Tech Joke</div>
+                <div class="fun-title" id="jokeQ">Loading...</div>
+                <div class="fun-body"><span class="punchline blur" id="jokeA" onclick="this.classList.toggle('blur')">Click to reveal</span></div>
+            </div>
+
+            <!-- Trick Question -->
+            <div class="fun-card">
+                <button class="fun-refresh" onclick="refreshTrick()" title="New Trick Question">&#8635;</button>
+                <div class="fun-icon">&#129300;</div>
+                <div class="fun-label">Tricky Question</div>
+                <div class="fun-title" id="trickQ">Loading...</div>
+                <div class="fun-body"><span class="answer blur" id="trickA" onclick="this.classList.toggle('blur')">Click to reveal</span></div>
+            </div>
+
+            <!-- Did You Know -->
+            <div class="fun-card fun-fact-highlight">
+                <button class="fun-refresh" onclick="refreshFact()" title="New Fact">&#8635;</button>
+                <div class="fun-icon">&#129488;</div>
+                <div class="fun-label">Did You Know?</div>
+                <div class="fun-title" id="funFact">Loading...</div>
+                <div class="fun-body" id="funFactDetail"></div>
+            </div>
+
+            <!-- Exam Mnemonic -->
+            <div class="fun-card">
+                <button class="fun-refresh" onclick="refreshMnemonic()" title="New Mnemonic">&#8635;</button>
+                <div class="fun-icon">&#128161;</div>
+                <div class="fun-label">Memory Trick</div>
+                <div class="fun-title" id="mnemonicTitle">Loading...</div>
+                <div class="fun-body" id="mnemonicBody"></div>
+            </div>
+
+            <!-- Fun Comparison -->
+            <div class="fun-card">
+                <button class="fun-refresh" onclick="refreshCompare()" title="New">&#8635;</button>
+                <div class="fun-icon">&#9878;&#65039;</div>
+                <div class="fun-label">Exam Fun Fact</div>
+                <div class="fun-title" id="compareTitle">Loading...</div>
+                <div class="fun-body" id="compareBody"></div>
+            </div>
+
+            <!-- Daily Challenge Mini -->
+            <div class="fun-card">
+                <div class="fun-icon">&#127942;</div>
+                <div class="fun-label">Brain Teaser</div>
+                <div class="fun-title" id="teaserQ">Loading...</div>
+                <div class="fun-body"><span class="answer blur" id="teaserA" onclick="this.classList.toggle('blur')">Click to reveal</span></div>
+                <div class="fun-streak" id="funStreak"><span class="fire">&#128293;</span> <span id="streakCount">0</span> day streak</div>
+            </div>
         </div>
     </div>
 
@@ -722,6 +935,430 @@ showDailyQ();
             localStorage.setItem('smc_clicks', JSON.stringify(clicks));
         }
     });
+})();
+
+// ========================================
+// NEXT-LEVEL FEATURES
+// ========================================
+
+// ===== LOADING SCREEN =====
+window.addEventListener('load',()=>{
+    setTimeout(()=>{document.getElementById('loader').classList.add('hide')},800);
+});
+
+// ===== SCROLL PROGRESS BAR =====
+window.addEventListener('scroll',()=>{
+    const h=document.documentElement.scrollHeight-window.innerHeight;
+    const p=(window.scrollY/h)*100;
+    document.getElementById('scrollProgress').style.width=p+'%';
+});
+
+// ===== CUSTOM CURSOR =====
+(function(){
+    if(window.innerWidth<769)return;
+    const dot=document.getElementById('cursorDot'),ring=document.getElementById('cursorRing');
+    let mx=0,my=0,rx=0,ry=0;
+    document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx-4+'px';dot.style.top=my-4+'px'});
+    function animRing(){rx+=(mx-rx)*0.15;ry+=(my-ry)*0.15;ring.style.left=rx-17+'px';ring.style.top=ry-17+'px';requestAnimationFrame(animRing)}
+    animRing();
+    document.querySelectorAll('a,.k,.b,button,.quiz-opt,.fun-card').forEach(el=>{
+        el.addEventListener('mouseenter',()=>{ring.classList.add('hover');dot.style.transform='scale(1.5)'});
+        el.addEventListener('mouseleave',()=>{ring.classList.remove('hover');dot.style.transform='scale(1)'});
+    });
+})();
+
+// ===== PARTICLE SYSTEM =====
+(function(){
+    const c=document.getElementById('particles'),ctx=c.getContext('2d');
+    let w,h,particles=[];
+    function resize(){w=c.width=window.innerWidth;h=c.height=window.innerHeight}
+    resize();window.addEventListener('resize',resize);
+    let mouseX=w/2,mouseY=h/2;
+    document.addEventListener('mousemove',e=>{mouseX=e.clientX;mouseY=e.clientY});
+
+    class Particle{
+        constructor(){this.reset()}
+        reset(){
+            this.x=Math.random()*w;this.y=Math.random()*h;
+            this.vx=(Math.random()-0.5)*0.3;this.vy=(Math.random()-0.5)*0.3;
+            this.size=Math.random()*2+0.5;
+            this.alpha=Math.random()*0.3+0.05;
+            this.color=`hsla(${250+Math.random()*30},70%,70%,`;
+        }
+        update(){
+            const dx=mouseX-this.x,dy=mouseY-this.y,dist=Math.sqrt(dx*dx+dy*dy);
+            if(dist<150){this.vx-=dx*0.00008;this.vy-=dy*0.00008}
+            this.x+=this.vx;this.y+=this.vy;
+            if(this.x<0||this.x>w||this.y<0||this.y>h)this.reset();
+        }
+        draw(){
+            ctx.beginPath();ctx.arc(this.x,this.y,this.size,0,Math.PI*2);
+            ctx.fillStyle=this.color+this.alpha+')';ctx.fill();
+        }
+    }
+
+    const count=window.innerWidth<769?30:60;
+    for(let i=0;i<count;i++)particles.push(new Particle());
+
+    function drawLines(){
+        for(let i=0;i<particles.length;i++){
+            for(let j=i+1;j<particles.length;j++){
+                const dx=particles[i].x-particles[j].x,dy=particles[i].y-particles[j].y;
+                const dist=Math.sqrt(dx*dx+dy*dy);
+                if(dist<120){
+                    ctx.beginPath();ctx.moveTo(particles[i].x,particles[i].y);
+                    ctx.lineTo(particles[j].x,particles[j].y);
+                    ctx.strokeStyle='rgba(139,92,246,'+(0.06*(1-dist/120))+')';
+                    ctx.lineWidth=0.5;ctx.stroke();
+                }
+            }
+        }
+    }
+
+    function animate(){
+        ctx.clearRect(0,0,w,h);
+        particles.forEach(p=>{p.update();p.draw()});
+        drawLines();
+        requestAnimationFrame(animate);
+    }
+    animate();
+})();
+
+// ===== FLOATING ICONS =====
+(function(){
+    const icons=['&#128187;','&#128218;','&#127891;','&#9889;','&#128640;','&#128161;','&#128200;','&#129504;','&#127919;','&#128176;','&#128736;','&#127942;','&#128300;','&#129514;','&#128204;'];
+    const container=document.getElementById('floaters');
+    function addFloater(){
+        const el=document.createElement('span');el.className='floater';
+        el.innerHTML=icons[Math.floor(Math.random()*icons.length)];
+        el.style.left=Math.random()*100+'%';
+        el.style.animationDuration=(15+Math.random()*20)+'s';
+        el.style.fontSize=(1+Math.random()*1.5)+'em';
+        container.appendChild(el);
+        setTimeout(()=>el.remove(),(15+20)*1000);
+    }
+    for(let i=0;i<8;i++)setTimeout(addFloater,i*2000);
+    setInterval(addFloater,4000);
+})();
+
+// ===== 3D TILT EFFECT ON CARDS =====
+(function(){
+    if(window.innerWidth<769)return;
+    document.querySelectorAll('.k,.fun-card').forEach(card=>{
+        card.addEventListener('mousemove',e=>{
+            const rect=card.getBoundingClientRect();
+            const x=e.clientX-rect.left,y=e.clientY-rect.top;
+            const cx=rect.width/2,cy=rect.height/2;
+            const rotateX=((y-cy)/cy)*-5;
+            const rotateY=((x-cx)/cx)*5;
+            card.style.transform=`perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+        });
+        card.addEventListener('mouseleave',()=>{
+            card.style.transform='perspective(800px) rotateX(0) rotateY(0) translateY(0)';
+        });
+    });
+})();
+
+// ===== CONFETTI ON CORRECT QUIZ ANSWER =====
+function fireConfetti(x,y){
+    const colors=['#7c3aed','#c084fc','#e879f9','#22c55e','#fde68a','#818cf8','#f472b6','#34d399'];
+    for(let i=0;i<30;i++){
+        const c=document.createElement('div');c.className='confetti-piece';
+        c.style.left=x+'px';c.style.top=y+'px';
+        c.style.background=colors[Math.floor(Math.random()*colors.length)];
+        c.style.width=Math.random()*8+4+'px';
+        c.style.height=Math.random()*8+4+'px';
+        c.style.borderRadius=Math.random()>0.5?'50%':'2px';
+        const angle=(Math.random()-0.5)*120;
+        const velocity=Math.random()*300+200;
+        c.style.setProperty('--tx',Math.sin(angle*Math.PI/180)*velocity+'px');
+        c.style.animation='none';
+        document.body.appendChild(c);
+        const startX=x,startY=y;
+        let t=0;
+        const dx=Math.sin(angle*Math.PI/180)*velocity;
+        const dy=-(Math.random()*300+100);
+        function animConfetti(){
+            t+=16;const progress=t/1200;
+            if(progress>=1){c.remove();return}
+            const cx=startX+dx*progress;
+            const cy=startY+dy*progress+400*progress*progress;
+            c.style.left=cx+'px';c.style.top=cy+'px';
+            c.style.opacity=1-progress;
+            c.style.transform='rotate('+progress*720+'deg)';
+            requestAnimationFrame(animConfetti);
+        }
+        requestAnimationFrame(animConfetti);
+    }
+}
+
+// Patch answerDQ for confetti
+const _origAnswerDQ=answerDQ;
+answerDQ=function(idx){
+    _origAnswerDQ(idx);
+    const q=dqQuestions[dqIndex];
+    if(idx===q.a){
+        const btn=document.querySelectorAll('.quiz-opt')[idx];
+        if(btn){const r=btn.getBoundingClientRect();fireConfetti(r.left+r.width/2,r.top)}
+    }
+};
+
+// ===== RIPPLE CLICK EFFECT =====
+document.addEventListener('click',e=>{
+    const target=e.target.closest('.k,.b,.fun-card,button');
+    if(!target)return;
+    const r=document.createElement('span');r.className='ripple';
+    const rect=target.getBoundingClientRect();
+    const size=Math.max(rect.width,rect.height);
+    r.style.width=r.style.height=size+'px';
+    r.style.left=e.clientX-rect.left-size/2+'px';
+    r.style.top=e.clientY-rect.top-size/2+'px';
+    target.style.position=target.style.position||'relative';
+    target.appendChild(r);
+    setTimeout(()=>r.remove(),600);
+});
+
+// ===== FUN ZONE CONTENT =====
+
+// Tech Jokes (exam-related)
+const JOKES=[
+    {q:"Why did the computer go to the doctor?",a:"Because it had a VIRUS! (Remember: Antivirus software is in your syllabus)"},
+    {q:"What's a computer's favorite snack?",a:"Microchips! (Computer Hardware - Chapter 1)"},
+    {q:"Why was the SQL query sad?",a:"Because it had too many JOINs but no relationships! (Database topic)"},
+    {q:"What did Gujarat say to Surat?",a:"You're my diamond city! (Surat is the Diamond Capital of the World)"},
+    {q:"Why do programmers prefer dark mode?",a:"Because light attracts bugs! (Computer Science humor)"},
+    {q:"What do you call 8 hobbits?",a:"A hobbyte! (1 byte = 8 bits - remember this for exam!)"},
+    {q:"How does a Clerk greet people?",a:"With a CTRL+H... Replace all problems! (MS Word shortcut)"},
+    {q:"Why did the student study on the airplane?",a:"Because they wanted a higher education! (Like SMC Grade Pay!)"},
+    {q:"What's a network admin's favorite song?",a:"We Will ROCK You... with Firewall! (Network Security topic)"},
+    {q:"Why is HTML not a programming language?",a:"Because it just MARKS things UP! (HyperText MARKUP Language)"},
+    {q:"What does IP stand for according to exam students?",a:"I'm Panicking! (But really: Internet Protocol - OSI Layer 3)"},
+    {q:"What's the best way to prepare for SMC?",a:"Ctrl+A (Select All topics), Ctrl+S (Save in brain)!"},
+    {q:"Why did the blood cell fail the exam?",a:"It couldn't find the right TYPE! (Blood Groups - Lab Tech topic)"},
+    {q:"What did the autoclave say to the bacteria?",a:"You're under PRESSURE at 121°C! (Lab Equipment topic)"},
+    {q:"Why was the Constitution book always calm?",a:"Because it had all the right ARTICLEs! (Indian Polity for GK)"},
+    {q:"What's a marshal's favorite key?",a:"CAPS LOCK — always on duty! (Watch & Ward humor)"},
+    {q:"Why is Tapi river like a good student?",a:"It always FLOWS through Surat! (Gujarat Geography)"},
+    {q:"What did RAM say to the hard disk?",a:"I'm fast but I lose everything when I sleep! (Volatile vs Non-volatile memory)"},
+    {q:"Why don't scientists trust atoms?",a:"Because they make up everything! (Even in your GK section)"},
+    {q:"What is a computer's least favorite food?",a:"SPAM! (Email Security - Computer Knowledge)"},
+];
+
+// Trick Questions
+const TRICKS=[
+    {q:"In OSI model, which layer is responsible for email? Transport or Application?",a:"Application Layer (Layer 7) - SMTP works here! Transport layer handles TCP/UDP."},
+    {q:"Surat was founded in which century - 15th or 16th?",a:"15th century (1507 by Gopi) — Tricky because the British came in the 17th century!"},
+    {q:"Is 1 MB = 1000 KB or 1024 KB?",a:"1024 KB! (Computers use binary: 2^10 = 1024, not decimal 1000)"},
+    {q:"ELISA is used for which test - Blood Group or HIV?",a:"HIV detection! Blood grouping uses Slide/Tube agglutination method."},
+    {q:"Gujarat High Court is in Ahmedabad or Gandhinagar?",a:"Ahmedabad! Gandhinagar is the capital, but HC is in Ahmedabad. Tricky!"},
+    {q:"Indian Constitution has 395 or 470 articles?",a:"Originally 395, but now 470+ after amendments. Exams usually ask 'original' count!"},
+    {q:"Normal body temperature: 98.4°F or 98.6°F?",a:"98.6°F (37°C). Most students confuse 98.4 with 98.6!"},
+    {q:"F1 key in MS Word opens: Help or Find?",a:"Help! Find is Ctrl+F. This is a very common exam trap."},
+    {q:"Who is called Father of Computer - Charles Babbage or Alan Turing?",a:"Charles Babbage! Alan Turing is the Father of Artificial Intelligence."},
+    {q:"Ashoka Chakra has 24 spokes. What do they represent?",a:"24 hours of the day (Dharma/Righteousness through time). NOT 24 states!"},
+    {q:"Is MPN test for water or blood?",a:"Water testing! MPN = Most Probable Number for coliform bacteria in water."},
+    {q:"Ctrl+P prints or pastes?",a:"Prints! Paste is Ctrl+V. Over 30% students get this wrong in exams!"},
+    {q:"DNS converts domain names to __ addresses?",a:"IP addresses! NOT MAC addresses. DNS = Domain Name System."},
+    {q:"Quit India Movement - 1942 or 1947?",a:"1942! 1947 is Independence. 'Do or Die' slogan was 1942."},
+    {q:"Gram staining: Crystal violet or Safranin first?",a:"Crystal violet FIRST, then Iodine, Decolorizer, then Safranin as counterstain."},
+];
+
+// Fun Facts
+const FACTS=[
+    {t:"The first computer weighed 27 TONS!",d:"ENIAC (1945) filled an entire room. Your phone is millions of times more powerful!"},
+    {t:"Surat produces 90% of the world's diamonds!",d:"9 out of 10 diamonds worldwide are cut and polished in Surat. That's why it's called Diamond City!"},
+    {t:"Gujarat's coastline is the LONGEST in India!",d:"At 1,600 km, Gujarat has the longest coastline. This fact appears in almost every SMC exam!"},
+    {t:"The word 'BUG' came from a real moth!",d:"In 1947, a moth stuck in Harvard's computer caused an error. Grace Hopper found it and coined 'debugging'!"},
+    {t:"You blink 20 times per minute, but only 7 while using a computer!",d:"That's why computer professionals get dry eyes. Screen breaks are important! (Health & Ergonomics topic)"},
+    {t:"India's first computer was installed in 1956!",d:"HEC 2M was installed at ISI Kolkata. India's IT journey started 70 years ago!"},
+    {t:"Sardar Patel unified 562 princely states!",d:"That's why the Statue of Unity (182m) is in Gujarat. SMC exam loves this fact!"},
+    {t:"A human brain can store 2.5 PETABYTES of data!",d:"That's 2,500,000 GB or about 3 million hours of video. Your brain > Any hard disk!"},
+    {t:"Ctrl+Z was invented in 1974!",d:"Warren Teitelman created the 'undo' concept. Imagine coding without Ctrl+Z!"},
+    {t:"Blood makes up about 7% of your body weight!",d:"An average adult has about 5 liters of blood. Key fact for Lab Tech exam!"},
+    {t:"The @ symbol is 500+ years old!",d:"It was used by merchants in the 1500s. Now it's the most important symbol in email!"},
+    {t:"Gujarat was the first state to become 100% solar-powered!",d:"Gujarat leads India in solar energy. This is a favorite GK question in SMC exams!"},
+    {t:"WiFi doesn't stand for 'Wireless Fidelity'!",d:"It's just a brand name created by a marketing firm. The IEEE standard is 802.11."},
+    {t:"The Indian Constitution is the LONGEST in the world!",d:"Originally 395 articles, 8 schedules, now 470+ articles and 12 schedules."},
+    {t:"Autoclave works on the same principle as a pressure cooker!",d:"Both use steam under pressure. Autoclave: 121°C, 15 psi, 15 min. Lab Tech must-know!"},
+];
+
+// Mnemonics
+const MNEMONICS=[
+    {t:"OSI Layers: 'Please Do Not Throw Sausage Pizza Away'",b:"Physical, Data Link, Network, Transport, Session, Presentation, Application - Top exam question!"},
+    {t:"Blood Groups: 'A Boy Always Opens'",b:"A, B, AB, O - Remember: AB is Universal Recipient, O- is Universal Donor!"},
+    {t:"Gujarati Vowels: 'અ આ ઇ ઈ ઉ ઊ'",b:"Think of them as a family: Short-Long pairs (અ-આ, ઇ-ઈ, ઉ-ઊ) makes them easier to remember!"},
+    {t:"Computer generations: 'Very Tired Individuals Can Argue'",b:"Vacuum Tubes, Transistors, ICs, Chips (VLSI), AI - 1st to 5th generation!"},
+    {t:"Planets: 'My Very Educated Mother Just Served Us Nachos'",b:"Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune. GK favorite!"},
+    {t:"Tax Articles: '246 is the TAX article'",b:"Article 246 deals with distribution of legislative powers (Union, State, Concurrent lists). Polity key fact!"},
+    {t:"Gram Stain: 'Come In Delhi Safely'",b:"Crystal violet → Iodine → Decolorizer → Safranin. Lab Tech must-remember!"},
+    {t:"Keyboard Row 1: 'QWERTY was designed to SLOW DOWN typists!'",b:"True! It prevented typewriter jamming. Typing test tip: Practice finger placement daily."},
+    {t:"MS Office Shortcuts: 'CBS = Copy, Bold, Save'",b:"Ctrl+C = Copy, Ctrl+B = Bold, Ctrl+S = Save. The holy trinity of computer exams!"},
+    {t:"Indian Constitution Parts: 'UFD CSE PEM'",b:"Union, Fundamental Rights, DPSP, Citizenship, States, Elections, Panchayats, Emergency, Misc"},
+];
+
+// Fun Comparisons
+const COMPARES=[
+    {t:"SMC has 2,295 posts — that's more than many IIT batches combined!",b:"The competition will be tough, but with 4,000+ MCQs here, you've got this covered!"},
+    {t:"If you read 50 MCQs/day, you'll finish all 4,000+ in just 80 days!",b:"That's about 2.5 months. Start today, finish before the exam. Math checks out!"},
+    {t:"The average SMC exam has 100 questions in 60 minutes",b:"That's 36 seconds per question! Speed + accuracy = practice with our timed exam mode."},
+    {t:"Clerk salary is Rs 19,900-63,200/month!",b:"That's up to Rs 7.5 lakh/year + government benefits. Worth every hour of preparation!"},
+    {t:"Surat is India's fastest-growing city!",b:"Working in SMC means working for one of India's most dynamic cities. Dream big!"},
+    {t:"Computer Supervisor handles 500+ systems!",b:"You'll manage more computers than most IT companies. That's real responsibility!"},
+    {t:"This site has more MCQs than most paid apps!",b:"4,000+ questions, AI assistant, daily quizzes — all free and open-source!"},
+    {t:"Gujarat has 33 districts — can you name them all?",b:"This appears in almost every SMC exam! Use our AI Assistant to practice district names."},
+    {t:"-0.25 negative marking means 4 wrong = 1 right answer lost",b:"Only attempt questions you're 60%+ confident about. Our exam mode simulates this!"},
+    {t:"Typing test requires 25 WPM in Gujarati!",b:"That's about 125 characters per minute. Practice 30 minutes daily for 2 weeks!"},
+];
+
+// Brain Teasers
+const TEASERS=[
+    {q:"What is the output of: 2 + '2' in JavaScript?",a:"'22' — JavaScript concatenates because one operand is a string! (Type coercion)"},
+    {q:"If COMPUTER = 12345678, what is ROMP?",a:"6234 — R=6, O=2, M=3, P=4. This is a classic Reasoning question!"},
+    {q:"A clock shows 3:15. What's the angle between hands?",a:"7.5° — At 3:15, hour hand moves 7.5° past 3. NOT 0°! Common exam trick."},
+    {q:"What comes next: 2, 6, 12, 20, 30, ?",a:"42 — Pattern: differences are 4,6,8,10,12 (increasing by 2 each time)"},
+    {q:"In binary, what is 1010 + 1100?",a:"10110 (which is 22 in decimal). 10+12=22. Binary math is exam-important!"},
+    {q:"Which letter replaces ?: A, C, F, J, ?",a:"O — Gaps are +2, +3, +4, +5. So J + 5 = O. Classic series question!"},
+    {q:"If all Roses are Flowers and some Flowers are Red, are all Roses Red?",a:"NO! This is a syllogism trap. Only 'Some Roses may be Red' is valid. Reasoning 101!"},
+    {q:"What is 15% of 15% of 1000?",a:"22.5 — First 15% of 1000 = 150, then 15% of 150 = 22.5. Maths shortcut question!"},
+    {q:"Complete: TCP is to Transport as HTTP is to ?",a:"Application Layer! TCP = Layer 4, HTTP = Layer 7 in OSI model."},
+    {q:"If yesterday was Thursday, what day is 100 days from today?",a:"Monday! Today=Friday, 100÷7=14 remainder 2, Friday+2=Sunday... wait, actually Monday!"},
+];
+
+// Motivational Quotes
+const MOTIVATIONS=[
+    {t:"\"Success is not final, failure is not fatal: it is the courage to continue that counts.\"",a:"— Winston Churchill"},
+    {t:"\"The only way to do great work is to love what you do.\"",a:"— Steve Jobs"},
+    {t:"\"मહેનત કરો, બધું મળશે. Give your best, and the result will take care of itself.\"",a:"— For every SMC aspirant"},
+    {t:"\"4,000 MCQs seem like a lot... until you do 50 a day for 80 days.\"",a:"— Start today, thank yourself later"},
+    {t:"\"Education is the most powerful weapon which you can use to change the world.\"",a:"— Nelson Mandela"},
+    {t:"\"You don't have to be great to start, but you have to start to be great.\"",a:"— Zig Ziglar"},
+    {t:"\"एक दिन में 100 सवाल = 40 दिनों में 4000 MCQs!\"",a:"— Simple Math, Big Results"},
+    {t:"\"Dream is not that which you see while sleeping. It's something that doesn't let you sleep.\"",a:"— Dr. APJ Abdul Kalam"},
+    {t:"\"Your competition is not other candidates. It's your own laziness.\"",a:"— Beat yourself, beat the exam"},
+    {t:"\"2,295 posts. You only need 1. Make it yours.\"",a:"— SMC Exam Prep 2026"},
+    {t:"\"The difference between ordinary and extraordinary is that little extra.\"",a:"— Jimmy Johnson"},
+    {t:"\"પ્રયત્ન કરો, સફળતા મળશે. Consistent effort always wins.\"",a:"— Gujarati wisdom"},
+];
+
+// Initialize Fun Zone
+let jokeIdx=0,trickIdx=0,factIdx=0,mnemIdx=0,compIdx=0,teaserIdx=0;
+
+function shuffleArr(arr){const a=[...arr];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*i);[a[i],a[j]]=[a[j],a[i]]}return a}
+
+// Seed-based selection for daily content
+const dayOfYear=Math.floor((Date.now()-new Date(new Date().getFullYear(),0,0))/86400000);
+
+function loadFunZone(){
+    jokeIdx=dayOfYear%JOKES.length;
+    trickIdx=dayOfYear%TRICKS.length;
+    factIdx=dayOfYear%FACTS.length;
+    mnemIdx=dayOfYear%MNEMONICS.length;
+    compIdx=dayOfYear%COMPARES.length;
+    teaserIdx=dayOfYear%TEASERS.length;
+
+    showJoke();showTrick();showFact();showMnemonic();showCompare();showTeaser();showMotivation();
+    loadStreak();
+}
+
+function showJoke(){
+    const j=JOKES[jokeIdx%JOKES.length];
+    document.getElementById('jokeQ').textContent=j.q;
+    const a=document.getElementById('jokeA');a.textContent=j.a;a.classList.add('blur');
+}
+function refreshJoke(){jokeIdx=(jokeIdx+1)%JOKES.length;showJoke()}
+
+function showTrick(){
+    const t=TRICKS[trickIdx%TRICKS.length];
+    document.getElementById('trickQ').textContent=t.q;
+    const a=document.getElementById('trickA');a.textContent=t.a;a.classList.add('blur');
+}
+function refreshTrick(){trickIdx=(trickIdx+1)%TRICKS.length;showTrick()}
+
+function showFact(){
+    const f=FACTS[factIdx%FACTS.length];
+    document.getElementById('funFact').textContent=f.t;
+    document.getElementById('funFactDetail').textContent=f.d;
+}
+function refreshFact(){factIdx=(factIdx+1)%FACTS.length;showFact()}
+
+function showMnemonic(){
+    const m=MNEMONICS[mnemIdx%MNEMONICS.length];
+    document.getElementById('mnemonicTitle').textContent=m.t;
+    document.getElementById('mnemonicBody').textContent=m.b;
+}
+function refreshMnemonic(){mnemIdx=(mnemIdx+1)%MNEMONICS.length;showMnemonic()}
+
+function showCompare(){
+    const c=COMPARES[compIdx%COMPARES.length];
+    document.getElementById('compareTitle').textContent=c.t;
+    document.getElementById('compareBody').textContent=c.b;
+}
+function refreshCompare(){compIdx=(compIdx+1)%COMPARES.length;showCompare()}
+
+function showTeaser(){
+    const t=TEASERS[teaserIdx%TEASERS.length];
+    document.getElementById('teaserQ').textContent=t.q;
+    const a=document.getElementById('teaserA');a.textContent=t.a;a.classList.add('blur');
+}
+
+function showMotivation(){
+    const m=MOTIVATIONS[dayOfYear%MOTIVATIONS.length];
+    document.getElementById('motiText').textContent=m.t;
+    document.getElementById('motiAuthor').textContent=m.a;
+}
+
+// Streak tracking
+function loadStreak(){
+    const data=JSON.parse(localStorage.getItem('smc_fun_streak')||'{"count":0,"lastDate":""}');
+    const todayStr=new Date().toDateString();
+    const yesterday=new Date(Date.now()-86400000).toDateString();
+    if(data.lastDate===todayStr){
+        // Already visited today
+    }else if(data.lastDate===yesterday){
+        data.count++;data.lastDate=todayStr;
+    }else{
+        data.count=1;data.lastDate=todayStr;
+    }
+    localStorage.setItem('smc_fun_streak',JSON.stringify(data));
+    document.getElementById('streakCount').textContent=data.count;
+}
+
+loadFunZone();
+
+// ===== TYPEWRITER EFFECT ON HERO =====
+(function(){
+    const h1=document.querySelector('.hero h1');
+    if(!h1)return;
+    const originalHTML=h1.innerHTML;
+    const text=h1.textContent;
+    h1.innerHTML='<span class="typewriter"></span><span class="tw-cursor"></span>';
+    const tw=h1.querySelector('.typewriter');
+    let i=0;
+    function type(){
+        if(i<text.length){
+            if(text.substring(i).startsWith('Crack Your Exam')){
+                tw.innerHTML+=`<span class="gr">${text[i]}</span>`;
+                // Continue adding to the gr span
+                const grSpan=tw.querySelector('.gr:last-child');
+                i++;
+                function typeGr(){
+                    if(i<text.length){
+                        grSpan.textContent+=text[i];i++;
+                        setTimeout(typeGr,50);
+                    }else{
+                        h1.querySelector('.tw-cursor').style.display='none';
+                    }
+                }
+                typeGr();
+                return;
+            }
+            if(text[i]==='\n'){tw.innerHTML+='<br>';i++;setTimeout(type,100)}
+            else{tw.innerHTML+=text[i];i++;setTimeout(type,60)}
+        }else{
+            h1.querySelector('.tw-cursor').style.display='none';
+        }
+    }
+    setTimeout(type,1200);
 })();
 </script>
 </body>
