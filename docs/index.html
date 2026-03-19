@@ -260,6 +260,51 @@
         .stats{position:relative;background:var(--s1)}
         .stats::before{content:'';position:absolute;inset:-2px;border-radius:22px;background:linear-gradient(135deg,#7c3aed,#6366f1,#c084fc,#ec4899,#7c3aed);background-size:400% 400%;animation:borderRotate 4s linear infinite;z-index:-1}
 
+        /* ============ NEWS & JOB OPENINGS ============ */
+        .news-section{margin-top:48px}
+        .news-tabs{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+        .news-tab{background:var(--s2);border:1px solid var(--border);color:var(--txt);padding:8px 18px;border-radius:100px;font-size:0.78em;font-weight:700;cursor:pointer;transition:all 0.3s;font-family:inherit}
+        .news-tab.active{background:rgba(139,92,246,0.15);color:#c4b5fd;border-color:rgba(139,92,246,0.3)}
+        .news-tab:hover{border-color:rgba(139,92,246,0.3);color:var(--white)}
+        .news-list{display:flex;flex-direction:column;gap:10px}
+        .news-item{background:rgba(12,12,20,0.7);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid var(--border);border-radius:16px;padding:18px 20px;display:flex;gap:14px;align-items:flex-start;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);cursor:pointer;text-decoration:none;color:inherit;position:relative;overflow:hidden}
+        .news-item:hover{border-color:rgba(139,92,246,0.25);transform:translateY(-2px);box-shadow:0 12px 40px rgba(0,0,0,0.3)}
+        .news-item::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(139,92,246,0.04),transparent);opacity:0;transition:opacity 0.4s}
+        .news-item:hover::after{opacity:1}
+        .news-icon{font-size:1.8em;flex-shrink:0;position:relative;z-index:1}
+        .news-content{flex:1;position:relative;z-index:1}
+        .news-title{color:var(--white);font-weight:700;font-size:0.92em;margin-bottom:4px;line-height:1.4}
+        .news-desc{color:var(--txt);font-size:0.78em;line-height:1.5}
+        .news-meta{display:flex;gap:10px;margin-top:8px;flex-wrap:wrap}
+        .news-tag{font-size:0.65em;padding:3px 10px;border-radius:100px;font-weight:700;letter-spacing:0.3px}
+        .tag-live{background:rgba(239,68,68,0.12);color:#fca5a5;border:1px solid rgba(239,68,68,0.2);animation:blink 1.5s ease infinite}
+        .tag-new{background:rgba(34,197,94,0.1);color:#86efac;border:1px solid rgba(34,197,94,0.2)}
+        .tag-upcoming{background:rgba(250,204,21,0.08);color:#fde68a;border:1px solid rgba(250,204,21,0.15)}
+        .tag-info{background:rgba(99,102,241,0.1);color:#a5b4fc;border:1px solid rgba(99,102,241,0.2)}
+        .tag-other{background:rgba(139,92,246,0.1);color:#c4b5fd;border:1px solid rgba(139,92,246,0.2)}
+        .news-date{font-size:0.68em;color:var(--dim);position:relative;z-index:1;margin-top:6px}
+        .news-arrow{color:var(--dim);font-size:1.3em;transition:transform 0.3s;position:relative;z-index:1;flex-shrink:0;align-self:center}
+        .news-item:hover .news-arrow{transform:translateX(4px);color:#c4b5fd}
+        .news-empty{text-align:center;padding:32px;color:var(--dim);font-size:0.85em}
+        .news-source{font-size:0.65em;color:var(--dim);margin-top:3px}
+        .news-highlight{border-color:rgba(239,68,68,0.2);background:rgba(239,68,68,0.03)}
+        .news-highlight:hover{border-color:rgba(239,68,68,0.4)}
+        .vacancy-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px;margin-top:12px}
+        .vacancy-chip{background:var(--s2);border:1px solid var(--border);border-radius:12px;padding:12px 14px;text-align:center;transition:all 0.3s}
+        .vacancy-chip:hover{border-color:rgba(139,92,246,0.3);transform:translateY(-2px)}
+        .vacancy-chip .vc-count{font-size:1.6em;font-weight:900;color:var(--white)}
+        .vacancy-chip .vc-name{font-size:0.68em;color:var(--dim);margin-top:2px;text-transform:uppercase;letter-spacing:1px}
+        .vacancy-chip .vc-salary{font-size:0.65em;color:#86efac;margin-top:4px;font-weight:600}
+        .news-timeline{position:relative;padding-left:24px;margin-top:14px}
+        .news-timeline::before{content:'';position:absolute;left:8px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,rgba(139,92,246,0.3),rgba(139,92,246,0.05))}
+        .tl-item{position:relative;padding-bottom:16px}
+        .tl-item::before{content:'';position:absolute;left:-20px;top:4px;width:10px;height:10px;border-radius:50%;background:#7c3aed;border:2px solid var(--bg)}
+        .tl-item.active::before{background:#22c55e;box-shadow:0 0 8px rgba(34,197,94,0.5)}
+        .tl-item.upcoming::before{background:#f59e0b}
+        .tl-date{font-size:0.72em;color:#c4b5fd;font-weight:700}
+        .tl-text{font-size:0.82em;color:var(--txt);margin-top:2px;line-height:1.5}
+        .last-updated{font-size:0.68em;color:var(--dim);text-align:right;margin-top:8px}
+
         /* ============ FUN ZONE ============ */
         .fun-zone{margin-top:48px}
         .fun-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
@@ -422,6 +467,182 @@
             <div class="cd-item"><div class="cd-n" id="cd-mins">--</div><div class="cd-l">Minutes</div></div>
             <div class="cd-item"><div class="cd-n" id="cd-secs">--</div><div class="cd-l">Seconds</div></div>
         </div>
+    </div>
+
+    <!-- LIVE NEWS & JOB OPENINGS -->
+    <div class="sec news-section sr" id="newsSection">
+        <div class="sec-top"><div class="sec-name"><i style="background:#22c55e"></i>Live News & Job Openings</div><span class="sec-info tag-live" style="font-size:0.72em">LIVE</span></div>
+
+        <!-- Tabs -->
+        <div class="news-tabs">
+            <button class="news-tab active" onclick="filterNews('all')">All Updates</button>
+            <button class="news-tab" onclick="filterNews('smc')">SMC 2026</button>
+            <button class="news-tab" onclick="filterNews('vacancy')">Vacancies</button>
+            <button class="news-tab" onclick="filterNews('timeline')">Timeline</button>
+            <button class="news-tab" onclick="filterNews('other')">Other Gujarat Jobs</button>
+        </div>
+
+        <!-- SMC Vacancy Overview -->
+        <div class="news-panel" id="panel-vacancy">
+            <div class="vacancy-grid">
+                <div class="vacancy-chip"><div class="vc-count">717</div><div class="vc-name">Clerk</div><div class="vc-salary">Rs 19,900-63,200</div></div>
+                <div class="vacancy-chip"><div class="vc-count">444</div><div class="vc-name">Driver</div><div class="vc-salary">Apply 1 Apr</div></div>
+                <div class="vacancy-chip"><div class="vc-count">323</div><div class="vc-name">Marshal</div><div class="vc-salary">Rs 15,700-50,000</div></div>
+                <div class="vacancy-chip"><div class="vc-count">150</div><div class="vc-name">Staff Nurse</div><div class="vc-salary">Apply 1 Apr</div></div>
+                <div class="vacancy-chip"><div class="vc-count">112</div><div class="vc-name">Tech Asst</div><div class="vc-salary">Apply 1 Apr</div></div>
+                <div class="vacancy-chip"><div class="vc-count">70</div><div class="vc-name">Jr Pharmacist</div><div class="vc-salary">Apply 1 Apr</div></div>
+                <div class="vacancy-chip"><div class="vc-count">40</div><div class="vc-name">Lab Tech</div><div class="vc-salary">Rs 25,500-81,100</div></div>
+                <div class="vacancy-chip"><div class="vc-count">12</div><div class="vc-name">Computer Supv</div><div class="vc-salary">Rs 25,500-81,100</div></div>
+                <div class="vacancy-chip"><div class="vc-count">7</div><div class="vc-name">Jr Analyst</div><div class="vc-salary">Apply 1 Apr</div></div>
+                <div class="vacancy-chip"><div class="vc-count">69</div><div class="vc-name">Medical Officer</div><div class="vc-salary">Apply 1 Apr</div></div>
+                <div class="vacancy-chip"><div class="vc-count">57</div><div class="vc-name">AE (Electrical)</div><div class="vc-salary">Apply 1 Apr</div></div>
+                <div class="vacancy-chip"><div class="vc-count">54</div><div class="vc-name">Asst Town Plnr</div><div class="vc-salary">Apply 1 Apr</div></div>
+            </div>
+        </div>
+
+        <!-- Timeline -->
+        <div class="news-panel" id="panel-timeline" style="display:none">
+            <div class="news-timeline">
+                <div class="tl-item active"><div class="tl-date">11 March 2026</div><div class="tl-text">Short Notification Released — P.R.O. 739 — 2,295 posts announced across 45+ cadres</div></div>
+                <div class="tl-item active"><div class="tl-date">19 March 2026 (Today)</div><div class="tl-text">Detailed advertisement expected soon. Keep checking suratmunicipal.gov.in for full syllabus & post-wise qualifications.</div></div>
+                <div class="tl-item upcoming"><div class="tl-date">1 April 2026</div><div class="tl-text">Online applications OPEN at 11:00 AM — Apply at suratmunicipal.gov.in</div></div>
+                <div class="tl-item upcoming"><div class="tl-date">15 April 2026</div><div class="tl-text">Last date to apply — 11:00 PM deadline — Don't miss it!</div></div>
+                <div class="tl-item"><div class="tl-date">TBA</div><div class="tl-text">Admit card release date — Will be announced after application window closes</div></div>
+                <div class="tl-item"><div class="tl-date">TBA</div><div class="tl-text">Written examination — OMR format — Date to be notified</div></div>
+                <div class="tl-item"><div class="tl-date">TBA</div><div class="tl-text">Skill test (Computer Supervisor, Clerk typing) — After written exam</div></div>
+                <div class="tl-item"><div class="tl-date">TBA</div><div class="tl-text">Results & merit list — Document verification — Final selection</div></div>
+            </div>
+        </div>
+
+        <!-- News List -->
+        <div class="news-list" id="newsList">
+            <!-- SMC News -->
+            <a class="news-item news-highlight" href="https://www.suratmunicipal.gov.in/Information/RecruitmentDashboard" target="_blank" data-cat="smc">
+                <div class="news-icon">&#128680;</div>
+                <div class="news-content">
+                    <div class="news-title">SMC Recruitment 2026 — 2,295 Posts — Applications Open 1 April!</div>
+                    <div class="news-desc">Notification P.R.O. 739 released on 11 March 2026. Online applications open 1 April 2026 (11:00 AM) to 15 April 2026 (11:00 PM). Clerk 717, Driver 444, Marshal 323, Staff Nurse 150, Lab Tech 40, Computer Supervisor 12, Jr Analyst 7 & more.</div>
+                    <div class="news-meta">
+                        <span class="news-tag tag-live">LIVE</span>
+                        <span class="news-tag tag-new">APPLY SOON</span>
+                    </div>
+                    <div class="news-source">Source: suratmunicipal.gov.in</div>
+                </div>
+                <div class="news-date">11 Mar 2026</div>
+                <div class="news-arrow">&rarr;</div>
+            </a>
+
+            <a class="news-item" href="https://www.suratmunicipal.gov.in/information/recruitment" target="_blank" data-cat="smc">
+                <div class="news-icon">&#128203;</div>
+                <div class="news-content">
+                    <div class="news-title">Application Fee: General Rs 500, SC/ST/OBC(NCL) Rs 250, PwD Exempt</div>
+                    <div class="news-desc">Payment via online only (Debit/Credit card, Net Banking). Non-refundable. Keep payment receipt safe for future reference.</div>
+                    <div class="news-meta">
+                        <span class="news-tag tag-info">FEE DETAILS</span>
+                    </div>
+                    <div class="news-source">Source: SMC Official Notification</div>
+                </div>
+                <div class="news-date">11 Mar 2026</div>
+                <div class="news-arrow">&rarr;</div>
+            </a>
+
+            <a class="news-item" href="https://www.suratmunicipal.gov.in/Information/RecruitmentDashboard" target="_blank" data-cat="smc">
+                <div class="news-icon">&#128221;</div>
+                <div class="news-content">
+                    <div class="news-title">Selection Process: Written Exam (OMR) + Skill Test + Interview + Document Verification</div>
+                    <div class="news-desc">Computer Supervisor: Written + Practical Test. Clerk: Written + Typing Test (25 WPM Gujarati). Marshal: Written + Physical Test. Merit list + waiting list prepared per Gujarat reservation rules.</div>
+                    <div class="news-meta">
+                        <span class="news-tag tag-info">SELECTION</span>
+                    </div>
+                    <div class="news-source">Source: SMC Recruitment Dashboard</div>
+                </div>
+                <div class="news-date">Mar 2026</div>
+                <div class="news-arrow">&rarr;</div>
+            </a>
+
+            <a class="news-item" href="https://www.suratmunicipal.gov.in/Information/RecruitmentDashboard" target="_blank" data-cat="smc">
+                <div class="news-icon">&#9203;</div>
+                <div class="news-content">
+                    <div class="news-title">Exam Date, Admit Card — Not Yet Announced</div>
+                    <div class="news-desc">Exam dates will be published after the application window closes (after 15 April). Keep checking the Recruitment Dashboard for Call Letters, Answer Keys, and Results sections.</div>
+                    <div class="news-meta">
+                        <span class="news-tag tag-upcoming">COMING SOON</span>
+                    </div>
+                    <div class="news-source">Source: suratmunicipal.gov.in/Information/RecruitmentDashboard</div>
+                </div>
+                <div class="news-date">TBA</div>
+                <div class="news-arrow">&rarr;</div>
+            </a>
+
+            <a class="news-item" href="https://www.suratmunicipal.gov.in/Information/RecruitmentDashboard" target="_blank" data-cat="smc">
+                <div class="news-icon">&#128176;</div>
+                <div class="news-content">
+                    <div class="news-title">Salary Details: Computer Supervisor Rs 18,500 stipend (3 yrs), then Rs 25,500-81,100</div>
+                    <div class="news-desc">Clerk: Rs 16,500 stipend then Rs 19,900-63,200. Marshal: Rs 15,500 stipend then Rs 15,700-50,000. Lab Tech: Pay Matrix Level-4 (Rs 25,500-81,100). All with government benefits, DA, HRA.</div>
+                    <div class="news-meta">
+                        <span class="news-tag tag-info">SALARY</span>
+                    </div>
+                    <div class="news-source">Source: SMC Notification P.R.O. 739</div>
+                </div>
+                <div class="news-date">Mar 2026</div>
+                <div class="news-arrow">&rarr;</div>
+            </a>
+
+            <!-- Other Gujarat Jobs -->
+            <a class="news-item" href="https://ahmedabadcity.gov.in" target="_blank" data-cat="other" style="display:none">
+                <div class="news-icon">&#127963;</div>
+                <div class="news-content">
+                    <div class="news-title">AMC Recruitment 2026 — PwD/Divyang Special Drive</div>
+                    <div class="news-desc">Ahmedabad Municipal Corporation — Asst Manager, Office Superintendent, Asst Junior Clerk posts. Application deadline was 27 Feb 2026.</div>
+                    <div class="news-meta">
+                        <span class="news-tag tag-other">AMC</span>
+                        <span class="news-tag tag-upcoming">CLOSED</span>
+                    </div>
+                    <div class="news-source">Source: ahmedabadcity.gov.in</div>
+                </div>
+                <div class="news-date">Feb 2026</div>
+                <div class="news-arrow">&rarr;</div>
+            </a>
+
+            <a class="news-item" href="https://vmc.gov.in" target="_blank" data-cat="other" style="display:none">
+                <div class="news-icon">&#127963;</div>
+                <div class="news-content">
+                    <div class="news-title">VMC Recruitment 2026 — 200 Vacancies (Contractual)</div>
+                    <div class="news-desc">Vadodara Municipal Corporation — Assistant Engineer & Work Assistant (contractual, 6 months). Application: 28 Feb - 9 March 2026.</div>
+                    <div class="news-meta">
+                        <span class="news-tag tag-other">VMC</span>
+                        <span class="news-tag tag-upcoming">CLOSED</span>
+                    </div>
+                    <div class="news-source">Source: vmc.gov.in</div>
+                </div>
+                <div class="news-date">Mar 2026</div>
+                <div class="news-arrow">&rarr;</div>
+            </a>
+
+            <a class="news-item" href="https://rmc.gov.in" target="_blank" data-cat="other" style="display:none">
+                <div class="news-icon">&#127963;</div>
+                <div class="news-content">
+                    <div class="news-title">RMC Recruitment 2026 — 41 Vacancies (PwBD Drive)</div>
+                    <div class="news-desc">Rajkot Municipal Corporation — Technical, Administrative & Healthcare roles. Special drive for Divyang candidates. Application: 8-23 March 2026.</div>
+                    <div class="news-meta">
+                        <span class="news-tag tag-other">RMC</span>
+                        <span class="news-tag tag-live">OPEN</span>
+                    </div>
+                    <div class="news-source">Source: rmc.gov.in</div>
+                </div>
+                <div class="news-date">Mar 2026</div>
+                <div class="news-arrow">&rarr;</div>
+            </a>
+        </div>
+
+        <!-- Quick Links -->
+        <div style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap">
+            <a class="b b-ghost" href="https://www.suratmunicipal.gov.in/Information/RecruitmentDashboard" target="_blank" style="padding:10px 18px;font-size:0.78em">SMC Recruitment Portal</a>
+            <a class="b b-ghost" href="https://ojas.gujarat.gov.in" target="_blank" style="padding:10px 18px;font-size:0.78em">OJAS Gujarat</a>
+            <a class="b b-ghost" href="https://www.suratmunicipal.gov.in/information/recruitment" target="_blank" style="padding:10px 18px;font-size:0.78em">Official Notifications</a>
+        </div>
+
+        <div class="last-updated">Last updated: 19 March 2026 &middot; Sources: suratmunicipal.gov.in, freejobalert.com, marugujarat.net</div>
     </div>
 
     <!-- DAILY QUIZ -->
@@ -1324,6 +1545,40 @@ function loadStreak(){
 }
 
 loadFunZone();
+
+// ===== NEWS FILTER =====
+function filterNews(cat){
+    // Update tabs
+    document.querySelectorAll('.news-tab').forEach(t=>t.classList.remove('active'));
+    event.target.classList.add('active');
+
+    const items=document.querySelectorAll('.news-item');
+    const panelVacancy=document.getElementById('panel-vacancy');
+    const panelTimeline=document.getElementById('panel-timeline');
+    const newsList=document.getElementById('newsList');
+
+    // Show/hide panels
+    panelVacancy.style.display=(cat==='all'||cat==='vacancy')?'block':'none';
+    panelTimeline.style.display=(cat==='timeline')?'block':'none';
+    newsList.style.display=(cat==='timeline')?'none':'flex';
+
+    if(cat==='timeline')return;
+
+    items.forEach(item=>{
+        const itemCat=item.getAttribute('data-cat');
+        if(cat==='all'){
+            item.style.display=(itemCat==='other')?'none':'flex';
+        }else if(cat==='vacancy'){
+            item.style.display='none';
+        }else if(cat==='smc'){
+            item.style.display=(itemCat==='smc')?'flex':'none';
+        }else if(cat==='other'){
+            item.style.display=(itemCat==='other')?'flex':'none';
+        }else{
+            item.style.display='flex';
+        }
+    });
+}
 
 // ===== TYPEWRITER EFFECT ON HERO =====
 (function(){
