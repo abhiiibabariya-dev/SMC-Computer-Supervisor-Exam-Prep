@@ -326,17 +326,46 @@
 
             <div id="keyResult" style="display:none">
                 <div class="access-key-box">
-                    <div style="font-size:2em;margin-bottom:4px">&#127881;</div>
-                    <h3 style="color:var(--green);font-weight:800;font-size:1.1em">Payment Submitted!</h3>
-                    <p style="color:var(--txt);font-size:0.82em;margin:6px 0">Your access key has been generated:</p>
+                    <div style="font-size:3em;margin-bottom:4px">&#127881;</div>
+                    <h3 style="color:var(--green);font-weight:800;font-size:1.3em">Payment Successful!</h3>
+                    <p style="color:var(--txt);font-size:0.85em;margin:8px 0">Your premium access is now active on this device.</p>
+                    <div style="font-size:0.7em;color:var(--dim);margin-bottom:8px">ACCESS KEY</div>
                     <div class="access-key" id="accessKey">—</div>
                     <button class="copy-btn" onclick="copyKey()" style="margin-top:4px">Copy Key</button>
-                    <p style="color:var(--dim);font-size:0.72em;margin-top:10px">Your premium access is <b style="color:#fde68a">locked to this device</b>. It will only work on the device you purchased from.<br>Your payment will be verified within 2-4 hours. Access activates automatically.</p>
-                    <div style="margin-top:8px;padding:8px 12px;background:rgba(250,204,21,0.06);border:1px solid rgba(250,204,21,0.12);border-radius:8px;font-size:0.7em;color:#fde68a">&#128274; Device-locked: This key cannot be shared or used on another phone/computer.</div>
                 </div>
 
-                <div class="btn-row">
-                    <a class="btn btn-primary" href="mock-test.html">Go to Mock Tests &#8594;</a>
+                <!-- SEND CONFIRMATION -->
+                <div style="margin-top:16px">
+                    <div style="font-size:0.78em;color:var(--dim);text-align:center;margin-bottom:10px;font-weight:600">SEND RECEIPT & ACCESS KEY</div>
+
+                    <div class="btn-row">
+                        <button class="btn btn-green" onclick="sendWhatsApp()" style="gap:6px">&#128172; WhatsApp</button>
+                        <button class="btn btn-primary" onclick="sendEmail()" style="gap:6px">&#9993; Email</button>
+                        <button class="btn btn-ghost" onclick="sendSMS()" style="gap:6px;background:rgba(14,165,233,0.1);color:#38bdf8;border-color:rgba(14,165,233,0.2)">&#128241; SMS</button>
+                    </div>
+                    <div class="btn-row" style="margin-top:8px">
+                        <button class="btn btn-ghost" onclick="downloadReceipt()" style="gap:6px">&#128196; Download Receipt</button>
+                        <button class="btn btn-ghost" onclick="copyKey()" style="gap:6px">&#128203; Copy Key</button>
+                    </div>
+                </div>
+
+                <!-- RECEIPT DETAILS -->
+                <div style="margin-top:16px;background:var(--s2);border:1px solid var(--border);border-radius:14px;padding:16px;font-size:0.78em">
+                    <div style="color:var(--white);font-weight:700;margin-bottom:8px">Receipt Details</div>
+                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px">
+                        <div style="color:var(--dim)">Order ID:</div><div style="color:var(--white)" id="rcptOrder">—</div>
+                        <div style="color:var(--dim)">Plan:</div><div style="color:var(--white)" id="rcptPlan">—</div>
+                        <div style="color:var(--dim)">Amount:</div><div style="color:var(--green);font-weight:700" id="rcptAmount">—</div>
+                        <div style="color:var(--dim)">Txn ID:</div><div style="color:var(--white)" id="rcptTxn">—</div>
+                        <div style="color:var(--dim)">Date:</div><div style="color:var(--white)" id="rcptDate">—</div>
+                        <div style="color:var(--dim)">Name:</div><div style="color:var(--white)" id="rcptName">—</div>
+                    </div>
+                </div>
+
+                <div style="margin-top:12px;padding:8px 12px;background:rgba(250,204,21,0.06);border:1px solid rgba(250,204,21,0.12);border-radius:8px;font-size:0.7em;color:#fde68a;text-align:center">&#128274; Premium is locked to this device. Access activates automatically.</div>
+
+                <div class="btn-row" style="margin-top:16px">
+                    <a class="btn btn-primary" href="mock-test.html" style="font-size:1em;padding:16px">&#127942; Go to Mock Tests &#8594;</a>
                 </div>
             </div>
 
@@ -730,6 +759,7 @@ async function verifyPayment(){
     document.getElementById('accessKey').textContent=accessKey;
     document.getElementById('keyResult').style.display='block';
     document.getElementById('verifyPayBtn').style.display='none';
+    fillReceipt();
 
     // Update step
     document.getElementById('sd4').className='step-dot done';
@@ -749,6 +779,165 @@ function copyKey(){
     navigator.clipboard.writeText(key).catch(()=>{});
     event.target.textContent='Copied!';
     setTimeout(()=>event.target.textContent='Copy Key',2000);
+}
+
+// ===== RECEIPT DATA =====
+function getReceiptData(){
+    const plan=PLANS[selectedPlan];
+    return{
+        order:orderNumber,
+        plan:plan.name,
+        amount:'Rs '+plan.price,
+        txn:document.getElementById('txnId').value.trim(),
+        key:document.getElementById('accessKey').textContent,
+        name:document.getElementById('userName').value.trim(),
+        phone:document.getElementById('userPhone').value.trim(),
+        email:document.getElementById('userEmail').value.trim(),
+        date:new Date().toLocaleString('en-IN',{timeZone:'Asia/Kolkata'})
+    };
+}
+
+function fillReceipt(){
+    const r=getReceiptData();
+    document.getElementById('rcptOrder').textContent=r.order;
+    document.getElementById('rcptPlan').textContent=r.plan;
+    document.getElementById('rcptAmount').textContent=r.amount;
+    document.getElementById('rcptTxn').textContent=r.txn;
+    document.getElementById('rcptDate').textContent=r.date;
+    document.getElementById('rcptName').textContent=r.name;
+}
+
+// ===== SEND VIA WHATSAPP =====
+function sendWhatsApp(){
+    const r=getReceiptData();
+    const phone=r.phone.startsWith('91')?r.phone:'91'+r.phone;
+    const msg=`🎉 *SMC Exam Prep — Premium Activated!*
+
+✅ *Payment Receipt*
+━━━━━━━━━━━━━━━
+📋 Order: ${r.order}
+📦 Plan: ${r.plan}
+💰 Amount: ${r.amount}
+🔑 Access Key: *${r.key}*
+📄 Txn ID: ${r.txn}
+📅 Date: ${r.date}
+👤 Name: ${r.name}
+━━━━━━━━━━━━━━━
+
+🔓 Your premium access is now active!
+📱 Open the website to access all mock tests.
+
+🌐 https://abhiiibabariya-dev.github.io/SMC-Computer-Supervisor-Exam-Prep/mock-test.html
+
+⚠️ This key is locked to your device. Do not share.`;
+
+    const url='https://wa.me/'+phone+'?text='+encodeURIComponent(msg);
+    window.open(url,'_blank');
+}
+
+// ===== SEND VIA EMAIL =====
+function sendEmail(){
+    const r=getReceiptData();
+    const subject='SMC Exam Prep — Premium Access Key & Receipt ('+r.order+')';
+    const body=`SMC Exam Prep — Premium Activated!
+========================================
+
+Payment Receipt
+-----------------
+Order ID: ${r.order}
+Plan: ${r.plan}
+Amount: ${r.amount}
+Access Key: ${r.key}
+Transaction ID: ${r.txn}
+Date: ${r.date}
+Name: ${r.name}
+
+========================================
+
+Your premium access is now active!
+Open the website to access all 9 mock tests:
+https://abhiiibabariya-dev.github.io/SMC-Computer-Supervisor-Exam-Prep/mock-test.html
+
+Important: This key is locked to your device. Do not share.
+
+Thank you for purchasing SMC Exam Prep Premium!
+Good luck with your exam! 🎯`;
+
+    const emailTo=r.email||'';
+    const url='mailto:'+emailTo+'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+    window.open(url);
+}
+
+// ===== SEND VIA SMS =====
+function sendSMS(){
+    const r=getReceiptData();
+    const msg=`SMC Exam Prep Premium Activated! Order: ${r.order} | Plan: ${r.plan} | Amount: ${r.amount} | Key: ${r.key} | Txn: ${r.txn} | Access: https://abhiiibabariya-dev.github.io/SMC-Computer-Supervisor-Exam-Prep/mock-test.html`;
+    const phone=r.phone;
+    const url='sms:'+phone+'?body='+encodeURIComponent(msg);
+    window.open(url);
+}
+
+// ===== DOWNLOAD RECEIPT =====
+function downloadReceipt(){
+    const r=getReceiptData();
+    const canvas=document.createElement('canvas');
+    canvas.width=600;canvas.height=520;
+    const ctx=canvas.getContext('2d');
+
+    // Background
+    ctx.fillStyle='#06060a';ctx.fillRect(0,0,600,520);
+
+    // Header gradient bar
+    const grad=ctx.createLinearGradient(0,0,600,0);
+    grad.addColorStop(0,'#7c3aed');grad.addColorStop(1,'#6366f1');
+    ctx.fillStyle=grad;ctx.fillRect(0,0,600,60);
+
+    // Header text
+    ctx.fillStyle='#ffffff';ctx.font='bold 20px Arial';
+    ctx.fillText('SMC Exam Prep — Payment Receipt',24,38);
+
+    // Divider
+    ctx.fillStyle='#1f2937';ctx.fillRect(24,80,552,1);
+
+    // Receipt content
+    const lines=[
+        {label:'Order ID',value:r.order},
+        {label:'Plan',value:r.plan},
+        {label:'Amount Paid',value:r.amount},
+        {label:'Access Key',value:r.key},
+        {label:'Transaction ID',value:r.txn},
+        {label:'Date',value:r.date},
+        {label:'Name',value:r.name},
+        {label:'Phone',value:r.phone},
+    ];
+
+    let y=110;
+    lines.forEach(line=>{
+        ctx.fillStyle='#6b7280';ctx.font='13px Arial';
+        ctx.fillText(line.label,24,y);
+        ctx.fillStyle='#f4f4f5';ctx.font='bold 14px Arial';
+        ctx.fillText(line.value||'—',200,y);
+
+        ctx.fillStyle='#1f2937';ctx.fillRect(24,y+10,552,1);
+        y+=40;
+    });
+
+    // Access key highlight
+    ctx.fillStyle='rgba(34,197,94,0.1)';
+    ctx.fillRect(24,430,552,50);
+    ctx.strokeStyle='rgba(34,197,94,0.3)';ctx.strokeRect(24,430,552,50);
+    ctx.fillStyle='#22c55e';ctx.font='bold 13px Arial';
+    ctx.fillText('Premium Active | Device-Locked | Do Not Share This Receipt',40,460);
+
+    // Footer
+    ctx.fillStyle='#52525b';ctx.font='11px Arial';
+    ctx.fillText('SMC Exam Prep 2026 | This is a computer-generated receipt',24,505);
+
+    // Download
+    const link=document.createElement('a');
+    link.download='SMC_Receipt_'+r.order+'.png';
+    link.href=canvas.toDataURL('image/png');
+    link.click();
 }
 </script>
 </body>
