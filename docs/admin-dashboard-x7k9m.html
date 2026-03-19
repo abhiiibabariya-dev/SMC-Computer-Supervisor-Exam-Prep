@@ -239,8 +239,7 @@ function hashPin(pin){
     return(h>>>0).toString(36);
 }
 
-// Set the admin PIN hash (PIN: 271205)
-// To change PIN: open console, type setAdminPin('yourNewPin')
+// PIN hash — change via console: setAdminPin('newpin')
 window.setAdminPin=function(pin){
     const hash=hashPin(pin);
     console.log('New PIN hash:',hash,'- Update ADMIN_PIN_HASH in code');
