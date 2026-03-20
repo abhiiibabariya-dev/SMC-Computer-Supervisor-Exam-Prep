@@ -505,6 +505,46 @@
             .aurora-beam{filter:blur(60px);opacity:0.7}
             .countdown{grid-template-columns:repeat(2,1fr)}
         }
+        /* ============ FLOATING TOGGLES ============ */
+        .float-toggles{position:fixed;bottom:20px;right:20px;z-index:200;display:flex;flex-direction:column;gap:10px}
+        .float-btn{width:48px;height:48px;border-radius:50%;border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.2em;transition:all 0.3s;box-shadow:0 4px 20px rgba(0,0,0,0.4);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+        .float-btn:hover{transform:scale(1.1);box-shadow:0 6px 28px rgba(0,0,0,0.5)}
+        .float-btn.lang-btn{background:rgba(34,197,94,0.15);color:#86efac}
+        .float-btn.lang-btn:hover{background:rgba(34,197,94,0.25)}
+        .float-btn.theme-btn{background:rgba(250,204,21,0.15);color:#fde68a}
+        .float-btn.theme-btn:hover{background:rgba(250,204,21,0.25)}
+        .float-label{position:absolute;right:58px;background:var(--s1);border:1px solid var(--border2);color:var(--white);padding:6px 12px;border-radius:8px;font-size:0.72em;font-weight:600;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity 0.3s}
+        .float-btn:hover .float-label{opacity:1}
+        @media(max-width:768px){.float-toggles{bottom:14px;right:14px}.float-btn{width:42px;height:42px;font-size:1em}.float-btn:hover .float-label{display:none}}
+
+        /* ============ LIGHT MODE ============ */
+        body.light{--bg:#f8f9fa;--s1:#ffffff;--s2:#f1f3f5;--border:rgba(0,0,0,0.08);--border2:rgba(0,0,0,0.12);--txt:#495057;--white:#212529;--dim:#868e96}
+        body.light .mesh i{opacity:0.3}
+        body.light .noise{opacity:0.01}
+        body.light .nav{background:rgba(255,255,255,0.9);border-color:rgba(0,0,0,0.08)}
+        body.light .nav-logo{color:#212529}
+        body.light .nav a{color:#495057}
+        body.light .nav a:hover{color:#212529;background:rgba(0,0,0,0.04)}
+        body.light .nav a.accent{background:rgba(99,102,241,0.1);color:#4c1d95}
+        body.light .hero h1{color:#212529}
+        body.light .hero h1 .gr{background:linear-gradient(135deg,#4f46e5,#7c3aed,#9333ea);-webkit-background-clip:text;background-clip:text}
+        body.light .b-primary{box-shadow:0 4px 24px rgba(124,58,237,0.2)}
+        body.light .k{background:#fff;border-color:rgba(0,0,0,0.08)}
+        body.light .k:hover{border-color:rgba(99,102,241,0.3);box-shadow:0 8px 30px rgba(0,0,0,0.08)}
+        body.light .k-t{color:#212529}
+        body.light .sec-top .sec-name{color:#212529}
+        body.light .float-btn{border-color:rgba(0,0,0,0.12);box-shadow:0 4px 20px rgba(0,0,0,0.1)}
+        body.light .float-btn.theme-btn{background:rgba(30,30,50,0.1);color:#1e1e32}
+        body.light .float-btn.lang-btn{background:rgba(34,197,94,0.1);color:#166534}
+        body.light .float-label{background:#fff;border-color:rgba(0,0,0,0.1);color:#212529}
+        body.light footer{background:linear-gradient(180deg,transparent,rgba(241,243,245,0.8))}
+        body.light #vb{background:rgba(255,255,255,0.95)}
+        body.light .paywall-overlay{background:linear-gradient(transparent,#f8f9fa 60%)}
+
+        /* ============ GUJARATI MODE ============ */
+        body.gu .en{display:none}
+        body.gu .gu-text{display:inline}
+        .gu-text{display:none}
     </style>
 </head>
 <body>
@@ -1912,6 +1952,131 @@ function toggleSection(id,btn){
         });
     }
 })();
+</script>
+
+<!-- FLOATING TOGGLES: Language + Theme -->
+<div class="float-toggles">
+    <button class="float-btn lang-btn" id="langToggle" onclick="toggleLang()" title="English / ગુજરાતી">
+        <span class="float-label">ગુજરાતી / English</span>
+        <span id="langIcon">ગુ</span>
+    </button>
+    <button class="float-btn theme-btn" id="themeToggle" onclick="toggleTheme()" title="Dark / Light Mode">
+        <span class="float-label">Dark / Light Mode</span>
+        <span id="themeIcon">&#9728;</span>
+    </button>
+</div>
+
+<script>
+// ===== LANGUAGE TOGGLE =====
+const LANG_MAP={
+    'All 45 Jobs':'બધી 45 નોકરીઓ',
+    'Gujarat Jobs':'ગુજરાત નોકરીઓ',
+    'Mock Tests':'મોક ટેસ્ટ',
+    'Everything to':'બધું જ',
+    'Crack Your Exam':'તમારી પરીક્ષા પાસ કરો',
+    'Apply 1 Apr':'અરજી 1 એપ્રિલ',
+    'SMC Recruitment 2026':'SMC ભરતી 2026',
+    'Ask AI Assistant':'AI સહાયક પૂછો',
+    'Free Mock Tests':'મફત મોક ટેસ્ટ',
+    'Take Exam':'પરીક્ષા આપો',
+    'Quick Access':'ઝડપી ઍક્સેસ',
+    'Recruitment 2026':'ભરતી 2026',
+    'Complete Guide + SOP':'સંપૂર્ણ માર્ગદર્શિકા',
+    'Apply Online':'ઓનલાઈન અરજી',
+    'All 45 SMC Jobs — Click to Study / બધી 45 નોકરીઓ':'બધી 45 SMC નોકરીઓ — અભ્યાસ માટે ક્લિક કરો',
+    'Posts':'જગ્યાઓ',
+    'Clerk / ક્લાર્ક':'ક્લાર્ક',
+    'Driver / ડ્રાઈવર':'ડ્રાઈવર',
+    'Marshal / માર્શલ':'માર્શલ',
+    'Staff Nurse / નર્સ':'સ્ટાફ નર્સ',
+    'Technical Asst':'ટેકનિકલ આસિસ્ટન્ટ',
+    'Jr Pharmacist':'જુનિયર ફાર્માસિસ્ટ',
+    'Medical Officer':'મેડિકલ ઓફિસર',
+    'AE Electrical':'આસિ. ઈજનેર (ઈલેક્ટ્રિકલ)',
+    'Asst Town Planner':'આસિ. ટાઉન પ્લાનર',
+    'AE Civil':'આસિ. ઈજનેર (સિવિલ)',
+    'Lab Technician':'લેબ ટેકનિશિયન',
+    'Fitter / ફિટર':'ફિટર',
+    'Zoo Keeper':'ઝૂ કીપર',
+    'Computer Supv':'કમ્પ્યુટર સુપરવાઈઝર',
+    'Graduate + CCC':'ગ્રેજ્યુએટ + CCC',
+    '8th/10th + DL':'8મું/10મું + ડ્રાઈવિંગ લાઈસન્સ',
+    '10th/12th Pass':'10મું/12મું પાસ',
+    'Diploma':'ડિપ્લોમા',
+    'Diploma/BE':'ડિપ્લોમા/BE',
+    'Top Jobs (by vacancies)':'ટોચની નોકરીઓ (ખાલી જગ્યા મુજબ)',
+    'More Exam Guides':'વધુ પરીક્ષા માર્ગદર્શિકા',
+    'Practice & Tools':'પ્રેક્ટિસ અને ટૂલ્સ',
+    'Free Mock Tests':'મફત મોક ટેસ્ટ',
+    'Online Exam Practice':'ઓનલાઈન પરીક્ષા પ્રેક્ટિસ',
+    'AI Assistant':'AI સહાયક',
+    'Premium Access':'પ્રીમિયમ ઍક્સેસ',
+    'Jobs & Resources':'નોકરીઓ અને સંસાધનો',
+    '→ View All 45 Jobs':'→ બધી 45 નોકરીઓ જુઓ',
+    'Scroll':'નીચે જુઓ',
+};
+
+let isGujarati=localStorage.getItem('smc-lang')==='gu';
+
+function toggleLang(){
+    isGujarati=!isGujarati;
+    localStorage.setItem('smc-lang',isGujarati?'gu':'en');
+    applyLang();
+}
+
+function applyLang(){
+    document.getElementById('langIcon').textContent=isGujarati?'EN':'ગુ';
+    if(isGujarati){
+        document.body.classList.add('gu');
+        document.title='SMC પરીક્ષા તૈયારી 2026';
+    }else{
+        document.body.classList.remove('gu');
+        document.title='SMC Exam Prep 2026';
+    }
+    // Translate nav links and text nodes
+    document.querySelectorAll('a, button, .k-t, .k-d, .sec-name, .hero h1, .hero p, .hero-chip, .nav-logo, .scroll-hint span, .sec-info, .sl, .vc-name, .info-item .lab').forEach(el=>{
+        if(el.children.length>2)return; // skip complex elements
+        const txt=el.getAttribute('data-en')||el.textContent.trim();
+        if(!el.getAttribute('data-en'))el.setAttribute('data-en',txt);
+        if(isGujarati){
+            // Check exact match first
+            if(LANG_MAP[txt]){el.textContent=LANG_MAP[txt];return;}
+            // Check partial matches
+            for(const[en,gu] of Object.entries(LANG_MAP)){
+                if(txt.includes(en)){
+                    el.textContent=txt.replace(en,gu);
+                    return;
+                }
+            }
+        }else{
+            const orig=el.getAttribute('data-en');
+            if(orig)el.textContent=orig;
+        }
+    });
+}
+
+// ===== THEME TOGGLE =====
+let isLight=localStorage.getItem('smc-theme')==='light';
+
+function toggleTheme(){
+    isLight=!isLight;
+    localStorage.setItem('smc-theme',isLight?'light':'dark');
+    applyTheme();
+}
+
+function applyTheme(){
+    if(isLight){
+        document.body.classList.add('light');
+        document.getElementById('themeIcon').innerHTML='&#127769;'; // moon
+    }else{
+        document.body.classList.remove('light');
+        document.getElementById('themeIcon').innerHTML='&#9728;'; // sun
+    }
+}
+
+// Apply saved preferences on load
+if(isLight)applyTheme();
+if(isGujarati)applyLang();
 </script>
 </body>
 </html>
