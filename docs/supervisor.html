@@ -26,6 +26,30 @@
         .no-neg{display:inline-block;background:rgba(74,222,128,0.1);color:#86efac;padding:4px 12px;border-radius:8px;font-weight:700;font-size:0.82em}
         @media(max-width:640px){.top h1{font-size:0.82em}.wrap{padding:20px 14px 60px}.key-grid{grid-template-columns:1fr}}
         @media(max-width:768px){.mesh i{animation:none !important;opacity:0.5}.top{backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(12,12,20,0.95)}}
+    
+        /* FLOATING TOGGLES */
+        .float-toggles{position:fixed;bottom:20px;right:20px;z-index:200;display:flex;flex-direction:column;gap:10px}
+        .float-btn{width:44px;height:44px;border-radius:50%;border:1px solid var(--border,rgba(255,255,255,0.1));display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.1em;transition:all 0.3s;box-shadow:0 4px 16px rgba(0,0,0,0.3)}
+        .float-btn:hover{transform:scale(1.1)}
+        .float-btn.lang-btn{background:rgba(34,197,94,0.15);color:#86efac}
+        .float-btn.theme-btn{background:rgba(250,204,21,0.15);color:#fde68a}
+        body.light{--bg:#f8f9fa;--s1:#ffffff;--s2:#f1f3f5;--border:rgba(0,0,0,0.08);--txt:#495057;--white:#212529;--dim:#868e96}
+        body.light .mesh i{opacity:0.2}
+        body.light .top{background:rgba(255,255,255,0.92)}
+        body.light .top h1{color:#212529}
+        body.light .card{background:#fff;border-color:rgba(0,0,0,0.08)}
+        body.light table th{background:#f1f3f5;color:#212529}
+        body.light .mcq-content{color:#495057}
+        body.light .mcq-content strong,.light .mcq-content h1,.light .mcq-content h2,.light .mcq-content h3{color:#212529}
+        body.light .info-item{background:#fff;border-color:rgba(0,0,0,0.08)}
+        body.light details{background:#fff;border-color:rgba(0,0,0,0.08)}
+        body.light summary{color:#212529}
+        body.light .premium-lock{background:linear-gradient(135deg,rgba(99,102,241,0.05),rgba(139,92,246,0.03));border-color:rgba(99,102,241,0.15)}
+        body.light .foot{border-color:rgba(0,0,0,0.06)}
+        .goog-te-banner-frame{display:none !important}
+        body{top:0 !important}
+        .skiptranslate{display:none !important}
+
     </style>
 </head>
 <body>
@@ -118,5 +142,40 @@ document.querySelectorAll('details').forEach(d=>{
 </script>
 <script src="firebase-config.js"></script>
 <script src="tracker.js"></script>
+
+<div class="float-toggles">
+    <button class="float-btn lang-btn" onclick="toggleLang()" title="ગુજરાતી / English"><span id="langIcon">ગુ</span></button>
+    <button class="float-btn theme-btn" onclick="toggleTheme()" title="Dark / Light"><span id="themeIcon">&#9728;</span></button>
+</div>
+<div id="google_translate_element" style="position:fixed;bottom:-100px;opacity:0;pointer-events:none"></div>
+<script>
+function toggleLang(){
+    var isGu=localStorage.getItem('smc-lang')!=='gu';
+    localStorage.setItem('smc-lang',isGu?'gu':'en');
+    document.getElementById('langIcon').textContent=isGu?'EN':'ગુ';
+    if(!document.getElementById('gt-script')){
+        var s=document.createElement('script');s.id='gt-script';
+        s.src='//translate.google.com/translate_a/element.js?cb=gtInit';
+        document.body.appendChild(s);
+        window.gtInit=function(){
+            new google.translate.TranslateElement({pageLanguage:'en',includedLanguages:'gu',autoDisplay:false},'google_translate_element');
+            setTimeout(function(){var c=document.querySelector('.goog-te-combo');if(c){c.value=isGu?'gu':'en';c.dispatchEvent(new Event('change'));}},1000);
+        };
+    }else{
+        var c=document.querySelector('.goog-te-combo');
+        if(c){c.value=isGu?'gu':'en';c.dispatchEvent(new Event('change'));}
+    }
+}
+function toggleTheme(){
+    var isL=!document.body.classList.contains('light');
+    document.body.classList.toggle('light',isL);
+    localStorage.setItem('smc-theme',isL?'light':'dark');
+    document.getElementById('themeIcon').innerHTML=isL?'\u{1F319}':'\u2600';
+}
+// Apply saved prefs
+if(localStorage.getItem('smc-theme')==='light'){document.body.classList.add('light');document.getElementById('themeIcon').innerHTML='\u{1F319}';}
+if(localStorage.getItem('smc-lang')==='gu'){document.getElementById('langIcon').textContent='EN';toggleLang();}
+</script>
+
 </body>
 </html>
