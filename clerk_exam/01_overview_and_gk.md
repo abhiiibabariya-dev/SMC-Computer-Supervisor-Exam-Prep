@@ -1,7 +1,7 @@
 
 
 
-# SMC CLERK (Code-502) - COMPLETE EXAM GUIDE
+like computer supervisor when i click on that it whill show me that related contents , clerk on click it show something related contents like that only# SMC CLERK (Code-502) - COMPLETE EXAM GUIDE
 ### Surat Municipal Corporation | Total: 2295 Posts (All Categories)
 
 ---
