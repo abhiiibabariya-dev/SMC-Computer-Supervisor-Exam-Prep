@@ -408,3 +408,119 @@
 ---
 *MCQ Bank for SMC Radiographic Technician Exam 2026*
 *Total Questions: 35+ | Practice regularly for best results*
+
+---
+
+## Additional Practice Questions (Updated March 2026)
+
+**Q36. X-rays were discovered by?**
+- A) Marie Curie
+- B) Wilhelm Conrad Roentgen
+- C) Albert Einstein
+- D) Isaac Newton
+
+**Answer: B) Wilhelm Conrad Roentgen**
+**Explanation:** X-rays discovered by W.C. Roentgen in 1895. He won the first Nobel Prize in Physics (1901).
+
+---
+
+**Q37. Maximum permissible radiation dose for radiation workers per year is?**
+- A) 5 mSv
+- B) 20 mSv
+- C) 50 mSv
+- D) 100 mSv
+
+**Answer: B) 20 mSv**
+**Explanation:** AERB India: 20 mSv/year averaged over 5 years for occupational exposure. Public: 1 mSv/year.
+
+---
+
+**Q38. Lead apron is used for?**
+- A) Warmth
+- B) Radiation protection
+- C) Sterility
+- D) Identification
+
+**Answer: B) Radiation protection**
+**Explanation:** Lead apron (0.5mm Pb equivalent) protects against scattered radiation during X-ray procedures.
+
+---
+
+**Q39. Barium sulfate is used as contrast agent for?**
+- A) CT scan of brain
+- B) GI tract (barium swallow/enema)
+- C) MRI scan
+- D) Ultrasound
+
+**Answer: B) GI tract (barium swallow/enema)**
+**Explanation:** Barium sulfate is a radiopaque contrast agent used for upper GI series and barium enema.
+
+---
+
+**Q40. ALARA principle stands for?**
+- A) As Low As Reasonably Achievable
+- B) Always Look At Radiation Accurately
+- C) Avoid Large Amount Radiation Always
+- D) Always Limit All Radiation Areas
+
+**Answer: A) As Low As Reasonably Achievable**
+**Explanation:** ALARA is the fundamental principle of radiation protection — minimize exposure.
+
+---
+
+**Q41. KVp in X-ray controls?**
+- A) Quantity of X-rays
+- B) Quality/penetrating power of X-rays
+- C) Exposure time
+- D) Patient position
+
+**Answer: B) Quality/penetrating power of X-rays**
+**Explanation:** KVp (kilovoltage peak) controls X-ray energy/penetration. Higher KVp = more penetrating beam.
+
+---
+
+**Q42. mAs in X-ray controls?**
+- A) Image quality only
+- B) Quantity/number of X-rays produced
+- C) Patient dose only
+- D) Film speed
+
+**Answer: B) Quantity/number of X-rays produced**
+**Explanation:** mAs (milliampere-seconds) controls the number of X-ray photons — affects film density.
+
+---
+
+**Q43. Which body part has the highest radiation sensitivity?**
+- A) Muscles
+- B) Bone
+- C) Lymphoid tissue and bone marrow
+- D) Skin
+
+**Answer: C) Lymphoid tissue and bone marrow**
+**Explanation:** Rapidly dividing cells (lymphoid, bone marrow, gonads) are most sensitive to radiation.
+
+---
+
+**Q44. CT scan stands for?**
+- A) Computer Therapy
+- B) Computed Tomography
+- C) Central Testing
+- D) Cardiac Treatment
+
+**Answer: B) Computed Tomography**
+**Explanation:** CT (Computed Tomography) produces cross-sectional images using rotating X-ray beam and computer.
+
+---
+
+**Q45. TLD badge is used for?**
+- A) Patient identification
+- B) Radiation dose monitoring of workers
+- C) Temperature measurement
+- D) Blood pressure monitoring
+
+**Answer: B) Radiation dose monitoring of workers**
+**Explanation:** TLD (Thermoluminescent Dosimeter) badge monitors cumulative radiation dose received by workers.
+
+---
+
+*Additional MCQ Bank — Updated March 2026*

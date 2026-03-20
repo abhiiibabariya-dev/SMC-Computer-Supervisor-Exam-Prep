@@ -213,3 +213,28 @@
 | **Gradeup** | Android/iOS | Video classes, Tests |
 | **Current Affairs App** | Android | Daily CA in Gujarati |
 | **Gujarati Dictionary** | Android | Word meanings, Synonyms |
+
+---
+
+## Quick Revision One-Liners (Updated March 2026)
+
+1. Aphasia = language disorder due to brain damage (usually stroke)
+2. Broca area (frontal lobe) = speech production, Wernicke area (temporal) = comprehension
+3. Stuttering = fluency disorder with repetitions, prolongations, blocks
+4. Dysarthria = motor speech disorder due to muscle weakness
+5. Dysphagia = swallowing difficulty, Speech therapist manages this
+6. Apraxia of speech = motor planning disorder, knows what to say but cannot execute
+7. Voice disorders (dysphonia) = problems with pitch, loudness, quality
+8. AAC = Augmentative and Alternative Communication for non-verbal patients
+9. Child speech milestones: Babbling 6mo, First words 12mo, Two-words 18-24mo, Sentences 3yr
+10. Cleft palate causes hypernasal speech — requires surgical repair + speech therapy
+11. Articulation disorder = difficulty producing specific speech sounds correctly
+12. Phonological disorder = patterns of sound errors (fronting, stopping, etc.)
+13. Language delay vs disorder: Delay = slow development, Disorder = atypical development
+14. Autism spectrum: May have language delay, echolalia, pragmatic language difficulties
+15. VFSS (Videofluoroscopic Swallowing Study) = gold standard for dysphagia assessment
+16. Laryngectomy patients use esophageal speech, TEP, or electrolarynx
+17. Bilateral vocal cord paralysis = airway emergency, may need tracheostomy
+18. Speech therapy uses evidence-based approaches like Lee Silverman Voice Treatment (LSVT)
+19. Hearing loss in children can cause delayed speech/language development
+20. Early intervention (before age 3) gives best outcomes for speech disorders

@@ -244,3 +244,28 @@
 | **Gradeup** | Android/iOS | Video classes, Tests |
 | **Current Affairs App** | Android | Daily CA in Gujarati |
 | **Gujarati Dictionary** | Android | Word meanings, Synonyms |
+
+---
+
+## Quick Revision One-Liners (Updated March 2026)
+
+1. BIOS = Basic Input Output System — firmware on motherboard ROM
+2. SSD (Solid State Drive) — no moving parts, faster than HDD
+3. RAM = volatile (loses data when off), ROM = non-volatile (permanent)
+4. UTP Cat5e/Cat6 with RJ45 = standard Ethernet LAN cable
+5. Printer resolution measured in DPI (Dots Per Inch)
+6. MAC address = 48-bit unique hardware address for NIC
+7. POP3 (port 110) / IMAP (port 143) = receive email, SMTP (port 25) = send
+8. UPS = Uninterruptible Power Supply — backup during power outage
+9. BSOD = Blue Screen of Death — critical Windows system error
+10. Defragmentation organizes scattered files on HDD (not needed for SSD)
+11. CMOS battery maintains BIOS settings when computer is off
+12. POST = Power On Self Test — hardware check during boot
+13. CPU components: ALU (arithmetic), CU (control), Registers
+14. Cache memory: L1 (fastest, smallest) > L2 > L3
+15. USB versions: 2.0 (480 Mbps), 3.0 (5 Gbps), 3.1 (10 Gbps)
+16. HDMI for video+audio, VGA for video only (analog)
+17. Windows shortcuts: Win+E (Explorer), Win+R (Run), Win+L (Lock)
+18. Safe Mode = Windows troubleshooting mode with minimal drivers
+19. Task Manager (Ctrl+Shift+Esc) — monitor processes, CPU, memory usage
+20. Device Manager — manage hardware drivers and troubleshoot devices

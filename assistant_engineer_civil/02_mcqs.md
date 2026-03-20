@@ -408,3 +408,119 @@
 ---
 *MCQ Bank for SMC Assistant Engineer (Civil) Exam 2026*
 *Total Questions: 35+ | Practice regularly for best results*
+
+---
+
+## Additional Practice Questions (Updated March 2026)
+
+**Q36. The minimum grade of concrete for RCC work as per IS code is?**
+- A) M10
+- B) M15
+- C) M20
+- D) M25
+
+**Answer: C) M20**
+**Explanation:** IS 456:2000 specifies M20 as minimum grade for RCC work. M15 for plain concrete.
+
+---
+
+**Q37. Slump test is used to determine?**
+- A) Strength of concrete
+- B) Workability of concrete
+- C) Durability of concrete
+- D) Weight of concrete
+
+**Answer: B) Workability of concrete**
+**Explanation:** Slump test measures the consistency and workability of fresh concrete.
+
+---
+
+**Q38. Water-cement ratio affects?**
+- A) Color of concrete
+- B) Strength and durability of concrete
+- C) Only weight
+- D) Only appearance
+
+**Answer: B) Strength and durability of concrete**
+**Explanation:** Lower W/C ratio gives higher strength. Typical W/C ratio for RCC: 0.40-0.50.
+
+---
+
+**Q39. BOD stands for?**
+- A) Biological Oxygen Demand
+- B) Basic Oxygen Determination
+- C) Biochemical Oxygen Demand
+- D) Bi-level Oxygen Distribution
+
+**Answer: C) Biochemical Oxygen Demand**
+**Explanation:** BOD measures organic pollution in water. Higher BOD = more polluted water.
+
+---
+
+**Q40. Curing of concrete is done for minimum?**
+- A) 3 days
+- B) 7 days
+- C) 14 days
+- D) 28 days
+
+**Answer: B) 7 days**
+**Explanation:** Minimum curing period: 7 days for OPC, 10 days for blended cement. Proper curing increases strength.
+
+---
+
+**Q41. Standard brick size in India (nominal) is?**
+- A) 19 × 9 × 9 cm
+- B) 20 × 10 × 10 cm
+- C) 23 × 11 × 7 cm
+- D) 25 × 12 × 8 cm
+
+**Answer: B) 20 × 10 × 10 cm**
+**Explanation:** Nominal size: 20×10×10 cm. Actual size: 19×9×9 cm (with 10mm mortar joints).
+
+---
+
+**Q42. Moment of inertia of a rectangular section about its centroidal axis is?**
+- A) bh²/6
+- B) bh³/12
+- C) bh²/12
+- D) bh³/6
+
+**Answer: B) bh³/12**
+**Explanation:** MOI of rectangle about centroidal axis = bd³/12 (b=width, d=depth).
+
+---
+
+**Q43. Which test is done on cement for setting time?**
+- A) Compression test
+- B) Vicat apparatus test
+- C) Slump test
+- D) Tensile test
+
+**Answer: B) Vicat apparatus test**
+**Explanation:** Vicat apparatus determines initial setting time (30 min) and final setting time (600 min) of cement.
+
+---
+
+**Q44. Compressive strength of M25 concrete at 28 days is?**
+- A) 15 N/mm²
+- B) 20 N/mm²
+- C) 25 N/mm²
+- D) 30 N/mm²
+
+**Answer: C) 25 N/mm²**
+**Explanation:** M25 means characteristic compressive strength is 25 N/mm² at 28 days (150mm cube test).
+
+---
+
+**Q45. DPC stands for?**
+- A) Deep Pile Construction
+- B) Damp Proof Course
+- C) Direct Power Connection
+- D) Dual Phase Concrete
+
+**Answer: B) Damp Proof Course**
+**Explanation:** DPC prevents moisture from rising through walls. Usually at plinth level using cement concrete or bitumen.
+
+---
+
+*Additional MCQ Bank — Updated March 2026*

@@ -408,3 +408,60 @@
 ---
 *MCQ Bank for SMC Jan Sampark Adhikari (Public Relations Officer) Exam 2026*
 *Total Questions: 35+ | Practice regularly for best results*
+
+---
+
+## Additional Practice Questions (Updated March 2026)
+
+**Q36. RTI Act was passed in?**
+- A) 2000
+- B) 2005
+- C) 2010
+- D) 2015
+
+**Answer: B) 2005**
+
+---
+
+**Q37. RTI application fee?**
+- A) Free
+- B) Rs. 10
+- C) Rs. 50
+- D) Rs. 100
+
+**Answer: B) Rs. 10**
+
+---
+
+**Q38. PIO stands for?**
+- A) Public Information Officer
+- B) Private Investigation Office
+- C) Public Infrastructure Organization
+- D) Personnel Information Office
+
+**Answer: A) Public Information Officer**
+
+---
+
+**Q39. CPGRAMS grievance resolution target?**
+- A) 7 days
+- B) 30 days
+- C) 60 days
+- D) 90 days
+
+**Answer: C) 60 days**
+
+---
+
+**Q40. Consumer Protection Act current version?**
+- A) 1986
+- B) 2019
+- C) 2000
+- D) 2010
+
+**Answer: B) 2019**
+**Explanation:** Consumer Protection Act 2019 replaced the 1986 Act with stronger consumer rights.
+
+---
+
+*Additional MCQ Bank — Updated March 2026*

@@ -189,3 +189,28 @@
 | **Gradeup** | Android/iOS | Video classes, Tests |
 | **Current Affairs App** | Android | Daily CA in Gujarati |
 | **Gujarati Dictionary** | Android | Word meanings, Synonyms |
+
+---
+
+## Quick Revision One-Liners (Updated March 2026)
+
+1. CAG (Article 148): Audits all government expenditure
+2. Audit types: Statutory, Internal, Government, Tax, Cost
+3. Vouching: Examining evidence for transactions
+4. Fraud = intentional, Error = unintentional
+5. Internal control: Accounting + Administrative controls
+6. Audit report: Clean, Qualified, Adverse, Disclaimer
+7. Test checking: Auditing a sample of transactions
+8. Audit trail: Complete transaction record
+9. Surprise check: Unannounced cash/stock verification
+10. ICAI = Institute of Chartered Accountants of India
+11. Material misstatement: Significant error affecting decisions
+12. Going concern: Entity will continue operating
+13. Substantive testing: Verify amounts and disclosures
+14. Compliance testing: Verify internal controls work
+15. AG: Accountant General (state-level CAG representative)
+16. PAC: Public Accounts Committee examines CAG reports
+17. Local Fund Audit: Audit of municipal corporations
+18. Audit planning: Risk assessment and materiality
+19. Evidence types: Documentary, Oral, Visual, Physical
+20. Generally Accepted Auditing Standards (GAAS)

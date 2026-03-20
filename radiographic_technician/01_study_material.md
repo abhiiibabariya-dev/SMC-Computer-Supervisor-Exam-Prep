@@ -213,3 +213,28 @@
 | **Gradeup** | Android/iOS | Video classes, Tests |
 | **Current Affairs App** | Android | Daily CA in Gujarati |
 | **Gujarati Dictionary** | Android | Word meanings, Synonyms |
+
+---
+
+## Quick Revision One-Liners (Updated March 2026)
+
+1. X-rays discovered by W.C. Roentgen in 1895 — first Nobel Prize in Physics
+2. ALARA principle: As Low As Reasonably Achievable — minimize radiation exposure
+3. Maximum occupational dose: 20 mSv/year, Public: 1 mSv/year
+4. KVp controls X-ray quality/penetration, mAs controls quantity
+5. Lead apron (0.5mm Pb) protects against scattered radiation
+6. TLD badge monitors cumulative radiation dose for workers
+7. Barium sulfate = contrast agent for GI tract imaging
+8. Iodine-based contrast agents used for CT, angiography
+9. CT scan uses rotating X-ray beam to produce cross-sectional images
+10. MRI uses magnetic field and radio waves — NO radiation
+11. Ultrasound uses sound waves — safe for pregnancy
+12. Three radiation protection principles: Time, Distance, Shielding
+13. Inverse square law: double distance = 1/4th radiation dose
+14. Pregnant patients: avoid X-rays, especially in first trimester
+15. Digital radiography (DR) has replaced film-based X-ray in most hospitals
+16. PA (Posteroanterior) chest X-ray is the standard view
+17. Lateral view = side view, AP = Anteroposterior (front to back)
+18. Fluoroscopy = real-time X-ray imaging (higher dose than static X-ray)
+19. PACS = Picture Archiving and Communication System for digital images
+20. Radiation effects: Deterministic (dose-dependent) and Stochastic (random/cancer risk)

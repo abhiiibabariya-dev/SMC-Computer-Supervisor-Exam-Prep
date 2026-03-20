@@ -408,3 +408,119 @@
 ---
 *MCQ Bank for SMC Technical Assistant Exam 2026*
 *Total Questions: 35+ | Practice regularly for best results*
+
+---
+
+## Additional Practice Questions (Updated March 2026)
+
+**Q36. BIOS stands for?**
+- A) Basic Input Output System
+- B) Binary Input Output Source
+- C) Basic Internet Operating System
+- D) Built-In Operating Software
+
+**Answer: A) Basic Input Output System**
+**Explanation:** BIOS is firmware that initializes hardware during boot process. Stored in ROM chip on motherboard.
+
+---
+
+**Q37. Which storage device has no moving parts?**
+- A) Hard Disk Drive (HDD)
+- B) Solid State Drive (SSD)
+- C) Floppy Disk
+- D) CD-ROM
+
+**Answer: B) Solid State Drive (SSD)**
+**Explanation:** SSD uses flash memory — no moving parts, faster, more durable, less power than HDD.
+
+---
+
+**Q38. Ctrl+Alt+Delete in Windows is used for?**
+- A) Shutdown
+- B) Opening Task Manager / Security options
+- C) Copy
+- D) Print
+
+**Answer: B) Opening Task Manager / Security options**
+**Explanation:** Ctrl+Alt+Del opens security screen with options: Lock, Switch user, Sign out, Task Manager.
+
+---
+
+**Q39. Which cable type is most common for Ethernet LAN?**
+- A) Coaxial cable
+- B) UTP Cat5e/Cat6 cable
+- C) Fiber optic
+- D) Serial cable
+
+**Answer: B) UTP Cat5e/Cat6 cable**
+**Explanation:** UTP (Unshielded Twisted Pair) Cat5e/Cat6 with RJ45 connector is standard for Ethernet LAN.
+
+---
+
+**Q40. Printer resolution is measured in?**
+- A) MHz
+- B) DPI (Dots Per Inch)
+- C) RPM
+- D) Watts
+
+**Answer: B) DPI (Dots Per Inch)**
+**Explanation:** Higher DPI = better print quality. Standard laser: 600-1200 DPI.
+
+---
+
+**Q41. Blue Screen of Death (BSOD) in Windows indicates?**
+- A) Normal shutdown
+- B) Critical system error
+- C) Software update
+- D) Low battery
+
+**Answer: B) Critical system error**
+**Explanation:** BSOD indicates a critical system crash — caused by driver issues, hardware failure, or corrupted files.
+
+---
+
+**Q42. MAC address is a?**
+- A) Software address
+- B) Physical/hardware address (48-bit)
+- C) IP address
+- D) Email address
+
+**Answer: B) Physical/hardware address (48-bit)**
+**Explanation:** MAC (Media Access Control) is a unique 48-bit hardware address assigned to network interface card.
+
+---
+
+**Q43. Which protocol is used for email receiving?**
+- A) SMTP
+- B) POP3 / IMAP
+- C) FTP
+- D) HTTP
+
+**Answer: B) POP3 / IMAP**
+**Explanation:** POP3 (port 110) and IMAP (port 143) receive emails. SMTP (port 25) sends emails.
+
+---
+
+**Q44. Defragmentation is done to?**
+- A) Delete files
+- B) Organize fragmented data on HDD for faster access
+- C) Format the drive
+- D) Install software
+
+**Answer: B) Organize fragmented data on HDD for faster access**
+**Explanation:** Defrag reorganizes scattered file fragments on HDD. Not needed for SSD.
+
+---
+
+**Q45. UPS stands for?**
+- A) Unified Power Supply
+- B) Uninterruptible Power Supply
+- C) Universal Power System
+- D) Ultra Power Source
+
+**Answer: B) Uninterruptible Power Supply**
+**Explanation:** UPS provides backup power during outage — protects against data loss and hardware damage.
+
+---
+
+*Additional MCQ Bank — Updated March 2026*

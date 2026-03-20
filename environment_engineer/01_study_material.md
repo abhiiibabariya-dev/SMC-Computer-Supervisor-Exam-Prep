@@ -216,3 +216,28 @@
 | **Gradeup** | Android/iOS | Video classes, Tests |
 | **Current Affairs App** | Android | Daily CA in Gujarati |
 | **Gujarati Dictionary** | Android | Word meanings, Synonyms |
+
+---
+
+## Quick Revision One-Liners (Updated March 2026)
+
+1. EIA = Environmental Impact Assessment — mandatory for major projects
+2. CPCB = Central Pollution Control Board (under Water Act 1974)
+3. SPCB = State Pollution Control Board at state level
+4. NGT = National Green Tribunal (established 2010)
+5. BOD limit in treated sewage: < 30 mg/L (CPCB standard)
+6. Drinking water pH: 6.5-8.5, TDS < 500 mg/L
+7. Ozone layer in stratosphere (15-35 km) — protects from UV rays
+8. Acid rain caused by SO₂ and NOx emissions
+9. PM2.5 (< 2.5 μm) more dangerous than PM10 — enters lungs deeply
+10. STP: Primary (physical) → Secondary (biological) → Tertiary (advanced)
+11. Solid waste: Sanitary landfill, Incineration, Composting, Recycling
+12. Air Act 1981 — prevention and control of air pollution
+13. Water Act 1974 — prevention and control of water pollution
+14. Environment Protection Act 1986 — umbrella legislation
+15. Noise pollution limit: Residential 55 dB (day), 45 dB (night)
+16. Industrial zone noise limit: 75 dB (day), 70 dB (night)
+17. Global warming caused by greenhouse gases: CO₂, CH₄, N₂O, CFCs
+18. Montreal Protocol (1987) — phase out ozone-depleting substances
+19. Kyoto Protocol (1997) — reduce greenhouse gas emissions
+20. Paris Agreement (2015) — limit global warming to 1.5°C above pre-industrial

@@ -213,3 +213,28 @@
 | **Gradeup** | Android/iOS | Video classes, Tests |
 | **Current Affairs App** | Android | Daily CA in Gujarati |
 | **Gujarati Dictionary** | Android | Word meanings, Synonyms |
+
+---
+
+## Quick Revision One-Liners (Updated March 2026)
+
+1. Hemodialysis principle: Diffusion + Ultrafiltration across semipermeable membrane
+2. Normal creatinine: 0.6-1.2 mg/dL, BUN: 7-20 mg/dL
+3. Normal GFR: 90-120 mL/min, below 15 = end-stage renal disease
+4. AV fistula: Radial artery to cephalic vein, needs 6-8 weeks to mature
+5. Standard HD: 3 times/week, 3-4 hours each session
+6. Most common HD complication: Hypotension (low BP)
+7. Peritoneal dialysis uses body own peritoneal membrane
+8. Dialysate contains: Na, K, Ca, Mg, bicarbonate, glucose in purified water
+9. RO water treatment removes chlorine, heavy metals, bacteria, endotoxins
+10. Kt/V measures dialysis adequacy — target ≥1.2 for each session
+11. Normal urine output: 800-2000 mL/day
+12. Two kidneys in human body, each ~150g, located retroperitoneally
+13. Nephron is the functional unit of kidney (~1 million per kidney)
+14. Heparin is used as anticoagulant during hemodialysis
+15. Dry weight = patient target weight without excess fluid
+16. Potassium level must be monitored — hyperkalemia can cause cardiac arrest
+17. Normal serum potassium: 3.5-5.0 mEq/L
+18. Normal serum sodium: 135-145 mEq/L
+19. CKD stages: Stage 1 (GFR>90) to Stage 5 (GFR<15, dialysis needed)
+20. Dialysis catheter site must be kept clean to prevent infection

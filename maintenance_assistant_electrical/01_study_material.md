@@ -215,3 +215,28 @@ Distribution Board (DB)
 ---
 
 *SMC Maintenance Assistant (Electrical) Exam 2026*
+
+---
+
+## Quick Revision One-Liners (Updated March 2026)
+
+1. Wire colors: Phase = Red/Yellow/Blue, Neutral = Black, Earth = Green
+2. ELCB/RCCB = Earth leakage protection, trips at 30mA leakage
+3. MCB = Overload/short circuit protection, MCCB = larger loads
+4. Megger measures insulation resistance in megaohms
+5. Safe voltage in damp conditions: 24V AC or 50V DC
+6. Capacitor bank improves power factor (lagging to near unity)
+7. DOL starter: Up to 5 HP motors, Star-Delta: larger motors
+8. Motor overheating: Overload, poor ventilation, voltage fluctuation
+9. Phase sequence: R-Y-B, checked by phase sequence indicator
+10. Fluorescent tube: Mercury vapor + phosphor coating + gas discharge
+11. LED is most energy efficient lighting technology
+12. Earthing resistance should be < 5 ohms
+13. Types of earthing: Plate earthing, Pipe earthing, Strip earthing
+14. Energy meter measures kWh (1 unit = 1 kWh)
+15. Fuse rating should be slightly above normal load current
+16. Cable selection based on: Current carrying capacity, voltage drop, short circuit
+17. Transformer oil serves as insulator and coolant
+18. Three-phase power = √3 × V × I × cos φ
+19. Single-phase power = V × I × cos φ
+20. Always use lockout/tagout before maintenance work on electrical equipment

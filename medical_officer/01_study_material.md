@@ -282,3 +282,28 @@
 | **Gradeup** | Android/iOS | Video classes, Tests |
 | **Current Affairs App** | Android | Daily CA in Gujarati |
 | **Gujarati Dictionary** | Android | Word meanings, Synonyms |
+
+---
+
+## Quick Revision One-Liners (Updated March 2026)
+
+1. NHM = NRHM (rural) + NUHM (urban) — comprehensive healthcare
+2. ASHA = Accredited Social Health Activist — 1 per 1000 rural population
+3. ANM = Auxiliary Nurse Midwife — provides maternal & child healthcare
+4. BCG at birth, OPV at birth/6/10/14 weeks, DPT at 6/10/14 weeks
+5. Pulse Polio: 2 drops OPV for all children under 5 years
+6. ORS = NaCl + KCl + Na Citrate + Glucose in water — treats dehydration
+7. Aedes aegypti: Dengue, Chikungunya, Zika | Anopheles: Malaria
+8. BMI = Weight(kg)/Height²(m²). Normal: 18.5-24.9
+9. Janani Suraksha Yojana: Cash incentive for hospital delivery
+10. ICDS = Integrated Child Development Services (nutrition for children)
+11. DOTS = Directly Observed Treatment Short-course for TB
+12. National Immunization Schedule: BCG, OPV, DPT, Hepatitis B, Measles, JE
+13. Maternal Mortality Rate (MMR) India: ~97 per 1 lakh live births
+14. Infant Mortality Rate (IMR) India: ~28 per 1000 live births
+15. Ayushman Bharat: ₹5 lakh health cover per family per year
+16. COVID-19: SARS-CoV-2, droplet/airborne, incubation 2-14 days
+17. Swachh Bharat Mission: Sanitation, ODF (Open Defecation Free)
+18. National Urban Health Mission targets urban poor healthcare
+19. PHC serves 30,000 population, CHC serves 1,20,000 population
+20. Crude Birth Rate India: ~17 per 1000 population (declining trend)

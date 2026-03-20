@@ -209,3 +209,28 @@
 | **Gradeup** | Android/iOS | Video classes, Tests |
 | **Current Affairs App** | Android | Daily CA in Gujarati |
 | **Gujarati Dictionary** | Android | Word meanings, Synonyms |
+
+---
+
+## Quick Revision One-Liners (Updated March 2026)
+
+1. ELISA: Enzyme-Linked Immunosorbent Assay
+2. Spectrophotometer measures light absorption
+3. Normal fasting glucose: 70-100 mg/dL
+4. PCR amplifies DNA for diagnosis
+5. Centrifuge separates by spinning at high speed
+6. Serum = Plasma minus clotting factors
+7. Normal creatinine: 0.6-1.2 mg/dL
+8. Normal BUN: 7-20 mg/dL
+9. Liver enzymes: SGOT (AST), SGPT (ALT)
+10. Normal cholesterol: below 200 mg/dL
+11. Lab safety: Gloves, goggles, lab coat mandatory
+12. Biosafety levels: BSL-1 to BSL-4
+13. Quality control with each test batch
+14. Calibration ensures instrument accuracy
+15. Cold chain: 2-8 C for reagents and samples
+16. Autoclave: 121 C at 15 psi for sterilization
+17. Normal albumin: 3.5-5.0 g/dL
+18. Hemoglobin: Males 14-18, Females 12-16 g/dL
+19. Platelet count: 1.5-4 lakh per cubic mm
+20. WBC count: 4000-11000 per cubic mm

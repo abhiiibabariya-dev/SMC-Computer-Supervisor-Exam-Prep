@@ -408,3 +408,119 @@
 ---
 *MCQ Bank for SMC Maintenance Assistant (Electrical) Exam 2026*
 *Total Questions: 35+ | Practice regularly for best results*
+
+---
+
+## Additional Practice Questions (Updated March 2026)
+
+**Q36. Earthing wire color code is?**
+- A) Red
+- B) Blue
+- C) Green (or Green-Yellow)
+- D) Black
+
+**Answer: C) Green (or Green-Yellow)**
+**Explanation:** Earthing wire = Green or Green-Yellow. Phase = Red/Yellow/Blue. Neutral = Black.
+
+---
+
+**Q37. ELCB is used for?**
+- A) Voltage regulation
+- B) Earth leakage protection
+- C) Power factor correction
+- D) Speed control
+
+**Answer: B) Earth leakage protection**
+**Explanation:** ELCB (Earth Leakage Circuit Breaker) trips when current leaks to earth — prevents electrocution.
+
+---
+
+**Q38. Which instrument measures insulation resistance?**
+- A) Multimeter
+- B) Megger
+- C) Ammeter
+- D) Voltmeter
+
+**Answer: B) Megger**
+**Explanation:** Megger (Megohmmeter) measures insulation resistance in megaohms. Used for cable/motor testing.
+
+---
+
+**Q39. Safe voltage for working in damp conditions is?**
+- A) 230V
+- B) 110V
+- C) 24V
+- D) 415V
+
+**Answer: C) 24V**
+**Explanation:** Safety extra-low voltage (SELV): 24V AC or 50V DC for damp/hazardous conditions.
+
+---
+
+**Q40. Capacitor bank is used for?**
+- A) Voltage increase
+- B) Power factor improvement
+- C) Frequency control
+- D) Current reduction
+
+**Answer: B) Power factor improvement**
+**Explanation:** Capacitor banks improve lagging power factor by providing leading reactive power (kVAR).
+
+---
+
+**Q41. What causes overheating in a motor?**
+- A) Proper ventilation
+- B) Overloading, poor ventilation, low voltage
+- C) Normal operation
+- D) Correct alignment
+
+**Answer: B) Overloading, poor ventilation, low voltage**
+**Explanation:** Motor overheating caused by overload, blocked ventilation, voltage fluctuation, bearing failure.
+
+---
+
+**Q42. Phase sequence is checked by?**
+- A) Ammeter
+- B) Phase sequence indicator
+- C) Voltmeter
+- D) Wattmeter
+
+**Answer: B) Phase sequence indicator**
+**Explanation:** Phase sequence indicator determines R-Y-B sequence. Wrong sequence reverses motor direction.
+
+---
+
+**Q43. Fluorescent tube light works on?**
+- A) Heating effect
+- B) Gas discharge principle
+- C) Magnetic effect
+- D) Chemical effect
+
+**Answer: B) Gas discharge principle**
+**Explanation:** Fluorescent tube contains mercury vapor — UV light from gas discharge excites phosphor coating.
+
+---
+
+**Q44. DOL starter is suitable for motors up to?**
+- A) 1 HP
+- B) 5 HP
+- C) 20 HP
+- D) 50 HP
+
+**Answer: B) 5 HP**
+**Explanation:** DOL (Direct On Line) starter for small motors (up to 5 HP). Larger motors need Star-Delta.
+
+---
+
+**Q45. Energy meter measures?**
+- A) Current
+- B) Voltage
+- C) Electrical energy consumed (kWh)
+- D) Power factor
+
+**Answer: C) Electrical energy consumed (kWh)**
+**Explanation:** Energy meter (kWh meter) measures total electrical energy consumed. Used for electricity billing.
+
+---
+
+*Additional MCQ Bank — Updated March 2026*

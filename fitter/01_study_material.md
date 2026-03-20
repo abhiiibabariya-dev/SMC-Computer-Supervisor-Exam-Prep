@@ -190,3 +190,28 @@
 | **Gradeup** | Android/iOS | Video classes, Tests |
 | **Current Affairs App** | Android | Daily CA in Gujarati |
 | **Gujarati Dictionary** | Android | Word meanings, Synonyms |
+
+---
+
+## Quick Revision One-Liners (Updated March 2026)
+
+1. Vernier caliper LC = 0.02 mm, Micrometer LC = 0.01 mm
+2. Scriber for marking, Divider for circles, Punch for center marks
+3. Tapping = internal threads (tap), Die = external threads (die)
+4. Annealing = soften metal (slow cool), Hardening = increase hardness (quench)
+5. Tempering done after hardening to reduce brittleness
+6. Surface plate: Cast iron or granite — flat reference surface
+7. PPE = Personal Protective Equipment — mandatory in workshop
+8. Files: Flat, Half-round, Round, Triangular, Square — each for different shapes
+9. File grades: Rough, Bastard, Second cut, Smooth, Dead smooth
+10. Drill speed formula: N = 1000V / πD (V=cutting speed, D=diameter)
+11. Lathe operations: Turning, Facing, Boring, Threading, Knurling, Drilling
+12. Chuck types: 3-jaw (self-centering), 4-jaw (independent)
+13. Cutting fluids: Cool tool, reduce friction, improve surface finish
+14. Tolerance = Maximum size - Minimum size (allowable variation)
+15. Interference fit: Shaft > Hole (press fit for gears on shafts)
+16. Clearance fit: Hole > Shaft (for easy assembly, rotating parts)
+17. Hardness tests: Brinell (ball), Rockwell (cone/ball), Vickers (pyramid)
+18. Carbon steel: Low (< 0.3%C), Medium (0.3-0.6%C), High (> 0.6%C)
+19. Stainless steel contains minimum 10.5% chromium for corrosion resistance
+20. Workshop safety: No loose clothing, always wear safety goggles, keep area clean

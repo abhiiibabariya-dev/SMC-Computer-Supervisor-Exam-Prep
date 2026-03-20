@@ -185,3 +185,28 @@
 | **Gradeup** | Android/iOS | Video classes, Tests |
 | **Current Affairs App** | Android | Daily CA in Gujarati |
 | **Gujarati Dictionary** | Android | Word meanings, Synonyms |
+
+---
+
+## Quick Revision One-Liners (Updated March 2026)
+
+1. Property tax: Major revenue for municipal corporations
+2. ARV = Annual Rental Value (base for property tax)
+3. BPMC Act 1949 governs Gujarat municipal corporations
+4. Recovery: Notice, Distress warrant, Attachment, Court
+5. Self-assessment: Owner calculates own property tax
+6. Rebate for early payment of property tax
+7. Penalty for delayed payment: Interest on outstanding
+8. Mutation: Name change in tax records after transfer
+9. Commercial property tax higher than residential
+10. Vacant land tax lower than built-up property
+11. Online payment through SMC website available
+12. Assessment register: All properties and tax records
+13. Zone-based rates: Different zones different rates
+14. Outstanding tax = Arrears + Current demand
+15. Tax exemption: Religious and charitable institutions
+16. Property survey: Physical verification of details
+17. Revenue inspector conducts field surveys
+18. Attachment order: Legal seizure for recovery
+19. Appeal process for unfair assessment available
+20. Property ID assigned to each property in city

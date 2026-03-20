@@ -408,3 +408,175 @@
 ---
 *MCQ Bank for SMC Grade III Clerk (Audit) Exam 2026*
 *Total Questions: 35+ | Practice regularly for best results*
+
+---
+
+## Additional Practice Questions (Updated March 2026)
+
+**Q36. Double entry system was introduced by?**
+- A) Charles Babbage
+- B) Luca Pacioli
+- C) Adam Smith
+- D) Karl Marx
+
+**Answer: B) Luca Pacioli**
+**Explanation:** Luca Pacioli (Italian, 1494) is known as Father of Accounting. Published double-entry bookkeeping.
+
+---
+
+**Q37. GST was implemented in India on?**
+- A) 1 April 2017
+- B) 1 July 2017
+- C) 1 January 2018
+- D) 15 August 2017
+
+**Answer: B) 1 July 2017**
+**Explanation:** GST replaced multiple indirect taxes. 101st Constitutional Amendment. "One Nation, One Tax."
+
+---
+
+**Q38. Trial Balance is prepared to check?**
+- A) Profit or loss
+- B) Arithmetic accuracy of ledger balances
+- C) Cash position
+- D) Stock value
+
+**Answer: B) Arithmetic accuracy of ledger balances**
+**Explanation:** Trial Balance lists all debit and credit balances — total debits must equal total credits.
+
+---
+
+**Q39. Depreciation is charged on?**
+- A) Current assets
+- B) Fixed/Non-current assets
+- C) Liabilities
+- D) Revenue
+
+**Answer: B) Fixed/Non-current assets**
+**Explanation:** Depreciation = reduction in value of fixed assets due to wear, tear, and obsolescence.
+
+---
+
+**Q40. Which financial statement shows profit or loss?**
+- A) Balance Sheet
+- B) Income Statement (P&L Account)
+- C) Cash Flow Statement
+- D) Trial Balance
+
+**Answer: B) Income Statement (P&L Account)**
+**Explanation:** Profit & Loss Account shows income minus expenses = Net Profit or Net Loss for a period.
+
+---
+
+**Q41. GST has how many tax slabs?**
+- A) 2
+- B) 3
+- C) 4 main slabs (5%, 12%, 18%, 28%)
+- D) 6
+
+**Answer: C) 4 main slabs (5%, 12%, 18%, 28%)**
+**Explanation:** GST slabs: 5%, 12%, 18%, 28%. Some items at 0% (exempt). Gold at 3%.
+
+---
+
+**Q42. Audit means?**
+- A) Preparing accounts
+- B) Systematic examination of financial records
+- C) Filing tax returns
+- D) Creating budgets
+
+**Answer: B) Systematic examination of financial records**
+**Explanation:** Audit verifies accuracy, completeness, and compliance of financial statements and records.
+
+---
+
+**Q43. CAG stands for?**
+- A) Central Audit General
+- B) Comptroller and Auditor General of India
+- C) Chief Accounting Group
+- D) Central Accounts Guard
+
+**Answer: B) Comptroller and Auditor General of India**
+**Explanation:** CAG (Article 148) audits all govt expenditure — federal, state, and local bodies.
+
+---
+
+**Q44. CGST is collected by?**
+- A) State Government
+- B) Central Government
+- C) Local Government
+- D) Both Central and State
+
+**Answer: B) Central Government**
+**Explanation:** CGST = Central GST (to Centre), SGST = State GST (to State), IGST = Interstate.
+
+---
+
+**Q45. Balance Sheet shows?**
+- A) Profit for the year
+- B) Financial position at a specific date
+- C) Cash inflows and outflows
+- D) Sales revenue
+
+**Answer: B) Financial position at a specific date**
+**Explanation:** Balance Sheet: Assets = Liabilities + Equity. Shows financial position at a point in time.
+
+---
+
+*Additional MCQ Bank — Updated March 2026*
+
+---
+
+## Additional Practice Questions (Updated March 2026)
+
+**Q36. Double entry system was introduced by?**
+- A) Charles Babbage
+- B) Luca Pacioli
+- C) Adam Smith
+- D) Karl Marx
+
+**Answer: B) Luca Pacioli**
+
+---
+
+**Q37. GST was implemented in India on?**
+- A) 1 April 2017
+- B) 1 July 2017
+- C) 1 January 2018
+- D) 15 August 2017
+
+**Answer: B) 1 July 2017**
+
+---
+
+**Q38. Trial Balance checks?**
+- A) Profit
+- B) Arithmetic accuracy of ledger balances
+- C) Cash position
+- D) Stock value
+
+**Answer: B) Arithmetic accuracy of ledger balances**
+
+---
+
+**Q39. GST has how many main tax slabs?**
+- A) 2
+- B) 3
+- C) 4 (5%, 12%, 18%, 28%)
+- D) 6
+
+**Answer: C) 4 (5%, 12%, 18%, 28%)**
+
+---
+
+**Q40. CAG stands for?**
+- A) Central Audit General
+- B) Comptroller and Auditor General
+- C) Chief Accounting Group
+- D) Central Accounts Guard
+
+**Answer: B) Comptroller and Auditor General**
+
+---
+
+*Additional MCQ Bank — Updated March 2026*

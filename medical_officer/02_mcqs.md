@@ -634,3 +634,119 @@
 ---
 *MCQ Bank for SMC Medical Officer Exam 2026*
 *Total Questions: 35+ | Practice regularly for best results*
+
+---
+
+## Additional Practice Questions (Updated March 2026)
+
+**Q36. National Health Mission (NHM) includes?**
+- A) NRHM only
+- B) NUHM only
+- C) Both NRHM and NUHM
+- D) Neither
+
+**Answer: C) Both NRHM and NUHM**
+**Explanation:** NHM (2013) merged NRHM (rural) and NUHM (urban) for comprehensive healthcare delivery.
+
+---
+
+**Q37. BCG vaccine is given for prevention of?**
+- A) Polio
+- B) Tuberculosis
+- C) Hepatitis B
+- D) Measles
+
+**Answer: B) Tuberculosis**
+**Explanation:** BCG (Bacillus Calmette-Guerin) vaccine given at birth protects against severe forms of TB.
+
+---
+
+**Q38. ORS (Oral Rehydration Solution) contains?**
+- A) Salt, Sugar, and Water
+- B) Only salt and water
+- C) Only glucose
+- D) Antibiotics
+
+**Answer: A) Salt, Sugar, and Water**
+**Explanation:** ORS: NaCl, KCl, Sodium citrate, Glucose in water. Treats dehydration from diarrhea.
+
+---
+
+**Q39. Pulse Polio program targets children of which age?**
+- A) 0-3 years
+- B) 0-5 years
+- C) 5-10 years
+- D) 0-12 years
+
+**Answer: B) 0-5 years**
+**Explanation:** Pulse Polio: Two drops of OPV to all children under 5 years on National Immunization Days.
+
+---
+
+**Q40. Which disease is spread by Aedes aegypti mosquito?**
+- A) Malaria
+- B) Dengue and Chikungunya
+- C) Filariasis
+- D) Japanese Encephalitis
+
+**Answer: B) Dengue and Chikungunya**
+**Explanation:** Aedes aegypti spreads Dengue, Chikungunya, Zika, Yellow Fever. Anopheles spreads Malaria.
+
+---
+
+**Q41. Recommended daily calorie intake for an adult male?**
+- A) 1200 kcal
+- B) 2000 kcal
+- C) 2400 kcal
+- D) 3500 kcal
+
+**Answer: C) 2400 kcal**
+**Explanation:** ICMR recommendation: Adult male (moderate work) = 2400 kcal/day, Female = 2000 kcal/day.
+
+---
+
+**Q42. Janani Suraksha Yojana (JSY) provides?**
+- A) Free education for girls
+- B) Cash incentive for institutional delivery
+- C) Free housing
+- D) Employment guarantee
+
+**Answer: B) Cash incentive for institutional delivery**
+**Explanation:** JSY provides cash assistance to pregnant women for delivery in hospitals to reduce maternal mortality.
+
+---
+
+**Q43. Incubation period of COVID-19 is?**
+- A) 1 day
+- B) 2-14 days
+- C) 30 days
+- D) 60 days
+
+**Answer: B) 2-14 days**
+**Explanation:** COVID-19 incubation: 2-14 days, average 5 days. Caused by SARS-CoV-2 virus.
+
+---
+
+**Q44. BMI (Body Mass Index) is calculated as?**
+- A) Weight (kg) × Height (m)
+- B) Weight (kg) / Height² (m²)
+- C) Height (cm) / Weight (kg)
+- D) Weight (lb) × Height (ft)
+
+**Answer: B) Weight (kg) / Height² (m²)**
+**Explanation:** BMI = kg/m². Normal: 18.5-24.9, Overweight: 25-29.9, Obese: ≥30.
+
+---
+
+**Q45. ASHA stands for?**
+- A) Accredited Social Health Activist
+- B) Assistant Senior Health Administrator
+- C) Approved State Health Agent
+- D) Associated Social Healthcare Aid
+
+**Answer: A) Accredited Social Health Activist**
+**Explanation:** ASHA workers are community health workers under NHM — one per 1000 population in villages.
+
+---
+
+*Additional MCQ Bank — Updated March 2026*

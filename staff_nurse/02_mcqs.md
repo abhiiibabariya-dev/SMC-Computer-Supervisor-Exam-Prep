@@ -670,3 +670,119 @@
 ---
 *MCQ Bank for SMC Staff Nurse Exam 2026*
 *Total Questions: 35+ | Practice regularly for best results*
+
+---
+
+## Additional Practice Questions (Updated March 2026)
+
+**Q36. Normal body temperature is?**
+- A) 96.8°F
+- B) 98.6°F (37°C)
+- C) 100.4°F
+- D) 102°F
+
+**Answer: B) 98.6°F (37°C)**
+**Explanation:** Normal oral temperature: 98.6°F (37°C). Fever: above 100.4°F (38°C).
+
+---
+
+**Q37. Universal precautions include?**
+- A) Hand washing only
+- B) Treating all blood/body fluids as potentially infectious
+- C) Wearing mask only
+- D) Using gloves only
+
+**Answer: B) Treating all blood/body fluids as potentially infectious**
+**Explanation:** Universal precautions = treat all patients blood and body fluids as potentially infectious.
+
+---
+
+**Q38. Normal respiratory rate in adults is?**
+- A) 5-10 breaths/min
+- B) 12-20 breaths/min
+- C) 25-35 breaths/min
+- D) 40-50 breaths/min
+
+**Answer: B) 12-20 breaths/min**
+**Explanation:** Normal adult respiratory rate: 12-20 breaths per minute at rest.
+
+---
+
+**Q39. Glasgow Coma Scale (GCS) maximum score is?**
+- A) 10
+- B) 12
+- C) 15
+- D) 20
+
+**Answer: C) 15**
+**Explanation:** GCS: Eye(4) + Verbal(5) + Motor(6) = 15. Score of 3 = deep coma. Below 8 = severe injury.
+
+---
+
+**Q40. Insulin is produced by which organ?**
+- A) Liver
+- B) Pancreas (beta cells)
+- C) Kidney
+- D) Adrenal gland
+
+**Answer: B) Pancreas (beta cells)**
+**Explanation:** Beta cells of Islets of Langerhans in pancreas produce insulin for blood sugar regulation.
+
+---
+
+**Q41. Normal pulse rate in adults?**
+- A) 30-50 bpm
+- B) 60-100 bpm
+- C) 110-130 bpm
+- D) 140-160 bpm
+
+**Answer: B) 60-100 bpm**
+**Explanation:** Normal adult pulse: 60-100 bpm. Radial artery is the most common site for pulse check.
+
+---
+
+**Q42. Which IV fluid is isotonic?**
+- A) D10W
+- B) 0.9% Normal Saline (NS)
+- C) 0.45% NS
+- D) D25W
+
+**Answer: B) 0.9% Normal Saline (NS)**
+**Explanation:** 0.9% NS and Ringer Lactate are isotonic solutions — same osmolarity as blood.
+
+---
+
+**Q43. Autoclave sterilization temperature and pressure?**
+- A) 100°C at 10 psi
+- B) 121°C at 15 psi for 15 minutes
+- C) 150°C at 20 psi
+- D) 80°C at 5 psi
+
+**Answer: B) 121°C at 15 psi for 15 minutes**
+**Explanation:** Autoclave uses moist heat under pressure — 121°C at 15 psi for 15 min kills all microorganisms.
+
+---
+
+**Q44. CPR compression to ventilation ratio for adults is?**
+- A) 15:1
+- B) 15:2
+- C) 30:2
+- D) 50:1
+
+**Answer: C) 30:2**
+**Explanation:** Adult CPR: 30 chest compressions followed by 2 rescue breaths. Rate: 100-120 compressions/min.
+
+---
+
+**Q45. Normal blood glucose fasting level?**
+- A) 40-60 mg/dL
+- B) 70-100 mg/dL
+- C) 140-180 mg/dL
+- D) 200-250 mg/dL
+
+**Answer: B) 70-100 mg/dL**
+**Explanation:** Normal fasting glucose: 70-100 mg/dL. Pre-diabetic: 100-125 mg/dL. Diabetic: ≥126 mg/dL.
+
+---
+
+*Additional MCQ Bank — Updated March 2026*

@@ -494,3 +494,227 @@
 *કુલ 40+ પ્રશ્નો | Total 40+ Questions*
 *વધુ પ્રશ્નો માટે Mock Test 1 અને 2 જુઓ*
 *SMC ડ્રાઈવર પરીક્ષા 2026 માટે તૈયાર*
+
+---
+
+## Additional Practice Questions (Updated March 2026)
+
+**Q36. Speed limit in school zones in India is?**
+- A) 40 km/h
+- B) 25 km/h
+- C) 60 km/h
+- D) 80 km/h
+
+**Answer: B) 25 km/h**
+**Explanation:** Speed limit near schools and hospitals is 25 km/h as per Motor Vehicle Act.
+
+---
+
+**Q37. Minimum age for driving a motor car in India?**
+- A) 16 years
+- B) 18 years
+- C) 21 years
+- D) 25 years
+
+**Answer: B) 18 years**
+**Explanation:** Minimum age: Geared vehicle = 18 years, Non-geared (up to 50cc) = 16 years.
+
+---
+
+**Q38. What does a round red sign with white horizontal bar mean?**
+- A) Speed limit
+- B) No entry
+- C) Stop
+- D) One way
+
+**Answer: B) No entry**
+**Explanation:** Round red sign with white horizontal bar = No Entry. Circular signs = regulatory.
+
+---
+
+**Q39. Blood alcohol limit for drivers in India is?**
+- A) 30 mg/100 mL
+- B) 50 mg/100 mL
+- C) 80 mg/100 mL
+- D) Zero tolerance
+
+**Answer: A) 30 mg/100 mL**
+**Explanation:** Blood alcohol limit: 30 mg per 100 mL of blood as per Motor Vehicle Act. Breath test used.
+
+---
+
+**Q40. In case of an accident, first action should be?**
+- A) Call police
+- B) Move the vehicle
+- C) Provide first aid to injured
+- D) Take photos
+
+**Answer: C) Provide first aid to injured**
+**Explanation:** First priority: Save lives (first aid). Then secure scene, call emergency (112), inform police.
+
+---
+
+**Q41. Octagonal road sign indicates?**
+- A) Warning
+- B) STOP
+- C) Speed limit
+- D) No parking
+
+**Answer: B) STOP**
+**Explanation:** Octagonal (8-sided) sign = STOP. Only road sign with this unique shape worldwide.
+
+---
+
+**Q42. Motor Vehicle Act was passed in?**
+- A) 1988 (amended 2019)
+- B) 1950
+- C) 2000
+- D) 2010
+
+**Answer: A) 1988 (amended 2019)**
+**Explanation:** Motor Vehicle Act 1988 (MV Act). Major amendment in 2019 with increased fines and penalties.
+
+---
+
+**Q43. PUC certificate is valid for?**
+- A) 3 months
+- B) 6 months
+- C) 1 year
+- D) 2 years
+
+**Answer: B) 6 months**
+**Explanation:** PUC (Pollution Under Control) certificate valid for 6 months. Mandatory for all vehicles.
+
+---
+
+**Q44. Defensive driving means?**
+- A) Driving fast
+- B) Anticipating hazards and driving safely
+- C) Driving aggressively
+- D) Ignoring traffic rules
+
+**Answer: B) Anticipating hazards and driving safely**
+**Explanation:** Defensive driving = anticipate dangers, maintain safe distance, follow rules, stay alert.
+
+---
+
+**Q45. Triangle sign on road indicates?**
+- A) Mandatory instruction
+- B) Warning/Caution
+- C) Information
+- D) Speed limit
+
+**Answer: B) Warning/Caution**
+**Explanation:** Triangular signs = Warning (sharp turn, school zone, etc.). Circular = Regulatory. Rectangular = Information.
+
+---
+
+*Additional MCQ Bank — Updated March 2026*
+
+---
+
+## Additional Practice Questions (Updated March 2026)
+
+**Q36. Speed limit in school zones in India is?**
+- A) 40 km/h
+- B) 25 km/h
+- C) 60 km/h
+- D) 80 km/h
+
+**Answer: B) 25 km/h**
+
+---
+
+**Q37. Minimum age for driving a motor car in India?**
+- A) 16 years
+- B) 18 years
+- C) 21 years
+- D) 25 years
+
+**Answer: B) 18 years**
+**Explanation:** Geared vehicle = 18 years, Non-geared up to 50cc = 16 years.
+
+---
+
+**Q38. Blood alcohol limit for drivers in India?**
+- A) 30 mg/100 mL
+- B) 50 mg/100 mL
+- C) 80 mg/100 mL
+- D) Zero
+
+**Answer: A) 30 mg/100 mL**
+
+---
+
+**Q39. Motor Vehicle Act was passed in?**
+- A) 1988 (amended 2019)
+- B) 1950
+- C) 2000
+- D) 2010
+
+**Answer: A) 1988 (amended 2019)**
+
+---
+
+**Q40. PUC certificate is valid for?**
+- A) 3 months
+- B) 6 months
+- C) 1 year
+- D) 2 years
+
+**Answer: B) 6 months**
+
+---
+
+**Q41. Octagonal road sign means?**
+- A) Warning
+- B) STOP
+- C) Speed limit
+- D) No parking
+
+**Answer: B) STOP**
+
+---
+
+**Q42. Triangle road sign means?**
+- A) Mandatory
+- B) Warning/Caution
+- C) Information
+- D) Speed limit
+
+**Answer: B) Warning/Caution**
+
+---
+
+**Q43. Defensive driving means?**
+- A) Driving fast
+- B) Anticipating hazards and driving safely
+- C) Driving aggressively
+- D) Ignoring rules
+
+**Answer: B) Anticipating hazards and driving safely**
+
+---
+
+**Q44. Emergency number in India?**
+- A) 911
+- B) 112
+- C) 999
+- D) 100
+
+**Answer: B) 112**
+**Explanation:** 112 is the unified emergency number. 100=Police, 108=Ambulance, 101=Fire.
+
+---
+
+**Q45. In accident, first priority is?**
+- A) Call police
+- B) Take photos
+- C) Provide first aid to injured
+- D) Move vehicle
+
+**Answer: C) Provide first aid to injured**
+
+---
+
+*Additional MCQ Bank — Updated March 2026*

@@ -408,3 +408,119 @@
 ---
 *MCQ Bank for SMC Technical Officer Exam 2026*
 *Total Questions: 35+ | Practice regularly for best results*
+
+---
+
+## Additional Practice Questions (Updated March 2026)
+
+**Q36. IPv4 address consists of how many bits?**
+- A) 16 bits
+- B) 32 bits
+- C) 64 bits
+- D) 128 bits
+
+**Answer: B) 32 bits**
+**Explanation:** IPv4 = 32-bit address (4 octets). IPv6 = 128-bit address. Example: 192.168.1.1
+
+---
+
+**Q37. Which topology has a central hub?**
+- A) Bus
+- B) Ring
+- C) Star
+- D) Mesh
+
+**Answer: C) Star**
+**Explanation:** Star topology: All nodes connect to central hub/switch. Most common in modern LANs.
+
+---
+
+**Q38. RAID 1 provides?**
+- A) Striping
+- B) Mirroring (data redundancy)
+- C) Parity
+- D) No redundancy
+
+**Answer: B) Mirroring (data redundancy)**
+**Explanation:** RAID 1 mirrors data on two drives. If one fails, other has complete copy. 50% storage efficiency.
+
+---
+
+**Q39. Firewall operates at which OSI layer?**
+- A) Physical layer
+- B) Data link layer
+- C) Network layer (and above)
+- D) Session layer only
+
+**Answer: C) Network layer (and above)**
+**Explanation:** Firewall filters traffic at network layer (IP), transport layer (ports), and application layer.
+
+---
+
+**Q40. Cloud computing model where user manages applications only?**
+- A) IaaS
+- B) PaaS
+- C) SaaS
+- D) FaaS
+
+**Answer: C) SaaS**
+**Explanation:** SaaS: User uses software (Gmail). PaaS: User develops apps. IaaS: User manages OS/apps.
+
+---
+
+**Q41. Default port for SSH is?**
+- A) 21
+- B) 22
+- C) 23
+- D) 25
+
+**Answer: B) 22**
+**Explanation:** SSH (Secure Shell) uses port 22. FTP=21, Telnet=23, SMTP=25, HTTP=80, HTTPS=443.
+
+---
+
+**Q42. SQL injection is a type of?**
+- A) Hardware attack
+- B) Web application attack
+- C) Physical attack
+- D) Social engineering
+
+**Answer: B) Web application attack**
+**Explanation:** SQL injection inserts malicious SQL code through user input to manipulate database.
+
+---
+
+**Q43. Primary key in a database?**
+- A) Can be null
+- B) Can have duplicates
+- C) Uniquely identifies each record
+- D) Is optional
+
+**Answer: C) Uniquely identifies each record**
+**Explanation:** Primary key: Unique + Not Null. Each table should have one primary key.
+
+---
+
+**Q44. HTTPS uses which port?**
+- A) 80
+- B) 443
+- C) 8080
+- D) 21
+
+**Answer: B) 443**
+**Explanation:** HTTPS (HTTP Secure) uses port 443 with SSL/TLS encryption for secure web communication.
+
+---
+
+**Q45. VPN stands for?**
+- A) Virtual Private Network
+- B) Visual Protocol Network
+- C) Variable Public Network
+- D) Voice Processing Node
+
+**Answer: A) Virtual Private Network**
+**Explanation:** VPN creates encrypted tunnel over public internet for secure remote access to private network.
+
+---
+
+*Additional MCQ Bank — Updated March 2026*

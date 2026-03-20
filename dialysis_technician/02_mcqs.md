@@ -408,3 +408,119 @@
 ---
 *MCQ Bank for SMC Dialysis Technician Exam 2026*
 *Total Questions: 35+ | Practice regularly for best results*
+
+---
+
+## Additional Practice Questions (Updated March 2026)
+
+**Q36. Hemodialysis removes waste products through which principle?**
+- A) Osmosis only
+- B) Diffusion and ultrafiltration
+- C) Active transport
+- D) Pinocytosis
+
+**Answer: B) Diffusion and ultrafiltration**
+**Explanation:** Hemodialysis uses diffusion (waste removal) and ultrafiltration (fluid removal) across a semipermeable membrane.
+
+---
+
+**Q37. Normal serum creatinine level is?**
+- A) 0.6-1.2 mg/dL
+- B) 3-5 mg/dL
+- C) 7-10 mg/dL
+- D) 15-20 mg/dL
+
+**Answer: A) 0.6-1.2 mg/dL**
+**Explanation:** Normal creatinine: 0.6-1.2 mg/dL. Elevated creatinine indicates impaired kidney function.
+
+---
+
+**Q38. AV fistula for dialysis is usually created in?**
+- A) Neck
+- B) Forearm (radial artery to cephalic vein)
+- C) Chest
+- D) Thigh
+
+**Answer: B) Forearm (radial artery to cephalic vein)**
+**Explanation:** Arteriovenous fistula connects radial artery to cephalic vein in the non-dominant arm.
+
+---
+
+**Q39. Dialysate solution typically contains?**
+- A) Only water
+- B) Sodium, potassium, calcium, bicarbonate in water
+- C) Only saline
+- D) Blood products
+
+**Answer: B) Sodium, potassium, calcium, bicarbonate in water**
+**Explanation:** Dialysate is a balanced electrolyte solution that facilitates waste removal and electrolyte balance.
+
+---
+
+**Q40. Standard hemodialysis session lasts approximately?**
+- A) 30 minutes
+- B) 1-2 hours
+- C) 3-4 hours
+- D) 8-10 hours
+
+**Answer: C) 3-4 hours**
+**Explanation:** Standard hemodialysis is typically performed 3 times per week, each session lasting 3-4 hours.
+
+---
+
+**Q41. GFR stands for?**
+- A) General Fluid Rate
+- B) Glomerular Filtration Rate
+- C) Glucose Filtration Ratio
+- D) Growth Factor Rate
+
+**Answer: B) Glomerular Filtration Rate**
+**Explanation:** GFR measures how well kidneys filter blood. Normal: 90-120 mL/min. Below 15 = kidney failure.
+
+---
+
+**Q42. Most common complication during hemodialysis is?**
+- A) Fever
+- B) Hypotension (low blood pressure)
+- C) Bleeding
+- D) Infection
+
+**Answer: B) Hypotension (low blood pressure)**
+**Explanation:** Hypotension is the most common intradialytic complication, caused by rapid fluid removal.
+
+---
+
+**Q43. Peritoneal dialysis uses which membrane?**
+- A) Artificial membrane
+- B) Peritoneal membrane (lining of abdomen)
+- C) Pleural membrane
+- D) Skin membrane
+
+**Answer: B) Peritoneal membrane (lining of abdomen)**
+**Explanation:** Peritoneal dialysis uses the body own peritoneal membrane as a natural dialysis filter.
+
+---
+
+**Q44. Normal blood urea nitrogen (BUN) level is?**
+- A) 1-5 mg/dL
+- B) 7-20 mg/dL
+- C) 30-50 mg/dL
+- D) 60-80 mg/dL
+
+**Answer: B) 7-20 mg/dL**
+**Explanation:** Normal BUN: 7-20 mg/dL. Elevated BUN indicates kidney dysfunction or dehydration.
+
+---
+
+**Q45. Water treatment for dialysis must remove?**
+- A) Only bacteria
+- B) Chlorine, heavy metals, bacteria, and endotoxins
+- C) Only salt
+- D) Only minerals
+
+**Answer: B) Chlorine, heavy metals, bacteria, and endotoxins**
+**Explanation:** RO (Reverse Osmosis) water treatment removes all contaminants to ensure safe dialysate preparation.
+
+---
+
+*Additional MCQ Bank — Updated March 2026*

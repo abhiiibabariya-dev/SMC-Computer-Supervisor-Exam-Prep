@@ -408,3 +408,119 @@
 ---
 *MCQ Bank for SMC Junior Pharmacist Exam 2026*
 *Total Questions: 35+ | Practice regularly for best results*
+
+---
+
+## Additional Practice Questions (Updated March 2026)
+
+**Q36. Schedule H drugs require?**
+- A) No prescription
+- B) Doctor prescription
+- C) Pharmacist recommendation
+- D) Nurse approval
+
+**Answer: B) Doctor prescription**
+**Explanation:** Schedule H drugs can only be sold with a valid doctor prescription. Includes antibiotics, steroids.
+
+---
+
+**Q37. Generic name of Paracetamol is?**
+- A) Ibuprofen
+- B) Acetaminophen
+- C) Aspirin
+- D) Diclofenac
+
+**Answer: B) Acetaminophen**
+**Explanation:** Paracetamol (Acetaminophen) — common analgesic/antipyretic. Max dose: 4g/day in adults.
+
+---
+
+**Q38. Insulin should be stored at?**
+- A) Room temperature always
+- B) 2-8°C (refrigerator)
+- C) -20°C (freezer)
+- D) 40°C
+
+**Answer: B) 2-8°C (refrigerator)**
+**Explanation:** Insulin must be stored at 2-8°C. Once opened, can be kept at room temp for up to 28 days.
+
+---
+
+**Q39. OTC means?**
+- A) Only Therapeutic Care
+- B) Over The Counter
+- C) Official Treatment Code
+- D) Oral Tablet Category
+
+**Answer: B) Over The Counter**
+**Explanation:** OTC drugs can be bought without prescription — e.g., antacids, cough syrups, paracetamol.
+
+---
+
+**Q40. Drug interactions between Warfarin and Aspirin can cause?**
+- A) Reduced effect
+- B) Increased bleeding risk
+- C) No interaction
+- D) Liver damage
+
+**Answer: B) Increased bleeding risk**
+**Explanation:** Both are blood thinners — combined use significantly increases bleeding risk.
+
+---
+
+**Q41. Pharmacy and Poisons Board is under which Act?**
+- A) Drugs and Cosmetics Act 1940
+- B) Pharmacy Act 1948
+- C) FSSAI Act
+- D) Consumer Protection Act
+
+**Answer: B) Pharmacy Act 1948**
+**Explanation:** Pharmacy Act 1948 established Pharmacy Council of India (PCI) regulating pharmacy education and practice.
+
+---
+
+**Q42. FIFO in pharmacy inventory means?**
+- A) First In First Out
+- B) Fast Inventory For Orders
+- C) Federal Inventory Filing Order
+- D) Formal Item First Out
+
+**Answer: A) First In First Out**
+**Explanation:** FIFO ensures older stock is dispensed first to prevent drug expiry and wastage.
+
+---
+
+**Q43. Schedule X drugs include?**
+- A) OTC drugs
+- B) Narcotics and psychotropic substances
+- C) Vitamins
+- D) Antacids
+
+**Answer: B) Narcotics and psychotropic substances**
+**Explanation:** Schedule X includes strict controlled substances — requires special record keeping and prescription.
+
+---
+
+**Q44. Bioavailability refers to?**
+- A) Drug manufacturing cost
+- B) Fraction of drug reaching systemic circulation
+- C) Drug expiry date
+- D) Drug packaging
+
+**Answer: B) Fraction of drug reaching systemic circulation**
+**Explanation:** Bioavailability = percentage of administered drug reaching systemic circulation unchanged. IV = 100%.
+
+---
+
+**Q45. Cold chain is important for?**
+- A) Tablets
+- B) Vaccines and biologicals
+- C) Surgical instruments
+- D) Bandages
+
+**Answer: B) Vaccines and biologicals**
+**Explanation:** Cold chain maintains 2-8°C temperature from manufacturer to patient for vaccines effectiveness.
+
+---
+
+*Additional MCQ Bank — Updated March 2026*

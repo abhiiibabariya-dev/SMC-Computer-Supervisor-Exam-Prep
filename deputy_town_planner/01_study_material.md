@@ -216,3 +216,28 @@
 | **Gradeup** | Android/iOS | Video classes, Tests |
 | **Current Affairs App** | Android | Daily CA in Gujarati |
 | **Gujarati Dictionary** | Android | Word meanings, Synonyms |
+
+---
+
+## Quick Revision One-Liners (Updated March 2026)
+
+1. GDCR governs building regulations in Gujarat
+2. FSI = Total built-up area / Plot area
+3. TOD: High-density development near transit
+4. Smart City Mission 2015: 100 cities
+5. Surat: Smart City Round 2 (Fast Track)
+6. Master Plan: 10-20 year city growth blueprint
+7. Land Use: Residential, Commercial, Industrial, Agricultural
+8. Building setback: Min distance from boundary
+9. TDR: Transfer of Development Rights
+10. RERA: Real Estate Regulatory Authority
+11. AMRUT 2.0: Urban water supply and sewerage
+12. GIS: Geographic Information System for planning
+13. Zoning controls land use patterns
+14. Heritage conservation of historical buildings
+15. Surat BRTS for public transport
+16. Green building: Energy efficient construction
+17. Rain water harvesting mandatory for large buildings
+18. EWS housing: Affordable housing mandate
+19. FAR = Floor Area Ratio (same as FSI)
+20. Marginal open space around buildings required

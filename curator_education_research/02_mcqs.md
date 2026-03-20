@@ -408,3 +408,59 @@
 ---
 *MCQ Bank for SMC Curator (Education & Research) Exam 2026*
 *Total Questions: 35+ | Practice regularly for best results*
+
+---
+
+## Additional Practice Questions (Updated March 2026)
+
+**Q36. ELISA test detects?**
+- A) Blood group
+- B) HIV antibodies and other diseases
+- C) Blood pressure
+- D) Heart rate
+
+**Answer: B) HIV antibodies and other diseases**
+
+---
+
+**Q37. Spectrophotometer measures?**
+- A) Temperature
+- B) Light absorption by solution
+- C) Sound waves
+- D) Electrical resistance
+
+**Answer: B) Light absorption by solution**
+
+---
+
+**Q38. Normal fasting blood glucose?**
+- A) 40-60 mg/dL
+- B) 70-100 mg/dL
+- C) 140-180 mg/dL
+- D) 200-300 mg/dL
+
+**Answer: B) 70-100 mg/dL**
+
+---
+
+**Q39. PCR stands for?**
+- A) Primary Cell Reaction
+- B) Polymerase Chain Reaction
+- C) Protein Carbon Ratio
+- D) Plasma Count Rate
+
+**Answer: B) Polymerase Chain Reaction**
+
+---
+
+**Q40. Centrifuge is used for?**
+- A) Heating samples
+- B) Separating blood components by spinning
+- C) Measuring pH
+- D) Sterilization
+
+**Answer: B) Separating blood components by spinning**
+
+---
+
+*Additional MCQ Bank — Updated March 2026*

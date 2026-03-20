@@ -408,3 +408,119 @@
 ---
 *MCQ Bank for SMC Environment Engineer Exam 2026*
 *Total Questions: 35+ | Practice regularly for best results*
+
+---
+
+## Additional Practice Questions (Updated March 2026)
+
+**Q36. EIA stands for?**
+- A) Environmental Impact Assessment
+- B) Energy Investigation Authority
+- C) Ecological Information Agency
+- D) Environmental Investigation Act
+
+**Answer: A) Environmental Impact Assessment**
+**Explanation:** EIA is mandatory for industrial projects above certain threshold. Assesses environmental effects.
+
+---
+
+**Q37. Permissible limit of BOD in treated sewage for discharge is?**
+- A) 10 mg/L
+- B) 30 mg/L
+- C) 100 mg/L
+- D) 250 mg/L
+
+**Answer: B) 30 mg/L**
+**Explanation:** CPCB standard for treated sewage: BOD < 30 mg/L, COD < 250 mg/L, TSS < 100 mg/L.
+
+---
+
+**Q38. Ozone layer is present in which layer of atmosphere?**
+- A) Troposphere
+- B) Stratosphere
+- C) Mesosphere
+- D) Thermosphere
+
+**Answer: B) Stratosphere**
+**Explanation:** Ozone layer (15-35 km altitude) in stratosphere protects from UV radiation.
+
+---
+
+**Q39. SPM stands for?**
+- A) Solid Particle Management
+- B) Suspended Particulate Matter
+- C) Special Pollution Measure
+- D) Standard Pollution Monitor
+
+**Answer: B) Suspended Particulate Matter**
+**Explanation:** SPM includes all airborne particles. PM2.5 (< 2.5 μm) and PM10 (< 10 μm) are measured.
+
+---
+
+**Q40. Which gas causes acid rain?**
+- A) Carbon dioxide
+- B) Sulfur dioxide and nitrogen oxides
+- C) Oxygen
+- D) Hydrogen
+
+**Answer: B) Sulfur dioxide and nitrogen oxides**
+**Explanation:** SO₂ and NOx react with water vapor to form sulfuric and nitric acid — causing acid rain.
+
+---
+
+**Q41. National Green Tribunal (NGT) was established in?**
+- A) 2005
+- B) 2010
+- C) 2015
+- D) 2020
+
+**Answer: B) 2010**
+**Explanation:** NGT established in 2010 under NGT Act for effective and expeditious disposal of environmental cases.
+
+---
+
+**Q42. Which method is used for solid waste disposal?**
+- A) Sanitary landfill
+- B) Incineration
+- C) Composting
+- D) All of the above
+
+**Answer: D) All of the above**
+**Explanation:** Solid waste management includes landfill, incineration, composting, recycling, and waste-to-energy.
+
+---
+
+**Q43. CPCB stands for?**
+- A) Central Public Control Board
+- B) Central Pollution Control Board
+- C) Civil Pollution Clearance Bureau
+- D) Central Power Conservation Board
+
+**Answer: B) Central Pollution Control Board**
+**Explanation:** CPCB established under Water Act 1974 — regulates pollution control standards nationwide.
+
+---
+
+**Q44. pH of drinking water should be between?**
+- A) 4.5 - 6.0
+- B) 6.5 - 8.5
+- C) 9.0 - 11.0
+- D) 2.0 - 4.0
+
+**Answer: B) 6.5 - 8.5**
+**Explanation:** BIS standard for drinking water: pH 6.5-8.5, TDS < 500 mg/L, Chloride < 250 mg/L.
+
+---
+
+**Q45. STP stands for?**
+- A) Standard Testing Procedure
+- B) Sewage Treatment Plant
+- C) Solid Treatment Process
+- D) Sludge Therapy Plant
+
+**Answer: B) Sewage Treatment Plant**
+**Explanation:** STP treats domestic sewage through primary (screening), secondary (biological), and tertiary treatment.
+
+---
+
+*Additional MCQ Bank — Updated March 2026*

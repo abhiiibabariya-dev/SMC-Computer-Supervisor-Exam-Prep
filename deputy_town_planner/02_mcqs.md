@@ -408,3 +408,59 @@
 ---
 *MCQ Bank for SMC Deputy Town Planner Exam 2026*
 *Total Questions: 35+ | Practice regularly for best results*
+
+---
+
+## Additional Practice Questions (Updated March 2026)
+
+**Q36. GDCR stands for?**
+- A) General Development Control Regulations
+- B) Gujarat District Census Report
+- C) Government Design Code
+- D) General District Construction Rules
+
+**Answer: A) General Development Control Regulations**
+
+---
+
+**Q37. FSI is?**
+- A) Floor area / Population
+- B) Total built-up area / Plot area
+- C) Plot area / Floors
+- D) Road width / Height
+
+**Answer: B) Total built-up area / Plot area**
+
+---
+
+**Q38. Smart City Mission launched in?**
+- A) 2010
+- B) 2015
+- C) 2018
+- D) 2020
+
+**Answer: B) 2015**
+
+---
+
+**Q39. TOD stands for?**
+- A) Town Oriented Development
+- B) Transit Oriented Development
+- C) Total Office Design
+- D) Technical Operations
+
+**Answer: B) Transit Oriented Development**
+
+---
+
+**Q40. Master Plan duration typically?**
+- A) 1-2 years
+- B) 5 years
+- C) 10-20 years
+- D) 50 years
+
+**Answer: C) 10-20 years**
+
+---
+
+*Additional MCQ Bank — Updated March 2026*

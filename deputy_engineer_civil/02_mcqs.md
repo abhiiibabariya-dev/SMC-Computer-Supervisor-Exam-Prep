@@ -408,3 +408,64 @@
 ---
 *MCQ Bank for SMC Deputy Engineer (Civil) Exam 2026*
 *Total Questions: 35+ | Practice regularly for best results*
+
+---
+
+## Additional Practice Questions (Updated March 2026)
+
+**Q36. What is the minimum clear cover for a column as per IS 456?**
+- A) 25 mm
+- B) 40 mm
+- C) 50 mm
+- D) 75 mm
+
+**Answer: B) 40 mm**
+**Explanation:** Minimum clear cover: Column = 40mm, Beam = 25mm, Slab = 15mm, Footing = 50mm.
+
+---
+
+**Q37. SBC stands for?**
+- A) Standard Building Code
+- B) Safe Bearing Capacity
+- C) Structural Base Component
+- D) Soil Building Classification
+
+**Answer: B) Safe Bearing Capacity**
+**Explanation:** SBC is the maximum pressure soil can bear without shear failure. Depends on soil type.
+
+---
+
+**Q38. CBR test is used for?**
+- A) Concrete testing
+- B) Sub-grade soil strength for pavement design
+- C) Steel testing
+- D) Brick testing
+
+**Answer: B) Sub-grade soil strength for pavement design**
+**Explanation:** California Bearing Ratio test evaluates soil sub-grade strength for road/runway pavement design.
+
+---
+
+**Q39. Minimum longitudinal reinforcement in a column is?**
+- A) 0.4% of gross area
+- B) 0.8% of gross area
+- C) 2% of gross area
+- D) 4% of gross area
+
+**Answer: B) 0.8% of gross area**
+**Explanation:** IS 456: Min reinforcement in column = 0.8% of Ag. Maximum = 6% of Ag.
+
+---
+
+**Q40. Which cement is used for marine construction?**
+- A) OPC
+- B) PPC
+- C) Sulfate Resistant Cement
+- D) White Cement
+
+**Answer: C) Sulfate Resistant Cement**
+**Explanation:** Sulfate Resistant Cement (SRC) resists sulfate attack — used in marine, swamp, foundation work.
+
+---
+
+*Additional MCQ Bank — Updated March 2026*

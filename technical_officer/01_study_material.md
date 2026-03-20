@@ -220,3 +220,28 @@
 | **Gradeup** | Android/iOS | Video classes, Tests |
 | **Current Affairs App** | Android | Daily CA in Gujarati |
 | **Gujarati Dictionary** | Android | Word meanings, Synonyms |
+
+---
+
+## Quick Revision One-Liners (Updated March 2026)
+
+1. IPv4 = 32-bit (4.3 billion addresses), IPv6 = 128-bit
+2. Star topology: Central hub, most common. Bus: Single backbone. Ring: Circular.
+3. OSI 7 layers: Physical, Data Link, Network, Transport, Session, Presentation, Application
+4. TCP = reliable/connection-oriented, UDP = fast/connectionless
+5. Port numbers: FTP=21, SSH=22, Telnet=23, SMTP=25, HTTP=80, HTTPS=443
+6. RAID 0=Striping, RAID 1=Mirroring, RAID 5=Striping+Parity
+7. Firewall = network security device filtering traffic based on rules
+8. Cloud: IaaS (infrastructure), PaaS (platform), SaaS (software)
+9. SQL injection = malicious SQL through user input — OWASP Top 10
+10. Primary key: Unique + Not Null, Foreign key: References primary key
+11. VPN creates encrypted tunnel for secure remote access
+12. DNS converts domain names to IP addresses (port 53)
+13. DHCP automatically assigns IP addresses (port 67/68)
+14. Subnetting divides network into smaller sub-networks
+15. Default gateway = router IP that connects LAN to internet
+16. Backup types: Full, Incremental (changes since last backup), Differential
+17. Active Directory = Microsoft's directory service for user management
+18. Virtualization: VMware, Hyper-V, KVM — multiple OS on one hardware
+19. Load balancer distributes traffic across multiple servers
+20. Cyber security: CIA triad — Confidentiality, Integrity, Availability

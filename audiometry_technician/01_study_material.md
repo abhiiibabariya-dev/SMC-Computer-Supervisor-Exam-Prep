@@ -213,3 +213,28 @@
 | **Gradeup** | Android/iOS | Video classes, Tests |
 | **Current Affairs App** | Android | Daily CA in Gujarati |
 | **Gujarati Dictionary** | Android | Word meanings, Synonyms |
+
+---
+
+## Quick Revision One-Liners (Updated March 2026)
+
+1. Sound measured in decibels (dB), frequency in Hertz (Hz)
+2. Human hearing range: 20 Hz to 20,000 Hz
+3. Normal conversation: ~60 dB, Whisper: ~30 dB, Pain threshold: 120 dB
+4. Normal hearing threshold: 0-25 dB HL
+5. Conductive hearing loss = problem in outer/middle ear
+6. Sensorineural hearing loss = problem in cochlea/auditory nerve
+7. Mixed hearing loss = both conductive + sensorineural
+8. Pure tone audiometry tests 250-8000 Hz frequencies
+9. Tympanometry measures middle ear function & eardrum compliance
+10. Presbycusis = age-related hearing loss (high frequencies affected first)
+11. Noise-induced hearing loss shows "4 kHz notch" on audiogram
+12. Three middle ear bones: Malleus, Incus, Stapes (smallest bone in body)
+13. Cochlea = snail-shaped organ in inner ear, converts sound to nerve signals
+14. OAE (Otoacoustic Emissions) test = screening for newborn hearing
+15. ABR (Auditory Brainstem Response) = objective hearing test
+16. Sound booth must have ambient noise below 30 dB for accurate testing
+17. Audiogram: X-axis = frequency (Hz), Y-axis = intensity (dB)
+18. Red = right ear, Blue = left ear on audiogram
+19. Air conduction tests entire hearing pathway, bone conduction bypasses outer/middle ear
+20. Hearing aid amplifies sound, cochlear implant directly stimulates auditory nerve
