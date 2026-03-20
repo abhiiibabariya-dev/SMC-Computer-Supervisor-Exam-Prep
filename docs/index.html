@@ -541,10 +541,12 @@
         body.light #vb{background:rgba(255,255,255,0.95)}
         body.light .paywall-overlay{background:linear-gradient(transparent,#f8f9fa 60%)}
 
-        /* ============ GUJARATI MODE ============ */
-        body.gu .en{display:none}
-        body.gu .gu-text{display:inline}
-        .gu-text{display:none}
+        /* ============ GOOGLE TRANSLATE BAR HIDE ============ */
+        .goog-te-banner-frame{display:none !important}
+        body{top:0 !important}
+        .goog-te-gadget{font-size:0 !important}
+        .skiptranslate{display:none !important}
+        #google_translate_element{position:fixed;bottom:-100px;opacity:0;pointer-events:none}
     </style>
 </head>
 <body>
@@ -1967,55 +1969,7 @@ function toggleSection(id,btn){
 </div>
 
 <script>
-// ===== LANGUAGE TOGGLE =====
-const LANG_MAP={
-    'All 45 Jobs':'બધી 45 નોકરીઓ',
-    'Gujarat Jobs':'ગુજરાત નોકરીઓ',
-    'Mock Tests':'મોક ટેસ્ટ',
-    'Everything to':'બધું જ',
-    'Crack Your Exam':'તમારી પરીક્ષા પાસ કરો',
-    'Apply 1 Apr':'અરજી 1 એપ્રિલ',
-    'SMC Recruitment 2026':'SMC ભરતી 2026',
-    'Ask AI Assistant':'AI સહાયક પૂછો',
-    'Free Mock Tests':'મફત મોક ટેસ્ટ',
-    'Take Exam':'પરીક્ષા આપો',
-    'Quick Access':'ઝડપી ઍક્સેસ',
-    'Recruitment 2026':'ભરતી 2026',
-    'Complete Guide + SOP':'સંપૂર્ણ માર્ગદર્શિકા',
-    'Apply Online':'ઓનલાઈન અરજી',
-    'All 45 SMC Jobs — Click to Study / બધી 45 નોકરીઓ':'બધી 45 SMC નોકરીઓ — અભ્યાસ માટે ક્લિક કરો',
-    'Posts':'જગ્યાઓ',
-    'Clerk / ક્લાર્ક':'ક્લાર્ક',
-    'Driver / ડ્રાઈવર':'ડ્રાઈવર',
-    'Marshal / માર્શલ':'માર્શલ',
-    'Staff Nurse / નર્સ':'સ્ટાફ નર્સ',
-    'Technical Asst':'ટેકનિકલ આસિસ્ટન્ટ',
-    'Jr Pharmacist':'જુનિયર ફાર્માસિસ્ટ',
-    'Medical Officer':'મેડિકલ ઓફિસર',
-    'AE Electrical':'આસિ. ઈજનેર (ઈલેક્ટ્રિકલ)',
-    'Asst Town Planner':'આસિ. ટાઉન પ્લાનર',
-    'AE Civil':'આસિ. ઈજનેર (સિવિલ)',
-    'Lab Technician':'લેબ ટેકનિશિયન',
-    'Fitter / ફિટર':'ફિટર',
-    'Zoo Keeper':'ઝૂ કીપર',
-    'Computer Supv':'કમ્પ્યુટર સુપરવાઈઝર',
-    'Graduate + CCC':'ગ્રેજ્યુએટ + CCC',
-    '8th/10th + DL':'8મું/10મું + ડ્રાઈવિંગ લાઈસન્સ',
-    '10th/12th Pass':'10મું/12મું પાસ',
-    'Diploma':'ડિપ્લોમા',
-    'Diploma/BE':'ડિપ્લોમા/BE',
-    'Top Jobs (by vacancies)':'ટોચની નોકરીઓ (ખાલી જગ્યા મુજબ)',
-    'More Exam Guides':'વધુ પરીક્ષા માર્ગદર્શિકા',
-    'Practice & Tools':'પ્રેક્ટિસ અને ટૂલ્સ',
-    'Free Mock Tests':'મફત મોક ટેસ્ટ',
-    'Online Exam Practice':'ઓનલાઈન પરીક્ષા પ્રેક્ટિસ',
-    'AI Assistant':'AI સહાયક',
-    'Premium Access':'પ્રીમિયમ ઍક્સેસ',
-    'Jobs & Resources':'નોકરીઓ અને સંસાધનો',
-    '→ View All 45 Jobs':'→ બધી 45 નોકરીઓ જુઓ',
-    'Scroll':'નીચે જુઓ',
-};
-
+// ===== LANGUAGE TOGGLE (Google Translate powered) =====
 let isGujarati=localStorage.getItem('smc-lang')==='gu';
 
 function toggleLang(){
@@ -2027,32 +1981,55 @@ function toggleLang(){
 function applyLang(){
     document.getElementById('langIcon').textContent=isGujarati?'EN':'ગુ';
     if(isGujarati){
-        document.body.classList.add('gu');
         document.title='SMC પરીક્ષા તૈયારી 2026';
-    }else{
-        document.body.classList.remove('gu');
-        document.title='SMC Exam Prep 2026';
-    }
-    // Translate nav links and text nodes
-    document.querySelectorAll('a, button, .k-t, .k-d, .sec-name, .hero h1, .hero p, .hero-chip, .nav-logo, .scroll-hint span, .sec-info, .sl, .vc-name, .info-item .lab').forEach(el=>{
-        if(el.children.length>2)return; // skip complex elements
-        const txt=el.getAttribute('data-en')||el.textContent.trim();
-        if(!el.getAttribute('data-en'))el.setAttribute('data-en',txt);
-        if(isGujarati){
-            // Check exact match first
-            if(LANG_MAP[txt]){el.textContent=LANG_MAP[txt];return;}
-            // Check partial matches
-            for(const[en,gu] of Object.entries(LANG_MAP)){
-                if(txt.includes(en)){
-                    el.textContent=txt.replace(en,gu);
-                    return;
-                }
-            }
+        // Use Google Translate element
+        if(!document.getElementById('gt-script')){
+            // Add Google Translate
+            var s=document.createElement('script');
+            s.id='gt-script';
+            s.src='//translate.google.com/translate_a/element.js?cb=googleTranslateInit';
+            document.body.appendChild(s);
+            window.googleTranslateInit=function(){
+                new google.translate.TranslateElement({
+                    pageLanguage:'en',
+                    includedLanguages:'gu',
+                    autoDisplay:false
+                },'google_translate_element');
+                // Auto-select Gujarati
+                setTimeout(function(){
+                    var sel=document.querySelector('.goog-te-combo');
+                    if(sel){sel.value='gu';sel.dispatchEvent(new Event('change'));}
+                },1000);
+            };
         }else{
-            const orig=el.getAttribute('data-en');
-            if(orig)el.textContent=orig;
+            // Already loaded, just switch
+            var sel=document.querySelector('.goog-te-combo');
+            if(sel){sel.value='gu';sel.dispatchEvent(new Event('change'));}
         }
-    });
+    }else{
+        document.title='SMC Exam Prep 2026';
+        // Revert to English
+        var sel=document.querySelector('.goog-te-combo');
+        if(sel){sel.value='en';sel.dispatchEvent(new Event('change'));}
+        // Also try the restore function
+        var frame=document.querySelector('.goog-te-banner-frame');
+        if(frame){
+            var btn=frame.contentDocument.querySelector('.goog-close-link');
+            if(btn)btn.click();
+        }
+        // Fallback: reload if translation stuck
+        if(document.cookie.indexOf('googtrans')!==-1){
+            document.cookie='googtrans=;path=/;expires=Thu, 01 Jan 1970 00:00:00 GMT';
+            document.cookie='googtrans=;path=/;domain=.github.io;expires=Thu, 01 Jan 1970 00:00:00 GMT';
+        }
+    }
+}
+// Hidden Google Translate container
+if(!document.getElementById('google_translate_element')){
+    var gtDiv=document.createElement('div');
+    gtDiv.id='google_translate_element';
+    gtDiv.style.cssText='position:fixed;bottom:-100px;left:0;opacity:0;pointer-events:none;z-index:-1';
+    document.body.appendChild(gtDiv);
 }
 
 // ===== THEME TOGGLE =====
