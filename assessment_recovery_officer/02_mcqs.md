@@ -408,3 +408,59 @@
 ---
 *MCQ Bank for SMC Assessment & Recovery Officer Exam 2026*
 *Total Questions: 35+ | Practice regularly for best results*
+
+---
+
+## Additional Practice Questions (Updated March 2026)
+
+**Q36. Property tax is levied by?**
+- A) Central Govt
+- B) State Govt
+- C) Municipal Corporation
+- D) RBI
+
+**Answer: C) Municipal Corporation**
+
+---
+
+**Q37. ARV stands for?**
+- A) Annual Rental Value
+- B) Assessment Revenue Value
+- C) Average Rate Value
+- D) Annual Recovery Voucher
+
+**Answer: A) Annual Rental Value**
+
+---
+
+**Q38. BPMC Act governs?**
+- A) Only Surat
+- B) Municipal corporations in Gujarat
+- C) Central government
+- D) Only rural areas
+
+**Answer: B) Municipal corporations in Gujarat**
+
+---
+
+**Q39. Self-assessment scheme allows?**
+- A) Govt to assess
+- B) Owner to self-calculate property tax
+- C) Tax waiver
+- D) Tax exemption
+
+**Answer: B) Owner to self-calculate property tax**
+
+---
+
+**Q40. Property mutation means?**
+- A) Property demolition
+- B) Change of name in tax records after transfer
+- C) New construction
+- D) Tax waiver
+
+**Answer: B) Change of name in tax records after transfer**
+
+---
+
+*Additional MCQ Bank — Updated March 2026*

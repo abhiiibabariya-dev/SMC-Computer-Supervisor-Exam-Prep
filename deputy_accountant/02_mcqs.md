@@ -408,3 +408,122 @@
 ---
 *MCQ Bank for SMC Deputy Accountant Exam 2026*
 *Total Questions: 35+ | Practice regularly for best results*
+
+---
+
+## Additional Practice Questions (Updated March 2026)
+
+**Q36. What is the accounting equation?**
+- A) Assets = Revenue - Expenses
+- B) Assets = Liabilities + Equity
+- C) Assets = Liabilities - Equity
+- D) Assets + Liabilities = Equity
+
+**Answer: B) Assets = Liabilities + Equity**
+**Explanation:** Fundamental accounting equation. Every transaction maintains this balance.
+
+---
+
+**Q37. Cost accounting is primarily concerned with?**
+- A) Tax filing
+- B) Determining cost of production
+- C) Auditing
+- D) Banking
+
+**Answer: B) Determining cost of production**
+**Explanation:** Cost accounting records, classifies, and analyzes costs to determine product/service cost.
+
+---
+
+**Q38. Break-even point is where?**
+- A) Profit is maximum
+- B) Total Revenue = Total Cost (no profit, no loss)
+- C) Loss is maximum
+- D) Revenue is zero
+
+**Answer: B) Total Revenue = Total Cost (no profit, no loss)**
+**Explanation:** Break-even: Sales revenue exactly covers all costs. BEP = Fixed Cost / (SP - VC per unit).
+
+---
+
+**Q39. Budget is prepared for?**
+- A) Past period analysis
+- B) Future period planning and control
+- C) Current period only
+- D) None of the above
+
+**Answer: B) Future period planning and control**
+**Explanation:** Budget is a financial plan for a future period — helps in planning, coordination, and control.
+
+---
+
+**Q40. Which ratio measures liquidity?**
+- A) Debt-equity ratio
+- B) Current ratio (Current Assets / Current Liabilities)
+- C) Gross profit ratio
+- D) Return on equity
+
+**Answer: B) Current ratio (Current Assets / Current Liabilities)**
+**Explanation:** Current ratio measures short-term liquidity. Ideal current ratio: 2:1.
+
+---
+
+*Additional MCQ Bank — Updated March 2026*
+
+---
+
+## Additional Practice Questions (Updated March 2026)
+
+**Q36. What is the accounting equation?**
+- A) Assets = Revenue - Expenses
+- B) Assets = Liabilities + Equity
+- C) Assets = Liabilities - Equity
+- D) Assets + Liabilities = Equity
+
+**Answer: B) Assets = Liabilities + Equity**
+**Explanation:** Fundamental accounting equation. Every transaction maintains this balance.
+
+---
+
+**Q37. Cost accounting is primarily concerned with?**
+- A) Tax filing
+- B) Determining cost of production
+- C) Auditing
+- D) Banking
+
+**Answer: B) Determining cost of production**
+
+---
+
+**Q38. Break-even point is where?**
+- A) Profit is maximum
+- B) Total Revenue = Total Cost (no profit, no loss)
+- C) Loss is maximum
+- D) Revenue is zero
+
+**Answer: B) Total Revenue = Total Cost (no profit, no loss)**
+
+---
+
+**Q39. Budget is prepared for?**
+- A) Past period analysis
+- B) Future period planning and control
+- C) Current period only
+- D) None of the above
+
+**Answer: B) Future period planning and control**
+
+---
+
+**Q40. Which ratio measures liquidity?**
+- A) Debt-equity ratio
+- B) Current ratio (Current Assets / Current Liabilities)
+- C) Gross profit ratio
+- D) Return on equity
+
+**Answer: B) Current ratio (Current Assets / Current Liabilities)**
+**Explanation:** Current ratio measures short-term liquidity. Ideal current ratio: 2:1.
+
+---
+
+*Additional MCQ Bank — Updated March 2026*

@@ -161,3 +161,28 @@
 ---
 
 *SMC Zoo Keeper Exam 2026*
+
+---
+
+## Quick Revision One-Liners (Updated March 2026)
+
+1. Gir Forest: Only habitat of Asiatic Lion (674+ lions)
+2. CZA regulates all zoos in India
+3. Wildlife Protection Act 1972
+4. National animal: Bengal Tiger, National bird: Peacock
+5. Project Tiger launched 1973
+6. Sarthana Zoo (Surat): Established 1984
+7. IUCN categories: EX, EW, CR, EN, VU, NT, LC
+8. Schedule I WPA: Highest protection species
+9. Zoonotic diseases: Animals to humans
+10. CITES: International trade in endangered species
+11. Indian Wild Ass in Little Rann of Kutch
+12. Blackbuck NP at Velavadar, Gujarat
+13. Marine National Park in Gulf of Kutch
+14. Zoo enclosures simulate natural habitat
+15. Enrichment: Toys and activities for animal welfare
+16. Quarantine: Isolate new or sick animals
+17. Breeding programs maintain genetic diversity
+18. Gujarat: 4 national parks, 23+ wildlife sanctuaries
+19. Veterinary first aid knowledge required
+20. Animal diet varies by species - proper nutrition essential

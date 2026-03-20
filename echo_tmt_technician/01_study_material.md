@@ -213,3 +213,28 @@
 | **Gradeup** | Android/iOS | Video classes, Tests |
 | **Current Affairs App** | Android | Daily CA in Gujarati |
 | **Gujarati Dictionary** | Android | Word meanings, Synonyms |
+
+---
+
+## Quick Revision One-Liners (Updated March 2026)
+
+1. Echocardiography uses ultrasound waves (2-10 MHz) to image the heart
+2. TMT (Treadmill Test) = Exercise stress test monitoring ECG during physical exertion
+3. Normal ejection fraction: 55-70%, below 40% = heart failure
+4. Doppler echo measures blood flow velocity and direction
+5. Bruce protocol: 7 stages, each 3 minutes, increasing speed & incline
+6. M-mode = Motion mode, shows cardiac structures moving over time
+7. 2D echo provides cross-sectional real-time images of the heart
+8. TEE (Transesophageal) gives clearer images than TTE (Transthoracic)
+9. Target HR during TMT = 85% of (220 - age)
+10. Positive TMT = ST depression ≥1mm suggesting coronary artery disease
+11. Four heart valves: Mitral, Tricuspid, Aortic, Pulmonary
+12. Mitral valve = between LA and LV (bicuspid valve)
+13. Tricuspid valve = between RA and RV
+14. Aortic valve = between LV and Aorta
+15. Contraindications for TMT: recent MI, unstable angina, severe aortic stenosis
+16. Echo gel is water-soluble and helps transmit ultrasound waves
+17. Pericardial effusion = fluid around the heart, visible on echo
+18. Stress echo combines exercise with echo imaging
+19. Normal cardiac output: 4-8 liters/minute
+20. Left atrium receives oxygenated blood from pulmonary veins

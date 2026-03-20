@@ -213,3 +213,28 @@
 | **Gradeup** | Android/iOS | Video classes, Tests |
 | **Current Affairs App** | Android | Daily CA in Gujarati |
 | **Gujarati Dictionary** | Android | Word meanings, Synonyms |
+
+---
+
+## Quick Revision One-Liners (Updated March 2026)
+
+1. MRI uses magnetic fields + radio waves — NO radiation involved
+2. CT scan uses X-rays — provides cross-sectional images
+3. Ultrasound uses sound waves — safe, no radiation, real-time imaging
+4. PET scan uses radioactive tracers (FDG) — detects cancer and metabolic activity
+5. Hounsfield Unit: Water=0, Air=-1000, Bone=+1000 in CT
+6. MRI contraindications: Pacemakers, metallic implants, cochlear implants
+7. DICOM = Digital Imaging and Communications in Medicine (image standard)
+8. PACS = Picture Archiving and Communication System
+9. Mammography = low-dose X-ray screening for breast cancer
+10. DWI in MRI = best sequence for detecting acute stroke
+11. T1 MRI: Fat appears bright, fluid appears dark
+12. T2 MRI: Fluid appears bright, useful for detecting edema/pathology
+13. Ultrasound Doppler measures blood flow velocity and direction
+14. Iodinated contrast can cause nephropathy — check kidney function before CT
+15. Gadolinium is the MRI contrast agent — can cause NSF in renal failure
+16. Fluoroscopy = real-time X-ray (used in barium studies, angiography)
+17. Angiography = imaging blood vessels using contrast injection
+18. Nuclear medicine uses radioactive isotopes for diagnosis and treatment
+19. Radiation therapy uses high-dose radiation to kill cancer cells
+20. AI in radiology: Computer-aided detection (CAD) assists in finding abnormalities

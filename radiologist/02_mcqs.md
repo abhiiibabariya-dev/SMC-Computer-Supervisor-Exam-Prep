@@ -408,3 +408,119 @@
 ---
 *MCQ Bank for SMC Radiologist Exam 2026*
 *Total Questions: 35+ | Practice regularly for best results*
+
+---
+
+## Additional Practice Questions (Updated March 2026)
+
+**Q36. MRI stands for?**
+- A) Medical Radiation Imaging
+- B) Magnetic Resonance Imaging
+- C) Micro Radiographic Inspection
+- D) Multiple Ray Imaging
+
+**Answer: B) Magnetic Resonance Imaging**
+**Explanation:** MRI uses strong magnetic fields and radio waves to create detailed body images without radiation.
+
+---
+
+**Q37. Which imaging modality is best for soft tissue visualization?**
+- A) X-ray
+- B) CT scan
+- C) MRI
+- D) Ultrasound
+
+**Answer: C) MRI**
+**Explanation:** MRI provides excellent soft tissue contrast — best for brain, spinal cord, joints, muscles.
+
+---
+
+**Q38. Ultrasound frequency typically used in diagnostic imaging?**
+- A) 20 Hz - 20 kHz
+- B) 1-20 MHz
+- C) 100-500 MHz
+- D) 1-5 GHz
+
+**Answer: B) 1-20 MHz**
+**Explanation:** Diagnostic ultrasound uses 1-20 MHz. Higher frequency = better resolution but less penetration.
+
+---
+
+**Q39. Hounsfield unit (HU) is used in?**
+- A) MRI
+- B) CT scan
+- C) X-ray
+- D) Ultrasound
+
+**Answer: B) CT scan**
+**Explanation:** HU measures tissue density in CT. Water = 0 HU, Air = -1000 HU, Bone = +1000 HU.
+
+---
+
+**Q40. Contrast-induced nephropathy is a risk with?**
+- A) MRI gadolinium
+- B) Iodinated CT contrast agents
+- C) Barium sulfate
+- D) Ultrasound gel
+
+**Answer: B) Iodinated CT contrast agents**
+**Explanation:** Iodinated contrast can damage kidneys, especially in patients with pre-existing renal impairment.
+
+---
+
+**Q41. Mammography is used for screening?**
+- A) Lung cancer
+- B) Breast cancer
+- C) Liver disease
+- D) Brain tumors
+
+**Answer: B) Breast cancer**
+**Explanation:** Mammography uses low-dose X-rays to detect early breast cancer. Recommended after age 40-50.
+
+---
+
+**Q42. PET scan uses?**
+- A) X-rays
+- B) Magnetic fields
+- C) Radioactive tracers (FDG)
+- D) Ultrasound
+
+**Answer: C) Radioactive tracers (FDG)**
+**Explanation:** PET uses FDG (fluorodeoxyglucose) — cancer cells absorb more glucose, appearing bright on PET.
+
+---
+
+**Q43. DICOM standard is used for?**
+- A) Drug prescription
+- B) Medical image storage and transmission
+- C) Patient billing
+- D) Lab reports
+
+**Answer: B) Medical image storage and transmission**
+**Explanation:** DICOM (Digital Imaging and Communications in Medicine) is the standard format for medical images.
+
+---
+
+**Q44. Which MRI sequence is best for detecting acute stroke?**
+- A) T1 weighted
+- B) T2 weighted
+- C) Diffusion Weighted Imaging (DWI)
+- D) FLAIR
+
+**Answer: C) Diffusion Weighted Imaging (DWI)**
+**Explanation:** DWI detects restricted water diffusion in acute ischemic stroke within minutes of onset.
+
+---
+
+**Q45. Contraindication for MRI includes?**
+- A) Pregnancy (relative)
+- B) Cardiac pacemaker (absolute)
+- C) Dental fillings
+- D) Both A and B
+
+**Answer: D) Both A and B**
+**Explanation:** Pacemakers are absolute contraindication (strong magnetic field). Pregnancy is relative contraindication.
+
+---
+
+*Additional MCQ Bank — Updated March 2026*

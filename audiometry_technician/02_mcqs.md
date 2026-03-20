@@ -408,3 +408,119 @@
 ---
 *MCQ Bank for SMC Audiometry Technician Exam 2026*
 *Total Questions: 35+ | Practice regularly for best results*
+
+---
+
+## Additional Practice Questions (Updated March 2026)
+
+**Q36. Unit of sound intensity is?**
+- A) Hertz
+- B) Decibel (dB)
+- C) Newton
+- D) Pascal
+
+**Answer: B) Decibel (dB)**
+**Explanation:** Sound intensity is measured in decibels (dB). Normal conversation is about 60 dB.
+
+---
+
+**Q37. Normal hearing range in humans is?**
+- A) 1-100 Hz
+- B) 20-20,000 Hz
+- C) 50,000-100,000 Hz
+- D) 100-500 Hz
+
+**Answer: B) 20-20,000 Hz**
+**Explanation:** Humans can hear frequencies from 20 Hz to 20,000 Hz (20 kHz).
+
+---
+
+**Q38. Conductive hearing loss is caused by problems in?**
+- A) Inner ear
+- B) Outer or middle ear
+- C) Brain
+- D) Auditory nerve
+
+**Answer: B) Outer or middle ear**
+**Explanation:** Conductive hearing loss occurs when sound cannot pass through outer/middle ear (e.g., ear wax, fluid, damaged eardrum).
+
+---
+
+**Q39. Sensorineural hearing loss involves damage to?**
+- A) Ear canal
+- B) Eardrum
+- C) Cochlea or auditory nerve
+- D) Middle ear bones
+
+**Answer: C) Cochlea or auditory nerve**
+**Explanation:** Sensorineural hearing loss is caused by damage to inner ear (cochlea) or auditory nerve.
+
+---
+
+**Q40. Pure tone audiometry tests hearing at frequencies?**
+- A) Only 1000 Hz
+- B) 250 Hz to 8000 Hz
+- C) 50 Hz to 100 Hz
+- D) Only 500 Hz
+
+**Answer: B) 250 Hz to 8000 Hz**
+**Explanation:** Pure tone audiometry typically tests at 250, 500, 1000, 2000, 4000, and 8000 Hz.
+
+---
+
+**Q41. Normal hearing threshold is?**
+- A) 0-25 dB
+- B) 30-50 dB
+- C) 60-80 dB
+- D) 90-100 dB
+
+**Answer: A) 0-25 dB**
+**Explanation:** Normal hearing: 0-25 dB. Mild loss: 26-40 dB. Moderate: 41-55 dB. Severe: 71-90 dB.
+
+---
+
+**Q42. Tympanometry measures?**
+- A) Hearing threshold
+- B) Middle ear function and eardrum compliance
+- C) Inner ear function
+- D) Brain response to sound
+
+**Answer: B) Middle ear function and eardrum compliance**
+**Explanation:** Tympanometry measures how the eardrum responds to air pressure changes, detecting middle ear problems.
+
+---
+
+**Q43. Presbycusis is?**
+- A) Hearing loss due to noise
+- B) Age-related hearing loss
+- C) Hearing loss from birth
+- D) Hearing loss from medication
+
+**Answer: B) Age-related hearing loss**
+**Explanation:** Presbycusis is gradual sensorineural hearing loss due to aging, typically affecting high frequencies first.
+
+---
+
+**Q44. Otoscope is used to examine?**
+- A) Eyes
+- B) Ear canal and eardrum
+- C) Throat
+- D) Nose
+
+**Answer: B) Ear canal and eardrum**
+**Explanation:** Otoscope has a light and magnifying lens to examine the ear canal, eardrum, and middle ear.
+
+---
+
+**Q45. Noise-induced hearing loss typically affects which frequency first?**
+- A) 250 Hz
+- B) 500 Hz
+- C) 4000 Hz
+- D) 8000 Hz
+
+**Answer: C) 4000 Hz**
+**Explanation:** Noise-induced hearing loss characteristically shows a "4 kHz notch" on audiogram.
+
+---
+
+*Additional MCQ Bank — Updated March 2026*

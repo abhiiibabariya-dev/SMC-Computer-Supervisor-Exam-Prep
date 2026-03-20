@@ -216,3 +216,28 @@
 | **Gradeup** | Android/iOS | Video classes, Tests |
 | **Current Affairs App** | Android | Daily CA in Gujarati |
 | **Gujarati Dictionary** | Android | Word meanings, Synonyms |
+
+---
+
+## Quick Revision One-Liners (Updated March 2026)
+
+1. First law of thermodynamics: Energy conservation (Q = W + ΔU)
+2. Second law: Heat cannot flow from cold to hot spontaneously
+3. Otto cycle: Petrol engine, Diesel cycle: Diesel engine, Rankine: Steam
+4. Bernoulli's equation: P + ½ρv² + ρgh = constant (ideal fluid)
+5. Stress = Force/Area (Pa), Strain = Change in length/Original length
+6. Young's Modulus (E) = Stress/Strain (measures stiffness)
+7. Poisson's ratio (μ) = Lateral strain/Longitudinal strain (steel ≈ 0.3)
+8. Factor of Safety = Ultimate stress / Working stress
+9. Thermal conductivity: Ag > Cu > Al > Fe
+10. COP (refrigerator) = Cooling effect / Work input
+11. 1 HP = 746 W, 1 BTU = 1055 J
+12. Gear ratio = Teeth on driven / Teeth on driver
+13. Welding types: SMAW (arc), MIG, TIG, Gas welding, Spot welding
+14. Lathe operations: Turning, Facing, Boring, Threading, Knurling
+15. Drilling, Milling, Grinding, Shaping — basic machining operations
+16. Vernier caliper least count: 0.02 mm, Micrometer: 0.01 mm
+17. Reynolds number: < 2000 laminar, > 4000 turbulent
+18. Carnot efficiency = 1 - (T_cold/T_hot) — maximum possible efficiency
+19. Types of fits: Clearance, Interference, Transition
+20. Hardness tests: Brinell, Rockwell, Vickers

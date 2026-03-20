@@ -408,3 +408,119 @@
 ---
 *MCQ Bank for SMC Assistant Engineer (Workshop/Mechanical) Exam 2026*
 *Total Questions: 35+ | Practice regularly for best results*
+
+---
+
+## Additional Practice Questions (Updated March 2026)
+
+**Q36. First law of thermodynamics states?**
+- A) Energy can be created
+- B) Energy can be destroyed
+- C) Energy can neither be created nor destroyed, only transformed
+- D) Heat always flows from cold to hot
+
+**Answer: C) Energy can neither be created nor destroyed, only transformed**
+**Explanation:** First law = Conservation of energy. Total energy of isolated system remains constant.
+
+---
+
+**Q37. Which cycle is used in petrol engines?**
+- A) Diesel cycle
+- B) Otto cycle
+- C) Rankine cycle
+- D) Brayton cycle
+
+**Answer: B) Otto cycle**
+**Explanation:** Otto cycle (spark ignition) for petrol engines. Diesel cycle for diesel engines. Rankine for steam.
+
+---
+
+**Q38. Bernoulli's equation is applicable to?**
+- A) Compressible fluid only
+- B) Ideal incompressible fluid flow
+- C) Turbulent flow only
+- D) Viscous flow only
+
+**Answer: B) Ideal incompressible fluid flow**
+**Explanation:** Bernoulli's equation applies to steady, incompressible, inviscid (ideal) fluid flow along a streamline.
+
+---
+
+**Q39. SI unit of stress is?**
+- A) Newton
+- B) Pascal (N/m²)
+- C) Joule
+- D) Watt
+
+**Answer: B) Pascal (N/m²)**
+**Explanation:** Stress = Force/Area. SI unit: Pascal (Pa) = N/m². Also expressed as MPa (10⁶ Pa).
+
+---
+
+**Q40. Which material has the highest thermal conductivity?**
+- A) Iron
+- B) Copper
+- C) Aluminum
+- D) Silver
+
+**Answer: D) Silver**
+**Explanation:** Thermal conductivity: Silver (429) > Copper (401) > Aluminum (237) > Iron (80) W/m·K.
+
+---
+
+**Q41. COP of a refrigerator is?**
+- A) Always greater than 1
+- B) Always less than 1
+- C) Always equal to 1
+- D) Can be greater or less than 1
+
+**Answer: D) Can be greater or less than 1**
+**Explanation:** COP (Coefficient of Performance) = Cooling effect/Work input. Usually COP > 1 for refrigerators.
+
+---
+
+**Q42. Poisson's ratio is the ratio of?**
+- A) Stress to strain
+- B) Lateral strain to longitudinal strain
+- C) Shear stress to shear strain
+- D) Volume to pressure
+
+**Answer: B) Lateral strain to longitudinal strain**
+**Explanation:** Poisson's ratio (μ) = Lateral strain / Longitudinal strain. For steel: μ ≈ 0.3.
+
+---
+
+**Q43. Gear ratio is the ratio of?**
+- A) Speed of driver to speed of driven
+- B) Teeth on driven gear to teeth on driver gear
+- C) Diameter of driver to diameter of driven
+- D) Both A and B
+
+**Answer: D) Both A and B**
+**Explanation:** Gear ratio = N(driven)/N(driver) = Speed(driver)/Speed(driven).
+
+---
+
+**Q44. Welding process that uses electric arc is?**
+- A) Gas welding
+- B) Arc welding (SMAW)
+- C) Soldering
+- D) Brazing
+
+**Answer: B) Arc welding (SMAW)**
+**Explanation:** SMAW (Shielded Metal Arc Welding) uses electric arc between electrode and workpiece. Most common.
+
+---
+
+**Q45. Factor of safety is?**
+- A) Ultimate stress / Working stress
+- B) Working stress / Ultimate stress
+- C) Strain / Stress
+- D) Load / Area
+
+**Answer: A) Ultimate stress / Working stress**
+**Explanation:** FOS = Ultimate stress / Working (allowable) stress. Higher FOS = safer but heavier design.
+
+---
+
+*Additional MCQ Bank — Updated March 2026*

@@ -216,3 +216,28 @@
 | **Gradeup** | Android/iOS | Video classes, Tests |
 | **Current Affairs App** | Android | Daily CA in Gujarati |
 | **Gujarati Dictionary** | Android | Word meanings, Synonyms |
+
+---
+
+## Quick Revision One-Liners (Updated March 2026)
+
+1. Clear cover: Column 40mm, Beam 25mm, Slab 15-20mm, Footing 50mm
+2. SBC (Safe Bearing Capacity) varies by soil: Rock>Hard clay>Soft clay>Loose sand
+3. CBR test for sub-grade soil strength in pavement design
+4. Min column reinforcement: 0.8%, Max: 6% of gross cross-section area
+5. OPC: General purpose, PPC: Fly ash based, SRC: Sulfate resistant
+6. IS 456: RCC design code, IS 800: Steel structure design
+7. IS 875: Loads (Dead, Live, Wind, Snow), IS 1893: Seismic design
+8. Cantilever beam: Fixed one end, free other. Max moment at support
+9. Simply supported beam: Max moment at center = WL/8 for UDL
+10. SPT (Standard Penetration Test) N-value indicates soil strength
+11. Plate load test determines SBC of soil in field
+12. Proctor test determines optimum moisture content for compaction
+13. IRC codes for road design: IRC 37 (flexible), IRC 58 (rigid)
+14. BM (Bending Moment) and SF (Shear Force) diagrams essential for design
+15. Two-way slab: Ly/Lx ≤ 2, One-way slab: Ly/Lx > 2
+16. Limit State Method: ULS (strength) + SLS (serviceability)
+17. Working Stress Method: Based on allowable/permissible stresses
+18. GDCR: General Development Control Regulations for buildings
+19. FSI (Floor Space Index) = Total built-up area / Plot area
+20. Green building: LEED, GRIHA certification for energy-efficient buildings

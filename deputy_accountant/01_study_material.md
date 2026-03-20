@@ -147,3 +147,48 @@ Less: Indirect Expenses
 ---
 
 *SMC Deputy Accountant Exam 2026*
+
+---
+
+## Quick Revision One-Liners (Updated March 2026)
+
+1. Accounting equation: Assets = Liabilities + Equity
+2. Cost accounting determines product/service cost
+3. Break-even: Total Revenue = Total Cost (no profit/loss)
+4. Budget = financial plan for future period
+5. Current ratio = Current Assets / Current Liabilities (ideal 2:1)
+6. Quick ratio = (CA - Inventory) / CL (ideal 1:1)
+7. Depreciation methods: SLM (Straight Line), WDV (Written Down Value)
+8. Revenue expenditure: Recurring (salaries, rent)
+9. Capital expenditure: Non-recurring (land, building, machinery)
+10. Working capital = Current Assets - Current Liabilities
+11. Cash flow statement: Operating, Investing, Financing activities
+12. TDS rates vary by income type: Salary, Interest, Professional fees
+13. Municipal accounting follows cash basis (mostly)
+14. Budget variance = Actual - Budgeted (favorable if positive for revenue)
+15. Internal audit: Continuous review by organizations
+
+---
+
+## Quick Revision One-Liners (Updated March 2026)
+
+1. Accounting equation: Assets = Liabilities + Equity
+2. Cost accounting determines product/service cost
+3. Break-even: Total Revenue = Total Cost (no profit/loss)
+4. Budget = financial plan for future period
+5. Current ratio = Current Assets / Current Liabilities (ideal 2:1)
+6. Quick ratio = (CA - Inventory) / CL (ideal 1:1)
+7. Depreciation methods: SLM (Straight Line), WDV (Written Down Value)
+8. Revenue expenditure: Recurring (salaries, rent)
+9. Capital expenditure: Non-recurring (land, building, machinery)
+10. Working capital = Current Assets - Current Liabilities
+11. Cash flow statement: Operating, Investing, Financing activities
+12. TDS rates vary by income type: Salary, Interest, Professional fees
+13. Municipal accounting follows cash basis (mostly)
+14. Budget variance = Actual - Budgeted
+15. Internal audit: Continuous review by organization own team
+16. External audit: Independent review by outside auditor
+17. Accrual accounting: Record when earned or incurred
+18. Cash accounting: Record when cash is received or paid
+19. Government accounting: Receipt and Payment, Income and Expenditure
+20. Double entry: Every debit has corresponding credit

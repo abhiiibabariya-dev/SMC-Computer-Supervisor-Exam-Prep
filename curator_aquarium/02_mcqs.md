@@ -408,3 +408,70 @@
 ---
 *MCQ Bank for SMC Curator (Aquarium) Exam 2026*
 *Total Questions: 35+ | Practice regularly for best results*
+
+---
+
+## Additional Practice Questions (Updated March 2026)
+
+**Q36. Ideal freshwater aquarium pH?**
+- A) 3.0-4.0
+- B) 6.5-7.5
+- C) 9.0-10.0
+- D) 12.0-14.0
+
+**Answer: B) 6.5-7.5**
+
+---
+
+**Q37. Nitrogen cycle in aquarium?**
+- A) Oxygen to CO2
+- B) Ammonia to Nitrite to Nitrate
+- C) Salt to Sugar
+- D) Chlorine to Fluorine
+
+**Answer: B) Ammonia to Nitrite to Nitrate**
+
+---
+
+**Q38. Tropical fish temperature range?**
+- A) 5-10 C
+- B) 15-20 C
+- C) 24-28 C
+- D) 35-40 C
+
+**Answer: C) 24-28 C**
+
+---
+
+**Q39. Ammonia in aquarium should be?**
+- A) 5 ppm
+- B) 0 ppm
+- C) 10 ppm
+- D) 20 ppm
+
+**Answer: B) 0 ppm**
+**Explanation:** Ammonia is toxic to fish. Must be 0 in established tanks.
+
+---
+
+**Q40. Dissolved oxygen for fish should be?**
+- A) 0-1 mg/L
+- B) 5-8 mg/L
+- C) 15-20 mg/L
+- D) 30 mg/L
+
+**Answer: B) 5-8 mg/L**
+
+---
+
+**Q41. Bio-filter uses?**
+- A) Chemicals
+- B) Beneficial bacteria for biological filtration
+- C) UV light
+- D) Electricity
+
+**Answer: B) Beneficial bacteria for biological filtration**
+
+---
+
+*Additional MCQ Bank — Updated March 2026*

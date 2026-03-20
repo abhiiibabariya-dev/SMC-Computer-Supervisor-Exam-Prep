@@ -145,3 +145,53 @@ Subject Headings
 ---
 
 *SMC Library Clerk Exam 2026*
+
+---
+
+## Quick Revision One-Liners (Updated March 2026)
+
+1. DDC by Melvil Dewey (1876): 10 main classes (000-999)
+2. Five Laws of Library Science by S.R. Ranganathan (1931)
+3. ISBN = International Standard Book Number (13 digits)
+4. ISSN = International Standard Serial Number (8 digits, for journals)
+5. OPAC = Online Public Access Catalog — electronic search
+6. Colon Classification by Ranganathan (1933) — faceted classification
+7. UDC = Universal Decimal Classification — expansion of DDC
+8. Reference books: Non-circulating (dictionaries, encyclopedias, atlases)
+9. Cataloguing: Author, Title, Subject, Call Number entries
+10. AACR2 = Anglo-American Cataloguing Rules (now replaced by RDA)
+11. RDA = Resource Description and Access — modern cataloguing standard
+12. CAS = Current Awareness Service — keeping users updated
+13. SDI = Selective Dissemination of Information — personalized alerts
+14. Inter-Library Loan (ILL) — borrowing from other libraries
+15. Digital library stores materials in electronic format
+16. Copyright protects authors rights — enforced under Copyright Act 1957
+17. Accession register records all new books with accession numbers
+18. Book classification: Assign call numbers for shelf arrangement
+19. Stack area: Where books are shelved. Reading area: Where users study
+20. Weeding/Deselection: Removing outdated or damaged books from collection
+
+---
+
+## Quick Revision One-Liners (Updated March 2026)
+
+1. DDC by Melvil Dewey (1876): 10 main classes (000-999)
+2. Five Laws by S.R. Ranganathan (1931)
+3. ISBN = 13-digit International Standard Book Number
+4. ISSN = 8-digit for serial publications (journals)
+5. OPAC = Online Public Access Catalog
+6. Colon Classification by Ranganathan (1933)
+7. Reference books: Non-circulating (encyclopedias, dictionaries)
+8. Cataloguing: Author, Title, Subject, Call Number entries
+9. AACR2 replaced by RDA for cataloguing
+10. CAS = Current Awareness Service
+11. SDI = Selective Dissemination of Information
+12. Accession register: Records all new books
+13. Stack area: Where books are shelved
+14. Weeding: Removing outdated or damaged books
+15. Digital library: Electronic storage and access
+16. Copyright Act 1957: Protects author rights
+17. Inter-Library Loan: Borrowing from other libraries
+18. Book classification: Assign call numbers for shelf order
+19. Library card/membership: Required for borrowing
+20. Ranganathan is Father of Library Science in India

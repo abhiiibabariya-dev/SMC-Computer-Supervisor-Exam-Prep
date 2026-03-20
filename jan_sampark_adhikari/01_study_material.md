@@ -186,3 +186,28 @@
 | **Gradeup** | Android/iOS | Video classes, Tests |
 | **Current Affairs App** | Android | Daily CA in Gujarati |
 | **Gujarati Dictionary** | Android | Word meanings, Synonyms |
+
+---
+
+## Quick Revision One-Liners (Updated March 2026)
+
+1. RTI Act 2005: Right to Information from public authorities
+2. RTI fee: Rs. 10, reply within 30 days
+3. PIO = Public Information Officer
+4. CIC = Central Information Commission
+5. SIC = State Information Commission
+6. CPGRAMS: Online grievance portal, 60 day target
+7. Consumer Protection Act 2019
+8. National Consumer Helpline: 1800-11-4000
+9. e-Governance: IT for transparent governance
+10. Digital Gujarat portal: Online government services
+11. Communication skills essential for public relations
+12. Swachh Bharat Mission: Cleanliness awareness
+13. PMAY: Housing for all scheme
+14. MGNREGA: 100 days rural employment guarantee
+15. Aadhaar: 12-digit unique identity number
+16. DigiLocker: Cloud storage for govt documents
+17. UMANG app: Unified Mobile Application
+18. Citizen Charter: Service standards commitment
+19. RTI First Appeal: If PIO does not respond in 30 days
+20. BPL applicants exempt from RTI fee

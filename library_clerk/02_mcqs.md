@@ -408,3 +408,144 @@
 ---
 *MCQ Bank for SMC Library Clerk Exam 2026*
 *Total Questions: 35+ | Practice regularly for best results*
+
+---
+
+## Additional Practice Questions (Updated March 2026)
+
+**Q36. DDC stands for?**
+- A) Digital Data Classification
+- B) Dewey Decimal Classification
+- C) Document Delivery Center
+- D) Direct Database Connection
+
+**Answer: B) Dewey Decimal Classification**
+**Explanation:** DDC by Melvil Dewey (1876) — divides knowledge into 10 main classes (000-999).
+
+---
+
+**Q37. ISBN stands for?**
+- A) Indian Standard Book Number
+- B) International Standard Book Number
+- C) International System of Book Numbering
+- D) Indian System of Bibliographic Numbers
+
+**Answer: B) International Standard Book Number**
+**Explanation:** ISBN is a unique 13-digit identifier for books. Used worldwide for book identification.
+
+---
+
+**Q38. OPAC stands for?**
+- A) Online Public Access Catalog
+- B) Open Platform for Academic Content
+- C) Official Public Archive Center
+- D) Online Print and Copy
+
+**Answer: A) Online Public Access Catalog**
+**Explanation:** OPAC allows users to search library catalog electronically by title, author, subject, etc.
+
+---
+
+**Q39. Five Laws of Library Science were given by?**
+- A) Melvil Dewey
+- B) S.R. Ranganathan
+- C) Charles Cutter
+- D) James Billington
+
+**Answer: B) S.R. Ranganathan**
+**Explanation:** Dr. S.R. Ranganathan (1931): 1. Books are for use, 2. Every reader his/her book, 3. Every book its reader, 4. Save the time of the reader, 5. Library is a growing organism.
+
+---
+
+**Q40. Reference books are usually?**
+- A) Issued for home reading
+- B) Kept in library for in-house consultation only
+- C) Sold to students
+- D) Discarded annually
+
+**Answer: B) Kept in library for in-house consultation only**
+**Explanation:** Reference books (dictionaries, encyclopedias, yearbooks) are non-circulating — use inside library only.
+
+---
+
+**Q41. Cataloguing is the process of?**
+- A) Purchasing books
+- B) Creating organized records of library materials
+- C) Cleaning books
+- D) Binding books
+
+**Answer: B) Creating organized records of library materials**
+**Explanation:** Cataloguing creates systematic entries with author, title, subject, call number for each item.
+
+---
+
+**Q42. Colon Classification was devised by?**
+- A) Melvil Dewey
+- B) S.R. Ranganathan
+- C) C.A. Cutter
+- D) H.E. Bliss
+
+**Answer: B) S.R. Ranganathan**
+**Explanation:** Colon Classification (1933) by Ranganathan — uses facet analysis with colon (:) as separator.
+
+---
+
+*Additional MCQ Bank — Updated March 2026*
+
+---
+
+## Additional Practice Questions (Updated March 2026)
+
+**Q36. DDC was developed by?**
+- A) S.R. Ranganathan
+- B) Melvil Dewey
+- C) Charles Cutter
+- D) H.E. Bliss
+
+**Answer: B) Melvil Dewey**
+**Explanation:** Dewey Decimal Classification (1876) divides knowledge into 10 main classes (000-999).
+
+---
+
+**Q37. ISBN has how many digits?**
+- A) 8
+- B) 10
+- C) 13
+- D) 15
+
+**Answer: C) 13**
+**Explanation:** ISBN-13 is the current standard. Previously ISBN-10. Unique book identifier worldwide.
+
+---
+
+**Q38. Five Laws of Library Science author?**
+- A) Melvil Dewey
+- B) S.R. Ranganathan
+- C) Charles Cutter
+- D) James Duff Brown
+
+**Answer: B) S.R. Ranganathan**
+
+---
+
+**Q39. OPAC stands for?**
+- A) Online Public Access Catalog
+- B) Open Platform for Academic Content
+- C) Official Publication Archive Center
+- D) Online Print and Copy
+
+**Answer: A) Online Public Access Catalog**
+
+---
+
+**Q40. Reference books are?**
+- A) Issued for home
+- B) Consulted in library only (non-circulating)
+- C) Sold to students
+- D) Discarded annually
+
+**Answer: B) Consulted in library only (non-circulating)**
+
+---
+
+*Additional MCQ Bank — Updated March 2026*

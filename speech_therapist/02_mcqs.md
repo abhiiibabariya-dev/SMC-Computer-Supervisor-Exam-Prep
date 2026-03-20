@@ -408,3 +408,119 @@
 ---
 *MCQ Bank for SMC Speech Therapist Exam 2026*
 *Total Questions: 35+ | Practice regularly for best results*
+
+---
+
+## Additional Practice Questions (Updated March 2026)
+
+**Q36. Aphasia is a disorder of?**
+- A) Voice
+- B) Language (usually due to brain damage)
+- C) Fluency
+- D) Hearing
+
+**Answer: B) Language (usually due to brain damage)**
+**Explanation:** Aphasia is impairment of language due to brain damage (usually stroke). Affects speaking, understanding, reading, writing.
+
+---
+
+**Q37. Broca area in the brain controls?**
+- A) Hearing
+- B) Speech production
+- C) Vision
+- D) Memory
+
+**Answer: B) Speech production**
+**Explanation:** Broca area (left frontal lobe) controls speech production. Damage causes non-fluent/expressive aphasia.
+
+---
+
+**Q38. Stuttering is a disorder of?**
+- A) Voice
+- B) Language
+- C) Fluency
+- D) Articulation
+
+**Answer: C) Fluency**
+**Explanation:** Stuttering is a fluency disorder with involuntary repetitions, prolongations, or blocks in speech.
+
+---
+
+**Q39. Dysphagia means difficulty in?**
+- A) Speaking
+- B) Swallowing
+- C) Hearing
+- D) Reading
+
+**Answer: B) Swallowing**
+**Explanation:** Dysphagia = difficulty in swallowing. Can affect oral, pharyngeal, or esophageal phase.
+
+---
+
+**Q40. Voice disorders are related to problems with?**
+- A) Lungs
+- B) Vocal cords/larynx
+- C) Tongue
+- D) Teeth
+
+**Answer: B) Vocal cords/larynx**
+**Explanation:** Voice disorders (dysphonia) involve pitch, loudness, or quality changes due to vocal cord problems.
+
+---
+
+**Q41. At what age does a child typically say first words?**
+- A) 3-4 months
+- B) 6-8 months
+- C) 10-14 months
+- D) 24-30 months
+
+**Answer: C) 10-14 months**
+**Explanation:** First words around 12 months. Babbling at 6 months. Two-word phrases by 18-24 months.
+
+---
+
+**Q42. Wernicke area is responsible for?**
+- A) Speech production
+- B) Language comprehension
+- C) Motor control
+- D) Vision
+
+**Answer: B) Language comprehension**
+**Explanation:** Wernicke area (left temporal lobe) handles language understanding. Damage = fluent but meaningless speech.
+
+---
+
+**Q43. Cleft palate affects?**
+- A) Only breathing
+- B) Speech, feeding, and hearing
+- C) Only vision
+- D) Only walking
+
+**Answer: B) Speech, feeding, and hearing**
+**Explanation:** Cleft palate can cause nasal speech, feeding difficulties, and increased risk of ear infections.
+
+---
+
+**Q44. AAC stands for?**
+- A) Advanced Audio Coding
+- B) Augmentative and Alternative Communication
+- C) Automatic Articulation Correction
+- D) Acoustic Analysis of Communication
+
+**Answer: B) Augmentative and Alternative Communication**
+**Explanation:** AAC includes tools like picture boards, sign language, speech-generating devices for those who cannot speak.
+
+---
+
+**Q45. Tongue thrust is a type of?**
+- A) Voice disorder
+- B) Oral motor/myofunctional disorder
+- C) Hearing disorder
+- D) Cognitive disorder
+
+**Answer: B) Oral motor/myofunctional disorder**
+**Explanation:** Tongue thrust = abnormal tongue posture/movement during swallowing and speech, affecting articulation.
+
+---
+
+*Additional MCQ Bank — Updated March 2026*

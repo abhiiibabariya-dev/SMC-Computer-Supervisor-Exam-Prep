@@ -250,3 +250,28 @@ Example: 1 m³ Concrete (M20 — 1:1.5:3)
 | **Gradeup** | Android/iOS | Video classes, Tests |
 | **Current Affairs App** | Android | Daily CA in Gujarati |
 | **Gujarati Dictionary** | Android | Word meanings, Synonyms |
+
+---
+
+## Quick Revision One-Liners (Updated March 2026)
+
+1. Minimum concrete grade for RCC: M20 (IS 456:2000)
+2. Slump test measures workability of fresh concrete
+3. Standard brick size (nominal): 20×10×10 cm
+4. W/C ratio: Lower ratio = Higher strength. Typical: 0.40-0.50
+5. Curing period: Minimum 7 days for OPC, 10 days for blended cement
+6. 28-day strength: M20=20 MPa, M25=25 MPa, M30=30 MPa
+7. Initial setting time of cement: 30 minutes (Vicat apparatus)
+8. Final setting time of cement: 600 minutes (10 hours)
+9. BOD measures organic pollution in water (higher = more polluted)
+10. DPC at plinth level prevents rising damp
+11. Cover to reinforcement: 25mm for beams, 40mm for columns, 50mm for foundations
+12. Modular brick size: 200×100×100mm with 10mm mortar joint
+13. Dead load = self-weight, Live load = imposed load, Wind load = lateral
+14. Factor of safety for concrete: 1.5, for steel: 1.15
+15. Compaction factor test also measures workability of concrete
+16. Fe 415 steel: yield strength = 415 N/mm², Fe 500 = 500 N/mm²
+17. Minimum diameter of main bars in column: 12mm
+18. Minimum spacing of bars: Greater of bar diameter or 25mm
+19. Effluent discharge standards: BOD < 30 mg/L, COD < 250 mg/L
+20. Tacheometric surveying uses stadia hairs for distance measurement

@@ -408,3 +408,119 @@
 ---
 *MCQ Bank for SMC Assistant Engineer (Electrical) Exam 2026*
 *Total Questions: 35+ | Practice regularly for best results*
+
+---
+
+## Additional Practice Questions (Updated March 2026)
+
+**Q36. Ohm's Law states?**
+- A) V = I × R
+- B) V = I / R
+- C) V = I + R
+- D) V = R / I
+
+**Answer: A) V = I × R**
+**Explanation:** Ohm's Law: Voltage = Current × Resistance (V=IR). Fundamental law of electrical engineering.
+
+---
+
+**Q37. Unit of electrical power is?**
+- A) Ampere
+- B) Volt
+- C) Watt
+- D) Ohm
+
+**Answer: C) Watt**
+**Explanation:** Power (W) = Voltage × Current (P=VI). 1 kW = 1000 W. 1 HP = 746 W.
+
+---
+
+**Q38. Transformer works on the principle of?**
+- A) Electromagnetic induction
+- B) Electrostatic force
+- C) Gravitational force
+- D) Nuclear energy
+
+**Answer: A) Electromagnetic induction**
+**Explanation:** Transformer works on Faraday's law of electromagnetic induction — changes voltage level.
+
+---
+
+**Q39. Power factor is the cosine of angle between?**
+- A) Resistance and impedance
+- B) Voltage and current
+- C) Frequency and time
+- D) Power and energy
+
+**Answer: B) Voltage and current**
+**Explanation:** Power factor = cos φ, where φ is phase angle between voltage and current. Ideal PF = 1.
+
+---
+
+**Q40. Which type of motor is used in ceiling fans?**
+- A) DC motor
+- B) Single-phase induction motor (capacitor type)
+- C) Three-phase motor
+- D) Servo motor
+
+**Answer: B) Single-phase induction motor (capacitor type)**
+**Explanation:** Ceiling fans use single-phase capacitor-start/capacitor-run induction motors.
+
+---
+
+**Q41. Earth resistance should be less than?**
+- A) 100 ohms
+- B) 50 ohms
+- C) 5 ohms
+- D) 1000 ohms
+
+**Answer: C) 5 ohms**
+**Explanation:** For effective earthing, earth resistance should be less than 5 ohms (ideally < 1 ohm for substations).
+
+---
+
+**Q42. MCB stands for?**
+- A) Main Circuit Breaker
+- B) Miniature Circuit Breaker
+- C) Motor Control Box
+- D) Maximum Current Bypass
+
+**Answer: B) Miniature Circuit Breaker**
+**Explanation:** MCB automatically disconnects circuit during overload or short circuit. Replaces fuse wire.
+
+---
+
+**Q43. 1 unit of electricity equals?**
+- A) 1 Watt-hour
+- B) 1 Kilowatt-hour (kWh)
+- C) 1 Megawatt-hour
+- D) 1 Joule
+
+**Answer: B) 1 Kilowatt-hour (kWh)**
+**Explanation:** 1 unit = 1 kWh = 1000 watts consumed for 1 hour = 3.6 × 10⁶ Joules.
+
+---
+
+**Q44. Star-Delta starter is used for?**
+- A) DC motors
+- B) Single-phase motors
+- C) Three-phase induction motors (to reduce starting current)
+- D) Generators
+
+**Answer: C) Three-phase induction motors (to reduce starting current)**
+**Explanation:** Star-Delta reduces starting current to 1/3rd by starting in star then switching to delta.
+
+---
+
+**Q45. Frequency of AC supply in India is?**
+- A) 60 Hz
+- B) 50 Hz
+- C) 25 Hz
+- D) 100 Hz
+
+**Answer: B) 50 Hz**
+**Explanation:** India uses 50 Hz, 230V single-phase, 415V three-phase AC supply. USA uses 60 Hz.
+
+---
+
+*Additional MCQ Bank — Updated March 2026*

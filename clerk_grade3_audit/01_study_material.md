@@ -191,3 +191,53 @@
 | **Gradeup** | Android/iOS | Video classes, Tests |
 | **Current Affairs App** | Android | Daily CA in Gujarati |
 | **Gujarati Dictionary** | Android | Word meanings, Synonyms |
+
+---
+
+## Quick Revision One-Liners (Updated March 2026)
+
+1. Father of Accounting: Luca Pacioli (1494, double-entry system)
+2. GST implemented: 1 July 2017, 101st Constitutional Amendment
+3. GST slabs: 5%, 12%, 18%, 28% (plus 0% and 3% for gold)
+4. CGST = Central, SGST = State, IGST = Interstate transactions
+5. Trial Balance: Total Debits = Total Credits (arithmetic accuracy check)
+6. Balance Sheet: Assets = Liabilities + Equity (at a specific date)
+7. P&L Account shows Net Profit = Revenue - Expenses (for a period)
+8. Depreciation: Straight Line Method (SLM) and Written Down Value (WDV)
+9. CAG: Comptroller and Auditor General (Article 148, Constitution)
+10. Debit: Assets increase, Credit: Liabilities increase
+11. Journal → Ledger → Trial Balance → Final Accounts
+12. Current assets: Cash, debtors, stock | Fixed assets: Land, machinery
+13. Tally is widely used accounting software in India
+14. Financial year in India: 1 April to 31 March
+15. TDS: Tax Deducted at Source (employer deducts before paying)
+16. PAN (Permanent Account Number) = 10-character alphanumeric
+17. ITR (Income Tax Return) filed annually
+18. Voucher: Document supporting a financial transaction
+19. Petty cash: Small fund for minor office expenses
+20. Bank reconciliation: Match bank statement with cash book
+
+---
+
+## Quick Revision One-Liners (Updated March 2026)
+
+1. Father of Accounting: Luca Pacioli (1494)
+2. GST: 1 July 2017, 101st Amendment, slabs 5/12/18/28%
+3. CGST = Central, SGST = State, IGST = Interstate
+4. Trial Balance: Total Debits = Total Credits
+5. Balance Sheet: Assets = Liabilities + Equity
+6. Journal to Ledger to Trial Balance to Final Accounts
+7. CAG: Comptroller and Auditor General (Article 148)
+8. Depreciation: SLM and WDV methods
+9. Financial year: 1 April to 31 March
+10. Tally: Widely used accounting software
+11. TDS: Tax Deducted at Source
+12. PAN: 10-character alphanumeric tax ID
+13. Voucher: Document supporting financial transaction
+14. FIFO: First In First Out for inventory
+15. Petty cash: Small fund for minor expenses
+16. Bank reconciliation: Match bank statement with cash book
+17. Debit = Asset increase, Credit = Liability increase
+18. Revenue expenditure: Recurring, Capital: Non-recurring
+19. Working capital = Current Assets - Current Liabilities
+20. Audit: Systematic examination of financial records

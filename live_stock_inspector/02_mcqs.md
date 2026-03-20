@@ -408,3 +408,60 @@
 ---
 *MCQ Bank for SMC Live Stock Inspector Exam 2026*
 *Total Questions: 35+ | Practice regularly for best results*
+
+---
+
+## Additional Practice Questions (Updated March 2026)
+
+**Q36. FMD affects?**
+- A) Dogs
+- B) Cloven-hoofed animals (cattle, buffalo, sheep, goat)
+- C) Birds
+- D) Fish
+
+**Answer: B) Cloven-hoofed animals (cattle, buffalo, sheep, goat)**
+
+---
+
+**Q37. Pasteurization temperature?**
+- A) 42 C/30 min
+- B) 63 C/30 min or 72 C/15 sec
+- C) 100 C/10 min
+- D) 121 C/15 min
+
+**Answer: B) 63 C/30 min or 72 C/15 sec**
+
+---
+
+**Q38. FSSAI regulates?**
+- A) Drugs
+- B) Food safety in India
+- C) Vehicles
+- D) Buildings
+
+**Answer: B) Food safety in India**
+
+---
+
+**Q39. SNF in milk stands for?**
+- A) Solid Not Fat
+- B) Standard Nutrition Factor
+- C) Sodium Nitrogen Fluoride
+- D) Sugar Nucleotide Factor
+
+**Answer: A) Solid Not Fat**
+
+---
+
+**Q40. White Revolution leader?**
+- A) M.S. Swaminathan
+- B) Dr. Verghese Kurien
+- C) Norman Borlaug
+- D) C. Subramaniam
+
+**Answer: B) Dr. Verghese Kurien**
+**Explanation:** Operation Flood by Dr. Kurien made India world largest milk producer. AMUL from Gujarat.
+
+---
+
+*Additional MCQ Bank — Updated March 2026*

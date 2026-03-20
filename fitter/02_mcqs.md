@@ -408,3 +408,119 @@
 ---
 *MCQ Bank for SMC Fitter Exam 2026*
 *Total Questions: 35+ | Practice regularly for best results*
+
+---
+
+## Additional Practice Questions (Updated March 2026)
+
+**Q36. Least count of vernier caliper is?**
+- A) 0.01 mm
+- B) 0.02 mm
+- C) 0.1 mm
+- D) 1.0 mm
+
+**Answer: B) 0.02 mm**
+**Explanation:** Standard vernier caliper: LC = 1 MSD - 1 VSD = 0.02 mm. Some have 0.05 mm LC.
+
+---
+
+**Q37. Micrometer least count is?**
+- A) 0.01 mm
+- B) 0.02 mm
+- C) 0.1 mm
+- D) 0.5 mm
+
+**Answer: A) 0.01 mm**
+**Explanation:** Outside micrometer least count = 0.01 mm (0.5mm pitch / 50 divisions on thimble).
+
+---
+
+**Q38. Which tool is used for marking straight lines on metal?**
+- A) Hammer
+- B) Scriber
+- C) File
+- D) Chisel
+
+**Answer: B) Scriber**
+**Explanation:** Scriber is a marking tool with hardened steel point used to scratch lines on metal surfaces.
+
+---
+
+**Q39. Tapping is the process of?**
+- A) Cutting external threads
+- B) Cutting internal threads
+- C) Drilling holes
+- D) Grinding surfaces
+
+**Answer: B) Cutting internal threads**
+**Explanation:** Tapping creates internal threads using a tap. Die is used for cutting external threads.
+
+---
+
+**Q40. Annealing is done to?**
+- A) Increase hardness
+- B) Soften metal and relieve internal stresses
+- C) Increase brittleness
+- D) Increase conductivity only
+
+**Answer: B) Soften metal and relieve internal stresses**
+**Explanation:** Annealing heats metal then slow cools — makes it softer, more ductile, relieves stresses.
+
+---
+
+**Q41. Surface plate is made of?**
+- A) Wood
+- B) Cast iron or granite
+- C) Plastic
+- D) Rubber
+
+**Answer: B) Cast iron or granite**
+**Explanation:** Surface plate provides flat reference surface for inspection and layout. Granite is more stable.
+
+---
+
+**Q42. PPE stands for?**
+- A) Personal Power Equipment
+- B) Personal Protective Equipment
+- C) Public Protection Engine
+- D) Professional Prevention Equipment
+
+**Answer: B) Personal Protective Equipment**
+**Explanation:** PPE includes safety goggles, gloves, helmet, safety shoes, ear plugs — mandatory in workshops.
+
+---
+
+**Q43. Which file is used for finishing curved surfaces?**
+- A) Flat file
+- B) Half-round file
+- C) Triangular file
+- D) Square file
+
+**Answer: B) Half-round file**
+**Explanation:** Half-round file has one flat and one curved surface — used for filing both flat and curved surfaces.
+
+---
+
+**Q44. Tempering is done after?**
+- A) Annealing
+- B) Hardening (quenching)
+- C) Normalizing
+- D) Carburizing
+
+**Answer: B) Hardening (quenching)**
+**Explanation:** Tempering is done after hardening to reduce brittleness while retaining some hardness.
+
+---
+
+**Q45. Drill bit is held in a lathe using?**
+- A) Three-jaw chuck
+- B) Tailstock drill chuck
+- C) Tool post
+- D) Face plate
+
+**Answer: B) Tailstock drill chuck**
+**Explanation:** Drill chuck mounted in tailstock holds the drill bit for drilling operations on lathe.
+
+---
+
+*Additional MCQ Bank — Updated March 2026*

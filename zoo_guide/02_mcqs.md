@@ -408,3 +408,80 @@
 ---
 *MCQ Bank for SMC Zoo Guide Exam 2026*
 *Total Questions: 35+ | Practice regularly for best results*
+
+---
+
+## Additional Practice Questions (Updated March 2026)
+
+**Q36. Asiatic Lion is found only in?**
+- A) Corbett NP
+- B) Gir Forest, Gujarat
+- C) Kaziranga
+- D) Sundarbans
+
+**Answer: B) Gir Forest, Gujarat**
+**Explanation:** About 674+ Asiatic Lions live only in Gir National Park, Gujarat.
+
+---
+
+**Q37. CZA stands for?**
+- A) Central Zoo Authority
+- B) Chief Zoological Association
+- C) Central Zone Admin
+- D) Conservation Zoo Animals
+
+**Answer: A) Central Zoo Authority**
+
+---
+
+**Q38. Wildlife Protection Act year?**
+- A) 1972
+- B) 1986
+- C) 1991
+- D) 2002
+
+**Answer: A) 1972**
+
+---
+
+**Q39. National animal of India?**
+- A) Lion
+- B) Elephant
+- C) Bengal Tiger
+- D) Peacock
+
+**Answer: C) Bengal Tiger**
+
+---
+
+**Q40. Zoonotic diseases are transmitted from?**
+- A) Human to human
+- B) Animals to humans
+- C) Plants to humans
+- D) Water to humans
+
+**Answer: B) Animals to humans**
+
+---
+
+**Q41. Sarthana Zoo (Surat) established in?**
+- A) 1984
+- B) 1995
+- C) 2000
+- D) 2010
+
+**Answer: A) 1984**
+
+---
+
+**Q42. IUCN Red List category for most threatened?**
+- A) Least Concern
+- B) Vulnerable
+- C) Critically Endangered
+- D) Near Threatened
+
+**Answer: C) Critically Endangered**
+
+---
+
+*Additional MCQ Bank — Updated March 2026*

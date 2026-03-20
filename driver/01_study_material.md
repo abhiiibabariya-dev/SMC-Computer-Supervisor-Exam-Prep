@@ -458,3 +458,53 @@
 | **Gradeup** | Android/iOS | Video classes, Tests |
 | **Current Affairs App** | Android | Daily CA in Gujarati |
 | **Gujarati Dictionary** | Android | Word meanings, Synonyms |
+
+---
+
+## Quick Revision One-Liners (Updated March 2026)
+
+1. Motor Vehicle Act 1988 (amended 2019) — governs road transport in India
+2. Minimum driving age: Geared vehicle = 18 years, Non-geared = 16 years
+3. Blood alcohol limit: 30 mg/100 mL blood
+4. PUC certificate valid for 6 months — mandatory for all vehicles
+5. School zone speed limit: 25 km/h
+6. Octagonal sign = STOP, Triangle = Warning, Circle = Mandatory
+7. Emergency number: 112 (universal), 100 (police), 108 (ambulance)
+8. Defensive driving: Anticipate hazards, maintain safe following distance
+9. First aid priority: Airways, Breathing, Circulation (ABC)
+10. Seat belt mandatory for driver and front passenger
+11. Using mobile phone while driving: Fine up to Rs. 5000
+12. Drunk driving fine: Up to Rs. 10,000 and/or 6 months imprisonment
+13. Driving without license: Fine up to Rs. 5000
+14. Vehicle fitness certificate renewal: Every 2 years (after 15 years annually)
+15. Third-party insurance is mandatory for all vehicles
+16. Tire pressure should be checked when tires are cold
+17. Engine oil should be changed every 5000-10000 km
+18. Coolant prevents engine from overheating and freezing
+19. Brake fluid should be DOT 3 or DOT 4 standard
+20. Always check mirrors before changing lanes or turning
+
+---
+
+## Quick Revision One-Liners (Updated March 2026)
+
+1. Motor Vehicle Act 1988 (amended 2019)
+2. Minimum driving age: Geared = 18 years, Non-geared = 16 years
+3. Blood alcohol limit: 30 mg per 100 mL blood
+4. PUC valid for 6 months, mandatory for all vehicles
+5. School zone speed limit: 25 km/h
+6. Sign shapes: Octagon=STOP, Triangle=Warning, Circle=Mandatory
+7. Emergency: 112 (universal), 100 (police), 108 (ambulance)
+8. Seat belt mandatory for driver and front passenger
+9. Mobile phone while driving: Fine up to Rs. 5000
+10. Drunk driving: Fine up to Rs. 10,000 or 6 months jail
+11. Driving without license: Fine up to Rs. 5000
+12. Third-party insurance is mandatory for all vehicles
+13. First aid priority: Airways, Breathing, Circulation (ABC)
+14. Tire pressure: Check when tires are cold
+15. Engine oil change: Every 5000-10000 km
+16. Brake fluid: DOT 3 or DOT 4 standard
+17. Always check mirrors before changing lanes
+18. Defensive driving: Anticipate hazards, safe distance, stay alert
+19. Vehicle fitness certificate: Renewed every 2 years
+20. Right of way: Emergency vehicles always have priority

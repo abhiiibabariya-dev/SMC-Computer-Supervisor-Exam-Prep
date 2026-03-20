@@ -213,3 +213,33 @@
 | **Gradeup** | Android/iOS | Video classes, Tests |
 | **Current Affairs App** | Android | Daily CA in Gujarati |
 | **Gujarati Dictionary** | Android | Word meanings, Synonyms |
+
+---
+
+## Quick Revision One-Liners (Updated March 2026)
+
+1. SA node fires at 60-100 impulses/min — natural pacemaker of the heart
+2. AV node fires at 40-60 impulses/min — backup pacemaker
+3. P wave = Atrial depolarization, QRS = Ventricular depolarization, T wave = Ventricular repolarization
+4. Standard ECG: 12 leads = 6 limb + 6 chest (V1-V6)
+5. ECG paper speed: 25 mm/sec, calibration: 10mm = 1mV
+6. Normal PR interval: 0.12-0.20 sec
+7. Normal QRS duration: 0.06-0.10 sec
+8. Normal QT interval: 0.35-0.44 sec
+9. ST elevation = Myocardial infarction (heart attack)
+10. Atrial fibrillation = No P waves + irregularly irregular rhythm
+11. V1 placement: 4th intercostal space, right sternal border
+12. V4 placement: 5th intercostal space, midclavicular line
+13. Normal heart rate: 60-100 bpm (bradycardia <60, tachycardia >100)
+14. Coronary arteries supply blood to the heart muscle itself
+15. Defibrillation = Electrical shock to restore normal heart rhythm
+16. Holter monitor = Portable 24-48 hour continuous ECG recording
+17. Atrial flutter shows 'saw-tooth' pattern on ECG
+18. Left ventricle is the thickest chamber — pumps blood to entire body
+19. Right ventricle pumps blood to lungs via pulmonary artery
+20. Blood flow: RA → RV → Lungs → LA → LV → Body (systemic circulation)
+21. Normal SpO2: 95-100%, below 90% = hypoxemia
+22. Normal BP: 120/80 mmHg, Hypertension: >140/90 mmHg
+23. ECG artifacts can be caused by: muscle tremor, loose electrodes, electrical interference
+24. Always clean skin with alcohol before placing ECG electrodes
+25. 12-lead ECG takes approximately 5-10 minutes to perform

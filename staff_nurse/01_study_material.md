@@ -353,3 +353,28 @@ GCS < 8 = Severe → Intubation જરૂરી
 | **Gradeup** | Android/iOS | Video classes, Tests |
 | **Current Affairs App** | Android | Daily CA in Gujarati |
 | **Gujarati Dictionary** | Android | Word meanings, Synonyms |
+
+---
+
+## Quick Revision One-Liners (Updated March 2026)
+
+1. Normal vitals: Temp 98.6°F, Pulse 60-100, RR 12-20, BP 120/80
+2. GCS: Eye(4) + Verbal(5) + Motor(6) = 15 maximum
+3. CPR: 30 compressions : 2 breaths, rate 100-120/min, depth 2 inches
+4. Autoclave: 121°C at 15 psi for 15 minutes
+5. Normal fasting glucose: 70-100 mg/dL
+6. Isotonic fluids: 0.9% NS, Ringer Lactate
+7. Universal precautions: Treat ALL blood/fluids as infectious
+8. Hand hygiene: Most important infection prevention measure
+9. Normal urine output: 0.5-1 mL/kg/hour
+10. Blood groups: A, B, AB (universal recipient), O (universal donor)
+11. Insulin produced by beta cells of pancreas
+12. Normal Hb: Male 14-18 g/dL, Female 12-16 g/dL
+13. Normal platelet count: 1.5-4 lakh/mm³
+14. IV drip rate (drops/min) = Volume × Drop factor / Time in minutes
+15. IM injection sites: Deltoid, Vastus lateralis, Gluteus medius
+16. Subcutaneous injection angle: 45°, IM injection: 90°
+17. WHO hand wash steps: 7 steps for effective hand hygiene
+18. Biomedical waste: Red bag (contaminated), Yellow bag (pathological), Blue (sharps)
+19. Normal newborn weight: 2.5-3.5 kg, HR: 120-160 bpm
+20. Apgar score assessed at 1 and 5 minutes after birth (max 10)

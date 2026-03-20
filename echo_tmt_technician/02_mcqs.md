@@ -408,3 +408,120 @@
 ---
 *MCQ Bank for SMC ECHO/TMT Technician Exam 2026*
 *Total Questions: 35+ | Practice regularly for best results*
+
+---
+
+## Additional Practice Questions (Updated March 2026)
+
+**Q36. Echocardiography uses which type of waves?**
+- A) X-rays
+- B) Ultrasound waves
+- C) Gamma rays
+- D) Radio waves
+
+**Answer: B) Ultrasound waves**
+**Explanation:** Echocardiography uses high-frequency ultrasound waves (2-10 MHz) to create images of the heart.
+
+---
+
+**Q37. TMT stands for?**
+- A) Total Medical Test
+- B) Treadmill Test
+- C) Thoracic Monitor Test
+- D) Tissue Mapping Test
+
+**Answer: B) Treadmill Test**
+**Explanation:** TMT (Treadmill Test) is a stress test where patient walks on treadmill while ECG is monitored.
+
+---
+
+**Q38. Normal ejection fraction (EF) of the heart is?**
+- A) 20-30%
+- B) 35-45%
+- C) 55-70%
+- D) 80-95%
+
+**Answer: C) 55-70%**
+**Explanation:** Normal left ventricular ejection fraction is 55-70%. Below 40% indicates heart failure.
+
+---
+
+**Q39. Doppler echocardiography is used to measure?**
+- A) Heart size only
+- B) Blood flow velocity and direction
+- C) Bone density
+- D) Lung capacity
+
+**Answer: B) Blood flow velocity and direction**
+**Explanation:** Doppler echo measures the speed and direction of blood flow through the heart and blood vessels.
+
+---
+
+**Q40. Bruce protocol in TMT has how many stages?**
+- A) 3
+- B) 5
+- C) 7
+- D) 10
+
+**Answer: C) 7**
+**Explanation:** Bruce protocol has 7 stages, each lasting 3 minutes with increasing speed and incline.
+
+---
+
+**Q41. Which valve separates left atrium and left ventricle?**
+- A) Tricuspid valve
+- B) Mitral valve
+- C) Aortic valve
+- D) Pulmonary valve
+
+**Answer: B) Mitral valve**
+**Explanation:** Mitral (bicuspid) valve separates LA and LV. Tricuspid separates RA and RV.
+
+---
+
+**Q42. Target heart rate during TMT is calculated as?**
+- A) 220 - age
+- B) 200 - age
+- C) 180 - age
+- D) 150 - age
+
+**Answer: A) 220 - age**
+**Explanation:** Maximum predicted heart rate = 220 minus age. Target is usually 85% of this value.
+
+---
+
+**Q43. M-mode echocardiography shows?**
+- A) 3D images
+- B) Motion of cardiac structures over time
+- C) Blood flow patterns
+- D) Coronary artery images
+
+**Answer: B) Motion of cardiac structures over time**
+**Explanation:** M-mode (Motion mode) shows a single-beam view of cardiac structures moving over time.
+
+---
+
+**Q44. Positive TMT result suggests?**
+- A) Normal heart
+- B) Coronary artery disease
+- C) Lung disease
+- D) Kidney disease
+
+**Answer: B) Coronary artery disease**
+**Explanation:** A positive TMT (ST depression ≥1mm) suggests inadequate blood supply to heart (coronary artery disease).
+
+---
+
+**Q45. Transesophageal echocardiography (TEE) probe is inserted through?**
+- A) Nose
+- B) Mouth into esophagus
+- C) Chest wall
+- D) Neck
+
+**Answer: B) Mouth into esophagus**
+**Explanation:** TEE probe goes through mouth into esophagus to get clearer images of heart from behind.
+
+---
+
+*Additional MCQ Bank — Updated March 2026*
+*Total New Questions: 10 | Practice daily for best results*

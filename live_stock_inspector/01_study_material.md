@@ -130,3 +130,28 @@
 ---
 
 *SMC Live Stock Inspector Exam 2026*
+
+---
+
+## Quick Revision One-Liners (Updated March 2026)
+
+1. FMD: Highly contagious disease of cloven-hoofed animals
+2. Pasteurization: LTLT 63 C/30min, HTST 72 C/15sec
+3. FSSAI: Food Safety and Standards Authority (Act 2006)
+4. SNF = Solid Not Fat (protein + lactose + minerals)
+5. Cow milk fat: 3.5%, Buffalo: 6-7%
+6. Lactometer: Measures milk specific gravity
+7. MBRT: Methylene Blue Reduction Test for milk quality
+8. Brucellosis: Zoonotic disease from cattle
+9. Anthrax: Bacterial livestock disease
+10. Gujarat cattle breeds: Gir, Kankrej, Mehsani
+11. Buffalo breeds: Murrah, Jaffarabadi, Surti
+12. White Revolution: Dr. Verghese Kurien, Operation Flood
+13. AMUL: Anand Milk Union Limited from Gujarat
+14. Cold storage for meat: -18 C or below
+15. AI (Artificial Insemination) for livestock breeding
+16. Gujarat is 3rd largest milk producing state
+17. Vaccination schedule: FMD, HS, BQ regular
+18. Rinderpest: First animal disease eradicated (2011)
+19. Meat inspection before slaughter is mandatory
+20. Proper feeding, housing, and healthcare for livestock

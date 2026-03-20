@@ -408,3 +408,289 @@
 ---
 *MCQ Bank for SMC ECG Technician Exam 2026*
 *Total Questions: 35+ | Practice regularly for best results*
+
+---
+
+## Additional Practice Questions (Updated March 2026)
+
+### ECG & Cardiac Knowledge
+
+**Q36. What is the normal heart rate in adults?**
+- A) 40-60 bpm
+- B) 60-100 bpm
+- C) 100-120 bpm
+- D) 120-150 bpm
+
+**Answer: B) 60-100 bpm**
+**Explanation:** Normal resting heart rate for adults is 60-100 beats per minute.
+
+---
+
+**Q37. Which ECG lead is placed on the right arm?**
+- A) Lead I
+- B) Lead II
+- C) aVR
+- D) All of the above use right arm electrode
+
+**Answer: D) All of the above use right arm electrode**
+**Explanation:** The right arm electrode is used in Lead I, Lead II, Lead III, aVR, and other limb leads.
+
+---
+
+**Q38. P wave in ECG represents?**
+- A) Ventricular depolarization
+- B) Atrial depolarization
+- C) Ventricular repolarization
+- D) Atrial repolarization
+
+**Answer: B) Atrial depolarization**
+**Explanation:** P wave represents the electrical activity during atrial depolarization (contraction of atria).
+
+---
+
+**Q39. Normal PR interval is?**
+- A) 0.04-0.08 sec
+- B) 0.12-0.20 sec
+- C) 0.25-0.35 sec
+- D) 0.40-0.50 sec
+
+**Answer: B) 0.12-0.20 sec**
+**Explanation:** Normal PR interval is 0.12 to 0.20 seconds (3-5 small boxes on ECG paper).
+
+---
+
+**Q40. QRS complex represents?**
+- A) Atrial depolarization
+- B) Ventricular depolarization
+- C) Atrial repolarization
+- D) Ventricular repolarization
+
+**Answer: B) Ventricular depolarization**
+**Explanation:** QRS complex represents electrical activation (depolarization) of the ventricles.
+
+---
+
+**Q41. How many limb leads are there in standard 12-lead ECG?**
+- A) 4
+- B) 6
+- C) 8
+- D) 12
+
+**Answer: B) 6**
+**Explanation:** 6 limb leads: I, II, III, aVR, aVL, aVF. Plus 6 chest leads (V1-V6) = 12 total.
+
+---
+
+**Q42. ST elevation in ECG indicates?**
+- A) Normal finding
+- B) Myocardial infarction (heart attack)
+- C) Low potassium
+- D) High calcium
+
+**Answer: B) Myocardial infarction (heart attack)**
+**Explanation:** ST elevation is a hallmark sign of acute myocardial infarction (STEMI).
+
+---
+
+**Q43. ECG paper speed is normally set at?**
+- A) 10 mm/sec
+- B) 25 mm/sec
+- C) 50 mm/sec
+- D) 100 mm/sec
+
+**Answer: B) 25 mm/sec**
+**Explanation:** Standard ECG paper speed is 25 mm/sec. Each small box = 0.04 sec, each large box = 0.2 sec.
+
+---
+
+**Q44. T wave in ECG represents?**
+- A) Atrial depolarization
+- B) Ventricular depolarization
+- C) Ventricular repolarization
+- D) Atrial repolarization
+
+**Answer: C) Ventricular repolarization**
+**Explanation:** T wave represents ventricular repolarization (recovery phase of ventricles).
+
+---
+
+**Q45. Atrial fibrillation on ECG shows?**
+- A) Regular P waves
+- B) Absent P waves with irregular rhythm
+- C) Tall T waves
+- D) Wide QRS complex
+
+**Answer: B) Absent P waves with irregular rhythm**
+**Explanation:** In atrial fibrillation, P waves are replaced by fibrillatory waves and the rhythm is irregularly irregular.
+
+---
+
+**Q46. Which chest lead is placed at the 4th intercostal space, right sternal border?**
+- A) V1
+- B) V2
+- C) V3
+- D) V4
+
+**Answer: A) V1**
+**Explanation:** V1 is placed at the 4th intercostal space, right sternal border. V2 is at 4th ICS left sternal border.
+
+---
+
+**Q47. Normal QT interval is approximately?**
+- A) 0.10-0.20 sec
+- B) 0.35-0.44 sec
+- C) 0.50-0.60 sec
+- D) 0.70-0.80 sec
+
+**Answer: B) 0.35-0.44 sec**
+**Explanation:** Normal QT interval is 0.35-0.44 seconds. Prolonged QT can cause dangerous arrhythmias.
+
+---
+
+**Q48. Sinus bradycardia means heart rate is?**
+- A) Above 100 bpm
+- B) Below 60 bpm
+- C) Irregular
+- D) Absent
+
+**Answer: B) Below 60 bpm**
+**Explanation:** Sinus bradycardia = sinus rhythm with heart rate below 60 bpm. Common in athletes.
+
+---
+
+**Q49. Which artery supplies blood to the heart itself?**
+- A) Pulmonary artery
+- B) Aorta
+- C) Coronary arteries
+- D) Carotid artery
+
+**Answer: C) Coronary arteries**
+**Explanation:** Left and right coronary arteries supply oxygenated blood to the heart muscle (myocardium).
+
+---
+
+**Q50. ECG calibration standard is?**
+- A) 5 mm = 1 mV
+- B) 10 mm = 1 mV
+- C) 15 mm = 1 mV
+- D) 20 mm = 1 mV
+
+**Answer: B) 10 mm = 1 mV**
+**Explanation:** Standard ECG calibration: 10 mm vertical deflection = 1 millivolt (mV).
+
+---
+
+### General Knowledge for ECG Technician Exam
+
+**Q51. Surat Municipal Corporation was established in?**
+- A) 1852
+- B) 1901
+- C) 1966
+- D) 1975
+
+**Answer: C) 1966**
+**Explanation:** SMC was established in 1966. Surat is the 8th largest city in India.
+
+---
+
+**Q52. The human heart has how many chambers?**
+- A) 2
+- B) 3
+- C) 4
+- D) 5
+
+**Answer: C) 4**
+**Explanation:** The heart has 4 chambers: 2 atria (upper) and 2 ventricles (lower).
+
+---
+
+**Q53. Blood pressure is measured in?**
+- A) Celsius
+- B) mmHg
+- C) Joules
+- D) Watts
+
+**Answer: B) mmHg**
+**Explanation:** Blood pressure is measured in millimeters of mercury (mmHg). Normal: 120/80 mmHg.
+
+---
+
+**Q54. Which gas is carried by hemoglobin?**
+- A) Nitrogen
+- B) Carbon dioxide only
+- C) Oxygen
+- D) Hydrogen
+
+**Answer: C) Oxygen**
+**Explanation:** Hemoglobin in RBCs carries oxygen from lungs to tissues. It also carries some CO2 back.
+
+---
+
+**Q55. Defibrillator is used for?**
+- A) Measuring blood pressure
+- B) Restoring normal heart rhythm
+- C) Drawing blood
+- D) Measuring temperature
+
+**Answer: B) Restoring normal heart rhythm**
+**Explanation:** Defibrillator delivers electric shock to restore normal heart rhythm in cardiac arrest or arrhythmias.
+
+---
+
+**Q56. The SA node is located in?**
+- A) Left atrium
+- B) Right atrium
+- C) Left ventricle
+- D) Right ventricle
+
+**Answer: B) Right atrium**
+**Explanation:** The SA (Sinoatrial) node is the natural pacemaker, located in the upper right atrium.
+
+---
+
+**Q57. Normal blood oxygen saturation (SpO2) level is?**
+- A) 70-80%
+- B) 80-90%
+- C) 95-100%
+- D) 60-70%
+
+**Answer: C) 95-100%**
+**Explanation:** Normal SpO2 is 95-100%. Below 90% is considered hypoxemia and needs medical attention.
+
+---
+
+**Q58. Holter monitor records ECG for?**
+- A) 1 hour
+- B) 6 hours
+- C) 24-48 hours
+- D) 1 week
+
+**Answer: C) 24-48 hours**
+**Explanation:** Holter monitor is a portable device that records continuous ECG for 24-48 hours.
+
+---
+
+**Q59. AV node delays electrical impulse for approximately?**
+- A) 0.01 sec
+- B) 0.10 sec
+- C) 0.50 sec
+- D) 1.00 sec
+
+**Answer: B) 0.10 sec**
+**Explanation:** AV node delays impulse by ~0.1 sec, allowing atria to finish contracting before ventricles start.
+
+---
+
+**Q60. Which condition shows 'saw-tooth' pattern on ECG?**
+- A) Atrial fibrillation
+- B) Atrial flutter
+- C) Ventricular tachycardia
+- D) Heart block
+
+**Answer: B) Atrial flutter**
+**Explanation:** Atrial flutter shows characteristic 'saw-tooth' or 'flutter' waves, typically at 300 bpm atrial rate.
+
+---
+
+*Additional MCQ Bank — Updated March 2026*
+*Total New Questions: 25 | Practice daily for best results*

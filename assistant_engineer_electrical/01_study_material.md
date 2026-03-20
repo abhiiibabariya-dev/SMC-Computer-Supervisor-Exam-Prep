@@ -271,3 +271,28 @@
 | **Gradeup** | Android/iOS | Video classes, Tests |
 | **Current Affairs App** | Android | Daily CA in Gujarati |
 | **Gujarati Dictionary** | Android | Word meanings, Synonyms |
+
+---
+
+## Quick Revision One-Liners (Updated March 2026)
+
+1. Ohm's Law: V = IR, Power: P = VI = I²R = V²/R
+2. AC frequency in India: 50 Hz, Voltage: 230V (single phase), 415V (three phase)
+3. 1 unit electricity = 1 kWh = 3.6 × 10⁶ Joules
+4. 1 HP = 746 Watts
+5. Transformer works on electromagnetic induction (Faraday's law)
+6. Power factor = cos φ (angle between V and I). Ideal PF = 1 (unity)
+7. MCB = Miniature Circuit Breaker — protects against overload/short circuit
+8. ELCB/RCCB protects against earth leakage/residual current
+9. Earth resistance should be < 5 ohms (< 1 ohm for substations)
+10. Star-Delta starter reduces starting current to 1/3rd for 3-phase motors
+11. DOL (Direct On Line) starter used for small motors (< 5 HP)
+12. Cable color code: Red/Yellow/Blue = Phase, Black = Neutral, Green = Earth
+13. Kirchhoff's Current Law: Sum of currents at a node = 0
+14. Kirchhoff's Voltage Law: Sum of voltages in a loop = 0
+15. Series circuit: Same current, voltage divides
+16. Parallel circuit: Same voltage, current divides
+17. Capacitor stores energy in electric field, Inductor stores in magnetic field
+18. Synchronous speed = 120f/P (f=frequency, P=poles)
+19. Slip of induction motor = (Ns-N)/Ns × 100
+20. Three types of DC motors: Series, Shunt, Compound

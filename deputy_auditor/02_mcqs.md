@@ -408,3 +408,60 @@
 ---
 *MCQ Bank for SMC Deputy Auditor Exam 2026*
 *Total Questions: 35+ | Practice regularly for best results*
+
+---
+
+## Additional Practice Questions (Updated March 2026)
+
+**Q36. CAG is appointed under which article?**
+- A) Article 124
+- B) Article 148
+- C) Article 280
+- D) Article 324
+
+**Answer: B) Article 148**
+
+---
+
+**Q37. Vouching means?**
+- A) Preparing vouchers
+- B) Examining documentary evidence for transactions
+- C) Creating budgets
+- D) Filing returns
+
+**Answer: B) Examining documentary evidence for transactions**
+
+---
+
+**Q38. Misappropriation of cash is?**
+- A) Error
+- B) Fraud
+- C) Mistake
+- D) Omission
+
+**Answer: B) Fraud**
+**Explanation:** Deliberate misappropriation is fraud — intentional and concealed.
+
+---
+
+**Q39. Internal control includes?**
+- A) Only accounting controls
+- B) Accounting + administrative controls
+- C) Only security measures
+- D) Only HR policies
+
+**Answer: B) Accounting + administrative controls**
+
+---
+
+**Q40. Audit report types include?**
+- A) Only clean report
+- B) Clean, Qualified, Adverse, Disclaimer
+- C) Only adverse
+- D) Only qualified
+
+**Answer: B) Clean, Qualified, Adverse, Disclaimer**
+
+---
+
+*Additional MCQ Bank — Updated March 2026*

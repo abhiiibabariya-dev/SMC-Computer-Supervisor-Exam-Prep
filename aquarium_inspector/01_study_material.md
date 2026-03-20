@@ -209,3 +209,28 @@
 | **Gradeup** | Android/iOS | Video classes, Tests |
 | **Current Affairs App** | Android | Daily CA in Gujarati |
 | **Gujarati Dictionary** | Android | Word meanings, Synonyms |
+
+---
+
+## Quick Revision One-Liners (Updated March 2026)
+
+1. Freshwater pH: 6.5-7.5, Marine pH: 8.1-8.4
+2. Ammonia must be 0 ppm - toxic to fish
+3. Nitrogen cycle: Ammonia to Nitrite to Nitrate
+4. Tropical fish: 24-28 C temperature
+5. Dissolved oxygen: 5-8 mg/L for healthy fish
+6. Three filtration: Mechanical, Biological, Chemical
+7. Water change: 10-25% weekly
+8. Dechlorinate tap water before use
+9. Overfeeding causes ammonia spike
+10. Quarantine new fish 2-4 weeks
+11. Common diseases: Ich, Fin rot, Dropsy
+12. Marine salinity: 1.020-1.025 specific gravity
+13. LED lighting for plants and fish colors
+14. Air pump and air stone for aeration
+15. Acclimatize fish slowly to new tank water
+16. Marine tanks need protein skimmer
+17. Bio-balls house beneficial bacteria
+18. Carbon filter removes chemicals and odors
+19. UV sterilizer kills bacteria and parasites
+20. Gujarat coast has diverse marine life

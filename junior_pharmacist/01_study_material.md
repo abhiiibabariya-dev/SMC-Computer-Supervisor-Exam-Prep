@@ -226,3 +226,28 @@
 | **Gradeup** | Android/iOS | Video classes, Tests |
 | **Current Affairs App** | Android | Daily CA in Gujarati |
 | **Gujarati Dictionary** | Android | Word meanings, Synonyms |
+
+---
+
+## Quick Revision One-Liners (Updated March 2026)
+
+1. Schedule H: Prescription drugs (antibiotics, steroids)
+2. Schedule X: Narcotics and psychotropic substances (strict control)
+3. OTC: Over The Counter — no prescription needed
+4. Pharmacy Act 1948: Established PCI (Pharmacy Council of India)
+5. Drugs & Cosmetics Act 1940: Regulates import, manufacture, sale of drugs
+6. FIFO: First In First Out — prevents drug expiry
+7. Insulin storage: 2-8°C in refrigerator, never freeze
+8. Bioavailability: % of drug reaching systemic circulation, IV = 100%
+9. Cold chain: 2-8°C for vaccines from manufacturer to patient
+10. Paracetamol max dose: 4g/day in adults, hepatotoxic in overdose
+11. Drug interactions: Warfarin + Aspirin = increased bleeding risk
+12. Half-life: Time for drug concentration to reduce by 50%
+13. Enteric coating: Protects drug from stomach acid, dissolves in intestine
+14. Suspension: Shake before use — particles settle on standing
+15. Controlled room temperature: 15-25°C for most medications
+16. Adverse Drug Reaction (ADR) must be reported to pharmacovigilance center
+17. Drug expiry: Check before dispensing, FIFO method prevents expired stock
+18. Prescription parts: Superscription (Rx), Inscription, Subscription, Signa
+19. Rx symbol comes from Latin "Recipe" meaning "take thou"
+20. Good Pharmacy Practice (GPP): WHO guidelines for quality pharmaceutical care
