@@ -1,7 +1,7 @@
 
 
 
-like computer supervisor when i click on that it whill show me that related contents , clerk on click it show something related contents like that only# SMC CLERK (Code-502) - COMPLETE EXAM GUIDE
+like computer supervisor when i click on that it whill show me that related contents , clerk on click it show something related contents like that onlyadd more contents because it seems there is less data in every jobs and all pleas go through internet and push into that every jobs bacuse this little small data cant make attractive please add some books mcqs , exams questions, study materills where they can learn and more please add fetch from whole inetrenet and push here and upadete the git and upadet teh web page# SMC CLERK (Code-502) - COMPLETE EXAM GUIDE
 ### Surat Municipal Corporation | Total: 2295 Posts (All Categories)
 
 ---
