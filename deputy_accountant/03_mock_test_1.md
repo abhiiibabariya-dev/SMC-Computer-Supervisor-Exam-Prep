@@ -1,0 +1,536 @@
+# Deputy Accountant — Mock Test 1
+## SMC Recruitment 2026 — Practice Exam
+
+> **Total Questions**: 100 | **Time**: 120 Minutes | **Marks**: 100
+> **Negative Marking**: -0.25 for each wrong answer
+> **Instructions**: Select the most appropriate answer for each question.
+
+---
+
+## Section: General Knowledge & Current Affairs
+
+**Q1.** The first Prime Minister of India was:
+- A) Sardar Patel
+- B) Jawaharlal Nehru
+- C) Mahatma Gandhi
+- D) B.R. Ambedkar
+
+**Q2.** India became a Republic on:
+- A) 15 Aug 1947
+- B) 26 Jan 1950
+- C) 26 Nov 1949
+- D) 30 Jan 1948
+
+**Q3.** Gujarat High Court is located in:
+- A) Gandhinagar
+- B) Ahmedabad
+- C) Surat
+- D) Vadodara
+
+**Q4.** The national flower of India is:
+- A) Rose
+- B) Lotus
+- C) Sunflower
+- D) Jasmine
+
+**Q5.** Mahatma Gandhi was born in:
+- A) Ahmedabad
+- B) Rajkot
+- C) Porbandar
+- D) Surat
+
+**Q6.** Indian National Congress was founded in:
+- A) 1880
+- B) 1885
+- C) 1890
+- D) 1895
+
+**Q7.** The national bird of India is:
+- A) Sparrow
+- B) Peacock
+- C) Parrot
+- D) Eagle
+
+**Q8.** How many states are there in India?
+- A) 27
+- B) 28
+- C) 29
+- D) 30
+
+**Q9.** The currency of India is:
+- A) Dollar
+- B) Rupee
+- C) Euro
+- D) Pound
+
+**Q10.** Who wrote 'Discovery of India'?
+- A) Mahatma Gandhi
+- B) Jawaharlal Nehru
+- C) Rabindranath Tagore
+- D) Sardar Patel
+
+**Q11.** Narmada river originates from:
+- A) Amarkantak
+- B) Mahabaleshwar
+- C) Western Ghats
+- D) Himalayas
+
+**Q12.** The largest desert in India:
+- A) Thar
+- B) Rann of Kutch
+- C) Ladakh
+- D) Spiti
+
+**Q13.** Article 370 was related to:
+- A) Gujarat
+- B) Kashmir
+- C) Punjab
+- D) Rajasthan
+
+**Q14.** ISRO was established in:
+- A) 1960
+- B) 1965
+- C) 1969
+- D) 1975
+
+**Q15.** The highest civilian award in India:
+- A) Padma Shri
+- B) Padma Bhushan
+- C) Bharat Ratna
+- D) Padma Vibhushan
+
+**Q16.** World Environment Day is celebrated on:
+- A) 5 June
+- B) 22 April
+- C) 21 March
+- D) 8 March
+
+**Q17.** RBI was established in:
+- A) 1930
+- B) 1935
+- C) 1940
+- D) 1947
+
+**Q18.** The parliament of India has:
+- A) 1 house
+- B) 2 houses
+- C) 3 houses
+- D) 4 houses
+
+**Q19.** Lok Sabha has maximum how many members?
+- A) 500
+- B) 545
+- C) 552
+- D) 600
+
+**Q20.** Rajya Sabha has how many members?
+- A) 200
+- B) 238
+- C) 245
+- D) 250
+
+## Section: Gujarat Knowledge
+
+**Q21.** Gujarat Day is celebrated on:
+- A) 1 May
+- B) 15 August
+- C) 26 January
+- D) 14 January
+
+**Q22.** Somnath Temple is in which district?
+- A) Junagadh
+- B) Gir Somnath
+- C) Porbandar
+- D) Bhavnagar
+
+**Q23.** Gujarat's state bird is:
+- A) Peacock
+- B) Greater Flamingo
+- C) Parrot
+- D) Sparrow
+
+**Q24.** Modhera Sun Temple is in which district?
+- A) Ahmedabad
+- B) Mehsana
+- C) Patan
+- D) Banaskantha
+
+**Q25.** The Rann of Kutch is famous for:
+- A) Wildlife
+- B) White salt desert
+- C) Rivers
+- D) Mountains
+
+**Q26.** Gujarat's literacy rate (2011) is approximately:
+- A) 69%
+- B) 72%
+- C) 78%
+- D) 82%
+
+**Q27.** Which port city is in Gujarat?
+- A) Mumbai
+- B) Mundra
+- C) Goa
+- D) Chennai
+
+**Q28.** Navratri festival is most famous in:
+- A) Gujarat
+- B) Maharashtra
+- C) Rajasthan
+- D) Punjab
+
+**Q29.** Sabarmati Ashram is in:
+- A) Surat
+- B) Ahmedabad
+- C) Gandhinagar
+- D) Vadodara
+
+**Q30.** The GIFT City is located in:
+- A) Ahmedabad
+- B) Gandhinagar
+- C) Surat
+- D) Vadodara
+
+
+## Section: Subject-Specific (Financial Accounting)
+
+**Q31.** Computer full form:
+- A) Common Oriented Machine
+- B) Commonly Operated Machine
+- C) Common Operating Machine Used for Technology Education and Research
+- D) None of these
+
+**Q32.** RAM stands for:
+- A) Read Access Memory
+- B) Random Access Memory
+- C) Ready Access Module
+- D) None
+
+**Q33.** MS Excel is a:
+- A) Word processor
+- B) Spreadsheet
+- C) Database
+- D) Presentation
+
+**Q34.** Internet was developed by:
+- A) Microsoft
+- B) ARPA
+- C) Apple
+- D) Google
+
+**Q35.** PDF stands for:
+- A) Personal Document Format
+- B) Portable Document Format
+- C) Printed Document File
+- D) None
+
+**Q36.** Which is an input device?
+- A) Monitor
+- B) Printer
+- C) Keyboard
+- D) Speaker
+
+**Q37.** 1 KB equals:
+- A) 1000 bytes
+- B) 1024 bytes
+- C) 1024 bits
+- D) 100 bytes
+
+**Q38.** USB stands for:
+- A) Universal Serial Bus
+- B) United Service Board
+- C) Universal System Base
+- D) None
+
+**Q39.** WWW stands for:
+- A) World Wide Web
+- B) World Wide Work
+- C) Wide Web World
+- D) None
+
+**Q40.** The brain of computer is:
+- A) RAM
+- B) CPU
+- C) Hard Disk
+- D) Monitor
+
+**Q41.** Which is NOT an operating system?
+- A) Windows
+- B) Linux
+- C) Oracle
+- D) macOS
+
+**Q42.** Ctrl+C is used for:
+- A) Cut
+- B) Copy
+- C) Close
+- D) Clear
+
+**Q43.** Ctrl+V is used for:
+- A) View
+- B) Paste
+- C) Volume
+- D) Validate
+
+**Q44.** Email stands for:
+- A) Electronic Mail
+- B) Express Mail
+- C) Easy Mail
+- D) None
+
+**Q45.** HTTP stands for:
+- A) Hyper Text Transfer Protocol
+- B) High Transfer Text Protocol
+- C) Hyper Text Technical Protocol
+- D) None
+
+**Q46.** Firewall is used for:
+- A) Security
+- B) Speed
+- C) Storage
+- D) Display
+
+**Q47.** Which is a search engine?
+- A) Gmail
+- B) Google
+- C) Facebook
+- D) WhatsApp
+
+**Q48.** Binary number system has base:
+- A) 2
+- B) 8
+- C) 10
+- D) 16
+
+**Q49.** ROM stands for:
+- A) Read Only Memory
+- B) Random Only Memory
+- C) Read Open Memory
+- D) None
+
+**Q50.** The extension of MS Word file:
+- A) .xlsx
+- B) .docx
+- C) .pptx
+- D) .pdf
+
+**Q51.** Ctrl+Z is used for:
+- A) Zoom
+- B) Undo
+- C) Redo
+- D) Close
+
+**Q52.** Wi-Fi stands for:
+- A) Wireless Fidelity
+- B) Wired File
+- C) Wide Fiber
+- D) None
+
+**Q53.** Which is output device?
+- A) Mouse
+- B) Keyboard
+- C) Scanner
+- D) Printer
+
+**Q54.** URL stands for:
+- A) Uniform Resource Locator
+- B) Universal Resource Link
+- C) United Resource Locator
+- D) None
+
+**Q55.** Phishing is a type of:
+- A) Cyber attack
+- B) Software
+- C) Hardware
+- D) Programming language
+
+**Q56.** Which key is used to refresh?
+- A) F1
+- B) F3
+- C) F5
+- D) F7
+
+**Q57.** LAN stands for:
+- A) Local Area Network
+- B) Large Area Network
+- C) Long Area Network
+- D) Linear Area Network
+
+**Q58.** SSD stands for:
+- A) Solid State Drive
+- B) Super Speed Disk
+- C) System Storage Device
+- D) None
+
+**Q59.** IP address is:
+- A) Internet Protocol address
+- B) Internal Process address
+- C) Input Protocol address
+- D) None
+
+**Q60.** Bluetooth is used for:
+- A) Short range data transfer
+- B) Internet browsing
+- C) File compression
+- D) Video editing
+
+
+## Section: Aptitude & Reasoning
+
+**Q61.** If A is B's brother, B is C's sister, C is D's father, how is A related to D?
+- A) Father
+- B) Uncle
+- C) Brother
+- D) Grandfather
+
+**Q62.** Complete the series: 2, 6, 12, 20, 30, ?
+- A) 40
+- B) 42
+- C) 38
+- D) 44
+
+**Q63.** If APPLE = 50, MANGO = ?
+- A) 55
+- B) 57
+- C) 60
+- D) 65
+
+**Q64.** Find odd one out: 3, 5, 7, 11, 14, 17
+- A) 5
+- B) 11
+- C) 14
+- D) 17
+
+**Q65.** A clock shows 3:15. What is the angle between hands?
+- A) 0°
+- B) 7.5°
+- C) 15°
+- D) 22.5°
+
+**Q66.** If 2+3=10, 4+5=40, then 6+7=?
+- A) 78
+- B) 84
+- C) 90
+- D) 72
+
+**Q67.** Mirror image of DELHI:
+- A) IHLED
+- B) IHLED (reversed)
+- C) DELHI
+- D) None
+
+**Q68.** If January 1 is Monday, what day is March 1?
+- A) Monday
+- B) Tuesday
+- C) Wednesday
+- D) Thursday
+
+**Q69.** 25% of 400:
+- A) 75
+- B) 100
+- C) 125
+- D) 150
+
+**Q70.** Simple interest on Rs.5000 at 10% for 2 years:
+- A) 500
+- B) 1000
+- C) 1500
+- D) 2000
+
+**Q71.** Average of 10, 20, 30, 40, 50:
+- A) 25
+- B) 30
+- C) 35
+- D) 40
+
+**Q72.** If speed is 60 km/h, distance in 30 min:
+- A) 15 km
+- B) 20 km
+- C) 30 km
+- D) 60 km
+
+**Q73.** Profit % when CP=80 and SP=100:
+- A) 20%
+- B) 25%
+- C) 15%
+- D) 30%
+
+**Q74.** LCM of 12 and 18:
+- A) 6
+- B) 36
+- C) 72
+- D) 108
+
+**Q75.** HCF of 24 and 36:
+- A) 6
+- B) 8
+- C) 12
+- D) 4
+
+**Q76.** Square root of 144:
+- A) 11
+- B) 12
+- C) 13
+- D) 14
+
+**Q77.** 15% of 600:
+- A) 75
+- B) 80
+- C) 90
+- D) 100
+
+**Q78.** Ratio 3:5, if first is 12, second is:
+- A) 15
+- B) 18
+- C) 20
+- D) 25
+
+**Q79.** If A can do work in 10 days, in 1 day A does:
+- A) 1/5
+- B) 1/10
+- C) 1/15
+- D) 1/20
+
+**Q80.** Compound interest on 1000 at 10% for 1 year:
+- A) 100
+- B) 110
+- C) 105
+- D) 95
+
+
+---
+
+## Answer Key (ઉત્તર ચાવી)
+
+### Section 1: General Knowledge
+| Q | Ans | Q | Ans | Q | Ans | Q | Ans | Q | Ans |
+|---|-----|---|-----|---|-----|---|-----|---|-----|
+| 1 | B | 2 | B | 3 | B | 4 | B | 5 | C | 6 | B | 7 | B | 8 | B | 9 | B | 10 | B |
+| 11 | A | 12 | A | 13 | B | 14 | C | 15 | C | 16 | A | 17 | B | 18 | B | 19 | C | 20 | D |
+| 21 | A | 22 | B | 23 | B | 24 | B | 25 | B | 26 | C | 27 | B | 28 | A | 29 | B | 30 | B |
+| 31 | C | 32 | B | 33 | B | 34 | B | 35 | B | 36 | C | 37 | B | 38 | A | 39 | A | 40 | B |
+| 41 | C | 42 | B | 43 | B | 44 | A | 45 | A | 46 | A | 47 | B | 48 | A | 49 | A | 50 | B |
+| 51 | B | 52 | A | 53 | D | 54 | A | 55 | A | 56 | C | 57 | A | 58 | A | 59 | A | 60 | A |
+| 61 | B | 62 | B | 63 | C | 64 | C | 65 | B | 66 | B | 67 | A | 68 | D | 69 | B | 70 | B |
+| 71 | B | 72 | C | 73 | B | 74 | B | 75 | C | 76 | B | 77 | C | 78 | C | 79 | B | 80 | A |
+
+---
+
+## Scoring Guide
+| Marks | Rating |
+|-------|--------|
+| 90-100 | Excellent — Very likely to qualify |
+| 75-89 | Good — Strong chance |
+| 60-74 | Average — Need more practice |
+| Below 60 | Needs Improvement — Focus on weak areas |
+
+### Negative Marking Calculation
+- Each correct answer: +1 mark
+- Each wrong answer: -0.25 mark
+- Unanswered: 0 marks
+- **Net Score** = (Correct × 1) - (Wrong × 0.25)
+
+---
+
+*Mock Test 1 for SMC Deputy Accountant Exam 2026*
+*Practice more at our website for better results*
