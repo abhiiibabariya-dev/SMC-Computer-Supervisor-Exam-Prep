@@ -1,85 +1,76 @@
-# Driver (ડ્રાઈવર) — SMC Recruitment 2026
+# ડ્રાઈવર — સંપૂર્ણ માહિતી | Driver — Complete Overview
+## SMC ભરતી 2026 | SMC Recruitment 2026
 
-## Post Details (પોસ્ટની વિગતો)
+---
 
-| Detail | Information |
-|--------|-------------|
-| **Post Name** | Driver (ડ્રાઈવર) |
-| **Organization** | Surat Municipal Corporation (SMC) |
-| **Advertisement No.** | PRO/739, dated 11/03/2026 |
-| **Total Vacancies** | 444 posts |
-| **Pay Scale** | Pay Level IS-3: Rs.15,700 - 50,000 |
-| **Age Limit** | 18-35 years |
-| **Qualification** | 8th/10th Pass + Valid Driving License (LMV/HMV) + Minimum 3 years driving experience |
-| **Application Mode** | Online |
-| **Application Start** | 01/04/2026 (11:00 AM) |
-| **Application Deadline** | 15/04/2026 (11:00 PM) |
-| **Official Website** | https://www.suratmunicipal.gov.in |
+## પોસ્ટની વિગતો (Post Details)
 
-## Eligibility Criteria (પાત્રતા માપદંડ)
+| વિગત (Detail) | માહિતી (Information) |
+|---|---|
+| **પોસ્ટનું નામ** | ડ્રાઈવર (Driver) |
+| **સંસ્થા** | સુરત મહાનગરપાલિકા (SMC) |
+| **જાહેરાત ક્રમાંક** | PRO/739, તા.11/03/2026 |
+| **કુલ જગ્યાઓ** | 444 (ચારસો ચુંમાળીસ) |
+| **પગાર ધોરણ** | Pay Level IS-3: ₹15,700 - ₹50,000 |
+| **ઉંમર મર્યાદા** | 18-35 વર્ષ (અનામત માટે છૂટ) |
+| **શૈક્ષણિક લાયકાત** | 8મું/10મું પાસ + માન્ય ડ્રાઈવિંગ લાઈસન્સ (LMV/HMV) |
+| **અનુભવ** | ઓછામાં ઓછો 3 વર્ષનો ડ્રાઈવિંગ અનુભવ |
+| **અરજી મોડ** | ઓનલાઈન |
+| **અરજી શરૂ** | 01/04/2026 (સવારે 11:00) |
+| **અરજી છેલ્લી તારીખ** | 15/04/2026 (રાત્રે 11:00) |
+| **વેબસાઈટ** | https://www.suratmunicipal.gov.in |
 
-### Educational Qualification
-- 8th/10th Pass + Valid Driving License (LMV/HMV) + Minimum 3 years driving experience
-- CCC/CCC+ computer certificate (required within 1 year of appointment)
+## લાયકાત (Eligibility)
 
-### Age Limit
-- Minimum: 18 years | Maximum: 35 years (as on last date of application)
-- Age relaxation as per Gujarat Government rules for reserved categories
+### શૈક્ષણિક લાયકાત (Educational Qualification)
+- ધોરણ 8 / 10 પાસ (8th/10th Pass)
+- માન્ય ડ્રાઈવિંગ લાઈસન્સ — LMV (Light Motor Vehicle) અથવા HMV (Heavy Motor Vehicle)
+- ઓછામાં ઓછો 3 વર્ષનો ડ્રાઈવિંગ અનુભવ
+- CCC કમ્પ્યુટર પ્રમાણપત્ર (નિમણૂક પછી 1 વર્ષમાં)
 
-## Exam Pattern (પરીક્ષા પેટર્ન)
+### ઉંમર (Age)
+- ન્યૂનતમ: 18 વર્ષ | મહત્તમ: 35 વર્ષ
+- અનામત વર્ગ માટે સરકારી નિયમ મુજબ છૂટ
 
-| Component | Details |
-|-----------|---------|
-| **Type** | Written Exam (OMR Based) |
-| **Questions** | 100 Multiple Choice Questions (MCQs) |
-| **Total Marks** | 100 |
-| **Duration** | 120 minutes (2 hours) |
-| **Negative Marking** | -0.25 for each wrong answer |
-| **Medium** | Gujarati / English |
+## પરીક્ષા પેટર્ન (Exam Pattern)
 
-## Syllabus (અભ્યાસક્રમ)
+| ઘટક | વિગત |
+|---|---|
+| **પ્રકાર** | લેખિત પરીક્ષા (OMR Based) |
+| **પ્રશ્નો** | 100 MCQ (બહુવિકલ્પ) |
+| **કુલ ગુણ** | 100 |
+| **સમય** | 120 મિનિટ (2 કલાક) |
+| **નેગેટિવ માર્કિંગ** | -0.25 દરેક ખોટા જવાબ માટે |
+| **માધ્યમ** | ગુજરાતી / English |
 
-### Main Subjects:
-   - Traffic Rules & Road Safety
-   - Vehicle Maintenance
-   - First Aid
-   - Gujarati Language
-   - General Knowledge
-   - Basic Mathematics
+## અભ્યાસક્રમ (Syllabus)
+1. ટ્રાફિક નિયમો અને રોડ સેફ્ટી (Traffic Rules & Road Safety) — 25 ગુણ
+2. વાહન જાળવણી (Vehicle Maintenance) — 20 ગુણ
+3. પ્રાથમિક સારવાર (First Aid) — 10 ગુણ
+4. સામાન્ય જ્ઞાન (General Knowledge) — 20 ગુણ
+5. ગુજરાતી ભાષા (Gujarati Language) — 10 ગુણ
+6. ગણિત (Mathematics) — 15 ગુણ
 
-## Selection Process (પસંદગી પ્રક્રિયા)
+## પસંદગી પ્રક્રિયા (Selection Process)
+1. **લેખિત પરીક્ષા** — OMR આધારિત MCQ (100 ગુણ)
+2. **ડ્રાઈવિંગ ટેસ્ટ** — પ્રેક્ટિકલ ડ્રાઈવિંગ ટેસ્ટ (ક્વોલિફાઇંગ)
+3. **દસ્તાવેજ ચકાસણી** — ઓરિજિનલ પ્રમાણપત્રો
+4. **અંતિમ મેરિટ યાદી** — લેખિત પરીક્ષાના ગુણ આધારે
 
-1. **Written Examination** — OMR-based MCQ test (100 marks)
-2. **Document Verification** — Original certificates verification
-3. **Practical Test / Interview** — As applicable for the post
-4. **Final Merit List** — Based on written exam marks
+## અરજી કેવી રીતે કરવી (How to Apply)
+1. https://www.suratmunicipal.gov.in પર જાવ
+2. "Recruitment" વિભાગ પર ક્લિક કરો
+3. "ડ્રાઈવર" પોસ્ટ પસંદ કરો
+4. ઓનલાઈન ફોર્મ ભરો (ફોટો, સહી, પ્રમાણપત્ર અપલોડ કરો)
+5. ફી ભરો અને સબમિટ કરો
 
-## How to Apply (અરજી કેવી રીતે કરવી)
+## અરજી ફી (Application Fee)
+| વર્ગ | ફી |
+|---|---|
+| જનરલ / બિન અનામત | ₹500 |
+| SC/ST/SEBC/EWS | ₹250 |
+| Ex-Servicemen | ₹250 |
 
-1. Visit https://www.suratmunicipal.gov.in
-2. Click on "Recruitment" section
-3. Select "Driver" post
-4. Fill online application form with correct details
-5. Upload required documents (Photo, Signature, Certificates)
-6. Pay application fee online
-7. Submit and take printout of confirmation
+---
 
-## Application Fee
-| Category | Fee |
-|----------|-----|
-| General / Unreserved | Rs. 500/- |
-| SC/ST/SEBC/EWS | Rs. 250/- |
-| Ex-Servicemen | Rs. 250/- |
-
-## Important Links
-- Official Website: https://www.suratmunicipal.gov.in
-- Recruitment Page: https://www.suratmunicipal.gov.in/information/recruitment
-- Advertisement PDF: https://www.suratmunicipal.gov.in/Contents/Jobs/Opening/1556207.pdf
-
-## Preparation Tips (તૈયારીની ટિપ્સ)
-1. Study the complete syllabus systematically
-2. Practice previous year question papers
-3. Take mock tests regularly
-4. Focus on weak areas
-5. Revise current affairs daily
-6. Manage time effectively during the exam
+*SMC ડ્રાઈવર ભરતી 2026 — 444 જગ્યાઓ*

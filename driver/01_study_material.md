@@ -1,126 +1,368 @@
-# Driver — Study Material (અભ્યાસ સામગ્રી)
-## SMC Recruitment 2026 — Complete Study Guide
+# ડ્રાઈવર — અભ્યાસ સામગ્રી | Driver — Study Material
+## SMC ભરતી 2026 | SMC Recruitment 2026
 
-> **Exam Pattern**: 100 MCQs | 120 Minutes | -0.25 Negative Marking
-> **Subjects**: Traffic Rules & Road Safety, Vehicle Maintenance, First Aid, Gujarati Language, General Knowledge, Basic Mathematics
-
----
-
-## Traffic Rules & Road Safety
-
-### Key Concepts in Traffic Rules & Road Safety
-- Study the fundamental principles of Traffic Rules & Road Safety
-- Practice problems and case studies related to Traffic Rules & Road Safety
-- Review previous year questions on Traffic Rules & Road Safety
-- Focus on practical applications in municipal corporation context
-
-
-## Vehicle Maintenance
-
-### Key Concepts in Vehicle Maintenance
-- Study the fundamental principles of Vehicle Maintenance
-- Practice problems and case studies related to Vehicle Maintenance
-- Review previous year questions on Vehicle Maintenance
-- Focus on practical applications in municipal corporation context
-
-
-## First Aid
-
-### Key Concepts in First Aid
-- Study the fundamental principles of First Aid
-- Practice problems and case studies related to First Aid
-- Review previous year questions on First Aid
-- Focus on practical applications in municipal corporation context
-
-
-## Gujarati Language
-
-### Language Skills
-- **Gujarati**: Grammar (વ્યાકરણ), Essay writing (નિબંધ), Letter writing (પત્ર લેખન)
-- **English**: Grammar, Comprehension, Vocabulary, Sentence correction
-- **Synonyms & Antonyms**: Important word pairs
-- **Idioms & Phrases**: Common expressions with meanings
-- **One-word substitutions**: Key terms
-
-
-## General Knowledge
-
-### Gujarat & Surat Knowledge (ગુજરાત અને સુરત)
-- **Gujarat Formation**: 1 May 1960 from former Bombay State
-- **Capital**: Gandhinagar | **Largest City**: Ahmedabad
-- **Gujarat CM**: Bhupendra Patel | **Governor**: Acharya Devvrat
-- **Surat**: Diamond City of India, Silk City, located on Tapi River
-- **SMC**: Surat Municipal Corporation, established 1966
-- **Surat Population**: ~60 lakh (2026 est.) | **Area**: 326.515 sq km
-- **Districts in Gujarat**: 33 | **Surat District Talukas**: 10
-
-### Indian Constitution (ભારતીય બંધારણ)
-- **Part III**: Fundamental Rights (Article 12-35)
-- **Part IV**: Directive Principles of State Policy (Article 36-51)
-- **Article 21**: Right to Life and Personal Liberty
-- **73rd Amendment**: Panchayati Raj | **74th Amendment**: Municipalities
-- **Article 243Q-243ZG**: Municipalities provisions
-
-### Current Affairs 2025-2026
-- India's G20 Presidency legacy programs continuing
-- Digital India initiatives: UPI transactions crossed 10 billion/month
-- Smart City Mission progress in Surat
-- Chandrayaan-3 success - India 4th country to land on Moon
-- Gujarat Semicon City project in Dholera
-
-### Indian History (ભારતનો ઈતિહાસ)
-- **1857**: First War of Independence
-- **1885**: Indian National Congress founded
-- **1905**: Partition of Bengal | **1919**: Jallianwala Bagh
-- **1930**: Salt March by Gandhi | **1942**: Quit India Movement
-- **1947**: Indian Independence | **1950**: Constitution came into force
-
-
-## Basic Mathematics
-
-### Basic Mathematics (ગણિત)
-- **Number System**: Natural, Whole, Integer, Rational, Irrational numbers
-- **Percentage**: (Part/Whole) × 100 | Increase/Decrease problems
-- **Profit & Loss**: SP > CP = Profit | CP > SP = Loss
-- **Simple Interest**: SI = PNR/100 | **Compound Interest**: CI = P(1+R/100)^N - P
-- **Ratio & Proportion**: a:b = c:d | Product of means = Product of extremes
-- **Average**: Sum of values / Number of values
-- **Time & Work**: If A does in x days, A's 1 day work = 1/x
-- **Time, Speed & Distance**: Speed = Distance/Time
-- **Area & Volume**: Rectangle = L×B, Circle = πr², Cylinder = πr²h
-
+> **પરીક્ષા પેટર્ન**: 100 MCQ | 120 મિનિટ | -0.25 નેગેટિવ માર્કિંગ
+> **વિષયો**: ટ્રાફિક નિયમો, વાહન જાળવણી, પ્રાથમિક સારવાર, સામાન્ય જ્ઞાન, ગુજરાતી, ગણિત
 
 ---
 
-## Exam Preparation Strategy (પરીક્ષા તૈયારી વ્યૂહરચના)
+## 1. ટ્રાફિક નિયમો અને રોડ સેફ્ટી | Traffic Rules & Road Safety
 
-### Daily Study Plan
-| Time | Activity |
-|------|----------|
-| 6:00 - 8:00 AM | Subject-specific study |
-| 8:00 - 9:00 AM | Current Affairs & Newspaper |
-| 9:00 - 11:00 AM | MCQ Practice |
-| 2:00 - 4:00 PM | Revision & Notes |
-| 4:00 - 5:00 PM | Mock Test |
-| 8:00 - 9:00 PM | GK & Quick Revision |
+### 1.1 મોટર વ્હીકલ એક્ટ 1988 — મહત્વના વિભાગો | Motor Vehicles Act 1988 — Key Sections
 
-### Important Books & Resources
-1. Gujarat Government official publications
-2. Lucent's General Knowledge
-3. Previous year papers of similar exams (GPSC, GSSSB)
-4. Subject-specific textbooks as per syllabus
-5. Daily newspapers (Gujarat Samachar, Divya Bhaskar)
-6. SMC official website for updates
+| કલમ (Section) | વિષય (Subject) | દંડ (Penalty) |
+|---|---|---|
+| કલમ 3 | લાઈસન્સ વગર વાહન ચલાવવું | ₹5,000 |
+| કલમ 112 | ઝડપ મર્યાદા ઓળંગવી (Speed limit) | ₹1,000 - ₹2,000 |
+| કલમ 177 | સામાન્ય ટ્રાફિક નિયમ ભંગ | ₹500 |
+| કલમ 178 | સીટ બેલ્ટ ન બાંધવો | ₹1,000 |
+| કલમ 179 | ટ્રાફિક પોલીસની સૂચનાનો અનાદર | ₹2,000 |
+| કલમ 184 | ખતરનાક ડ્રાઈવિંગ (Dangerous driving) | ₹1,000 - ₹5,000 |
+| કલમ 185 | દારૂ પીને વાહન ચલાવવું (Drunk driving) | ₹10,000 / 6 મહિના જેલ |
+| કલમ 186 | લાઈસન્સ વગર ચલાવવું (?અમાન્ય) | ₹5,000 |
+| કલમ 188 | ઓવરલોડિંગ | ₹2,000 - ₹20,000 |
+| કલમ 189 | રેસિંગ / સ્ટંટ | ₹5,000 / 3 મહિના જેલ |
+| કલમ 194A | સીટ બેલ્ટ (2019 સુધારો) | ₹1,000 |
+| કલમ 194B | ફોન પર વાત કરવી | ₹1,000 - ₹5,000 |
+| કલમ 194D | હેલ્મેટ ન પહેરવું | ₹1,000 / 3 મહિના સસ્પેન્ડ |
+| કલમ 199A | કિશોર ડ્રાઈવિંગ (Juvenile) | માલિક/વાલીને ₹25,000 + 3 વર્ષ જેલ |
 
-### Last Month Strategy
-- Focus on revision, not new topics
-- Solve at least 2 mock tests daily
-- Review mistakes and weak areas
-- Practice time management
-- Stay updated with current affairs
-- Keep documents ready for verification
+### 1.2 ઝડપ મર્યાદા | Speed Limits
+
+| વાહન પ્રકાર | શહેરમાં (City) | હાઈવે પર (Highway) |
+|---|---|---|
+| કાર / જીપ (Car/Jeep) | 50 km/h | 100 km/h |
+| બસ (Bus) | 40 km/h | 80 km/h |
+| ટ્રક (Truck) | 40 km/h | 60 km/h |
+| ટુ-વ્હીલર (Two-wheeler) | 50 km/h | 80 km/h |
+| સ્કૂલ ઝોન (School Zone) | 25 km/h | — |
+| હોસ્પિટલ ઝોન | 25 km/h | — |
+
+### 1.3 રોડ ચિહ્નો | Road Signs
+
+#### ચેતવણી ચિહ્નો (Warning Signs) — ત્રિકોણ આકાર, લાલ બોર્ડર
+| ચિહ્ન | અર્થ (Meaning) |
+|---|---|
+| 🔺 વળાંક (Curve) | આગળ વળાંક છે, ઝડપ ઓછી કરો |
+| 🔺 ટી-જંક્શન (T-Junction) | આગળ ટી આકારનો રસ્તો |
+| 🔺 ક્રોસ રોડ (Cross Road) | આગળ ચાર રસ્તા મળે છે |
+| 🔺 સ્કૂલ ઝોન (School Zone) | શાળા નજીક છે, ધીમે ચલાવો |
+| 🔺 રેલ્વે ક્રોસિંગ (Railway Crossing) | રેલ્વે ક્રોસિંગ આગળ |
+| 🔺 ઢાળ (Steep Descent) | ઉતરાણ/ચઢાણ આગળ |
+| 🔺 સાંકડો રસ્તો (Narrow Road) | રસ્તો સાંકડો થાય છે |
+| 🔺 ખાડો (Rough Road) | રસ્તો ખરાબ છે |
+| 🔺 પશુ (Cattle) | પ્રાણીઓ રસ્તા પર આવી શકે |
+| 🔺 પડવાના પથ્થર (Falling Rocks) | પથ્થર પડવાનો ભય |
+
+#### ફરજિયાત ચિહ્નો (Mandatory Signs) — ગોળ આકાર, લાલ બોર્ડર
+| ચિહ્ન | અર્થ |
+|---|---|
+| 🔴 પ્રવેશ બંધ (No Entry) | આ રસ્તે પ્રવેશ ન કરો |
+| 🔴 ઊભા રહો (Stop) | અટકો, આગળ ન જાવ |
+| 🔴 ઓવરટેક બંધ (No Overtaking) | આગળ નીકળવું મના છે |
+| 🔴 હોર્ન બંધ (No Horn) | હોર્ન વગાડવો મના છે |
+| 🔴 પાર્કિંગ બંધ (No Parking) | અહીં પાર્ક કરવું મના છે |
+| 🔴 યુ-ટર્ન બંધ (No U-Turn) | અહીં યુ-ટર્ન ન લો |
+| 🔴 ઝડપ મર્યાદા 40 (Speed Limit 40) | 40 km/h થી વધુ ન ચલાવો |
+| 🔵 ફરજિયાત ડાબે (Compulsory Left) | ડાબી બાજુ વળો |
+| 🔵 ફરજિયાત જમણે (Compulsory Right) | જમણી બાજુ વળો |
+
+#### માહિતી ચિહ્નો (Informatory Signs) — ચોરસ/લંબચોરસ, વાદળી/લીલો
+| ચિહ્ન | અર્થ |
+|---|---|
+| 🟦 હોસ્પિટલ (Hospital) | નજીકમાં હોસ્પિટલ |
+| 🟦 પેટ્રોલ પંપ (Petrol Pump) | નજીકમાં ઇંધણ |
+| 🟦 ફોન (Telephone) | ટેલિફોન સુવિધા |
+| 🟦 ખાવાનું (Eating Place) | રેસ્ટોરન્ટ નજીક |
+| 🟦 પાર્કિંગ (Parking) | પાર્કિંગની જગ્યા |
+| 🟩 અંતર ચિહ્ન (Distance Sign) | શહેરનું અંતર દર્શાવે |
+
+### 1.4 ઓવરટેકિંગ નિયમો | Overtaking Rules
+- હંમેશા **જમણી બાજુ**થી ઓવરટેક કરો (Always overtake from RIGHT side)
+- વળાંક (curve), પુલ (bridge), ટનલ (tunnel) પર ઓવરટેક ન કરો
+- ડબલ લાઈન (double line) પર ઓવરટેક કરવું ગેરકાનૂની છે
+- ઓવરટેક કરતા પહેલાં ઈન્ડિકેટર (indicator) આપો
+- સાંકડા રસ્તા પર ઓવરટેક ન કરો
+
+### 1.5 પાર્કિંગ નિયમો | Parking Rules
+- No Parking ઝોનમાં પાર્ક ન કરો
+- બસ સ્ટોપ, ફાયર હાઈડ્રન્ટ, પેડેસ્ટ્રિયન ક્રોસિંગ નજીક પાર્ક ન કરો
+- ટ્રાફિક સિગ્નલથી 15 મીટર દૂર પાર્ક કરો
+- ઢાળ પર પાર્ક કરતી વખતે હેન્ડ બ્રેક લગાવો અને ગિયર 1/R માં રાખો
+
+### 1.6 ટ્રાફિક સિગ્નલ | Traffic Signals
+| રંગ (Color) | અર્થ (Meaning) | ગુજરાતીમાં |
+|---|---|---|
+| 🔴 લાલ (Red) | STOP — અટકો | ઊભા રહો, આગળ ન જાવ |
+| 🟡 પીળો (Yellow/Amber) | GET READY — તૈયાર રહો | ઊભા રહો, જવાની તૈયારી |
+| 🟢 લીલો (Green) | GO — જાવ | આગળ વધો |
+| 🟢↗️ લીલો તીર (Green Arrow) | તીરની દિશામાં જાવ | ફક્ત દર્શાવેલ દિશામાં |
 
 ---
 
-*Study material prepared for SMC Driver Exam 2026*
-*Visit: https://www.suratmunicipal.gov.in for official updates*
+## 2. વાહન જાળવણી | Vehicle Maintenance
+
+### 2.1 એન્જિન (Engine) — હૃદય જેવું (Heart of Vehicle)
+
+#### પેટ્રોલ એન્જિન vs ડીઝલ એન્જિન
+| લક્ષણ | પેટ્રોલ (Petrol) | ડીઝલ (Diesel) |
+|---|---|---|
+| ઇગ્નિશન (Ignition) | સ્પાર્ક પ્લગ (Spark Plug) | કમ્પ્રેશન (Compression) |
+| બળતણ (Fuel) | પેટ્રોલ | ડીઝલ |
+| કમ્પ્રેશન રેશિયો | 8:1 to 12:1 | 15:1 to 23:1 |
+| ઊર્જા કાર્યક્ષમતા | ઓછી (Less) | વધુ (More) |
+| ટોર્ક (Torque) | ઓછો | વધુ (ભારે વાહનો માટે) |
+| ખર્ચ | ઓછો (Less initial cost) | વધુ (More initial cost) |
+| ઉપયોગ | કાર, બાઈક | ટ્રક, બસ, જનરેટર |
+
+#### 4-સ્ટ્રોક એન્જિન ચક્ર (4-Stroke Engine Cycle)
+1. **સક્શન સ્ટ્રોક (Suction/Intake)**: પિસ્ટન નીચે જાય, હવા+ઈંધણ અંદર આવે
+2. **કમ્પ્રેશન સ્ટ્રોક (Compression)**: પિસ્ટન ઉપર જાય, મિશ્રણ દબાય
+3. **પાવર સ્ટ્રોક (Power/Expansion)**: સ્પાર્ક/કમ્પ્રેશનથી વિસ્ફોટ, પિસ્ટન નીચે ધકેલાય
+4. **એક્ઝોસ્ટ સ્ટ્રોક (Exhaust)**: પિસ્ટન ઉપર જાય, ધુમાડો બહાર
+
+### 2.2 કૂલિંગ સિસ્ટમ (Cooling System) — ઠંડક પ્રણાલી
+- **પાણી કૂલિંગ (Water Cooling)**: રેડિએટર → વોટર પંપ → એન્જિન → થર્મોસ્ટેટ
+- **રેડિએટર (Radiator)**: ગરમ પાણીને ઠંડુ કરે છે
+- **થર્મોસ્ટેટ (Thermostat)**: તાપમાન નિયંત્રિત કરે (80-95°C)
+- **કૂલન્ટ (Coolant)**: પાણી + એન્ટીફ્રીઝ (Antifreeze) મિશ્રણ
+- **ફેન બેલ્ટ (Fan Belt)**: રેડિએટર ફેન ચલાવે, ઢીલી ન હોવી જોઈએ
+- ⚠️ **એન્જિન ગરમ હોય ત્યારે રેડિએટર કેપ ક્યારેય ન ખોલો!**
+
+### 2.3 બ્રેક સિસ્ટમ (Braking System) — સૌથી મહત્વનું
+| પ્રકાર | કેવી રીતે કામ કરે | ક્યાં વપરાય |
+|---|---|---|
+| ડ્રમ બ્રેક (Drum Brake) | શૂ (shoe) ડ્રમ સાથે ઘસાય | પાછળના ટાયર, ભારે વાહનો |
+| ડિસ્ક બ્રેક (Disc Brake) | પેડ (pad) ડિસ્ક દબાવે | આગળના ટાયર, આધુનિક કાર |
+| ABS (Anti-lock Braking) | ટાયર લોક ન થાય | નવી કાર/બસ |
+| હેન્ડ બ્રેક (Parking Brake) | પાછળના ટાયર પર | પાર્કિંગ, ઢાળ પર |
+
+**બ્રેક ફ્લુઈડ (Brake Fluid)**: DOT 3 / DOT 4 — દર 2 વર્ષે બદલો
+**બ્રેક ફેડ (Brake Fade)**: વધુ પડતા ઉપયોગથી બ્રેક ગરમ થઈ અસર ઓછી થવી
+
+### 2.4 ગિયર સિસ્ટમ (Gear System)
+| ગિયર | ઉપયોગ | ઝડપ |
+|---|---|---|
+| 1st ગિયર | શરૂઆત, ચઢાણ | 0-15 km/h |
+| 2nd ગિયર | ધીમી ગતિ, ટ્રાફિક | 15-30 km/h |
+| 3rd ગિયર | મધ્યમ ગતિ | 30-50 km/h |
+| 4th ગિયર | સામાન્ય ગતિ | 50-70 km/h |
+| 5th ગિયર | હાઈવે, ઝડપી ગતિ | 70+ km/h |
+| Reverse (R) | પાછળ જવા | ધીમે |
+| Neutral (N) | કોઈ ગિયર નથી | એન્જિન ચાલુ, વાહન ઊભું |
+
+**ક્લચ (Clutch)**: એન્જિન અને ગિયરબોક્સ વચ્ચે જોડાણ/છૂટાણ કરે
+**ક્લચ પ્લેટ (Clutch Plate)**: ઘસાઈ જાય તો સ્લિપ થાય, બદલવી પડે
+
+### 2.5 ટાયર જાળવણી (Tyre Maintenance)
+- **ટાયર પ્રેશર (Tyre Pressure)**: માલિકના મેન્યુઅલ મુજબ (સામાન્ય 30-35 PSI)
+- **ટ્રેડ ડેપ્થ (Tread Depth)**: ઓછામાં ઓછી 1.6mm હોવી જોઈએ
+- **ટાયર રોટેશન**: દર 10,000 km પર ટાયર ફેરબદલ કરો
+- **વ્હીલ એલાઈનમેન્ટ (Wheel Alignment)**: દર 15,000 km પર
+- **ટાયર બેલેન્સિંગ**: નવા ટાયર બદલ્યા પછી
+- ⚠️ ઘસાયેલા ટાયર (Bald tyres) ગેરકાનૂની છે!
+
+### 2.6 નિયમિત જાળવણી ચેકલિસ્ટ (Regular Maintenance)
+| સેવા | સમયગાળો | ગુજરાતીમાં |
+|---|---|---|
+| એન્જિન ઓઈલ (Engine Oil) | દર 5,000 km | તેલ બદલવું |
+| ઓઈલ ફિલ્ટર | દર 10,000 km | ફિલ્ટર બદલવું |
+| એર ફિલ્ટર | દર 15,000 km | હવા ફિલ્ટર |
+| કૂલન્ટ (Coolant) | દર 40,000 km | ઠંડક પ્રવાહી |
+| બ્રેક ફ્લુઈડ | દર 2 વર્ષ | બ્રેક તેલ |
+| બ્રેક પેડ | દર 30,000-50,000 km | બ્રેક ગાદી |
+| બેટરી (Battery) | દર 3-4 વર્ષ | વિજળી સંગ્રહ |
+| ટાઈમિંગ બેલ્ટ | દર 60,000-100,000 km | સમય પટ્ટો |
+| PUC (Pollution Check) | દર 6 મહિના | પ્રદૂષણ ચકાસણી |
+
+### 2.7 ડેશબોર્ડ ચેતવણી લાઈટ | Dashboard Warning Lights
+| લાઈટ | અર્થ | શું કરવું |
+|---|---|---|
+| 🔴 ઓઈલ પ્રેશર | ઓઈલ દબાણ ઓછું | તરત વાહન બંધ કરો, ઓઈલ ચકાસો |
+| 🔴 બેટરી | ચાર્જિંગ સમસ્યા | ઓલ્ટરનેટર/બેટરી ચકાસો |
+| 🔴 તાપમાન | એન્જિન વધુ ગરમ | વાહન બંધ કરો, ઠંડુ થવા દો |
+| 🟡 ચેક એન્જિન | એન્જિન સમસ્યા | મિકેનિક પાસે જાવ |
+| 🟡 ABS | ABS સિસ્ટમ ખરાબ | બ્રેક ચાલશે, ABS નહીં |
+| 🟢 ઈન્ડિકેટર | ડાબે/જમણે સિગ્નલ | સામાન્ય, બંધ કરવું ભૂલશો નહીં |
+
+---
+
+## 3. પ્રાથમિક સારવાર | First Aid
+
+### 3.1 અકસ્માત સ્થળે શું કરવું (Accident Scene Management)
+1. **સલામતી (Safety)**: પહેલાં પોતાની સલામતી, પછી બીજાની
+2. **વાહન બંધ કરો**, હેઝાર્ડ લાઈટ ચાલુ કરો
+3. **108 / 112 પર ફોન કરો** (Emergency number)
+4. **ઘાયલને ન ખસેડો** (જ્યાં સુધી ખતરો ન હોય)
+5. **રક્તસ્ત્રાવ (Bleeding) અટકાવો** — ચોખ્ખા કપડાંથી દબાવો
+6. **શ્વાસ ચકાસો** — નાક/મોં પાસે હાથ રાખો
+
+### 3.2 રક્તસ્ત્રાવ (Bleeding) — લોહી વહેવું
+- **બાહ્ય રક્તસ્ત્રાવ**: ચોખ્ખા કપડાંથી સીધું દબાણ (Direct Pressure) આપો
+- ઘાયલ ભાગને ઊંચો રાખો (Elevate)
+- દબાણ છોડશો નહીં, ઉપર બીજું કપડું મૂકો
+- **ટૂર્નિકેટ (Tourniquet)**: ફક્ત ગંભીર કિસ્સામાં, છેલ્લા ઉપાય તરીકે
+
+### 3.3 હાડકું ભાંગવું (Fracture) — અસ્થિભંગ
+- ભાંગેલા ભાગને ન હલાવો (Immobilize)
+- સ્પ્લિન્ટ (Splint) લગાવો — લાકડી, કાર્ડબોર્ડ, છત્રી
+- બરફ (Ice) લગાવો સોજા માટે
+- 108 બોલાવો
+
+### 3.4 દાઝવું (Burns) — બળવું
+- **ઠંડા પાણીથી 10-20 મિનિટ ધોવો** (Ice નહીં, ઠંડું પાણી)
+- ફોલ્લા ન ફોડો (Don't break blisters)
+- ઘી, તેલ, ટૂથપેસ્ટ ન લગાવો!
+- સ્વચ્છ કપડાંથી ઢાંકો
+- તરત હોસ્પિટલ લઈ જાવ
+
+### 3.5 CPR (કાર્ડિયોપલ્મોનરી રિસસિટેશન)
+- **C-A-B**: Compression → Airway → Breathing
+- છાતીના મધ્યમાં 30 વખત દબાવો (5-6 cm ઊંડે)
+- 2 વખત શ્વાસ આપો (મોંથી મોં)
+- ઝડપ: 100-120 દબાણ/મિનિટ
+- એમ્બ્યુલન્સ આવે ત્યાં સુધી ચાલુ રાખો
+
+### 3.6 સાપ કરડવો (Snake Bite)
+- ❌ ચીરો ન પાડો, ઝેર ન ચૂસો
+- ❌ ટૂર્નિકેટ ન બાંધો
+- ✅ શાંત રાખો, હલનચલન ઓછું કરો
+- ✅ કરડેલા ભાગને હૃદયથી નીચે રાખો
+- ✅ તરત હોસ્પિટલ — Antivenom (ઝેર વિરોધી) આપવા
+
+---
+
+## 4. સામાન્ય જ્ઞાન | General Knowledge
+
+### 4.1 ગુજરાત વિશે (About Gujarat)
+| વિગત | માહિતી |
+|---|---|
+| સ્થાપના (Formation) | 1 મે 1960 (બોમ્બે રાજ્યમાંથી) |
+| રાજધાની (Capital) | ગાંધીનગર |
+| સૌથી મોટું શહેર | અમદાવાદ |
+| મુખ્યમંત્રી (CM) | ભૂપેન્દ્ર પટેલ |
+| રાજ્યપાલ (Governor) | આચાર્ય દેવવ્રત |
+| જિલ્લા (Districts) | 33 |
+| રાજ્ય પ્રાણી | એશિયાટિક સિંહ (ગીરના જંગલ) |
+| રાજ્ય પક્ષી | ગ્રેટર ફ્લેમિંગો |
+| રાજ્ય ફૂલ | ગલગોટા (Marigold) |
+| ભાષા | ગુજરાતી |
+| સાક્ષરતા દર | 78.03% (2011) |
+| વિધાનસભા બેઠકો | 182 |
+| લોકસભા બેઠકો | 26 |
+| રાજ્યસભા બેઠકો | 11 |
+
+### 4.2 સુરત વિશે (About Surat)
+| વિગત | માહિતી |
+|---|---|
+| ઉપનામ | ડાયમંડ સિટી, સિલ્ક સિટી, ફ્લાયઓવર સિટી |
+| નદી | તાપી (Tapi) |
+| સ્થાપના (SMC) | 1966 |
+| વિસ્તાર | 326.515 ચો.કિ.મી. |
+| વસ્તી (અંદાજ) | ~60 લાખ |
+| ઝોન | 8 |
+| વોર્ડ | 29 |
+| ડાયમંડ ઉદ્યોગ | વિશ્વના 90%+ હીરા સુરતમાં કટ/પોલિશ |
+| ટેક્સટાઈલ | ભારતનું સૌથી મોટું ટેક્સટાઈલ માર્કેટ |
+
+### 4.3 ગુજરાતની નદીઓ (Rivers of Gujarat)
+| નદી | ઉદ્ગમ | ક્યાં મળે |
+|---|---|---|
+| નર્મદા | અમરકંટક (MP) | ખંભાતનો અખાત |
+| તાપી | સાતપુડા (MP) | અરબી સમુદ્ર (સુરત) |
+| સાબરમતી | અરાવલી (રાજસ્થાન) | ખંભાતનો અખાત |
+| માહી | મધ્ય પ્રદેશ | ખંભાતનો અખાત |
+| બનાસ | અરાવલી | રણ ઓફ કચ્છ |
+
+### 4.4 ભારતીય બંધારણ — મહત્વની કલમો
+| અનુચ્છેદ (Article) | વિષય |
+|---|---|
+| અનુચ્છેદ 14 | કાયદા સમક્ષ સમાનતા (Equality before Law) |
+| અનુચ્છેદ 15 | ભેદભાવ વિરુદ્ધ (No Discrimination) |
+| અનુચ્છેદ 19 | વાણી સ્વાતંત્ર્ય (Freedom of Speech) |
+| અનુચ્છેદ 21 | જીવન અને સ્વતંત્રતાનો અધિકાર (Right to Life) |
+| અનુચ્છેદ 21A | શિક્ષણનો અધિકાર (Right to Education) 6-14 વર્ષ |
+| અનુચ્છેદ 32 | બંધારણીય ઉપાયોનો અધિકાર (Constitutional Remedies) |
+| અનુચ્છેદ 51A | મૂળભૂત ફરજો (Fundamental Duties) — 11 ફરજો |
+| અનુચ્છેદ 243Q | નગરપાલિકાઓની રચના (Municipalities) |
+
+---
+
+## 5. ગણિત | Mathematics
+
+### 5.1 ઝડપ, અંતર, સમય (Speed, Distance, Time)
+**સૂત્ર (Formula):**
+- ઝડપ = અંતર ÷ સમય (Speed = Distance ÷ Time)
+- અંતર = ઝડપ × સમય (Distance = Speed × Time)
+- સમય = અંતર ÷ ઝડપ (Time = Distance ÷ Speed)
+
+**ઉદાહરણ**: સુરતથી અમદાવાદ 265 km. ઝડપ 53 km/h. સમય?
+- સમય = 265 ÷ 53 = 5 કલાક
+
+**km/h ને m/s માં ફેરવવા**: × 5/18
+- 72 km/h = 72 × 5/18 = 20 m/s
+
+### 5.2 ટકાવારી (Percentage)
+- ટકા = (ભાગ ÷ કુલ) × 100
+- 250 માંથી 180 મળ્યા = (180/250) × 100 = 72%
+
+### 5.3 નફો-ખોટ (Profit & Loss)
+- નફો = વેચાણ કિંમત (SP) - ખરીદ કિંમત (CP)
+- ખોટ = CP - SP
+- નફો % = (નફો/CP) × 100
+- ખોટ % = (ખોટ/CP) × 100
+
+### 5.4 સાદું વ્યાજ (Simple Interest)
+- SI = (P × N × R) / 100
+- P = મુદ્દલ, N = સમય (વર્ષ), R = દર (%)
+- ₹10,000 ના 8% દરે 3 વર્ષનું વ્યાજ = (10000×3×8)/100 = ₹2,400
+
+---
+
+## 6. ગુજરાતી ભાષા | Gujarati Language
+
+### 6.1 વ્યાકરણ — નામ (Noun / સંજ્ઞા)
+| પ્રકાર | ઉદાહરણ |
+|---|---|
+| વ્યક્તિવાચક | રામ, સુરત, ગુજરાત |
+| જાતિવાચક | છોકરો, ગાડી, શહેર |
+| ભાવવાચક | ખુશી, દુઃખ, સુંદરતા |
+| સમૂહવાચક | ટોળું, ટુકડી, સમિતિ |
+
+### 6.2 વચન (Number)
+| એકવચન | બહુવચન |
+|---|---|
+| છોકરો | છોકરાઓ |
+| ગાડી | ગાડીઓ |
+| ફૂલ | ફૂલો |
+| પુસ્તક | પુસ્તકો |
+
+### 6.3 કાળ (Tense)
+| કાળ | ઉદાહરણ |
+|---|---|
+| વર્તમાન (Present) | હું જાઉં છું |
+| ભૂતકાળ (Past) | હું ગયો |
+| ભવિષ્ય (Future) | હું જઈશ |
+
+### 6.4 સમાનાર્થી શબ્દો (Synonyms)
+| શબ્દ | સમાનાર્થી |
+|---|---|
+| પાણી | જળ, નીર, વારિ |
+| આકાશ | ગગન, નભ, આસમાન |
+| રસ્તો | માર્ગ, પથ, વાટ |
+| ઝાડ | વૃક્ષ, તરુ, દ્રુમ |
+| સૂર્ય | રવિ, ભાનુ, દિનકર |
+
+### 6.5 વિરુદ્ધાર્થી શબ્દો (Antonyms)
+| શબ્દ | વિરુદ્ધ |
+|---|---|
+| દિવસ | રાત |
+| સુખ | દુઃખ |
+| ગરમ | ઠંડું |
+| ઊંચું | નીચું |
+| જૂનું | નવું |
+
+---
+
+*આ અભ્યાસ સામગ્રી SMC ડ્રાઈવર પરીક્ષા 2026 માટે તૈયાર કરવામાં આવી છે*
+*This study material is prepared for SMC Driver Exam 2026*
