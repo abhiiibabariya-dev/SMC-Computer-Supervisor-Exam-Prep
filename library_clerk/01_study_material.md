@@ -1,191 +1,147 @@
-# Library Clerk — Study Material (અભ્યાસ સામગ્રી)
-## SMC Recruitment 2026 — Complete Study Guide
-
-> **Exam Pattern**: 100 MCQs | 120 Minutes | -0.25 Negative Marking
-> **Subjects**: Library Science, Cataloguing & Classification, Reference Service, Library Management, Computer Basics, General Knowledge
+# લાઈબ્રેરી ક્લાર્ક — અભ્યાસ સામગ્રી | Library Clerk — Study Material
+## SMC ભરતી 2026 | 7 જગ્યાઓ | Pay: ₹19,900 - 63,200
 
 ---
 
-## Library Science
+## 🔓 Free Section
 
-### Key Concepts in Library Science
-- Study the fundamental principles of Library Science
-- Practice problems and case studies related to Library Science
-- Review previous year questions on Library Science
-- Focus on practical applications in municipal corporation context
+## 1. પુસ્તકાલય વિજ્ઞાન | Library Science
 
-
-## Cataloguing & Classification
-
-### Key Concepts in Cataloguing & Classification
-- Study the fundamental principles of Cataloguing & Classification
-- Practice problems and case studies related to Cataloguing & Classification
-- Review previous year questions on Cataloguing & Classification
-- Focus on practical applications in municipal corporation context
-
-
-## Reference Service
-
-### Key Concepts in Reference Service
-- Study the fundamental principles of Reference Service
-- Practice problems and case studies related to Reference Service
-- Review previous year questions on Reference Service
-- Focus on practical applications in municipal corporation context
-
-
-## Library Management
-
-### Key Concepts in Library Management
-- Study the fundamental principles of Library Management
-- Practice problems and case studies related to Library Management
-- Review previous year questions on Library Management
-- Focus on practical applications in municipal corporation context
-
-
-## Computer Basics
-
-### Computer Fundamentals
-- **Hardware**: CPU, RAM, ROM, Hard Disk, SSD, Monitor, Keyboard, Mouse
-- **Software**: System Software (OS), Application Software
-- **Operating Systems**: Windows, Linux, macOS
-- **MS Office**: Word, Excel, PowerPoint, Access, Outlook
-- **Internet**: HTTP, HTTPS, FTP, SMTP, DNS, IP Address
-- **Networking**: LAN, WAN, MAN, Wi-Fi, Bluetooth
-- **Cyber Security**: Virus, Malware, Firewall, Antivirus, Phishing
-- **CCC Syllabus**: Computer basics, OS, Internet, Email, Office tools
-
-
-## General Knowledge
-
-### Gujarat & Surat Knowledge (ગુજરાત અને સુરત)
-- **Gujarat Formation**: 1 May 1960 from former Bombay State
-- **Capital**: Gandhinagar | **Largest City**: Ahmedabad
-- **Gujarat CM**: Bhupendra Patel | **Governor**: Acharya Devvrat
-- **Surat**: Diamond City of India, Silk City, located on Tapi River
-- **SMC**: Surat Municipal Corporation, established 1966
-- **Surat Population**: ~60 lakh (2026 est.) | **Area**: 326.515 sq km
-- **Districts in Gujarat**: 33 | **Surat District Talukas**: 10
-
-### Indian Constitution (ભારતીય બંધારણ)
-- **Part III**: Fundamental Rights (Article 12-35)
-- **Part IV**: Directive Principles of State Policy (Article 36-51)
-- **Article 21**: Right to Life and Personal Liberty
-- **73rd Amendment**: Panchayati Raj | **74th Amendment**: Municipalities
-- **Article 243Q-243ZG**: Municipalities provisions
-
-### Current Affairs 2025-2026
-- India's G20 Presidency legacy programs continuing
-- Digital India initiatives: UPI transactions crossed 10 billion/month
-- Smart City Mission progress in Surat
-- Chandrayaan-3 success - India 4th country to land on Moon
-- Gujarat Semicon City project in Dholera
-
-### Indian History (ભારતનો ઈતિહાસ)
-- **1857**: First War of Independence
-- **1885**: Indian National Congress founded
-- **1905**: Partition of Bengal | **1919**: Jallianwala Bagh
-- **1930**: Salt March by Gandhi | **1942**: Quit India Movement
-- **1947**: Indian Independence | **1950**: Constitution came into force
-
-
----
-
-## Exam Preparation Strategy (પરીક્ષા તૈયારી વ્યૂહરચના)
-
-### Daily Study Plan
-| Time | Activity |
-|------|----------|
-| 6:00 - 8:00 AM | Subject-specific study |
-| 8:00 - 9:00 AM | Current Affairs & Newspaper |
-| 9:00 - 11:00 AM | MCQ Practice |
-| 2:00 - 4:00 PM | Revision & Notes |
-| 4:00 - 5:00 PM | Mock Test |
-| 8:00 - 9:00 PM | GK & Quick Revision |
-
-### Important Books & Resources
-1. Gujarat Government official publications
-2. Lucent's General Knowledge
-3. Previous year papers of similar exams (GPSC, GSSSB)
-4. Subject-specific textbooks as per syllabus
-5. Daily newspapers (Gujarat Samachar, Divya Bhaskar)
-6. SMC official website for updates
-
-### Last Month Strategy
-- Focus on revision, not new topics
-- Solve at least 2 mock tests daily
-- Review mistakes and weak areas
-- Practice time management
-- Stay updated with current affairs
-- Keep documents ready for verification
-
----
-
-*Study material prepared for SMC Library Clerk Exam 2026*
-*Visit: https://www.suratmunicipal.gov.in for official updates*
-
-
----
-
-## 📚 ભલામણ કરેલ પુસ્તકો | Recommended Books
-
-| પુસ્તક (Book) | લેખક/પ્રકાશક | વિષય | ભાષા |
-|---|---|---|---|
-| Lucent's General Knowledge | Lucent Publication | GK, Current Affairs | Hindi/English |
-| Gujarat no Itihas (ગુજરાતનો ઈતિહાસ) | Anamika Academy | Gujarat History & Culture | ગુજરાતી |
-| Gujarat ni Bhugol (ગુજરાતની ભૂગોળ) | Anamika Academy | Gujarat Geography | ગુજરાતી |
-| Bharat nu Bandharan (ભારતનું બંધારણ) | World Inbox | Indian Constitution | ગુજરાતી |
-| World Inbox GK Book | World Inbox Publication | Complete GK | ગુજરાતી |
-| Liberty GK Book | Liberty Publication | Gujarat & India GK | ગુજરાતી |
-| Angle GK | Angle Academy | General Knowledge | ગુજરાતી |
-| Maths by Rakesh Yadav | Rakesh Yadav | Quantitative Aptitude | Hindi |
-| RS Aggarwal Reasoning | S.Chand | Logical Reasoning | English |
-| Gujarati Vyakaran (વ્યાકરણ) | Akshar Publication | Gujarati Grammar | ગુજરાતી |
-| Current Affairs Monthly | Yojana/Pratiyogita Darpan | Current Affairs | Hindi/English |
-| Computer Knowledge by Arihant | Arihant Publication | Computer Basics, CCC | English/Hindi |
-
-## 🎥 YouTube Channels & Videos | યુટ્યુબ ચેનલ
-
-### Gujarat Exam Preparation Channels
-| Channel | વિષય (Subject) | ભાષા | Link |
-|---|---|---|---|
-| **World Inbox** | GK, Maths, Reasoning, Gujarat | ગુજરાતી | [youtube.com/@WorldInbox](https://www.youtube.com/@WorldInbox) |
-| **Anamika Academy** | Gujarat GK, History, Geography | ગુજરાતી | [youtube.com/@AnamikaAcademy](https://www.youtube.com/@AnamikaAcademy) |
-| **Liberty Career Academy** | GPSC, GSSSB, Current Affairs | ગુજરાતી | [youtube.com/@LibertyCareerAcademy](https://www.youtube.com/@LibertyCareerAcademy) |
-| **Angle Academy** | Maths, Reasoning, GK | ગુજરાતી | [youtube.com/@AngleAcademy](https://www.youtube.com/@AngleAcademy) |
-| **ICE Rajkot** | Gujarat Govt Exams | ગુજરાતી | [youtube.com/@ICERajkot](https://www.youtube.com/@ICERajkot) |
-| **Utkarsh Classes** | All Competitive Exams | Hindi | [youtube.com/@UtkarshClasses](https://www.youtube.com/@UtkarshClasses) |
-| **Study IQ** | Current Affairs, GK | Hindi/English | [youtube.com/@StudyIQ](https://www.youtube.com/@StudyIQ) |
-| **Unacademy Gujarat** | Gujarat State Exams | ગુજરાતી | [youtube.com/@UnacademyGujarat](https://www.youtube.com/@UnacademyGujarat) |
-
-### Subject-Specific Videos
-| વિષય | Video/Playlist | Link |
+### 1.1 Five Laws of Library Science (Dr. S.R. Ranganathan, 1931)
+| Law | ગુજરાતી | Meaning |
 |---|---|---|
-| Gujarat GK Complete | World Inbox Full Course | Search: "World Inbox Gujarat GK" on YouTube |
-| Indian Constitution | Bharat nu Bandharan | Search: "ભારતનું બંધારણ" on YouTube |
-| Maths Shortcuts | Angle Academy Maths | Search: "Angle Academy Maths tricks" on YouTube |
-| Computer CCC | CCC Exam Preparation | Search: "CCC exam preparation Gujarati" on YouTube |
-| Current Affairs 2026 | Daily Current Affairs | Search: "Gujarat current affairs 2026" on YouTube |
-| English Grammar | Basic English Grammar | Search: "English grammar for competitive exams" on YouTube |
+| 1. Books are for use | પુસ્તકો ઉપયોગ માટે છે | Don't just store, use them |
+| 2. Every reader his/her book | દરેક વાચકને તેનું પુસ્તક | Right book for right person |
+| 3. Every book its reader | દરેક પુસ્તકને તેનો વાચક | Every book has a reader |
+| 4. Save the time of the reader | વાચકનો સમય બચાવો | Quick access, good arrangement |
+| 5. Library is a growing organism | પુસ્તકાલય વધતું જીવ છે | Always growing, changing |
 
-## 🌐 ઉપયોગી વેબસાઈટ | Useful Websites
-
-| Website | Purpose | Link |
+### 1.2 Types of Libraries (પુસ્તકાલયના પ્રકારો)
+| Type | ગુજરાતી | Example |
 |---|---|---|
-| **SMC Official** | Recruitment, Results | [suratmunicipal.gov.in](https://www.suratmunicipal.gov.in) |
-| **OJAS Gujarat** | All Gujarat Govt Jobs | [ojas.gujarat.gov.in](https://ojas.gujarat.gov.in) |
-| **GPSC Official** | Class 1-2 Exams | [gpsc.gujarat.gov.in](https://gpsc.gujarat.gov.in) |
-| **GSSSB Official** | Clerk, Head Clerk | [gsssb.gujarat.gov.in](https://gsssb.gujarat.gov.in) |
-| **Gujarat Rojgar Samachar** | Weekly Job Updates | [gujaratrojgarsamachar.gov.in](https://gujaratrojgarsamachar.gov.in) |
-| **Testbook** | Mock Tests, Practice | [testbook.com](https://testbook.com) |
-| **Gradeup/BYJU's Exam Prep** | Study Material | [byjusexamprep.com](https://byjusexamprep.com) |
-| **GK Today** | Current Affairs Daily | [gktoday.in](https://www.gktoday.in) |
+| National Library | રાષ્ટ્રીય | National Library of India, Kolkata |
+| Public Library | જાહેર | City/District library |
+| Academic Library | શૈક્ષણિક | School, College, University |
+| Special Library | વિશેષ | Medical, Law, Corporate |
+| Digital Library | ડિજિટલ | Online/E-library |
 
-## 📱 Mobile Apps for Preparation
+### 1.3 Father of Library Science in India: Dr. S.R. Ranganathan (1892-1972)
 
-| App | Platform | Features |
+---
+
+## 2. વર્ગીકરણ | Classification
+
+### 2.1 DDC (Dewey Decimal Classification) — Melvil Dewey, 1876
+| Class | Subject | ગુજરાતી |
 |---|---|---|
-| **Testbook** | Android/iOS | Mock tests, Previous papers, Daily GK |
-| **Adda247** | Android/iOS | Gujarat exam prep, Quizzes |
-| **Gradeup** | Android/iOS | Video classes, Tests |
-| **Current Affairs App** | Android | Daily CA in Gujarati |
-| **Gujarati Dictionary** | Android | Word meanings, Synonyms |
+| 000 | Computer Science, Information | કમ્પ્યુટર, માહિતી |
+| 100 | Philosophy, Psychology | ફિલોસોફી, મનોવિજ્ઞાન |
+| 200 | Religion | ધર્મ |
+| 300 | Social Sciences | સામાજિક વિજ્ઞાન |
+| 400 | Language | ભાષા |
+| 500 | Science | વિજ્ઞાન |
+| 600 | Technology | ટેકનોલોજી |
+| 700 | Arts, Recreation | કલા, મનોરંજન |
+| 800 | Literature | સાહિત્ય |
+| 900 | History, Geography | ઈતિહાસ, ભૂગોળ |
+
+### 2.2 CC (Colon Classification) — S.R. Ranganathan, 1933
+- Uses **facets**: PMEST
+  - **P**ersonality (Main subject)
+  - **M**atter (Material)
+  - **E**nergy (Action/Process)
+  - **S**pace (Place)
+  - **T**ime (Period)
+
+### 2.3 UDC (Universal Decimal Classification) — Based on DDC
+- Used in special/technical libraries
+- Uses :: (colon), + (plus), / (slash) for combining subjects
+
+---
+
+## 3. Cataloguing | સૂચિકરણ
+
+### 3.1 AACR2 (Anglo-American Cataloguing Rules, 2nd Edition)
+- Standard rules for cataloguing
+- **Entry elements**: Author, Title, Edition, Publication, Physical description, Series, Notes, ISBN
+- **Main Entry**: Usually author (personal or corporate)
+- **Added Entry**: Co-author, editor, translator, title
+
+### 3.2 Catalogue Card Format (3×5 inches)
+```
+Call Number
+Author. Title / Statement of responsibility. —
+Edition. — Place : Publisher, Year.
+Pages : illustrations ; size. — (Series)
+Notes.
+ISBN
+Subject Headings
+```
+
+### 3.3 MARC (Machine Readable Cataloguing)
+- Digital format for library records
+- Fields: 100 (Author), 245 (Title), 260 (Publication), 300 (Physical), 650 (Subject)
+
+---
+
+## 4. Reference Service | સંદર્ભ સેવા
+
+### 4.1 Reference Sources (સંદર્ભ સ્ત્રોતો)
+| Source | ગુજરાતી | Example |
+|---|---|---|
+| Encyclopedia | જ્ઞાનકોશ | Britannica, Wikipedia |
+| Dictionary | શબ્દકોશ | Oxford, Bhagwadgomandal (Gujarati) |
+| Yearbook | વાર્ષિક | India Year Book, Manorama |
+| Atlas | નકશાપોથી | Oxford Atlas |
+| Bibliography | ગ્રંથસૂચિ | Indian National Bibliography |
+| Directory | ડિરેક્ટરી | Telephone directory |
+| Almanac | પંચાંગ | Panchang |
+| Gazette | રાજપત્ર | Gujarat Government Gazette |
+
+---
+
+## 5. Digital Library & OPAC | ડિજિટલ પુસ્તકાલય
+
+### 5.1 Library Automation Software
+| Software | Type | Features |
+|---|---|---|
+| KOHA | Open Source (Free) | Full library management |
+| SOUL (INFLIBNET) | Indian | Academic libraries |
+| Libsys | Commercial | All types |
+| NewGenLib | Open Source | Indian libraries |
+| e-Granthalaya | NIC (Free) | Government libraries |
+
+### 5.2 OPAC (Online Public Access Catalogue)
+- **Replaces**: Card catalogue
+- **Search by**: Author, Title, Subject, ISBN, Keyword
+- **Features**: Availability check, Reservation, Renewal
+
+### 5.3 Digital Libraries in India
+- **National Digital Library** (NDL): ndl.iitkgp.ac.in
+- **Digital Library of India**: dli.ernet.in
+- **Shodhganga**: PhD theses (shodhganga.inflibnet.ac.in)
+- **e-PG Pathshala**: UGC e-content
+
+---
+
+## 🔒 Premium — ₹49
+> Advanced Classification, Indexing, Information Retrieval, 
+> Library Acts, 300+ MCQs, Mock Tests
+> Visit: premium.html
+
+---
+
+## 6. Gujarat Public Libraries Act
+- Gujarat enacted Public Libraries Act
+- Provides for establishment of public libraries at district/taluka level
+- Library cess for funding
+
+## 7. સામાન્ય જ્ઞાન (Free)
+- ગુજરાત: 1 મે 1960, ગાંધીનગર, 33 જિલ્લા
+- રાષ્ટ્રીય પુસ્તકાલય: કોલકાતા (1948)
+- National Library Day: 12 August
+- World Book Day: 23 April
+
+---
+
+*SMC Library Clerk Exam 2026*

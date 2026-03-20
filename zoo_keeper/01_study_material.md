@@ -1,212 +1,163 @@
-# Zoo Keeper — Study Material (અભ્યાસ સામગ્રી)
-## SMC Recruitment 2026 — Complete Study Guide
-
-> **Exam Pattern**: 100 MCQs | 120 Minutes | -0.25 Negative Marking
-> **Subjects**: Animal Care, Zoo Hygiene, Animal Behavior, Safety Procedures, Gujarati Language, General Knowledge
+# ઝૂ કીપર — અભ્યાસ સામગ્રી | Zoo Keeper — Study Material
+## SMC ભરતી 2026 | 18 જગ્યાઓ | Pay: ₹14,800 - 47,100
 
 ---
 
-## Animal Care
+## 🔓 Free Section / મફત વિભાગ
 
-### Key Concepts in Animal Care
-- Study the fundamental principles of Animal Care
-- Practice problems and case studies related to Animal Care
-- Review previous year questions on Animal Care
-- Focus on practical applications in municipal corporation context
+## 1. પ્રાણી સંભાળ | Animal Care
 
+### 1.1 ભારતીય ઝૂમાં જોવા મળતા પ્રાણીઓ (Animals in Indian Zoos)
+| પ્રાણી | ગુજરાતી નામ | Scientific Name | ખોરાક |
+|---|---|---|---|
+| Asiatic Lion | એશિયાટિક સિંહ | Panthera leo persica | માંસ (Meat) |
+| Bengal Tiger | બંગાળ વાઘ | Panthera tigris | માંસ |
+| Indian Elephant | ભારતીય હાથી | Elephas maximus | ઘાસ, ફળ, શાકભાજી |
+| Indian Rhino | ભારતીય ગેંડો | Rhinoceros unicornis | ઘાસ, પાંદડા |
+| Leopard | દીપડો | Panthera pardus | માંસ |
+| Sloth Bear | રીંછ | Melursus ursinus | મધ, ફળ, કીડા |
+| Indian Gaur | ગવળ | Bos gaurus | ઘાસ |
+| Nilgai | નીલગાય | Boselaphus tragocamelus | ઘાસ, પાંદડા |
+| Chital (Spotted Deer) | ચિતલ | Axis axis | ઘાસ |
+| Sambar Deer | સાંભર | Rusa unicolor | ઘાસ, ફળ |
+| Indian Peafowl | મોર | Pavo cristatus | અનાજ, કીડા |
+| King Cobra | કિંગ કોબ્રા | Ophiophagus hannah | સાપ |
+| Indian Python | અજગર | Python molurus | સસલા, ઉંદર |
+| Mugger Crocodile | મગર | Crocodylus palustris | માછલી, માંસ |
+| Indian Star Tortoise | કાચબો | Geochelone elegans | શાકભાજી, ફળ |
 
-## Zoo Hygiene
+### 1.2 પ્રાણી ખોરાક વર્ગીકરણ (Animal Diet Classification)
+| પ્રકાર | ગુજરાતી | ખોરાક | ઉદાહરણ |
+|---|---|---|---|
+| Herbivore | શાકાહારી | ઘાસ, પાંદડા, ફળ | હાથી, હરણ, ગેંડો |
+| Carnivore | માંસાહારી | માંસ, હાડકાં | સિંહ, વાઘ, દીપડો |
+| Omnivore | સર્વાહારી | બંને | રીંછ, વાંદરો |
+| Insectivore | કીટકાહારી | કીડા, મકોડા | કાચિંડો |
 
-### Key Concepts in Zoo Hygiene
-- Study the fundamental principles of Zoo Hygiene
-- Practice problems and case studies related to Zoo Hygiene
-- Review previous year questions on Zoo Hygiene
-- Focus on practical applications in municipal corporation context
-
-
-## Animal Behavior
-
-### Key Concepts in Animal Behavior
-- Study the fundamental principles of Animal Behavior
-- Practice problems and case studies related to Animal Behavior
-- Review previous year questions on Animal Behavior
-- Focus on practical applications in municipal corporation context
-
-
-## Safety Procedures
-
-### Key Concepts in Safety Procedures
-- Study the fundamental principles of Safety Procedures
-- Practice problems and case studies related to Safety Procedures
-- Review previous year questions on Safety Procedures
-- Focus on practical applications in municipal corporation context
-
-
-## Gujarati Language
-
-### Language Skills
-- **Gujarati**: Grammar (વ્યાકરણ), Essay writing (નિબંધ), Letter writing (પત્ર લેખન)
-- **English**: Grammar, Comprehension, Vocabulary, Sentence correction
-- **Synonyms & Antonyms**: Important word pairs
-- **Idioms & Phrases**: Common expressions with meanings
-- **One-word substitutions**: Key terms
-
-
-## General Knowledge
-
-### Gujarat & Surat Knowledge (ગુજરાત અને સુરત)
-- **Gujarat Formation**: 1 May 1960 from former Bombay State
-- **Capital**: Gandhinagar | **Largest City**: Ahmedabad
-- **Gujarat CM**: Bhupendra Patel | **Governor**: Acharya Devvrat
-- **Surat**: Diamond City of India, Silk City, located on Tapi River
-- **SMC**: Surat Municipal Corporation, established 1966
-- **Surat Population**: ~60 lakh (2026 est.) | **Area**: 326.515 sq km
-- **Districts in Gujarat**: 33 | **Surat District Talukas**: 10
-
-### Indian Constitution (ભારતીય બંધારણ)
-- **Part III**: Fundamental Rights (Article 12-35)
-- **Part IV**: Directive Principles of State Policy (Article 36-51)
-- **Article 21**: Right to Life and Personal Liberty
-- **73rd Amendment**: Panchayati Raj | **74th Amendment**: Municipalities
-- **Article 243Q-243ZG**: Municipalities provisions
-
-### Current Affairs 2025-2026
-- India's G20 Presidency legacy programs continuing
-- Digital India initiatives: UPI transactions crossed 10 billion/month
-- Smart City Mission progress in Surat
-- Chandrayaan-3 success - India 4th country to land on Moon
-- Gujarat Semicon City project in Dholera
-
-### Indian History (ભારતનો ઈતિહાસ)
-- **1857**: First War of Independence
-- **1885**: Indian National Congress founded
-- **1905**: Partition of Bengal | **1919**: Jallianwala Bagh
-- **1930**: Salt March by Gandhi | **1942**: Quit India Movement
-- **1947**: Indian Independence | **1950**: Constitution came into force
-
-
----
-
-## Exam Preparation Strategy (પરીક્ષા તૈયારી વ્યૂહરચના)
-
-### Daily Study Plan
-| Time | Activity |
-|------|----------|
-| 6:00 - 8:00 AM | Subject-specific study |
-| 8:00 - 9:00 AM | Current Affairs & Newspaper |
-| 9:00 - 11:00 AM | MCQ Practice |
-| 2:00 - 4:00 PM | Revision & Notes |
-| 4:00 - 5:00 PM | Mock Test |
-| 8:00 - 9:00 PM | GK & Quick Revision |
-
-### Important Books & Resources
-1. Gujarat Government official publications
-2. Lucent's General Knowledge
-3. Previous year papers of similar exams (GPSC, GSSSB)
-4. Subject-specific textbooks as per syllabus
-5. Daily newspapers (Gujarat Samachar, Divya Bhaskar)
-6. SMC official website for updates
-
-### Last Month Strategy
-- Focus on revision, not new topics
-- Solve at least 2 mock tests daily
-- Review mistakes and weak areas
-- Practice time management
-- Stay updated with current affairs
-- Keep documents ready for verification
-
----
-
-*Study material prepared for SMC Zoo Keeper Exam 2026*
-*Visit: https://www.suratmunicipal.gov.in for official updates*
-
-
----
-
-## 📚 Zoo/Aquarium Books | ઝૂ/એક્વેરિયમ પુસ્તકો
-
-| Book | Subject | Use For |
+### 1.3 દૈનિક સંભાળ ચેકલિસ્ટ (Daily Care Checklist)
+| સમય | કાર્ય | ગુજરાતી |
 |---|---|---|
-| Wildlife of India | Indian Fauna | Zoo Guide, Zoo Keeper |
-| CZA Guidelines | Zoo Management | All Zoo/Aquarium Posts |
-| Marine Biology (Nybakken) | Marine Ecosystems | Aquarium Posts |
-| Fish Diseases (Roberts) | Fish Health | Aquarium Inspector |
-| Wildlife Protection Act 1972 | Legal Framework | All Zoo Posts |
-| Handbook of Animal Husbandry (ICAR) | Animal Care | Zoo Keeper |
-| Aquarium Management (Adey) | Aquarium Operations | Curator, Supervisor |
+| સવારે 6:00 | Enclosure inspection | વાડા તપાસ |
+| 6:30 | Animal health observation | પ્રાણી આરોગ્ય |
+| 7:00 | Cleaning enclosures | વાડા સફાઈ |
+| 8:00 | Morning feeding | સવારનો ખોરાક |
+| 10:00 | Water change/refill | પાણી બદલવું |
+| 12:00 | Enrichment activities | મનોરંજન પ્રવૃત્તિ |
+| 14:00 | Afternoon feeding | બપોરનો ખોરાક |
+| 16:00 | Evening inspection | સાંજની તપાસ |
+| 17:00 | Lock-up & security check | તાળાબંધ |
 
-### 🎥 Zoo/Wildlife YouTube
-| Subject | Search |
+---
+
+## 2. ઝૂ સ્વચ્છતા | Zoo Hygiene
+
+### 2.1 Enclosure Cleaning (વાડા સફાઈ)
+- **દૈનિક**: મળ-મૂત્ર સાફ, બાકીનો ખોરાક કાઢવો, પાણી બદલવું
+- **સાપ્તાહિક**: પૂર્ણ ધોવાણ disinfectant થી
+- **માસિક**: Deep cleaning, repair check
+- **Disinfectants**: Lysol, Savlon, Potassium Permanganate (KMnO₄)
+
+### 2.2 Waste Management (કચરો વ્યવસ્થાપન)
+| Waste Type | Disposal |
 |---|---|
-| Indian Wildlife Documentary | "Indian wildlife documentary" on YouTube |
-| Zoo Keeper Training | "Zoo keeper training" on YouTube |
-| Aquarium Setup | "Aquarium setup and maintenance" on YouTube |
-| Fish Care Basics | "Fish care guide Hindi" on YouTube |
-| Wildlife Protection | "Wildlife protection India" on YouTube |
-
+| Animal dung (છાણ) | Composting / Biogas |
+| Food waste | Composting |
+| Medical waste | Yellow bag (BMC rules) |
+| Sharp waste (needles) | White puncture-proof container |
 
 ---
 
-## 📚 ભલામણ કરેલ પુસ્તકો | Recommended Books
+## 3. પ્રાણી વર્તન | Animal Behavior
 
-| પુસ્તક (Book) | લેખક/પ્રકાશક | વિષય | ભાષા |
-|---|---|---|---|
-| Lucent's General Knowledge | Lucent Publication | GK, Current Affairs | Hindi/English |
-| Gujarat no Itihas (ગુજરાતનો ઈતિહાસ) | Anamika Academy | Gujarat History & Culture | ગુજરાતી |
-| Gujarat ni Bhugol (ગુજરાતની ભૂગોળ) | Anamika Academy | Gujarat Geography | ગુજરાતી |
-| Bharat nu Bandharan (ભારતનું બંધારણ) | World Inbox | Indian Constitution | ગુજરાતી |
-| World Inbox GK Book | World Inbox Publication | Complete GK | ગુજરાતી |
-| Liberty GK Book | Liberty Publication | Gujarat & India GK | ગુજરાતી |
-| Angle GK | Angle Academy | General Knowledge | ગુજરાતી |
-| Maths by Rakesh Yadav | Rakesh Yadav | Quantitative Aptitude | Hindi |
-| RS Aggarwal Reasoning | S.Chand | Logical Reasoning | English |
-| Gujarati Vyakaran (વ્યાકરણ) | Akshar Publication | Gujarati Grammar | ગુજરાતી |
-| Current Affairs Monthly | Yojana/Pratiyogita Darpan | Current Affairs | Hindi/English |
-| Computer Knowledge by Arihant | Arihant Publication | Computer Basics, CCC | English/Hindi |
-
-## 🎥 YouTube Channels & Videos | યુટ્યુબ ચેનલ
-
-### Gujarat Exam Preparation Channels
-| Channel | વિષય (Subject) | ભાષા | Link |
-|---|---|---|---|
-| **World Inbox** | GK, Maths, Reasoning, Gujarat | ગુજરાતી | [youtube.com/@WorldInbox](https://www.youtube.com/@WorldInbox) |
-| **Anamika Academy** | Gujarat GK, History, Geography | ગુજરાતી | [youtube.com/@AnamikaAcademy](https://www.youtube.com/@AnamikaAcademy) |
-| **Liberty Career Academy** | GPSC, GSSSB, Current Affairs | ગુજરાતી | [youtube.com/@LibertyCareerAcademy](https://www.youtube.com/@LibertyCareerAcademy) |
-| **Angle Academy** | Maths, Reasoning, GK | ગુજરાતી | [youtube.com/@AngleAcademy](https://www.youtube.com/@AngleAcademy) |
-| **ICE Rajkot** | Gujarat Govt Exams | ગુજરાતી | [youtube.com/@ICERajkot](https://www.youtube.com/@ICERajkot) |
-| **Utkarsh Classes** | All Competitive Exams | Hindi | [youtube.com/@UtkarshClasses](https://www.youtube.com/@UtkarshClasses) |
-| **Study IQ** | Current Affairs, GK | Hindi/English | [youtube.com/@StudyIQ](https://www.youtube.com/@StudyIQ) |
-| **Unacademy Gujarat** | Gujarat State Exams | ગુજરાતી | [youtube.com/@UnacademyGujarat](https://www.youtube.com/@UnacademyGujarat) |
-
-### Subject-Specific Videos
-| વિષય | Video/Playlist | Link |
+### 3.1 બીમારીના ચિહ્નો (Signs of Illness)
+| ચિહ્ન (Sign) | ગુજરાતી | Possible Problem |
 |---|---|---|
-| Gujarat GK Complete | World Inbox Full Course | Search: "World Inbox Gujarat GK" on YouTube |
-| Indian Constitution | Bharat nu Bandharan | Search: "ભારતનું બંધારણ" on YouTube |
-| Maths Shortcuts | Angle Academy Maths | Search: "Angle Academy Maths tricks" on YouTube |
-| Computer CCC | CCC Exam Preparation | Search: "CCC exam preparation Gujarati" on YouTube |
-| Current Affairs 2026 | Daily Current Affairs | Search: "Gujarat current affairs 2026" on YouTube |
-| English Grammar | Basic English Grammar | Search: "English grammar for competitive exams" on YouTube |
+| Not eating | ન ખાવું | Illness, stress, dental |
+| Lethargy | આળસ | Infection, fever |
+| Diarrhea | ઝાડા | Parasites, bad food |
+| Vomiting | ઊલટી | Poison, infection |
+| Limping | લંગડાવું | Injury, arthritis |
+| Discharge (eyes/nose) | આંખ/નાકમાંથી પ્રવાહી | Infection |
+| Hair/feather loss | વાળ/પીંછા ખરવા | Skin disease, stress |
+| Aggressive behavior | આક્રમક | Pain, stress, mating |
+| Weight loss | વજન ઘટવું | Parasites, illness |
 
-## 🌐 ઉપયોગી વેબસાઈટ | Useful Websites
+**Important**: બીમારીના કોઈ પણ ચિહ્ન દેખાય તો **તરત Veterinary Doctor** ને જાણ કરો!
 
-| Website | Purpose | Link |
+### 3.2 Stereotypic Behavior (તણાવજન્ય વર્તન)
+- **Pacing**: Same path repeatedly walking (સિંહ, વાઘ)
+- **Swaying**: Head/body swaying (હાથી)
+- **Over-grooming**: Excessive licking/pulling hair
+- **Cause**: Boredom, small enclosure, lack of enrichment
+- **Solution**: Environmental enrichment, larger spaces, puzzle feeders
+
+---
+
+## 4. સલામતી | Safety
+
+### 4.1 ખતરનાક પ્રાણીઓ સાથે કામ (Working with Dangerous Animals)
+- **ક્યારેય એકલા ન જાવ** — હંમેશા 2+ વ્યક્તિ
+- **Keeper-barrier system**: હંમેશા barrier/gate વચ્ચે
+- **Squeeze cage**: Medical check/treatment માટે
+- **Dart gun**: Emergency sedation (vet only)
+- **Radio communication**: હંમેશા walkie-talkie રાખો
+- **Emergency SOP**: Animal escape procedure follow
+
+### 4.2 Zoonotic Diseases (પ્રાણીથી માનવમાં આવતા રોગો)
+| Disease | Animal Source | Prevention |
 |---|---|---|
-| **SMC Official** | Recruitment, Results | [suratmunicipal.gov.in](https://www.suratmunicipal.gov.in) |
-| **OJAS Gujarat** | All Gujarat Govt Jobs | [ojas.gujarat.gov.in](https://ojas.gujarat.gov.in) |
-| **GPSC Official** | Class 1-2 Exams | [gpsc.gujarat.gov.in](https://gpsc.gujarat.gov.in) |
-| **GSSSB Official** | Clerk, Head Clerk | [gsssb.gujarat.gov.in](https://gsssb.gujarat.gov.in) |
-| **Gujarat Rojgar Samachar** | Weekly Job Updates | [gujaratrojgarsamachar.gov.in](https://gujaratrojgarsamachar.gov.in) |
-| **Testbook** | Mock Tests, Practice | [testbook.com](https://testbook.com) |
-| **Gradeup/BYJU's Exam Prep** | Study Material | [byjusexamprep.com](https://byjusexamprep.com) |
-| **GK Today** | Current Affairs Daily | [gktoday.in](https://www.gktoday.in) |
+| Rabies (હડકવા) | Dog, Monkey bite | Vaccination, PPE |
+| TB | Primate, Elephant | Testing, Isolation |
+| Salmonella | Reptile, Bird | Hand washing |
+| Ringworm | All animals | PPE, Hygiene |
+| Avian flu | Birds | PPE, Monitoring |
 
-## 📱 Mobile Apps for Preparation
+### 4.3 PPE for Zoo Keepers
+- Safety boots (સલામતી બૂટ)
+- Gloves (rubber + leather) (મોજા)
+- Face mask (ચહેરા ઢાંકણ)
+- Apron (એપ્રન)
+- First Aid Kit (પ્રાથમિક સારવાર)
 
-| App | Platform | Features |
+---
+
+## 5. Zoo Laws & Regulations | ઝૂ કાયદા
+
+### 5.1 Important Laws
+| Law/Regulation | Year | Purpose |
 |---|---|---|
-| **Testbook** | Android/iOS | Mock tests, Previous papers, Daily GK |
-| **Adda247** | Android/iOS | Gujarat exam prep, Quizzes |
-| **Gradeup** | Android/iOS | Video classes, Tests |
-| **Current Affairs App** | Android | Daily CA in Gujarati |
-| **Gujarati Dictionary** | Android | Word meanings, Synonyms |
+| Wildlife Protection Act | 1972 | Wild animals protection |
+| CZA (Central Zoo Authority) | 1992 | Zoo governance, standards |
+| CITES | 1975 | International trade control |
+| Prevention of Cruelty Act | 1960 | Animal welfare |
+| Biological Diversity Act | 2002 | Biodiversity conservation |
+
+### 5.2 CZA Guidelines for Zoos
+- Minimum enclosure size for each species
+- Veterinary facility mandatory
+- Record keeping of all animals (studbook)
+- Breeding programs for endangered species
+- No animal performance/circus acts
+- Regular CZA inspection
+- Zoo must be recognized by CZA
+
+---
+
+## 🔒 Premium Content — ₹49
+> Advanced Animal Care, Endangered Species, Breeding Programs,
+> Nutrition Charts, 300+ MCQs, Mock Tests
+> Visit: premium.html
+
+---
+
+## 6. સામાન્ય જ્ઞાન (Free)
+- ગુજરાત: 1 મે 1960, ગાંધીનગર, 33 જિલ્લા
+- ગીર રાષ્ટ્રીય ઉદ્યાન: Asiatic Lion (એકમાત્ર ઘર)
+- ભારતનું રાષ્ટ્રીય પ્રાણી: Bengal Tiger (બંગાળ વાઘ)
+- ભારતનું રાષ્ટ્રીય પક્ષી: Indian Peafowl (મોર)
+- World Wildlife Day: 3 March
+- World Animal Day: 4 October
+
+---
+
+*SMC Zoo Keeper Exam 2026*

@@ -1,211 +1,132 @@
-# Live Stock Inspector — Study Material (અભ્યાસ સામગ્રી)
-## SMC Recruitment 2026 — Complete Study Guide
-
-> **Exam Pattern**: 100 MCQs | 120 Minutes | -0.25 Negative Marking
-> **Subjects**: Animal Husbandry, Veterinary Medicine, Livestock Management, Disease Control, Food Safety, General Knowledge
+# લાઈવ સ્ટોક ઈન્સ્પેક્ટર — અભ્યાસ સામગ્રી
+# Live Stock Inspector — Study Material
+## SMC ભરતી 2026 | 11 જગ્યાઓ | Pay: ₹29,200 - 92,300
 
 ---
 
-## Animal Husbandry
+## 🔓 Free Section
 
-### Key Concepts in Animal Husbandry
-- Study the fundamental principles of Animal Husbandry
-- Practice problems and case studies related to Animal Husbandry
-- Review previous year questions on Animal Husbandry
-- Focus on practical applications in municipal corporation context
+## 1. પશુપાલન | Animal Husbandry
 
-
-## Veterinary Medicine
-
-### Key Concepts in Veterinary Medicine
-- Study the fundamental principles of Veterinary Medicine
-- Practice problems and case studies related to Veterinary Medicine
-- Review previous year questions on Veterinary Medicine
-- Focus on practical applications in municipal corporation context
-
-
-## Livestock Management
-
-### Key Concepts in Livestock Management
-- Study the fundamental principles of Livestock Management
-- Practice problems and case studies related to Livestock Management
-- Review previous year questions on Livestock Management
-- Focus on practical applications in municipal corporation context
-
-
-## Disease Control
-
-### Key Concepts in Disease Control
-- Study the fundamental principles of Disease Control
-- Practice problems and case studies related to Disease Control
-- Review previous year questions on Disease Control
-- Focus on practical applications in municipal corporation context
-
-
-## Food Safety
-
-### Key Concepts in Food Safety
-- Study the fundamental principles of Food Safety
-- Practice problems and case studies related to Food Safety
-- Review previous year questions on Food Safety
-- Focus on practical applications in municipal corporation context
-
-
-## General Knowledge
-
-### Gujarat & Surat Knowledge (ગુજરાત અને સુરત)
-- **Gujarat Formation**: 1 May 1960 from former Bombay State
-- **Capital**: Gandhinagar | **Largest City**: Ahmedabad
-- **Gujarat CM**: Bhupendra Patel | **Governor**: Acharya Devvrat
-- **Surat**: Diamond City of India, Silk City, located on Tapi River
-- **SMC**: Surat Municipal Corporation, established 1966
-- **Surat Population**: ~60 lakh (2026 est.) | **Area**: 326.515 sq km
-- **Districts in Gujarat**: 33 | **Surat District Talukas**: 10
-
-### Indian Constitution (ભારતીય બંધારણ)
-- **Part III**: Fundamental Rights (Article 12-35)
-- **Part IV**: Directive Principles of State Policy (Article 36-51)
-- **Article 21**: Right to Life and Personal Liberty
-- **73rd Amendment**: Panchayati Raj | **74th Amendment**: Municipalities
-- **Article 243Q-243ZG**: Municipalities provisions
-
-### Current Affairs 2025-2026
-- India's G20 Presidency legacy programs continuing
-- Digital India initiatives: UPI transactions crossed 10 billion/month
-- Smart City Mission progress in Surat
-- Chandrayaan-3 success - India 4th country to land on Moon
-- Gujarat Semicon City project in Dholera
-
-### Indian History (ભારતનો ઈતિહાસ)
-- **1857**: First War of Independence
-- **1885**: Indian National Congress founded
-- **1905**: Partition of Bengal | **1919**: Jallianwala Bagh
-- **1930**: Salt March by Gandhi | **1942**: Quit India Movement
-- **1947**: Indian Independence | **1950**: Constitution came into force
-
-
----
-
-## Exam Preparation Strategy (પરીક્ષા તૈયારી વ્યૂહરચના)
-
-### Daily Study Plan
-| Time | Activity |
-|------|----------|
-| 6:00 - 8:00 AM | Subject-specific study |
-| 8:00 - 9:00 AM | Current Affairs & Newspaper |
-| 9:00 - 11:00 AM | MCQ Practice |
-| 2:00 - 4:00 PM | Revision & Notes |
-| 4:00 - 5:00 PM | Mock Test |
-| 8:00 - 9:00 PM | GK & Quick Revision |
-
-### Important Books & Resources
-1. Gujarat Government official publications
-2. Lucent's General Knowledge
-3. Previous year papers of similar exams (GPSC, GSSSB)
-4. Subject-specific textbooks as per syllabus
-5. Daily newspapers (Gujarat Samachar, Divya Bhaskar)
-6. SMC official website for updates
-
-### Last Month Strategy
-- Focus on revision, not new topics
-- Solve at least 2 mock tests daily
-- Review mistakes and weak areas
-- Practice time management
-- Stay updated with current affairs
-- Keep documents ready for verification
-
----
-
-*Study material prepared for SMC Live Stock Inspector Exam 2026*
-*Visit: https://www.suratmunicipal.gov.in for official updates*
-
-
----
-
-## 📚 Zoo/Aquarium Books | ઝૂ/એક્વેરિયમ પુસ્તકો
-
-| Book | Subject | Use For |
-|---|---|---|
-| Wildlife of India | Indian Fauna | Zoo Guide, Zoo Keeper |
-| CZA Guidelines | Zoo Management | All Zoo/Aquarium Posts |
-| Marine Biology (Nybakken) | Marine Ecosystems | Aquarium Posts |
-| Fish Diseases (Roberts) | Fish Health | Aquarium Inspector |
-| Wildlife Protection Act 1972 | Legal Framework | All Zoo Posts |
-| Handbook of Animal Husbandry (ICAR) | Animal Care | Zoo Keeper |
-| Aquarium Management (Adey) | Aquarium Operations | Curator, Supervisor |
-
-### 🎥 Zoo/Wildlife YouTube
-| Subject | Search |
-|---|---|
-| Indian Wildlife Documentary | "Indian wildlife documentary" on YouTube |
-| Zoo Keeper Training | "Zoo keeper training" on YouTube |
-| Aquarium Setup | "Aquarium setup and maintenance" on YouTube |
-| Fish Care Basics | "Fish care guide Hindi" on YouTube |
-| Wildlife Protection | "Wildlife protection India" on YouTube |
-
-
----
-
-## 📚 ભલામણ કરેલ પુસ્તકો | Recommended Books
-
-| પુસ્તક (Book) | લેખક/પ્રકાશક | વિષય | ભાષા |
+### 1.1 ભારતીય ગાયની ઓલાદો (Indian Cattle Breeds)
+| ઓલાદ (Breed) | રાજ્ય | પ્રકાર | દૂધ (L/day) |
 |---|---|---|---|
-| Lucent's General Knowledge | Lucent Publication | GK, Current Affairs | Hindi/English |
-| Gujarat no Itihas (ગુજરાતનો ઈતિહાસ) | Anamika Academy | Gujarat History & Culture | ગુજરાતી |
-| Gujarat ni Bhugol (ગુજરાતની ભૂગોળ) | Anamika Academy | Gujarat Geography | ગુજરાતી |
-| Bharat nu Bandharan (ભારતનું બંધારણ) | World Inbox | Indian Constitution | ગુજરાતી |
-| World Inbox GK Book | World Inbox Publication | Complete GK | ગુજરાતી |
-| Liberty GK Book | Liberty Publication | Gujarat & India GK | ગુજરાતી |
-| Angle GK | Angle Academy | General Knowledge | ગુજરાતી |
-| Maths by Rakesh Yadav | Rakesh Yadav | Quantitative Aptitude | Hindi |
-| RS Aggarwal Reasoning | S.Chand | Logical Reasoning | English |
-| Gujarati Vyakaran (વ્યાકરણ) | Akshar Publication | Gujarati Grammar | ગુજરાતી |
-| Current Affairs Monthly | Yojana/Pratiyogita Darpan | Current Affairs | Hindi/English |
-| Computer Knowledge by Arihant | Arihant Publication | Computer Basics, CCC | English/Hindi |
+| Gir (ગીર) | ગુજરાત | Dual | 6-10 |
+| Kankrej (કાંકરેજ) | ગુજરાત | Dual | 5-8 |
+| Sahiwal | પંજાબ | Milch | 10-16 |
+| Red Sindhi | સિંધ | Milch | 8-12 |
+| Tharparkar | રાજસ્થાન | Dual | 8-10 |
+| Ongole | Andhra Pradesh | Draught | 3-5 |
+| Haryana | Haryana | Draught | 3-5 |
 
-## 🎥 YouTube Channels & Videos | યુટ્યુબ ચેનલ
+**Exotic Breeds (વિદેશી ઓલાદ)**:
+| Breed | Origin | Milk (L/day) |
+|---|---|---|
+| Holstein Friesian (HF) | Netherlands | 25-40 |
+| Jersey | UK (Jersey Island) | 15-25 |
+| Brown Swiss | Switzerland | 15-20 |
 
-### Gujarat Exam Preparation Channels
-| Channel | વિષય (Subject) | ભાષા | Link |
+**Cross Breeds**: HF × Gir, Jersey × Sahiwal — high milk, adapted to India
+
+### 1.2 ભેંસ ઓલાદ (Buffalo Breeds)
+| ઓલાદ | રાજ્ય | દૂધ | ખાસિયત |
 |---|---|---|---|
-| **World Inbox** | GK, Maths, Reasoning, Gujarat | ગુજરાતી | [youtube.com/@WorldInbox](https://www.youtube.com/@WorldInbox) |
-| **Anamika Academy** | Gujarat GK, History, Geography | ગુજરાતી | [youtube.com/@AnamikaAcademy](https://www.youtube.com/@AnamikaAcademy) |
-| **Liberty Career Academy** | GPSC, GSSSB, Current Affairs | ગુજરાતી | [youtube.com/@LibertyCareerAcademy](https://www.youtube.com/@LibertyCareerAcademy) |
-| **Angle Academy** | Maths, Reasoning, GK | ગુજરાતી | [youtube.com/@AngleAcademy](https://www.youtube.com/@AngleAcademy) |
-| **ICE Rajkot** | Gujarat Govt Exams | ગુજરાતી | [youtube.com/@ICERajkot](https://www.youtube.com/@ICERajkot) |
-| **Utkarsh Classes** | All Competitive Exams | Hindi | [youtube.com/@UtkarshClasses](https://www.youtube.com/@UtkarshClasses) |
-| **Study IQ** | Current Affairs, GK | Hindi/English | [youtube.com/@StudyIQ](https://www.youtube.com/@StudyIQ) |
-| **Unacademy Gujarat** | Gujarat State Exams | ગુજરાતી | [youtube.com/@UnacademyGujarat](https://www.youtube.com/@UnacademyGujarat) |
+| Murrah | Haryana | 10-16 L | Best milch buffalo |
+| Surti | ગુજરાત | 6-8 L | Gujarat's best |
+| Jaffarabadi | ગુજરાત | 8-12 L | Heaviest buffalo |
+| Mehsana | ગુજરાત | 6-10 L | Saurashtra-Mehsana |
+| Banni | ગુજરાત (Kutch) | 8-12 L | Kutch region |
 
-### Subject-Specific Videos
-| વિષય | Video/Playlist | Link |
+### 1.3 બકરી ઓલાદ (Goat Breeds)
+| Breed | Purpose | Region |
 |---|---|---|
-| Gujarat GK Complete | World Inbox Full Course | Search: "World Inbox Gujarat GK" on YouTube |
-| Indian Constitution | Bharat nu Bandharan | Search: "ભારતનું બંધારણ" on YouTube |
-| Maths Shortcuts | Angle Academy Maths | Search: "Angle Academy Maths tricks" on YouTube |
-| Computer CCC | CCC Exam Preparation | Search: "CCC exam preparation Gujarati" on YouTube |
-| Current Affairs 2026 | Daily Current Affairs | Search: "Gujarat current affairs 2026" on YouTube |
-| English Grammar | Basic English Grammar | Search: "English grammar for competitive exams" on YouTube |
+| Jamunapari | Milk + Meat | UP |
+| Barbari | Meat | UP, Rajasthan |
+| Surti | Milk | Gujarat |
+| Marwari | Meat | Rajasthan |
+| Beetal | Milk + Meat | Punjab |
+| Osmanabadi | Meat | Maharashtra |
 
-## 🌐 ઉપયોગી વેબસાઈટ | Useful Websites
+---
 
-| Website | Purpose | Link |
+## 2. પશુ રોગો | Animal Diseases
+
+### 2.1 મુખ્ય રોગો (Important Diseases)
+| રોગ (Disease) | કારણ | લક્ષણો | રસી |
+|---|---|---|---|
+| FMD (ખરવા-મોવાસા) | Virus | મોંમાં, પગમાં ફોલ્લા | FMD vaccine (6 monthly) |
+| HS (ગળસૂંડો) | Bacteria (Pasteurella) | ગળું ફૂલવું, તાવ | HS vaccine (yearly) |
+| BQ (એક ટાંગિયો) | Bacteria (Clostridium) | પગ ફૂલવો, લંગડાવું | BQ vaccine (yearly) |
+| Brucellosis (ચેપી ગર્ભપાત) | Brucella | ગર્ભપાત, બાંઝપણું | S19 vaccine (heifer) |
+| Rabies (હડકવા) | Virus | આક્રમક, લાળ | Pre-exposure vaccine |
+| Mastitis (આંચળનો સોજો) | Bacteria | દૂધમાં ફેરફાર, સોજો | Hygiene, Antibiotics |
+| PPR (Peste des Petits Ruminants) | Virus | બકરામાં ઝાડા, તાવ | PPR vaccine |
+| Theileriosis | Protozoa (Tick) | તાવ, એનિમિયા | Tick control |
+| Anthrax (કાળિયો તાવ) | Bacteria (Bacillus) | અચાનક મૃત્યુ | Anthrax vaccine |
+
+### 2.2 રસીકરણ અનુસૂચિ (Vaccination Schedule)
+| રસી | ઉંમર | Booster | રોગ |
+|---|---|---|---|
+| FMD | 4 months | 6 monthly | ખરવા-મોવાસા |
+| HS | 6 months | Yearly (May) | ગળસૂંડો |
+| BQ | 6 months | Yearly (May) | એક ટાંગિયો |
+| Brucella S19 | 4-8 months (heifer) | Once | ગર્ભપાત |
+| Anthrax | 6 months | Yearly | કાળિયો |
+| PPR | 4 months | 3 yearly | PPR (બકરા) |
+| Rabies | 3 months | Yearly | હડકવા |
+
+---
+
+## 3. Artificial Insemination | કૃત્રિમ બીજદાન (AI)
+
+### 3.1 AI Process (કૃત્રિમ ગર્ભાધાન પ્રક્રિયા)
+1. **Heat detection** (ગરમીના ચિહ્નો): Restless, Mounting, Mucus discharge, Reduced milk
+2. **Timing**: 12-18 hours after heat detection (AM-PM rule)
+3. **Semen handling**: Liquid nitrogen (-196°C) storage, Thaw at 37°C
+4. **Insemination**: Recto-vaginal technique
+5. **Pregnancy diagnosis**: 60-90 days (rectal palpation)
+
+### 3.2 Benefits of AI
+- Genetic improvement (ઉત્તમ ઓલાદ)
+- Disease control (રોગ નિયંત્રણ)
+- Cost-effective (ખર્ચ ઓછો)
+- Record maintenance
+
+---
+
+## 4. Food Safety | ખોરાક સલામતી
+
+### 4.1 Meat Inspection (માંસ તપાસ)
+- **Ante-mortem**: Before slaughter — check for disease
+- **Post-mortem**: After slaughter — organ inspection
+- **Condemned**: Diseased carcass destroyed
+- **FSSAI**: Food Safety and Standards Authority of India
+
+### 4.2 Milk Quality
+| Test | Purpose | Normal |
 |---|---|---|
-| **SMC Official** | Recruitment, Results | [suratmunicipal.gov.in](https://www.suratmunicipal.gov.in) |
-| **OJAS Gujarat** | All Gujarat Govt Jobs | [ojas.gujarat.gov.in](https://ojas.gujarat.gov.in) |
-| **GPSC Official** | Class 1-2 Exams | [gpsc.gujarat.gov.in](https://gpsc.gujarat.gov.in) |
-| **GSSSB Official** | Clerk, Head Clerk | [gsssb.gujarat.gov.in](https://gsssb.gujarat.gov.in) |
-| **Gujarat Rojgar Samachar** | Weekly Job Updates | [gujaratrojgarsamachar.gov.in](https://gujaratrojgarsamachar.gov.in) |
-| **Testbook** | Mock Tests, Practice | [testbook.com](https://testbook.com) |
-| **Gradeup/BYJU's Exam Prep** | Study Material | [byjusexamprep.com](https://byjusexamprep.com) |
-| **GK Today** | Current Affairs Daily | [gktoday.in](https://www.gktoday.in) |
+| Fat test (Gerber) | Fat content | 3.5-6% |
+| SNF test | Solid Not Fat | 8.5% min |
+| COB test | Acidity | Negative |
+| Methylene Blue | Bacterial quality | >5 hours good |
+| Adulterant test | Water, starch, urea | Negative |
 
-## 📱 Mobile Apps for Preparation
+---
 
-| App | Platform | Features |
-|---|---|---|
-| **Testbook** | Android/iOS | Mock tests, Previous papers, Daily GK |
-| **Adda247** | Android/iOS | Gujarat exam prep, Quizzes |
-| **Gradeup** | Android/iOS | Video classes, Tests |
-| **Current Affairs App** | Android | Daily CA in Gujarati |
-| **Gujarati Dictionary** | Android | Word meanings, Synonyms |
+## 🔒 Premium — ₹49
+> Poultry Management, Dairy Technology, Feed Formulation,
+> Animal Welfare Laws, 300+ MCQs, Mock Tests
+> Visit: premium.html
+
+---
+
+## 5. સામાન્ય જ્ઞાન (Free)
+- ગુજરાત: India's largest milk producing state (Amul: Anand)
+- White Revolution: Operation Flood — Dr. Verghese Kurien
+- NDDB: National Dairy Development Board, Anand
+- World Veterinary Day: Last Saturday of April
+- Livestock Census (20th): 2019
+
+---
+
+*SMC Live Stock Inspector Exam 2026*
