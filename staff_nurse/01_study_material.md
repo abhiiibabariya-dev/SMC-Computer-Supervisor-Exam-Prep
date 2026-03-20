@@ -1,198 +1,260 @@
-# Staff Nurse — Study Material (અભ્યાસ સામગ્રી)
-## SMC Recruitment 2026 — Complete Study Guide
-
-> **Exam Pattern**: 100 MCQs | 120 Minutes | -0.25 Negative Marking
-> **Subjects**: Nursing Fundamentals, Medical-Surgical Nursing, OBG Nursing, Pediatric Nursing, Community Health Nursing, General Knowledge
+# સ્ટાફ નર્સ — અભ્યાસ સામગ્રી | Staff Nurse — Study Material
+## SMC ભરતી 2026 | 150 જગ્યાઓ | Pay: ₹39,900 - 1,26,600
 
 ---
 
-## Nursing Fundamentals (નર્સિંગ ફંડામેન્ટલ્સ)
+## 🔓 Free Section / મફત વિભાગ
 
-### Vital Signs (મહત્વપૂર્ણ ચિહ્નો)
-| Parameter | Normal Range | Method |
-|-----------|-------------|--------|
-| Temperature | 98.6°F (37°C) | Oral, Axillary, Rectal, Tympanic |
-| Pulse | 60-100/min | Radial, Carotid, Apical |
-| Respiration | 12-20/min | Observation |
-| Blood Pressure | 120/80 mmHg | Auscultatory method |
-| SpO2 | 95-100% | Pulse oximetry |
+## 1. નર્સિંગ ફંડામેન્ટલ્સ | Nursing Fundamentals
 
-### Nursing Process (નર્સિંગ પ્રક્રિયા)
-1. **Assessment** — Collecting data (subjective & objective)
-2. **Nursing Diagnosis** — Identifying patient problems (NANDA)
-3. **Planning** — Setting goals, expected outcomes
-4. **Implementation** — Carrying out interventions
-5. **Evaluation** — Determining if goals are met
+### 1.1 મહત્વપૂર્ણ ચિહ્નો (Vital Signs)
+| પેરામીટર (Parameter) | સામાન્ય મૂલ્ય (Normal Value) | માપવાની રીત |
+|---|---|---|
+| તાપમાન (Temperature) | 98.6°F / 37°C | મોઢાથી, બગલથી, ગુદાથી |
+| નાડી (Pulse) | 60-100/મિનિટ | રેડિયલ, કેરોટિડ, એપિકલ |
+| શ્વસન (Respiration) | 12-20/મિનિટ | અવલોકન (Observation) |
+| રક્તદબાણ (Blood Pressure) | 120/80 mmHg | સ્ટેથોસ્કોપ + BP cuff |
+| SpO2 | 95-100% | પલ્સ ઓક્સિમીટર |
 
-### Routes of Drug Administration
-- **Oral**: Most common, convenient. Contraindicated in vomiting, unconscious patients
-- **Sublingual**: Under tongue. Nitroglycerin for angina. Fast absorption
-- **IM Injection Sites**: Deltoid, Vastus lateralis, Ventrogluteal, Dorsogluteal
-- **IV**: Fastest route. Used for emergencies, large volume fluids
-- **SC**: Insulin, Heparin. 45-90 degree angle
-- **Intradermal**: Mantoux test. 15 degree angle. Forearm
+### 1.2 નર્સિંગ પ્રક્રિયા (Nursing Process) — 5 પગલાં
+1. **મૂલ્યાંકન (Assessment)** — દર્દીની માહિતી એકત્ર કરવી (Subjective + Objective data)
+2. **નર્સિંગ નિદાન (Nursing Diagnosis)** — સમસ્યા ઓળખવી (NANDA format)
+3. **આયોજન (Planning)** — લક્ષ્ય નક્કી કરવા, કાર્ય યોજના બનાવવી
+4. **અમલીકરણ (Implementation)** — નર્સિંગ કાર્યવાહી કરવી
+5. **મૂલ્યાંકન (Evaluation)** — લક્ષ્ય પ્રાપ્ત થયું કે નહીં તે ચકાસવું
 
-### Infection Control (ચેપ નિયંત્રણ)
-- **Hand Hygiene**: 7 steps, 20-40 seconds with soap, 20-30 seconds with alcohol rub
-- **PPE**: Gloves, Gown, Mask, Eye protection. Don in order, remove in reverse
-- **Sterilization**: Autoclave (121°C, 15 psi, 15 min), Hot air oven (170°C, 1 hour)
-- **Biomedical Waste**: Yellow (infectious), Red (recyclable), Blue (glass), White (sharps)
+### 1.3 દર્દીની સ્થિતિઓ (Patient Positions)
+| સ્થિતિ (Position) | વર્ણન | ક્યારે વાપરવી |
+|---|---|---|
+| ફાઉલર્સ (Fowler's) | 45-60° બેસાડવું | શ્વાસ તકલીફ, ખાવું-પીવું |
+| ટ્રેન્ડેલનબર્ગ (Trendelenburg) | માથું નીચે, પગ ઊંચા | શોક (Shock), લો BP |
+| સિમ્સ (Sims) | ડાબી બાજુ સૂવું | એનિમા, ગુદા તપાસ |
+| લિથોટોમી (Lithotomy) | પીઠ પર, પગ ઊંચા | યોનિ/ગુદા પરીક્ષા |
+| પ્રોન (Prone) | ઊંધા સૂવું | કરોડરજ્જુ, પીઠ ઓપરેશન |
+| સુપાઈન (Supine) | સીધા ચત્તા સૂવું | સામાન્ય તપાસ |
 
-## Medical-Surgical Nursing (મેડિકલ-સર્જિકલ નર્સિંગ)
+### 1.4 ઈન્જેક્શન સાઈટ્સ (Injection Sites)
+| પ્રકાર | જગ્યા (Site) | કોણ (Angle) | ઉદાહરણ |
+|---|---|---|---|
+| IM (ઈન્ટ્રામસ્ક્યુલર) | ડેલ્ટોઈડ, વેન્ટ્રોગ્લુટીયલ | 90° | રસી, એન્ટીબાયોટિક |
+| SC (સબક્યુટેનિયસ) | પેટ, હાથ ઉપર | 45-90° | ઈન્સ્યુલિન, હેપરિન |
+| ID (ઈન્ટ્રાડર્મલ) | હાથનો અંદરનો ભાગ | 15° | મેન્ટુક્સ ટેસ્ટ (TB) |
+| IV (ઈન્ટ્રાવેનસ) | નસ (Vein) | 15-25° | IV fluid, દવા |
 
-### Pre-operative Care
-- NPO 6-8 hours before surgery
-- Informed consent, baseline vitals
-- Skin preparation, removal of jewelry/dentures
-- Pre-medication as ordered
-- Check patient ID band, surgical site marking
+### 1.5 ચેપ નિયંત્રણ (Infection Control)
 
-### Post-operative Care
-- Airway management, vital signs q15min → q30min → q1hr
-- Pain assessment using 0-10 scale
-- Monitor intake-output, drain output
-- Incentive spirometry, early ambulation
-- Watch for complications: hemorrhage, infection, DVT, atelectasis
+#### હાથ ધોવાના 7 પગલાં (WHO Hand Hygiene — 7 Steps)
+1. **પામ ટુ પામ** — બંને હથેળી ઘસો
+2. **જમણો હાથ ડાબા ઉપર** — આંગળીઓ વચ્ચે
+3. **પામ ટુ પામ, આંગળીઓ વચ્ચે** — fingers interlaced
+4. **આંગળીઓ પાછળ** — backs of fingers
+5. **અંગૂઠો ઘસો** — rotational rubbing of thumb
+6. **આંગળીના ટોચ** — tips of fingers in palm
+7. **કાંડા ઘસો** — wrists
 
-### Emergency Nursing
-- **CPR**: C-A-B approach. 30:2 ratio. Rate 100-120/min. Depth 2-2.4 inches
-- **Shock**: Hypovolemic, Cardiogenic, Septic, Anaphylactic, Neurogenic
-- **Burns**: Rule of 9s. Parkland formula. Wound care. Pain management
-- **Poisoning**: Gastric lavage (within 1 hour), Activated charcoal, Antidotes
+⏱️ **સમય**: સાબુથી 40-60 સેકન્ડ | Alcohol rub: 20-30 સેકન્ડ
 
-## OBG Nursing (પ્રસૂતિ નર્સિંગ)
-### Antenatal Care
-- First visit: Complete history, examination, investigations
-- Monthly visits till 28 weeks, fortnightly till 36 weeks, weekly till delivery
-- TT vaccination: TT1 early pregnancy, TT2 after 4 weeks
-- Iron & Folic acid supplementation throughout pregnancy
-- Danger signs: Bleeding PV, severe headache, blurred vision, reduced fetal movements
+#### બાયોમેડિકલ વેસ્ટ (Biomedical Waste Management)
+| રંગ (Color) | શું નાખવું | ઉદાહરણ |
+|---|---|---|
+| 🟡 પીળો (Yellow) | ચેપી, શરીરના ભાગો | રૂ, ડ્રેસિંગ, પ્લેસેન્ટા |
+| 🔴 લાલ (Red) | રિસાયકલ | ટ્યુબ, કેથેટર, IV set |
+| 🔵 વાદળી (Blue) | કાચ | શીશી, એમ્પ્યુલ |
+| ⬜ સફેદ (White) | તીક્ષ્ણ (Sharps) | સોય, બ્લેડ, સિરિંજ |
 
-### Stages of Labor
-| Stage | Duration (Primi) | Duration (Multi) | Events |
-|-------|-----------------|-------------------|--------|
-| First | 12-16 hours | 6-8 hours | Cervical dilatation 0-10 cm |
-| Second | 1-2 hours | 30 min-1 hour | Delivery of baby |
-| Third | 15-30 minutes | 15-30 minutes | Delivery of placenta |
-| Fourth | 1-2 hours | 1-2 hours | Observation period |
-
-## Community Health Nursing (સમુદાય આરોગ્ય નર્સિંગ)
-### National Health Programs
-- **Janani Suraksha Yojana**: Cash incentive for institutional delivery
-- **ICDS**: Supplementary nutrition, immunization, health education for children 0-6 years
-- **RBSK**: Screening of children 0-18 years for 4Ds (Defects, Diseases, Deficiencies, Disability)
-- **NHM**: Umbrella program for NRHM + NUHM
-- **Ayushman Bharat**: Health insurance Rs.5 lakh/family/year
-
-## Nursing Fundamentals
-
-### Key Concepts in Nursing Fundamentals
-- Study the fundamental principles of Nursing Fundamentals
-- Practice problems and case studies related to Nursing Fundamentals
-- Review previous year questions on Nursing Fundamentals
-- Focus on practical applications in municipal corporation context
-
-
-## Medical-Surgical Nursing
-
-### Key Concepts in Medical-Surgical Nursing
-- Study the fundamental principles of Medical-Surgical Nursing
-- Practice problems and case studies related to Medical-Surgical Nursing
-- Review previous year questions on Medical-Surgical Nursing
-- Focus on practical applications in municipal corporation context
-
-
-## OBG Nursing
-
-### Key Concepts in OBG Nursing
-- Study the fundamental principles of OBG Nursing
-- Practice problems and case studies related to OBG Nursing
-- Review previous year questions on OBG Nursing
-- Focus on practical applications in municipal corporation context
-
-
-## Pediatric Nursing
-
-### Key Concepts in Pediatric Nursing
-- Study the fundamental principles of Pediatric Nursing
-- Practice problems and case studies related to Pediatric Nursing
-- Review previous year questions on Pediatric Nursing
-- Focus on practical applications in municipal corporation context
-
-
-## Community Health Nursing
-
-### Key Concepts in Community Health Nursing
-- Study the fundamental principles of Community Health Nursing
-- Practice problems and case studies related to Community Health Nursing
-- Review previous year questions on Community Health Nursing
-- Focus on practical applications in municipal corporation context
-
-
-## General Knowledge
-
-### Gujarat & Surat Knowledge (ગુજરાત અને સુરત)
-- **Gujarat Formation**: 1 May 1960 from former Bombay State
-- **Capital**: Gandhinagar | **Largest City**: Ahmedabad
-- **Gujarat CM**: Bhupendra Patel | **Governor**: Acharya Devvrat
-- **Surat**: Diamond City of India, Silk City, located on Tapi River
-- **SMC**: Surat Municipal Corporation, established 1966
-- **Surat Population**: ~60 lakh (2026 est.) | **Area**: 326.515 sq km
-- **Districts in Gujarat**: 33 | **Surat District Talukas**: 10
-
-### Indian Constitution (ભારતીય બંધારણ)
-- **Part III**: Fundamental Rights (Article 12-35)
-- **Part IV**: Directive Principles of State Policy (Article 36-51)
-- **Article 21**: Right to Life and Personal Liberty
-- **73rd Amendment**: Panchayati Raj | **74th Amendment**: Municipalities
-- **Article 243Q-243ZG**: Municipalities provisions
-
-### Current Affairs 2025-2026
-- India's G20 Presidency legacy programs continuing
-- Digital India initiatives: UPI transactions crossed 10 billion/month
-- Smart City Mission progress in Surat
-- Chandrayaan-3 success - India 4th country to land on Moon
-- Gujarat Semicon City project in Dholera
-
-### Indian History (ભારતનો ઈતિહાસ)
-- **1857**: First War of Independence
-- **1885**: Indian National Congress founded
-- **1905**: Partition of Bengal | **1919**: Jallianwala Bagh
-- **1930**: Salt March by Gandhi | **1942**: Quit India Movement
-- **1947**: Indian Independence | **1950**: Constitution came into force
-
+#### વંધ્યીકરણ (Sterilization Methods)
+| પદ્ધતિ | તાપમાન/સમય | શું વંધ્ય કરવું |
+|---|---|---|
+| ઓટોક્લેવ (Autoclave) | 121°C, 15 psi, 15 min | સર્જિકલ ઉપકરણો |
+| હોટ એર ઓવન | 170°C, 1 hour | કાચનાં સાધનો |
+| બોઈલિંગ | 100°C, 20 min | સાદા સાધનો |
+| કેમિકલ | ગ્લુટરાલ્ડીહાઈડ 2% | એન્ડોસ્કોપ |
 
 ---
 
-## Exam Preparation Strategy (પરીક્ષા તૈયારી વ્યૂહરચના)
+## 2. મેડિકલ-સર્જિકલ નર્સિંગ | Medical-Surgical Nursing
 
-### Daily Study Plan
-| Time | Activity |
-|------|----------|
-| 6:00 - 8:00 AM | Subject-specific study |
-| 8:00 - 9:00 AM | Current Affairs & Newspaper |
-| 9:00 - 11:00 AM | MCQ Practice |
-| 2:00 - 4:00 PM | Revision & Notes |
-| 4:00 - 5:00 PM | Mock Test |
-| 8:00 - 9:00 PM | GK & Quick Revision |
+### 2.1 ઓપરેશન પહેલાંની સંભાળ (Pre-operative Care)
+- NPO (Nothing Per Oral) — 6-8 કલાક ખાવા-પીવાનું બંધ
+- Informed Consent — દર્દી/સગાની સંમતિ લેવી
+- Baseline Vitals — BP, Pulse, Temperature, SpO2 નોંધવા
+- ચામડીની તૈયારી (Skin preparation) — ઓપરેશનની જગ્યાએ
+- ઘરેણાં, દાંત, નેઈલ પોલિશ કાઢવા
 
-### Important Books & Resources
-1. Gujarat Government official publications
-2. Lucent's General Knowledge
-3. Previous year papers of similar exams (GPSC, GSSSB)
-4. Subject-specific textbooks as per syllabus
-5. Daily newspapers (Gujarat Samachar, Divya Bhaskar)
-6. SMC official website for updates
+### 2.2 ઓપરેશન પછીની સંભાળ (Post-operative Care)
+- **Airway management** — શ્વાસનળી ખુલ્લી રાખો
+- **Vitals monitoring** — દર 15 min → 30 min → 1 hr
+- **Pain assessment** — 0-10 પેઈન સ્કેલ
+- **I/O chart** — Intake-Output નોંધ
+- **ડ્રેઈન ચકાસો** — Ryle's tube, Foley's catheter output
+- **ગૂંચવણો (Complications)**: Hemorrhage, Infection, DVT, Atelectasis
 
-### Last Month Strategy
-- Focus on revision, not new topics
-- Solve at least 2 mock tests daily
-- Review mistakes and weak areas
-- Practice time management
-- Stay updated with current affairs
-- Keep documents ready for verification
+### 2.3 ગ્લાસ્ગો કોમા સ્કેલ (GCS)
+| ઘટક | શ્રેષ્ઠ (Best) | ખરાબ (Worst) |
+|---|---|---|
+| આંખ ખોલવી (Eye) | 4 (સ્વયંભૂ) | 1 (ન ખોલે) |
+| બોલવું (Verbal) | 5 (સ્પષ્ટ) | 1 (ન બોલે) |
+| હલનચલન (Motor) | 6 (આદેશ માને) | 1 (કોઈ હલનચલન નહીં) |
+| **કુલ** | **15 (Normal)** | **3 (Deep coma)** |
+
+GCS < 8 = Severe → Intubation જરૂરી
+
+### 2.4 CPR (કાર્ડિયોપલ્મોનરી રિસસિટેશન)
+**C-A-B અનુક્રમ:**
+- **C (Compression)**: છાતીના મધ્યમાં 30 વખત દબાવો
+  - ઊંડાઈ: 5-6 cm | ઝડપ: 100-120/min
+- **A (Airway)**: માથું પાછળ, દાઢી ઊંચી (Head tilt-Chin lift)
+- **B (Breathing)**: 2 rescue breaths (મોંથી મોં)
+- **ગુણોત્તર**: 30:2 (30 compressions : 2 breaths)
+- AED (Automated External Defibrillator) વાપરો જો ઉપલબ્ધ હોય
+
+### 2.5 શોક (Shock) — આઘાત
+| પ્રકાર | કારણ | સારવાર |
+|---|---|---|
+| Hypovolemic (રક્તસ્ત્રાવ) | લોહી/પ્રવાહી ઘટવું | IV fluids, blood |
+| Cardiogenic (હૃદયજન્ય) | હૃદય નબળું | Inotropes, IABP |
+| Septic (ચેપી) | ગંભીર ચેપ | Antibiotics, fluids |
+| Anaphylactic (એલર્જી) | તીવ્ર એલર્જી | Adrenaline 0.5mg IM |
+| Neurogenic | કરોડરજ્જુ ઈજા | Vasopressors |
 
 ---
 
-*Study material prepared for SMC Staff Nurse Exam 2026*
-*Visit: https://www.suratmunicipal.gov.in for official updates*
+## 3. પ્રસૂતિ નર્સિંગ (OBG Nursing)
+
+### 3.1 સગર્ભાવસ્થા (Pregnancy) — સામાન્ય અવધિ: 40 અઠવાડિયા / 280 દિવસ
+
+#### ANC (Antenatal Care) — સગર્ભા સંભાળ ખરીદ
+| સમયગાળો | મુલાકાત | તપાસ |
+|---|---|---|
+| 12 અઠવાડિયા સુધી | પહેલી | Hb, Blood group, HIV, HBsAg, Urine |
+| 28 અઠવાડિયા સુધી | માસિક | BP, Weight, Fundal height |
+| 36 અઠવાડિયા સુધી | 15 દિવસે | FHR, Presentation, Edema |
+| 40 અઠવાડિયા સુધી | સાપ્તાહિક | NST, Bishop Score |
+
+#### ખતરાના ચિહ્નો (Danger Signs in Pregnancy)
+⚠️ **તરત હોસ્પિટલ જાવ જો:**
+- યોનિમાર્ગે રક્તસ્ત્રાવ (Bleeding PV)
+- તીવ્ર માથાનો દુખાવો (Severe Headache)
+- ધૂંધળી દ્રષ્ટિ (Blurred Vision)
+- ચહેરા/હાથમાં સોજો (Edema)
+- બાળકની હલનચલન ઓછી (Decreased Fetal Movement)
+- પાણી આવવું (Leaking PV)
+
+### 3.2 પ્રસૂતિના તબક્કા (Stages of Labor)
+| તબક્કો | સમય (Primi) | સમય (Multi) | ઘટના |
+|---|---|---|---|
+| પ્રથમ (1st) | 12-16 કલાક | 6-8 કલાક | ગર્ભાશય મુખ 0-10 cm ખુલે |
+| બીજો (2nd) | 1-2 કલાક | 30 min-1 hr | બાળકનો જન્મ |
+| ત્રીજો (3rd) | 15-30 min | 15-30 min | પ્લેસેન્ટા બહાર |
+| ચોથો (4th) | 1-2 કલાક | 1-2 કલાક | અવલોકન (Observation) |
+
+### 3.3 APGAR Score — નવજાત શિશુ મૂલ્યાંકન (1 અને 5 મિનિટે)
+| ઘટક | 0 | 1 | 2 |
+|---|---|---|---|
+| A - Appearance (રંગ) | વાદળી/નિસ્તેજ | ગુલાબી શરીર, વાદળી હાથ-પગ | સંપૂર્ણ ગુલાબી |
+| P - Pulse (નાડી) | 0 | <100/min | >100/min |
+| G - Grimace (પ્રતિક્રિયા) | કોઈ નહીં | મોં બગાડે | રડે/ખાંસે |
+| A - Activity (હલનચલન) | લથડિયું | થોડું વળાંક | સક્રિય |
+| R - Respiration (શ્વાસ) | 0 | ધીમું/અનિયમિત | જોરથી રડે |
+
+**Score**: 7-10 = Normal | 4-6 = Moderate | 0-3 = Severe (Resuscitation)
+
+### 3.4 સ્તનપાન (Breastfeeding)
+- **Colostrum (કોલોસ્ટ્રમ)**: પ્રથમ પીળું દૂધ, IgA antibodies ભરપૂર
+- જન્મ પછી **1 કલાકમાં** સ્તનપાન શરૂ કરવું
+- **Exclusive breastfeeding**: 6 મહિના સુધી ફક્ત માતાનું દૂધ
+- **Oxytocin**: દૂધ બહાર કાઢવાનો hormone (let-down reflex)
+- **Prolactin**: દૂધ બનાવવાનો hormone
+
+---
+
+## 4. બાળ નર્સિંગ (Pediatric Nursing)
+
+### 4.1 રાષ્ટ્રીય રસીકરણ અનુસૂચિ (National Immunization Schedule)
+| ઉંમર | રસી (Vaccine) | રોગ |
+|---|---|---|
+| જન્મ | BCG, OPV-0, Hep B-0 | TB, Polio, Hepatitis B |
+| 6 અઠવાડિયા | OPV-1, Penta-1, Rota-1, fIPV-1, PCV-1 | Polio, DPT, HepB, Hib, Rotavirus |
+| 10 અઠવાડિયા | OPV-2, Penta-2, Rota-2 | same |
+| 14 અઠવાડિયા | OPV-3, Penta-3, Rota-3, fIPV-2, PCV-2 | same |
+| 9 મહિના | MR-1, JE-1, PCV Booster | Measles, Rubella, Japanese Encephalitis |
+| 16-24 મહિના | DPT Booster-1, MR-2, OPV Booster, JE-2 | DPT, Measles, Polio |
+| 5-6 વર્ષ | DPT Booster-2 | DPT |
+| 10 વર્ષ | TT | Tetanus |
+| 16 વર્ષ | TT | Tetanus |
+
+### 4.2 ORS (ઓરલ રિહાઈડ્રેશન સોલ્ટ) — ઘરે બનાવવાની રીત
+- 1 લિટર ઉકાળેલું ઠંડું પાણી
+- 6 ચમચી ખાંડ (Sugar)
+- અડધી ચમચી મીઠું (Salt)
+- સારી રીતે ભેળવો, 24 કલાકમાં વાપરો
+
+---
+
+## 5. સમુદાય આરોગ્ય નર્સિંગ (Community Health Nursing)
+
+### 5.1 રાષ્ટ્રીય આરોગ્ય કાર્યક્રમો (National Health Programs)
+| કાર્યક્રમ | રોગ/ક્ષેત્ર | મુખ્ય વિશેષતા |
+|---|---|---|
+| NHM | સમગ્ર આરોગ્ય | NRHM + NUHM |
+| NTEP (RNTCP) | ટીબી (TB) | Ni-kshay portal, DOTS |
+| NVBDCP | મેલેરિયા, ડેંગ્યુ | જંતુ નિયંત્રણ |
+| NACP | HIV/AIDS | ART, ICTC |
+| UIP | રસીથી રોકી શકાય તેવા રોગો | BCG, OPV, DPT, MR |
+| RBSK | 0-18 વર્ષ બાળકો | 4D: Defects, Diseases, Deficiencies, Disability |
+| NPCDCS | NCDs | ડાયાબિટીસ, BP, કેન્સર |
+| JSSK | સગર્ભા + નવજાત | મફત ડિલિવરી + દવા |
+| JSY | સંસ્થાકીય ડિલિવરી | રોકડ પ્રોત્સાહન |
+
+### 5.2 મહત્વના આંકડા (Vital Statistics — India)
+| સૂચક | આંકડો |
+|---|---|
+| જન્મ દર (CBR) | 19.5/1000 |
+| મૃત્યુ દર (CDR) | 6.0/1000 |
+| શિશુ મૃત્યુ દર (IMR) | 28/1000 જીવિત જન્મ |
+| માતૃ મૃત્યુ ગુણોત્તર (MMR) | 97/1,00,000 |
+| કુલ ફળદ્રુપતા દર (TFR) | 2.0 |
+
+---
+
+## 🔒 Premium Section — Unlock for ₹49
+### આ વિભાગ પ્રીમિયમ છે | This section is Premium
+
+> **300+ વધુ MCQs, Advanced Study Notes, Mock Tests, Previous Papers**
+> **Unlock**: Visit premium page → Pay ₹49 → Get instant access
+> 
+> Premium content includes:
+> - Advanced Pharmacology for Nurses
+> - ICU/CCU Nursing procedures
+> - Detailed OBG case studies
+> - Community Health program details
+> - 300+ additional MCQs with explanations
+> - 2 Full Mock Tests (100 questions each)
+> - Previous year question analysis
+
+---
+
+## 6. સામાન્ય જ્ઞાન | General Knowledge (Free)
+
+### ગુજરાત (Gujarat)
+- સ્થાપના: 1 મે 1960 | રાજધાની: ગાંધીનગર | CM: ભૂપેન્દ્ર પટેલ
+- જિલ્લા: 33 | રાજ્ય પ્રાણી: એશિયાટિક સિંહ | ભાષા: ગુજરાતી
+
+### સુરત (Surat)
+- ઉપનામ: ડાયમંડ સિટી, સિલ્ક સિટી | નદી: તાપી
+- SMC સ્થાપના: 1966 | ઝોન: 8 | વોર્ડ: 29
+
+### ભારતીય બંધારણ
+- અનુચ્છેદ 21: જીવનનો અધિકાર (Right to Life)
+- અનુચ્છેદ 21A: શિક્ષણનો અધિકાર (6-14 વર્ષ)
+- અનુચ્છેદ 243Q: નગરપાલિકાઓ
+
+### WHO / INC
+- WHO: જિનેવા, 7 એપ્રિલ 1948
+- ICN (International Council of Nurses): 1899
+- INC (Indian Nursing Council): 1947
+- નર્સ દિવસ: 12 મે (Florence Nightingale birthday)
+
+---
+
+*SMC સ્ટાફ નર્સ પરીક્ષા 2026 માટે | For SMC Staff Nurse Exam 2026*

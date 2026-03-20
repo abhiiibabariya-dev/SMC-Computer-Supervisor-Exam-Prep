@@ -1,120 +1,154 @@
-# Assistant Engineer (Civil) — Study Material (અભ્યાસ સામગ્રી)
-## SMC Recruitment 2026 — Complete Study Guide
-
-> **Exam Pattern**: 100 MCQs | 120 Minutes | -0.25 Negative Marking
-> **Subjects**: Building Construction, Surveying, Estimation & Costing, RCC Design, Soil Mechanics, General Knowledge
+# આસિસ્ટન્ટ ઈજનેર (સિવિલ) — અભ્યાસ સામગ્રી
+# Assistant Engineer (Civil) — Study Material
+## SMC ભરતી 2026 | 52 જગ્યાઓ | Pay: ₹39,900 - 1,26,600
 
 ---
 
-## Building Construction
+## 🔓 Free Section
 
-### Key Concepts in Building Construction
-- Study the fundamental principles of Building Construction
-- Practice problems and case studies related to Building Construction
-- Review previous year questions on Building Construction
-- Focus on practical applications in municipal corporation context
+## 1. મકાન બાંધકામ | Building Construction
 
+### 1.1 બાંધકામ ક્રમ (Construction Sequence)
+1. **Site clearing** — જગ્યા સાફ, સમતલ
+2. **Setting out** — Layout marking
+3. **Excavation** — ખોદકામ (Foundation trench)
+4. **PCC** — Plain Cement Concrete (1:4:8 or 1:3:6)
+5. **Foundation** — પાયો (Footing + Pedestal)
+6. **Plinth beam** — DPC level
+7. **Superstructure** — Column, Beam, Slab
+8. **Brick masonry** — ઈંટ ચણતર (wall)
+9. **Lintel** — બારી-દરવાજા ઉપર
+10. **Roof slab** — છત
+11. **Plastering** — પ્લાસ્ટર (12-20mm)
+12. **Flooring** — ફ્લોરિંગ
+13. **Finishing** — રંગ, ટાઈલ, પોલિશ
 
-## Surveying
+### 1.2 IS Codes (ભારતીય ધોરણ)
+| IS Code | વિષય |
+|---|---|
+| IS 456:2000 | Plain & Reinforced Concrete |
+| IS 800:2007 | Steel Structures |
+| IS 1893:2016 | Earthquake Resistant Design |
+| IS 383:2016 | Aggregates for Concrete |
+| IS 516 | Concrete Testing |
+| IS 269 | OPC Cement |
+| IS 1077 | Bricks |
+| IS 2386 | Aggregate Testing |
+| IS 10262 | Concrete Mix Design |
 
-### Key Concepts in Surveying
-- Study the fundamental principles of Surveying
-- Practice problems and case studies related to Surveying
-- Review previous year questions on Surveying
-- Focus on practical applications in municipal corporation context
+### 1.3 Cement (સિમેન્ટ)
+| પ્રકાર | ઉપયોગ |
+|---|---|
+| OPC 33 | General purpose |
+| OPC 43 | RCC work (સૌથી વધુ વપરાય) |
+| OPC 53 | High strength, Prestressed |
+| PPC | Marine, Mass concrete |
+| SRC | Sulphate resistance |
 
-
-## Estimation & Costing
-
-### Key Concepts in Estimation & Costing
-- Study the fundamental principles of Estimation & Costing
-- Practice problems and case studies related to Estimation & Costing
-- Review previous year questions on Estimation & Costing
-- Focus on practical applications in municipal corporation context
-
-
-## RCC Design
-
-### Key Concepts in RCC Design
-- Study the fundamental principles of RCC Design
-- Practice problems and case studies related to RCC Design
-- Review previous year questions on RCC Design
-- Focus on practical applications in municipal corporation context
-
-
-## Soil Mechanics
-
-### Key Concepts in Soil Mechanics
-- Study the fundamental principles of Soil Mechanics
-- Practice problems and case studies related to Soil Mechanics
-- Review previous year questions on Soil Mechanics
-- Focus on practical applications in municipal corporation context
-
-
-## General Knowledge
-
-### Gujarat & Surat Knowledge (ગુજરાત અને સુરત)
-- **Gujarat Formation**: 1 May 1960 from former Bombay State
-- **Capital**: Gandhinagar | **Largest City**: Ahmedabad
-- **Gujarat CM**: Bhupendra Patel | **Governor**: Acharya Devvrat
-- **Surat**: Diamond City of India, Silk City, located on Tapi River
-- **SMC**: Surat Municipal Corporation, established 1966
-- **Surat Population**: ~60 lakh (2026 est.) | **Area**: 326.515 sq km
-- **Districts in Gujarat**: 33 | **Surat District Talukas**: 10
-
-### Indian Constitution (ભારતીય બંધારણ)
-- **Part III**: Fundamental Rights (Article 12-35)
-- **Part IV**: Directive Principles of State Policy (Article 36-51)
-- **Article 21**: Right to Life and Personal Liberty
-- **73rd Amendment**: Panchayati Raj | **74th Amendment**: Municipalities
-- **Article 243Q-243ZG**: Municipalities provisions
-
-### Current Affairs 2025-2026
-- India's G20 Presidency legacy programs continuing
-- Digital India initiatives: UPI transactions crossed 10 billion/month
-- Smart City Mission progress in Surat
-- Chandrayaan-3 success - India 4th country to land on Moon
-- Gujarat Semicon City project in Dholera
-
-### Indian History (ભારતનો ઈતિહાસ)
-- **1857**: First War of Independence
-- **1885**: Indian National Congress founded
-- **1905**: Partition of Bengal | **1919**: Jallianwala Bagh
-- **1930**: Salt March by Gandhi | **1942**: Quit India Movement
-- **1947**: Indian Independence | **1950**: Constitution came into force
-
+**Setting time**: Initial ≥ 30 min | Final ≤ 600 min (10 hrs)
+**Specific gravity**: 3.15
+**Fineness**: >225 m²/kg (Blaine)
 
 ---
 
-## Exam Preparation Strategy (પરીક્ષા તૈયારી વ્યૂહરચના)
+## 2. RCC Design | RCC ડિઝાઈન
 
-### Daily Study Plan
-| Time | Activity |
-|------|----------|
-| 6:00 - 8:00 AM | Subject-specific study |
-| 8:00 - 9:00 AM | Current Affairs & Newspaper |
-| 9:00 - 11:00 AM | MCQ Practice |
-| 2:00 - 4:00 PM | Revision & Notes |
-| 4:00 - 5:00 PM | Mock Test |
-| 8:00 - 9:00 PM | GK & Quick Revision |
+### 2.1 Design Methods
+| Method | IS Code | ઉપયોગ |
+|---|---|---|
+| Working Stress Method (WSM) | IS 456 | જૂની પદ્ધતિ |
+| Limit State Method (LSM) | IS 456 | Modern (ભલામણ) |
 
-### Important Books & Resources
-1. Gujarat Government official publications
-2. Lucent's General Knowledge
-3. Previous year papers of similar exams (GPSC, GSSSB)
-4. Subject-specific textbooks as per syllabus
-5. Daily newspapers (Gujarat Samachar, Divya Bhaskar)
-6. SMC official website for updates
+### 2.2 RCC Components
+| ઘટક | Steel position | Cover |
+|---|---|---|
+| Slab (છત) | Bottom (tension side) | 15-20 mm |
+| Beam (બીમ) | Bottom + Stirrups | 25 mm |
+| Column (થાંભલો) | Vertical bars + Ties | 40 mm |
+| Footing (પાયો) | Bottom both ways | 50 mm |
 
-### Last Month Strategy
-- Focus on revision, not new topics
-- Solve at least 2 mock tests daily
-- Review mistakes and weak areas
-- Practice time management
-- Stay updated with current affairs
-- Keep documents ready for verification
+### 2.3 Steel Reinforcement
+- **Grade**: Fe415 (HYSD) / Fe500 (TMT) — most common
+- **Lap length**: 40d-50d (d = bar diameter)
+- **Development length**: Ld = 0.87fy × d / (4τbd)
+- **Minimum steel in slab**: 0.12% (HYSD) / 0.15% (mild steel)
+- **Maximum steel in column**: 6% of cross-section
 
 ---
 
-*Study material prepared for SMC Assistant Engineer (Civil) Exam 2026*
-*Visit: https://www.suratmunicipal.gov.in for official updates*
+## 3. Surveying | સર્વેક્ષણ
+
+### 3.1 Types of Survey
+| પ્રકાર | સાધન | ચોકસાઈ |
+|---|---|---|
+| Chain Survey | Chain, Tape | Low |
+| Compass Survey | Prismatic Compass | Medium |
+| Plane Table | Alidade, Drawing board | Medium |
+| Theodolite Survey | Theodolite | High |
+| Total Station | Total Station | Very High |
+| GPS Survey | GPS receiver | Very High |
+
+### 3.2 Contour Lines
+- **Close contours** = Steep slope (ઊભો ઢોળાવ)
+- **Wide contours** = Flat terrain (સમતલ)
+- **V-shape pointing uphill** = Valley (ખીણ)
+- **V-shape pointing downhill** = Ridge (ટેકરી)
+- Contour lines never cross (except overhang/cave)
+
+---
+
+## 4. Estimation & Costing | અંદાજ અને ખર્ચ
+
+### 4.1 Types of Estimates
+| પ્રકાર | ચોકસાઈ | ક્યારે |
+|---|---|---|
+| Preliminary | ±25% | Planning stage |
+| Plinth Area | ±15% | Building cost |
+| Detailed (BOQ) | ±5% | Tender, Execution |
+| Revised | Actual | During construction |
+
+### 4.2 Rate Analysis
+**Rate = Material cost + Labour cost + Overhead + Profit**
+
+Example: 1 m³ Concrete (M20 — 1:1.5:3)
+| Item | Quantity | Rate | Amount |
+|---|---|---|---|
+| Cement | 8 bags | ₹350 | ₹2,800 |
+| Sand | 0.45 m³ | ₹1,500 | ₹675 |
+| Aggregate | 0.9 m³ | ₹1,200 | ₹1,080 |
+| Water | 180 L | — | ₹50 |
+| Labour | — | — | ₹800 |
+| **Total** | | | **₹5,405/m³** |
+
+---
+
+## 5. Soil Mechanics | ભૂ-મિકેનિક્સ
+
+### 5.1 Soil Types
+| માટીનો પ્રકાર | ક્ષમતા (kN/m²) | ગુણધર્મ |
+|---|---|---|
+| Hard Rock | 3000+ | સૌથી મજબૂત |
+| Soft Rock | 1000-1500 | મજબૂત |
+| Gravel (કાંકરી) | 400-500 | સારી bearing |
+| Sand (રેતી) | 100-300 | Drainage સારી |
+| Clay (ચીકણી) | 50-200 | Swelling/shrinkage |
+| Soft Clay | <50 | Pile foundation જરૂરી |
+
+### 5.2 Important Tests
+| Test | શું માપે |
+|---|---|
+| CBR (California Bearing Ratio) | Road subgrade strength |
+| Standard Proctor | Optimum Moisture Content, Max Dry Density |
+| Plate Load Test | Bearing capacity |
+| Atterberg Limits | LL, PL, PI of clay |
+| Sieve Analysis | Grain size distribution |
+
+---
+
+## 🔒 Premium — ₹49
+> Advanced Design, Highway Engg, Water Supply, Sewerage, QC, 300+ MCQs
+> Visit: premium.html
+
+---
+
+*SMC AE Civil Exam 2026*

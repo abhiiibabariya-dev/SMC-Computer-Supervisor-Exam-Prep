@@ -1,120 +1,94 @@
-# Fitter — Study Material (અભ્યાસ સામગ્રી)
-## SMC Recruitment 2026 — Complete Study Guide
-
-> **Exam Pattern**: 100 MCQs | 120 Minutes | -0.25 Negative Marking
-> **Subjects**: Fitting & Assembly, Engineering Drawing, Measurement & Gauging, Workshop Technology, Safety, General Knowledge
+# ફિટર — અભ્યાસ સામગ્રી | Fitter — Study Material
+## SMC ભરતી 2026 | 31 જગ્યાઓ | Pay: ₹21,700 - 69,100
 
 ---
 
-## Fitting & Assembly
+## 🔓 Free Section
 
-### Key Concepts in Fitting & Assembly
-- Study the fundamental principles of Fitting & Assembly
-- Practice problems and case studies related to Fitting & Assembly
-- Review previous year questions on Fitting & Assembly
-- Focus on practical applications in municipal corporation context
+## 1. ફિટિંગ અને એસેમ્બલી | Fitting & Assembly
 
+### 1.1 ફિટના પ્રકારો (Types of Fits)
+| ફિટ | વર્ણન | ઉદાહરણ |
+|---|---|---|
+| Clearance Fit | Shaft < Hole (ઢીલું) | Sliding door, Bearing |
+| Transition Fit | Shaft ≈ Hole | Keyway, Locating pins |
+| Interference Fit | Shaft > Hole (ચુસ્ત) | Press fit, Gear on shaft |
 
-## Engineering Drawing
+### 1.2 ફાઈલિંગ (Filing)
+| ફાઈલ પ્રકાર | ઉપયોગ | આકાર |
+|---|---|---|
+| Flat file | સપાટ સપાટી | ચપટી |
+| Half round | અંદરનો ભાગ | અર્ધ ગોળ |
+| Round file | ગોળ છિદ્ર | ગોળ |
+| Triangular | ખૂણા, 60° ગ્રુવ | ત્રિકોણ |
+| Square file | ચોરસ છિદ્ર | ચોરસ |
 
-### Key Concepts in Engineering Drawing
-- Study the fundamental principles of Engineering Drawing
-- Practice problems and case studies related to Engineering Drawing
-- Review previous year questions on Engineering Drawing
-- Focus on practical applications in municipal corporation context
+**Filing technique**: Forward stroke = Cutting | Return stroke = Lift slightly
 
+### 1.3 Threading
+| પ્રકાર | ઉપયોગ | ઓજાર |
+|---|---|---|
+| External thread | Bolt, Stud | Die + Die stock |
+| Internal thread | Nut, Hole | Tap + Tap wrench |
 
-## Measurement & Gauging
-
-### Key Concepts in Measurement & Gauging
-- Study the fundamental principles of Measurement & Gauging
-- Practice problems and case studies related to Measurement & Gauging
-- Review previous year questions on Measurement & Gauging
-- Focus on practical applications in municipal corporation context
-
-
-## Workshop Technology
-
-### Key Concepts in Workshop Technology
-- Study the fundamental principles of Workshop Technology
-- Practice problems and case studies related to Workshop Technology
-- Review previous year questions on Workshop Technology
-- Focus on practical applications in municipal corporation context
-
-
-## Safety
-
-### Key Concepts in Safety
-- Study the fundamental principles of Safety
-- Practice problems and case studies related to Safety
-- Review previous year questions on Safety
-- Focus on practical applications in municipal corporation context
-
-
-## General Knowledge
-
-### Gujarat & Surat Knowledge (ગુજરાત અને સુરત)
-- **Gujarat Formation**: 1 May 1960 from former Bombay State
-- **Capital**: Gandhinagar | **Largest City**: Ahmedabad
-- **Gujarat CM**: Bhupendra Patel | **Governor**: Acharya Devvrat
-- **Surat**: Diamond City of India, Silk City, located on Tapi River
-- **SMC**: Surat Municipal Corporation, established 1966
-- **Surat Population**: ~60 lakh (2026 est.) | **Area**: 326.515 sq km
-- **Districts in Gujarat**: 33 | **Surat District Talukas**: 10
-
-### Indian Constitution (ભારતીય બંધારણ)
-- **Part III**: Fundamental Rights (Article 12-35)
-- **Part IV**: Directive Principles of State Policy (Article 36-51)
-- **Article 21**: Right to Life and Personal Liberty
-- **73rd Amendment**: Panchayati Raj | **74th Amendment**: Municipalities
-- **Article 243Q-243ZG**: Municipalities provisions
-
-### Current Affairs 2025-2026
-- India's G20 Presidency legacy programs continuing
-- Digital India initiatives: UPI transactions crossed 10 billion/month
-- Smart City Mission progress in Surat
-- Chandrayaan-3 success - India 4th country to land on Moon
-- Gujarat Semicon City project in Dholera
-
-### Indian History (ભારતનો ઈતિહાસ)
-- **1857**: First War of Independence
-- **1885**: Indian National Congress founded
-- **1905**: Partition of Bengal | **1919**: Jallianwala Bagh
-- **1930**: Salt March by Gandhi | **1942**: Quit India Movement
-- **1947**: Indian Independence | **1950**: Constitution came into force
-
+**Thread types**: Metric (M8, M10, M12), BSW, BSP
+**Tap set**: Taper tap → Second tap → Bottom/Plug tap
 
 ---
 
-## Exam Preparation Strategy (પરીક્ષા તૈયારી વ્યૂહરચના)
+## 2. માપન | Measurement
 
-### Daily Study Plan
-| Time | Activity |
-|------|----------|
-| 6:00 - 8:00 AM | Subject-specific study |
-| 8:00 - 9:00 AM | Current Affairs & Newspaper |
-| 9:00 - 11:00 AM | MCQ Practice |
-| 2:00 - 4:00 PM | Revision & Notes |
-| 4:00 - 5:00 PM | Mock Test |
-| 8:00 - 9:00 PM | GK & Quick Revision |
+### 2.1 Vernier Caliper (વર્નિયર કેલિપર)
+- **Least Count**: 0.02 mm (50 divisions)
+- **Reading** = MSR + (VSR × LC)
+- **ઉપયોગ**: Outside, Inside, Depth measurement
+- **ગુજરાતી**: બહારનું, અંદરનું, ઊંડાઈનું માપ
 
-### Important Books & Resources
-1. Gujarat Government official publications
-2. Lucent's General Knowledge
-3. Previous year papers of similar exams (GPSC, GSSSB)
-4. Subject-specific textbooks as per syllabus
-5. Daily newspapers (Gujarat Samachar, Divya Bhaskar)
-6. SMC official website for updates
+### 2.2 Micrometer (માઈક્રોમીટર)
+- **Least Count**: 0.01 mm
+- **Reading** = Sleeve reading + Thimble reading
+- **ઉપયોગ**: Shaft diameter, Precise measurements
+- **Zero error** ચકાસો!
 
-### Last Month Strategy
-- Focus on revision, not new topics
-- Solve at least 2 mock tests daily
-- Review mistakes and weak areas
-- Practice time management
-- Stay updated with current affairs
-- Keep documents ready for verification
+### 2.3 Other Instruments
+| સાધન | Least Count | ઉપયોગ |
+|---|---|---|
+| Try Square | — | 90° ચકાસવા (Squareness) |
+| Surface Plate | — | Flatness reference |
+| Dial Gauge | 0.01 mm | Runout, Alignment |
+| Feeler Gauge | 0.05 mm | Gap/Clearance |
+| Radius Gauge | — | Radius checking |
+| Thread Pitch Gauge | — | Thread pitch |
 
 ---
 
-*Study material prepared for SMC Fitter Exam 2026*
-*Visit: https://www.suratmunicipal.gov.in for official updates*
+## 3. Workshop Safety | વર્કશોપ સલામતી
+
+### 3.1 PPE (Personal Protective Equipment)
+| PPE | ક્યારે | ગુજરાતી |
+|---|---|---|
+| Safety Helmet | હંમેશા | હેલ્મેટ |
+| Safety Goggles | Grinding, Welding | ચશ્મા |
+| Hand Gloves | Hot work, Chemical | મોજા |
+| Safety Shoes | હંમેશા | સલામતી બૂટ |
+| Ear Plugs | Noisy area (>85dB) | કાનનાં પ્લગ |
+| Apron | Welding, Grinding | એપ્રન |
+| Face Shield | Grinding, Cutting | ચહેરા ઢાલ |
+
+### 3.2 Fire Extinguisher Types
+| Class | Fire Type | Extinguisher | ગુજરાતી |
+|---|---|---|---|
+| A | Wood, Paper, Cloth | Water | પાણી |
+| B | Oil, Petrol, Grease | Foam / CO₂ | ફીણ |
+| C | Electrical | CO₂ / DCP | CO₂ |
+| D | Metal | Special powder | ખાસ પાવડર |
+
+---
+
+## 🔒 Premium — ₹49
+> Advanced Fitting, Lathe Operations, Drilling, 300+ MCQs, Mock Tests
+> Visit: premium.html
+
+---
+
+*SMC Fitter Exam 2026*
