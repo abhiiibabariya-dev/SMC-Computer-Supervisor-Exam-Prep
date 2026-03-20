@@ -1,218 +1,217 @@
-# Maintenance Assistant (Electrical) — Study Material (અભ્યાસ સામગ્રી)
-## SMC Recruitment 2026 — Complete Study Guide
-
-> **Exam Pattern**: 100 MCQs | 120 Minutes | -0.25 Negative Marking
-> **Subjects**: Electrical Wiring, Electrical Machines, Safety Practices, Maintenance Procedures, Basic Electronics, General Knowledge
+# મેઈન્ટેનન્સ આસિસ્ટન્ટ (ઈલેક્ટ્રિકલ) — અભ્યાસ સામગ્રી
+# Maintenance Assistant (Electrical) — Study Material
+## SMC ભરતી 2026 | 30 જગ્યાઓ | Pay: ₹21,700 - 69,100
 
 ---
 
-## Electrical Wiring
+## 🔓 Free Section / મફત વિભાગ
 
-### Key Concepts in Electrical Wiring
-- Study the fundamental principles of Electrical Wiring
-- Practice problems and case studies related to Electrical Wiring
-- Review previous year questions on Electrical Wiring
-- Focus on practical applications in municipal corporation context
+## 1. Basic Electrical Theory | મૂળભૂત વિદ્યુત સિદ્ધાંત
 
+### 1.1 ઓહ્મનો નિયમ (Ohm's Law)
+**V = I × R** (વોલ્ટેજ = કરન્ટ × રેઝિસ્ટન્સ)
+- **V** = Voltage (Volts) — વિદ્યુત દબાણ (પાણીના દબાણ જેવું)
+- **I** = Current (Ampere) — વિદ્યુત પ્રવાહ (પાણીના વહેણ જેવું)
+- **R** = Resistance (Ohm Ω) — અવરોધ (પાઈપ સાંકડી જેવું)
 
-## Electrical Machines
+### 1.2 Series & Parallel Circuit | શ્રેણી અને સમાંતર
+| લક્ષણ | Series (શ્રેણી) | Parallel (સમાંતર) |
+|---|---|---|
+| Connection | End to end (છેડે છેડે) | Side by side (બાજુ બાજુ) |
+| Current (I) | Same everywhere (સરખો) | Divides (ભાગલા) |
+| Voltage (V) | Divides (ભાગલા) | Same everywhere (સરખો) |
+| Total R | R₁ + R₂ + R₃ (વધે) | 1/R = 1/R₁ + 1/R₂ (ઘટે) |
+| Example | Christmas lights | ઘરના સોકેટ |
+| એક બલ્બ ફ્યુઝ | બધા બંધ | બાકી ચાલુ |
 
-### Key Concepts in Electrical Machines
-- Study the fundamental principles of Electrical Machines
-- Practice problems and case studies related to Electrical Machines
-- Review previous year questions on Electrical Machines
-- Focus on practical applications in municipal corporation context
+### 1.3 Power & Energy | શક્તિ અને ઊર્જા
+| સૂત્ર | ઉપયોગ |
+|---|---|
+| P = V × I | Power (Watts) |
+| P = I² × R | Power (R known) |
+| P = V² / R | Power (V known) |
+| E = P × t | Energy (kWh) |
+| **1 Unit = 1 kWh** | 1000W × 1 hour |
 
+**ઉદાહરણ**: 100W બલ્બ 10 કલાક ચાલે = 100 × 10 = 1000 Wh = **1 Unit**
 
-## Safety Practices
-
-### Key Concepts in Safety Practices
-- Study the fundamental principles of Safety Practices
-- Practice problems and case studies related to Safety Practices
-- Review previous year questions on Safety Practices
-- Focus on practical applications in municipal corporation context
-
-
-## Maintenance Procedures
-
-### Key Concepts in Maintenance Procedures
-- Study the fundamental principles of Maintenance Procedures
-- Practice problems and case studies related to Maintenance Procedures
-- Review previous year questions on Maintenance Procedures
-- Focus on practical applications in municipal corporation context
-
-
-## Basic Electronics
-
-### Key Concepts in Basic Electronics
-- Study the fundamental principles of Basic Electronics
-- Practice problems and case studies related to Basic Electronics
-- Review previous year questions on Basic Electronics
-- Focus on practical applications in municipal corporation context
-
-
-## General Knowledge
-
-### Gujarat & Surat Knowledge (ગુજરાત અને સુરત)
-- **Gujarat Formation**: 1 May 1960 from former Bombay State
-- **Capital**: Gandhinagar | **Largest City**: Ahmedabad
-- **Gujarat CM**: Bhupendra Patel | **Governor**: Acharya Devvrat
-- **Surat**: Diamond City of India, Silk City, located on Tapi River
-- **SMC**: Surat Municipal Corporation, established 1966
-- **Surat Population**: ~60 lakh (2026 est.) | **Area**: 326.515 sq km
-- **Districts in Gujarat**: 33 | **Surat District Talukas**: 10
-
-### Indian Constitution (ભારતીય બંધારણ)
-- **Part III**: Fundamental Rights (Article 12-35)
-- **Part IV**: Directive Principles of State Policy (Article 36-51)
-- **Article 21**: Right to Life and Personal Liberty
-- **73rd Amendment**: Panchayati Raj | **74th Amendment**: Municipalities
-- **Article 243Q-243ZG**: Municipalities provisions
-
-### Current Affairs 2025-2026
-- India's G20 Presidency legacy programs continuing
-- Digital India initiatives: UPI transactions crossed 10 billion/month
-- Smart City Mission progress in Surat
-- Chandrayaan-3 success - India 4th country to land on Moon
-- Gujarat Semicon City project in Dholera
-
-### Indian History (ભારતનો ઈતિહાસ)
-- **1857**: First War of Independence
-- **1885**: Indian National Congress founded
-- **1905**: Partition of Bengal | **1919**: Jallianwala Bagh
-- **1930**: Salt March by Gandhi | **1942**: Quit India Movement
-- **1947**: Indian Independence | **1950**: Constitution came into force
-
+### 1.4 AC Basics | AC મૂળભૂત
+- **Frequency (India)**: 50 Hz (50 cycles per second)
+- **Single Phase**: 230V, 2 wire (Phase + Neutral) — ઘરમાં
+- **Three Phase**: 415V, 4 wire (R+Y+B+N) — ઉદ્યોગ/મોટર
+- **Phase Color**: R = Red, Y = Yellow, B = Blue, N = Black, Earth = Green
 
 ---
 
-## Exam Preparation Strategy (પરીક્ષા તૈયારી વ્યૂહરચના)
+## 2. Electrical Wiring | વિદ્યુત વાયરિંગ
 
-### Daily Study Plan
-| Time | Activity |
-|------|----------|
-| 6:00 - 8:00 AM | Subject-specific study |
-| 8:00 - 9:00 AM | Current Affairs & Newspaper |
-| 9:00 - 11:00 AM | MCQ Practice |
-| 2:00 - 4:00 PM | Revision & Notes |
-| 4:00 - 5:00 PM | Mock Test |
-| 8:00 - 9:00 PM | GK & Quick Revision |
+### 2.1 Wiring Types (વાયરિંગ પ્રકારો)
+| પ્રકાર | વર્ણન | ક્યાં |
+|---|---|---|
+| Conduit (PVC) | PVC પાઈપમાં વાયર | Modern building |
+| Conduit (GI) | GI પાઈપમાં વાયર | Industry, damp areas |
+| Concealed | દીવાલ/છતમાં છુપાયેલ | New construction |
+| Surface/Batten | દીવાલ ઉપર | Old building, temporary |
+| Casing-Capping | લાકડાની પટ્ટીમાં | Budget wiring |
 
-### Important Books & Resources
-1. Gujarat Government official publications
-2. Lucent's General Knowledge
-3. Previous year papers of similar exams (GPSC, GSSSB)
-4. Subject-specific textbooks as per syllabus
-5. Daily newspapers (Gujarat Samachar, Divya Bhaskar)
-6. SMC official website for updates
-
-### Last Month Strategy
-- Focus on revision, not new topics
-- Solve at least 2 mock tests daily
-- Review mistakes and weak areas
-- Practice time management
-- Stay updated with current affairs
-- Keep documents ready for verification
-
----
-
-*Study material prepared for SMC Maintenance Assistant (Electrical) Exam 2026*
-*Visit: https://www.suratmunicipal.gov.in for official updates*
-
-
----
-
-## 📚 Engineering Books | એન્જિનિયરિંગ પુસ્તકો
-
-| Book | Author | Subject | Use For |
+### 2.2 Wire Color Coding (India)
+| Wire | Color | ગુજરાતી | Purpose |
 |---|---|---|---|
-| RCC Design | BC Punmia | Reinforced Concrete | AE Civil |
-| Strength of Materials | RK Rajput | SOM, Mechanics | All Engineering |
-| Surveying Vol 1 & 2 | BC Punmia | Surveying | AE Civil, Town Planner |
-| Electrical Technology | BL Theraja | Electrical Machines | AE Electrical |
-| Electrical Wiring | S.L. Uppal | Wiring, Installation | AE Electrical, Maint Asst |
-| IE Rules 1956 | BIS | Electrical Safety | AE Electrical |
-| IS 456:2000 | BIS | RCC Code | AE/DE Civil |
-| Workshop Technology | Hajra Choudhary | Workshop, Fitting | Fitter, Technical Asst |
-| Engineering Drawing | ND Bhatt | Drawing, Projections | All Engineering |
-| GDCR Gujarat | Gujarat Govt | Development Rules | Town Planner |
-| Estimation & Costing | BN Dutta | Estimation | AE Civil |
-| ITI Trade Theory | NIMI | Trade specific | Fitter, Electrician |
+| Phase (Single) | Red | લાલ | Live/Hot wire |
+| Phase R | Red | લાલ | 3-Phase R |
+| Phase Y | Yellow | પીળો | 3-Phase Y |
+| Phase B | Blue | વાદળી | 3-Phase B |
+| Neutral | Black | કાળો | Return path |
+| Earth | Green / Green-Yellow | લીલો | Safety ground |
 
-### 🎥 Engineering YouTube Channels
-| Channel | Subject | Link |
+### 2.3 Cable Selection (કેબલ પસંદગી)
+| Load | Wire Size | Use |
 |---|---|---|
-| **Ekeeda** | Civil, Electrical, Mech | [youtube.com/@Ekeeda](https://www.youtube.com/@Ekeeda) |
-| **Gate Academy** | Engineering Subjects | Search: "Gate Academy" on YouTube |
-| **5 Minutes Engineering** | Quick Concepts | Search: "5 minutes engineering" on YouTube |
-| **Learning Engineering** | Animations, Concepts | Search: "Learning Engineering" on YouTube |
-| **Electrical Engineering** | Electrical Machines, Power | Search: "Electrical engineering basics Hindi" on YouTube |
-| **Civil Engineering Academy** | Construction, RCC | Search: "Civil engineering Hindi" on YouTube |
-| **ITI Exam Preparation** | Fitter, Electrician | Search: "ITI fitter exam preparation" on YouTube |
+| Light, Fan (5A) | 1.0 sq.mm | Lighting circuit |
+| Power socket (15A) | 2.5 sq.mm | AC, Geyser, Fridge |
+| Heavy load (20A) | 4.0 sq.mm | Water heater |
+| Sub-main | 6.0-10 sq.mm | Distribution board |
+| Main supply | 16-25 sq.mm | Meter to DB |
 
+### 2.4 House Wiring Diagram (ઘર વાયરિંગ)
+```
+Electric Pole → Service Wire → Energy Meter → Main Switch → MCB Box
+    ↓
+Distribution Board (DB)
+    ├── Circuit 1: Lights (1mm wire, 5A MCB)
+    ├── Circuit 2: Fans (1mm wire, 5A MCB)
+    ├── Circuit 3: Power sockets (2.5mm wire, 15A MCB)
+    ├── Circuit 4: AC/Geyser (4mm wire, 20A MCB)
+    └── ELCB/RCCB (30mA) for Earth leakage protection
+```
 
 ---
 
-## 📚 ભલામણ કરેલ પુસ્તકો | Recommended Books
+## 3. Electrical Safety | વિદ્યુત સલામતી
 
-| પુસ્તક (Book) | લેખક/પ્રકાશક | વિષય | ભાષા |
+### 3.1 Earthing (અર્થિંગ) — જીવનરક્ષક
+**હેતુ**: Electric shock થી રક્ષણ
+
+| Earthing Type | Method | ક્યાં |
+|---|---|---|
+| Pipe Earthing | GI pipe 38mm, 2.5m deep, coal+salt | ઘર |
+| Plate Earthing | CI/Cu plate 60×60cm, 3m deep | મોટા બિલ્ડિંગ |
+| Rod Earthing | Cu/GI rod 12mm, 2.5m deep | Pole, Tower |
+
+**Earth resistance**: < 5 Ω (IE Rules)
+**Testing**: Megger (500V for LV, 1000V for HV)
+**Maintenance**: Water + Salt periodically in earth pit
+
+### 3.2 Safety Devices (સલામતી ઉપકરણો)
+| Device | Function | ગુજરાતી | Rating |
 |---|---|---|---|
-| Lucent's General Knowledge | Lucent Publication | GK, Current Affairs | Hindi/English |
-| Gujarat no Itihas (ગુજરાતનો ઈતિહાસ) | Anamika Academy | Gujarat History & Culture | ગુજરાતી |
-| Gujarat ni Bhugol (ગુજરાતની ભૂગોળ) | Anamika Academy | Gujarat Geography | ગુજરાતી |
-| Bharat nu Bandharan (ભારતનું બંધારણ) | World Inbox | Indian Constitution | ગુજરાતી |
-| World Inbox GK Book | World Inbox Publication | Complete GK | ગુજરાતી |
-| Liberty GK Book | Liberty Publication | Gujarat & India GK | ગુજરાતી |
-| Angle GK | Angle Academy | General Knowledge | ગુજરાતી |
-| Maths by Rakesh Yadav | Rakesh Yadav | Quantitative Aptitude | Hindi |
-| RS Aggarwal Reasoning | S.Chand | Logical Reasoning | English |
-| Gujarati Vyakaran (વ્યાકરણ) | Akshar Publication | Gujarati Grammar | ગુજરાતી |
-| Current Affairs Monthly | Yojana/Pratiyogita Darpan | Current Affairs | Hindi/English |
-| Computer Knowledge by Arihant | Arihant Publication | Computer Basics, CCC | English/Hindi |
+| MCB | Overload/Short circuit | લઘુ બ્રેકર | 5A, 10A, 16A, 20A, 32A |
+| RCCB/ELCB | Earth leakage (30mA) | લિકેજ બ્રેકર | 30mA sensitivity |
+| Fuse | Overcurrent (wire melts) | ફ્યુઝ | Rewirable, HRC, Kit-Kat |
+| Isolator | Disconnects supply | આઈસોલેટર | No-load switching |
+| MCCB | Heavy load protection | — | 100A-1600A |
 
-## 🎥 YouTube Channels & Videos | યુટ્યુબ ચેનલ
+### 3.3 Electric Shock First Aid (વિદ્યુત આંચકા પ્રાથમિક સારવાર)
+1. **પાવર બંધ કરો** — Switch OFF / Plug remove
+2. **સૂકી લાકડી/રબર** થી વ્યક્તિને અલગ કરો (ભીના હાથે ન અડો!)
+3. **શ્વાસ ચકાસો** — Airway clear
+4. **CPR** આપો જો શ્વાસ/નાડી ન હોય (30:2)
+5. **108 / 112** પર ફોન કરો
+6. દાઝ્યા પર ઠંડું પાણી લગાવો
+7. હોસ્પિટલ લઈ જાવ
 
-### Gujarat Exam Preparation Channels
-| Channel | વિષય (Subject) | ભાષા | Link |
+### 3.4 IE Rules 1956 (Indian Electricity Rules)
+- **Rule 32**: Earthing of equipment mandatory
+- **Rule 36**: Inspection of installations
+- **Rule 44**: Precautions for live work
+- **Rule 45**: Connected load declaration
+- **Rule 50-62**: Safety requirements for HV installations
+- **Rule 64**: Only licensed electrician for HV work
+
+---
+
+## 4. Electrical Machines | વિદ્યુત મશીનો
+
+### 4.1 Motor Types & Use
+| Motor | ઉપયોગ | Starting Method |
+|---|---|---|
+| Single Phase (FHP) | Fan, Pump, Cooler | Capacitor start |
+| 3-Phase Induction (<5HP) | Small pump, Mixer | DOL (Direct On Line) |
+| 3-Phase Induction (5-50HP) | Big pump, Compressor | Star-Delta |
+| 3-Phase Induction (>50HP) | Heavy machinery | Auto-transformer / VFD |
+
+### 4.2 Motor Troubleshooting (મોટર સમસ્યા નિવારણ)
+| Problem | Cause | Solution |
+|---|---|---|
+| મોટર ચાલુ ન થાય | No supply, Fuse blown, OLR tripped | Supply check, Fuse change, OLR reset |
+| મોટર ગરમ થાય | Overload, Low voltage, Bearing jam | Load ઓછો કરો, Voltage check, Bearing change |
+| અવાજ આવે | Bearing worn, Coupling loose | Bearing/Coupling change |
+| Single phasing | 1 phase missing | Supply check, Contactor check |
+| Earth fault | Insulation damage | Megger test, Rewinding |
+
+### 4.3 Transformer Basics
+- **Step-down**: 11kV → 415V/240V (Distribution transformer)
+- **Oil-filled**: Cooling, Insulation
+- **Maintenance**: Oil level check, Breather silica gel, Earth check
+- **Tap changer**: Voltage adjustment ±5%
+
+---
+
+## 5. Measurement Instruments | માપન સાધનો
+
+| Instrument | Measures | ગુજરાતી | Range |
 |---|---|---|---|
-| **World Inbox** | GK, Maths, Reasoning, Gujarat | ગુજરાતી | [youtube.com/@WorldInbox](https://www.youtube.com/@WorldInbox) |
-| **Anamika Academy** | Gujarat GK, History, Geography | ગુજરાતી | [youtube.com/@AnamikaAcademy](https://www.youtube.com/@AnamikaAcademy) |
-| **Liberty Career Academy** | GPSC, GSSSB, Current Affairs | ગુજરાતી | [youtube.com/@LibertyCareerAcademy](https://www.youtube.com/@LibertyCareerAcademy) |
-| **Angle Academy** | Maths, Reasoning, GK | ગુજરાતી | [youtube.com/@AngleAcademy](https://www.youtube.com/@AngleAcademy) |
-| **ICE Rajkot** | Gujarat Govt Exams | ગુજરાતી | [youtube.com/@ICERajkot](https://www.youtube.com/@ICERajkot) |
-| **Utkarsh Classes** | All Competitive Exams | Hindi | [youtube.com/@UtkarshClasses](https://www.youtube.com/@UtkarshClasses) |
-| **Study IQ** | Current Affairs, GK | Hindi/English | [youtube.com/@StudyIQ](https://www.youtube.com/@StudyIQ) |
-| **Unacademy Gujarat** | Gujarat State Exams | ગુજરાતી | [youtube.com/@UnacademyGujarat](https://www.youtube.com/@UnacademyGujarat) |
+| Multimeter | V, I, R | મલ્ટીમીટર | Digital/Analog |
+| Clamp meter | Current (without breaking) | ક્લેમ્પ | AC/DC Amps |
+| Megger | Insulation resistance | મેગર | MΩ |
+| Tong tester | Current | ટોંગ | Amps |
+| Energy meter | kWh (units) | મીટર | Consumption |
+| Phase sequence indicator | R-Y-B sequence | ફેઝ ક્રમ | Phase order |
+| Earth tester | Earth resistance | અર્થ ટેસ્ટર | Ohms |
+| Lux meter | Light intensity | લક્સ | Lux |
 
-### Subject-Specific Videos
-| વિષય | Video/Playlist | Link |
+---
+
+## 6. Maintenance Procedures | જાળવણી કાર્યવાહી
+
+### 6.1 Preventive Maintenance Schedule
+| Item | Frequency | Work |
 |---|---|---|
-| Gujarat GK Complete | World Inbox Full Course | Search: "World Inbox Gujarat GK" on YouTube |
-| Indian Constitution | Bharat nu Bandharan | Search: "ભારતનું બંધારણ" on YouTube |
-| Maths Shortcuts | Angle Academy Maths | Search: "Angle Academy Maths tricks" on YouTube |
-| Computer CCC | CCC Exam Preparation | Search: "CCC exam preparation Gujarati" on YouTube |
-| Current Affairs 2026 | Daily Current Affairs | Search: "Gujarat current affairs 2026" on YouTube |
-| English Grammar | Basic English Grammar | Search: "English grammar for competitive exams" on YouTube |
+| MCB/Switch check | Monthly | Tightness, heating signs |
+| Earthing check | Quarterly | Resistance < 5Ω |
+| Motor bearing grease | 6 monthly | Lubrication |
+| Transformer oil | Yearly | BDV test, oil level |
+| Cable insulation | Yearly | Megger test |
+| Lightning arrester | Before monsoon | Spark gap, Earth check |
+| Battery (UPS) | Quarterly | Water level, terminal clean |
+| Generator | Monthly | Start test, fuel, oil, coolant |
 
-## 🌐 ઉપયોગી વેબસાઈટ | Useful Websites
+### 6.2 LOTO (Lock Out Tag Out) — ખૂબ મહત્વનું
+**Before maintenance on electrical equipment:**
+1. **Inform** — Supervisor/in-charge ને જાણ કરો
+2. **Identify** — Energy source ઓળખો
+3. **Isolate** — Switch OFF, Isolator OFF
+4. **Lock** — Padlock લગાવો (તમારી ચાવી)
+5. **Tag** — "DO NOT SWITCH ON" tag લગાવો
+6. **Test** — Voltage absence confirm (tester/multimeter)
+7. **Work** — હવે સલામત રીતે કામ કરો
+8. **Remove** — કામ પૂરું → Lock/Tag remove → Switch ON
 
-| Website | Purpose | Link |
-|---|---|---|
-| **SMC Official** | Recruitment, Results | [suratmunicipal.gov.in](https://www.suratmunicipal.gov.in) |
-| **OJAS Gujarat** | All Gujarat Govt Jobs | [ojas.gujarat.gov.in](https://ojas.gujarat.gov.in) |
-| **GPSC Official** | Class 1-2 Exams | [gpsc.gujarat.gov.in](https://gpsc.gujarat.gov.in) |
-| **GSSSB Official** | Clerk, Head Clerk | [gsssb.gujarat.gov.in](https://gsssb.gujarat.gov.in) |
-| **Gujarat Rojgar Samachar** | Weekly Job Updates | [gujaratrojgarsamachar.gov.in](https://gujaratrojgarsamachar.gov.in) |
-| **Testbook** | Mock Tests, Practice | [testbook.com](https://testbook.com) |
-| **Gradeup/BYJU's Exam Prep** | Study Material | [byjusexamprep.com](https://byjusexamprep.com) |
-| **GK Today** | Current Affairs Daily | [gktoday.in](https://www.gktoday.in) |
+---
 
-## 📱 Mobile Apps for Preparation
+## 🔒 Premium Content — ₹49
+> PLC basics, SCADA, Advanced Motor Control, Panel Wiring,
+> 300+ MCQs, Mock Tests, Previous Papers
+> Visit: premium.html
 
-| App | Platform | Features |
-|---|---|---|
-| **Testbook** | Android/iOS | Mock tests, Previous papers, Daily GK |
-| **Adda247** | Android/iOS | Gujarat exam prep, Quizzes |
-| **Gradeup** | Android/iOS | Video classes, Tests |
-| **Current Affairs App** | Android | Daily CA in Gujarati |
-| **Gujarati Dictionary** | Android | Word meanings, Synonyms |
+---
+
+## 7. સામાન્ય જ્ઞાન (Free)
+- ગુજરાત: 1 મે 1960, ગાંધીનગર, 33 જિલ્લા
+- સુરત: તાપી નદી, ડાયમંડ સિટી, SMC 1966
+- વીજળીનો શોધક: Thomas Edison (DC), Nikola Tesla (AC)
+- 1 HP = 746 Watts | 1 Unit = 1 kWh
+
+---
+
+*SMC Maintenance Assistant (Electrical) Exam 2026*

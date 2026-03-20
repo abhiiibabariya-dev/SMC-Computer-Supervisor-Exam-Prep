@@ -1,187 +1,149 @@
-# Deputy Accountant — Study Material (અભ્યાસ સામગ્રી)
-## SMC Recruitment 2026 — Complete Study Guide
-
-> **Exam Pattern**: 100 MCQs | 120 Minutes | -0.25 Negative Marking
-> **Subjects**: Financial Accounting, Cost Accounting, Auditing, Tax Laws, Municipal Finance, General Knowledge
+# ડેપ્યુટી એકાઉન્ટન્ટ — અભ્યાસ સામગ્રી
+# Deputy Accountant — Study Material
+## SMC ભરતી 2026 | 3 જગ્યાઓ | Pay: ₹39,900 - 1,26,600
 
 ---
 
-## Financial Accounting
+## 🔓 Free Section
 
-### Key Concepts in Financial Accounting
-- Study the fundamental principles of Financial Accounting
-- Practice problems and case studies related to Financial Accounting
-- Review previous year questions on Financial Accounting
-- Focus on practical applications in municipal corporation context
+## 1. નાણાકીય હિસાબ | Financial Accounting
 
-
-## Cost Accounting
-
-### Key Concepts in Cost Accounting
-- Study the fundamental principles of Cost Accounting
-- Practice problems and case studies related to Cost Accounting
-- Review previous year questions on Cost Accounting
-- Focus on practical applications in municipal corporation context
-
-
-## Auditing
-
-### Key Concepts in Auditing
-- Study the fundamental principles of Auditing
-- Practice problems and case studies related to Auditing
-- Review previous year questions on Auditing
-- Focus on practical applications in municipal corporation context
-
-
-## Tax Laws
-
-### Key Concepts in Tax Laws
-- Study the fundamental principles of Tax Laws
-- Practice problems and case studies related to Tax Laws
-- Review previous year questions on Tax Laws
-- Focus on practical applications in municipal corporation context
-
-
-## Municipal Finance
-
-### Key Concepts in Municipal Finance
-- Study the fundamental principles of Municipal Finance
-- Practice problems and case studies related to Municipal Finance
-- Review previous year questions on Municipal Finance
-- Focus on practical applications in municipal corporation context
-
-
-## General Knowledge
-
-### Gujarat & Surat Knowledge (ગુજરાત અને સુરત)
-- **Gujarat Formation**: 1 May 1960 from former Bombay State
-- **Capital**: Gandhinagar | **Largest City**: Ahmedabad
-- **Gujarat CM**: Bhupendra Patel | **Governor**: Acharya Devvrat
-- **Surat**: Diamond City of India, Silk City, located on Tapi River
-- **SMC**: Surat Municipal Corporation, established 1966
-- **Surat Population**: ~60 lakh (2026 est.) | **Area**: 326.515 sq km
-- **Districts in Gujarat**: 33 | **Surat District Talukas**: 10
-
-### Indian Constitution (ભારતીય બંધારણ)
-- **Part III**: Fundamental Rights (Article 12-35)
-- **Part IV**: Directive Principles of State Policy (Article 36-51)
-- **Article 21**: Right to Life and Personal Liberty
-- **73rd Amendment**: Panchayati Raj | **74th Amendment**: Municipalities
-- **Article 243Q-243ZG**: Municipalities provisions
-
-### Current Affairs 2025-2026
-- India's G20 Presidency legacy programs continuing
-- Digital India initiatives: UPI transactions crossed 10 billion/month
-- Smart City Mission progress in Surat
-- Chandrayaan-3 success - India 4th country to land on Moon
-- Gujarat Semicon City project in Dholera
-
-### Indian History (ભારતનો ઈતિહાસ)
-- **1857**: First War of Independence
-- **1885**: Indian National Congress founded
-- **1905**: Partition of Bengal | **1919**: Jallianwala Bagh
-- **1930**: Salt March by Gandhi | **1942**: Quit India Movement
-- **1947**: Indian Independence | **1950**: Constitution came into force
-
-
----
-
-## Exam Preparation Strategy (પરીક્ષા તૈયારી વ્યૂહરચના)
-
-### Daily Study Plan
-| Time | Activity |
-|------|----------|
-| 6:00 - 8:00 AM | Subject-specific study |
-| 8:00 - 9:00 AM | Current Affairs & Newspaper |
-| 9:00 - 11:00 AM | MCQ Practice |
-| 2:00 - 4:00 PM | Revision & Notes |
-| 4:00 - 5:00 PM | Mock Test |
-| 8:00 - 9:00 PM | GK & Quick Revision |
-
-### Important Books & Resources
-1. Gujarat Government official publications
-2. Lucent's General Knowledge
-3. Previous year papers of similar exams (GPSC, GSSSB)
-4. Subject-specific textbooks as per syllabus
-5. Daily newspapers (Gujarat Samachar, Divya Bhaskar)
-6. SMC official website for updates
-
-### Last Month Strategy
-- Focus on revision, not new topics
-- Solve at least 2 mock tests daily
-- Review mistakes and weak areas
-- Practice time management
-- Stay updated with current affairs
-- Keep documents ready for verification
-
----
-
-*Study material prepared for SMC Deputy Accountant Exam 2026*
-*Visit: https://www.suratmunicipal.gov.in for official updates*
-
-
----
-
-## 📚 ભલામણ કરેલ પુસ્તકો | Recommended Books
-
-| પુસ્તક (Book) | લેખક/પ્રકાશક | વિષય | ભાષા |
-|---|---|---|---|
-| Lucent's General Knowledge | Lucent Publication | GK, Current Affairs | Hindi/English |
-| Gujarat no Itihas (ગુજરાતનો ઈતિહાસ) | Anamika Academy | Gujarat History & Culture | ગુજરાતી |
-| Gujarat ni Bhugol (ગુજરાતની ભૂગોળ) | Anamika Academy | Gujarat Geography | ગુજરાતી |
-| Bharat nu Bandharan (ભારતનું બંધારણ) | World Inbox | Indian Constitution | ગુજરાતી |
-| World Inbox GK Book | World Inbox Publication | Complete GK | ગુજરાતી |
-| Liberty GK Book | Liberty Publication | Gujarat & India GK | ગુજરાતી |
-| Angle GK | Angle Academy | General Knowledge | ગુજરાતી |
-| Maths by Rakesh Yadav | Rakesh Yadav | Quantitative Aptitude | Hindi |
-| RS Aggarwal Reasoning | S.Chand | Logical Reasoning | English |
-| Gujarati Vyakaran (વ્યાકરણ) | Akshar Publication | Gujarati Grammar | ગુજરાતી |
-| Current Affairs Monthly | Yojana/Pratiyogita Darpan | Current Affairs | Hindi/English |
-| Computer Knowledge by Arihant | Arihant Publication | Computer Basics, CCC | English/Hindi |
-
-## 🎥 YouTube Channels & Videos | યુટ્યુબ ચેનલ
-
-### Gujarat Exam Preparation Channels
-| Channel | વિષય (Subject) | ભાષા | Link |
-|---|---|---|---|
-| **World Inbox** | GK, Maths, Reasoning, Gujarat | ગુજરાતી | [youtube.com/@WorldInbox](https://www.youtube.com/@WorldInbox) |
-| **Anamika Academy** | Gujarat GK, History, Geography | ગુજરાતી | [youtube.com/@AnamikaAcademy](https://www.youtube.com/@AnamikaAcademy) |
-| **Liberty Career Academy** | GPSC, GSSSB, Current Affairs | ગુજરાતી | [youtube.com/@LibertyCareerAcademy](https://www.youtube.com/@LibertyCareerAcademy) |
-| **Angle Academy** | Maths, Reasoning, GK | ગુજરાતી | [youtube.com/@AngleAcademy](https://www.youtube.com/@AngleAcademy) |
-| **ICE Rajkot** | Gujarat Govt Exams | ગુજરાતી | [youtube.com/@ICERajkot](https://www.youtube.com/@ICERajkot) |
-| **Utkarsh Classes** | All Competitive Exams | Hindi | [youtube.com/@UtkarshClasses](https://www.youtube.com/@UtkarshClasses) |
-| **Study IQ** | Current Affairs, GK | Hindi/English | [youtube.com/@StudyIQ](https://www.youtube.com/@StudyIQ) |
-| **Unacademy Gujarat** | Gujarat State Exams | ગુજરાતી | [youtube.com/@UnacademyGujarat](https://www.youtube.com/@UnacademyGujarat) |
-
-### Subject-Specific Videos
-| વિષય | Video/Playlist | Link |
+### 1.1 Accounting Concepts (હિસાબી ખ્યાલો)
+| Concept | ગુજરાતી | Meaning |
 |---|---|---|
-| Gujarat GK Complete | World Inbox Full Course | Search: "World Inbox Gujarat GK" on YouTube |
-| Indian Constitution | Bharat nu Bandharan | Search: "ભારતનું બંધારણ" on YouTube |
-| Maths Shortcuts | Angle Academy Maths | Search: "Angle Academy Maths tricks" on YouTube |
-| Computer CCC | CCC Exam Preparation | Search: "CCC exam preparation Gujarati" on YouTube |
-| Current Affairs 2026 | Daily Current Affairs | Search: "Gujarat current affairs 2026" on YouTube |
-| English Grammar | Basic English Grammar | Search: "English grammar for competitive exams" on YouTube |
+| Business Entity | વ્યવસાય સ્વતંત્રતા | Business ≠ Owner |
+| Going Concern | ચાલુ ધંધો | Business continues forever |
+| Money Measurement | નાણાકીય માપ | Only money transactions recorded |
+| Dual Aspect | દ્વિ પાસા | Every debit has a credit |
+| Accrual | ઉપાર્જિત | Record when earned, not received |
+| Matching | મેળ | Match revenue with expenses |
+| Conservatism | રૂઢિચુસ્તતા | Anticipate losses, not profits |
+| Consistency | સુસંગતતા | Same method every year |
 
-## 🌐 ઉપયોગી વેબસાઈટ | Useful Websites
-
-| Website | Purpose | Link |
+### 1.2 Golden Rules of Accounting (હિસાબના સુવર્ણ નિયમો)
+| Account Type | Debit (ઉધાર) | Credit (જમા) |
 |---|---|---|
-| **SMC Official** | Recruitment, Results | [suratmunicipal.gov.in](https://www.suratmunicipal.gov.in) |
-| **OJAS Gujarat** | All Gujarat Govt Jobs | [ojas.gujarat.gov.in](https://ojas.gujarat.gov.in) |
-| **GPSC Official** | Class 1-2 Exams | [gpsc.gujarat.gov.in](https://gpsc.gujarat.gov.in) |
-| **GSSSB Official** | Clerk, Head Clerk | [gsssb.gujarat.gov.in](https://gsssb.gujarat.gov.in) |
-| **Gujarat Rojgar Samachar** | Weekly Job Updates | [gujaratrojgarsamachar.gov.in](https://gujaratrojgarsamachar.gov.in) |
-| **Testbook** | Mock Tests, Practice | [testbook.com](https://testbook.com) |
-| **Gradeup/BYJU's Exam Prep** | Study Material | [byjusexamprep.com](https://byjusexamprep.com) |
-| **GK Today** | Current Affairs Daily | [gktoday.in](https://www.gktoday.in) |
+| Personal (વ્યક્તિગત) | Receiver (લેનાર) | Giver (આપનાર) |
+| Real (વાસ્તવિક) | What comes in (આવે) | What goes out (જાય) |
+| Nominal (નામમાત્ર) | Expenses/Losses | Income/Gains |
 
-## 📱 Mobile Apps for Preparation
+### 1.3 Journal → Ledger → Trial Balance → Final Accounts
+1. **Journal (રોજમેળ)**: First record of transactions
+2. **Ledger (ખાતાવહી)**: Classified record (T-accounts)
+3. **Trial Balance (કાચું સરવૈયું)**: Verify accuracy (Dr = Cr)
+4. **Trading Account**: Gross Profit = Sales - COGS
+5. **P&L Account (નફા-ખોટ)**: Net Profit after all expenses
+6. **Balance Sheet (પાકું સરવૈયું)**: Financial position (Assets = Liabilities + Capital)
 
-| App | Platform | Features |
+### 1.4 Final Accounts Format
+**Trading Account**
+```
+Sales (વેચાણ)                    xxx
+Less: Cost of Goods Sold          xxx
+  Opening Stock                   xxx
+  + Purchases                     xxx
+  + Direct Expenses               xxx
+  - Closing Stock                (xxx)
+= Gross Profit (કુલ નફો)         xxx
+```
+
+**Profit & Loss Account**
+```
+Gross Profit                      xxx
++ Other Income                    xxx
+Less: Indirect Expenses
+  Salary (પગાર)                  xxx
+  Rent (ભાડું)                    xxx
+  Depreciation (ઘસારો)           xxx
+  Interest                        xxx
+  Bad Debts                       xxx
+= Net Profit (ચોખ્ખો નફો)       xxx
+```
+
+---
+
+## 2. Cost Accounting | ખર્ચ હિસાબ
+
+### 2.1 Cost Classification
+| Basis | Types | ગુજરાતી |
 |---|---|---|
-| **Testbook** | Android/iOS | Mock tests, Previous papers, Daily GK |
-| **Adda247** | Android/iOS | Gujarat exam prep, Quizzes |
-| **Gradeup** | Android/iOS | Video classes, Tests |
-| **Current Affairs App** | Android | Daily CA in Gujarati |
-| **Gujarati Dictionary** | Android | Word meanings, Synonyms |
+| Nature | Material, Labour, Overheads | સામગ્રી, મજૂરી, ઉપરિ ખર્ચ |
+| Behaviour | Fixed, Variable, Semi-variable | સ્થિર, ચલ, અર્ધ-ચલ |
+| Function | Production, Admin, Selling | ઉત્પાદન, વહીવટી, વેચાણ |
+| Controllability | Controllable, Uncontrollable | નિયંત્રણીય, અનિયંત્રણીય |
+
+### 2.2 Important Formulas
+| Formula | Calculation |
+|---|---|
+| BEP (Units) | Fixed Cost / (SP per unit - VC per unit) |
+| BEP (Sales) | Fixed Cost / P/V Ratio |
+| P/V Ratio | (Contribution/Sales) × 100 |
+| Contribution | Sales - Variable Cost |
+| Margin of Safety | Actual Sales - BEP Sales |
+
+---
+
+## 3. Tax Laws | કર કાયદા
+
+### 3.1 GST (Goods and Services Tax) — 1 July 2017
+| GST Rate | Items |
+|---|---|
+| 0% | Essential food, books, newspapers |
+| 5% | Packaged food, footwear <1000, transport |
+| 12% | Processed food, mobiles, medicines |
+| 18% | Most items, services, electronics |
+| 28% | Luxury items, cars, tobacco |
+
+**GST Types**: CGST + SGST (intra-state) | IGST (inter-state)
+
+### 3.2 Income Tax Basics
+| Income Range (FY 2025-26) | Tax Rate |
+|---|---|
+| Up to ₹3,00,000 | 0% (New regime) |
+| ₹3-7 lakh | 5% |
+| ₹7-10 lakh | 10% |
+| ₹10-12 lakh | 15% |
+| ₹12-15 lakh | 20% |
+| Above ₹15 lakh | 30% |
+
+### 3.3 TDS (Tax Deducted at Source)
+| Section | Payment | TDS Rate |
+|---|---|---|
+| 194A | Interest (Bank) | 10% |
+| 194C | Contractor | 1% (Individual) / 2% (Company) |
+| 194H | Commission | 5% |
+| 194I | Rent | 10% |
+| 194J | Professional fees | 10% |
+
+---
+
+## 4. Municipal Finance | મ્યુનિસિપલ ફાઈનાન્સ
+
+### 4.1 SMC Revenue Sources
+| Source | Type | ગુજરાતી |
+|---|---|---|
+| Property Tax | Own Revenue | મિલકત વેરો |
+| Water Charges | Own Revenue | પાણી વેરો |
+| Professional Tax | Own Revenue | વ્યવસાય વેરો |
+| Building Permission Fee | Own Revenue | બાંધકામ ફી |
+| State Grant | Grant | રાજ્ય અનુદાન |
+| Central Grant | Grant | કેન્દ્ર અનુદાન |
+| Loans/Bonds | Borrowing | ઋણ/બોન્ડ |
+
+### 4.2 Budget Process (બજેટ પ્રક્રિયા)
+1. **Estimates** — Department-wise budget proposals
+2. **Standing Committee** — Reviews and recommends
+3. **General Board** — Approves budget
+4. **Implementation** — Commissioner executes
+5. **Audit** — AG/Internal audit reviews
+
+---
+
+## 🔒 Premium — ₹49
+> Advanced Accounting Standards, Auditing, Municipal Accounts,
+> Tally/Computer Accounting, 300+ MCQs, Mock Tests
+> Visit: premium.html
+
+---
+
+*SMC Deputy Accountant Exam 2026*
