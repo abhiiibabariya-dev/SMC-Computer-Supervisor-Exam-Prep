@@ -6,25 +6,41 @@
 - **Application Window:** 1 April - 15 April 2026
 - **Official Website:** https://www.suratmunicipal.gov.in/information/recruitment
 
+> **Official Syllabus Updated - March 2026** (from Document from Chif.pdf)
+
 ## Exam Pattern
 
 | Component | Details |
 |-----------|---------|
-| Exam Type | Written (OMR Based) |
+| Exam Type | Written (MCQ Based) |
 | Total Marks | 100 |
-| Negative Marking | -0.25 per wrong answer |
+| Selection | Written Exam 100% (No Stage 2) |
+| Passing Marks | General 50%, Reserved/Women/SMC Employees 45% |
 | Medium | Gujarati (English section in English) |
-| Stage 2 | Computer Proficiency / Skill Test |
 
-## Syllabus Breakdown
+## Syllabus Breakdown (Official 2026)
 
-| Subject | Approx. Weightage | Priority |
-|---------|-------------------|----------|
-| Computer Knowledge | 30-35% | HIGH |
-| General Knowledge & Current Affairs | 20-25% | HIGH |
-| Gujarati Language | 15-20% | MEDIUM |
-| English Language | 10-15% | MEDIUM |
-| Basic Mathematics | 10-15% | MEDIUM |
+| Sr. | Subject | Marks | Priority |
+|-----|---------|-------|----------|
+| 1 | Computer Technical Subjects | 75 | HIGH |
+| 2 | General Knowledge | 10 | MEDIUM |
+| 3 | Current Affairs (Gujarat State) | 05 | MEDIUM |
+| 4 | Gujarati & English Language | 10 | MEDIUM |
+| | **Total** | **100** | |
+
+### Computer Technical Topics (75 Marks)
+1. Fundamentals of Computer
+2. Computer Architecture
+3. Operating System
+4. Data Structures
+5. Database Management System (DBMS)
+6. Computer Networks
+7. Internet & Web Technology
+8. Boolean Algebra
+9. Software Engineering basics
+10. Programming Concepts
+11. Cyber Security & IT Safety
+12. E-Governance & Digital Services
 
 ## Folder Structure
 

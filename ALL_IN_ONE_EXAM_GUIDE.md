@@ -22,37 +22,38 @@
 
 # EXAM OVERVIEW
 
+> **Official Syllabus Updated - March 2026**
+
 | Detail | Info |
 |--------|------|
 | **Post** | Supervisor (Computer) - Code 513 |
 | **Organization** | Surat Municipal Corporation (SMC) |
 | **Total Vacancies** | 2295 (across all posts) |
 | **Apply Online** | 1 April - 15 April 2026 |
-| **Exam Type** | Written (OMR Based) - 100 MCQs |
+| **Exam Type** | Written (MCQ Based) - 100 Marks |
 | **Total Marks** | 100 |
-| **Negative Marking** | -0.25 per wrong answer |
-| **Duration** | ~120 Minutes |
+| **Selection** | Written Exam 100% (No Stage 2 Practical) |
 | **Medium** | Gujarati (English section in English) |
-| **Stage 2** | Computer Proficiency / Skill Test (Practical) |
 | **Official Site** | https://www.suratmunicipal.gov.in/information/recruitment |
 
-### Syllabus Weightage
+### Syllabus Weightage (Official 2026)
 
-| Subject | Approx. Questions | Priority |
-|---------|-------------------|----------|
-| Computer Knowledge | 30-35 | ⭐⭐⭐ HIGH |
-| General Knowledge & Current Affairs | 20-25 | ⭐⭐⭐ HIGH |
-| Gujarati Language | 15-18 | ⭐⭐ MEDIUM |
-| English Language | 10-12 | ⭐⭐ MEDIUM |
-| Basic Mathematics | 10-12 | ⭐⭐ MEDIUM |
+| Sr. | Subject | Marks | Priority |
+|-----|---------|-------|----------|
+| 1 | Computer Technical Subjects | 75 | ⭐⭐⭐ HIGH |
+| 2 | General Knowledge | 10 | ⭐⭐ MEDIUM |
+| 3 | Current Affairs (Gujarat State) | 05 | ⭐⭐ MEDIUM |
+| 4 | Gujarati & English Language | 10 | ⭐⭐ MEDIUM |
 
-### Estimated Cutoffs
+**Computer Technical Topics (75 Marks):**
+1. Fundamentals of Computer | 2. Computer Architecture | 3. Operating System | 4. Data Structures | 5. DBMS | 6. Computer Networks | 7. Internet & Web Technology | 8. Boolean Algebra | 9. Software Engineering basics | 10. Programming Concepts | 11. Cyber Security & IT Safety | 12. E-Governance & Digital Services
+
+### Passing Marks
 
 | Category | Marks |
 |----------|-------|
-| General | 65-75 |
-| OBC | 55-65 |
-| SC/ST | 45-55 |
+| General (Non-Reserved) | 50% (50 marks) |
+| Reserved / Women / SMC Employees | 45% (45 marks) |
 
 ---
 ---
