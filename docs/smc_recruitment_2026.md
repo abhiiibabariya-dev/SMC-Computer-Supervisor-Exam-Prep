@@ -1,14 +1,16 @@
 # SMC Recruitment 2026 - Complete Guide
-### Surat Municipal Corporation | 2,295 Vacancies | Apply Online
+### Surat Municipal Corporation | 2,383+ Vacancies | APPLY NOW OPEN!
 ### Latest Notification + SOP for Form Filling + All Details
 
 ---
 
-# BREAKING: SMC RECRUITMENT 2026 IS LIVE!
+# APPLICATIONS NOW OPEN! APPLY BEFORE 15 APRIL 2026!
 
 > **Apply Online:** 01 April 2026 (11:00 AM) to 15 April 2026 (11:00 PM)
-> **Official Website:** [suratmunicipal.gov.in](https://www.suratmunicipal.gov.in/recruitment/)
-> **Total Posts:** 2,295 vacancies across 45+ posts
+> **Official Website:** [suratmunicipal.gov.in/recruitment](https://www.suratmunicipal.gov.in/recruitment/)
+> **Total Posts:** 2,383+ vacancies across 45+ posts (P.R.O. 739: 2,295 + P.R.O. 765: 88 Planning Asst)
+> **NEW:** 88 Planning Assistant posts added (P.R.O. 765/2025-26)
+> **SMIMER:** 30 Senior Resident posts — Walk-in interview on 1 April 2026
 
 ---
 
@@ -17,7 +19,7 @@
 | Detail | Info |
 |--------|------|
 | **Organization** | Surat Municipal Corporation (SMC) |
-| **Total Vacancies** | 2,295 Posts |
+| **Total Vacancies** | 2,383+ Posts (2,295 + 88 Planning Asst) |
 | **Application Start** | 01 April 2026, 11:00 AM |
 | **Application End** | 15 April 2026, 11:00 PM |
 | **Apply Mode** | Online Only |
