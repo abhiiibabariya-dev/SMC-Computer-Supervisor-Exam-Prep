@@ -440,6 +440,19 @@ currentAffairs:[
 {q:"GIFT City is located in?",a:"Gandhinagar, Gujarat — India's first International Financial Services Centre"},
 {q:"What is Lakhpati Didi scheme?",a:"Aims to make 2 crore women in SHGs earn ₹1 lakh+ annually"},
 {q:"Which Indian spacecraft orbits Mars?",a:"Mangalyaan (MOM) — India's first interplanetary mission (2014), lost contact 2022"},
+// === NEW CURRENT AFFAIRS (Added June 2026) ===
+{q:"Where was Maha Kumbh 2025 held?",a:"Prayagraj, Uttar Pradesh — world's largest human gathering"},
+{q:"Who won the ICC Champions Trophy 2025?",a:"India (beat New Zealand in the final)"},
+{q:"Who presented the Union Budget 2025-26?",a:"Nirmala Sitharaman — her record 8th consecutive budget"},
+{q:"What is ISRO's SpaDeX mission?",a:"Space Docking Experiment (Jan 2025) — India became 4th country to dock satellites in space"},
+{q:"Who is the current ISRO Chairman (2025)?",a:"Dr. V. Narayanan (took charge January 2025)"},
+{q:"How many medals did India win at Paris Olympics 2024?",a:"6 medals (1 silver, 5 bronze)"},
+{q:"Who became the 52nd Chief Justice of India (2025)?",a:"Justice B.R. Gavai"},
+{q:"Who is the current Chief Minister of Maharashtra (2025)?",a:"Devendra Fadnavis"},
+{q:"Who became Delhi's Chief Minister in 2025?",a:"Rekha Gupta (BJP, after Feb 2025 elections)"},
+{q:"India became which rank economy in 2025?",a:"4th-largest economy in the world (overtaking Japan)"},
+{q:"Who is the President of the USA (2025)?",a:"Donald Trump — 47th President, inaugurated Jan 2025"},
+{q:"Which athlete is India's javelin star who crossed 90m in 2025?",a:"Neeraj Chopra — Olympic & World Champion"},
 ],
 
 // ===== WORD OF THE DAY (60 words) =====
