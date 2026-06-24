@@ -78,6 +78,21 @@ const _codes=(function(){
 
 let attempts=0;
 
+// Mirror VIP security events to Firebase /security for the bi-hourly email report
+// AND keep a local copy for the admin dashboard's Security Log tab.
+function logSec(message,level){
+    const entry={src:'vip',time:new Date().toISOString(),localTime:new Date().toLocaleString('en-IN'),type:'vip',msg:message,level:level||'ok',ua:navigator.userAgent,page:location.pathname};
+    try{
+        const log=JSON.parse(localStorage.getItem('smc_security_log')||'[]');
+        log.push(entry); if(log.length>500)log.splice(0,log.length-500);
+        localStorage.setItem('smc_security_log',JSON.stringify(log));
+    }catch(e){}
+    try{
+        var url=window.SMC_FIREBASE_URL;if(!url)return;
+        fetch(url+'/security.json',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(entry)}).catch(function(){});
+    }catch(e){}
+}
+
 function checkCode(){
     const code=document.getElementById('codeInput').value.trim().toLowerCase();
     const input=document.getElementById('codeInput');
@@ -96,6 +111,7 @@ function checkCode(){
         input.classList.add('success');
         localStorage.setItem('smc_premium_key','VIP-FAMILY-'+Date.now());
         localStorage.setItem('smc_vip','true');
+        logSec('VIP access granted (code matched)','ok');
 
         setTimeout(()=>{
             document.getElementById('formView').classList.add('hide');
@@ -111,15 +127,6 @@ function checkCode(){
         msg.textContent='Wrong code. '+left+' attempts left.';
         logSec('Failed VIP code attempt #'+attempts,'warn');
     }
-}
-
-// Mirror VIP security events to Firebase /security for the daily report
-function logSec(message,level){
-    try{
-        var url=window.SMC_FIREBASE_URL;if(!url)return;
-        fetch(url+'/security.json',{method:'POST',headers:{'Content-Type':'application/json'},
-            body:JSON.stringify({src:'vip',time:new Date().toISOString(),localTime:new Date().toLocaleString('en-IN'),type:'vip',msg:message,level:level,ua:navigator.userAgent,page:location.pathname})}).catch(function(){});
-    }catch(e){}
 }
 
 // Enter key support
