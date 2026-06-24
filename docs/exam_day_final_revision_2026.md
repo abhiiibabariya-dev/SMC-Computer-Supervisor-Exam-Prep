@@ -1,8 +1,9 @@
 # 🎯 SMC 2026 — Final Revision & Exam-Day Guide
 
-> **Phase update (June 2026):** Applications for all 2,383+ SMC posts closed on **15 April 2026**.
-> The admit-card and written-exam dates will be announced on **suratmunicipal.gov.in**.
-> This is your **revision window** — use it well. This guide is free.
+> **Phase update (June 2026):** Applications closed on **15 April 2026**. The **written exam is
+> scheduled for 12 July 2026** (OMR objective — Clerk, Staff Nurse, Driver, PRO & more). Download
+> your **call letter** from suratmunicipal.gov.in (Recruitment → Download Call Letter) when it opens.
+> Verify your exact date/time/centre on your own call letter. This guide is free — use it well.
 
 ---
 

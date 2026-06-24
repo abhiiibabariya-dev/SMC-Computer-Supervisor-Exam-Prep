@@ -628,8 +628,8 @@
     <div class="al sr" onclick="O('docs/exam_day_final_revision_2026.md','Final Revision & Exam-Day Guide')">
         <div class="al-dot"></div>
         <div class="al-body">
-            <div class="al-title">Applications Closed &mdash; EXAM PREP MODE ON! Admit Cards &amp; Exam Date Coming Soon</div>
-            <div class="al-desc">The 1&ndash;15 April 2026 application window is over (2,383+ posts) &middot; Now is revision time &middot; Tap to open the new <b>Final Revision &amp; Exam-Day Guide</b> &middot; Keep checking suratmunicipal.gov.in for the admit-card date</div>
+            <div class="al-title">🔥 EXAM ON 12 JULY 2026 &mdash; Final Revision Time! Tap for the Exam-Day Guide</div>
+            <div class="al-desc">SMC written exam scheduled for <b>12 July 2026</b> (Clerk, Staff Nurse, Driver, PRO &amp; more) &middot; Call letter download opens soon at suratmunicipal.gov.in &middot; Tap to open the new <b>Final Revision &amp; Exam-Day Guide</b></div>
         </div>
         <div class="al-go">&rarr;</div>
     </div>
@@ -706,9 +706,9 @@
                 <div class="tl-item active"><div class="tl-date">19 March 2026 &#10003;</div><div class="tl-text">Official syllabus PDF released for all 40+ posts. Detailed advertisement published.</div></div>
                 <div class="tl-item active"><div class="tl-date">1 April 2026 &#10003;</div><div class="tl-text">Online applications opened — 88 Planning Asst posts also announced (P.R.O. 765)</div></div>
                 <div class="tl-item active"><div class="tl-date">15 April 2026 &#10003;</div><div class="tl-text">Application window CLOSED (11:00 PM deadline). Form-filling phase complete.</div></div>
-                <div class="tl-item upcoming"><div class="tl-date">NOW — Exam Prep</div><div class="tl-text">&#128293; YOU ARE HERE — Revision phase. Practice mock tests &amp; daily MCQs while waiting for the admit card.</div></div>
-                <div class="tl-item"><div class="tl-date">TBA (soon)</div><div class="tl-text">Admit card release — download from suratmunicipal.gov.in after it's announced</div></div>
-                <div class="tl-item"><div class="tl-date">TBA</div><div class="tl-text">Written examination — OMR format — Date to be notified</div></div>
+                <div class="tl-item upcoming"><div class="tl-date">NOW — Exam Prep</div><div class="tl-text">&#128293; YOU ARE HERE — Final revision phase. Practice mock tests &amp; daily MCQs. Exam is close!</div></div>
+                <div class="tl-item upcoming"><div class="tl-date">Before 12 July 2026</div><div class="tl-text">Admit card / call letter download — from suratmunicipal.gov.in (Recruitment → Download Call Letter). Keep checking.</div></div>
+                <div class="tl-item upcoming"><div class="tl-date">12 July 2026</div><div class="tl-text">&#128221; WRITTEN EXAMINATION — OMR objective test (Clerk, Staff Nurse, Driver, PRO &amp; more). Verify your exact time/centre on the call letter.</div></div>
                 <div class="tl-item"><div class="tl-date">TBA</div><div class="tl-text">Skill test (Computer Supervisor, Clerk typing) — After written exam</div></div>
                 <div class="tl-item"><div class="tl-date">TBA</div><div class="tl-text">Results & merit list — Document verification — Final selection</div></div>
             </div>
@@ -735,11 +735,11 @@
             <a class="news-item news-highlight" href="https://www.suratmunicipal.gov.in/Information/RecruitmentDashboard" target="_blank" data-cat="smc">
                 <div class="news-icon">&#9989;</div>
                 <div class="news-content">
-                    <div class="news-title">Applications CLOSED — Exam Phase Begins. Watch for Admit Card &amp; Exam Date</div>
-                    <div class="news-desc">The 1&ndash;15 April 2026 application window for all 2,383+ posts is now closed. Next: SMC will announce the admit-card download date and written-exam date. Keep checking the official site — and use this time to finish your mock tests and revision.</div>
+                    <div class="news-title">📅 EXAM DATE OUT — Written Exam on 12 July 2026! Call Letter Coming Soon</div>
+                    <div class="news-desc">SMC has scheduled the written exam (OMR objective) for 12 July 2026 for PRO/739 posts — Clerk, Staff Nurse, Driver &amp; PRO. Download your call letter from suratmunicipal.gov.in (Recruitment → Download Call Letter) when released. Other posts: verify your date on the official site. Final revision time is NOW!</div>
                     <div class="news-meta">
-                        <span class="news-tag tag-new">EXAM PREP</span>
-                        <span class="news-tag tag-new">ADMIT CARD SOON</span>
+                        <span class="news-tag tag-live">EXAM 12 JUL</span>
+                        <span class="news-tag tag-new">CALL LETTER SOON</span>
                     </div>
                     <div class="news-source">Source: suratmunicipal.gov.in</div>
                 </div>
@@ -1195,8 +1195,8 @@ window.addEventListener('popstate',()=>{if(document.getElementById('vw').classLi
 //   While EXAM_DATE is null OR already passed, it shows a clean status card
 //   instead of a frozen "0 days" timer.
 (function(){
-    const EXAM_DATE=null;                 // <-- put official exam date here when announced (null = TBA)
-    const EXAM_LABEL='Written Exam In';   // shown above the timer when a date is set
+    const EXAM_DATE='2026-07-12T10:00:00+05:30'; // SMC written exam (PRO/739: Clerk, Staff Nurse, Driver, PRO) — verify exact time on your call letter
+    const EXAM_LABEL='SMC Written Exam In';       // shown above the timer when a date is set
     const statusEl=document.getElementById('cd-status');
     const labelEl=document.getElementById('cd-label');
     const grid=document.getElementById('countdown');
