@@ -66,12 +66,12 @@
 </div>
 
 <script>
-// Codes stored as char arrays — not readable in source
+// Access codes are assembled at runtime from char codes (no plain text in source).
 const _codes=(function(){
     const _c=[
-        [97,98,104,105,50,48,50,54],                          // abhi2026
-        [98,104,97,105,106,97,97,110],                        // bhaijaan
-        [98,101,104,101,110,106,105],                         // behenji
+        [97,98,104,105,50,54,49,49,118,105,112],
+        [98,104,97,105,50,54,49,49,118,105,112],
+        [98,101,104,101,110,50,54,49,49,118,105,112],
     ];
     return _c.map(a=>a.map(c=>String.fromCharCode(c)).join(''));
 })();

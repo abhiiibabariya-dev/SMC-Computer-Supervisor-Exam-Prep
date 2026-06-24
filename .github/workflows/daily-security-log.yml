@@ -1,0 +1,107 @@
+name: Daily Security & Activity Log
+
+# Sends a daily site activity / security summary to the owner's email.
+#
+# ONE-TIME SETUP (required for the email step to work):
+#   In the GitHub repo:  Settings -> Secrets and variables -> Actions -> New repository secret
+#     1) MAIL_USERNAME  = the Gmail address you send FROM (e.g. abhiiibabariya@gmail.com)
+#     2) MAIL_PASSWORD  = a Gmail "App Password" (NOT your normal password).
+#        Create it at: https://myaccount.google.com/apppasswords  (needs 2-Step Verification ON)
+#   The report is always delivered to: abhiiibabariya@gmail.com (see TO_EMAIL below).
+#
+# Until the two secrets are added, the workflow still runs and builds the report,
+# but the send-email step is skipped (so it won't fail noisily every day).
+
+on:
+  schedule:
+    - cron: '30 20 * * *'   # 02:00 AM IST daily (20:30 UTC previous day)
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+env:
+  FIREBASE_URL: 'https://smc-exam-prep-38d22-default-rtdb.asia-southeast1.firebasedatabase.app'
+  TO_EMAIL: 'abhiiibabariya@gmail.com'
+
+jobs:
+  build-and-send:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fetch site data from Firebase
+        run: |
+          set -e
+          echo "Fetching visits & clicks..."
+          curl -fsS "${FIREBASE_URL}/visits.json" -o visits.json || echo 'null' > visits.json
+          curl -fsS "${FIREBASE_URL}/clicks.json" -o clicks.json || echo 'null' > clicks.json
+          # Normalise empty/null responses to empty objects
+          [ -s visits.json ] || echo '{}' > visits.json
+          [ -s clicks.json ] || echo '{}' > clicks.json
+          if [ "$(cat visits.json)" = "null" ]; then echo '{}' > visits.json; fi
+          if [ "$(cat clicks.json)" = "null" ]; then echo '{}' > clicks.json; fi
+
+      - name: Build summary report
+        id: report
+        run: |
+          set -e
+          DATE_IST=$(TZ='Asia/Kolkata' date '+%d %B %Y')
+          CUTOFF=$(date -u -d '24 hours ago' '+%Y-%m-%dT%H:%M:%S')
+
+          TOTAL_VISITS=$(jq '[.[]?] | length' visits.json)
+          TOTAL_CLICKS=$(jq '[.[]?] | length' clicks.json)
+          LAST24=$(jq --arg c "$CUTOFF" '[.[]? | select((.t // "") > $c)] | length' visits.json)
+          UNIQ_DEV=$(jq '[.[]? | .dev] | map(select(.!=null)) | unique | length' visits.json)
+          MOBILE=$(jq '[.[]? | select(.mob==true)] | length' visits.json)
+
+          {
+            echo "<h2>SMC Exam Prep — Daily Security &amp; Activity Log</h2>"
+            echo "<p><b>Report date:</b> ${DATE_IST} (covers last 24 hours + all-time totals)</p>"
+            echo "<table border='1' cellpadding='6' cellspacing='0' style='border-collapse:collapse'>"
+            echo "<tr><td><b>Visits (last 24h)</b></td><td>${LAST24}</td></tr>"
+            echo "<tr><td>Total visits (all time)</td><td>${TOTAL_VISITS}</td></tr>"
+            echo "<tr><td>Total link/button clicks</td><td>${TOTAL_CLICKS}</td></tr>"
+            echo "<tr><td>Unique device models seen</td><td>${UNIQ_DEV}</td></tr>"
+            echo "<tr><td>Mobile visits</td><td>${MOBILE}</td></tr>"
+            echo "</table>"
+
+            echo "<h3>Top pages</h3><ul>"
+            jq -r '[.[]? | .pg] | map(select(.!=null)) | group_by(.) | map({page:.[0], n:length}) | sort_by(-.n) | .[:8][] | "<li>\(.page) — \(.n) views</li>"' visits.json || true
+            echo "</ul>"
+
+            echo "<h3>Top device / OS</h3><ul>"
+            jq -r '[.[]? | (.dev // "?")+" / "+(.os // "?")] | group_by(.) | map({k:.[0], n:length}) | sort_by(-.n) | .[:8][] | "<li>\(.k) — \(.n)</li>"' visits.json || true
+            echo "</ul>"
+
+            echo "<h3>Most recent 12 visits</h3><ul>"
+            jq -r '[.[]?] | sort_by(.t) | reverse | .[:12][] | "<li>\(.lt // .t) — \(.dev // "?") (\(.os // "?"), \(.br // "?")) on \(.pg // "?") — \(.net // "?") — \(.ref // "Direct")</li>"' visits.json || true
+            echo "</ul>"
+
+            echo "<p style='color:#888;font-size:12px'>Source: Firebase Realtime DB (visits + clicks). Generated automatically by GitHub Actions. If counts are 0, check that the Firebase database read rules allow this request.</p>"
+          } > report.html
+
+          echo "Report built. 24h visits: ${LAST24}, total: ${TOTAL_VISITS}"
+          echo "subject=SMC Daily Log — ${DATE_IST} — ${LAST24} visits (24h)" >> "$GITHUB_OUTPUT"
+
+      - name: Check email secrets
+        id: check
+        run: |
+          if [ -n "${{ secrets.MAIL_USERNAME }}" ] && [ -n "${{ secrets.MAIL_PASSWORD }}" ]; then
+            echo "ready=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+            echo "::warning::MAIL_USERNAME / MAIL_PASSWORD secrets not set — skipping email. Add them in repo Settings to enable delivery."
+          fi
+
+      - name: Send daily email
+        if: steps.check.outputs.ready == 'true'
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          secure: true
+          username: ${{ secrets.MAIL_USERNAME }}
+          password: ${{ secrets.MAIL_PASSWORD }}
+          subject: ${{ steps.report.outputs.subject }}
+          to: ${{ env.TO_EMAIL }}
+          from: SMC Exam Prep Bot <${{ secrets.MAIL_USERNAME }}>
+          html_body: file://report.html
