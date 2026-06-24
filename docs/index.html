@@ -21,9 +21,10 @@
         .mesh i{position:absolute;border-radius:50%;filter:blur(140px);opacity:0.6;will-change:transform}
         @media(max-width:768px){.mesh i{opacity:0.3;filter:blur(80px)}.floater-wrap{display:none !important}#particles{display:none !important}#cursorDot,#cursorRing{display:none !important}}
 
-        /* ============ MOBILE PERF: kill expensive infinite animations + GPU blur on phones ============ */
+        /* ============ MOBILE PERF: kill expensive infinite blur/orb animations + GPU backdrop-filter ============ */
+        /* Keep the marquee (transform-only, cheap) and one-shot fade-ins (already complete after 1s). */
         @media(max-width:768px){
-            .mesh i,.glow-orb,.hero-glow,.hero-chip,.hero h1,.hero p,.hero-actions,.hero h1 .gr,.al-dot,.hero-chip .live,.marquee{animation:none !important}
+            .mesh i,.glow-orb,.hero-glow,.hero h1 .gr{animation:none !important}
             .mesh i,.glow-orb{filter:none !important;opacity:0.18 !important}
             *{backdrop-filter:none !important;-webkit-backdrop-filter:none !important}
         }
