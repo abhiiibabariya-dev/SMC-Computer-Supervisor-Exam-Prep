@@ -117,8 +117,16 @@ jobs:
 
           echo "<div style='font-size:12px;color:#cbd5e1;font-weight:700;margin:16px 0 6px'>Recent security events</div>" >> report.html
           echo "<table width='100%' cellpadding='6' cellspacing='0' style='border-collapse:collapse;font-size:12px;color:#cbd5e1'>" >> report.html
-          ROWS=$(jq -r '[.[]?] | sort_by(.time) | reverse | .[:2000][] | "<tr style=\"border-bottom:1px solid #1e293b\"><td style=\"color:#94a3b8;white-space:nowrap\">\(.localTime // .time)</td><td><span style=\"background:\(if .level==\"warn\" then \"#ef4444\" else \"#22c55e\" end);color:#0b0f1a;padding:1px 6px;border-radius:5px;font-weight:700;font-size:10px\">\(.level // \"ok\" | ascii_upcase)</span></td><td>\(.msg // \"-\")</td><td style=\"color:#64748b\">\(.src // \"-\")</td></tr>"' security.json)
-          if [ -n "$ROWS" ]; then echo "$ROWS" >> report.html; else echo "<tr><td style='color:#64748b'>No security events recorded in the feed.</td></tr>" >> report.html; fi
+          jq -r '[.[]?] | sort_by(.time) | reverse | .[:2000][] | [(.localTime // .time // "-"), (.level // "ok"), (.msg // "-"), (.src // "-")] | @tsv' security.json > sec_rows.tsv || true
+          if [ -s sec_rows.tsv ]; then
+            while IFS=$'\t' read -r t lvl msg src; do
+              if [ "$lvl" = "warn" ]; then col="#ef4444"; else col="#22c55e"; fi
+              up=$(printf '%s' "$lvl" | tr '[:lower:]' '[:upper:]')
+              printf '<tr style="border-bottom:1px solid #1e293b"><td style="color:#94a3b8;white-space:nowrap">%s</td><td><span style="background:%s;color:#0b0f1a;padding:1px 6px;border-radius:5px;font-weight:700;font-size:10px">%s</span></td><td>%s</td><td style="color:#64748b">%s</td></tr>\n' "$t" "$col" "$up" "$msg" "$src" >> report.html
+            done < sec_rows.tsv
+          else
+            echo "<tr><td style='color:#64748b'>No security events recorded in the feed.</td></tr>" >> report.html
+          fi
           echo "</table>" >> report.html
 
           echo "<div style='font-size:12px;color:#cbd5e1;font-weight:700;margin:16px 0 6px'>Admin / VIP page access (sensitive)</div>" >> report.html
