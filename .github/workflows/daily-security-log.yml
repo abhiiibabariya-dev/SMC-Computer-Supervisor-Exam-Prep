@@ -131,31 +131,49 @@ jobs:
 
           echo "<div style='font-size:12px;color:#cbd5e1;font-weight:700;margin:16px 0 6px'>Admin / VIP page access (sensitive)</div>" >> report.html
           echo "<table width='100%' cellpadding='6' cellspacing='0' style='border-collapse:collapse;font-size:12px;color:#cbd5e1'>" >> report.html
-          SROWS=$(jq -r '[.[]? | select((.pg // "") | test("admin|vip"; "i"))] | sort_by(.t) | reverse | .[:2000][] | "<tr style=\"border-bottom:1px solid #1e293b\"><td style=\"color:#94a3b8;white-space:nowrap\">\(.lt // .t)</td><td style=\"color:#f59e0b\">\(.pg)</td><td>\(.dev // \"?\") / \(.os // \"?\")</td><td style=\"color:#64748b\">\(.net // \"?\")</td></tr>"' visits.json)
-          if [ -n "$SROWS" ]; then echo "$SROWS" >> report.html; else echo "<tr><td style='color:#64748b'>No admin/VIP page access in this window. ✅</td></tr>" >> report.html; fi
+          jq -r '[.[]? | select((.pg // "") | test("admin|vip"; "i"))] | sort_by(.t) | reverse | .[:2000][] | [(.lt // .t // "-"), (.pg // "-"), ((.dev // "?")+" / "+(.os // "?")), (.net // "?")] | @tsv' visits.json > srows.tsv || true
+          if [ -s srows.tsv ]; then
+            while IFS=$'\t' read -r a b c d; do
+              printf '<tr style="border-bottom:1px solid #1e293b"><td style="color:#94a3b8;white-space:nowrap">%s</td><td style="color:#f59e0b">%s</td><td>%s</td><td style="color:#64748b">%s</td></tr>\n' "$a" "$b" "$c" "$d" >> report.html
+            done < srows.tsv
+          else
+            echo "<tr><td style='color:#64748b'>No admin/VIP page access in this window.</td></tr>" >> report.html
+          fi
           echo "</table></div></div>" >> report.html
 
-          # ---- TRAFFIC DETAIL ----
+          # ---- TRAFFIC DETAIL ---- (all HTML/colour built in bash; jq only emits @tsv data)
           echo "<div style='font-size:13px;color:#e5e7eb;font-weight:700;margin:22px 0 6px'>🔥 Top pages</div>" >> report.html
           echo "<table width='100%' cellpadding='6' cellspacing='0' style='border-collapse:collapse;font-size:12px;color:#cbd5e1'>" >> report.html
-          jq -r '[.[]? | .pg] | map(select(.!=null)) | group_by(.) | map({page:.[0], n:length}) | sort_by(-.n) | .[:1000][] | "<tr style=\"border-bottom:1px solid #1e293b\"><td>\(.page)</td><td align=\"right\" style=\"color:#818cf8;font-weight:700\">\(.n)</td></tr>"' visits.json >> report.html || true
+          jq -r '[.[]? | .pg] | map(select(.!=null)) | group_by(.) | map({page:.[0], n:length}) | sort_by(-.n) | .[:1000][] | [.page, (.n|tostring)] | @tsv' visits.json > prows.tsv || true
+          while IFS=$'\t' read -r a b; do [ -z "$a" ] && continue
+            printf '<tr style="border-bottom:1px solid #1e293b"><td>%s</td><td align="right" style="color:#818cf8;font-weight:700">%s</td></tr>\n' "$a" "$b" >> report.html
+          done < prows.tsv
           echo "</table>" >> report.html
 
           echo "<div style='font-size:13px;color:#e5e7eb;font-weight:700;margin:18px 0 6px'>📱 Top device / OS</div>" >> report.html
           echo "<table width='100%' cellpadding='6' cellspacing='0' style='border-collapse:collapse;font-size:12px;color:#cbd5e1'>" >> report.html
-          jq -r '[.[]? | (.dev // "?")+" / "+(.os // "?")] | group_by(.) | map({k:.[0], n:length}) | sort_by(-.n) | .[:1000][] | "<tr style=\"border-bottom:1px solid #1e293b\"><td>\(.k)</td><td align=\"right\" style=\"color:#818cf8;font-weight:700\">\(.n)</td></tr>"' visits.json >> report.html || true
+          jq -r '[.[]? | (.dev // "?")+" / "+(.os // "?")] | group_by(.) | map({k:.[0], n:length}) | sort_by(-.n) | .[:1000][] | [.k, (.n|tostring)] | @tsv' visits.json > drows.tsv || true
+          while IFS=$'\t' read -r a b; do [ -z "$a" ] && continue
+            printf '<tr style="border-bottom:1px solid #1e293b"><td>%s</td><td align="right" style="color:#818cf8;font-weight:700">%s</td></tr>\n' "$a" "$b" >> report.html
+          done < drows.tsv
           echo "</table>" >> report.html
 
           echo "<div style='font-size:13px;color:#e5e7eb;font-weight:700;margin:18px 0 6px'>🕑 All visits (newest first — full log attached as visits.json)</div>" >> report.html
           echo "<table width='100%' cellpadding='6' cellspacing='0' style='border-collapse:collapse;font-size:12px;color:#cbd5e1'>" >> report.html
-          echo "<tr style='color:#64748b;text-align:left'><th align='left'>Time</th><th align='left'>Device</th><th align='left'>OS / Browser</th><th align='left'>Page</th><th align='left'>Net</th><th align='left'>Referrer</th></tr>" >> report.html
-          jq -r '[.[]?] | sort_by(.t) | reverse | .[:1000][] | "<tr style=\"border-bottom:1px solid #1e293b\"><td style=\"color:#94a3b8;white-space:nowrap\">\(.lt // .t)</td><td>\(.dev // \"?\")</td><td style=\"color:#64748b\">\(.os // \"?\"), \(.br // \"?\")</td><td>\(.pg // \"?\")</td><td style=\"color:#64748b\">\(.net // \"?\")</td><td style=\"color:#64748b\">\(.ref // \"Direct\")</td></tr>"' visits.json >> report.html || true
+          printf '<tr style="color:#64748b;text-align:left"><th align="left">Time</th><th align="left">Device</th><th align="left">OS / Browser</th><th align="left">Page</th><th align="left">Net</th><th align="left">Referrer</th></tr>\n' >> report.html
+          jq -r '[.[]?] | sort_by(.t) | reverse | .[:1000][] | [(.lt // .t // "-"), (.dev // "?"), ((.os // "?")+", "+(.br // "?")), (.pg // "?"), (.net // "?"), (.ref // "Direct")] | @tsv' visits.json > vrows.tsv || true
+          while IFS=$'\t' read -r a b c d e f; do
+            printf '<tr style="border-bottom:1px solid #1e293b"><td style="color:#94a3b8;white-space:nowrap">%s</td><td>%s</td><td style="color:#64748b">%s</td><td>%s</td><td style="color:#64748b">%s</td><td style="color:#64748b">%s</td></tr>\n' "$a" "$b" "$c" "$d" "$e" "$f" >> report.html
+          done < vrows.tsv
           echo "</table>" >> report.html
 
           echo "<div style='font-size:13px;color:#e5e7eb;font-weight:700;margin:18px 0 6px'>🖱 All clicks (newest first — full log attached as clicks.json)</div>" >> report.html
           echo "<table width='100%' cellpadding='6' cellspacing='0' style='border-collapse:collapse;font-size:12px;color:#cbd5e1'>" >> report.html
-          echo "<tr style='color:#64748b;text-align:left'><th align='left'>Time</th><th align='left'>Element / Text</th><th align='left'>Page</th></tr>" >> report.html
-          jq -r '[.[]?] | reverse | .[:1000][] | "<tr style=\"border-bottom:1px solid #1e293b\"><td style=\"color:#94a3b8;white-space:nowrap\">\(.t // \"?\")</td><td>\(.x // \"?\")</td><td style=\"color:#64748b\">\(.p // \"?\")</td></tr>"' clicks.json >> report.html || true
+          printf '<tr style="color:#64748b;text-align:left"><th align="left">Time</th><th align="left">Element / Text</th><th align="left">Page</th></tr>\n' >> report.html
+          jq -r '[.[]?] | reverse | .[:1000][] | [(.t // "?"), (.x // "?"), (.p // "?")] | @tsv' clicks.json > crows.tsv || true
+          while IFS=$'\t' read -r a b c; do
+            printf '<tr style="border-bottom:1px solid #1e293b"><td style="color:#94a3b8;white-space:nowrap">%s</td><td>%s</td><td style="color:#64748b">%s</td></tr>\n' "$a" "$b" "$c" >> report.html
+          done < crows.tsv
           echo "</table>" >> report.html
 
           if [ "$TOTAL_VISITS" -eq 0 ] && [ "$SEC_TOTAL" -eq 0 ]; then
