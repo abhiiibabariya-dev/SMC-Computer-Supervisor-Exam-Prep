@@ -4,12 +4,16 @@ name: Daily Security & Activity Log
 #
 # ONE-TIME SETUP (required for the email step to work):
 #   In the GitHub repo:  Settings -> Secrets and variables -> Actions -> New repository secret
-#     1) MAIL_USERNAME  = the Gmail address you send FROM (e.g. abhiiibabariya@gmail.com)
-#     2) MAIL_PASSWORD  = a Gmail "App Password" (NOT your normal password).
-#        Create it at: https://myaccount.google.com/apppasswords  (needs 2-Step Verification ON)
+#     1) MAIL_USERNAME    = the Gmail address you send FROM (e.g. abhiiibabariya@gmail.com)
+#     2) MAIL_PASSWORD    = a Gmail "App Password" (NOT your normal password).
+#          Create it at: https://myaccount.google.com/apppasswords  (needs 2-Step Verification ON)
+#     3) FIREBASE_SECRET  = a Firebase Realtime DB auth token, so the report can READ your data.
+#          Get it: Firebase console -> Project Settings -> Service accounts -> Database secrets
+#          (or generate a token). Your DB currently blocks anonymous reads (good!), so without
+#          this secret the report will show 0 visits.
 #   The report is always delivered to: abhiiibabariya@gmail.com (see TO_EMAIL below).
 #
-# Until the two secrets are added, the workflow still runs and builds the report,
+# Until MAIL_* secrets are added, the workflow still runs and builds the report,
 # but the send-email step is skipped (so it won't fail noisily every day).
 
 on:
@@ -29,11 +33,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Fetch site data from Firebase
+        env:
+          FB_SECRET: ${{ secrets.FIREBASE_SECRET }}
         run: |
           set -e
-          echo "Fetching visits & clicks..."
-          curl -fsS "${FIREBASE_URL}/visits.json" -o visits.json || echo 'null' > visits.json
-          curl -fsS "${FIREBASE_URL}/clicks.json" -o clicks.json || echo 'null' > clicks.json
+          AUTH=""
+          [ -n "$FB_SECRET" ] && AUTH="?auth=${FB_SECRET}"
+          echo "Fetching visits & clicks (auth: $([ -n "$FB_SECRET" ] && echo yes || echo no))..."
+          curl -fsS "${FIREBASE_URL}/visits.json${AUTH}" -o visits.json || echo 'null' > visits.json
+          curl -fsS "${FIREBASE_URL}/clicks.json${AUTH}" -o clicks.json || echo 'null' > clicks.json
           # Normalise empty/null responses to empty objects
           [ -s visits.json ] || echo '{}' > visits.json
           [ -s clicks.json ] || echo '{}' > clicks.json
