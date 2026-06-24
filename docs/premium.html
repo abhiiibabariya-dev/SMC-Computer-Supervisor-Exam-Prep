@@ -345,7 +345,7 @@
 
                     <div class="btn-row">
                         <button class="btn btn-green" onclick="sendWhatsApp()" style="gap:6px">&#128172; WhatsApp</button>
-                        <button class="btn btn-primary" onclick="sendEmail()" style="gap:6px">&#9993; Email</button>
+                        <button class="btn btn-primary" id="emailBtn" onclick="sendEmail()" style="gap:6px">&#9993; Email</button>
                         <button class="btn btn-ghost" onclick="sendSMS()" style="gap:6px;background:rgba(14,165,233,0.1);color:#38bdf8;border-color:rgba(14,165,233,0.2)">&#128241; SMS</button>
                     </div>
                     <div class="btn-row" style="margin-top:8px">
@@ -899,14 +899,15 @@ function sendEmail(){
 
     // Path A: EmailJS configured — send real email
     if(emailjsReady() && r.email){
-        const btns=document.querySelectorAll('.btn-row .btn-primary');
-        btns.forEach(b=>{b.disabled=true;b.dataset._t=b.textContent;b.textContent='Sending...'});
+        const btn=document.getElementById('emailBtn');
+        const origHTML=btn?btn.innerHTML:'';
+        if(btn){btn.disabled=true;btn.textContent='Sending...';}
         const params={to_email:r.email,name:r.name,order:r.order,plan:r.plan,amount:r.amount,key:r.key,txn:r.txn,date:r.date};
         window.emailjs.send(EMAILJS.SERVICE_ID,EMAILJS.TEMPLATE_CUSTOMER,params).then(()=>{
-            btns.forEach(b=>{b.textContent='✓ Sent';setTimeout(()=>{b.textContent=b.dataset._t||'Email';b.disabled=false},2500)});
+            if(btn){btn.textContent='\u2713 Sent';setTimeout(()=>{btn.innerHTML=origHTML;btn.disabled=false},2500);}
             smcSecLog('share','Email receipt delivered to '+r.email+' — order '+r.order,'ok');
         }).catch(err=>{
-            btns.forEach(b=>{b.textContent=b.dataset._t||'Email';b.disabled=false});
+            if(btn){btn.innerHTML=origHTML;btn.disabled=false;}
             smcSecLog('share','EmailJS send failed: '+(err&&err.text?err.text:'unknown')+' — falling back to mailto','warn');
             mailtoFallback(r);
         });
