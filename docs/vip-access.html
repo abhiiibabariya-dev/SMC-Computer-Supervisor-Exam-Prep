@@ -87,6 +87,7 @@ function checkCode(){
 
     if(attempts>=10){
         msg.className='msg err';msg.textContent='Too many attempts. Try later.';
+        logSec('VIP access BLOCKED — 10+ wrong codes','warn');
         return;
     }
 
@@ -108,7 +109,17 @@ function checkCode(){
         const left=10-attempts;
         msg.className='msg err';
         msg.textContent='Wrong code. '+left+' attempts left.';
+        logSec('Failed VIP code attempt #'+attempts,'warn');
     }
+}
+
+// Mirror VIP security events to Firebase /security for the daily report
+function logSec(message,level){
+    try{
+        var url=window.SMC_FIREBASE_URL;if(!url)return;
+        fetch(url+'/security.json',{method:'POST',headers:{'Content-Type':'application/json'},
+            body:JSON.stringify({src:'vip',time:new Date().toISOString(),localTime:new Date().toLocaleString('en-IN'),type:'vip',msg:message,level:level,ua:navigator.userAgent,page:location.pathname})}).catch(function(){});
+    }catch(e){}
 }
 
 // Enter key support
