@@ -20,6 +20,14 @@
         .mesh{position:fixed;inset:0;z-index:0;pointer-events:none}
         .mesh i{position:absolute;border-radius:50%;filter:blur(140px);opacity:0.6;will-change:transform}
         @media(max-width:768px){.mesh i{opacity:0.3;filter:blur(80px)}.floater-wrap{display:none !important}#particles{display:none !important}#cursorDot,#cursorRing{display:none !important}}
+
+        /* ============ MOBILE PERF: kill expensive infinite animations + GPU blur on phones ============ */
+        @media(max-width:768px){
+            .mesh i,.glow-orb,.hero-glow,.hero-chip,.hero h1,.hero p,.hero-actions,.hero h1 .gr,.al-dot,.hero-chip .live,.marquee{animation:none !important}
+            .mesh i,.glow-orb{filter:none !important;opacity:0.18 !important}
+            *{backdrop-filter:none !important;-webkit-backdrop-filter:none !important}
+        }
+        @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.001ms !important;animation-iteration-count:1 !important;transition-duration:0.001ms !important}}
         .mesh .m1{width:50vw;height:50vw;background:rgba(99,102,241,0.07);top:-20%;left:-15%;animation:meshFloat 25s ease-in-out infinite alternate}
         .mesh .m2{width:40vw;height:40vw;background:rgba(99,102,241,0.05);bottom:-15%;right:-10%;animation:meshFloat 30s ease-in-out infinite alternate-reverse}
         .mesh .m3{width:35vw;height:35vw;background:rgba(99,102,241,0.04);top:40%;left:50%;animation:meshFloat 20s ease-in-out infinite alternate}
@@ -1168,9 +1176,13 @@
 
 
 <script>
-// Nav scroll
+// Nav scroll (throttled via rAF — was firing on every scroll event on mobile, causing jank)
 const nv=document.getElementById('nav');
-window.addEventListener('scroll',()=>{nv.classList.toggle('scrolled',scrollY>50)});
+let _navTicking=false;
+window.addEventListener('scroll',()=>{
+    if(_navTicking)return; _navTicking=true;
+    requestAnimationFrame(()=>{nv.classList.toggle('scrolled',scrollY>50);_navTicking=false});
+},{passive:true});
 
 // Scroll reveal + staggered cards
 const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('v')}})},{threshold:0.06,rootMargin:'0px 0px -30px 0px'});
@@ -1229,7 +1241,12 @@ window.addEventListener('popstate',()=>{if(document.getElementById('vw').classLi
         if(statusEl){statusEl.textContent=d+' days left';statusEl.style.color='#34d399';}
     }
     update();
-    const iv=setInterval(update,1000);
+    let _cdIv=setInterval(update,1000);
+    // Pause countdown while tab is hidden so it doesn't keep waking the device
+    document.addEventListener('visibilitychange',()=>{
+        if(document.hidden){clearInterval(_cdIv);_cdIv=null}
+        else if(!_cdIv){update();_cdIv=setInterval(update,1000)}
+    });
 })();
 
 // ===== DAILY QUIZ =====

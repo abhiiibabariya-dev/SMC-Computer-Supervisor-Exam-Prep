@@ -322,18 +322,20 @@ function logout(){
     location.reload();
 }
 
-// ===== AAA: ACCOUNTING (Security Log) =====
+// ===== AAA: ACCOUNTING (Security Log — Firebase + local) =====
 function addSecLog(type,msg,level){
     const entry={time:new Date().toISOString(),localTime:new Date().toLocaleString('en-IN'),type,msg,level};
     const log=JSON.parse(localStorage.getItem('smc_security_log')||'[]');
     log.push(entry);
     if(log.length>500)log.splice(0,log.length-500);
     localStorage.setItem('smc_security_log',JSON.stringify(log));
-    // Mirror to Firebase /security so it shows up in the daily security email
+    // Mirror to Firebase /security so it shows up in the bi-hourly security email
     try{
-        fetch(FIREBASE_URL+'/security.json',{method:'POST',
-            body:JSON.stringify(Object.assign({src:'admin',ua:navigator.userAgent,page:location.pathname},entry)),
-            headers:{'Content-Type':'application/json'}}).catch(function(){});
+        if(typeof FIREBASE_URL!=='undefined'&&FIREBASE_URL){
+            fetch(FIREBASE_URL+'/security.json',{method:'POST',
+                body:JSON.stringify(Object.assign({src:'admin',ua:navigator.userAgent,page:location.pathname},entry)),
+                headers:{'Content-Type':'application/json'}}).catch(function(){});
+        }
     }catch(e){}
 }
 
@@ -342,7 +344,7 @@ const FIREBASE_URL='https://smc-exam-prep-38d22-default-rtdb.asia-southeast1.fir
 
 // ===== DASHBOARD =====
 let refreshTimer=null;
-let cloudVisits=[],cloudClicks=[];
+let cloudVisits=[],cloudClicks=[],cloudSecLog=[];
 
 function initDashboard(){
     renderAll();
@@ -371,6 +373,14 @@ async function fetchCloud(){
                 cloudClicks=Object.values(cData).filter(c=>c&&(c.t||c.time));
             }
         }
+        // Fetch security log from Firebase (uses /security to match the bi-hourly email workflow)
+        const sRes=await fetch(FIREBASE_URL+'/security.json');
+        if(sRes.ok){
+            const sData=await sRes.json();
+            if(sData){
+                cloudSecLog=Object.values(sData).filter(l=>l&&l.msg&&l.type);
+            }
+        }
     }catch(e){console.log('Cloud fetch error:',e)}
     renderAll();
 }
@@ -394,7 +404,13 @@ function renderAll(){
     const visits=normalizedCloud.length>0?normalizedCloud:localVisits;
     const clicks=cloudClicks.length>0?cloudClicks:localClicks;
     const orders=JSON.parse(localStorage.getItem('smc_orders')||'[]');
-    const secLog=JSON.parse(localStorage.getItem('smc_security_log')||'[]');
+    const localSecLog=JSON.parse(localStorage.getItem('smc_security_log')||'[]');
+    // Merge cloud + local security log, de-dupe by time+msg, sort ascending
+    const seen={};
+    const secLog=[...cloudSecLog,...localSecLog].filter(l=>{
+        const k=(l.time||'')+'|'+(l.msg||'');
+        if(seen[k])return false; seen[k]=1; return true;
+    }).sort((a,b)=>(a.time||'').localeCompare(b.time||''));
 
     // Show data source indicator
     const srcEl=document.getElementById('refreshInterval');

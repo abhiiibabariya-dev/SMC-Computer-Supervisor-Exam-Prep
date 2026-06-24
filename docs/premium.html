@@ -9,6 +9,7 @@
     <title>SMC Premium — Unlock Full Access</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <style>
         :root{--bg:#06060a;--s1:#0c0c14;--s2:#12121c;--border:rgba(255,255,255,0.06);--border2:rgba(255,255,255,0.1);--txt:#a1a1aa;--white:#f4f4f5;--dim:#52525b;--accent:#a78bfa;--green:#22c55e;--red:#ef4444}
         *{margin:0;padding:0;box-sizing:border-box}
@@ -774,6 +775,13 @@ async function verifyPayment(){
     document.getElementById('sl3').className='step-line done';
 
     if(sessionTimeout)clearInterval(sessionTimeout);
+
+    // Log payment + auto-notify admin via EmailJS (no-op if not configured)
+    try{
+        const r=getReceiptData();
+        smcSecLog('share','New paid order verified: '+r.order+' / '+r.name+' / '+r.amount,'ok');
+        sendAdminNotification(r,deviceFP.substring(0,12));
+    }catch(e){}
 }
 
 function simpleHash(str){
@@ -818,6 +826,7 @@ function fillReceipt(){
 // ===== SEND VIA WHATSAPP =====
 function sendWhatsApp(){
     const r=getReceiptData();
+    smcSecLog('share','Customer clicked WhatsApp share — order '+r.order,'ok');
     const phone=r.phone.startsWith('91')?r.phone:'91'+r.phone;
     const msg=`🎉 *SMC Exam Prep — Premium Activated!*
 
@@ -843,42 +852,92 @@ function sendWhatsApp(){
     window.open(url,'_blank');
 }
 
+// ===== EMAILJS CONFIG =====
+// Setup steps (one-time, 5 min):
+//   1. Sign up free at https://www.emailjs.com (200 emails/month free).
+//   2. Add an Email Service (Gmail recommended) → copy SERVICE_ID.
+//   3. Create two templates:
+//      a) "customer_receipt" with variables: {{to_email}} {{name}} {{order}} {{plan}} {{amount}} {{key}} {{txn}} {{date}}
+//      b) "admin_order" with variables: {{name}} {{phone}} {{email}} {{order}} {{plan}} {{amount}} {{key}} {{txn}} {{date}} {{device}}
+//      → copy each TEMPLATE_ID.
+//   4. Account → API Keys → copy PUBLIC_KEY.
+//   5. Paste the four values below. That's it.
+const EMAILJS = {
+    PUBLIC_KEY:     'PASTE_PUBLIC_KEY_HERE',
+    SERVICE_ID:     'PASTE_SERVICE_ID_HERE',
+    TEMPLATE_CUSTOMER: 'PASTE_CUSTOMER_TEMPLATE_ID_HERE',
+    TEMPLATE_ADMIN:    'PASTE_ADMIN_TEMPLATE_ID_HERE',
+    ADMIN_EMAIL:    'bhinang@techowl.com'
+};
+function emailjsReady(){
+    return window.emailjs && EMAILJS.PUBLIC_KEY.indexOf('PASTE_')!==0 && EMAILJS.SERVICE_ID.indexOf('PASTE_')!==0;
+}
+(function initEmailjs(){
+    try{ if(window.emailjs && EMAILJS.PUBLIC_KEY.indexOf('PASTE_')!==0) window.emailjs.init({publicKey:EMAILJS.PUBLIC_KEY}); }catch(e){}
+})();
+
+// ===== SECURITY LOG (Firebase /security + local) =====
+// Writes to /security so events appear in the bi-hourly admin email report,
+// and also locally so the admin dashboard's Security Log tab still works offline.
+function smcSecLog(type,msg,level){
+    const entry={src:'premium',time:new Date().toISOString(),localTime:new Date().toLocaleString('en-IN'),type:type,msg:msg,level:level||'ok',ua:navigator.userAgent,page:location.pathname};
+    try{
+        const log=JSON.parse(localStorage.getItem('smc_security_log')||'[]');
+        log.push(entry); if(log.length>500)log.splice(0,log.length-500);
+        localStorage.setItem('smc_security_log',JSON.stringify(log));
+    }catch(e){}
+    try{
+        const u=window.SMC_FIREBASE_URL;
+        if(u)fetch(u+'/security.json',{method:'POST',body:JSON.stringify(entry),headers:{'Content-Type':'application/json'}}).catch(()=>{});
+    }catch(e){}
+}
+
 // ===== SEND VIA EMAIL =====
 function sendEmail(){
     const r=getReceiptData();
+    smcSecLog('share','Customer clicked Email share — order '+r.order,'ok');
+
+    // Path A: EmailJS configured — send real email
+    if(emailjsReady() && r.email){
+        const btns=document.querySelectorAll('.btn-row .btn-primary');
+        btns.forEach(b=>{b.disabled=true;b.dataset._t=b.textContent;b.textContent='Sending...'});
+        const params={to_email:r.email,name:r.name,order:r.order,plan:r.plan,amount:r.amount,key:r.key,txn:r.txn,date:r.date};
+        window.emailjs.send(EMAILJS.SERVICE_ID,EMAILJS.TEMPLATE_CUSTOMER,params).then(()=>{
+            btns.forEach(b=>{b.textContent='✓ Sent';setTimeout(()=>{b.textContent=b.dataset._t||'Email';b.disabled=false},2500)});
+            smcSecLog('share','Email receipt delivered to '+r.email+' — order '+r.order,'ok');
+        }).catch(err=>{
+            btns.forEach(b=>{b.textContent=b.dataset._t||'Email';b.disabled=false});
+            smcSecLog('share','EmailJS send failed: '+(err&&err.text?err.text:'unknown')+' — falling back to mailto','warn');
+            mailtoFallback(r);
+        });
+        return;
+    }
+    // Path B: no email entered or EmailJS not configured — fall back to mailto
+    mailtoFallback(r);
+}
+
+function mailtoFallback(r){
     const subject='SMC Exam Prep — Premium Access Key & Receipt ('+r.order+')';
-    const body=`SMC Exam Prep — Premium Activated!
-========================================
-
-Payment Receipt
------------------
-Order ID: ${r.order}
-Plan: ${r.plan}
-Amount: ${r.amount}
-Access Key: ${r.key}
-Transaction ID: ${r.txn}
-Date: ${r.date}
-Name: ${r.name}
-
-========================================
-
-Your premium access is now active!
-Open the website to access all 9 mock tests:
-https://abhiiibabariya-dev.github.io/SMC-Computer-Supervisor-Exam-Prep/mock-test.html
-
-Important: This key is locked to your device. Do not share.
-
-Thank you for purchasing SMC Exam Prep Premium!
-Good luck with your exam! 🎯`;
-
-    const emailTo=r.email||'';
-    const url='mailto:'+emailTo+'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+    const body='SMC Exam Prep — Premium Activated!\n========================================\n\nPayment Receipt\n-----------------\nOrder ID: '+r.order+'\nPlan: '+r.plan+'\nAmount: '+r.amount+'\nAccess Key: '+r.key+'\nTransaction ID: '+r.txn+'\nDate: '+r.date+'\nName: '+r.name+'\n\n========================================\n\nYour premium access is now active!\nOpen the website to access all 9 mock tests:\nhttps://abhiiibabariya-dev.github.io/SMC-Computer-Supervisor-Exam-Prep/mock-test.html\n\nImportant: This key is locked to your device. Do not share.\n\nThank you for purchasing SMC Exam Prep Premium!\nGood luck with your exam!';
+    const url='mailto:'+(r.email||'')+'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
     window.open(url);
+}
+
+// ===== ADMIN NOTIFICATION (fires once on payment verification) =====
+function sendAdminNotification(r,deviceId){
+    if(!emailjsReady())return;
+    const params={name:r.name,phone:r.phone||'',email:r.email||'',order:r.order,plan:r.plan,amount:r.amount,key:r.key,txn:r.txn,date:r.date,device:deviceId||''};
+    window.emailjs.send(EMAILJS.SERVICE_ID,EMAILJS.TEMPLATE_ADMIN,params).then(()=>{
+        smcSecLog('share','Admin notified of new paid order '+r.order,'ok');
+    }).catch(err=>{
+        smcSecLog('share','Admin email FAILED for order '+r.order+': '+(err&&err.text?err.text:'unknown'),'warn');
+    });
 }
 
 // ===== SEND VIA SMS =====
 function sendSMS(){
     const r=getReceiptData();
+    smcSecLog('share','Customer clicked SMS share — order '+r.order,'ok');
     const msg=`SMC Exam Prep Premium Activated! Order: ${r.order} | Plan: ${r.plan} | Amount: ${r.amount} | Key: ${r.key} | Txn: ${r.txn} | Access: https://abhiiibabariya-dev.github.io/SMC-Computer-Supervisor-Exam-Prep/mock-test.html`;
     const phone=r.phone;
     const url='sms:'+phone+'?body='+encodeURIComponent(msg);
@@ -888,6 +947,7 @@ function sendSMS(){
 // ===== DOWNLOAD RECEIPT =====
 function downloadReceipt(){
     const r=getReceiptData();
+    smcSecLog('share','Customer downloaded receipt PNG — order '+r.order,'ok');
     const canvas=document.createElement('canvas');
     canvas.width=600;canvas.height=520;
     const ctx=canvas.getContext('2d');
