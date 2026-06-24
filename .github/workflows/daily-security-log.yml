@@ -18,7 +18,7 @@ name: Daily Security & Activity Log
 
 on:
   schedule:
-    - cron: '30 20 * * *'   # 02:00 AM IST daily (20:30 UTC previous day)
+    - cron: '0 */2 * * *'   # every 2 hours (full activity + security report)
   workflow_dispatch: {}
 
 permissions:
@@ -39,56 +39,135 @@ jobs:
           set -e
           AUTH=""
           [ -n "$FB_SECRET" ] && AUTH="?auth=${FB_SECRET}"
-          echo "Fetching visits & clicks (auth: $([ -n "$FB_SECRET" ] && echo yes || echo no))..."
-          curl -fsS "${FIREBASE_URL}/visits.json${AUTH}" -o visits.json || echo 'null' > visits.json
-          curl -fsS "${FIREBASE_URL}/clicks.json${AUTH}" -o clicks.json || echo 'null' > clicks.json
+          echo "Fetching visits, clicks & security log (auth: $([ -n "$FB_SECRET" ] && echo yes || echo no))..."
+          curl -fsS "${FIREBASE_URL}/visits.json${AUTH}"   -o visits.json   || echo 'null' > visits.json
+          curl -fsS "${FIREBASE_URL}/clicks.json${AUTH}"   -o clicks.json   || echo 'null' > clicks.json
+          curl -fsS "${FIREBASE_URL}/security.json${AUTH}" -o security.json || echo 'null' > security.json
           # Normalise empty/null responses to empty objects
-          [ -s visits.json ] || echo '{}' > visits.json
-          [ -s clicks.json ] || echo '{}' > clicks.json
-          if [ "$(cat visits.json)" = "null" ]; then echo '{}' > visits.json; fi
-          if [ "$(cat clicks.json)" = "null" ]; then echo '{}' > clicks.json; fi
+          for f in visits.json clicks.json security.json; do
+            [ -s "$f" ] || echo '{}' > "$f"
+            if [ "$(cat "$f")" = "null" ]; then echo '{}' > "$f"; fi
+          done
 
       - name: Build summary report
         id: report
+        env:
+          FB_SECRET: ${{ secrets.FIREBASE_SECRET }}
         run: |
           set -e
-          DATE_IST=$(TZ='Asia/Kolkata' date '+%d %B %Y')
+          DATE_IST=$(TZ='Asia/Kolkata' date '+%d %B %Y, %I:%M %p')
           CUTOFF=$(date -u -d '24 hours ago' '+%Y-%m-%dT%H:%M:%S')
 
+          # ---- Activity metrics ----
           TOTAL_VISITS=$(jq '[.[]?] | length' visits.json)
           TOTAL_CLICKS=$(jq '[.[]?] | length' clicks.json)
           LAST24=$(jq --arg c "$CUTOFF" '[.[]? | select((.t // "") > $c)] | length' visits.json)
           UNIQ_DEV=$(jq '[.[]? | .dev] | map(select(.!=null)) | unique | length' visits.json)
           MOBILE=$(jq '[.[]? | select(.mob==true)] | length' visits.json)
 
-          {
-            echo "<h2>SMC Exam Prep — Daily Security &amp; Activity Log</h2>"
-            echo "<p><b>Report date:</b> ${DATE_IST} (covers last 24 hours + all-time totals)</p>"
-            echo "<table border='1' cellpadding='6' cellspacing='0' style='border-collapse:collapse'>"
-            echo "<tr><td><b>Visits (last 24h)</b></td><td>${LAST24}</td></tr>"
-            echo "<tr><td>Total visits (all time)</td><td>${TOTAL_VISITS}</td></tr>"
-            echo "<tr><td>Total link/button clicks</td><td>${TOTAL_CLICKS}</td></tr>"
-            echo "<tr><td>Unique device models seen</td><td>${UNIQ_DEV}</td></tr>"
-            echo "<tr><td>Mobile visits</td><td>${MOBILE}</td></tr>"
-            echo "</table>"
+          # ---- Security metrics ----
+          SEC_TOTAL=$(jq '[.[]?] | length' security.json)
+          SEC_24=$(jq --arg c "$CUTOFF" '[.[]? | select((.time // "") > $c)] | length' security.json)
+          SEC_WARN=$(jq '[.[]? | select(.level=="warn")] | length' security.json)
+          SENSITIVE=$(jq '[.[]? | select((.pg // "") | test("admin|vip"; "i"))] | length' visits.json)
+          SUSPECT=$(jq '[.[]? | select((.br // "")=="Other" or (.dev // "")=="Unknown")] | length' visits.json)
 
-            echo "<h3>Top pages</h3><ul>"
-            jq -r '[.[]? | .pg] | map(select(.!=null)) | group_by(.) | map({page:.[0], n:length}) | sort_by(-.n) | .[:8][] | "<li>\(.page) — \(.n) views</li>"' visits.json || true
-            echo "</ul>"
+          THREAT="#22c55e"; THREAT_TXT="LOW"
+          if [ "$SEC_WARN" -gt 0 ] || [ "$SENSITIVE" -gt 0 ]; then THREAT="#f59e0b"; THREAT_TXT="ELEVATED"; fi
+          if [ "$SEC_WARN" -ge 5 ]; then THREAT="#ef4444"; THREAT_TXT="HIGH"; fi
 
-            echo "<h3>Top device / OS</h3><ul>"
-            jq -r '[.[]? | (.dev // "?")+" / "+(.os // "?")] | group_by(.) | map({k:.[0], n:length}) | sort_by(-.n) | .[:8][] | "<li>\(.k) — \(.n)</li>"' visits.json || true
-            echo "</ul>"
+          tile() { # value label color
+            echo "<td align='center' valign='top' style='background:#0f1626;border:1px solid #1e293b;border-radius:10px;padding:14px 8px'><div style='font-size:26px;font-weight:800;color:$3;font-family:Arial,sans-serif'>$1</div><div style='font-size:11px;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;font-family:Arial,sans-serif;margin-top:4px'>$2</div></td>" >> report.html
+          }
+          sp() { echo "<td width='10'>&nbsp;</td>" >> report.html; }
 
-            echo "<h3>Most recent 12 visits</h3><ul>"
-            jq -r '[.[]?] | sort_by(.t) | reverse | .[:12][] | "<li>\(.lt // .t) — \(.dev // "?") (\(.os // "?"), \(.br // "?")) on \(.pg // "?") — \(.net // "?") — \(.ref // "Direct")</li>"' visits.json || true
-            echo "</ul>"
+          : > report.html
+          cat >> report.html <<EOF
+          <div style="background:#0b0f1a;padding:24px 0;font-family:Arial,Helvetica,sans-serif">
+          <table width="660" cellpadding="0" cellspacing="0" align="center" style="margin:0 auto;background:#131a2a;border-radius:16px;overflow:hidden;border:1px solid #1e293b">
+            <tr><td style="background:#4f46e5;padding:22px 26px">
+              <div style="font-size:13px;color:#c7d2fe;letter-spacing:1px;font-weight:700">SMC EXAM PREP &bull; SECURITY OPERATIONS</div>
+              <div style="font-size:22px;color:#ffffff;font-weight:800;margin-top:4px">🛡 Daily Security &amp; Activity Report</div>
+              <div style="font-size:12px;color:#e0e7ff;margin-top:6px">${DATE_IST} IST &nbsp;|&nbsp; Threat level: <span style="background:${THREAT};color:#0b0f1a;font-weight:800;padding:2px 8px;border-radius:6px">${THREAT_TXT}</span></div>
+            </td></tr>
+            <tr><td style="padding:22px 26px">
+          EOF
 
-            echo "<p style='color:#888;font-size:12px'>Source: Firebase Realtime DB (visits + clicks). Generated automatically by GitHub Actions. If counts are 0, check that the Firebase database read rules allow this request.</p>"
-          } > report.html
+          echo "<div style='font-size:13px;color:#e5e7eb;font-weight:700;margin:0 0 10px'>📊 Traffic (last 24h &amp; all-time)</div>" >> report.html
+          echo "<table width='100%' cellpadding='0' cellspacing='0'><tr>" >> report.html
+          tile "$LAST24" "Visits 24h" "#818cf8"; sp
+          tile "$TOTAL_VISITS" "Total Visits" "#e5e7eb"; sp
+          tile "$TOTAL_CLICKS" "Clicks" "#e5e7eb"; sp
+          tile "$UNIQ_DEV" "Unique Devices" "#e5e7eb"; sp
+          tile "$MOBILE" "Mobile" "#e5e7eb"
+          echo "</tr></table>" >> report.html
 
-          echo "Report built. 24h visits: ${LAST24}, total: ${TOTAL_VISITS}"
-          echo "subject=SMC Daily Log — ${DATE_IST} — ${LAST24} visits (24h)" >> "$GITHUB_OUTPUT"
+          # ---- SECURITY AUDIT PANEL ----
+          cat >> report.html <<EOF
+          <div style="margin-top:22px;border:1px solid #7f1d1d;border-radius:12px;overflow:hidden">
+            <div style="background:#7f1d1d;padding:10px 14px;font-size:13px;color:#fecaca;font-weight:800">🔐 SECURITY AUDIT LOG</div>
+            <div style="padding:14px">
+            <table width="100%" cellpadding="0" cellspacing="0"><tr>
+          EOF
+          tile "$SEC_24" "Sec Events 24h" "#fbbf24"; sp
+          tile "$SEC_WARN" "Failed / Alerts" "#ef4444"; sp
+          tile "$SENSITIVE" "Admin/VIP Hits" "#f59e0b"; sp
+          tile "$SUSPECT" "Suspicious UA" "#fbbf24"
+          echo "</tr></table>" >> report.html
+
+          echo "<div style='font-size:12px;color:#cbd5e1;font-weight:700;margin:16px 0 6px'>Recent security events</div>" >> report.html
+          echo "<table width='100%' cellpadding='6' cellspacing='0' style='border-collapse:collapse;font-size:12px;color:#cbd5e1'>" >> report.html
+          ROWS=$(jq -r '[.[]?] | sort_by(.time) | reverse | .[:2000][] | "<tr style=\"border-bottom:1px solid #1e293b\"><td style=\"color:#94a3b8;white-space:nowrap\">\(.localTime // .time)</td><td><span style=\"background:\(if .level==\"warn\" then \"#ef4444\" else \"#22c55e\" end);color:#0b0f1a;padding:1px 6px;border-radius:5px;font-weight:700;font-size:10px\">\(.level // \"ok\" | ascii_upcase)</span></td><td>\(.msg // \"-\")</td><td style=\"color:#64748b\">\(.src // \"-\")</td></tr>"' security.json)
+          if [ -n "$ROWS" ]; then echo "$ROWS" >> report.html; else echo "<tr><td style='color:#64748b'>No security events recorded in the feed.</td></tr>" >> report.html; fi
+          echo "</table>" >> report.html
+
+          echo "<div style='font-size:12px;color:#cbd5e1;font-weight:700;margin:16px 0 6px'>Admin / VIP page access (sensitive)</div>" >> report.html
+          echo "<table width='100%' cellpadding='6' cellspacing='0' style='border-collapse:collapse;font-size:12px;color:#cbd5e1'>" >> report.html
+          SROWS=$(jq -r '[.[]? | select((.pg // "") | test("admin|vip"; "i"))] | sort_by(.t) | reverse | .[:2000][] | "<tr style=\"border-bottom:1px solid #1e293b\"><td style=\"color:#94a3b8;white-space:nowrap\">\(.lt // .t)</td><td style=\"color:#f59e0b\">\(.pg)</td><td>\(.dev // \"?\") / \(.os // \"?\")</td><td style=\"color:#64748b\">\(.net // \"?\")</td></tr>"' visits.json)
+          if [ -n "$SROWS" ]; then echo "$SROWS" >> report.html; else echo "<tr><td style='color:#64748b'>No admin/VIP page access in this window. ✅</td></tr>" >> report.html; fi
+          echo "</table></div></div>" >> report.html
+
+          # ---- TRAFFIC DETAIL ----
+          echo "<div style='font-size:13px;color:#e5e7eb;font-weight:700;margin:22px 0 6px'>🔥 Top pages</div>" >> report.html
+          echo "<table width='100%' cellpadding='6' cellspacing='0' style='border-collapse:collapse;font-size:12px;color:#cbd5e1'>" >> report.html
+          jq -r '[.[]? | .pg] | map(select(.!=null)) | group_by(.) | map({page:.[0], n:length}) | sort_by(-.n) | .[:1000][] | "<tr style=\"border-bottom:1px solid #1e293b\"><td>\(.page)</td><td align=\"right\" style=\"color:#818cf8;font-weight:700\">\(.n)</td></tr>"' visits.json >> report.html || true
+          echo "</table>" >> report.html
+
+          echo "<div style='font-size:13px;color:#e5e7eb;font-weight:700;margin:18px 0 6px'>📱 Top device / OS</div>" >> report.html
+          echo "<table width='100%' cellpadding='6' cellspacing='0' style='border-collapse:collapse;font-size:12px;color:#cbd5e1'>" >> report.html
+          jq -r '[.[]? | (.dev // "?")+" / "+(.os // "?")] | group_by(.) | map({k:.[0], n:length}) | sort_by(-.n) | .[:1000][] | "<tr style=\"border-bottom:1px solid #1e293b\"><td>\(.k)</td><td align=\"right\" style=\"color:#818cf8;font-weight:700\">\(.n)</td></tr>"' visits.json >> report.html || true
+          echo "</table>" >> report.html
+
+          echo "<div style='font-size:13px;color:#e5e7eb;font-weight:700;margin:18px 0 6px'>🕑 All visits (newest first — full log attached as visits.json)</div>" >> report.html
+          echo "<table width='100%' cellpadding='6' cellspacing='0' style='border-collapse:collapse;font-size:12px;color:#cbd5e1'>" >> report.html
+          echo "<tr style='color:#64748b;text-align:left'><th align='left'>Time</th><th align='left'>Device</th><th align='left'>OS / Browser</th><th align='left'>Page</th><th align='left'>Net</th><th align='left'>Referrer</th></tr>" >> report.html
+          jq -r '[.[]?] | sort_by(.t) | reverse | .[:1000][] | "<tr style=\"border-bottom:1px solid #1e293b\"><td style=\"color:#94a3b8;white-space:nowrap\">\(.lt // .t)</td><td>\(.dev // \"?\")</td><td style=\"color:#64748b\">\(.os // \"?\"), \(.br // \"?\")</td><td>\(.pg // \"?\")</td><td style=\"color:#64748b\">\(.net // \"?\")</td><td style=\"color:#64748b\">\(.ref // \"Direct\")</td></tr>"' visits.json >> report.html || true
+          echo "</table>" >> report.html
+
+          echo "<div style='font-size:13px;color:#e5e7eb;font-weight:700;margin:18px 0 6px'>🖱 All clicks (newest first — full log attached as clicks.json)</div>" >> report.html
+          echo "<table width='100%' cellpadding='6' cellspacing='0' style='border-collapse:collapse;font-size:12px;color:#cbd5e1'>" >> report.html
+          echo "<tr style='color:#64748b;text-align:left'><th align='left'>Time</th><th align='left'>Element / Text</th><th align='left'>Page</th></tr>" >> report.html
+          jq -r '[.[]?] | reverse | .[:1000][] | "<tr style=\"border-bottom:1px solid #1e293b\"><td style=\"color:#94a3b8;white-space:nowrap\">\(.t // \"?\")</td><td>\(.x // \"?\")</td><td style=\"color:#64748b\">\(.p // \"?\")</td></tr>"' clicks.json >> report.html || true
+          echo "</table>" >> report.html
+
+          if [ "$TOTAL_VISITS" -eq 0 ] && [ "$SEC_TOTAL" -eq 0 ]; then
+            if [ -z "$FB_SECRET" ]; then
+              echo "<div style='margin-top:18px;background:#422006;border:1px solid #92400e;border-radius:10px;padding:12px;font-size:12px;color:#fde68a'>⚠️ All counts are 0 because the <b>FIREBASE_SECRET</b> repo secret is not set, so this report cannot read your database. Add it to populate real numbers.</div>" >> report.html
+            else
+              echo "<div style='margin-top:18px;background:#0f1626;border:1px solid #1e293b;border-radius:10px;padding:12px;font-size:12px;color:#94a3b8'>No activity recorded yet in this window.</div>" >> report.html
+            fi
+          fi
+
+          cat >> report.html <<EOF
+            <div style="margin-top:20px;border-top:1px solid #1e293b;padding-top:12px;font-size:11px;color:#64748b">
+              Generated automatically by GitHub Actions &bull; Source: Firebase Realtime DB (visits, clicks, security) &bull; SMC Exam Prep SOC
+            </div>
+            </td></tr>
+          </table></div>
+          EOF
+
+          echo "Report built. 24h visits: ${LAST24}, total: ${TOTAL_VISITS}, sec events: ${SEC_TOTAL}"
+          echo "subject=🛡 SMC Security Report — ${DATE_IST%,*} — ${LAST24} visits, ${SEC_WARN} alerts" >> "$GITHUB_OUTPUT"
 
       - name: Check email secrets
         id: check
@@ -113,3 +192,5 @@ jobs:
           to: ${{ env.TO_EMAIL }}
           from: SMC Exam Prep Bot <${{ secrets.MAIL_USERNAME }}>
           html_body: file://report.html
+          # Every single record, raw — attached in full
+          attachments: visits.json,clicks.json,security.json,report.html
