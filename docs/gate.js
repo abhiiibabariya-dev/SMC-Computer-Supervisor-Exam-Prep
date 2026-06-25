@@ -15,7 +15,42 @@
     // Filled once apiKey + appId are known (or supplied via window.SMC_FIREBASE_CONFIG).
     var CONFIG_FALLBACK={apiKey:"AIzaSyBsK3fKL8bmGZM8OY3g7mtLbAym0V5SIc0",authDomain:"smc-exam-prep-38d22.firebaseapp.com",projectId:"smc-exam-prep-38d22",appId:"1:329166929775:web:44adb9d62e409f739cf29a"};
 
-    try{var ex=JSON.parse(localStorage.getItem(KEY)||'null');if(ex&&ex.name&&ex.mobile)return;}catch(e){}
+    // Logout / reset: visiting any page with ?logout (or #logout) clears the saved
+    // identity and reloads cleanly so the gate shows again.
+    try{
+        if(/[?&#]logout\b/i.test(location.href)){
+            localStorage.removeItem(KEY);
+            var clean=location.href.replace(/([?&])logout(=[^&#]*)?/ig,'$1').replace(/[?&#]+$/,'').replace(/#.*$/,'');
+            location.replace(clean||location.pathname);return;
+        }
+    }catch(e){}
+
+    // Already identified → no gate; just show a small "logged in / Logout" chip.
+    try{var ex=JSON.parse(localStorage.getItem(KEY)||'null');if(ex&&ex.name&&ex.mobile){showChip(ex);return;}}catch(e){}
+
+    function showChip(u){
+        if(document.getElementById('smcChip'))return;
+        function go(){
+            var c=document.createElement('div');
+            c.id='smcChip';
+            c.innerHTML=''
+            +'<style>'
+            +'#smcChip{position:fixed;left:14px;bottom:14px;z-index:2147483000;display:flex;align-items:center;gap:8px;background:rgba(17,17,19,.92);border:1px solid rgba(255,255,255,.1);border-radius:50px;padding:7px 8px 7px 13px;font-family:"Plus Jakarta Sans",system-ui,sans-serif;font-size:.78em;color:#d4d4d8;box-shadow:0 6px 20px rgba(0,0,0,.35);backdrop-filter:blur(8px)}'
+            +'#smcChip b{color:#fafafa;font-weight:700;max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}'
+            +'#smcChip .lo{background:rgba(239,68,68,.15);color:#fca5a5;border:0;border-radius:50px;padding:5px 11px;font-size:.95em;font-weight:700;cursor:pointer;font-family:inherit}'
+            +'#smcChip .lo:hover{background:rgba(239,68,68,.28)}'
+            +'@media(max-width:768px){#smcChip{left:10px;bottom:10px;font-size:.72em}}'
+            +'</style>'
+            +'<span>👤</span><b title="'+(u.mobile||'')+'">'+(u.name||'You')+'</b>'
+            +'<button class="lo" type="button" id="smcLogout">Logout</button>';
+            document.body.appendChild(c);
+            c.querySelector('#smcLogout').addEventListener('click',function(){
+                try{localStorage.removeItem(KEY);}catch(e){}
+                location.reload();
+            });
+        }
+        if(document.body)go();else document.addEventListener('DOMContentLoaded',go);
+    }
 
     function cfg(){var c=window.SMC_FIREBASE_CONFIG||CONFIG_FALLBACK;return (c&&c.apiKey&&c.appId)?c:null;}
     function fb(){return window.SMC_FIREBASE_URL||FB_URL;}
