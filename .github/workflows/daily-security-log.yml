@@ -13,6 +13,13 @@ name: Daily Security & Activity Log
 #          this secret the report will show 0 visits.
 #   The report is always delivered to: abhiiibabariya@gmail.com (see TO_EMAIL below).
 #
+#   OPTIONAL (to add a Google Analytics GA4 panel to the email):
+#     4) GA_PROPERTY_ID = numeric GA4 property id (GA Admin -> Property Settings -> PROPERTY ID;
+#          this is NOT the G-XXXX measurement id).
+#     5) GA_SA_KEY       = full JSON of a Google Cloud service-account key that has Viewer access
+#          to the GA4 property, with the "Google Analytics Data API" enabled. If either secret is
+#          missing the GA section is simply omitted (everything else still works).
+#
 # Until MAIL_* secrets are added, the workflow still runs and builds the report,
 # but the send-email step is skipped (so it won't fail noisily every day).
 
@@ -32,6 +39,9 @@ jobs:
   build-and-send:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout (for GA report script)
+        uses: actions/checkout@v4
+
       - name: Fetch site data from Firebase
         env:
           FB_SECRET: ${{ secrets.FIREBASE_SECRET }}
@@ -48,6 +58,21 @@ jobs:
             [ -s "$f" ] || echo '{}' > "$f"
             if [ "$(cat "$f")" = "null" ]; then echo '{}' > "$f"; fi
           done
+
+      - name: Fetch Google Analytics (GA4)
+        env:
+          GA_PROPERTY_ID: ${{ secrets.GA_PROPERTY_ID }}
+          GA_SA_KEY: ${{ secrets.GA_SA_KEY }}
+        run: |
+          if [ -z "$GA_PROPERTY_ID" ] || [ -z "$GA_SA_KEY" ]; then
+            echo "GA4 secrets (GA_PROPERTY_ID / GA_SA_KEY) not set — skipping Google Analytics section."
+            exit 0
+          fi
+          printf '%s' "$GA_SA_KEY" > sa.json
+          export GOOGLE_APPLICATION_CREDENTIALS="$PWD/sa.json"
+          python -m pip install --quiet --disable-pip-version-check google-analytics-data
+          python .github/scripts/ga_report.py || echo "::warning::GA4 step failed (non-fatal)."
+          rm -f sa.json
 
       - name: Build summary report
         id: report
@@ -101,6 +126,9 @@ jobs:
           tile "$UNIQ_DEV" "Unique Devices" "#e5e7eb"; sp
           tile "$MOBILE" "Mobile" "#e5e7eb"
           echo "</tr></table>" >> report.html
+
+          # ---- GOOGLE ANALYTICS PANEL (only if ga.html was produced) ----
+          [ -f ga.html ] && cat ga.html >> report.html
 
           # ---- SECURITY AUDIT PANEL ----
           cat >> report.html <<EOF
@@ -186,7 +214,7 @@ jobs:
 
           cat >> report.html <<EOF
             <div style="margin-top:20px;border-top:1px solid #1e293b;padding-top:12px;font-size:11px;color:#64748b">
-              Generated automatically by GitHub Actions &bull; Source: Firebase Realtime DB (visits, clicks, security) &bull; SMC Exam Prep SOC
+              Generated automatically by GitHub Actions &bull; Sources: Firebase Realtime DB (visits, clicks, security) + Google Analytics GA4 &bull; SMC Exam Prep SOC
             </div>
             </td></tr>
           </table></div>
