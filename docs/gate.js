@@ -14,6 +14,10 @@
     var FB_URL='https://smc-exam-prep-38d22-default-rtdb.asia-southeast1.firebasedatabase.app';
     // Filled once apiKey + appId are known (or supplied via window.SMC_FIREBASE_CONFIG).
     var CONFIG_FALLBACK={apiKey:"AIzaSyBsK3fKL8bmGZM8OY3g7mtLbAym0V5SIc0",authDomain:"smc-exam-prep-38d22.firebaseapp.com",projectId:"smc-exam-prep-38d22",appId:"1:329166929775:web:44adb9d62e409f739cf29a"};
+    // SMS OTP requires the Firebase Blaze (billing) plan. While on the free plan,
+    // keep this false → the gate uses instant name+number format validation.
+    // To turn real OTP on later: enable Blaze, then set this to true (one line).
+    var OTP_ENABLED=false;
 
     // Logout / reset: visiting any page with ?logout (or #logout) clears the saved
     // identity and reloads cleanly so the gate shows again.
@@ -199,7 +203,7 @@
             var r=validate(name.value,mob.value);
             if(!r.ok){err.textContent=r.msg;return;}
             err.textContent='';current=r;
-            if(cfg()){startOtp();}else{finish(false);}  // no OTP configured → unlock with format check
+            if(OTP_ENABLED&&cfg()){startOtp();}else{finish(false);}  // OTP off (free plan) → instant format-checked unlock
         }
         function onVerify(){
             var code=(otp.value||'').trim();
