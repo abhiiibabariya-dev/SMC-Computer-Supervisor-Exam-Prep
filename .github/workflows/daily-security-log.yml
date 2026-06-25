@@ -96,7 +96,7 @@ jobs:
                 os: (.os // "—"),
                 br: (.br // .browser // "—"),
                 pg: (.pg // .page // "—"),
-                net:(.net // (.connection.type) // "—"),
+                net:(.net // (.connection.type? // null) // "—"),
                 ref:(.ref // .referrer // "Direct"),
                 mob:(if (.mob != null) then .mob elif (.deviceType != null) then (.deviceType == "Mobile") else false end),
                 dev:( (.dev // .deviceModel // "") as $d
