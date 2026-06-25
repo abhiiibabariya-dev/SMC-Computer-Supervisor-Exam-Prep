@@ -16,8 +16,12 @@ window.SMC_FIREBASE_URL = 'https://smc-exam-prep-38d22-default-rtdb.asia-southea
 // AND Phone sign-in is enabled with this domain authorised, the gate falls back
 // to format-only validation (no OTP) so visitors are never locked out.
 window.SMC_FIREBASE_CONFIG = {
-  apiKey: "",                                            // <-- paste apiKey
+  apiKey: "AIzaSyBsK3fKL8bmGZM8OY3g7mtLbAym0V5SIc0",
   authDomain: "smc-exam-prep-38d22.firebaseapp.com",
+  databaseURL: "https://smc-exam-prep-38d22-default-rtdb.asia-southeast1.firebasedatabase.app",
   projectId: "smc-exam-prep-38d22",
-  appId: ""                                              // <-- paste appId
+  storageBucket: "smc-exam-prep-38d22.firebasestorage.app",
+  messagingSenderId: "329166929775",
+  appId: "1:329166929775:web:44adb9d62e409f739cf29a",
+  measurementId: "G-RFDJV7GQ62"
 };

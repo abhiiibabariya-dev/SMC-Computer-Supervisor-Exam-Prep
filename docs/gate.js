@@ -13,7 +13,7 @@
     var KEY='smc_user';
     var FB_URL='https://smc-exam-prep-38d22-default-rtdb.asia-southeast1.firebasedatabase.app';
     // Filled once apiKey + appId are known (or supplied via window.SMC_FIREBASE_CONFIG).
-    var CONFIG_FALLBACK={apiKey:"",authDomain:"smc-exam-prep-38d22.firebaseapp.com",projectId:"smc-exam-prep-38d22",appId:""};
+    var CONFIG_FALLBACK={apiKey:"AIzaSyBsK3fKL8bmGZM8OY3g7mtLbAym0V5SIc0",authDomain:"smc-exam-prep-38d22.firebaseapp.com",projectId:"smc-exam-prep-38d22",appId:"1:329166929775:web:44adb9d62e409f739cf29a"};
 
     try{var ex=JSON.parse(localStorage.getItem(KEY)||'null');if(ex&&ex.name&&ex.mobile)return;}catch(e){}
 
