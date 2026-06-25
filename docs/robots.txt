@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /admin-dashboard-x7k9m.html
+Disallow: /vip-access.html
+Disallow: /premium.html
+
+Sitemap: https://abhiiibabariya-dev.github.io/SMC-Computer-Supervisor-Exam-Prep/sitemap.xml

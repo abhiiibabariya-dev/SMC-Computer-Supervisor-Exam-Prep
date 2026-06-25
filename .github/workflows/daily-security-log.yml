@@ -83,6 +83,35 @@ jobs:
           DATE_IST=$(TZ='Asia/Kolkata' date '+%d %B %Y, %I:%M %p')
           CUTOFF=$(date -u -d '24 hours ago' '+%Y-%m-%dT%H:%M:%S')
 
+          # ---- Normalise visit records ----
+          # The DB holds 3 historic schemas (verbose deviceModel/browser/page/timestamp,
+          # compact dev/br/pg/t, and duration-only update beacons). Collapse them all into
+          # one canonical shape so every downstream jq just works, drop the update beacons,
+          # and resolve a real device label so nothing ever shows as "Unknown".
+          jq '[ .[]?
+            | select(.update != true)
+            | . + {
+                t:  (.t // .timestamp // ""),
+                lt: (.lt // .localTime // .t // .timestamp // "-"),
+                os: (.os // "—"),
+                br: (.br // .browser // "—"),
+                pg: (.pg // .page // "—"),
+                net:(.net // (.connection.type) // "—"),
+                ref:(.ref // .referrer // "Direct"),
+                mob:(if (.mob != null) then .mob elif (.deviceType != null) then (.deviceType == "Mobile") else false end),
+                dev:( (.dev // .deviceModel // "") as $d
+                      | if ($d == "" or ($d|ascii_downcase|test("unknown")))
+                        then ( if ((.mob == true) or (.deviceType == "Mobile"))
+                               then ( if ((.os // "")|test("Android";"i")) then "Android Phone"
+                                      elif ((.os // "")|test("iOS|iPhone";"i")) then "iPhone"
+                                      else "Mobile Device" end )
+                               else ( if ((.os // "")|test("Windows";"i")) then "Windows PC"
+                                      elif ((.os // "")|test("Mac";"i")) then "Mac"
+                                      elif ((.os // "")|test("Linux";"i")) then "Linux PC"
+                                      else "Desktop" end ) end )
+                        else $d end )
+              } ]' visits.json > visits_norm.json && mv visits_norm.json visits.json
+
           # ---- Activity metrics ----
           TOTAL_VISITS=$(jq '[.[]?] | length' visits.json)
           TOTAL_CLICKS=$(jq '[.[]?] | length' clicks.json)
@@ -95,7 +124,7 @@ jobs:
           SEC_24=$(jq --arg c "$CUTOFF" '[.[]? | select((.time // "") > $c)] | length' security.json)
           SEC_WARN=$(jq '[.[]? | select(.level=="warn")] | length' security.json)
           SENSITIVE=$(jq '[.[]? | select((.pg // "") | test("admin|vip"; "i"))] | length' visits.json)
-          SUSPECT=$(jq '[.[]? | select((.br // "")=="Other" or (.dev // "")=="Unknown")] | length' visits.json)
+          SUSPECT=$(jq '[.[]? | select((.br // "")=="Other" or (.br // "")=="—")] | length' visits.json)
 
           THREAT="#22c55e"; THREAT_TXT="LOW"
           if [ "$SEC_WARN" -gt 0 ] || [ "$SENSITIVE" -gt 0 ]; then THREAT="#f59e0b"; THREAT_TXT="ELEVATED"; fi
