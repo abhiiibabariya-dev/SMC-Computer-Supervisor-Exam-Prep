@@ -124,6 +124,8 @@ jobs:
           LEADS_TOTAL=$(jq '[.[]?] | length' leads.json)
           LEADS_24=$(jq --arg c "$CUTOFF" '[.[]? | select((.t // "") > $c)] | length' leads.json)
           LEADS_UNVERIFIED=$(jq '[.[]? | select(.verified != true)] | length' leads.json)
+          LEADS_VER_WA=$(jq '[.[]? | select(.verified==true and (.channel // "")=="whatsapp")] | length' leads.json)
+          LEADS_VER_EMAIL=$(jq '[.[]? | select(.verified==true and (.channel // "")=="email")] | length' leads.json)
 
           # ---- Security metrics ----
           SEC_TOTAL=$(jq '[.[]?] | length' security.json)
@@ -214,6 +216,8 @@ jobs:
           EOF
           tile "$LEADS_24" "New 24h" "#34d399"; sp
           tile "$LEADS_TOTAL" "Total Identities" "#e5e7eb"; sp
+          tile "$LEADS_VER_WA" "✅ WhatsApp" "#22c55e"; sp
+          tile "$LEADS_VER_EMAIL" "✅ Email" "#60a5fa"; sp
           tile "$LEADS_UNVERIFIED" "Unverified" "#fbbf24"
           echo "</tr></table>" >> report.html
 
