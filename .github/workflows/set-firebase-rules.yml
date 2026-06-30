@@ -43,6 +43,7 @@ jobs:
             "rules": {
               ".read": false,
               ".write": false,
+              "_healthcheck": { ".read": false, ".write": true },
               "visits":   { "$id": { ".write": "!data.exists()" } },
               "clicks":   { "$id": { ".write": "!data.exists()" } },
               "leads":    { "$id": { ".write": "!data.exists()" } },
