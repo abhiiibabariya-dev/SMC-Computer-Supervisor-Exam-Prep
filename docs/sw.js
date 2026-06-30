@@ -4,18 +4,23 @@
  *   - Static assets (js/css/png/svg/json): stale-while-revalidate (instant load, refresh in bg).
  * Bump CACHE version to force clients to pick up new precached assets.
  */
-const CACHE = 'smc-v1';
+const CACHE = 'smc-v2';
 const CORE = [
   './',
   './index.html',
   './daily-quiz.html',
+  './quiz.html',
+  './leaderboard.html',
   './mock-test.html',
   './exam.html',
   './offline.html',
   './daily-content.js',
+  './mcq-bank.js',
+  './i18n.js',
   './tracker.js',
   './share.js',
   './gate.js',
+  './pwa.js',
   './firebase-config.js',
   './icon-192.png',
   './icon-512.png',

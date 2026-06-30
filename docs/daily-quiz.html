@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="SMC Prep">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#6366f1">
+<title>Today's 10 MCQs — SMC Exam Prep 2026 (Daily Quiz)</title>
+<meta name="description" content="A fresh 10-question SMC 2026 daily quiz (English / ગુજરાતી / हिंदी) with a streak counter. New questions every day.">
+<style>
+  :root{--bg:#0b0f1a;--card:#111113;--line:rgba(255,255,255,.09);--ind:#6366f1;--ind2:#818cf8;--mut:#a1a1aa;--ok:#22c55e;--bad:#ef4444}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:#e5e7eb;font-family:"Plus Jakarta Sans",system-ui,-apple-system,sans-serif;min-height:100vh;padding:64px 16px 40px}
+  .wrap{max-width:640px;margin:0 auto}
+  .top{text-align:center;margin-bottom:22px}
+  .top h1{font-size:1.7em;font-weight:800;letter-spacing:-.5px;margin:0 0 6px;color:#fafafa}
+  .top p{color:var(--mut);margin:0;font-size:.95em}
+  .streak{display:inline-flex;gap:16px;margin-top:16px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 20px}
+  .streak div{text-align:center}
+  .streak b{display:block;font-size:1.5em;font-weight:800;color:#fb923c}
+  .streak span{font-size:.72em;color:var(--mut);text-transform:uppercase;letter-spacing:.5px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px;margin-top:18px}
+  .pill{display:inline-block;font-size:.72em;font-weight:700;color:var(--ind2);background:rgba(99,102,241,.13);padding:4px 11px;border-radius:50px;margin-bottom:14px}
+  .qtext{font-size:1.18em;font-weight:700;color:#fafafa;line-height:1.5;margin:0 0 18px}
+  .opt{display:block;width:100%;text-align:left;background:#18181b;border:1px solid var(--line);border-radius:12px;padding:14px 16px;color:#e5e7eb;font-size:1em;font-family:inherit;cursor:pointer;margin-bottom:10px;transition:.15s;line-height:1.4}
+  .opt:hover{border-color:var(--ind)}
+  .opt.sel{border-color:var(--ind);background:rgba(99,102,241,.12)}
+  .opt.ok{border-color:var(--ok);background:rgba(34,197,94,.13)}
+  .opt.bad{border-color:var(--bad);background:rgba(239,68,68,.13)}
+  .opt[disabled]{cursor:default}
+  .btn{width:100%;background:linear-gradient(135deg,var(--ind),var(--ind2));color:#fff;border:0;border-radius:12px;padding:15px;font-size:1.02em;font-weight:700;font-family:inherit;cursor:pointer;margin-top:6px}
+  .btn:disabled{opacity:.5;cursor:not-allowed}
+  .btn.ghost{background:transparent;border:1px solid var(--line);color:#e5e7eb}
+  .bar{height:6px;background:#1e293b;border-radius:50px;overflow:hidden;margin-bottom:18px}
+  .bar i{display:block;height:100%;background:linear-gradient(90deg,var(--ind),var(--ind2));width:0;transition:width .3s}
+  .meta{display:flex;justify-content:space-between;color:var(--mut);font-size:.82em;margin-bottom:10px}
+  .exp{font-size:.86em;color:#cbd5e1;background:#0f1626;border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin-top:6px;line-height:1.5}
+  .scorebig{font-size:3.2em;font-weight:800;color:#fafafa;text-align:center;margin:6px 0}
+  .scoresub{text-align:center;color:var(--mut);margin-bottom:18px}
+  .rvw{margin-top:8px}
+  .rvw .ri{border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-bottom:10px}
+  .rvw .ri .rq{font-weight:700;color:#fafafa;font-size:.95em;margin-bottom:6px}
+  .rvw .ri .ra{font-size:.85em;margin:2px 0}
+  .nav{text-align:center;margin-top:20px}
+  .nav a{color:var(--ind2);text-decoration:none;font-size:.88em;margin:0 8px}
+  .hide{display:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <h1 data-i18n="dq_title">Today's 10 MCQs</h1>
+    <p data-i18n="dq_sub">A fresh quiz every day. Build your streak!</p>
+    <div class="streak">
+      <div><b id="stCur">0</b><span data-i18n="dq_streak">Day Streak</span></div>
+      <div><b id="stBest">0</b><span data-i18n="dq_best">Best Streak</span></div>
+    </div>
+  </div>
+
+  <!-- INTRO -->
+  <div class="card" id="intro">
+    <span class="pill" id="introDate"></span>
+    <p class="qtext" id="introMsg">10 questions · General Knowledge, Gujarat, Reasoning, Maths, English & Computer.</p>
+    <button class="btn" id="startBtn" data-i18n="dq_start">Start Daily Quiz</button>
+  </div>
+
+  <!-- QUIZ -->
+  <div class="card hide" id="quiz">
+    <div class="bar"><i id="prog"></i></div>
+    <div class="meta"><span id="qcount"></span><span id="qsubj"></span></div>
+    <p class="qtext" id="qtext"></p>
+    <div id="opts"></div>
+    <div class="exp hide" id="exp"></div>
+    <button class="btn hide" id="nextBtn"></button>
+  </div>
+
+  <!-- DONE today -->
+  <div class="card hide" id="doneToday">
+    <p class="qtext" data-i18n="dq_done">You've completed today's quiz!</p>
+    <p style="color:var(--mut);margin-top:-6px" data-i18n="dq_tomorrow">Come back tomorrow for 10 new questions.</p>
+    <button class="btn ghost" id="reviewBtn" data-i18n="dq_review">Review answers</button>
+  </div>
+
+  <!-- RESULT -->
+  <div class="card hide" id="result">
+    <div class="scorebig" id="scoreBig">0/10</div>
+    <div class="scoresub" id="scoreSub"></div>
+    <button class="btn" id="shareBtn" data-i18n="dq_share">Share my result</button>
+    <button class="btn ghost" id="revBtn" style="margin-top:10px" data-i18n="dq_review">Review answers</button>
+    <div class="rvw hide" id="review"></div>
+  </div>
+
+  <div class="nav">
+    <a href="index.html" data-i18n="home">Home</a>·
+    <a href="mock-test.html" data-i18n="mock_test">Mock Test</a>·
+    <a href="leaderboard.html" data-i18n="leaderboard">Leaderboard</a>
+  </div>
+</div>
+
+<script src="firebase-config.js"></script>
+<script src="mcq-bank.js"></script>
+<script src="i18n.js"></script>
+<script>
+(function(){
+  "use strict";
+  var FB=window.SMC_FIREBASE_URL||'';
+  var BANK=(window.SMC_MCQS||[]);
+  var $=function(id){return document.getElementById(id);};
+  function L(){return (window.smcLang?window.smcLang():'en');}
+  function T(k){return (window.smcT?window.smcT(k):k);}
+
+  // ---- date-seeded daily pick ----
+  function todayKey(){var d=new Date();return d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate();}
+  function hash(s){var h=2166136261;for(var i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619);}return h>>>0;}
+  function rng(seed){return function(){seed|=0;seed=seed+0x6D2B79F5|0;var t=Math.imul(seed^seed>>>15,1|seed);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
+  function pickDaily(n){
+    var r=rng(hash(todayKey())); var idx=BANK.map(function(_,i){return i;});
+    for(var i=idx.length-1;i>0;i--){var j=Math.floor(r()*(i+1));var t=idx[i];idx[i]=idx[j];idx[j]=t;}
+    return idx.slice(0,Math.min(n,idx.length)).map(function(i){return BANK[i];});
+  }
+
+  var QS=pickDaily(10), cur=0, answers=[], finished=false;
+
+  // ---- streak ----
+  function loadStreak(){try{return JSON.parse(localStorage.getItem('smc_streak')||'{}');}catch(e){return{};}}
+  function saveStreak(s){try{localStorage.setItem('smc_streak',JSON.stringify(s));}catch(e){}}
+  function ymd(d){return d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate();}
+  function renderStreak(){var s=loadStreak();$('stCur').textContent=s.count||0;$('stBest').textContent=s.best||0;}
+  function bumpStreak(){
+    var s=loadStreak(), today=ymd(new Date());
+    if(s.last===today) return s; // already counted today
+    var y=new Date(); y.setDate(y.getDate()-1); y=ymd(y);
+    s.count=(s.last===y)?(s.count||0)+1:1;
+    s.best=Math.max(s.best||0,s.count); s.last=today;
+    saveStreak(s); return s;
+  }
+  function doneToday(){return loadStreak().last===ymd(new Date()) && localStorage.getItem('smc_daily_'+todayKey());}
+
+  // ---- render a question ----
+  function showQ(){
+    var q=QS[cur];
+    $('prog').style.width=((cur)/QS.length*100)+'%';
+    $('qcount').textContent=T('q_of')+' '+(cur+1)+' '+T('of')+' '+QS.length;
+    $('qsubj').textContent=T('s_'+q.subj)||q.subj;
+    $('qtext').textContent=q.q[L()]||q.q.en;
+    var box=$('opts'); box.innerHTML='';
+    var opts=q.o[L()]||q.o.en;
+    var picked=answers[cur];
+    opts.forEach(function(txt,i){
+      var b=document.createElement('button'); b.className='opt'; b.textContent=txt;
+      if(picked!=null){
+        b.disabled=true;
+        if(i===q.a)b.classList.add('ok');
+        if(i===picked&&picked!==q.a)b.classList.add('bad');
+      }
+      b.addEventListener('click',function(){ if(answers[cur]!=null)return; answers[cur]=i; showQ(); });
+      box.appendChild(b);
+    });
+    var exp=$('exp');
+    if(picked!=null){ exp.classList.remove('hide'); exp.textContent='💡 '+((q.exp&&(q.exp[L()]||q.exp.en))||''); $('nextBtn').classList.remove('hide'); }
+    else { exp.classList.add('hide'); $('nextBtn').classList.add('hide'); }
+    $('nextBtn').textContent=(cur===QS.length-1)?T('dq_finish'):T('dq_next');
+  }
+
+  function score(){var s=0;for(var i=0;i<QS.length;i++)if(answers[i]===QS[i].a)s++;return s;}
+
+  function finish(){
+    finished=true;
+    var sc=score();
+    $('quiz').classList.add('hide');
+    $('result').classList.remove('hide');
+    $('scoreBig').textContent=sc+'/'+QS.length;
+    $('scoreSub').textContent=T('correct')+': '+sc+' · '+T('wrong')+': '+(QS.length-sc);
+    // streak + persist done + post score (only first completion today)
+    if(!localStorage.getItem('smc_daily_'+todayKey())){
+      try{localStorage.setItem('smc_daily_'+todayKey(),'1');}catch(e){}
+      var s=bumpStreak(); renderStreak();
+      postScore(sc);
+    } else { renderStreak(); }
+    $('prog').style.width='100%';
+  }
+
+  function postScore(sc){
+    if(!FB)return;
+    var u={}; try{u=JSON.parse(localStorage.getItem('smc_user')||'{}');}catch(e){}
+    var rec={name:(u.name||'Anonymous'),mobile:(u.mobile||''),type:'daily',score:sc,total:QS.length,
+             date:todayKey(),t:new Date().toISOString(),streak:(loadStreak().count||0)};
+    try{fetch(FB+'/quizscores.json',{method:'POST',body:JSON.stringify(rec),headers:{'Content-Type':'application/json'}}).catch(function(){});}catch(e){}
+  }
+
+  function buildReview(into){
+    var box=$(into); box.innerHTML=''; box.classList.remove('hide');
+    QS.forEach(function(q,i){
+      var opts=q.o[L()]||q.o.en, ua=answers[i];
+      var d=document.createElement('div'); d.className='ri';
+      var ok=(ua===q.a);
+      d.innerHTML='<div class="rq">'+(i+1)+'. '+(q.q[L()]||q.q.en)+'</div>'
+        +'<div class="ra" style="color:'+(ok?'#22c55e':'#ef4444')+'">'+(ok?'✓ ':'✗ ')+(ua!=null?opts[ua]:'—')+'</div>'
+        +(ok?'':'<div class="ra" style="color:#22c55e">'+T('ans')+': '+opts[q.a]+'</div>')
+        +'<div class="ra" style="color:#94a3b8">💡 '+((q.exp&&(q.exp[L()]||q.exp.en))||'')+'</div>';
+      box.appendChild(d);
+    });
+  }
+
+  // ---- wire ----
+  $('introDate').textContent='📅 '+new Date().toLocaleDateString('en-IN',{weekday:'long',day:'numeric',month:'long'});
+  renderStreak();
+  if(BANK.length===0){ $('introMsg').textContent='Questions are loading… please refresh in a moment.'; $('startBtn').disabled=true; }
+
+  $('startBtn').addEventListener('click',function(){
+    if(doneToday()){ $('intro').classList.add('hide'); $('doneToday').classList.remove('hide'); return; }
+    $('intro').classList.add('hide'); $('quiz').classList.remove('hide'); cur=0; answers=[]; showQ();
+  });
+  $('nextBtn').addEventListener('click',function(){
+    if(cur<QS.length-1){ cur++; showQ(); } else { finish(); }
+  });
+  $('revBtn').addEventListener('click',function(){ buildReview('review'); $('revBtn').classList.add('hide'); });
+  $('reviewBtn').addEventListener('click',function(){
+    // reconstruct answers as all-correct-unknown → just show questions w/ correct answers
+    answers=QS.map(function(q){return q.a;}); $('doneToday').classList.add('hide'); $('result').classList.remove('hide');
+    var sc=loadStreak()?'':''; $('scoreBig').textContent='✓'; $('scoreSub').textContent=T('ans'); buildReview('review'); $('revBtn').classList.add('hide'); $('shareBtn').classList.add('hide');
+  });
+  $('shareBtn').addEventListener('click',function(){
+    var sc=score(), txt='I scored '+sc+'/'+QS.length+' on today\'s SMC 2026 daily quiz! 🎯 Try it free:';
+    var url='https://abhiiibabariya-dev.github.io/SMC-Computer-Supervisor-Exam-Prep/daily-quiz.html';
+    if(navigator.share){navigator.share({title:'SMC Daily Quiz',text:txt,url:url}).catch(function(){});}
+    else{window.open('https://wa.me/?text='+encodeURIComponent(txt+' '+url),'_blank');}
+  });
+
+  // re-render on language change
+  window.addEventListener('smc-lang',function(){ if(!$('quiz').classList.contains('hide'))showQ(); });
+})();
+</script>
+<script src="gate.js"></script>
+<script src="tracker.js"></script>
+<script src="share.js"></script>
+<script src="pwa.js" defer></script>
+</body>
+</html>
