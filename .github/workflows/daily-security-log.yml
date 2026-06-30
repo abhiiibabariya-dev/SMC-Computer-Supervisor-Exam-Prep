@@ -49,12 +49,13 @@ jobs:
           set -e
           AUTH=""
           [ -n "$FB_SECRET" ] && AUTH="?auth=${FB_SECRET}"
-          echo "Fetching visits, clicks & security log (auth: $([ -n "$FB_SECRET" ] && echo yes || echo no))..."
+          echo "Fetching visits, clicks, leads & security log (auth: $([ -n "$FB_SECRET" ] && echo yes || echo no))..."
           curl -fsS "${FIREBASE_URL}/visits.json${AUTH}"   -o visits.json   || echo 'null' > visits.json
           curl -fsS "${FIREBASE_URL}/clicks.json${AUTH}"   -o clicks.json   || echo 'null' > clicks.json
+          curl -fsS "${FIREBASE_URL}/leads.json${AUTH}"    -o leads.json    || echo 'null' > leads.json
           curl -fsS "${FIREBASE_URL}/security.json${AUTH}" -o security.json || echo 'null' > security.json
           # Normalise empty/null responses to empty objects
-          for f in visits.json clicks.json security.json; do
+          for f in visits.json clicks.json leads.json security.json; do
             [ -s "$f" ] || echo '{}' > "$f"
             if [ "$(cat "$f")" = "null" ]; then echo '{}' > "$f"; fi
           done
@@ -119,6 +120,11 @@ jobs:
           UNIQ_DEV=$(jq '[.[]? | .dev] | map(select(.!=null)) | unique | length' visits.json)
           MOBILE=$(jq '[.[]? | select(.mob==true)] | length' visits.json)
 
+          # ---- Lead / identity metrics (name + mobile captured by the access gate) ----
+          LEADS_TOTAL=$(jq '[.[]?] | length' leads.json)
+          LEADS_24=$(jq --arg c "$CUTOFF" '[.[]? | select((.t // "") > $c)] | length' leads.json)
+          LEADS_UNVERIFIED=$(jq '[.[]? | select(.verified != true)] | length' leads.json)
+
           # ---- Security metrics ----
           SEC_TOTAL=$(jq '[.[]?] | length' security.json)
           SEC_24=$(jq --arg c "$CUTOFF" '[.[]? | select((.time // "") > $c)] | length' security.json)
@@ -153,7 +159,8 @@ jobs:
           tile "$TOTAL_VISITS" "Total Visits" "#e5e7eb"; sp
           tile "$TOTAL_CLICKS" "Clicks" "#e5e7eb"; sp
           tile "$UNIQ_DEV" "Unique Devices" "#e5e7eb"; sp
-          tile "$MOBILE" "Mobile" "#e5e7eb"
+          tile "$MOBILE" "Mobile" "#e5e7eb"; sp
+          tile "$LEADS_TOTAL" "Identities" "#34d399"
           echo "</tr></table>" >> report.html
 
           # ---- GOOGLE ANALYTICS PANEL (only if ga.html was produced) ----
@@ -195,6 +202,32 @@ jobs:
             done < srows.tsv
           else
             echo "<tr><td style='color:#64748b'>No admin/VIP page access in this window.</td></tr>" >> report.html
+          fi
+          echo "</table></div></div>" >> report.html
+
+          # ---- VISITOR IDENTITY PANEL (name + mobile captured by the access gate) ----
+          cat >> report.html <<EOF
+          <div style="margin-top:22px;border:1px solid #065f46;border-radius:12px;overflow:hidden">
+            <div style="background:#065f46;padding:10px 14px;font-size:13px;color:#d1fae5;font-weight:800">👤 VISITOR IDENTITIES CAPTURED &mdash; Name &amp; Mobile (Access Gate)</div>
+            <div style="padding:14px">
+            <table width="100%" cellpadding="0" cellspacing="0"><tr>
+          EOF
+          tile "$LEADS_24" "New 24h" "#34d399"; sp
+          tile "$LEADS_TOTAL" "Total Identities" "#e5e7eb"; sp
+          tile "$LEADS_UNVERIFIED" "Unverified" "#fbbf24"
+          echo "</tr></table>" >> report.html
+
+          echo "<div style='font-size:12px;color:#cbd5e1;font-weight:700;margin:16px 0 6px'>Captured leads (newest first &mdash; full list attached as leads.json)</div>" >> report.html
+          echo "<table width='100%' cellpadding='6' cellspacing='0' style='border-collapse:collapse;font-size:12px;color:#cbd5e1'>" >> report.html
+          printf '<tr style="color:#64748b;text-align:left"><th align="left">Time (IST)</th><th align="left">Name</th><th align="left">Mobile</th><th align="left">Status</th><th align="left">Page</th><th align="left">Source</th></tr>\n' >> report.html
+          jq -r '[.[]?] | sort_by(.t) | reverse | .[:2000][] | [(.lt // .t // "-"), (.name // "—"), (.mobile // "—"), (if .verified==true then "verified" else "unverified" end), (.pg // "-"), (.ref // "Direct")] | @tsv' leads.json > lrows.tsv || true
+          if [ -s lrows.tsv ]; then
+            while IFS=$'\t' read -r t nm mb st pg rf; do
+              if [ "$st" = "verified" ]; then bg="#22c55e"; up="VERIFIED"; else bg="#f59e0b"; up="UNVERIFIED"; fi
+              printf '<tr style="border-bottom:1px solid #1e293b"><td style="color:#94a3b8;white-space:nowrap">%s</td><td style="color:#fafafa;font-weight:700">%s</td><td style="color:#34d399;font-weight:700;white-space:nowrap">+91 %s</td><td><span style="background:%s;color:#0b0f1a;padding:1px 6px;border-radius:5px;font-weight:700;font-size:10px">%s</span></td><td>%s</td><td style="color:#64748b">%s</td></tr>\n' "$t" "$nm" "$mb" "$bg" "$up" "$pg" "$rf" >> report.html
+            done < lrows.tsv
+          else
+            echo "<tr><td style='color:#64748b'>No visitor identities captured yet. They appear here once the access gate records a name + mobile.</td></tr>" >> report.html
           fi
           echo "</table></div></div>" >> report.html
 
@@ -243,14 +276,14 @@ jobs:
 
           cat >> report.html <<EOF
             <div style="margin-top:20px;border-top:1px solid #1e293b;padding-top:12px;font-size:11px;color:#64748b">
-              Generated automatically by GitHub Actions &bull; Sources: Firebase Realtime DB (visits, clicks, security) + Google Analytics GA4 &bull; SMC Exam Prep SOC
+              Generated automatically by GitHub Actions &bull; Sources: Firebase Realtime DB (visits, clicks, leads, security) + Google Analytics GA4 &bull; SMC Exam Prep SOC
             </div>
             </td></tr>
           </table></div>
           EOF
 
           echo "Report built. 24h visits: ${LAST24}, total: ${TOTAL_VISITS}, sec events: ${SEC_TOTAL}"
-          echo "subject=🛡 SMC Security Report — ${DATE_IST%,*} — ${LAST24} visits, ${SEC_WARN} alerts" >> "$GITHUB_OUTPUT"
+          echo "subject=🛡 SMC Security Report — ${DATE_IST%,*} — ${LAST24} visits, ${LEADS_24} new IDs, ${SEC_WARN} alerts" >> "$GITHUB_OUTPUT"
 
       - name: Check email secrets
         id: check
@@ -276,4 +309,4 @@ jobs:
           from: SMC Exam Prep Bot <${{ secrets.MAIL_USERNAME }}>
           html_body: file://report.html
           # Every single record, raw — attached in full
-          attachments: visits.json,clicks.json,security.json,report.html
+          attachments: visits.json,clicks.json,leads.json,security.json,report.html
