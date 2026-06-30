@@ -219,12 +219,13 @@ jobs:
 
           echo "<div style='font-size:12px;color:#cbd5e1;font-weight:700;margin:16px 0 6px'>Captured leads (newest first &mdash; full list attached as leads.json)</div>" >> report.html
           echo "<table width='100%' cellpadding='6' cellspacing='0' style='border-collapse:collapse;font-size:12px;color:#cbd5e1'>" >> report.html
-          printf '<tr style="color:#64748b;text-align:left"><th align="left">Time (IST)</th><th align="left">Name</th><th align="left">Mobile</th><th align="left">Status</th><th align="left">Page</th><th align="left">Source</th></tr>\n' >> report.html
-          jq -r '[.[]?] | sort_by(.t) | reverse | .[:2000][] | [(.lt // .t // "-"), (.name // "—"), (.mobile // "—"), (if .verified==true then "verified" else "unverified" end), (.pg // "-"), (.ref // "Direct")] | @tsv' leads.json > lrows.tsv || true
+          printf '<tr style="color:#64748b;text-align:left"><th align="left">Time (IST)</th><th align="left">Name</th><th align="left">Mobile</th><th align="left">Email</th><th align="left">Verification</th><th align="left">Page</th></tr>\n' >> report.html
+          jq -r '[.[]?] | sort_by(.t) | reverse | .[:2000][] | [(.lt // .t // "-"), (.name // "—"), (.mobile // "—"), (.email // "—"), (if .verified==true then "verified" else "unverified" end), (.channel // "none"), (.pg // "-")] | @tsv' leads.json > lrows.tsv || true
           if [ -s lrows.tsv ]; then
-            while IFS=$'\t' read -r t nm mb st pg rf; do
+            while IFS=$'\t' read -r t nm mb em st ch pg; do
               if [ "$st" = "verified" ]; then bg="#22c55e"; up="VERIFIED"; else bg="#f59e0b"; up="UNVERIFIED"; fi
-              printf '<tr style="border-bottom:1px solid #1e293b"><td style="color:#94a3b8;white-space:nowrap">%s</td><td style="color:#fafafa;font-weight:700">%s</td><td style="color:#34d399;font-weight:700;white-space:nowrap">+91 %s</td><td><span style="background:%s;color:#0b0f1a;padding:1px 6px;border-radius:5px;font-weight:700;font-size:10px">%s</span></td><td>%s</td><td style="color:#64748b">%s</td></tr>\n' "$t" "$nm" "$mb" "$bg" "$up" "$pg" "$rf" >> report.html
+              case "$ch" in whatsapp) via=" · WhatsApp";; email) via=" · Email";; *) via="";; esac
+              printf '<tr style="border-bottom:1px solid #1e293b"><td style="color:#94a3b8;white-space:nowrap">%s</td><td style="color:#fafafa;font-weight:700">%s</td><td style="color:#34d399;font-weight:700;white-space:nowrap">+91 %s</td><td style="color:#cbd5e1">%s</td><td><span style="background:%s;color:#0b0f1a;padding:1px 6px;border-radius:5px;font-weight:700;font-size:10px">%s</span><span style="color:#64748b;font-size:10px">%s</span></td><td>%s</td></tr>\n' "$t" "$nm" "$mb" "$em" "$bg" "$up" "$via" "$pg" >> report.html
             done < lrows.tsv
           else
             echo "<tr><td style='color:#64748b'>No visitor identities captured yet. They appear here once the access gate records a name + mobile.</td></tr>" >> report.html

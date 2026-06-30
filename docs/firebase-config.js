@@ -25,3 +25,17 @@ window.SMC_FIREBASE_CONFIG = {
   appId: "1:329166929775:web:44adb9d62e409f739cf29a",
   measurementId: "G-RFDJV7GQ62"
 };
+
+// ===== OTPLESS — FREE WhatsApp + Email OTP for the access gate =====
+// The access gate verifies visitors with a real OTP delivered over WhatsApp
+// (to their mobile) OR Email — powered by OTPless (free tier, no card needed).
+//
+// ONE-TIME SETUP (~5 min):
+//   1. Sign up free at https://otpless.com  → create an App.
+//   2. Dashboard → Channels: enable "WhatsApp" and "Email" (both free).
+//   3. Add your site domain (abhiiibabariya-dev.github.io) to the allowed origins.
+//   4. Copy the "App ID" and paste it below (it is a PUBLIC client id, safe to commit).
+//
+// While this is empty, the gate falls back to instant name+number FORMAT
+// validation (no OTP) so visitors are never locked out.
+window.SMC_OTPLESS_APP_ID = "";
