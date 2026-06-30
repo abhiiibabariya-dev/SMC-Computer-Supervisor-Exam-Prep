@@ -1,0 +1,87 @@
+name: Set Firebase Security Rules
+
+# Installs append-only security rules on the Realtime Database so the site can
+# WRITE new visits / clicks / leads / security events again, while public READS
+# stay blocked. The daily report reads with the admin FIREBASE_SECRET, which
+# bypasses these rules, so reporting is unaffected.
+#
+# Rule model (per collection):
+#   "$id": { ".write": "!data.exists()" }
+#     → anyone may CREATE a new push-id child (tracker.js / gate.js use POST),
+#       but nobody may overwrite or delete an existing record (tamper-proof).
+#   ".read": false at the root → no anonymous reads of any data.
+#
+# Run manually:  Actions → "Set Firebase Security Rules" → Run workflow.
+# Requires the existing repo secret FIREBASE_SECRET (legacy DB secret).
+
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+env:
+  FIREBASE_URL: 'https://smc-exam-prep-38d22-default-rtdb.asia-southeast1.firebasedatabase.app'
+
+jobs:
+  set-rules:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate secret
+        env:
+          FB_SECRET: ${{ secrets.FIREBASE_SECRET }}
+        run: |
+          if [ -z "$FB_SECRET" ]; then
+            echo "::error::FIREBASE_SECRET is not set. Add it in Settings → Secrets → Actions."
+            exit 1
+          fi
+
+      - name: Write rules file
+        run: |
+          cat > rules.json <<'JSON'
+          {
+            "rules": {
+              ".read": false,
+              ".write": false,
+              "visits":   { "$id": { ".write": "!data.exists()" } },
+              "clicks":   { "$id": { ".write": "!data.exists()" } },
+              "leads":    { "$id": { ".write": "!data.exists()" } },
+              "security": { "$id": { ".write": "!data.exists()" } }
+            }
+          }
+          JSON
+          echo "Rules to install:"; cat rules.json
+
+      - name: Install rules on Realtime Database
+        env:
+          FB_SECRET: ${{ secrets.FIREBASE_SECRET }}
+        run: |
+          set -e
+          HTTP=$(curl -s -o resp.txt -w '%{http_code}' \
+            -X PUT "${FIREBASE_URL}/.settings/rules.json?auth=${FB_SECRET}" \
+            -H 'Content-Type: application/json' \
+            --data-binary @rules.json)
+          echo "HTTP $HTTP"; cat resp.txt; echo
+          if [ "$HTTP" != "200" ]; then
+            echo "::error::Failed to install rules (HTTP $HTTP). The FIREBASE_SECRET may lack admin rights or be malformed."
+            exit 1
+          fi
+          echo "✅ Security rules installed."
+
+      - name: Verify (write should succeed, read should be denied)
+        run: |
+          set -e
+          echo "→ Anonymous WRITE to /security (expect success):"
+          W=$(curl -s -o /dev/null -w '%{http_code}' \
+            -X POST "${FIREBASE_URL}/security.json" \
+            -H 'Content-Type: application/json' \
+            -d '{"time":"workflow-verify","localTime":"workflow-verify","level":"ok","msg":"Firebase rules verification write","src":"set-firebase-rules workflow"}')
+          echo "   HTTP $W"
+          echo "→ Anonymous READ of /security (expect 401):"
+          R=$(curl -s -o /dev/null -w '%{http_code}' "${FIREBASE_URL}/security.json")
+          echo "   HTTP $R"
+          if [ "$W" = "200" ] && [ "$R" = "401" ]; then
+            echo "✅ Writes restored, reads still private."
+          else
+            echo "::warning::Unexpected result (write=$W, read=$R). Review the rules."
+          fi
