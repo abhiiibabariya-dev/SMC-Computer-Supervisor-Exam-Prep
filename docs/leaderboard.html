@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#6366f1">
+<title>Leaderboard — SMC Exam Prep 2026</title>
+<meta name="description" content="Top scorers on SMC 2026 practice quizzes. Compete and climb the leaderboard!">
+<style>
+  :root{--bg:#0b0f1a;--card:#111113;--line:rgba(255,255,255,.09);--ind:#6366f1;--ind2:#818cf8;--mut:#a1a1aa}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:#e5e7eb;font-family:"Plus Jakarta Sans",system-ui,-apple-system,sans-serif;min-height:100vh;padding:64px 16px 40px}
+  .wrap{max-width:640px;margin:0 auto}
+  .top{text-align:center;margin-bottom:22px}
+  .top h1{font-size:1.7em;font-weight:800;margin:0 0 6px;color:#fafafa}
+  .top p{color:var(--mut);margin:0;font-size:.95em}
+  table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;margin-top:18px}
+  th,td{padding:12px 14px;text-align:left;font-size:.9em;border-bottom:1px solid var(--line)}
+  th{color:var(--mut);font-size:.74em;text-transform:uppercase;letter-spacing:.5px}
+  tr:last-child td{border-bottom:0}
+  .rk{font-weight:800;width:44px}
+  .rk1{color:#fbbf24}.rk2{color:#cbd5e1}.rk3{color:#f59e0b}
+  .nm{font-weight:700;color:#fafafa}
+  .sc{font-weight:800;color:var(--ind2);text-align:right}
+  .sj{color:var(--mut);font-size:.84em}
+  .msg{text-align:center;color:var(--mut);padding:30px;background:var(--card);border:1px solid var(--line);border-radius:16px;margin-top:18px}
+  .nav{text-align:center;margin-top:22px}
+  .nav a{color:var(--ind2);text-decoration:none;font-size:.88em;margin:0 8px}
+  .cta{display:block;text-align:center;background:linear-gradient(135deg,var(--ind),var(--ind2));color:#fff;text-decoration:none;border-radius:12px;padding:14px;font-weight:700;margin-top:18px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <h1>🏆 <span data-i18n="lb_title">Leaderboard</span></h1>
+    <p data-i18n="lb_sub">Top scorers across all quizzes</p>
+  </div>
+  <div id="content"><div class="msg" data-i18n="loading">Loading…</div></div>
+  <a class="cta" href="quiz.html" data-i18n="qz_start">Start Quiz</a>
+  <div class="nav">
+    <a href="index.html" data-i18n="home">Home</a>·
+    <a href="daily-quiz.html" data-i18n="daily_quiz">Daily Quiz</a>·
+    <a href="mock-test.html" data-i18n="mock_test">Mock Test</a>
+  </div>
+</div>
+
+<script src="firebase-config.js"></script>
+<script src="i18n.js"></script>
+<script>
+(function(){
+  "use strict";
+  var FB=window.SMC_FIREBASE_URL||'';
+  var $=function(id){return document.getElementById(id);};
+  function T(k){return (window.smcT?window.smcT(k):k);}
+
+  function pct(r){return r.total?Math.round(r.score/r.total*100):0;}
+
+  function render(rows){
+    if(!rows||!rows.length){ $('content').innerHTML='<div class="msg" data-i18n="lb_empty">'+T('lb_empty')+'</div>'; return; }
+    // best attempt per name, ranked by score% then raw score
+    var best={};
+    rows.forEach(function(r){
+      if(!r||r.name==null)return;
+      var k=(r.name+'').toLowerCase().trim();
+      var p=pct(r);
+      if(!best[k]||p>best[k]._p||(p===best[k]._p&&(r.score||0)>(best[k].score||0))){ r._p=p; best[k]=r; }
+    });
+    var list=Object.keys(best).map(function(k){return best[k];})
+      .sort(function(a,b){return b._p-a._p || (b.score||0)-(a.score||0);}).slice(0,50);
+    var h='<table><tr><th data-i18n="lb_rank">'+T('lb_rank')+'</th><th data-i18n="lb_name">'+T('lb_name')+'</th><th data-i18n="lb_subj">'+T('lb_subj')+'</th><th style="text-align:right" data-i18n="lb_score">'+T('lb_score')+'</th></tr>';
+    list.forEach(function(r,i){
+      var rk=i+1, cls=rk<=3?('rk rk'+rk):'rk';
+      var medal=rk===1?'🥇':rk===2?'🥈':rk===3?'🥉':rk;
+      var subj=r.subj?(T('s_'+r.subj)||r.subj):(r.type==='daily'?T('daily_quiz'):'—');
+      var nm=(r.name+'').replace(/[<>]/g,'').slice(0,22);
+      h+='<tr><td class="'+cls+'">'+medal+'</td><td class="nm">'+nm+'</td><td class="sj">'+subj+'</td><td class="sc">'+r.score+'/'+r.total+' ('+r._p+'%)</td></tr>';
+    });
+    h+='</table>';
+    $('content').innerHTML=h;
+  }
+
+  function load(){
+    if(!FB){ $('content').innerHTML='<div class="msg">Leaderboard unavailable.</div>'; return; }
+    fetch(FB+'/leaderboard.json').then(function(r){return r.ok?r.json():null;}).then(function(d){
+      var rows=d?Object.keys(d).map(function(k){return d[k];}):[];
+      render(rows);
+    }).catch(function(){ $('content').innerHTML='<div class="msg" data-i18n="lb_empty">'+T('lb_empty')+'</div>'; });
+  }
+  load();
+  window.addEventListener('smc-lang',load);
+})();
+</script>
+<script src="tracker.js"></script>
+<script src="pwa.js" defer></script>
+</body>
+</html>

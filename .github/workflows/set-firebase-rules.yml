@@ -44,10 +44,12 @@ jobs:
               ".read": false,
               ".write": false,
               "_healthcheck": { ".read": false, ".write": true },
-              "visits":   { "$id": { ".write": "!data.exists()" } },
-              "clicks":   { "$id": { ".write": "!data.exists()" } },
-              "leads":    { "$id": { ".write": "!data.exists()" } },
-              "security": { "$id": { ".write": "!data.exists()" } }
+              "visits":      { "$id": { ".write": "!data.exists()" } },
+              "clicks":      { "$id": { ".write": "!data.exists()" } },
+              "leads":       { "$id": { ".write": "!data.exists()" } },
+              "security":    { "$id": { ".write": "!data.exists()" } },
+              "quizscores":  { "$id": { ".write": "!data.exists()" } },
+              "leaderboard": { ".read": true, "$id": { ".write": "!data.exists()" } }
             }
           }
           JSON
