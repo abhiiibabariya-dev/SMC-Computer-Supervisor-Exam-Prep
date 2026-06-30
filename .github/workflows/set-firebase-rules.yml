@@ -99,13 +99,14 @@ jobs:
           # Admin auth bypasses rules → read each collection, delete only records that
           # carry a known diagnostic marker, leaving all real visitor data untouched.
           curl -s -X DELETE "${FIREBASE_URL}/_healthcheck.json?auth=${FB_SECRET}" -o /dev/null || true
-          for coll in leads security visits clicks; do
+          for coll in leads security visits clicks leaderboard quizscores; do
             curl -fsS "${FIREBASE_URL}/${coll}.json?auth=${FB_SECRET}" -o c.json || echo '{}' > c.json
             [ -s c.json ] || echo '{}' > c.json
             keys=$(jq -r 'to_entries[]? | select(
                       ((.value.ref // "")        | test("claude-verify|diagnostic"; "i")) or
                       ((.value.src // "")        | test("set-firebase-rules|diagnostic"; "i")) or
                       ((.value.name // "")       | test("Diagnostic Test"; "i")) or
+                      (((.value.name // "") == "Test") and ((.value.mobile // "") == "")) or
                       ((.value.localTime // "")  | test("workflow-verify"; "i")) or
                       ((.value.pg // "")         | test("^/diagnostic$"; "i"))
                     ) | .key' c.json 2>/dev/null || true)
