@@ -28,10 +28,14 @@
         ['🧪','Mock Test','mock-test.html'],
         ['🎯','Practice Quiz','quiz.html'],
         ['🏆','Leaderboard','leaderboard.html'],
+        ['🎟️','Admit Card & Exam Day','exam-day.html'],
+        ['🔑','Answer Key & Rank','answer-key.html'],
         ['📅','Exam Info','exam.html'],
         ['💼','Govt Jobs','govt-jobs.html']
     ];
 
+    var EXAM_ISO='2026-07-12T10:00:00+05:30';
+    function daysLeft(){ return Math.ceil((new Date(EXAM_ISO).getTime()-Date.now())/86400000); }
     function ready(fn){ if(document.body)fn(); else document.addEventListener('DOMContentLoaded',fn); }
     function injectStyle(id,css){
         try{ if(document.getElementById(id))return;
@@ -190,4 +194,33 @@
         }catch(e){}
     }
     ready(mountMenu);
+
+    // ---- Countdown urgency bar (dismissible, top of page) ------------------
+    function mountBar(){
+        try{
+            if(document.getElementById('smcBar'))return;
+            var dl=daysLeft(); if(dl<=0)return;
+            if(/revision-plan|progress\.html/i.test(location.pathname))return; // already there / not needed
+            if(sessionStorage.getItem('smc_bar')==='1')return;                  // dismissed this session
+            injectStyle('smcBarCss',
+                'html.smc-bar body{padding-top:40px !important}'
+                +'html.smc-bar .nav{top:52px !important}'
+                +'#smcBar{position:fixed;top:0;left:0;right:0;z-index:2147483200;background:linear-gradient(90deg,#4f46e5,#7c3aed);color:#fff;font-family:"Plus Jakarta Sans",system-ui,sans-serif;font-size:.82em;font-weight:700;display:flex;align-items:center;justify-content:center;padding:9px 40px 9px 14px;text-align:center;box-shadow:0 2px 12px rgba(0,0,0,.3)}'
+                +'#smcBar a{color:#fff;text-decoration:underline;font-weight:800}'
+                +'#smcBar .x{position:absolute;right:9px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.22);border:0;color:#fff;border-radius:50%;width:22px;height:22px;cursor:pointer;font-size:.95em;line-height:20px;padding:0}'
+                +'@media(max-width:600px){#smcBar{font-size:.74em;padding:8px 34px 8px 10px}}'
+            );
+            var bar=document.createElement('div'); bar.id='smcBar';
+            bar.innerHTML='<span>⏰ '+dl+' day'+(dl===1?'':'s')+' to the SMC exam — <a href="revision-plan.html">open your 10-day plan →</a></span><button class="x" type="button" aria-label="Dismiss">&times;</button>';
+            document.documentElement.classList.add('smc-bar');
+            document.body.appendChild(bar);
+            bar.querySelector('a').addEventListener('click',function(){audit('nav_click','urgency-bar');});
+            bar.querySelector('.x').addEventListener('click',function(){
+                try{sessionStorage.setItem('smc_bar','1');}catch(e){}
+                document.documentElement.classList.remove('smc-bar');
+                bar.parentNode&&bar.parentNode.removeChild(bar);
+            });
+        }catch(e){}
+    }
+    ready(mountBar);
 })();
