@@ -22,6 +22,8 @@
     // a plain relative href works from anywhere on the site.
     var NAV=[
         ['🏠','Home','index.html'],
+        ['🗓️','10-Day Plan','revision-plan.html'],
+        ['📊','My Progress','progress.html'],
         ['✍️','Daily Quiz','daily-quiz.html'],
         ['🧪','Mock Test','mock-test.html'],
         ['🎯','Practice Quiz','quiz.html'],
@@ -144,6 +146,8 @@
                 +'<div class="lbl">Go to</div>'
                 +links
                 +'<div class="lbl">Tools</div>'
+                +'<button class="row" type="button" id="smcRemBtn"><span class="ic">🔔</span><span class="tx"><b>Exam reminders</b><span>Countdown + add to calendar</span></span></button>'
+                +'<button class="row" type="button" id="smcInvBtn"><span class="ic">🎁</span><span class="tx"><b>Invite &amp; unlock</b><span>Share to unlock a bonus mock</span></span></button>'
                 +'<button class="row" type="button" id="smcPdfBtn"><span class="ic">📄</span><span class="tx"><b>Save this page as PDF</b><span>Read or share offline</span></span></button>'
                 +'<button class="row" type="button" id="smcInstallRow" style="display:none"><span class="ic">📲</span><span class="tx"><b>Install app</b><span>Add to home screen</span></span></button>'
                 +'<div class="lbl">Questions? Contact Abhi</div>'
@@ -171,6 +175,9 @@
                 else if(COMMUNITY&&h===COMMUNITY)audit('community_open','group');
                 else audit('nav_click',h);
             });}
+            // Reminders + Invite (from growth.js; guard if not loaded)
+            panel.querySelector('#smcRemBtn').addEventListener('click',function(){setOpen(false);if(window.smcReminders)window.smcReminders();else location.href='revision-plan.html';});
+            panel.querySelector('#smcInvBtn').addEventListener('click',function(){setOpen(false);if(window.smcInvite)window.smcInvite();});
             // Save as PDF
             panel.querySelector('#smcPdfBtn').addEventListener('click',function(){audit('save_pdf',location.pathname);setOpen(false);setTimeout(function(){try{window.print();}catch(e){}},200);});
             // Install

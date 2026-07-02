@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Your 10-Day Revision Plan — SMC Exam Prep 2026</title>
+<meta name="description" content="A personalised day-by-day 10-day revision plan for the SMC 2026 exam — track your progress and stay exam-ready.">
+<meta name="theme-color" content="#6366f1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1CP842CPFX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-1CP842CPFX');</script>
+<script src="firebase-config.js"></script>
+<script src="gate.js"></script>
+<script src="share.js"></script>
+<script src="enhance.js"></script>
+<style>
+  :root{--bg:#09090b;--s1:#111113;--s2:#18181b;--border:rgba(255,255,255,.08);--txt:#a1a1aa;--white:#fafafa;--dim:#71717a;--accent:#6366f1;--accent2:#818cf8}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Plus Jakarta Sans',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--txt);-webkit-font-smoothing:antialiased;padding:0 0 80px}
+  a{color:var(--accent2)}
+  .top{position:sticky;top:0;z-index:10;background:rgba(9,9,11,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:14px 20px;display:flex;align-items:center;gap:12px}
+  .top a.home{color:var(--white);text-decoration:none;font-weight:700;font-size:.9em;background:var(--s2);border:1px solid var(--border);border-radius:10px;padding:8px 14px}
+  .top .ttl{font-weight:800;color:var(--white);font-size:.95em}
+  .wrap{max-width:760px;margin:0 auto;padding:24px 20px}
+  .hero{text-align:center;margin-bottom:22px}
+  .hero h1{color:var(--white);font-size:clamp(1.6em,5vw,2.3em);font-weight:900;letter-spacing:-1px;line-height:1.1}
+  .hero h1 .gr{background:linear-gradient(135deg,var(--accent),#c084fc);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+  .hero p{color:var(--dim);margin-top:10px;font-size:.95em}
+  .post-pill{display:inline-flex;align-items:center;gap:8px;background:rgba(99,102,241,.12);color:var(--accent2);border:1px solid rgba(99,102,241,.25);border-radius:100px;padding:7px 16px;font-weight:700;font-size:.85em;margin-top:14px}
+  .prog{position:sticky;top:60px;z-index:9;background:var(--s1);border:1px solid var(--border);border-radius:16px;padding:16px 18px;margin:18px 0 24px}
+  .prog .row{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+  .prog b{color:var(--white);font-size:1.05em}
+  .prog .pct{color:var(--accent2);font-weight:900;font-size:1.2em}
+  .bar{height:10px;border-radius:8px;background:#27272a;overflow:hidden}
+  .bar>i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:width .5s cubic-bezier(.16,1,.3,1)}
+  .day{background:var(--s1);border:1px solid var(--border);border-radius:16px;padding:18px 18px 8px;margin-bottom:14px;transition:border-color .3s}
+  .day.done{border-color:rgba(34,197,94,.3);background:rgba(34,197,94,.04)}
+  .day-h{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+  .day-n{flex-shrink:0;width:44px;height:44px;border-radius:12px;background:rgba(99,102,241,.14);color:var(--accent2);display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:800;line-height:1}
+  .day-n small{font-size:.55em;color:var(--dim);font-weight:600;text-transform:uppercase}
+  .day-t{color:var(--white);font-weight:800;font-size:1.02em}
+  .day-t span{display:block;color:var(--dim);font-weight:500;font-size:.78em;margin-top:2px}
+  .task{display:flex;align-items:flex-start;gap:11px;padding:11px 6px;border-top:1px solid var(--border);cursor:pointer}
+  .task input{appearance:none;-webkit-appearance:none;flex-shrink:0;width:22px;height:22px;border:2px solid rgba(255,255,255,.2);border-radius:7px;margin-top:1px;cursor:pointer;position:relative;transition:all .2s}
+  .task input:checked{background:var(--accent);border-color:var(--accent)}
+  .task input:checked::after{content:'✓';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:.8em;font-weight:900}
+  .task .tt{flex:1;color:#d4d4d8;font-size:.9em;line-height:1.5}
+  .task input:checked+.tt{color:var(--dim);text-decoration:line-through}
+  .task .tt a{font-weight:700;text-decoration:none}.task .tt a:hover{text-decoration:underline}
+  .cta{text-align:center;margin-top:26px;padding:22px;background:var(--s1);border:1px solid var(--border);border-radius:16px}
+  .cta a{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;font-weight:700;padding:12px 22px;border-radius:12px;margin:6px 4px;font-size:.9em}
+  .cta a.ghost{background:transparent;border:1px solid var(--border);color:var(--white)}
+  .done-badge{color:#86efac;font-weight:700;font-size:.8em;margin-left:auto}
+</style>
+</head>
+<body>
+<div class="top">
+  <a class="home" href="index.html">← Home</a>
+  <span class="ttl">🗓️ 10-Day Revision Plan</span>
+</div>
+<div class="wrap">
+  <div class="hero">
+    <h1>Your <span class="gr">10-Day</span> Revision Plan</h1>
+    <p>A focused day-by-day plan to be exam-ready. Tick tasks as you go — your progress is saved on this device.</p>
+    <div class="post-pill" id="postPill">🎯 Loading your post…</div>
+  </div>
+  <div class="prog">
+    <div class="row"><b>Your progress</b><span class="pct" id="pct">0%</span></div>
+    <div class="bar"><i id="barFill"></i></div>
+  </div>
+  <div id="plan"></div>
+  <div class="cta">
+    <div style="color:var(--white);font-weight:800;margin-bottom:6px">Ready to test yourself?</div>
+    <p style="font-size:.85em;margin-bottom:12px">Put the plan into action with a full mock test and the daily quiz.</p>
+    <a href="mock-test.html">🧪 Take a Mock Test</a>
+    <a class="ghost" href="daily-quiz.html">✍️ Daily Quiz</a>
+    <a class="ghost" href="progress.html">📊 My Progress</a>
+  </div>
+</div>
+
+<script src="tracker.js"></script>
+<script src="growth.js"></script>
+<script src="pwa.js" defer></script>
+<script>
+(function(){
+  "use strict";
+  var KEY='smc_revplan';
+  function load(){try{return JSON.parse(localStorage.getItem(KEY)||'{}')||{};}catch(e){return{};}}
+  function save(o){try{localStorage.setItem(KEY,JSON.stringify(o));}catch(e){}}
+  function user(){try{return JSON.parse(localStorage.getItem('smc_user')||'{}')||{};}catch(e){return{};}}
+  var u=user();
+  var guide=(u.post&&/^[a-z0-9-]+\.html$/i.test(u.post))?u.post:'';
+  var guideLbl=u.postLabel||'your post';
+  var pill=document.getElementById('postPill');
+  if(u.postLabel){pill.innerHTML='🎯 Preparing for: <b style="color:#fff;margin-left:4px">'+u.postLabel.replace(/[<>]/g,'')+'</b>';}
+  else{pill.innerHTML='🎯 <a href="index.html" style="color:#c7d2fe">Choose your post →</a>';}
+  var gLink=guide?('<a href="'+guide+'">your '+guideLbl.replace(/[<>]/g,'')+' guide</a>'):'<a href="index.html">your post guide</a>';
+
+  // 10-day structure. Tasks may embed links; {{guide}} = the user's chosen post guide.
+  var PLAN=[
+    {t:'Language — Gujarati',s:'Grammar & comprehension',k:['Revise Gujarati grammar (સંધિ, સમાસ, અલંકાર)','Vocabulary + idioms (રૂઢિપ્રયોગ)','Solve one language set in the <a href="daily-quiz.html">daily quiz</a>']},
+    {t:'General Knowledge',s:'Gujarat + India static GK',k:['Gujarat GK — history, geography, culture','India static GK — polity, constitution basics','Quick recap of important days & awards']},
+    {t:'English Language',s:'Grammar & vocabulary',k:['Grammar rules (tenses, articles, prepositions)','Vocabulary — synonyms, antonyms, one-word','Reading comprehension practice']},
+    {t:'Maths & Reasoning',s:'Speed + accuracy',k:['Arithmetic — %, ratio, average, time & work','Reasoning — series, coding, puzzles','Timed practice: 20 questions in 15 min']},
+    {t:'Computer & Post Core',s:'Core subject for your post',k:['Computer fundamentals & MS Office basics','Read the core section of '+((guide)?gLink:'your post guide'),'Note down 20 key facts to revise later']},
+    {t:'Current Affairs',s:'Last 6 months',k:['National + Gujarat current affairs (Jan–Jun 2026)','Government schemes & appointments','Solve a current-affairs set on the <a href="daily-quiz.html">daily quiz</a>']},
+    {t:'Surat & SMC Special',s:'Local & civic knowledge',k:['Surat city — history, geography, civic bodies','SMC schemes, departments & services','Gujarat municipal & local governance basics']},
+    {t:'Post Deep-Dive',s:'Master your subject',k:['Read '+gLink+' fully','Attempt all MCQs for your post','List your 5 weakest topics']},
+    {t:'Full Mock Test',s:'Simulate the real exam',k:['Attempt a full <a href="mock-test.html">mock test</a> in one sitting','Review every wrong answer & mark the topic','Re-take a short <a href="quiz.html">practice quiz</a> on weak topics']},
+    {t:'Final Revision + Exam Day',s:'Be 100% ready',k:['Revise all your notes & the 5 weak topics','Exam-day kit: admit card + photo ID + pen','Sleep well — reach the centre 45 min early 💪']}
+  ];
+
+  var state=load();
+  var planEl=document.getElementById('plan');
+  var totalTasks=0; PLAN.forEach(function(d){totalTasks+=d.k.length;});
+
+  function keyOf(di,ti){return 'd'+di+'t'+ti;}
+  function render(){
+    var html='';
+    PLAN.forEach(function(d,di){
+      var doneCount=0; d.k.forEach(function(_,ti){if(state[keyOf(di,ti)])doneCount++;});
+      var allDone=doneCount===d.k.length;
+      html+='<div class="day'+(allDone?' done':'')+'" id="day'+di+'">'
+        +'<div class="day-h"><div class="day-n"><small>Day</small>'+(di+1)+'</div>'
+        +'<div class="day-t">'+d.t+'<span>'+d.s+'</span></div>'
+        +(allDone?'<span class="done-badge">✓ Done</span>':'<span class="done-badge" style="color:#71717a">'+doneCount+'/'+d.k.length+'</span>')
+        +'</div>';
+      d.k.forEach(function(task,ti){
+        var id=keyOf(di,ti),ck=state[id]?'checked':'';
+        html+='<label class="task"><input type="checkbox" data-k="'+id+'" '+ck+'><span class="tt">'+task+'</span></label>';
+      });
+      html+='</div>';
+    });
+    planEl.innerHTML=html;
+    bind(); updateProg();
+  }
+  function bind(){
+    var boxes=planEl.querySelectorAll('input[type=checkbox]');
+    for(var i=0;i<boxes.length;i++){boxes[i].addEventListener('change',function(){
+      state[this.getAttribute('data-k')]=this.checked; save(state);
+      try{if(window.smcAudit)window.smcAudit('revplan',(this.checked?'done ':'undo ')+this.getAttribute('data-k'));}catch(e){}
+      render();
+    });}
+  }
+  function updateProg(){
+    var done=0; for(var k in state){if(state[k])done++;}
+    var pct=totalTasks?Math.round(done/totalTasks*100):0;
+    document.getElementById('pct').textContent=pct+'%';
+    document.getElementById('barFill').style.width=pct+'%';
+  }
+  render();
+})();
+</script>
+</body>
+</html>
