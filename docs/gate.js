@@ -22,10 +22,16 @@
     var OTP_ENABLED=true;
     function otpOn(){return !!(OTP_ENABLED&&OTPLESS_APP_ID);}
 
+    // Stable per-visitor id (shared with tracker.js via the same localStorage key)
+    // so the daily email can stitch login → page views → clicks into one trail.
+    function sidG(){try{var s=localStorage.getItem('smc_sid');if(!s){s='s'+Date.now().toString(36)+Math.random().toString(36).slice(2,8);localStorage.setItem('smc_sid',s);}return s;}catch(e){return'nostorage';}}
+    function auditG(ev,d,who){try{var r={t:new Date().toISOString(),lt:new Date().toLocaleString('en-IN',{timeZone:'Asia/Kolkata'}),sid:sidG(),ev:ev,d:d||'',pg:location.pathname};if(who){r.name=who.name||'';r.mobile=who.mobile||'';}post('audit',r);}catch(e){}}
+
     // Logout / reset: visiting any page with ?logout (or #logout) clears the saved
     // identity and reloads cleanly so the gate shows again.
     try{
         if(/[?&#]logout\b/i.test(location.href)){
+            try{var lu=JSON.parse(localStorage.getItem(KEY)||'null');if(lu&&lu.name)auditG('logout','via ?logout',lu);}catch(e){}
             localStorage.removeItem(KEY);
             var clean=location.href.replace(/([?&])logout(=[^&#]*)?/ig,'$1').replace(/[?&#]+$/,'').replace(/#.*$/,'');
             location.replace(clean||location.pathname);return;
@@ -33,7 +39,12 @@
     }catch(e){}
 
     // Already identified → no gate; just show a small "logged in / Logout" chip.
-    try{var ex=JSON.parse(localStorage.getItem(KEY)||'null');if(ex&&ex.name&&ex.mobile){showChip(ex);return;}}catch(e){}
+    // Also log a "session resumed" login once per browser tab-session so the daily
+    // email shows returning visitors (not only brand-new sign-ins).
+    try{var ex=JSON.parse(localStorage.getItem(KEY)||'null');if(ex&&ex.name&&ex.mobile){
+        try{if(!sessionStorage.getItem('smc_sess')){sessionStorage.setItem('smc_sess','1');auditG('login','session resumed'+(ex.postLabel?' · post: '+ex.postLabel:''),{name:ex.name,mobile:ex.mobile});}}catch(e){}
+        showChip(ex);return;
+    }}catch(e){}
 
     function showChip(u){
         if(document.getElementById('smcChip'))return;
@@ -47,18 +58,62 @@
             +'#smcChip .vb{font-size:.85em}'
             +'#smcChip .lo{background:rgba(239,68,68,.15);color:#fca5a5;border:0;border-radius:50px;padding:5px 11px;font-size:.95em;font-weight:700;cursor:pointer;font-family:inherit}'
             +'#smcChip .lo:hover{background:rgba(239,68,68,.28)}'
+            +'#smcChip .cp{background:rgba(99,102,241,.16);color:#a5b4fc;border:0;border-radius:50px;padding:5px 10px;font-size:.9em;font-weight:700;cursor:pointer;font-family:inherit}'
+            +'#smcChip .cp:hover{background:rgba(99,102,241,.28)}'
             +'@media(max-width:768px){#smcChip{left:10px;bottom:10px;font-size:.72em}}'
             +'</style>'
             +'<span>👤</span><b title="'+(u.mobile||'')+'">'+(u.name||'You')+'</b>'
             +(u.verified?'<span class="vb" title="Verified via '+(u.channel||'OTP')+'">✅</span>':'')
+            +'<button class="cp" type="button" id="smcChangePost" title="Change your post / subject">⇄ Post</button>'
             +'<button class="lo" type="button" id="smcLogout">Logout</button>';
             document.body.appendChild(c);
+            c.querySelector('#smcChangePost').addEventListener('click',function(){openPostPicker(u);});
             c.querySelector('#smcLogout').addEventListener('click',function(){
-                try{localStorage.removeItem(KEY);}catch(e){}
+                try{auditG('logout','logout chip',u);}catch(e){}
+                try{localStorage.removeItem(KEY);sessionStorage.removeItem('smc_sess');}catch(e){}
                 location.reload();
             });
         }
         if(document.body)go();else document.addEventListener('DOMContentLoaded',go);
+    }
+
+    // Lightweight "change post" modal for returning users — updates their saved post
+    // and takes them straight to that guide. Reuses the same POSTS catalogue.
+    function openPostPicker(u){
+        if(document.getElementById('smcPick'))return;
+        var m=document.createElement('div');
+        m.id='smcPick';
+        m.innerHTML='<style>'
+            +'#smcPick{position:fixed;inset:0;z-index:2147483600;background:rgba(6,6,10,.86);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;padding:20px;font-family:"Plus Jakarta Sans",system-ui,sans-serif}'
+            +'#smcPick .pc{width:100%;max-width:400px;background:#111113;border:1px solid rgba(255,255,255,.09);border-radius:18px;padding:24px}'
+            +'#smcPick h3{color:#fafafa;font-size:1.15em;font-weight:800;margin:0 0 4px}'
+            +'#smcPick p{color:#a1a1aa;font-size:.85em;margin:0 0 16px}'
+            +'#smcPick select{width:100%;background:#18181b;border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:13px 14px;color:#fafafa;font-size:1em;font-family:inherit;outline:none;margin-bottom:16px}'
+            +'#smcPick select option,#smcPick select optgroup{background:#18181b;color:#fafafa}'
+            +'#smcPick .btns{display:flex;gap:10px}'
+            +'#smcPick button{flex:1;border:0;border-radius:12px;padding:12px;font-size:.95em;font-weight:700;font-family:inherit;cursor:pointer}'
+            +'#smcPick .sv{background:linear-gradient(135deg,#6366f1,#818cf8);color:#fff}'
+            +'#smcPick .cx{background:transparent;border:1px solid rgba(255,255,255,.16);color:#e5e7eb}'
+            +'</style>'
+            +'<div class="pc" role="dialog" aria-modal="true">'
+            +'<h3>Change your post</h3><p>Pick the post you\'re preparing for — we\'ll take you to its guide.</p>'
+            +'<select id="smcPickSel">'+postOptionsHtml()+'</select>'
+            +'<div class="btns"><button class="cx" type="button" id="smcPickCancel">Cancel</button><button class="sv" type="button" id="smcPickSave">Save &amp; open</button></div>'
+            +'</div>';
+        document.body.appendChild(m);
+        var sel=m.querySelector('#smcPickSel');
+        try{if(u&&u.post)sel.value=u.post;}catch(e){}
+        function closeM(){m.parentNode&&m.parentNode.removeChild(m);}
+        m.querySelector('#smcPickCancel').addEventListener('click',closeM);
+        m.addEventListener('click',function(e){if(e.target===m)closeM();});
+        m.querySelector('#smcPickSave').addEventListener('click',function(){
+            var val=sel.value||'',lbl=postLabelFor(val);
+            try{var cur=JSON.parse(localStorage.getItem(KEY)||'{}')||{};cur.post=val;cur.postLabel=lbl;localStorage.setItem(KEY,JSON.stringify(cur));}catch(e){}
+            try{auditG('switch_post',lbl||'exploring',{name:u&&u.name,mobile:u&&u.mobile});}catch(e){}
+            post('security',{time:new Date().toISOString(),localTime:new Date().toLocaleString('en-IN',{timeZone:'Asia/Kolkata'}),level:'ok',msg:'Visitor '+((u&&u.name)||'')+' switched post → '+(lbl||'exploring'),src:'access-gate'});
+            closeM();
+            if(val){try{location.href=val;}catch(e){}}
+        });
     }
 
     function fb(){return window.SMC_FIREBASE_URL||FB_URL;}
@@ -127,6 +182,67 @@
         return false;
     }
 
+    // ---- Post / subject catalogue (drives the "which post?" dropdown) ----
+    // Each entry: [label, target page]. Grouped so aspirants find their line fast
+    // and get routed to the right guide. Keep labels short — full titles live on the pages.
+    var POSTS=[
+        {g:'Administrative / Clerical',items:[
+            ['Computer Supervisor','supervisor.html'],['Clerk','clerk.html'],
+            ['Clerk Grade-III (Audit)','clerk-audit.html'],['Library Clerk','library-clerk.html'],
+            ['Assessment & Recovery Officer','aro.html'],['Deputy Accountant','dep-accountant.html'],
+            ['Assistant Auditor','asst-auditor.html'],['Deputy Auditor','dep-auditor.html'],
+            ['Junior Analyst','analyst.html'],['Asst Town Planner','atp.html'],
+            ['Deputy Town Planner','dtp.html']
+        ]},
+        {g:'Engineering & Town Planning',items:[
+            ['Asst Engineer (Civil)','ae-civil.html'],['Asst Engineer (Electrical)','ae-electrical.html'],
+            ['Asst Engineer (Mechanical)','ae-mechanical.html'],['Deputy Engineer (Civil)','de-civil.html'],
+            ['Environment Engineer','env-engineer.html'],['Technical Officer','tech-officer.html'],
+            ['Technical Assistant','technical-assistant.html'],['Maintenance Asst (Electrical)','maint-electrical.html'],
+            ['Fitter','fitter.html']
+        ]},
+        {g:'Medical & Health',items:[
+            ['Staff Nurse','staff-nurse.html'],['Medical Officer','medical-officer.html'],
+            ['Junior Pharmacist','pharmacist.html'],['Lab Technician','lab-tech.html'],
+            ['Radiographic Technician','radio-tech.html'],['Radiologist','radiologist.html'],
+            ['Dialysis Technician','dialysis-tech.html'],['ECG Technician','ecg-tech.html'],
+            ['ECHO / TMT Technician','echo-tmt.html'],['Audiometry Technician','audiometry-tech.html'],
+            ['Speech Therapist','speech-therapist.html'],['Tech Asst (Bio Chemist)','ta-biochemist.html']
+        ]},
+        {g:'Zoo & Aquarium',items:[
+            ['Zoo Guide','zoo-guide.html'],['Zoo Keeper','zoo-keeper.html'],['Zoo Sevak','zoo-sevak.html'],
+            ['Aquarium Attendant','aquarium-attendant.html'],['Aquarium Inspector','aquarium-inspector.html'],
+            ['Curator (Aquarium)','curator-aquarium.html'],['Curator (Education & Research)','curator-edu.html'],
+            ['Supervisor (Aquarium)','supervisor-aquarium.html'],['Live Stock Inspector','livestock.html'],
+            ['Tech Asst (Shark Pool)','ta-shark.html'],['Marshal','marshal.html']
+        ]},
+        {g:'Other',items:[
+            ['Driver','driver.html']
+        ]}
+    ];
+    function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+    function postOptionsHtml(){
+        var h='<option value="">— Not sure yet / just exploring —</option>';
+        for(var i=0;i<POSTS.length;i++){
+            h+='<optgroup label="'+esc(POSTS[i].g)+'">';
+            var it=POSTS[i].items;
+            for(var j=0;j<it.length;j++){h+='<option value="'+esc(it[j][1])+'">'+esc(it[j][0])+'</option>';}
+            h+='</optgroup>';
+        }
+        return h;
+    }
+    // label for a stored page value (for the lead record + audit)
+    function postLabelFor(val){
+        if(!val)return'';
+        for(var i=0;i<POSTS.length;i++){var it=POSTS[i].items;for(var j=0;j<it.length;j++){if(it[j][1]===val)return it[j][0];}}
+        return val;
+    }
+    // Are we on the site landing page (so a post choice should offer to route there)?
+    function onHome(){
+        var p=location.pathname.replace(/\/+$/,'');
+        return p===''||/\/index$/i.test(p)||/\/(SMC-Computer-Supervisor-Exam-Prep)$/i.test(p)||/index\.html$/i.test(location.pathname);
+    }
+
     // ---- UI --------------------------------------------------------------
     function build(){
         var wrap=document.createElement('div');
@@ -142,6 +258,9 @@
         +'#smcGate label{display:block;color:#d4d4d8;font-size:.8em;font-weight:600;margin:0 0 6px}'
         +'#smcGate input{width:100%;background:#18181b;border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:13px 14px;color:#fafafa;font-size:1em;font-family:inherit;outline:none;transition:border-color .2s;margin-bottom:14px}'
         +'#smcGate input:focus{border-color:#6366f1}'
+        +'#smcGate select{width:100%;background:#18181b;border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:13px 14px;color:#fafafa;font-size:1em;font-family:inherit;outline:none;transition:border-color .2s;margin-bottom:14px;-webkit-appearance:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'12\' height=\'8\' viewBox=\'0 0 12 8\'%3E%3Cpath fill=\'%23a1a1aa\' d=\'M6 8 0 0h12z\'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:38px}'
+        +'#smcGate select:focus{border-color:#6366f1}'
+        +'#smcGate select option,#smcGate select optgroup{background:#18181b;color:#fafafa}'
         +'#smcGate .row{display:flex;align-items:stretch;gap:0;margin-bottom:14px}'
         +'#smcGate .cc{display:flex;align-items:center;padding:0 12px;background:#18181b;border:1px solid rgba(255,255,255,.1);border-right:none;border-radius:12px 0 0 12px;color:#a1a1aa;font-size:.95em;white-space:nowrap}'
         +'#smcGate .row input{border-radius:0 12px 12px 0;margin-bottom:0}'
@@ -168,6 +287,8 @@
         +'    <input id="smcName" type="text" autocomplete="name" placeholder="e.g. Rahul Patel" />'
         +'    <label for="smcMob">Mobile Number</label>'
         +'    <div class="row"><span class="cc">🇮🇳 +91</span><input id="smcMob" type="tel" inputmode="numeric" autocomplete="tel" maxlength="10" placeholder="10-digit mobile" /></div>'
+        +'    <label for="smcPost">Which post are you preparing for?</label>'
+        +'    <select id="smcPost">'+postOptionsHtml()+'</select>'
         +'    <div class="err" id="smcErr"></div>'
         +'    <button id="smcGo" class="wa" type="button">📲 Continue with WhatsApp OTP</button>'
         +'    <div class="div" id="smcDiv">or</div>'
@@ -199,7 +320,7 @@
         document.body.style.overflow='hidden';
 
         var $=function(id){return g.querySelector(id);};
-        var name=$('#smcName'),mob=$('#smcMob'),err=$('#smcErr'),go=$('#smcGo');
+        var name=$('#smcName'),mob=$('#smcMob'),postSel=$('#smcPost'),err=$('#smcErr'),go=$('#smcGo');
         var emailWrap=$('#smcEmailWrap'),email=$('#smcEmail'),emailBtn=$('#smcEmailBtn'),divEl=$('#smcDiv');
         var step1=$('#smcStep1'),step2=$('#smcStep2'),otp=$('#smcOtp'),err2=$('#smcErr2'),verify=$('#smcVerify'),back=$('#smcBack'),toEl=$('#smcTo'),viaEl=$('#smcVia');
         var current=null;
@@ -216,12 +337,31 @@
 
         function finish(verified,channel){
             var r=current;
-            var rec={name:r.name,mobile:r.mobile,email:r.email||'',verified:!!verified,channel:channel||'none',t:new Date().toISOString(),lt:new Date().toLocaleString('en-IN',{timeZone:'Asia/Kolkata'}),pg:location.pathname,ref:document.referrer||'Direct',ua:navigator.userAgent};
-            try{localStorage.setItem(KEY,JSON.stringify({name:r.name,mobile:r.mobile,email:r.email||'',verified:!!verified,channel:rec.channel,t:rec.t}));}catch(e){}
+            var postVal='',postLbl='';try{postVal=postSel.value||'';postLbl=postLabelFor(postVal);}catch(e){}
+            var rec={name:r.name,mobile:r.mobile,email:r.email||'',post:postVal,postLabel:postLbl,verified:!!verified,channel:channel||'none',sid:sidG(),t:new Date().toISOString(),lt:new Date().toLocaleString('en-IN',{timeZone:'Asia/Kolkata'}),pg:location.pathname,ref:document.referrer||'Direct',ua:navigator.userAgent};
+            try{localStorage.setItem(KEY,JSON.stringify({name:r.name,mobile:r.mobile,email:r.email||'',post:postVal,postLabel:postLbl,verified:!!verified,channel:rec.channel,t:rec.t}));}catch(e){}
+            try{sessionStorage.setItem('smc_sess','1');}catch(e){}
             post('leads',rec);
             var how=verified?((channel==='email'?'Email':'WhatsApp')+' OTP verified'):'unverified';
-            post('security',{time:rec.t,localTime:rec.lt,level:verified?'ok':'warn',msg:'New visitor ('+how+'): '+r.name+' ('+r.mobile+')'+(r.email?' / '+r.email:''),src:'access-gate'});
-            setTimeout(function(){document.documentElement.style.overflow='';document.body.style.overflow='';g.parentNode&&g.parentNode.removeChild(g);},300);
+            post('security',{time:rec.t,localTime:rec.lt,level:verified?'ok':'warn',msg:'New visitor ('+how+'): '+r.name+' ('+r.mobile+')'+(postLbl?' — interested in '+postLbl:'')+(r.email?' / '+r.email:''),src:'access-gate'});
+            auditG('login','logged in ('+how+')'+(postLbl?' · post: '+postLbl:'')+(r.email?' / '+r.email:''),{name:r.name,mobile:r.mobile});
+            var close=function(){document.documentElement.style.overflow='';document.body.style.overflow='';g.parentNode&&g.parentNode.removeChild(g);};
+            // From the landing page, offer to jump straight to the chosen post's guide.
+            if(postVal&&onHome()){routeToast(postVal,postLbl,close);}
+            else{setTimeout(close,300);}
+        }
+        // Small non-blocking toast that routes to the chosen guide (auto-nav + tappable).
+        function routeToast(url,label,close){
+            close();
+            var t=document.createElement('div');
+            t.id='smcRoute';
+            t.innerHTML='<style>#smcRoute{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(12px);z-index:2147483600;background:linear-gradient(135deg,#6366f1,#818cf8);color:#fff;font-family:"Plus Jakarta Sans",system-ui,sans-serif;font-size:.9em;font-weight:700;padding:13px 18px;border-radius:14px;box-shadow:0 12px 40px rgba(0,0,0,.45);cursor:pointer;opacity:0;transition:opacity .3s,transform .3s;max-width:90vw;display:flex;align-items:center;gap:8px}#smcRoute.on{opacity:1;transform:translateX(-50%) translateY(0)}#smcRoute small{opacity:.85;font-weight:500}</style>'
+            +'<span>📚</span><span>Opening your <u>'+esc(label)+'</u> guide… <small>tap to go now</small></span>';
+            var nav=function(){try{location.href=url;}catch(e){}};
+            t.addEventListener('click',nav);
+            (document.body||document.documentElement).appendChild(t);
+            setTimeout(function(){t.classList.add('on');},30);
+            setTimeout(nav,1300);
         }
 
         function showOtpStep(target,via){
