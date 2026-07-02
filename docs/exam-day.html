@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Admit Card & Exam-Day Guide — SMC 2026 (12 July)</title>
+<meta name="description" content="SMC 2026 exam-day essentials: admit card / call letter download, reporting time, what to carry, do's & don'ts, OMR tips and a last-minute checklist for the 12 July written exam.">
+<meta name="keywords" content="SMC admit card 2026, SMC call letter download, SMC exam day, SMC hall ticket, Surat Municipal Corporation exam 12 July 2026, what to carry SMC exam">
+<meta name="theme-color" content="#6366f1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="canonical" href="https://abhiiibabariya-dev.github.io/SMC-Computer-Supervisor-Exam-Prep/exam-day.html">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1CP842CPFX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-1CP842CPFX');</script>
+<script src="firebase-config.js"></script>
+<script src="gate.js"></script>
+<script src="share.js"></script>
+<script src="enhance.js"></script>
+<style>
+  :root{--bg:#09090b;--s1:#111113;--s2:#18181b;--border:rgba(255,255,255,.08);--txt:#a1a1aa;--white:#fafafa;--dim:#71717a;--accent:#6366f1;--accent2:#818cf8;--green:#22c55e;--red:#ef4444}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Plus Jakarta Sans',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--txt);-webkit-font-smoothing:antialiased;padding:0 0 80px;line-height:1.6}
+  a{color:var(--accent2)}
+  .top{position:sticky;top:0;z-index:10;background:rgba(9,9,11,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:14px 20px;display:flex;align-items:center;gap:12px}
+  .top a.home{color:var(--white);text-decoration:none;font-weight:700;font-size:.9em;background:var(--s2);border:1px solid var(--border);border-radius:10px;padding:8px 14px}
+  .top .ttl{font-weight:800;color:var(--white);font-size:.95em}
+  .wrap{max-width:760px;margin:0 auto;padding:24px 20px}
+  h1{color:var(--white);font-size:clamp(1.6em,5vw,2.2em);font-weight:900;letter-spacing:-1px;line-height:1.15}
+  h1 .gr{background:linear-gradient(135deg,var(--accent),#c084fc);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+  .lead{color:var(--dim);margin:10px 0 18px}
+  .cd{display:flex;align-items:center;gap:14px;background:linear-gradient(135deg,rgba(99,102,241,.14),rgba(192,132,252,.05));border:1px solid rgba(99,102,241,.25);border-radius:16px;padding:16px 18px;margin-bottom:20px}
+  .cd .big{font-size:2.4em;font-weight:900;color:var(--accent2);line-height:1}
+  .cd .t{font-weight:700;color:var(--white)}
+  .cd .s{font-size:.85em;color:var(--dim)}
+  .card{background:var(--s1);border:1px solid var(--border);border-radius:16px;padding:20px;margin-bottom:16px}
+  .card h2{color:var(--white);font-size:1.1em;font-weight:800;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+  .adbtn{display:block;text-align:center;background:var(--accent);color:#fff;text-decoration:none;font-weight:800;padding:14px;border-radius:12px;margin:6px 0}
+  .adbtn.ghost{background:transparent;border:1px solid var(--border);color:var(--white)}
+  ul{list-style:none;margin:6px 0}
+  li{padding:7px 0 7px 28px;position:relative;color:#d4d4d8;font-size:.92em;border-top:1px solid var(--border)}
+  li:first-child{border-top:0}
+  li::before{position:absolute;left:0;top:7px;font-size:1em}
+  .yes li::before{content:'✅'}
+  .no li::before{content:'⛔'}
+  .tip li::before{content:'💡'}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media(max-width:560px){.two{grid-template-columns:1fr}}
+  .note{font-size:.78em;color:var(--dim);margin-top:10px;padding-top:10px;border-top:1px dashed var(--border)}
+  .cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+  .cta a{flex:1;min-width:150px;text-align:center;text-decoration:none;font-weight:700;font-size:.88em;padding:12px;border-radius:12px;background:var(--s2);border:1px solid var(--border);color:var(--white)}
+  .cta a.p{background:var(--accent);border:0;color:#fff}
+</style>
+</head>
+<body>
+<div class="top"><a class="home" href="index.html">← Home</a><span class="ttl">📅 Admit Card &amp; Exam-Day Guide</span></div>
+<div class="wrap">
+  <h1>Your <span class="gr">Exam-Day</span> Guide</h1>
+  <p class="lead">Everything you need for the SMC 2026 written exam — admit card, what to carry, and last-minute tips so you walk in stress-free.</p>
+
+  <div class="cd">
+    <div class="big" id="cdDays">–</div>
+    <div><div class="t" id="cdTitle">SMC Written Exam</div><div class="s">12 July 2026 · verify exact time &amp; venue on your call letter</div></div>
+  </div>
+
+  <div class="card">
+    <h2>🎟️ Download your admit card / call letter</h2>
+    <p style="font-size:.9em;margin-bottom:10px">The call letter is released a few days before the exam on the official Surat Municipal Corporation portal. Download &amp; print it (2 copies recommended).</p>
+    <a class="adbtn" href="https://www.suratmunicipal.gov.in/recruitment/" target="_blank" rel="noopener">🎟️ Open official SMC recruitment portal →</a>
+    <a class="adbtn ghost" href="https://www.suratmunicipal.gov.in/Information/RecruitmentDashboard" target="_blank" rel="noopener">📋 Recruitment dashboard / notices</a>
+    <div class="note">Tip: log in with the same credentials you used to apply. If the link changes, search “Surat Municipal Corporation call letter 2026”.</div>
+  </div>
+
+  <div class="two">
+    <div class="card">
+      <h2>✅ What to carry</h2>
+      <ul class="yes">
+        <li>Printed admit card / call letter (2 copies)</li>
+        <li>Original photo ID — Aadhaar / PAN / Driving Licence / Voter ID</li>
+        <li>2–3 passport-size photos (same as application)</li>
+        <li>Blue / black ballpoint pen(s)</li>
+        <li>Transparent water bottle (if allowed)</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h2>⛔ What NOT to carry</h2>
+      <ul class="no">
+        <li>Mobile phone, smartwatch, earphones, Bluetooth</li>
+        <li>Calculator, digital watch, electronic gadgets</li>
+        <li>Books, notes, papers, bags</li>
+        <li>Any metallic items / jewellery (avoid)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>⏰ Reporting &amp; timing</h2>
+    <ul class="tip">
+      <li>Reach the centre <b>60–90 minutes early</b> — gates usually close 15–30 min before the exam.</li>
+      <li>Locate your exact centre <b>a day before</b> (do a dry run of the route).</li>
+      <li>Carry only what's on the admit card; there may be no locker for banned items.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>📝 OMR &amp; scoring tips</h2>
+    <ul class="tip">
+      <li>Fill the OMR bubble <b>completely</b> with the specified pen — no half marks or ticks.</li>
+      <li>Be aware of <b>negative marking</b>: don't blind-guess questions you have no clue about.</li>
+      <li>Do easy questions first; mark and move on — manage the clock every 15 minutes.</li>
+      <li>Fill roll number &amp; booklet series correctly — errors here can cost the whole paper.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>💪 Night before &amp; final tips</h2>
+    <ul class="tip">
+      <li>Revise only your notes &amp; weak topics — no new material the night before.</li>
+      <li>Sleep well; eat a light meal before leaving.</li>
+      <li>Keep your admit card + ID in your bag the night before.</li>
+      <li>Stay calm and confident — you've prepared for this. All the best! 🎯</li>
+    </ul>
+    <div class="cta" style="margin-top:14px">
+      <a class="p" href="revision-plan.html">🗓️ Finish my 10-day plan</a>
+      <a href="mock-test.html">🧪 Last mock test</a>
+      <a href="index.html">🏠 Home</a>
+    </div>
+  </div>
+
+  <p class="note" style="text-align:center">This page is a general guide. Always follow the exact instructions printed on your official admit card.</p>
+</div>
+
+<script src="tracker.js"></script>
+<script src="growth.js"></script>
+<script src="pwa.js" defer></script>
+<script>
+(function(){
+  var exam=new Date('2026-07-12T10:00:00+05:30').getTime();
+  var d=Math.ceil((exam-Date.now())/86400000);
+  var el=document.getElementById('cdDays'), tt=document.getElementById('cdTitle');
+  if(d>0){el.textContent=d;tt.textContent=d===1?'1 day to go!':d+' days to go';}
+  else if(d===0){el.textContent='🎯';tt.textContent='Exam day — all the best!';}
+  else{el.textContent='✓';tt.textContent='Exam completed';}
+})();
+</script>
+</body>
+</html>

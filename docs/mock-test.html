@@ -492,6 +492,7 @@
         <button class="nbtn nbtn-primary" onclick="reviewTest()">&#128270; Review Answers</button>
         <button class="nbtn nbtn-ghost" onclick="location.reload()">&#128260; Try Again</button>
         <button class="nbtn nbtn-ghost" onclick="location.href='index.html'">&#127968; Home</button>
+        <button class="nbtn nbtn-ghost" onclick="smcMockShare()">&#128228; Share result</button>
     </div>
 
     <div class="premium-cta" style="margin-top:30px">
@@ -1000,6 +1001,9 @@ function submitTest(){
         document.getElementById('rTitle').textContent='Need More Study!';
     }
 
+    // expose latest result so the Share button can build a score-card
+    window.__smcMock={correct:correct,total:questions.length,name:MOCK[mockId].name};
+
     // Save history
     const history=JSON.parse(localStorage.getItem('smc_mock_history')||'[]');
     history.push({mock:mockId,correct,wrong,skip,total:questions.length,pct,date:new Date().toLocaleDateString('en-IN'),time:mins+'m '+secs+'s'});
@@ -1077,6 +1081,18 @@ function fireConfetti(){
 </script>
 <script src="firebase-config.js"></script>
 <script src="tracker.js"></script>
+    <script>
+    // Share the mock result as a branded image card (growth.js). Falls back to text.
+    function smcMockShare(){
+      var m=window.__smcMock||{};
+      var c=m.correct, t=m.total;
+      if(c==null){ c=parseInt((document.getElementById('rCorrect')||{}).textContent||'0',10)||0;
+        t=parseInt(((document.getElementById('rOf')||{}).textContent||'').replace(/\D/g,'')||'0',10)||0; }
+      if(window.smcShareScore){ window.smcShareScore(c,t,'Mock Test'); return; }
+      var txt='I scored '+c+'/'+t+' on an SMC 2026 mock test! 🧪 Practice free: https://abhiiibabariya-dev.github.io/SMC-Computer-Supervisor-Exam-Prep/mock-test.html';
+      if(navigator.share)navigator.share({text:txt}).catch(function(){}); else window.open('https://wa.me/?text='+encodeURIComponent(txt),'_blank');
+    }
+    </script>
     <script src="pwa.js" defer></script>
     <script src="i18n.js"></script>
 </body>

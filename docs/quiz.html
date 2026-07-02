@@ -85,6 +85,7 @@
     <div class="scorebig" id="scoreBig">0/10</div>
     <div class="scoresub" id="scoreSub"></div>
     <button class="btn" id="againBtn" data-i18n="play_again">Play again</button>
+    <button class="btn" id="quizShareBtn" style="margin-left:8px">📤 Share score</button>
     <a class="btn ghost" href="leaderboard.html" style="display:block;text-align:center;text-decoration:none;margin-top:10px" data-i18n="leaderboard">Leaderboard</a>
   </div>
 
@@ -164,6 +165,13 @@
     $('scoreSub').textContent=(T('s_'+subj)||subj)+' · '+T('correct')+': '+sc+' · '+secs+'s';
     saveHistory(subj,sc,QS.length,secs);
     postLeaderboard(subj,sc,QS.length,secs);
+    var sb=$('quizShareBtn');
+    if(sb)sb.onclick=function(){
+      var label=(T('s_'+subj)||subj)+' Quiz';
+      if(window.smcShareScore){window.smcShareScore(sc,QS.length,label);return;}
+      var txt='I scored '+sc+'/'+QS.length+' on the SMC '+label+'! 🎯 Practice free: https://abhiiibabariya-dev.github.io/SMC-Computer-Supervisor-Exam-Prep/quiz.html';
+      if(navigator.share)navigator.share({text:txt}).catch(function(){}); else window.open('https://wa.me/?text='+encodeURIComponent(txt),'_blank');
+    };
   }
 
   // ---- history / weak areas ----

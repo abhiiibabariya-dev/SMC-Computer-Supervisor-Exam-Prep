@@ -226,7 +226,10 @@
     var sc=loadStreak()?'':''; $('scoreBig').textContent='✓'; $('scoreSub').textContent=T('ans'); buildReview('review'); $('revBtn').classList.add('hide'); $('shareBtn').classList.add('hide');
   });
   $('shareBtn').addEventListener('click',function(){
-    var sc=score(), txt='I scored '+sc+'/'+QS.length+' on today\'s SMC 2026 daily quiz! 🎯 Try it free:';
+    var sc=score();
+    // Prefer the branded image score-card (growth.js) → far more shareable on WhatsApp/Insta.
+    if(window.smcShareScore){ window.smcShareScore(sc,QS.length,'Daily Quiz'); return; }
+    var txt='I scored '+sc+'/'+QS.length+' on today\'s SMC 2026 daily quiz! 🎯 Try it free:';
     var url='https://abhiiibabariya-dev.github.io/SMC-Computer-Supervisor-Exam-Prep/daily-quiz.html';
     if(navigator.share){navigator.share({title:'SMC Daily Quiz',text:txt,url:url}).catch(function(){});}
     else{window.open('https://wa.me/?text='+encodeURIComponent(txt+' '+url),'_blank');}
