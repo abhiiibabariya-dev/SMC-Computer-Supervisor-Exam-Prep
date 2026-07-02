@@ -25,8 +25,8 @@ name: Daily Security & Activity Log
 
 on:
   schedule:
-    - cron: '0 */2 * * *'   # every 2 hours (full activity + security report)
-  workflow_dispatch: {}
+    - cron: '*/30 * * * *'  # every 30 min — near-real-time; email is sent only when there's fresh activity
+  workflow_dispatch: {}     # manual run always sends, even with no recent activity
 
 permissions:
   contents: read
@@ -54,8 +54,9 @@ jobs:
           curl -fsS "${FIREBASE_URL}/clicks.json${AUTH}"   -o clicks.json   || echo 'null' > clicks.json
           curl -fsS "${FIREBASE_URL}/leads.json${AUTH}"    -o leads.json    || echo 'null' > leads.json
           curl -fsS "${FIREBASE_URL}/security.json${AUTH}" -o security.json || echo 'null' > security.json
+          curl -fsS "${FIREBASE_URL}/audit.json${AUTH}"    -o audit.json    || echo 'null' > audit.json
           # Normalise empty/null responses to empty objects
-          for f in visits.json clicks.json leads.json security.json; do
+          for f in visits.json clicks.json leads.json security.json audit.json; do
             [ -s "$f" ] || echo '{}' > "$f"
             if [ "$(cat "$f")" = "null" ]; then echo '{}' > "$f"; fi
           done
@@ -83,6 +84,8 @@ jobs:
           set -e
           DATE_IST=$(TZ='Asia/Kolkata' date '+%d %B %Y, %I:%M %p')
           CUTOFF=$(date -u -d '24 hours ago' '+%Y-%m-%dT%H:%M:%S')
+          # Activity window (a hair wider than the 30-min cron so nothing slips through the gap).
+          WIN=$(date -u -d '35 minutes ago' '+%Y-%m-%dT%H:%M:%S')
 
           # ---- Normalise visit records ----
           # The DB holds 3 historic schemas (verbose deviceModel/browser/page/timestamp,
@@ -113,30 +116,50 @@ jobs:
                         else $d end )
               } ]' visits.json > visits_norm.json && mv visits_norm.json visits.json
 
-          # ---- Activity metrics ----
-          TOTAL_VISITS=$(jq '[.[]?] | length' visits.json)
-          TOTAL_CLICKS=$(jq '[.[]?] | length' clicks.json)
-          LAST24=$(jq --arg c "$CUTOFF" '[.[]? | select((.t // "") > $c)] | length' visits.json)
-          UNIQ_DEV=$(jq '[.[]? | .dev] | map(select(.!=null)) | unique | length' visits.json)
-          MOBILE=$(jq '[.[]? | select(.mob==true)] | length' visits.json)
+          # ---- Scope EVERYTHING to the last 24h ----
+          # This is a DAILY report: it must show only fresh, live activity — never repeat
+          # old/all-time data. We build a 24h slice of each dataset once, and every panel
+          # below reads the *_24.json slice instead of the full history.
+          jq --arg c "$CUTOFF" '[.[]? | select((.t    // "") > $c)]' visits.json   > visits_24.json   || echo '[]' > visits_24.json
+          jq --arg c "$CUTOFF" '[.[]? | select((.ts   // .t // "") > $c)]' clicks.json > clicks_24.json || echo '[]' > clicks_24.json
+          jq --arg c "$CUTOFF" '[.[]? | select((.t    // "") > $c)]' leads.json    > leads_24.json    || echo '[]' > leads_24.json
+          jq --arg c "$CUTOFF" '[.[]? | select((.time // "") > $c)]' security.json > security_24.json || echo '[]' > security_24.json
+          jq --arg c "$CUTOFF" '[.[]? | select((.t    // "") > $c)]' audit.json    > audit_24.json    || echo '[]' > audit_24.json
 
-          # ---- Lead / identity metrics (name + mobile captured by the access gate) ----
-          LEADS_TOTAL=$(jq '[.[]?] | length' leads.json)
-          LEADS_24=$(jq --arg c "$CUTOFF" '[.[]? | select((.t // "") > $c)] | length' leads.json)
-          LEADS_UNVERIFIED=$(jq '[.[]? | select(.verified != true)] | length' leads.json)
-          LEADS_VER_WA=$(jq '[.[]? | select(.verified==true and (.channel // "")=="whatsapp")] | length' leads.json)
-          LEADS_VER_EMAIL=$(jq '[.[]? | select(.verified==true and (.channel // "")=="email")] | length' leads.json)
+          # ---- Activity metrics (24h / live) ----
+          TOTAL_VISITS=$(jq '[.[]?] | length' visits.json)   # all-time — kept ONLY for the "secret missing?" empty-check
+          SEC_TOTAL=$(jq '[.[]?] | length' security.json)    #   (same)
+          LAST24=$(jq '[.[]?] | length' visits_24.json)
+          CLICKS_24=$(jq '[.[]?] | length' clicks_24.json)
+          UNIQ_VIS_24=$(jq '[.[]? | (.sid // .dev)] | map(select(.!=null)) | unique | length' visits_24.json)
+          MOBILE_24=$(jq '[.[]? | select(.mob==true)] | length' visits_24.json)
+          LOGINS_24=$(jq '[.[]? | select(.ev=="login")] | length' audit_24.json)
+          LOGOUTS_24=$(jq '[.[]? | select(.ev=="logout")] | length' audit_24.json)
 
-          # ---- Security metrics ----
-          SEC_TOTAL=$(jq '[.[]?] | length' security.json)
-          SEC_24=$(jq --arg c "$CUTOFF" '[.[]? | select((.time // "") > $c)] | length' security.json)
-          SEC_WARN=$(jq '[.[]? | select(.level=="warn")] | length' security.json)
-          SENSITIVE=$(jq '[.[]? | select((.pg // "") | test("admin|vip"; "i"))] | length' visits.json)
-          SUSPECT=$(jq '[.[]? | select((.br // "")=="Other" or (.br // "")=="—")] | length' visits.json)
+          # ---- Lead / identity metrics (name + mobile captured by the access gate, 24h) ----
+          LEADS_24=$(jq '[.[]?] | length' leads_24.json)
+          LEADS_UNVERIFIED_24=$(jq '[.[]? | select(.verified != true)] | length' leads_24.json)
+          LEADS_VER_WA_24=$(jq '[.[]? | select(.verified==true and (.channel // "")=="whatsapp")] | length' leads_24.json)
+          LEADS_VER_EMAIL_24=$(jq '[.[]? | select(.verified==true and (.channel // "")=="email")] | length' leads_24.json)
+
+          # ---- Security metrics (24h) ----
+          SEC_24=$(jq '[.[]?] | length' security_24.json)
+          SEC_WARN_24=$(jq '[.[]? | select(.level=="warn")] | length' security_24.json)
+          SENSITIVE_24=$(jq '[.[]? | select((.pg // "") | test("admin|vip"; "i"))] | length' visits_24.json)
+          SUSPECT_24=$(jq '[.[]? | select((.br // "")=="Other" or (.br // "")=="—")] | length' visits_24.json)
+
+          # ---- Audit-trail metrics + fresh-activity gate (decides whether we email) ----
+          AUDIT_TOTAL=$(jq '[.[]?] | length' audit.json)
+          AUDIT_24=$(jq --arg c "$CUTOFF" '[.[]? | select((.t // "") > $c)] | length' audit.json)
+          ACT_RECENT=$(jq --arg c "$WIN" '[.[]? | select((.t // "") > $c)] | length' audit.json)
+          VIS_RECENT=$(jq --arg c "$WIN" '[.[]? | select((.t // "") > $c)] | length' visits.json)
+          LEAD_RECENT=$(jq --arg c "$WIN" '[.[]? | select((.t // "") > $c)] | length' leads.json)
+          HAS_ACTIVITY=false
+          if [ "$ACT_RECENT" -gt 0 ] || [ "$VIS_RECENT" -gt 0 ] || [ "$LEAD_RECENT" -gt 0 ]; then HAS_ACTIVITY=true; fi
 
           THREAT="#22c55e"; THREAT_TXT="LOW"
-          if [ "$SEC_WARN" -gt 0 ] || [ "$SENSITIVE" -gt 0 ]; then THREAT="#f59e0b"; THREAT_TXT="ELEVATED"; fi
-          if [ "$SEC_WARN" -ge 5 ]; then THREAT="#ef4444"; THREAT_TXT="HIGH"; fi
+          if [ "$SEC_WARN_24" -gt 0 ] || [ "$SENSITIVE_24" -gt 0 ]; then THREAT="#f59e0b"; THREAT_TXT="ELEVATED"; fi
+          if [ "$SEC_WARN_24" -ge 5 ]; then THREAT="#ef4444"; THREAT_TXT="HIGH"; fi
 
           tile() { # value label color
             echo "<td align='center' valign='top' style='background:#0f1626;border:1px solid #1e293b;border-radius:10px;padding:14px 8px'><div style='font-size:26px;font-weight:800;color:$3;font-family:Arial,sans-serif'>$1</div><div style='font-size:11px;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;font-family:Arial,sans-serif;margin-top:4px'>$2</div></td>" >> report.html
@@ -155,15 +178,58 @@ jobs:
             <tr><td style="padding:22px 26px">
           EOF
 
-          echo "<div style='font-size:13px;color:#e5e7eb;font-weight:700;margin:0 0 10px'>📊 Traffic (last 24h &amp; all-time)</div>" >> report.html
+          echo "<div style='font-size:13px;color:#e5e7eb;font-weight:700;margin:0 0 10px'>📊 Today&rsquo;s activity &mdash; last 24h (live)</div>" >> report.html
           echo "<table width='100%' cellpadding='0' cellspacing='0'><tr>" >> report.html
-          tile "$LAST24" "Visits 24h" "#818cf8"; sp
-          tile "$TOTAL_VISITS" "Total Visits" "#e5e7eb"; sp
-          tile "$TOTAL_CLICKS" "Clicks" "#e5e7eb"; sp
-          tile "$UNIQ_DEV" "Unique Devices" "#e5e7eb"; sp
-          tile "$MOBILE" "Mobile" "#e5e7eb"; sp
-          tile "$LEADS_TOTAL" "Identities" "#34d399"
+          tile "$LAST24" "Visits" "#818cf8"; sp
+          tile "$UNIQ_VIS_24" "Unique Visitors" "#e5e7eb"; sp
+          tile "$CLICKS_24" "Clicks" "#e5e7eb"; sp
+          tile "$LOGINS_24" "Logins" "#22c55e"; sp
+          tile "$LOGOUTS_24" "Logouts" "#f59e0b"; sp
+          tile "$LEADS_24" "New IDs" "#34d399"
           echo "</tr></table>" >> report.html
+
+          # ---- PER-VISITOR AUDIT TRAIL (the headline: who did what, in order) ----
+          # Every audit event (/audit) is stamped with a stable visitor id (sid) plus
+          # the logged-in name/mobile, so we can stitch each person's whole journey —
+          # login → each page opened → every click → logout — into one timeline.
+          echo "<div style='font-size:13px;color:#e5e7eb;font-weight:700;margin:22px 0 8px'>👣 Per-visitor audit trail — last 24h ($AUDIT_24 events, newest session first)</div>" >> report.html
+          jq -r --arg c "$CUTOFF" '
+            [ .[]? | select((.t // "") > $c) ]
+            | map(. + {sidk:(.sid // "nosid")})
+            | group_by(.sidk)
+            | map({ sidk:.[0].sidk,
+                    name:( [ .[] | (.name // "") | select(. != "") ] | last ),
+                    mobile:( [ .[] | (.mobile // "") | select(. != "") ] | last ),
+                    last:( [ .[] | .t ] | max ),
+                    evs:( sort_by(.t) ) })
+            | sort_by(.last) | reverse
+            | .[]
+            | ( "H\t" + ((.name // "") | if . == "" then "Anonymous visitor" else . end) + "\t" + (.mobile // "") + "\t" + (.sidk) + "\t" + ((.evs|length)|tostring) ),
+              ( .evs[] | "E\t" + (.lt // .t // "-") + "\t" + (.ev // "-") + "\t" + ((.d // "") | gsub("[\t\n]";" ")) + "\t" + (.pg // "-") )
+          ' audit.json > trail.tsv || true
+          if [ -s trail.tsv ]; then
+            open=0
+            while IFS=$'\t' read -r typ a b c d; do
+              if [ "$typ" = "H" ]; then
+                [ "$open" = "1" ] && echo "</table></div>" >> report.html
+                mob=""; [ -n "$b" ] && mob=" &middot; <span style='color:#34d399;font-weight:700'>+91 $b</span>"
+                printf '<div style="margin:10px 0;border:1px solid #1e293b;border-radius:10px;overflow:hidden"><div style="background:#0f1626;padding:9px 12px;font-size:12px;color:#fafafa;font-weight:700">👤 %s%s <span style="color:#64748b;font-weight:400">&middot; %s events &middot; %s</span></div><table width="100%%" cellpadding="5" cellspacing="0" style="border-collapse:collapse;font-size:12px;color:#cbd5e1">\n' "$a" "$mob" "$d" "$c" >> report.html
+                open=1
+              else
+                case "$b" in
+                  login) icon="🔓"; ecol="#22c55e";;
+                  logout) icon="🚪"; ecol="#f59e0b";;
+                  page_view) icon="📄"; ecol="#818cf8";;
+                  click) icon="🖱"; ecol="#94a3b8";;
+                  *) icon="•"; ecol="#94a3b8";;
+                esac
+                printf '<tr style="border-bottom:1px solid #1e293b"><td style="color:#94a3b8;white-space:nowrap;width:150px">%s</td><td style="color:%s;white-space:nowrap;width:90px">%s %s</td><td style="color:#e5e7eb">%s</td><td style="color:#64748b">%s</td></tr>\n' "$a" "$ecol" "$icon" "$b" "$c" "$d" >> report.html
+              fi
+            done < trail.tsv
+            [ "$open" = "1" ] && echo "</table></div>" >> report.html
+          else
+            echo "<div style='background:#0f1626;border:1px solid #1e293b;border-radius:10px;padding:12px;font-size:12px;color:#94a3b8'>No audit events in the last 24h yet. Each login, page view &amp; click will appear here, grouped by visitor.</div>" >> report.html
+          fi
 
           # ---- GOOGLE ANALYTICS PANEL (only if ga.html was produced) ----
           [ -f ga.html ] && cat ga.html >> report.html
@@ -176,14 +242,14 @@ jobs:
             <table width="100%" cellpadding="0" cellspacing="0"><tr>
           EOF
           tile "$SEC_24" "Sec Events 24h" "#fbbf24"; sp
-          tile "$SEC_WARN" "Failed / Alerts" "#ef4444"; sp
-          tile "$SENSITIVE" "Admin/VIP Hits" "#f59e0b"; sp
-          tile "$SUSPECT" "Suspicious UA" "#fbbf24"
+          tile "$SEC_WARN_24" "Failed / Alerts" "#ef4444"; sp
+          tile "$SENSITIVE_24" "Admin/VIP Hits" "#f59e0b"; sp
+          tile "$SUSPECT_24" "Suspicious UA" "#fbbf24"
           echo "</tr></table>" >> report.html
 
-          echo "<div style='font-size:12px;color:#cbd5e1;font-weight:700;margin:16px 0 6px'>Recent security events</div>" >> report.html
+          echo "<div style='font-size:12px;color:#cbd5e1;font-weight:700;margin:16px 0 6px'>Security events (last 24h)</div>" >> report.html
           echo "<table width='100%' cellpadding='6' cellspacing='0' style='border-collapse:collapse;font-size:12px;color:#cbd5e1'>" >> report.html
-          jq -r '[.[]?] | sort_by(.time) | reverse | .[:2000][] | [(.localTime // .time // "-"), (.level // "ok"), (.msg // "-"), (.src // "-")] | @tsv' security.json > sec_rows.tsv || true
+          jq -r '[.[]?] | sort_by(.time) | reverse | .[:2000][] | [(.localTime // .time // "-"), (.level // "ok"), (.msg // "-"), (.src // "-")] | @tsv' security_24.json > sec_rows.tsv || true
           if [ -s sec_rows.tsv ]; then
             while IFS=$'\t' read -r t lvl msg src; do
               if [ "$lvl" = "warn" ]; then col="#ef4444"; else col="#22c55e"; fi
@@ -191,40 +257,39 @@ jobs:
               printf '<tr style="border-bottom:1px solid #1e293b"><td style="color:#94a3b8;white-space:nowrap">%s</td><td><span style="background:%s;color:#0b0f1a;padding:1px 6px;border-radius:5px;font-weight:700;font-size:10px">%s</span></td><td>%s</td><td style="color:#64748b">%s</td></tr>\n' "$t" "$col" "$up" "$msg" "$src" >> report.html
             done < sec_rows.tsv
           else
-            echo "<tr><td style='color:#64748b'>No security events recorded in the feed.</td></tr>" >> report.html
+            echo "<tr><td style='color:#64748b'>No security events in the last 24h.</td></tr>" >> report.html
           fi
           echo "</table>" >> report.html
 
-          echo "<div style='font-size:12px;color:#cbd5e1;font-weight:700;margin:16px 0 6px'>Admin / VIP page access (sensitive)</div>" >> report.html
+          echo "<div style='font-size:12px;color:#cbd5e1;font-weight:700;margin:16px 0 6px'>Admin / VIP page access (last 24h, sensitive)</div>" >> report.html
           echo "<table width='100%' cellpadding='6' cellspacing='0' style='border-collapse:collapse;font-size:12px;color:#cbd5e1'>" >> report.html
-          jq -r '[.[]? | select((.pg // "") | test("admin|vip"; "i"))] | sort_by(.t) | reverse | .[:2000][] | [(.lt // .t // "-"), (.pg // "-"), ((.dev // "?")+" / "+(.os // "?")), (.net // "?")] | @tsv' visits.json > srows.tsv || true
+          jq -r '[.[]? | select((.pg // "") | test("admin|vip"; "i"))] | sort_by(.t) | reverse | .[:2000][] | [(.lt // .t // "-"), (.pg // "-"), ((.dev // "?")+" / "+(.os // "?")), (.net // "?")] | @tsv' visits_24.json > srows.tsv || true
           if [ -s srows.tsv ]; then
             while IFS=$'\t' read -r a b c d; do
               printf '<tr style="border-bottom:1px solid #1e293b"><td style="color:#94a3b8;white-space:nowrap">%s</td><td style="color:#f59e0b">%s</td><td>%s</td><td style="color:#64748b">%s</td></tr>\n' "$a" "$b" "$c" "$d" >> report.html
             done < srows.tsv
           else
-            echo "<tr><td style='color:#64748b'>No admin/VIP page access in this window.</td></tr>" >> report.html
+            echo "<tr><td style='color:#64748b'>No admin/VIP page access in the last 24h.</td></tr>" >> report.html
           fi
           echo "</table></div></div>" >> report.html
 
           # ---- VISITOR IDENTITY PANEL (name + mobile captured by the access gate) ----
           cat >> report.html <<EOF
           <div style="margin-top:22px;border:1px solid #065f46;border-radius:12px;overflow:hidden">
-            <div style="background:#065f46;padding:10px 14px;font-size:13px;color:#d1fae5;font-weight:800">👤 VISITOR IDENTITIES CAPTURED &mdash; Name &amp; Mobile (Access Gate)</div>
+            <div style="background:#065f46;padding:10px 14px;font-size:13px;color:#d1fae5;font-weight:800">👤 NEW VISITOR IDENTITIES (last 24h) &mdash; Name, Mobile &amp; Chosen Post</div>
             <div style="padding:14px">
             <table width="100%" cellpadding="0" cellspacing="0"><tr>
           EOF
-          tile "$LEADS_24" "New 24h" "#34d399"; sp
-          tile "$LEADS_TOTAL" "Total Identities" "#e5e7eb"; sp
-          tile "$LEADS_VER_WA" "✅ WhatsApp" "#22c55e"; sp
-          tile "$LEADS_VER_EMAIL" "✅ Email" "#60a5fa"; sp
-          tile "$LEADS_UNVERIFIED" "Unverified" "#fbbf24"
+          tile "$LEADS_24" "New IDs 24h" "#34d399"; sp
+          tile "$LEADS_VER_WA_24" "✅ WhatsApp" "#22c55e"; sp
+          tile "$LEADS_VER_EMAIL_24" "✅ Email" "#60a5fa"; sp
+          tile "$LEADS_UNVERIFIED_24" "Unverified" "#fbbf24"
           echo "</tr></table>" >> report.html
 
-          echo "<div style='font-size:12px;color:#cbd5e1;font-weight:700;margin:16px 0 6px'>Captured leads (newest first &mdash; full list attached as leads.json)</div>" >> report.html
+          echo "<div style='font-size:12px;color:#cbd5e1;font-weight:700;margin:16px 0 6px'>Identities captured in the last 24h (newest first)</div>" >> report.html
           echo "<table width='100%' cellpadding='6' cellspacing='0' style='border-collapse:collapse;font-size:12px;color:#cbd5e1'>" >> report.html
-          printf '<tr style="color:#64748b;text-align:left"><th align="left">Time (IST)</th><th align="left">Name</th><th align="left">Mobile</th><th align="left">Email</th><th align="left">Verification</th><th align="left">Page</th></tr>\n' >> report.html
-          jq -r '[.[]?] | sort_by(.t) | reverse | .[:2000][] | [(.lt // .t // "-"), (.name // "—"), (.mobile // "—"), (.email // "—"), (if .verified==true then "verified" else "unverified" end), (.channel // "none"), (.pg // "-")] | @tsv' leads.json > lrows.tsv || true
+          printf '<tr style="color:#64748b;text-align:left"><th align="left">Time (IST)</th><th align="left">Name</th><th align="left">Mobile</th><th align="left">Post / Subject</th><th align="left">Verification</th><th align="left">Page</th></tr>\n' >> report.html
+          jq -r '[.[]?] | sort_by(.t) | reverse | .[:2000][] | [(.lt // .t // "-"), (.name // "—"), (.mobile // "—"), (.postLabel // .email // "—"), (if .verified==true then "verified" else "unverified" end), (.channel // "none"), (.pg // "-")] | @tsv' leads_24.json > lrows.tsv || true
           if [ -s lrows.tsv ]; then
             while IFS=$'\t' read -r t nm mb em st ch pg; do
               if [ "$st" = "verified" ]; then bg="#22c55e"; up="VERIFIED"; else bg="#f59e0b"; up="UNVERIFIED"; fi
@@ -236,39 +301,76 @@ jobs:
           fi
           echo "</table></div></div>" >> report.html
 
-          # ---- TRAFFIC DETAIL ---- (all HTML/colour built in bash; jq only emits @tsv data)
-          echo "<div style='font-size:13px;color:#e5e7eb;font-weight:700;margin:22px 0 6px'>🔥 Top pages</div>" >> report.html
+          # ---- POST / SUBJECT INTEREST (24h) — which line aspirants chose in the gate ----
+          cat >> report.html <<EOF
+          <div style="margin-top:22px;border:1px solid #3730a3;border-radius:12px;overflow:hidden">
+            <div style="background:#3730a3;padding:10px 14px;font-size:13px;color:#c7d2fe;font-weight:800">🎯 POST / SUBJECT INTEREST (last 24h)</div>
+            <div style="padding:14px">
+          EOF
           echo "<table width='100%' cellpadding='6' cellspacing='0' style='border-collapse:collapse;font-size:12px;color:#cbd5e1'>" >> report.html
-          jq -r '[.[]? | .pg] | map(select(.!=null)) | group_by(.) | map({page:.[0], n:length}) | sort_by(-.n) | .[:1000][] | [.page, (.n|tostring)] | @tsv' visits.json > prows.tsv || true
-          while IFS=$'\t' read -r a b; do [ -z "$a" ] && continue
-            printf '<tr style="border-bottom:1px solid #1e293b"><td>%s</td><td align="right" style="color:#818cf8;font-weight:700">%s</td></tr>\n' "$a" "$b" >> report.html
-          done < prows.tsv
+          jq -r '[.[]? | (.postLabel // "") | select(. != "")] | group_by(.) | map({k:.[0], n:length}) | sort_by(-.n) | .[:100][] | [.k, (.n|tostring)] | @tsv' leads_24.json > postrows.tsv || true
+          if [ -s postrows.tsv ]; then
+            PMAX=$(awk -F'\t' 'NR==1{print $2}' postrows.tsv); [ -z "$PMAX" ] && PMAX=1; [ "$PMAX" -lt 1 ] && PMAX=1
+            while IFS=$'\t' read -r a b; do [ -z "$a" ] && continue
+              W=$(( b * 100 / PMAX )); [ "$W" -lt 6 ] && W=6
+              printf '<tr style="border-bottom:1px solid #1e293b"><td style="color:#e5e7eb;white-space:nowrap;width:210px">%s</td><td><div style="background:#4f46e5;height:9px;border-radius:5px;width:%s%%"></div></td><td align="right" style="color:#a5b4fc;font-weight:700;width:34px">%s</td></tr>\n' "$a" "$W" "$b" >> report.html
+            done < postrows.tsv
+          else
+            echo "<tr><td style='color:#64748b'>No post/subject selected via the gate in the last 24h.</td></tr>" >> report.html
+          fi
+          echo "</table></div></div>" >> report.html
+
+          # ---- TRAFFIC DETAIL (24h / live only) ---- (HTML/colour built in bash; jq emits @tsv)
+          echo "<div style='font-size:13px;color:#e5e7eb;font-weight:700;margin:22px 0 6px'>🔥 Most-visited pages (last 24h)</div>" >> report.html
+          echo "<table width='100%' cellpadding='6' cellspacing='0' style='border-collapse:collapse;font-size:12px;color:#cbd5e1'>" >> report.html
+          jq -r '[.[]? | .pg] | map(select(.!=null and .!="—")) | group_by(.) | map({page:.[0], n:length}) | sort_by(-.n) | .[:30][] | [.page, (.n|tostring)] | @tsv' visits_24.json > prows.tsv || true
+          if [ -s prows.tsv ]; then
+            VMAX=$(awk -F'\t' 'NR==1{print $2}' prows.tsv); [ -z "$VMAX" ] && VMAX=1; [ "$VMAX" -lt 1 ] && VMAX=1
+            while IFS=$'\t' read -r a b; do [ -z "$a" ] && continue
+              W=$(( b * 100 / VMAX )); [ "$W" -lt 6 ] && W=6
+              printf '<tr style="border-bottom:1px solid #1e293b"><td style="color:#e5e7eb;white-space:nowrap;width:230px">%s</td><td><div style="background:#818cf8;height:9px;border-radius:5px;width:%s%%"></div></td><td align="right" style="color:#818cf8;font-weight:700;width:34px">%s</td></tr>\n' "$a" "$W" "$b" >> report.html
+            done < prows.tsv
+          else
+            echo "<tr><td style='color:#64748b'>No page views in the last 24h.</td></tr>" >> report.html
+          fi
           echo "</table>" >> report.html
 
-          echo "<div style='font-size:13px;color:#e5e7eb;font-weight:700;margin:18px 0 6px'>📱 Top device / OS</div>" >> report.html
+          echo "<div style='font-size:13px;color:#e5e7eb;font-weight:700;margin:18px 0 6px'>📱 Top device / OS (last 24h)</div>" >> report.html
           echo "<table width='100%' cellpadding='6' cellspacing='0' style='border-collapse:collapse;font-size:12px;color:#cbd5e1'>" >> report.html
-          jq -r '[.[]? | (.dev // "?")+" / "+(.os // "?")] | group_by(.) | map({k:.[0], n:length}) | sort_by(-.n) | .[:1000][] | [.k, (.n|tostring)] | @tsv' visits.json > drows.tsv || true
-          while IFS=$'\t' read -r a b; do [ -z "$a" ] && continue
-            printf '<tr style="border-bottom:1px solid #1e293b"><td>%s</td><td align="right" style="color:#818cf8;font-weight:700">%s</td></tr>\n' "$a" "$b" >> report.html
-          done < drows.tsv
+          jq -r '[.[]? | (.dev // "?")+" / "+(.os // "?")] | group_by(.) | map({k:.[0], n:length}) | sort_by(-.n) | .[:30][] | [.k, (.n|tostring)] | @tsv' visits_24.json > drows.tsv || true
+          if [ -s drows.tsv ]; then
+            while IFS=$'\t' read -r a b; do [ -z "$a" ] && continue
+              printf '<tr style="border-bottom:1px solid #1e293b"><td>%s</td><td align="right" style="color:#818cf8;font-weight:700">%s</td></tr>\n' "$a" "$b" >> report.html
+            done < drows.tsv
+          else
+            echo "<tr><td style='color:#64748b'>No device data in the last 24h.</td></tr>" >> report.html
+          fi
           echo "</table>" >> report.html
 
-          echo "<div style='font-size:13px;color:#e5e7eb;font-weight:700;margin:18px 0 6px'>🕑 All visits (newest first — full log attached as visits.json)</div>" >> report.html
+          echo "<div style='font-size:13px;color:#e5e7eb;font-weight:700;margin:18px 0 6px'>🕑 Visits (last 24h, newest first)</div>" >> report.html
           echo "<table width='100%' cellpadding='6' cellspacing='0' style='border-collapse:collapse;font-size:12px;color:#cbd5e1'>" >> report.html
           printf '<tr style="color:#64748b;text-align:left"><th align="left">Time</th><th align="left">Device</th><th align="left">OS / Browser</th><th align="left">Page</th><th align="left">Net</th><th align="left">Referrer</th></tr>\n' >> report.html
-          jq -r '[.[]?] | sort_by(.t) | reverse | .[:1000][] | [(.lt // .t // "-"), (.dev // "?"), ((.os // "?")+", "+(.br // "?")), (.pg // "?"), (.net // "?"), (.ref // "Direct")] | @tsv' visits.json > vrows.tsv || true
-          while IFS=$'\t' read -r a b c d e f; do
-            printf '<tr style="border-bottom:1px solid #1e293b"><td style="color:#94a3b8;white-space:nowrap">%s</td><td>%s</td><td style="color:#64748b">%s</td><td>%s</td><td style="color:#64748b">%s</td><td style="color:#64748b">%s</td></tr>\n' "$a" "$b" "$c" "$d" "$e" "$f" >> report.html
-          done < vrows.tsv
+          jq -r '[.[]?] | sort_by(.t) | reverse | .[:1000][] | [(.lt // .t // "-"), (.dev // "?"), ((.os // "?")+", "+(.br // "?")), (.pg // "?"), (.net // "?"), (.ref // "Direct")] | @tsv' visits_24.json > vrows.tsv || true
+          if [ -s vrows.tsv ]; then
+            while IFS=$'\t' read -r a b c d e f; do
+              printf '<tr style="border-bottom:1px solid #1e293b"><td style="color:#94a3b8;white-space:nowrap">%s</td><td>%s</td><td style="color:#64748b">%s</td><td>%s</td><td style="color:#64748b">%s</td><td style="color:#64748b">%s</td></tr>\n' "$a" "$b" "$c" "$d" "$e" "$f" >> report.html
+            done < vrows.tsv
+          else
+            echo "<tr><td style='color:#64748b'>No visits in the last 24h.</td></tr>" >> report.html
+          fi
           echo "</table>" >> report.html
 
-          echo "<div style='font-size:13px;color:#e5e7eb;font-weight:700;margin:18px 0 6px'>🖱 All clicks (newest first — full log attached as clicks.json)</div>" >> report.html
+          echo "<div style='font-size:13px;color:#e5e7eb;font-weight:700;margin:18px 0 6px'>🖱 Clicks (last 24h, newest first)</div>" >> report.html
           echo "<table width='100%' cellpadding='6' cellspacing='0' style='border-collapse:collapse;font-size:12px;color:#cbd5e1'>" >> report.html
           printf '<tr style="color:#64748b;text-align:left"><th align="left">Time</th><th align="left">Element / Text</th><th align="left">Page</th></tr>\n' >> report.html
-          jq -r '[.[]?] | reverse | .[:1000][] | [(.t // "?"), (.x // "?"), (.p // "?")] | @tsv' clicks.json > crows.tsv || true
-          while IFS=$'\t' read -r a b c; do
-            printf '<tr style="border-bottom:1px solid #1e293b"><td style="color:#94a3b8;white-space:nowrap">%s</td><td>%s</td><td style="color:#64748b">%s</td></tr>\n' "$a" "$b" "$c" >> report.html
-          done < crows.tsv
+          jq -r '[.[]?] | sort_by(.ts // "") | reverse | .[:1000][] | [(.t // "?"), (.x // "?"), (.p // "?")] | @tsv' clicks_24.json > crows.tsv || true
+          if [ -s crows.tsv ]; then
+            while IFS=$'\t' read -r a b c; do
+              printf '<tr style="border-bottom:1px solid #1e293b"><td style="color:#94a3b8;white-space:nowrap">%s</td><td>%s</td><td style="color:#64748b">%s</td></tr>\n' "$a" "$b" "$c" >> report.html
+            done < crows.tsv
+          else
+            echo "<tr><td style='color:#64748b'>No clicks in the last 24h.</td></tr>" >> report.html
+          fi
           echo "</table>" >> report.html
 
           if [ "$TOTAL_VISITS" -eq 0 ] && [ "$SEC_TOTAL" -eq 0 ]; then
@@ -287,8 +389,9 @@ jobs:
           </table></div>
           EOF
 
-          echo "Report built. 24h visits: ${LAST24}, total: ${TOTAL_VISITS}, sec events: ${SEC_TOTAL}"
-          echo "subject=🛡 SMC Security Report — ${DATE_IST%,*} — ${LAST24} visits, ${LEADS_24} new IDs, ${SEC_WARN} alerts" >> "$GITHUB_OUTPUT"
+          echo "Report built. 24h visits: ${LAST24}, total: ${TOTAL_VISITS}, sec events: ${SEC_TOTAL}, audit 24h: ${AUDIT_24}, fresh activity: ${HAS_ACTIVITY}"
+          echo "has_activity=${HAS_ACTIVITY}" >> "$GITHUB_OUTPUT"
+          echo "subject=🛡 SMC Activity — ${DATE_IST} IST — ${LAST24} visits, ${LEADS_24} new IDs, ${AUDIT_24} actions, ${SEC_WARN_24} alerts" >> "$GITHUB_OUTPUT"
 
       - name: Check email secrets
         id: check
@@ -300,8 +403,12 @@ jobs:
             echo "::warning::MAIL_USERNAME / MAIL_PASSWORD secrets not set — skipping email. Add them in repo Settings to enable delivery."
           fi
 
-      - name: Send daily email
-        if: steps.check.outputs.ready == 'true'
+      - name: Send activity email
+        # Send only when the mail secrets are set AND (there was fresh activity in the
+        # last ~35 min, OR this was a manual run). Prevents empty mails every 30 min.
+        if: >-
+          steps.check.outputs.ready == 'true' &&
+          (steps.report.outputs.has_activity == 'true' || github.event_name == 'workflow_dispatch')
         uses: dawidd6/action-send-mail@v3
         with:
           server_address: smtp.gmail.com
@@ -313,5 +420,5 @@ jobs:
           to: ${{ env.TO_EMAIL }}
           from: SMC Exam Prep Bot <${{ secrets.MAIL_USERNAME }}>
           html_body: file://report.html
-          # Every single record, raw — attached in full
-          attachments: visits.json,clicks.json,leads.json,security.json,report.html
+          # Only the last-24h slice attached — this is a DAILY report, so no old data.
+          attachments: visits_24.json,clicks_24.json,leads_24.json,security_24.json,audit_24.json,report.html

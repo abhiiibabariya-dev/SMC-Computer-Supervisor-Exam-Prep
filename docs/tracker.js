@@ -60,6 +60,29 @@ function resolveDevice(cb){
 var v=null;
 var st=Date.now();
 
+// ---- Audit identity: a stable per-visitor id + the logged-in name/mobile ----
+// smc_sid persists across visits so the daily email can stitch a single person's
+// whole journey together (page views + every click + login/logout).
+function sid(){try{var s=localStorage.getItem('smc_sid');if(!s){s='s'+Date.now().toString(36)+Math.random().toString(36).slice(2,8);localStorage.setItem('smc_sid',s);}return s;}catch(e){return'nostorage';}}
+function ident(){try{var u=JSON.parse(localStorage.getItem('smc_user')||'null');if(u&&u.name)return{name:u.name,mobile:u.mobile||''};}catch(e){}return{name:'',mobile:''};}
+
+// Unified audit trail — one typed, identity-stamped event per action, all pushed
+// to /audit. Exposed as window.smcAudit(ev, detail) so gate.js / quiz / share can
+// log their own events (login, logout, quiz_answer, share, …).
+function audit(ev,detail){
+    try{
+        var u=ident();
+        sendToCloud('audit',{
+            t:new Date().toISOString(),
+            lt:new Date().toLocaleString('en-IN',{timeZone:'Asia/Kolkata'}),
+            sid:sid(),name:u.name,mobile:u.mobile,
+            ev:ev,d:(detail==null?'':String(detail)).substring(0,120),pg:location.pathname
+        });
+    }catch(e){}
+}
+window.smcAudit=audit;
+window.smcSid=sid;
+
 // Defer all tracker work until the browser is idle — never block first paint on slow phones.
 function idle(fn){
     if(window.requestIdleCallback)requestIdleCallback(fn,{timeout:2000});
@@ -69,10 +92,12 @@ function idle(fn){
 idle(function collect(){
     var cn=navigator.connection||navigator.mozConnection||navigator.webkitConnection;
     resolveDevice(function(devName){
-        v={t:new Date().toISOString(),lt:new Date().toLocaleString('en-IN',{timeZone:'Asia/Kolkata'}),dev:devName,os:getOS(ua),br:getBr(ua),scr:screen.width+'x'+screen.height,mob:/Mobile|Android|iPhone/i.test(ua),cores:navigator.hardwareConcurrency||'?',ram:navigator.deviceMemory||'?',net:cn?(cn.effectiveType||'?'):'?',lang:navigator.language,tz:Intl.DateTimeFormat().resolvedOptions().timeZone,ref:document.referrer||'Direct',pg:location.pathname,touch:'ontouchstart'in window};
+        v={t:new Date().toISOString(),lt:new Date().toLocaleString('en-IN',{timeZone:'Asia/Kolkata'}),sid:sid(),dev:devName,os:getOS(ua),br:getBr(ua),scr:screen.width+'x'+screen.height,mob:/Mobile|Android|iPhone/i.test(ua),cores:navigator.hardwareConcurrency||'?',ram:navigator.deviceMemory||'?',net:cn?(cn.effectiveType||'?'):'?',lang:navigator.language,tz:Intl.DateTimeFormat().resolvedOptions().timeZone,ref:document.referrer||'Direct',pg:location.pathname,touch:'ontouchstart'in window};
         // Attach the identified visitor (name/mobile) captured by the access gate, if present.
         try{var u=JSON.parse(localStorage.getItem('smc_user')||'null');if(u&&u.name){v.name=u.name;v.mobile=u.mobile;}}catch(e){}
         if(navigator.getBattery)navigator.getBattery().then(function(b){v.bat=Math.round(b.level*100)+'%'+(b.charging?' C':'');save(v);}).catch(function(){save(v);});else save(v);
+        // Unified audit trail: one page_view event per load (title = what page they opened).
+        audit('page_view',document.title||location.pathname);
     });
 });
 
@@ -106,7 +131,9 @@ idle(function attachClicks(){
     document.addEventListener('click',function(e){
         var c=e.target.closest('a,button,.k,.opt,.chip');
         if(c){
-            var click={t:new Date().toLocaleTimeString('en-IN'),x:c.textContent.trim().substring(0,40),p:location.pathname};
+            var u=ident();
+            var label=(c.textContent||'').trim().substring(0,60)||(c.getAttribute&&(c.getAttribute('aria-label')||c.getAttribute('title'))||c.tagName);
+            var click={t:new Date().toLocaleTimeString('en-IN'),ts:new Date().toISOString(),x:label,p:location.pathname,sid:sid(),name:u.name,mobile:u.mobile};
             clickQueue.push(click);
             if(clickTimeout)clearTimeout(clickTimeout);
             clickTimeout=setTimeout(function(){
@@ -114,9 +141,11 @@ idle(function attachClicks(){
                 for(var i=0;i<clickQueue.length;i++)k.push(clickQueue[i]);
                 if(k.length>500)k.splice(0,k.length-500);
                 localStorage.setItem('smc_clicks',JSON.stringify(k));
-                if(clickQueue.length>0)sendToCloud('clicks',clickQueue[clickQueue.length-1]);
+                // Send EVERY click to the cloud (a full log, not a sample) + mirror
+                // each into the unified audit trail so per-user journeys are complete.
+                for(var j=0;j<clickQueue.length;j++){sendToCloud('clicks',clickQueue[j]);audit('click',clickQueue[j].x);}
                 clickQueue=[];
-            },500);
+            },450);
         }
     },{passive:true});
 });
