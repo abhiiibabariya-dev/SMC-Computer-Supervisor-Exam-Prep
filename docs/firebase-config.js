@@ -39,3 +39,10 @@ window.SMC_FIREBASE_CONFIG = {
 // While this is empty, the gate falls back to instant name+number FORMAT
 // validation (no OTP) so visitors are never locked out.
 window.SMC_OTPLESS_APP_ID = "";
+
+// ===== COMMUNITY GROUP (WhatsApp / Telegram) =====
+// Paste your group invite link here to show a "Join the study group" button in the
+// site menu (great for daily engagement + free growth). Leave empty to hide it.
+//   WhatsApp example: https://chat.whatsapp.com/XXXXXXXXXXXXXXX
+//   Telegram example: https://t.me/your_channel
+window.SMC_COMMUNITY_URL = "";
