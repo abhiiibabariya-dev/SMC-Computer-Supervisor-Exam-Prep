@@ -45,4 +45,4 @@ window.SMC_OTPLESS_APP_ID = "";
 // site menu (great for daily engagement + free growth). Leave empty to hide it.
 //   WhatsApp example: https://chat.whatsapp.com/XXXXXXXXXXXXXXX
 //   Telegram example: https://t.me/your_channel
-window.SMC_COMMUNITY_URL = "";
+window.SMC_COMMUNITY_URL = "https://whatsapp.com/channel/0029Vb8VJOk0wajr7dC5K13a";

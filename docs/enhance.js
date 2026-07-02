@@ -157,7 +157,7 @@
                 +'<div class="lbl">Questions? Contact Abhi</div>'
                 +'<a class="row" href="mailto:'+EMAIL+'?subject=SMC%20Exam%20Prep%20-%20Query"><span class="ic">✉️</span><span class="tx"><b>Email</b><span>'+EMAIL+'</span></span></a>'
                 +'<a class="row" href="'+IG_URL+'" target="_blank" rel="noopener"><span class="ic">📸</span><span class="tx"><b>Instagram</b><span>@'+IG+'</span></span></a>'
-                +(COMMUNITY?'<a class="row" id="smcCommRow" href="'+esc(COMMUNITY)+'" target="_blank" rel="noopener"><span class="ic">💬</span><span class="tx"><b>Join the study group</b><span>Daily updates &amp; doubts</span></span></a>':'');
+                +(COMMUNITY?'<a class="row" id="smcCommRow" href="'+esc(COMMUNITY)+'" target="_blank" rel="noopener"><span class="ic">💬</span><span class="tx"><b>Join our WhatsApp channel</b><span>Daily updates, quizzes &amp; alerts</span></span></a>':'');
 
             document.body.appendChild(fab);
             document.body.appendChild(panel);
