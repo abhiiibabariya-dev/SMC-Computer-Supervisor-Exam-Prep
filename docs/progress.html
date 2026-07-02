@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>My Progress — SMC Exam Prep 2026</title>
+<meta name="description" content="Track your SMC 2026 exam preparation — streak, quiz accuracy, mock scores and revision-plan progress, all in one dashboard.">
+<meta name="theme-color" content="#6366f1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1CP842CPFX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-1CP842CPFX');</script>
+<script src="firebase-config.js"></script>
+<script src="gate.js"></script>
+<script src="share.js"></script>
+<script src="enhance.js"></script>
+<style>
+  :root{--bg:#09090b;--s1:#111113;--s2:#18181b;--border:rgba(255,255,255,.08);--txt:#a1a1aa;--white:#fafafa;--dim:#71717a;--accent:#6366f1;--accent2:#818cf8}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Plus Jakarta Sans',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--txt);-webkit-font-smoothing:antialiased;padding:0 0 80px}
+  a{color:var(--accent2)}
+  .top{position:sticky;top:0;z-index:10;background:rgba(9,9,11,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:14px 20px;display:flex;align-items:center;gap:12px}
+  .top a.home{color:var(--white);text-decoration:none;font-weight:700;font-size:.9em;background:var(--s2);border:1px solid var(--border);border-radius:10px;padding:8px 14px}
+  .top .ttl{font-weight:800;color:var(--white);font-size:.95em}
+  .wrap{max-width:760px;margin:0 auto;padding:24px 20px}
+  .hi{background:linear-gradient(135deg,rgba(99,102,241,.14),rgba(192,132,252,.06));border:1px solid rgba(99,102,241,.2);border-radius:18px;padding:22px;margin-bottom:20px}
+  .hi h1{color:var(--white);font-size:1.5em;font-weight:900;letter-spacing:-.5px}
+  .hi p{color:var(--txt);margin-top:6px;font-size:.9em}
+  .hi .pill{display:inline-block;background:rgba(255,255,255,.08);border-radius:100px;padding:5px 14px;font-size:.8em;font-weight:700;color:#c7d2fe;margin-top:12px}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px}
+  @media(max-width:560px){.grid{grid-template-columns:repeat(2,1fr)}}
+  .card{background:var(--s1);border:1px solid var(--border);border-radius:16px;padding:18px 14px;text-align:center}
+  .card .n{font-size:2em;font-weight:900;color:var(--white);font-variant-numeric:tabular-nums;line-height:1}
+  .card .n small{font-size:.5em;color:var(--dim);font-weight:700}
+  .card .l{font-size:.7em;color:var(--dim);text-transform:uppercase;letter-spacing:.8px;margin-top:8px}
+  .card.hl .n{color:var(--accent2)}
+  .sec{background:var(--s1);border:1px solid var(--border);border-radius:16px;padding:18px;margin-bottom:16px}
+  .sec h2{color:var(--white);font-size:1.05em;font-weight:800;margin-bottom:6px}
+  .sec p{font-size:.85em;line-height:1.5}
+  .bar{height:10px;border-radius:8px;background:#27272a;overflow:hidden;margin:10px 0}
+  .bar>i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2))}
+  .rowlist{list-style:none;margin-top:8px}
+  .rowlist li{display:flex;justify-content:space-between;padding:9px 0;border-top:1px solid var(--border);font-size:.85em;color:#d4d4d8}
+  .rowlist li b{color:var(--white)}
+  .btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+  .btns a,.btns button{flex:1;min-width:130px;text-align:center;text-decoration:none;font-weight:700;font-size:.85em;padding:12px;border-radius:12px;cursor:pointer;font-family:inherit;border:1px solid var(--border);background:var(--s2);color:var(--white)}
+  .btns .p{background:var(--accent);border:0;color:#fff}
+  .btns .g{background:linear-gradient(135deg,#16a34a,#22c55e);border:0;color:#fff}
+  .empty{text-align:center;padding:20px;color:var(--dim);font-size:.9em}
+</style>
+</head>
+<body>
+<div class="top">
+  <a class="home" href="index.html">← Home</a>
+  <span class="ttl">📊 My Progress</span>
+</div>
+<div class="wrap">
+  <div class="hi">
+    <h1 id="greet">Your prep dashboard</h1>
+    <p id="sub">Everything you've done so far, in one place. Keep the streak alive! 🔥</p>
+    <div id="postPill"></div>
+  </div>
+
+  <div class="grid">
+    <div class="card hl"><div class="n" id="streak">0<small>d</small></div><div class="l">Current streak</div></div>
+    <div class="card"><div class="n" id="best">0<small>d</small></div><div class="l">Best streak</div></div>
+    <div class="card"><div class="n" id="qcount">0</div><div class="l">Quizzes taken</div></div>
+    <div class="card hl"><div class="n" id="acc">—</div><div class="l">Avg accuracy</div></div>
+    <div class="card"><div class="n" id="mcount">0</div><div class="l">Mock tests</div></div>
+    <div class="card"><div class="n" id="mbest">—</div><div class="l">Best mock</div></div>
+  </div>
+
+  <div class="sec">
+    <h2>🗓️ 10-Day Revision Plan</h2>
+    <div class="bar"><i id="revBar" style="width:0"></i></div>
+    <p id="revTxt" style="color:var(--dim)">Not started yet.</p>
+    <div class="btns" style="margin-top:12px"><a class="p" href="revision-plan.html">Open my plan →</a></div>
+  </div>
+
+  <div class="sec" id="recentSec">
+    <h2>🕑 Recent quiz scores</h2>
+    <ul class="rowlist" id="recent"></ul>
+  </div>
+
+  <div class="sec">
+    <h2>🎯 Focus next</h2>
+    <p id="focus" style="color:var(--txt)">Keep practising daily.</p>
+    <div class="btns" style="margin-top:12px">
+      <a class="p" href="daily-quiz.html">✍️ Daily Quiz</a>
+      <a href="mock-test.html">🧪 Mock Test</a>
+      <a id="guideBtn" href="index.html">📚 My subject</a>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2>🚀 Boost your prep</h2>
+    <div class="btns">
+      <button class="g" onclick="if(window.smcShareScore){shareMine()}else{alert('Loading…')}">📤 Share my progress</button>
+      <button onclick="window.smcReminders&&window.smcReminders()">🔔 Reminders</button>
+      <button onclick="window.smcInvite&&window.smcInvite()">🎁 Invite &amp; unlock</button>
+    </div>
+  </div>
+</div>
+
+<script src="tracker.js"></script>
+<script src="growth.js"></script>
+<script src="pwa.js" defer></script>
+<script>
+(function(){
+  "use strict";
+  function J(k,d){try{return JSON.parse(localStorage.getItem(k)||d);}catch(e){try{return JSON.parse(d);}catch(_){return null;}}}
+  var u=J('smc_user','{}')||{};
+  var st=J('smc_streak','{}')||{};
+  var qh=J('smc_quiz_history','[]')||[]; if(!Array.isArray(qh))qh=[];
+  var mh=J('smc_mock_history','[]')||[]; if(!Array.isArray(mh))mh=[];
+  var rev=J('smc_revplan','{}')||{};
+
+  // Greeting + post
+  if(u.name){document.getElementById('greet').textContent='Hi '+String(u.name).replace(/[<>]/g,'')+' 👋';}
+  if(u.postLabel){document.getElementById('postPill').innerHTML='<span class="pill">🎯 '+String(u.postLabel).replace(/[<>]/g,'')+'</span>';}
+  if(u.post&&/^[a-z0-9-]+\.html$/i.test(u.post)){document.getElementById('guideBtn').href=u.post;document.getElementById('guideBtn').textContent='📚 '+(u.postLabel?String(u.postLabel).replace(/[<>]/g,''):'My subject');}
+
+  // Streak
+  var cur=st.count||st.streak||st.current||0, best=st.best||st.max||cur||0;
+  document.getElementById('streak').innerHTML=cur+'<small>d</small>';
+  document.getElementById('best').innerHTML=best+'<small>d</small>';
+
+  // Quiz accuracy
+  var sumS=0,sumT=0; qh.forEach(function(q){var s=+q.score||0,t=+q.total||0;sumS+=s;sumT+=t;});
+  document.getElementById('qcount').textContent=qh.length;
+  document.getElementById('acc').textContent=sumT?Math.round(sumS/sumT*100)+'%':'—';
+
+  // Mocks
+  var mbest=0; mh.forEach(function(m){var p=+m.pct; if(!isFinite(p)&&m.total){p=Math.round((+m.correct||0)/m.total*100);} if(p>mbest)mbest=p||0;});
+  document.getElementById('mcount').textContent=mh.length;
+  document.getElementById('mbest').textContent=mh.length?mbest+'%':'—';
+
+  // Revision plan (30 tasks total across 10 days)
+  var TOTAL=30, done=0; for(var k in rev){if(rev[k])done++;}
+  var pct=Math.round(done/TOTAL*100);
+  document.getElementById('revBar').style.width=pct+'%';
+  document.getElementById('revTxt').textContent=done?(done+' of '+TOTAL+' tasks done ('+pct+'%). Keep going!'):'Not started yet — open your plan to begin.';
+
+  // Recent quiz list
+  var rec=document.getElementById('recent');
+  if(qh.length){
+    qh.slice(-5).reverse().forEach(function(q){
+      var t=+q.total||0,s=+q.score||0,p=t?Math.round(s/t*100):0;
+      var when=q.date?new Date(q.date).toLocaleDateString('en-IN',{day:'numeric',month:'short'}):'';
+      var li=document.createElement('li');li.innerHTML='<span>'+(when||'Quiz')+'</span><b>'+s+'/'+t+' &middot; '+p+'%</b>';rec.appendChild(li);
+    });
+  } else { document.getElementById('recentSec').querySelector('.rowlist').outerHTML='<div class="empty">No quizzes yet — <a href="daily-quiz.html">try the daily quiz</a> to start your streak! 🔥</div>'; }
+
+  // Focus message
+  var acc=sumT?Math.round(sumS/sumT*100):null;
+  var f=document.getElementById('focus');
+  if(acc===null){f.innerHTML='Start with the <a href="daily-quiz.html">daily quiz</a>, then follow your <a href="revision-plan.html">10-day plan</a>.';}
+  else if(acc<60){f.innerHTML='Accuracy is '+acc+'%. Revisit the basics in <a href="'+(u.post&&/^[a-z0-9-]+\.html$/i.test(u.post)?u.post:'index.html')+'">your subject guide</a> and redo weak topics.';}
+  else if(pct<100){f.innerHTML='Solid '+acc+'% accuracy! Finish your <a href="revision-plan.html">10-day plan</a> and attempt a <a href="mock-test.html">full mock</a>.';}
+  else {f.innerHTML='🎉 Plan complete & '+acc+'% accuracy — do timed <a href="mock-test.html">mocks</a> daily to stay sharp!';}
+
+  // Share
+  window.shareMine=function(){
+    if(qh.length){ var last=qh[qh.length-1]; window.smcShareScore(+last.score||0,+last.total||0,'Daily Quiz'); }
+    else if(sumT){ window.smcShareScore(sumS,sumT,'SMC Practice'); }
+    else { window.smcShareScore(cur, cur||1, 'Day Streak'); }
+  };
+  try{if(window.smcAudit)window.smcAudit('progress_view','streak '+cur+' acc '+(acc==null?'-':acc));}catch(e){}
+})();
+</script>
+</body>
+</html>
