@@ -462,4 +462,81 @@
 
     if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',mount);
     else mount();
+
+    // ---------- Session idle timeout (5 minutes → auto-logout) ----------
+    // Any real user activity (mouse, key, touch, scroll, tab switch back) resets
+    // the countdown. After 5 min of ZERO activity the session is auto-terminated:
+    // localStorage is cleared, a security event is logged, and the page reloads
+    // so the gate screen shows again. The security event surfaces in the daily
+    // SOC email so the owner can see which sessions were dropped for inactivity.
+    var IDLE_MS=5*60*1000,idleT=null;
+    function isLoggedIn(){try{var u=JSON.parse(localStorage.getItem(KEY)||'null');return !!(u&&u.name&&u.mobile);}catch(e){return false;}}
+    function armIdle(){
+        if(!isLoggedIn())return;
+        if(idleT)clearTimeout(idleT);
+        idleT=setTimeout(idleLogout,IDLE_MS);
+    }
+    function idleLogout(){
+        var u;try{u=JSON.parse(localStorage.getItem(KEY)||'null');}catch(e){}
+        if(!u||!u.name)return;
+        try{auditG('auto_logout','idle 5m',u);}catch(e){}
+        try{
+            var geo=geoG();
+            post('security',{time:new Date().toISOString(),localTime:new Date().toLocaleString('en-IN',{timeZone:'Asia/Kolkata'}),level:'ok',msg:'Session auto-terminated (5-min idle): '+u.name+' (+91 '+u.mobile+')',src:'idle-timeout',city:geo.city||'',country:geo.country||'',isp:geo.isp||'',ip:geo.ip||'',proxy:!!geo.proxy});
+        }catch(e){}
+        try{localStorage.removeItem(KEY);sessionStorage.removeItem('smc_sess');}catch(e){}
+        try{location.reload();}catch(e){}
+    }
+    var idleEvents=['mousemove','keydown','touchstart','scroll','click','wheel','pointerdown'];
+    for(var _i=0;_i<idleEvents.length;_i++){document.addEventListener(idleEvents[_i],armIdle,{passive:true,capture:true});}
+    document.addEventListener('visibilitychange',function(){if(!document.hidden)armIdle();});
+    armIdle();
+
+    // ---------- Proxy / VPN / datacenter block ----------
+    // Real students on Surat home wifi never have .proxy===true. Bots, scrapers
+    // and attackers running through commercial VPNs or datacenter IPs almost
+    // always do — so this is a very high-precision block. We poll the geo cache
+    // (populated by tracker.js's ipwho.is lookup) for up to 5 seconds; if the
+    // visitor is flagged we log a security event and replace the whole page
+    // with a friendly "please disable your VPN" panel. Non-JS clients (curl,
+    // headless scrapers with JS disabled) get nothing anyway.
+    (function proxyBlock(){
+        var tries=0;
+        function poll(){
+            var g={};try{var c=sessionStorage.getItem('smc_geo');if(c)g=JSON.parse(c);}catch(e){}
+            if(!g||!g.country){
+                if(++tries<10){setTimeout(poll,500);return;}
+                return; // give up — never block a real user just because IP lookup timed out
+            }
+            if(!g.proxy)return;
+            try{post('security',{time:new Date().toISOString(),localTime:new Date().toLocaleString('en-IN',{timeZone:'Asia/Kolkata'}),level:'warn',msg:'BLOCKED proxy/VPN/hosting visitor at '+(g.city||'?')+', '+(g.country||'?')+' — ISP: '+(g.isp||'?')+' — flags: '+(g.flags||'?')+' — IP: '+(g.ip||'?'),src:'proxy-block',city:g.city||'',country:g.country||'',isp:g.isp||'',ip:g.ip||'',proxy:true,flags:g.flags||''});}catch(e){}
+            function show(){
+                if(document.getElementById('smcBlock'))return;
+                var d=document.createElement('div');
+                d.id='smcBlock';
+                d.innerHTML=''
+                +'<style>'
+                +'#smcBlock{position:fixed;inset:0;z-index:2147483645;background:#0b0f1a;color:#fafafa;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;text-align:center;font-family:"Plus Jakarta Sans",system-ui,sans-serif}'
+                +'#smcBlock .bx{max-width:440px;background:#111113;border:1px solid rgba(255,255,255,.09);border-radius:20px;padding:32px 28px}'
+                +'#smcBlock .ic{width:64px;height:64px;border-radius:16px;background:rgba(239,68,68,.14);color:#fca5a5;display:flex;align-items:center;justify-content:center;font-size:32px;margin:0 auto 18px}'
+                +'#smcBlock h1{font-size:1.4em;font-weight:800;margin:0 0 10px;color:#fafafa}'
+                +'#smcBlock p{color:#a1a1aa;font-size:.95em;line-height:1.6;margin:0 0 14px}'
+                +'#smcBlock .m{font-size:.82em;color:#71717a;background:#0b0f1a;border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:10px 12px;margin-top:12px;text-align:left;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}'
+                +'#smcBlock button{margin-top:16px;background:linear-gradient(135deg,#6366f1,#818cf8);color:#fff;border:0;border-radius:12px;padding:12px 22px;font-size:.95em;font-weight:700;font-family:inherit;cursor:pointer}'
+                +'#smcBlock button:hover{transform:translateY(-1px)}'
+                +'</style>'
+                +'<div class="bx"><div class="ic">🛡</div>'
+                +'<h1>VPN / Proxy Detected</h1>'
+                +'<p>This study portal is for real aspirants only. Please turn off your VPN, proxy or hosting connection and reload the page to continue.</p>'
+                +'<div class="m">Detected: '+esc(g.city||'?')+', '+esc(g.country||'?')+'<br>Network: '+esc(g.isp||'?')+'<br>Signals: '+esc(g.flags||'?')+'</div>'
+                +'<button type="button" id="smcBlockRetry">Reload</button>'
+                +'</div>';
+                (document.body||document.documentElement).appendChild(d);
+                try{document.documentElement.style.overflow='hidden';document.body.style.overflow='hidden';}catch(e){}
+                try{d.querySelector('#smcBlockRetry').addEventListener('click',function(){location.reload();});}catch(e){}
+            }
+            if(document.body)show();else document.addEventListener('DOMContentLoaded',show);
+        }
+        setTimeout(poll,200);
+    })();
 })();
