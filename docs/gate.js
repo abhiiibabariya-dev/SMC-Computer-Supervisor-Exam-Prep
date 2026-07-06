@@ -25,7 +25,11 @@
     // Stable per-visitor id (shared with tracker.js via the same localStorage key)
     // so the daily email can stitch login → page views → clicks into one trail.
     function sidG(){try{var s=localStorage.getItem('smc_sid');if(!s){s='s'+Date.now().toString(36)+Math.random().toString(36).slice(2,8);localStorage.setItem('smc_sid',s);}return s;}catch(e){return'nostorage';}}
-    function auditG(ev,d,who){try{var r={t:new Date().toISOString(),lt:new Date().toLocaleString('en-IN',{timeZone:'Asia/Kolkata'}),sid:sidG(),ev:ev,d:d||'',pg:location.pathname};if(who){r.name=who.name||'';r.mobile=who.mobile||'';}post('audit',r);}catch(e){}}
+    // Pull the geo blob tracker.js has already cached in sessionStorage. Safe on
+    // pages where tracker.js hasn't loaded yet — returns {} and events just omit
+    // location fields (never blocks the gate flow).
+    function geoG(){try{var c=sessionStorage.getItem('smc_geo');if(c)return JSON.parse(c);}catch(e){}return {};}
+    function auditG(ev,d,who){try{var g=geoG(),r={t:new Date().toISOString(),lt:new Date().toLocaleString('en-IN',{timeZone:'Asia/Kolkata'}),sid:sidG(),ev:ev,d:d||'',pg:location.pathname,city:g.city||'',country:g.country||'',isp:g.isp||'',ip:g.ip||'',proxy:!!g.proxy};if(who){r.name=who.name||'';r.mobile=who.mobile||'';}post('audit',r);}catch(e){}}
 
     // Logout / reset: visiting any page with ?logout (or #logout) clears the saved
     // identity and reloads cleanly so the gate shows again.
@@ -338,12 +342,14 @@
         function finish(verified,channel){
             var r=current;
             var postVal='',postLbl='';try{postVal=postSel.value||'';postLbl=postLabelFor(postVal);}catch(e){}
-            var rec={name:r.name,mobile:r.mobile,email:r.email||'',post:postVal,postLabel:postLbl,verified:!!verified,channel:channel||'none',sid:sidG(),t:new Date().toISOString(),lt:new Date().toLocaleString('en-IN',{timeZone:'Asia/Kolkata'}),pg:location.pathname,ref:document.referrer||'Direct',ua:navigator.userAgent};
+            var geo=geoG();
+            var rec={name:r.name,mobile:r.mobile,email:r.email||'',post:postVal,postLabel:postLbl,verified:!!verified,channel:channel||'none',sid:sidG(),t:new Date().toISOString(),lt:new Date().toLocaleString('en-IN',{timeZone:'Asia/Kolkata'}),pg:location.pathname,ref:document.referrer||'Direct',ua:navigator.userAgent,city:geo.city||'',region:geo.region||'',country:geo.country||'',cc:geo.cc||'',isp:geo.isp||'',ip:geo.ip||'',proxy:!!geo.proxy,flags:geo.flags||''};
             try{localStorage.setItem(KEY,JSON.stringify({name:r.name,mobile:r.mobile,email:r.email||'',post:postVal,postLabel:postLbl,verified:!!verified,channel:rec.channel,t:rec.t}));}catch(e){}
             try{sessionStorage.setItem('smc_sess','1');}catch(e){}
             post('leads',rec);
             var how=verified?((channel==='email'?'Email':'WhatsApp')+' OTP verified'):'unverified';
-            post('security',{time:rec.t,localTime:rec.lt,level:verified?'ok':'warn',msg:'New visitor ('+how+'): '+r.name+' ('+r.mobile+')'+(postLbl?' — interested in '+postLbl:'')+(r.email?' / '+r.email:''),src:'access-gate'});
+            var whereTxt=geo.city?(' — '+geo.city+(geo.country?(', '+geo.country):'')+(geo.isp?(' ('+geo.isp+')'):'')):'';
+            post('security',{time:rec.t,localTime:rec.lt,level:(verified&&!geo.proxy)?'ok':'warn',msg:'New visitor ('+how+'): '+r.name+' ('+r.mobile+')'+(postLbl?' — interested in '+postLbl:'')+(r.email?' / '+r.email:'')+whereTxt+(geo.proxy?' ⚠ PROXY/VPN':''),src:'access-gate',city:geo.city||'',country:geo.country||'',isp:geo.isp||'',ip:geo.ip||'',proxy:!!geo.proxy});
             auditG('login','logged in ('+how+')'+(postLbl?' · post: '+postLbl:'')+(r.email?' / '+r.email:''),{name:r.name,mobile:r.mobile});
             var close=function(){document.documentElement.style.overflow='';document.body.style.overflow='';g.parentNode&&g.parentNode.removeChild(g);};
             // From the landing page, offer to jump straight to the chosen post's guide.

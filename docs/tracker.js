@@ -1,6 +1,60 @@
 // SMC Visitor Intelligence Tracker — Cloud + Local (deferred for mobile perf)
 (function(){
 var ua=navigator.userAgent;
+
+// ---- IP geolocation (free plan) ---------------------------------------
+// Uses ipwho.is — no API key, 10k requests/month free, HTTPS.
+// Response includes .security.{proxy,vpn,tor,hosting} which is gold for
+// spotting bot/scraper traffic (attackers often come from datacenter IPs).
+// Cached in sessionStorage so we only hit the API once per browser tab.
+// Publicly exposed as window.smcGeo() → Promise<geo>. Callers that need
+// a sync read (clicks, audit) use window.smcGeoCached() which returns {}
+// until the first fetch resolves (usually within ~300 ms of pageload).
+function smcGeoCached(){
+    try{var c=sessionStorage.getItem('smc_geo');if(c)return JSON.parse(c);}catch(e){}
+    return {};
+}
+function smcGeo(){
+    if(window.__smcGeoP)return window.__smcGeoP;
+    window.__smcGeoP=new Promise(function(res){
+        var cached=smcGeoCached();
+        if(cached&&cached.country){res(cached);return;}
+        // Never let a slow IP lookup delay tracking by more than 2.5 s.
+        var tm=setTimeout(function(){res({});},2500);
+        try{
+            fetch('https://ipwho.is/',{cache:'force-cache'}).then(function(r){return r.json();}).then(function(j){
+                clearTimeout(tm);
+                if(!j||j.success===false){res({});return;}
+                // Truncate the last IPv4 octet (or last IPv6 group) — keeps enough
+                // signal to spot repeat attackers without storing the exact IP.
+                var ip=(j.ip||'');
+                if(ip.indexOf('.')>=0)ip=ip.replace(/\.\d+$/,'.x');
+                else if(ip.indexOf(':')>=0)ip=ip.replace(/:[0-9a-f]+$/i,':xxxx');
+                var sec=j.security||{};
+                var flags=[];for(var k in sec){if(sec[k])flags.push(k);}
+                var g={
+                    ip:ip,
+                    city:j.city||'',
+                    region:j.region||'',
+                    country:j.country||'',
+                    cc:j.country_code||'',
+                    isp:(j.connection&&(j.connection.isp||j.connection.org))||'',
+                    tz:(j.timezone&&j.timezone.id)||'',
+                    proxy:!!(sec.proxy||sec.vpn||sec.tor||sec.hosting),
+                    flags:flags.join(',')
+                };
+                try{sessionStorage.setItem('smc_geo',JSON.stringify(g));}catch(e){}
+                res(g);
+            }).catch(function(){clearTimeout(tm);res({});});
+        }catch(e){clearTimeout(tm);res({});}
+    });
+    return window.__smcGeoP;
+}
+window.smcGeo=smcGeo;
+window.smcGeoCached=smcGeoCached;
+// Kick the fetch off ASAP so cache is warm by the time clicks/audit fire.
+smcGeo();
+
 function getOS(u){if(/Android (\d+[\.\d]*)/.test(u))return'Android '+RegExp.$1;if(/iPhone OS (\d+[_\d]*)/.test(u))return'iOS '+RegExp.$1.replace(/_/g,'.');if(/Windows NT 10/.test(u))return'Windows 10/11';if(/Mac OS X/.test(u))return'macOS';if(/Linux/.test(u))return'Linux';return'Unknown';}
 function getBr(u){if(/Edg\/(\d+)/.test(u))return'Edge '+RegExp.$1;if(/OPR\/(\d+)/.test(u))return'Opera '+RegExp.$1;if(/Chrome\/(\d+)/.test(u))return'Chrome '+RegExp.$1;if(/Firefox\/(\d+)/.test(u))return'Firefox '+RegExp.$1;if(/Safari/.test(u)&&!/Chrome/.test(u))return'Safari';return'Other';}
 
@@ -71,12 +125,14 @@ function ident(){try{var u=JSON.parse(localStorage.getItem('smc_user')||'null');
 // log their own events (login, logout, quiz_answer, share, …).
 function audit(ev,detail){
     try{
-        var u=ident();
+        var u=ident(),g=smcGeoCached();
         sendToCloud('audit',{
             t:new Date().toISOString(),
             lt:new Date().toLocaleString('en-IN',{timeZone:'Asia/Kolkata'}),
             sid:sid(),name:u.name,mobile:u.mobile,
-            ev:ev,d:(detail==null?'':String(detail)).substring(0,120),pg:location.pathname
+            ev:ev,d:(detail==null?'':String(detail)).substring(0,120),pg:location.pathname,
+            city:g.city||'',region:g.region||'',country:g.country||'',cc:g.cc||'',
+            isp:g.isp||'',ip:g.ip||'',proxy:!!g.proxy
         });
     }catch(e){}
 }
@@ -92,12 +148,17 @@ function idle(fn){
 idle(function collect(){
     var cn=navigator.connection||navigator.mozConnection||navigator.webkitConnection;
     resolveDevice(function(devName){
-        v={t:new Date().toISOString(),lt:new Date().toLocaleString('en-IN',{timeZone:'Asia/Kolkata'}),sid:sid(),dev:devName,os:getOS(ua),br:getBr(ua),scr:screen.width+'x'+screen.height,mob:/Mobile|Android|iPhone/i.test(ua),cores:navigator.hardwareConcurrency||'?',ram:navigator.deviceMemory||'?',net:cn?(cn.effectiveType||'?'):'?',lang:navigator.language,tz:Intl.DateTimeFormat().resolvedOptions().timeZone,ref:document.referrer||'Direct',pg:location.pathname,touch:'ontouchstart'in window};
-        // Attach the identified visitor (name/mobile) captured by the access gate, if present.
-        try{var u=JSON.parse(localStorage.getItem('smc_user')||'null');if(u&&u.name){v.name=u.name;v.mobile=u.mobile;}}catch(e){}
-        if(navigator.getBattery)navigator.getBattery().then(function(b){v.bat=Math.round(b.level*100)+'%'+(b.charging?' C':'');save(v);}).catch(function(){save(v);});else save(v);
-        // Unified audit trail: one page_view event per load (title = what page they opened).
-        audit('page_view',document.title||location.pathname);
+        // Wait for geo (up to 2.5 s) so the visit record carries the real location.
+        smcGeo().then(function(g){
+            g=g||{};
+            v={t:new Date().toISOString(),lt:new Date().toLocaleString('en-IN',{timeZone:'Asia/Kolkata'}),sid:sid(),dev:devName,os:getOS(ua),br:getBr(ua),scr:screen.width+'x'+screen.height,mob:/Mobile|Android|iPhone/i.test(ua),cores:navigator.hardwareConcurrency||'?',ram:navigator.deviceMemory||'?',net:cn?(cn.effectiveType||'?'):'?',lang:navigator.language,tz:Intl.DateTimeFormat().resolvedOptions().timeZone,ref:document.referrer||'Direct',pg:location.pathname,touch:'ontouchstart'in window,
+                city:g.city||'',region:g.region||'',country:g.country||'',cc:g.cc||'',isp:g.isp||'',ip:g.ip||'',proxy:!!g.proxy,flags:g.flags||''};
+            // Attach the identified visitor (name/mobile) captured by the access gate, if present.
+            try{var u=JSON.parse(localStorage.getItem('smc_user')||'null');if(u&&u.name){v.name=u.name;v.mobile=u.mobile;}}catch(e){}
+            if(navigator.getBattery)navigator.getBattery().then(function(b){v.bat=Math.round(b.level*100)+'%'+(b.charging?' C':'');save(v);}).catch(function(){save(v);});else save(v);
+            // Unified audit trail: one page_view event per load (title = what page they opened).
+            audit('page_view',document.title||location.pathname);
+        });
     });
 });
 
@@ -131,9 +192,9 @@ idle(function attachClicks(){
     document.addEventListener('click',function(e){
         var c=e.target.closest('a,button,.k,.opt,.chip');
         if(c){
-            var u=ident();
+            var u=ident(),g=smcGeoCached();
             var label=(c.textContent||'').trim().substring(0,60)||(c.getAttribute&&(c.getAttribute('aria-label')||c.getAttribute('title'))||c.tagName);
-            var click={t:new Date().toLocaleTimeString('en-IN'),ts:new Date().toISOString(),x:label,p:location.pathname,sid:sid(),name:u.name,mobile:u.mobile};
+            var click={t:new Date().toLocaleTimeString('en-IN'),ts:new Date().toISOString(),x:label,p:location.pathname,sid:sid(),name:u.name,mobile:u.mobile,city:g.city||'',country:g.country||'',isp:g.isp||'',ip:g.ip||''};
             clickQueue.push(click);
             if(clickTimeout)clearTimeout(clickTimeout);
             clickTimeout=setTimeout(function(){
