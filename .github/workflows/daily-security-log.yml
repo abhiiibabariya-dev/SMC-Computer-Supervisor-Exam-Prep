@@ -157,6 +157,11 @@ jobs:
           HAS_ACTIVITY=false
           if [ "$ACT_RECENT" -gt 0 ] || [ "$VIS_RECENT" -gt 0 ] || [ "$LEAD_RECENT" -gt 0 ]; then HAS_ACTIVITY=true; fi
 
+          # Guaranteed once-a-day digest slot: the 04:00 UTC run (~09:30 IST) always sends,
+          # so the owner gets at least one mail per day even on zero-traffic days.
+          IS_DIGEST=false
+          [ "$(date -u +%H)" = "04" ] && IS_DIGEST=true
+
           THREAT="#22c55e"; THREAT_TXT="LOW"
           if [ "$SEC_WARN_24" -gt 0 ] || [ "$SENSITIVE_24" -gt 0 ]; then THREAT="#f59e0b"; THREAT_TXT="ELEVATED"; fi
           if [ "$SEC_WARN_24" -ge 5 ]; then THREAT="#ef4444"; THREAT_TXT="HIGH"; fi
@@ -288,13 +293,14 @@ jobs:
 
           echo "<div style='font-size:12px;color:#cbd5e1;font-weight:700;margin:16px 0 6px'>Identities captured in the last 24h (newest first)</div>" >> report.html
           echo "<table width='100%' cellpadding='6' cellspacing='0' style='border-collapse:collapse;font-size:12px;color:#cbd5e1'>" >> report.html
-          printf '<tr style="color:#64748b;text-align:left"><th align="left">Time (IST)</th><th align="left">Name</th><th align="left">Mobile</th><th align="left">Post / Subject</th><th align="left">Verification</th><th align="left">Page</th></tr>\n' >> report.html
-          jq -r '[.[]?] | sort_by(.t) | reverse | .[:2000][] | [(.lt // .t // "-"), (.name // "—"), (.mobile // "—"), (.postLabel // .email // "—"), (if .verified==true then "verified" else "unverified" end), (.channel // "none"), (.pg // "-")] | @tsv' leads_24.json > lrows.tsv || true
+          printf '<tr style="color:#64748b;text-align:left"><th align="left">Time (IST)</th><th align="left">Name</th><th align="left">Mobile</th><th align="left">Post / Subject</th><th align="left">Location · ISP</th><th align="left">Verification</th><th align="left">Page</th></tr>\n' >> report.html
+          jq -r '[.[]?] | sort_by(.t) | reverse | .[:2000][] | [(.lt // .t // "-"), (.name // "—"), (.mobile // "—"), (.postLabel // .email // "—"), ((.city // "?")+", "+(.country // "?")+" · "+(.isp // "?")), (if .verified==true then "verified" else "unverified" end), (.channel // "none"), (.pg // "-"), (if .proxy==true then "P" else "" end)] | @tsv' leads_24.json > lrows.tsv || true
           if [ -s lrows.tsv ]; then
-            while IFS=$'\t' read -r t nm mb em st ch pg; do
+            while IFS=$'\t' read -r t nm mb em loc st ch pg pflag; do
               if [ "$st" = "verified" ]; then bg="#22c55e"; up="VERIFIED"; else bg="#f59e0b"; up="UNVERIFIED"; fi
               case "$ch" in whatsapp) via=" · WhatsApp";; email) via=" · Email";; *) via="";; esac
-              printf '<tr style="border-bottom:1px solid #1e293b"><td style="color:#94a3b8;white-space:nowrap">%s</td><td style="color:#fafafa;font-weight:700">%s</td><td style="color:#34d399;font-weight:700;white-space:nowrap">+91 %s</td><td style="color:#cbd5e1">%s</td><td><span style="background:%s;color:#0b0f1a;padding:1px 6px;border-radius:5px;font-weight:700;font-size:10px">%s</span><span style="color:#64748b;font-size:10px">%s</span></td><td>%s</td></tr>\n' "$t" "$nm" "$mb" "$em" "$bg" "$up" "$via" "$pg" >> report.html
+              loccol="#cbd5e1"; if [ "$pflag" = "P" ]; then loccol="#ef4444"; loc="⚠ $loc"; fi
+              printf '<tr style="border-bottom:1px solid #1e293b"><td style="color:#94a3b8;white-space:nowrap">%s</td><td style="color:#fafafa;font-weight:700">%s</td><td style="color:#34d399;font-weight:700;white-space:nowrap">+91 %s</td><td style="color:#cbd5e1">%s</td><td style="color:%s">%s</td><td><span style="background:%s;color:#0b0f1a;padding:1px 6px;border-radius:5px;font-weight:700;font-size:10px">%s</span><span style="color:#64748b;font-size:10px">%s</span></td><td>%s</td></tr>\n' "$t" "$nm" "$mb" "$em" "$loccol" "$loc" "$bg" "$up" "$via" "$pg" >> report.html
             done < lrows.tsv
           else
             echo "<tr><td style='color:#64748b'>No visitor identities captured yet. They appear here once the access gate records a name + mobile.</td></tr>" >> report.html
@@ -347,13 +353,63 @@ jobs:
           fi
           echo "</table>" >> report.html
 
+          # ---- TOP LOCATIONS + PROXY/VPN SIGNALS (24h) ------------------------
+          # Uses .city/.country/.isp/.proxy stamped on each visit by tracker.js
+          # via the free ipwho.is IP-geolocation API (10k lookups/mo, no key).
+          PROXY_24=$(jq '[.[]? | select(.proxy==true)] | length' visits_24.json)
+          COUNTRIES_24=$(jq '[.[]? | .country] | map(select(.!=null and .!="")) | unique | length' visits_24.json)
+          NON_IN_24=$(jq '[.[]? | select((.cc // "")!="IN" and (.cc // "")!="")] | length' visits_24.json)
+          echo "<div style='font-size:13px;color:#e5e7eb;font-weight:700;margin:22px 0 6px'>🌍 Where visitors came from (last 24h)</div>" >> report.html
+          echo "<table width='100%' cellpadding='0' cellspacing='0'><tr>" >> report.html
+          tile "$COUNTRIES_24" "Countries" "#e5e7eb"; sp
+          tile "$NON_IN_24" "Non-India Hits" "#fbbf24"; sp
+          tile "$PROXY_24" "⚠ Proxy / VPN / Bot" "#ef4444"
+          echo "</tr></table>" >> report.html
+
+          echo "<div style='font-size:12px;color:#cbd5e1;font-weight:700;margin:14px 0 6px'>Top cities</div>" >> report.html
+          echo "<table width='100%' cellpadding='6' cellspacing='0' style='border-collapse:collapse;font-size:12px;color:#cbd5e1'>" >> report.html
+          jq -r '[.[]? | select((.city // "")!="") | (.city+", "+(.country // "?"))] | group_by(.) | map({k:.[0], n:length}) | sort_by(-.n) | .[:30][] | [.k, (.n|tostring)] | @tsv' visits_24.json > geo_city.tsv || true
+          if [ -s geo_city.tsv ]; then
+            while IFS=$'\t' read -r a b; do [ -z "$a" ] && continue
+              printf '<tr style="border-bottom:1px solid #1e293b"><td>%s</td><td align="right" style="color:#34d399;font-weight:700">%s</td></tr>\n' "$a" "$b" >> report.html
+            done < geo_city.tsv
+          else
+            echo "<tr><td style='color:#64748b'>No location data yet — the tracker will populate this once ipwho.is is reachable from visitors.</td></tr>" >> report.html
+          fi
+          echo "</table>" >> report.html
+
+          echo "<div style='font-size:12px;color:#cbd5e1;font-weight:700;margin:14px 0 6px'>Top ISPs / networks</div>" >> report.html
+          echo "<table width='100%' cellpadding='6' cellspacing='0' style='border-collapse:collapse;font-size:12px;color:#cbd5e1'>" >> report.html
+          jq -r '[.[]? | select((.isp // "")!="") | .isp] | group_by(.) | map({k:.[0], n:length}) | sort_by(-.n) | .[:30][] | [.k, (.n|tostring)] | @tsv' visits_24.json > geo_isp.tsv || true
+          if [ -s geo_isp.tsv ]; then
+            while IFS=$'\t' read -r a b; do [ -z "$a" ] && continue
+              printf '<tr style="border-bottom:1px solid #1e293b"><td>%s</td><td align="right" style="color:#818cf8;font-weight:700">%s</td></tr>\n' "$a" "$b" >> report.html
+            done < geo_isp.tsv
+          else
+            echo "<tr><td style='color:#64748b'>No ISP data yet.</td></tr>" >> report.html
+          fi
+          echo "</table>" >> report.html
+
+          if [ "$PROXY_24" -gt 0 ]; then
+            echo "<div style='font-size:12px;color:#fecaca;font-weight:700;margin:14px 0 6px'>🚨 Proxy / VPN / hosting IPs (likely bots or scrapers — last 24h)</div>" >> report.html
+            echo "<table width='100%' cellpadding='6' cellspacing='0' style='border-collapse:collapse;font-size:12px;color:#cbd5e1'>" >> report.html
+            printf '<tr style="color:#64748b;text-align:left"><th align="left">Time</th><th align="left">Location</th><th align="left">ISP</th><th align="left">IP</th><th align="left">Flags</th><th align="left">Page</th></tr>\n' >> report.html
+            jq -r '[.[]? | select(.proxy==true)] | sort_by(.t) | reverse | .[:200][] | [(.lt // .t // "-"), ((.city // "?")+", "+(.country // "?")), (.isp // "?"), (.ip // "?"), (.flags // "?"), (.pg // "?")] | @tsv' visits_24.json > geo_proxy.tsv || true
+            while IFS=$'\t' read -r a b c d e f; do
+              printf '<tr style="border-bottom:1px solid #7f1d1d"><td style="color:#94a3b8;white-space:nowrap">%s</td><td style="color:#fbbf24">%s</td><td>%s</td><td style="color:#94a3b8">%s</td><td style="color:#ef4444;font-weight:700">%s</td><td style="color:#64748b">%s</td></tr>\n' "$a" "$b" "$c" "$d" "$e" "$f" >> report.html
+            done < geo_proxy.tsv
+            echo "</table>" >> report.html
+          fi
+
           echo "<div style='font-size:13px;color:#e5e7eb;font-weight:700;margin:18px 0 6px'>🕑 Visits (last 24h, newest first)</div>" >> report.html
           echo "<table width='100%' cellpadding='6' cellspacing='0' style='border-collapse:collapse;font-size:12px;color:#cbd5e1'>" >> report.html
-          printf '<tr style="color:#64748b;text-align:left"><th align="left">Time</th><th align="left">Device</th><th align="left">OS / Browser</th><th align="left">Page</th><th align="left">Net</th><th align="left">Referrer</th></tr>\n' >> report.html
-          jq -r '[.[]?] | sort_by(.t) | reverse | .[:1000][] | [(.lt // .t // "-"), (.dev // "?"), ((.os // "?")+", "+(.br // "?")), (.pg // "?"), (.net // "?"), (.ref // "Direct")] | @tsv' visits_24.json > vrows.tsv || true
+          printf '<tr style="color:#64748b;text-align:left"><th align="left">Time</th><th align="left">Who</th><th align="left">Location · ISP</th><th align="left">IP</th><th align="left">Device</th><th align="left">Page</th><th align="left">Referrer</th></tr>\n' >> report.html
+          jq -r '[.[]?] | sort_by(.t) | reverse | .[:1000][] | [(.lt // .t // "-"), ((.name // "Anonymous")+(if (.mobile // "")!="" then " (+91 "+.mobile+")" else "" end)), ((.city // "?")+", "+(.country // "?")+" · "+(.isp // "?")), (.ip // "?"), ((.dev // "?")+" / "+(.os // "?")+", "+(.br // "?")), (.pg // "?"), (.ref // "Direct"), (if .proxy==true then "P" else "" end)] | @tsv' visits_24.json > vrows.tsv || true
           if [ -s vrows.tsv ]; then
-            while IFS=$'\t' read -r a b c d e f; do
-              printf '<tr style="border-bottom:1px solid #1e293b"><td style="color:#94a3b8;white-space:nowrap">%s</td><td>%s</td><td style="color:#64748b">%s</td><td>%s</td><td style="color:#64748b">%s</td><td style="color:#64748b">%s</td></tr>\n' "$a" "$b" "$c" "$d" "$e" "$f" >> report.html
+            while IFS=$'\t' read -r a b c d e f g h; do
+              whocol="#e5e7eb"; case "$b" in Anonymous*) whocol="#64748b";; esac
+              flagcol=""; if [ "$h" = "P" ]; then flagcol=" style='color:#ef4444;font-weight:700'"; b="⚠ $b"; fi
+              printf '<tr style="border-bottom:1px solid #1e293b"><td style="color:#94a3b8;white-space:nowrap">%s</td><td style="color:%s"%s>%s</td><td style="color:#cbd5e1">%s</td><td style="color:#94a3b8;font-family:monospace;font-size:11px">%s</td><td style="color:#64748b">%s</td><td>%s</td><td style="color:#64748b">%s</td></tr>\n' "$a" "$whocol" "$flagcol" "$b" "$c" "$d" "$e" "$f" "$g" >> report.html
             done < vrows.tsv
           else
             echo "<tr><td style='color:#64748b'>No visits in the last 24h.</td></tr>" >> report.html
@@ -389,8 +445,9 @@ jobs:
           </table></div>
           EOF
 
-          echo "Report built. 24h visits: ${LAST24}, total: ${TOTAL_VISITS}, sec events: ${SEC_TOTAL}, audit 24h: ${AUDIT_24}, fresh activity: ${HAS_ACTIVITY}"
+          echo "Report built. 24h visits: ${LAST24}, total: ${TOTAL_VISITS}, sec events: ${SEC_TOTAL}, audit 24h: ${AUDIT_24}, fresh activity: ${HAS_ACTIVITY}, digest slot: ${IS_DIGEST}"
           echo "has_activity=${HAS_ACTIVITY}" >> "$GITHUB_OUTPUT"
+          echo "is_digest=${IS_DIGEST}" >> "$GITHUB_OUTPUT"
           echo "subject=🛡 SMC Activity — ${DATE_IST} IST — ${LAST24} visits, ${LEADS_24} new IDs, ${AUDIT_24} actions, ${SEC_WARN_24} alerts" >> "$GITHUB_OUTPUT"
 
       - name: Check email secrets
@@ -404,11 +461,15 @@ jobs:
           fi
 
       - name: Send activity email
-        # Send only when the mail secrets are set AND (there was fresh activity in the
-        # last ~35 min, OR this was a manual run). Prevents empty mails every 30 min.
+        # Send when mail secrets are set AND one of:
+        #  - fresh activity in the last ~35 min (real-time alert), OR
+        #  - this is the 04:00 UTC run (guaranteed daily digest so a mail always arrives), OR
+        #  - a human manually triggered the workflow.
         if: >-
           steps.check.outputs.ready == 'true' &&
-          (steps.report.outputs.has_activity == 'true' || github.event_name == 'workflow_dispatch')
+          (steps.report.outputs.has_activity == 'true' ||
+           steps.report.outputs.is_digest == 'true' ||
+           github.event_name == 'workflow_dispatch')
         uses: dawidd6/action-send-mail@v3
         with:
           server_address: smtp.gmail.com
