@@ -8,6 +8,8 @@ on:
     paths:
       - 'gujarat-monitor/smc_jobs.py'
       - 'gujarat-monitor/sources.json'
+      - 'gujarat-monitor/inject_live_updates.py'
+      - 'docs/auto-live-jobs.js'
       - '.github/workflows/smc-auto-monitor.yml'
 
 permissions:
@@ -37,6 +39,10 @@ jobs:
         run: |
           python3 gujarat-monitor/smc_jobs.py
 
+      - name: Inject live jobs layer into every HTML page
+        run: |
+          python3 gujarat-monitor/inject_live_updates.py
+
       - name: Show monitor report
         if: always()
         run: |
@@ -46,7 +52,7 @@ jobs:
             echo 'Monitor report was not created.'
           fi
 
-      - name: Commit updated Gujarat jobs data
+      - name: Commit updated jobs data and all-page live layer
         run: |
           git config user.name "Gujarat Jobs Monitor"
           git config user.email "actions@github.com"
@@ -54,18 +60,21 @@ jobs:
           git add gujarat-monitor/jobs.json \
                   gujarat-monitor/jobs_state.json \
                   gujarat-monitor/jobs_report.json \
-                  gujarat-jobs.json
+                  gujarat-jobs.json \
+                  gujarat-monitor/inject_live_updates.py \
+                  docs/auto-live-jobs.js \
+                  docs
 
           if git diff --staged --quiet; then
             echo "No changes detected."
             exit 0
           fi
 
-          git commit -m "chore: update Gujarat government jobs"
+          git commit -m "chore: update Gujarat jobs and sync all pages"
 
           for attempt in 1 2 3 4 5; do
             if git pull --rebase origin master && git push origin master; then
-              echo "Jobs data pushed successfully."
+              echo "Jobs data and all-page live layer pushed successfully."
               exit 0
             fi
             echo "Push attempt $attempt failed; retrying..."
