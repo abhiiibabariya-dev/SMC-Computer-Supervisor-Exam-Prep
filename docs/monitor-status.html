@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Live Monitor Health | SMC Prep</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script src="auto-live-jobs.js?v=20260818-4" defer></script>
+<style>
+:root{--bg:#08090b;--card:#111317;--line:rgba(255,255,255,.09);--text:#f5f5f5;--muted:#9ca3af;--green:#86efac;--red:#fca5a5;--yellow:#fde68a}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 20% 10%,rgba(99,102,241,.18),transparent 35%),var(--bg);color:var(--muted);font-family:'Plus Jakarta Sans',system-ui,sans-serif}.wrap{width:min(900px,100%);margin:auto;padding:22px 14px 70px}.nav{display:flex;align-items:center;gap:8px;padding:9px 12px;border:1px solid var(--line);border-radius:15px;background:rgba(17,19,23,.94);position:sticky;top:10px;z-index:20}.brand{color:#fff;font-weight:900;margin-right:auto}.nav a{color:var(--muted);text-decoration:none;font-size:.74rem;font-weight:800;padding:8px 9px}.hero{padding:48px 3px 22px}.eyebrow{color:var(--green);font-size:.68rem;font-weight:900;text-transform:uppercase;letter-spacing:.7px}.hero h1{color:#fff;font-size:clamp(2rem,6vw,3.1rem);margin:7px 0}.hero p{font-size:.8rem;line-height:1.6}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.card{background:rgba(17,19,23,.94);border:1px solid var(--line);border-radius:16px;padding:15px}.card b{display:block;color:#fff;font-size:1rem}.card small{font-size:.64rem}.good{color:var(--green)}.warn{color:var(--yellow)}.bad{color:var(--red)}.list{margin-top:12px}.row{background:rgba(17,19,23,.94);border:1px solid var(--line);border-radius:14px;padding:13px;margin-top:8px}.row b{color:#fff;font-size:.76rem}.row div{font-size:.65rem;margin-top:4px;line-height:1.5}.muted{color:#71717a}@media(max-width:650px){.grid{grid-template-columns:1fr}.nav{overflow:auto;white-space:nowrap}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="nav"><a class="brand" href="index.html">SMC Prep</a><a href="live-jobs.html">Live Jobs</a><a href="index.html">Home</a></nav>
+<header class="hero"><div class="eyebrow">Automation health</div><h1>Live Monitor Status</h1><p>This page reads the latest generated snapshot. It does not run the scraper in the browser, so a temporary source failure cannot break the website.</p></header>
+<section class="grid" id="stats"><div class="card"><b>Loading…</b><small>Checking monitor</small></div></section>
+<section class="list" id="details"></section>
+</div>
+<script>
+(async function(){
+'use strict';
+const BASE='/SMC-Computer-Supervisor-Exam-Prep/';
+const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+try{
+ const [r1,r2]=await Promise.all([fetch(BASE+'gujarat-monitor/jobs_report.json?t='+Date.now(),{cache:'no-store'}),fetch(BASE+'gujarat-monitor/smc-status.json?t='+Date.now(),{cache:'no-store'})]);
+ if(!r1.ok||!r2.ok)throw new Error('Monitor data unavailable');
+ const report=await r1.json(),status=await r2.json();
+ const failed=Number(status?.source_health?.sources_failed||0),total=Number(status?.source_health?.sources_checked||0),errors=Array.isArray(status?.errors)?status.errors:[];
+ document.getElementById('stats').innerHTML=`<div class="card"><b class="${failed?'warn':'good'}">${failed?failed+' source(s) degraded':'HEALTHY'}</b><small>${total||0} SMC sources checked</small></div><div class="card"><b>${Number(report.total_items||0)}</b><small>Live job records</small></div><div class="card"><b>${Number(report.new_items||0)} / ${Number(report.updated_items||0)}</b><small>New / changed this scan</small></div>`;
+ let html=`<div class="row"><b>Last monitor scan</b><div>${esc(report.updated_at||'Unknown')}</div></div><div class="row"><b>Monitor mode</b><div>${esc(report.mode||'live_snapshot')}</div></div><div class="row"><b>SMC status</b><div>${status.answer_key_available?'Answer key available. ':''}${status.result_available?'Result available. ':'Result not reported yet.'}</div></div>`;
+ if(errors.length)html+=errors.map(e=>`<div class="row"><b class="warn">Source temporarily unavailable</b><div>${esc(e.url||e.source||'Unknown')}<br>${esc(e.error||'Unknown error')}</div></div>`).join('');
+ else html+=`<div class="row"><b class="good">No current SMC source errors</b><div class="muted">The last generated status snapshot contains no recorded SMC source errors.</div></div>`;
+ document.getElementById('details').innerHTML=html;
+}catch(e){document.getElementById('stats').innerHTML='<div class="card"><b class="bad">UNAVAILABLE</b><small>Last generated monitor data could not be loaded.</small></div>';document.getElementById('details').innerHTML='<div class="row"><b>Website still protected</b><div>The monitor health page does not control the main site. Try again after the next successful automation run.</div></div>';}
+})();
+</script>
+</body>
+</html>
