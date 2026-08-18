@@ -56,7 +56,7 @@ jobs:
         timeout-minutes: 12
         run: python3 gujarat-monitor/smc_jobs.py
 
-      - name: Restore last good snapshot if scan failed or produced invalid data
+      - name: Restore last good snapshot if scan failed
         if: steps.scan.outcome == 'failure'
         run: |
           echo "Monitor scan failed. Keeping the last known-good snapshot instead of publishing broken/empty data."
@@ -119,17 +119,7 @@ jobs:
         run: |
           git config user.name "Gujarat Jobs Monitor"
           git config user.email "actions@github.com"
-          git add -A gujarat-monitor/jobs.json \
-                  gujarat-monitor/jobs_state.json \
-                  gujarat-monitor/jobs_report.json \
-                  gujarat-monitor/smc-status.json \
-                  gujarat-jobs.json \
-                  docs/gujarat-monitor/smc-status.json \
-                  gujarat-monitor/smc_jobs.py \
-                  gujarat-monitor/inject_live_updates.py \
-                  gujarat-monitor/sync_smc_site_status.py \
-                  docs/auto-live-jobs.js \
-                  docs/*.html
+          git add -A gujarat-monitor gujarat-jobs.json docs .github/workflows/smc-auto-monitor.yml
           if git diff --staged --quiet; then
             echo "No changes detected."
             exit 0
