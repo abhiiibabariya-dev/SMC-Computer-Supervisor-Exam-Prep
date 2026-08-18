@@ -2,8 +2,13 @@ name: Gujarat Government Jobs Monitor
 
 on:
   schedule:
-    - cron: '17 * * * *'
+    - cron: '17,47 * * * *'
   workflow_dispatch:
+  push:
+    paths:
+      - 'gujarat-monitor/smc_jobs.py'
+      - 'gujarat-monitor/sources.json'
+      - '.github/workflows/smc-auto-monitor.yml'
 
 permissions:
   contents: write
@@ -15,7 +20,7 @@ concurrency:
 jobs:
   monitor:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 25
 
     steps:
       - name: Checkout repository
@@ -28,7 +33,7 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Scan Gujarat government and SMC recruitment sources
+      - name: Scan Gujarat government, municipal and SMC recruitment sources
         run: |
           python3 gujarat-monitor/smc_jobs.py
 
@@ -58,13 +63,15 @@ jobs:
 
           git commit -m "chore: update Gujarat government jobs"
 
-          # Rebase before pushing so a normal site/workflow update cannot
-          # make the monitor fail because master moved during the scan.
-          for attempt in 1 2 3; do
-            git pull --rebase origin master && git push origin master && exit 0
+          for attempt in 1 2 3 4 5; do
+            if git pull --rebase origin master && git push origin master; then
+              echo "Jobs data pushed successfully."
+              exit 0
+            fi
             echo "Push attempt $attempt failed; retrying..."
-            sleep 5
+            git rebase --abort 2>/dev/null || true
+            sleep 8
           done
 
-          echo "Unable to push after 3 attempts."
+          echo "Unable to push after 5 attempts."
           exit 1
