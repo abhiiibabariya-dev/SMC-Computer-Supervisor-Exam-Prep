@@ -18,7 +18,7 @@ permissions:
 
 concurrency:
   group: gujarat-government-jobs-monitor
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   monitor:
@@ -36,9 +36,34 @@ jobs:
         with:
           python-version: '3.13'
 
+      - name: Set up Node.js for JavaScript validation
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Create last-good-data backup
+        run: |
+          mkdir -p .monitor-backup
+          cp -f gujarat-jobs.json .monitor-backup/gujarat-jobs.json 2>/dev/null || true
+          cp -f gujarat-monitor/jobs.json .monitor-backup/jobs.json 2>/dev/null || true
+          cp -f gujarat-monitor/jobs_state.json .monitor-backup/jobs_state.json 2>/dev/null || true
+          cp -f gujarat-monitor/jobs_report.json .monitor-backup/jobs_report.json 2>/dev/null || true
+          cp -f gujarat-monitor/smc-status.json .monitor-backup/smc-status.json 2>/dev/null || true
+
       - name: Scan Gujarat government, municipal and SMC recruitment sources
+        id: scan
+        continue-on-error: true
         timeout-minutes: 12
         run: python3 gujarat-monitor/smc_jobs.py
+
+      - name: Restore last good snapshot if scan failed or produced invalid data
+        if: steps.scan.outcome == 'failure'
+        run: |
+          echo "Monitor scan failed. Keeping the last known-good snapshot instead of publishing broken/empty data."
+          cp -f .monitor-backup/gujarat-jobs.json gujarat-jobs.json 2>/dev/null || true
+          cp -f .monitor-backup/jobs.json gujarat-monitor/jobs.json 2>/dev/null || true
+          cp -f .monitor-backup/jobs_state.json gujarat-monitor/jobs_state.json 2>/dev/null || true
+          cp -f .monitor-backup/jobs_report.json gujarat-monitor/jobs_report.json 2>/dev/null || true
 
       - name: Sync official SMC exam and recruitment status
         timeout-minutes: 2
@@ -51,13 +76,31 @@ jobs:
         timeout-minutes: 2
         run: python3 gujarat-monitor/inject_live_updates.py
 
-      - name: Validate generated data and HTML
+      - name: Validate generated data, live layer and all pages
         run: |
           python3 -m json.tool gujarat-monitor/smc-status.json >/dev/null
           python3 -m json.tool gujarat-jobs.json >/dev/null
           test -f docs/auto-live-jobs.js
+          node --check docs/auto-live-jobs.js
           test "$(find docs -type f -name '*.html' | wc -l)" -gt 0
           test "$(python3 -c 'import json; d=json.load(open("gujarat-jobs.json")); print(len(d.get("items", [])))')" -gt 0
+          python3 - <<'PY'
+          from pathlib import Path
+          pages=list(Path('docs').rglob('*.html'))
+          wrong=[]
+          missing=[]
+          for p in pages:
+              t=p.read_text(encoding='utf-8',errors='ignore')
+              if 'auto-live-jobs.js' not in t:
+                  missing.append(str(p))
+              if 'src="/SMC-Computer-Supervisor-Exam-Prep/auto-live-jobs.js' in t:
+                  wrong.append(str(p))
+          if missing:
+              raise SystemExit('Pages missing global live layer: '+', '.join(missing))
+          if wrong:
+              raise SystemExit('Pages contain invalid root live-layer path: '+', '.join(wrong))
+          print(f'Validated {len(pages)} HTML pages with the correct global live layer.')
+          PY
           echo "Validation passed."
 
       - name: Show monitor report
@@ -67,6 +110,10 @@ jobs:
           test ! -f gujarat-monitor/jobs_report.json || cat gujarat-monitor/jobs_report.json
           echo '=== SMC STATUS ==='
           test ! -f gujarat-monitor/smc-status.json || cat gujarat-monitor/smc-status.json
+          if [ "${{ steps.scan.outcome }}" = "failure" ]; then
+            echo '=== WARNING ==='
+            echo 'The source scan failed; last known-good job data was preserved.'
+          fi
 
       - name: Commit jobs, official status and all-page updates
         run: |
@@ -77,14 +124,17 @@ jobs:
                   gujarat-monitor/jobs_report.json \
                   gujarat-monitor/smc-status.json \
                   gujarat-jobs.json \
+                  docs/gujarat-monitor/smc-status.json \
+                  gujarat-monitor/smc_jobs.py \
                   gujarat-monitor/inject_live_updates.py \
                   gujarat-monitor/sync_smc_site_status.py \
-                  docs
+                  docs/auto-live-jobs.js \
+                  docs/*.html
           if git diff --staged --quiet; then
             echo "No changes detected."
             exit 0
           fi
-          git commit -m "chore: refresh official SMC status and all pages"
+          git commit -m "chore: refresh official Gujarat and SMC updates"
           for attempt in 1 2 3 4 5; do
             git fetch origin master
             if git rebase origin/master && git push origin master; then
@@ -92,6 +142,7 @@ jobs:
               exit 0
             fi
             git rebase --abort 2>/dev/null || true
+            echo "Push attempt $attempt failed; retrying..."
             sleep 8
           done
           echo "Unable to push after 5 attempts."
