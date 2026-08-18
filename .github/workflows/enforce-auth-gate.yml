@@ -1,8 +1,6 @@
 name: Enforce Unified Authentication
 
 on:
-  push:
-    branches: [master]
   workflow_dispatch:
 
 permissions:
@@ -10,7 +8,6 @@ permissions:
 
 jobs:
   protect-pages:
-    if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -41,8 +38,6 @@ jobs:
               path.write_text(text, encoding='utf-8')
               changed.append(str(path))
           print(f'Protected {len(changed)} HTML pages')
-          for item in changed:
-              print(item)
 
       - name: Commit page protection changes
         shell: bash
