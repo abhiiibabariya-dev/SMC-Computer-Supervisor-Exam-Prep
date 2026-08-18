@@ -1,94 +1,19 @@
 {
   "sources": [
-    {
-      "name": "SMC Official Recruitment",
-      "url": "https://www.suratmunicipal.gov.in/information/recruitment",
-      "type": "government",
-      "priority": "critical"
-    },
-    {
-      "name": "SMC Official Website",
-      "url": "https://www.suratmunicipal.gov.in",
-      "type": "government",
-      "priority": "critical"
-    },
-    {
-      "name": "OJAS Gujarat",
-      "url": "https://ojas.gujarat.gov.in",
-      "type": "government",
-      "priority": "critical"
-    },
-    {
-      "name": "GPSC",
-      "url": "https://gpsc.gujarat.gov.in",
-      "type": "government",
-      "priority": "high"
-    },
-    {
-      "name": "GSSSB",
-      "url": "https://gsssb.gujarat.gov.in",
-      "type": "government",
-      "priority": "high"
-    },
-    {
-      "name": "GPSSB",
-      "url": "https://gpssb.gujarat.gov.in",
-      "type": "government",
-      "priority": "high"
-    },
-    {
-      "name": "Gujarat High Court Recruitment",
-      "url": "https://gujarathighcourt.nic.in/currentopening",
-      "type": "government",
-      "priority": "high"
-    },
-    {
-      "name": "KCG Gujarat Recruitment",
-      "url": "https://recruitment.gujgoa.edu.in",
-      "type": "government",
-      "priority": "medium"
-    },
-    {
-      "name": "KCG Official Recruitment",
-      "url": "https://kcg.gujarat.gov.in/recruitments",
-      "type": "government",
-      "priority": "medium"
-    },
-    {
-      "name": "Gyan Sahayak Gujarat",
-      "url": "https://gyansahayak.ssgujarat.org",
-      "type": "government",
-      "priority": "medium"
-    },
-    {
-      "name": "Gujarat Primary Education Recruitment",
-      "url": "https://rte.orpgujarat.com",
-      "type": "government",
-      "priority": "medium"
-    },
-    {
-      "name": "Gujarat Police",
-      "url": "https://police.gujarat.gov.in",
-      "type": "government",
-      "priority": "high"
-    },
-    {
-      "name": "Gujarat Education Department",
-      "url": "https://education.gujarat.gov.in",
-      "type": "government",
-      "priority": "high"
-    },
-    {
-      "name": "Gujarat Health Department",
-      "url": "https://gujhealth.gujarat.gov.in",
-      "type": "government",
-      "priority": "high"
-    },
-    {
-      "name": "Gujarat Government",
-      "url": "https://gujaratindia.gov.in",
-      "type": "government",
-      "priority": "high"
-    }
+    {"name":"SMC Official Recruitment","url":"https://www.suratmunicipal.gov.in/information/recruitment","type":"government","priority":"critical"},
+    {"name":"SMC Official Website","url":"https://www.suratmunicipal.gov.in","type":"government","priority":"critical"},
+    {"name":"OJAS Gujarat","url":"https://ojas.gujarat.gov.in","type":"government","priority":"critical"},
+    {"name":"GPSC","url":"https://gpsc.gujarat.gov.in","type":"government","priority":"high"},
+    {"name":"GSSSB","url":"https://gsssb.gujarat.gov.in","type":"government","priority":"high"},
+    {"name":"GPSSB","url":"https://gpssb.gujarat.gov.in","type":"government","priority":"high"},
+    {"name":"Gujarat High Court Recruitment","url":"https://gujarathighcourt.nic.in/currentopenings","type":"government","priority":"high"},
+    {"name":"KCG Gujarat Recruitment","url":"https://kcg.gujarat.gov.in/recruitments","type":"government","priority":"medium"},
+    {"name":"KCG Official Recruitment","url":"https://kcg.gujarat.gov.in/recruitments","type":"government","priority":"medium"},
+    {"name":"Gyan Sahayak Gujarat","url":"https://gyansahayak.ssgujarat.org","type":"government","priority":"medium"},
+    {"name":"Gujarat Primary Education Recruitment","url":"https://rte.orpgujarat.com","type":"government","priority":"medium"},
+    {"name":"Gujarat Police","url":"https://police.gujarat.gov.in","type":"government","priority":"high"},
+    {"name":"Gujarat Education Department","url":"https://education.gujarat.gov.in","type":"government","priority":"high"},
+    {"name":"Gujarat Health Department","url":"https://gujhealth.gujarat.gov.in","type":"government","priority":"high"},
+    {"name":"Gujarat Government","url":"https://gujaratindia.gov.in","type":"government","priority":"high"}
   ]
 }
