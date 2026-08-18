@@ -3,12 +3,44 @@
   "official_sources": [
     "https://www.suratmunicipal.gov.in/Information/RecruitmentNews",
     "https://www.suratmunicipal.gov.in/Information/AnswerKey",
-    "https://www.suratmunicipal.gov.in/Information/RecruitmentDashboard"
+    "https://www.suratmunicipal.gov.in/Information/RecruitmentDashboard",
+    "https://www.suratmunicipal.gov.in/Information/RecruitmentResult",
+    "https://www.suratmunicipal.gov.in/Information/SelectionWaitingList"
   ],
-  "exam_date": "2026-07-12",
-  "exam_completed": true,
+  "events": [
+    {
+      "id": "smc-2026-07-12-pro",
+      "date": "2026-07-12",
+      "status": "completed",
+      "title": "Public Relation Officer written examination",
+      "cadres": ["Public Relation Officer", "PRO"],
+      "source": "https://www.suratmunicipal.gov.in/Information/RecruitmentNews"
+    },
+    {
+      "id": "smc-2026-07-26-postponed",
+      "date": "2026-07-26",
+      "status": "postponed",
+      "title": "Written examination postponed",
+      "cadres": ["Laboratory Technician", "Third Class Clerk (Audit)", "Pharmacist (GUHP)"],
+      "source": "https://www.suratmunicipal.gov.in/Information/RecruitmentNews"
+    },
+    {
+      "id": "smc-2026-08-09",
+      "date": "2026-08-09",
+      "status": "scheduled",
+      "title": "Written examination date shown in official SMC notice",
+      "cadres": [],
+      "source": "https://www.suratmunicipal.gov.in/Information/RecruitmentNews"
+    }
+  ],
   "answer_key_available": true,
+  "result_available": false,
   "application_status": "closed",
   "application_deadline": "2026-04-15",
-  "errors": []
+  "errors": [],
+  "source_health": {
+    "sources_checked": 5,
+    "sources_ok": 5,
+    "sources_failed": 0
+  }
 }
