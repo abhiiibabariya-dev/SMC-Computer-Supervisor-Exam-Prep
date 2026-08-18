@@ -1,0 +1,90 @@
+name: SMC Site Live Sync
+
+on:
+  push:
+    branches: [master]
+  schedule:
+    - cron: '*/30 * * * *'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: smc-site-live-sync
+  cancel-in-progress: true
+
+jobs:
+  sync:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Synchronize time-sensitive site content
+        shell: python
+        run: |
+          from pathlib import Path
+          import re
+          from datetime import datetime, timezone
+
+          root = Path('docs')
+          if not root.exists():
+              raise SystemExit('docs directory not found')
+
+          changed = []
+          script = '<script src="smc-live-sync.js"></script>'
+
+          replacements = [
+              ('🔥 EXAM ON 12 JULY 2026 — Final Revision Time! Tap for the Exam-Day Guide', '✅ EXAM COMPLETED — 12 JULY 2026 | Answer Key & Result Updates'),
+              ('📅 EXAM DATE OUT — Written Exam on 12 July 2026! Call Letter Coming Soon', '✅ EXAM COMPLETED — Written Exam held on 12 July 2026'),
+              ('Call Letter Coming Soon', 'Call Letter Phase Closed'),
+              ('Exam Date, Admit Card — Not Yet Announced', 'Exam Completed — 12 July 2026'),
+              ('NOW — Exam Prep', 'NOW — Post-Exam Updates'),
+              ('Before 12 July 2026', 'Before 12 July 2026 ✓'),
+              ('Written Exam: To Be Announced', 'Written Exam: Completed on 12 July 2026'),
+              ('Admit Card: Coming Soon', 'Admit Card: Phase Closed'),
+              ('Exam is close!', 'Exam completed — post-exam updates are active.'),
+          ]
+
+          for path in root.rglob('*.html'):
+              text = path.read_text(encoding='utf-8', errors='ignore')
+              original = text
+
+              for old, new in replacements:
+                  text = text.replace(old, new)
+
+              # Fix stale schema metadata on the homepage.
+              if path.name == 'index.html':
+                  text = text.replace('"eventStatus": "https://schema.org/EventScheduled"', '"eventStatus": "https://schema.org/EventCompleted"')
+                  if '"endDate": "2026-07-12T10:00:00+05:30"' not in text:
+                      text = text.replace('"startDate": "2026-07-12T10:00:00+05:30",', '"startDate": "2026-07-12T10:00:00+05:30",\n      "endDate": "2026-07-12T13:00:00+05:30",')
+                  text = text.replace('live exam countdown. Prepare for Clerk, Staff Nurse, Driver &amp; PRO posts. Exam: 12 July 2026.', 'post-exam updates, answer keys, results and merit lists for Clerk, Staff Nurse, Driver &amp; PRO posts. Written exam held: 12 July 2026.')
+
+              # Inject the safety-net script into every HTML page exactly once.
+              if script not in text and '</head>' in text:
+                  text = text.replace('</head>', '    ' + script + '\n</head>', 1)
+
+              if text != original:
+                  path.write_text(text, encoding='utf-8')
+                  changed.append(str(path))
+
+          if changed:
+              print('Updated', len(changed), 'HTML files')
+              for p in changed:
+                  print(' -', p)
+          else:
+              print('No stale HTML content needed changes')
+
+      - name: Commit synchronized site
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs
+          if git diff --cached --quiet; then
+            echo 'No changes to commit.'
+            exit 0
+          fi
+          git commit -m 'Auto-sync live exam and recruitment status'
+          git push
