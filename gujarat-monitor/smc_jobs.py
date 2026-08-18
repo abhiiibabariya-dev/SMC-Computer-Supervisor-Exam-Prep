@@ -5,6 +5,7 @@ import html as html_lib
 import json
 import re
 import ssl
+import time
 from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import urljoin
@@ -18,8 +19,9 @@ STATE = BASE / "jobs_state.json"
 PUBLIC = ROOT / "gujarat-jobs.json"
 REPORT = BASE / "jobs_report.json"
 
-UA = "Mozilla/5.0 (X11; Linux x86_64) Gujarat-Govt-Job-Monitor/4.0"
-TIMEOUT = 12
+UA = "Mozilla/5.0 (X11; Linux x86_64) Gujarat-Govt-Job-Monitor/4.1"
+TIMEOUT = 10
+RETRIES = 3
 SSL_FALLBACK = ssl._create_unverified_context()
 
 KEYWORDS = [
@@ -32,7 +34,6 @@ KEYWORDS = [
     "laboratory", "lab technician", "pharmacist", "m phw", "f hw", "talati",
     "junior clerk", "senior clerk"
 ]
-SMC_TERMS = ("surat municipal", "suratmunicipal.gov.in", "computer supervisor", "smc")
 DISCOVERY_TERMS = ("recruitment", "vacancy", "vacancies", "job", "jobs", "exam", "admit card", "answer key", "result", "selection", "notification")
 
 
@@ -56,12 +57,24 @@ def fetch(url):
         "Accept": "text/html,application/xhtml+xml,application/xml,application/rss+xml,text/xml;q=0.9,*/*;q=0.8",
         "Accept-Language": "en-IN,en;q=0.9,gu;q=0.8"
     })
-    try:
-        with urlopen(req, timeout=TIMEOUT) as r:
-            return r.status, r.read(), r.geturl()
-    except Exception:
-        with urlopen(req, timeout=TIMEOUT, context=SSL_FALLBACK) as r:
-            return r.status, r.read(), r.geturl()
+    last_error = None
+    for attempt in range(1, RETRIES + 1):
+        try:
+            with urlopen(req, timeout=TIMEOUT) as r:
+                return r.status, r.read(), r.geturl()
+        except Exception as e:
+            last_error = e
+            # Some government portals intermittently return 502/503/504.
+            # Retry those failures before recording the source as unavailable.
+            if attempt < RETRIES:
+                time.sleep(attempt)
+                try:
+                    with urlopen(req, timeout=TIMEOUT, context=SSL_FALLBACK) as r:
+                        return r.status, r.read(), r.geturl()
+                except Exception as e2:
+                    last_error = e2
+                    time.sleep(attempt)
+    raise last_error
 
 
 def clean(text):
@@ -98,8 +111,6 @@ def is_discovery(src):
 def relevant(title, url, src):
     text = f"{title} {url}".lower()
     if is_discovery(src):
-        # Google News query URLs contain generic keywords, so NEVER use the
-        # query itself to qualify an article. The article title must qualify.
         title_l = title.lower()
         if not any(k in title_l for k in DISCOVERY_TERMS):
             return False
@@ -111,8 +122,6 @@ def relevant(title, url, src):
 
 
 def is_smc(name, url, title, src):
-    # Only official SMC sources or an article whose TITLE explicitly identifies
-    # SMC count as SMC priority. The source name alone is not trusted.
     text = f"{url} {title}".lower()
     if "suratmunicipal.gov.in" in text or "surat municipal corporation" in text or "computer supervisor" in text:
         return True
@@ -160,7 +169,6 @@ def scan_source(src):
                 "source_type": src.get("type", "government"),
                 "checked_at": datetime.now(timezone.utc).isoformat()
             })
-        # Keep one official source card, but don't manufacture a discovery item.
         if not is_discovery(src) and (relevant(name, base_url, src) or relevant(source_text[:5000], base_url, src)):
             found.append({
                 "id": make_id(name, final_url, name),
@@ -179,15 +187,13 @@ def scan_source(src):
 def main():
     sources = load_json(SOURCES, {"sources": []}).get("sources", [])
     results = []
-    # Parallel fetching prevents one slow government server from blocking the
-    # entire live update cycle.
     with concurrent.futures.ThreadPoolExecutor(max_workers=8) as pool:
         futures = [pool.submit(scan_source, src) for src in sources]
         for future in concurrent.futures.as_completed(futures):
             result = future.result()
             results.append(result)
             if result["error"]:
-                print(f"[ERROR] {result['source']} -> {result['error']['error']}")
+                print(f"[WARN] {result['source']} unavailable -> {result['error']['error']}")
             else:
                 print(f"[OK] {result['source']} -> {len(result['items'])} relevant updates")
 
@@ -197,12 +203,7 @@ def main():
         if r["error"]:
             errors.append(r["error"])
 
-    # IMPORTANT: this is a LIVE snapshot. Do not merge old records forever.
-    # Old Google News articles and expired notices therefore disappear on the
-    # next successful scan instead of remaining on the site indefinitely.
-    unique = {}
-    for item in found:
-        unique[item["id"]] = item
+    unique = {item["id"]: item for item in found}
     all_jobs = list(unique.values())
     rank = {"critical": 0, "high": 1, "medium": 2}
     all_jobs.sort(key=lambda x: (rank.get(x.get("priority"), 9), x.get("source", "").lower(), x.get("title", "").lower()))
@@ -231,9 +232,8 @@ def main():
     print(f"Sources scanned : {len(sources)}")
     print(f"Live items      : {len(all_jobs)}")
     print(f"SMC priority    : {smc_count}")
-    print(f"Errors          : {len(errors)}")
+    print(f"Warnings        : {len(errors)}")
     print("Mode            : LIVE SNAPSHOT")
-    print(f"Data file       : {PUBLIC}")
     print("==========================================")
 
 
