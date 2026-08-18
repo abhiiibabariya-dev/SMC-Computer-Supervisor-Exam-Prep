@@ -10,6 +10,7 @@
   const OFFICIAL_SMC='https://www.suratmunicipal.gov.in/Information/RecruitmentNews';
   const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const isSMC=x=>/suratmunicipal\.gov\.in|surat municipal corporation|\bsmc\b|computer supervisor/i.test((x.url||'')+' '+(x.title||''));
+  const isUsefulDiscovery=x=>x.source_type!=='discovery'||/(2026|recruitment|vacanc|admit card|answer key|result|selection|notification|apply online|apprentice)/i.test(x.title||'');
   const rank=x=>isSMC(x)?0:(x.priority||'medium')==='high'?1:2;
 
   function fmtDate(iso){
@@ -46,9 +47,7 @@
         t=t.replace(/EXAM ON 12 JULY 2026/i,'PRO EXAM COMPLETED — 12 JULY 2026');
         t=t.replace(/A live countdown switches on here the moment SMC announces the date\.\s*Until then[^.]*\./i,'The PRO exam was held on 12 July 2026. Track official answer key, result and selection updates here.');
       }
-      if(postponed.length && /26\s*July\s*2026/i.test(t)){
-        t=t.replace(/26\s*July\s*2026\s*[—-]?\s*Final Revision Time!/i,'26 July 2026 — EXAM POSTPONED');
-      }
+      if(postponed.length && /26\s*July\s*2026/i.test(t)) t=t.replace(/26\s*July\s*2026\s*[—-]?\s*Final Revision Time!/i,'26 July 2026 — EXAM POSTPONED');
       if(t!==raw) el.textContent=t;
     });
   }
@@ -61,22 +60,17 @@
   }
 
   function placeRoot(root){
-    // Do not insert before the navigation or at document.body.firstChild.
-    // Prefer the existing News/Jobs section, otherwise append to main content.
     const anchor=document.querySelector('.news-section, #jobList, main');
     if(anchor && anchor.parentNode){
-      if(anchor.classList?.contains('news-section')) anchor.parentNode.insertBefore(root,anchor.nextSibling);
-      else if(anchor.id==='jobList') anchor.parentNode.insertBefore(root,anchor.nextSibling);
+      if(anchor.classList?.contains('news-section')||anchor.id==='jobList') anchor.parentNode.insertBefore(root,anchor.nextSibling);
       else anchor.appendChild(root);
-    }else{
-      document.body.appendChild(root);
-    }
+    }else document.body.appendChild(root);
   }
 
   function renderJobs(data,status){
     if(!data||!Array.isArray(data.items)) return;
     styles();
-    const items=data.items.filter(x=>x&&x.url&&x.title).sort((a,b)=>rank(a)-rank(b)).slice(0,40);
+    const items=data.items.filter(x=>x&&x.url&&x.title&&isUsefulDiscovery(x)).sort((a,b)=>rank(a)-rank(b)).slice(0,40);
     const events=eventSummary(status);
     const eventHtml=events.map(e=>`<a class="gj-item" href="${esc(e.url)}" target="_blank" rel="noopener noreferrer"><div class="gj-org">SMC OFFICIAL STATUS</div><div class="gj-name">${esc(e.text)}</div><div class="gj-status">${esc(e.status)}</div>${e.cadres.length?`<div class="gj-cadres">${esc(e.cadres.join(' • '))}</div>`:''}</a>`).join('');
     const cards=items.map(x=>`<a class="gj-item" href="${esc(x.url)}" target="_blank" rel="noopener noreferrer"><div class="gj-org">${esc(x.source||'Gujarat Government')}</div><div class="gj-name">${esc(x.title)}</div><span class="gj-tag">${isSMC(x)?'⭐ SMC PRIORITY':'LIVE UPDATE'}</span></a>`).join('');
