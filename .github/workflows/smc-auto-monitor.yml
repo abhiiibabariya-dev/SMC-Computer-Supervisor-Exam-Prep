@@ -2,7 +2,7 @@ name: Gujarat Government Jobs Monitor
 
 on:
   schedule:
-    - cron: '17,47 * * * *'
+    - cron: '7,22,37,52 * * * *'
   workflow_dispatch:
   push:
     paths:
@@ -37,32 +37,37 @@ jobs:
           python-version: '3.x'
 
       - name: Scan Gujarat government, municipal and SMC recruitment sources
-        run: |
-          python3 gujarat-monitor/smc_jobs.py
+        run: python3 gujarat-monitor/smc_jobs.py
 
-      - name: Sync official SMC exam/recruitment status
+      - name: Sync official SMC exam and recruitment status
         run: |
           python3 gujarat-monitor/sync_smc_site_status.py
           mkdir -p docs/gujarat-monitor
           cp gujarat-monitor/smc-status.json docs/gujarat-monitor/smc-status.json
 
-      - name: Inject live layer into every HTML page
+      - name: Update every HTML page from official status
+        run: python3 gujarat-monitor/inject_live_updates.py
+
+      - name: Validate generated data and HTML
         run: |
-          python3 gujarat-monitor/inject_live_updates.py
+          python3 -m json.tool gujarat-monitor/smc-status.json >/dev/null
+          python3 -m json.tool gujarat-jobs.json >/dev/null
+          test -f docs/auto-live-jobs.js
+          test "$(find docs -type f -name '*.html' | wc -l)" -gt 0
+          echo "Validation passed."
 
       - name: Show monitor report
         if: always()
         run: |
           echo '=== JOB MONITOR ==='
-          if [ -f gujarat-monitor/jobs_report.json ]; then cat gujarat-monitor/jobs_report.json; fi
+          test ! -f gujarat-monitor/jobs_report.json || cat gujarat-monitor/jobs_report.json
           echo '=== SMC STATUS ==='
-          if [ -f gujarat-monitor/smc-status.json ]; then cat gujarat-monitor/smc-status.json; fi
+          test ! -f gujarat-monitor/smc-status.json || cat gujarat-monitor/smc-status.json
 
-      - name: Commit updated jobs, status and all-page live layer
+      - name: Commit jobs, official status and all-page updates
         run: |
           git config user.name "Gujarat Jobs Monitor"
           git config user.email "actions@github.com"
-
           git add -A gujarat-monitor/jobs.json \
                   gujarat-monitor/jobs_state.json \
                   gujarat-monitor/jobs_report.json \
@@ -71,23 +76,16 @@ jobs:
                   gujarat-monitor/inject_live_updates.py \
                   gujarat-monitor/sync_smc_site_status.py \
                   docs
-
           if git diff --staged --quiet; then
             echo "No changes detected."
             exit 0
           fi
-
-          git commit -m "chore: refresh SMC status and sync every page"
-
+          git commit -m "chore: refresh official SMC status and all pages"
           for attempt in 1 2 3 4 5; do
-            if git pull --rebase origin master && git push origin master; then
-              echo "Jobs, official SMC status and all-page updates pushed successfully."
-              exit 0
-            fi
-            echo "Push attempt $attempt failed; retrying..."
+            git fetch origin master
+            git rebase origin/master && git push origin master && exit 0
             git rebase --abort 2>/dev/null || true
             sleep 8
           done
-
           echo "Unable to push after 5 attempts."
           exit 1
