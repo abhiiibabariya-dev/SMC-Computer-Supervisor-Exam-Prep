@@ -1,26 +1,21 @@
 {
-  "last_run": "2026-08-18T14:57:21.727385+00:00",
-  "total_items": 720,
-  "new_items": 720,
+  "last_run": "2026-08-18T15:25:49.819355+00:00",
+  "total_items": 715,
+  "new_items": 715,
   "errors": [
+    {
+      "source": "GPSSB",
+      "url": "https://gpssb.gujarat.gov.in",
+      "error": "<urlopen error [Errno 101] Network is unreachable>"
+    },
     {
       "source": "GPSC",
       "url": "https://gpsc.gujarat.gov.in",
       "error": "<urlopen error [Errno 101] Network is unreachable>"
     },
     {
-      "source": "OJAS Gujarat",
-      "url": "https://ojas.gujarat.gov.in",
-      "error": "<urlopen error [Errno 101] Network is unreachable>"
-    },
-    {
       "source": "GSSSB",
       "url": "https://gsssb.gujarat.gov.in",
-      "error": "<urlopen error [Errno 101] Network is unreachable>"
-    },
-    {
-      "source": "GPSSB",
-      "url": "https://gpssb.gujarat.gov.in",
       "error": "<urlopen error [Errno 101] Network is unreachable>"
     },
     {
@@ -34,13 +29,18 @@
       "error": "<urlopen error _ssl.c:1015: The handshake operation timed out>"
     },
     {
-      "source": "Gujarat Forest and Environment",
-      "url": "https://forests.gujarat.gov.in",
-      "error": "<urlopen error _ssl.c:1015: The handshake operation timed out>"
+      "source": "OJAS Gujarat",
+      "url": "https://ojas.gujarat.gov.in",
+      "error": "<urlopen error [Errno 101] Network is unreachable>"
     },
     {
       "source": "Gujarat Health Department",
       "url": "https://gujhealth.gujarat.gov.in",
+      "error": "<urlopen error _ssl.c:1015: The handshake operation timed out>"
+    },
+    {
+      "source": "Gujarat Forest and Environment",
+      "url": "https://forests.gujarat.gov.in",
       "error": "<urlopen error _ssl.c:1015: The handshake operation timed out>"
     },
     {
@@ -59,13 +59,13 @@
       "error": "The read operation timed out"
     },
     {
-      "source": "Ahmedabad Municipal Corporation",
-      "url": "https://ahmedabadcity.gov.in",
+      "source": "Ahmedabad Municipal Recruitment",
+      "url": "https://ahmedabadcity.gov.in/AMCWEBREC/HRMS/FrmVacancyDetail.aspx",
       "error": "<urlopen error timed out>"
     },
     {
-      "source": "Ahmedabad Municipal Recruitment",
-      "url": "https://ahmedabadcity.gov.in/AMCWEBREC/HRMS/FrmVacancyDetail.aspx",
+      "source": "Ahmedabad Municipal Corporation",
+      "url": "https://ahmedabadcity.gov.in",
       "error": "<urlopen error timed out>"
     },
     {
