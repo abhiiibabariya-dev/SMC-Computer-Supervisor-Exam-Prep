@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import json, hashlib, re, ssl
+import json, hashlib, re, ssl, html as html_lib
 from pathlib import Path
 from urllib.request import Request, urlopen
 from urllib.parse import urljoin
@@ -12,11 +12,8 @@ JOBS = BASE / "jobs.json"
 STATE = BASE / "jobs_state.json"
 PUBLIC = ROOT / "gujarat-jobs.json"
 
-UA = "Mozilla/5.0 (X11; Linux x86_64) Gujarat-Govt-Job-Monitor/2.0"
+UA = "Mozilla/5.0 (X11; Linux x86_64) Gujarat-Govt-Job-Monitor/3.0"
 TIMEOUT = 30
-
-# Used only when a government server has a broken/expired local certificate.
-# We still prefer normal certificate validation first.
 SSL_FALLBACK = ssl._create_unverified_context()
 
 KEYWORDS = [
@@ -27,7 +24,9 @@ KEYWORDS = [
     "merit", "selection", "provisional", "corrigendum",
     "computer supervisor", "supervisor", "clerk", "driver",
     "staff nurse", "engineer", "technician", "assistant",
-    "officer", "teacher", "police", "constable"
+    "officer", "teacher", "police", "constable", "forest guard",
+    "apprentice", "laboratory", "lab technician", "pharmacist",
+    "mpHW", "fHW", "talati", "junior clerk", "senior clerk"
 ]
 
 SMC_WORDS = [
@@ -54,10 +53,9 @@ def save_json(path, data):
 def fetch(url):
     req = Request(url, headers={
         "User-Agent": UA,
-        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+        "Accept": "text/html,application/xhtml+xml,application/xml,application/rss+xml,text/xml;q=0.9,*/*;q=0.8",
         "Accept-Language": "en-IN,en;q=0.9,gu;q=0.8"
     })
-
     try:
         with urlopen(req, timeout=TIMEOUT) as r:
             return r.status, r.read(), r.geturl()
@@ -69,27 +67,59 @@ def fetch(url):
             raise e
 
 def clean(text):
+    text = html_lib.unescape(text or "")
     text = re.sub(r"<script.*?</script>", " ", text, flags=re.I|re.S)
     text = re.sub(r"<style.*?</style>", " ", text, flags=re.I|re.S)
     text = re.sub(r"<[^>]+>", " ", text)
-    text = re.sub(r"&nbsp;", " ", text, flags=re.I)
-    text = re.sub(r"&amp;", "&", text, flags=re.I)
     text = re.sub(r"\s+", " ", text)
     return text.strip()
 
-def links(html, base_url):
+def links(document, base_url):
     result = []
+
+    # Normal HTML pages.
     for m in re.finditer(
         r'<a[^>]+href=["\']([^"\']+)["\'][^>]*>(.*?)</a>',
-        html,
+        document,
         flags=re.I|re.S
     ):
-        href = m.group(1).strip()
+        href = html_lib.unescape(m.group(1).strip())
         title = clean(m.group(2))
         if not href or href.startswith(("#", "javascript:", "mailto:", "tel:")):
             continue
         result.append((urljoin(base_url, href), title))
-    return result
+
+    # RSS/Atom discovery feeds. This lets the monitor discover jobs published
+    # across the wider web while still ranking official Gujarat/SMC sources first.
+    for m in re.finditer(
+        r'<item\b.*?<title[^>]*>(.*?)</title>.*?<link[^>]*>(.*?)</link>',
+        document,
+        flags=re.I|S
+    ):
+        title = clean(m.group(1))
+        href = clean(m.group(2)).strip()
+        if href:
+            result.append((html_lib.unescape(href), title))
+
+    for m in re.finditer(
+        r'<entry\b.*?<title[^>]*>(.*?)</title>.*?<link[^>]+href=["\']([^"\']+)["\']',
+        document,
+        flags=re.I|re.S
+    ):
+        title = clean(m.group(1))
+        href = html_lib.unescape(m.group(2).strip())
+        if href:
+            result.append((urljoin(base_url, href), title))
+
+    # De-duplicate links while preserving order.
+    seen = set()
+    out = []
+    for u, title in result:
+        key = (u, title)
+        if key not in seen:
+            seen.add(key)
+            out.append((u, title))
+    return out
 
 def relevant(title, url):
     s = (title + " " + url).lower()
@@ -103,9 +133,9 @@ def priority(name, url, title):
     if is_smc(name, url, title):
         return "critical"
     s = f"{name} {url} {title}".lower()
-    if "gpsc" in s or "gsssb" in s or "gp ssb" in s or "ojas" in s:
+    if "gpsc" in s or "gsssb" in s or "gpssb" in s or "ojas" in s:
         return "high"
-    if "government" in s or "gov.in" in s or "nic.in" in s:
+    if "government" in s or "gov.in" in s or "nic.in" in s or "municipal" in s:
         return "high"
     return "medium"
 
@@ -116,8 +146,6 @@ def make_id(source, url, title):
 def main():
     data = load_json(SOURCES, {"sources": []})
     sources = data.get("sources", [])
-
-    old = load_json(STATE, {})
     old_jobs = load_json(JOBS, [])
 
     found = []
@@ -130,15 +158,9 @@ def main():
 
         try:
             status, body, final_url = fetch(base_url)
-
-            # Decode as generously as possible.
-            html = body.decode("utf-8", errors="ignore")
-
-            candidates = links(html, final_url)
-
-            # Also consider the source homepage itself.
-            source_text = clean(html)
-
+            document = body.decode("utf-8", errors="ignore")
+            candidates = links(document, final_url)
+            source_text = clean(document)
             local = []
 
             for u, title in candidates:
@@ -159,10 +181,9 @@ def main():
                     "source_type": src.get("type", "government"),
                     "checked_at": datetime.now(timezone.utc).isoformat()
                 }
-
                 local.append(item)
 
-            # If page itself strongly looks like recruitment, preserve it.
+            # Preserve the source page when it itself is a recruitment/update page.
             if relevant(name, base_url) or relevant(source_text[:5000], base_url):
                 item = {
                     "id": make_id(name, base_url, name),
@@ -177,21 +198,14 @@ def main():
                     local.append(item)
 
             found.extend(local)
-
             print(f"[OK] {name} -> {len(local)} relevant updates")
 
         except Exception as e:
-            errors.append({
-                "source": name,
-                "url": base_url,
-                "error": str(e)
-            })
+            errors.append({"source": name, "url": base_url, "error": str(e)})
             print(f"[ERROR] {name} -> {e}")
 
-    # Merge with previous records so jobs do not disappear simply because
-    # a website temporarily fails or removes an old link.
+    # Keep historical items so temporary website outages never erase data.
     merged = {x.get("id"): x for x in old_jobs if x.get("id")}
-
     new_count = 0
     for item in found:
         if item["id"] not in merged:
@@ -199,18 +213,15 @@ def main():
         merged[item["id"]] = item
 
     all_jobs = list(merged.values())
-
-    # SMC first, then priority, then source/title.
     rank = {"critical": 0, "high": 1, "medium": 2}
-    all_jobs.sort(
-        key=lambda x: (
-            rank.get(x.get("priority"), 9),
-            x.get("source", "").lower(),
-            x.get("title", "").lower()
-        )
-    )
+    all_jobs.sort(key=lambda x: (
+        rank.get(x.get("priority"), 9),
+        x.get("source", "").lower(),
+        x.get("title", "").lower()
+    ))
 
     now = datetime.now(timezone.utc).isoformat()
+    smc_count = sum(1 for x in all_jobs if x.get("priority") == "critical")
 
     report = {
         "updated_at": now,
@@ -219,32 +230,23 @@ def main():
         "new_items": new_count,
         "total_items": len(all_jobs),
         "errors": errors,
-        "smc_items": sum(
-            1 for x in all_jobs
-            if x.get("priority") == "critical"
-        )
+        "smc_items": smc_count
     }
 
     save_json(JOBS, all_jobs)
-
-    # Public machine-readable data for the website.
-    public_data = {
+    save_json(PUBLIC, {
         "updated_at": now,
         "region": "Gujarat",
         "focus": "Gujarat Government Jobs and SMC Recruitment",
         "total": len(all_jobs),
         "items": all_jobs
-    }
-
-    save_json(PUBLIC, public_data)
-
+    })
     save_json(STATE, {
         "last_run": now,
         "total_items": len(all_jobs),
         "new_items": new_count,
         "errors": errors
     })
-
     save_json(BASE / "jobs_report.json", report)
 
     print()
@@ -255,7 +257,7 @@ def main():
     print(f"Found this scan : {len(found)}")
     print(f"New items       : {new_count}")
     print(f"Total saved     : {len(all_jobs)}")
-    print(f"SMC priority    : {report['smc_items']}")
+    print(f"SMC priority    : {smc_count}")
     print(f"Errors          : {len(errors)}")
     print(f"Data file       : {PUBLIC}")
     print("==========================================")
