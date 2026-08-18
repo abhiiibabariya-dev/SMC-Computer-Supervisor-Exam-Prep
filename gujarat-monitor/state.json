@@ -1,0 +1,55 @@
+{
+  "OJAS Gujarat": {
+    "url": "https://ojas.gujarat.gov.in",
+    "status": 200,
+    "hash": "e71cab5ca45b09eb7422fa50e1a7185eb327ef55fa0d0f0d98daa0394f601c7a",
+    "checked_at": "2026-08-18T09:17:56.580374+00:00"
+  },
+  "GPSC": {
+    "url": "https://gpsc.gujarat.gov.in",
+    "status": 200,
+    "hash": "4198bdf8704b8e6e691aa3b286185755ecbead652f455fa13e49b97c7bbee354",
+    "checked_at": "2026-08-18T09:18:00.735024+00:00"
+  },
+  "GSSSB": {
+    "url": "https://gsssb.gujarat.gov.in",
+    "status": 200,
+    "hash": "3b880d534340b71f10396de6b5d73275708f45acf86579816082ff5f8b5182d0",
+    "checked_at": "2026-08-18T09:18:03.566881+00:00"
+  },
+  "GPSSB": {
+    "url": "https://gpssb.gujarat.gov.in",
+    "status": 200,
+    "hash": "5776156afec434da626a3e2c90ed439016e8f1bbe465cee84b80104db27e9b91",
+    "checked_at": "2026-08-18T09:18:06.953845+00:00"
+  },
+  "Gujarat High Court Recruitment": {
+    "url": "https://gujarathighcourt.nic.in/currentopenings",
+    "status": 200,
+    "hash": "2de7289ceee7405c1ca48c7d880ec30f2ff4ec1b1c06cc0f5e0edb4660fc6e8a",
+    "checked_at": "2026-08-18T09:18:08.343884+00:00"
+  },
+  "KCG Gujarat Recruitment": {
+    "url": "https://recruitment.gujgov.edu.in",
+    "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1082)>",
+    "checked_at": "2026-08-18T09:18:08.938790+00:00"
+  },
+  "KCG Official Recruitment": {
+    "url": "https://kcg.gujarat.gov.in/recruitments",
+    "status": 200,
+    "hash": "c2708627305654b7d78ac5a319ca61cb3ed6b1f36907f0a4c7767c2bc24c906b",
+    "checked_at": "2026-08-18T09:18:24.550620+00:00"
+  },
+  "Gyan Sahayak Gujarat": {
+    "url": "https://gyansahayak.ssgujarat.org",
+    "status": 200,
+    "hash": "e54032ca997bd74afb4e810e93859f7e0985711a0e8918cead2261127e64bc29",
+    "checked_at": "2026-08-18T09:18:24.922875+00:00"
+  },
+  "Gujarat Primary Education Recruitment": {
+    "url": "https://htatph.dpegujarat.in",
+    "status": 200,
+    "hash": "e79cbe70cc1c689aecf9913c19042bf603e40c8d8cabade95ab314cb0bf0500d",
+    "checked_at": "2026-08-18T09:18:25.277563+00:00"
+  }
+}
