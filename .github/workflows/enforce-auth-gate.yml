@@ -2,13 +2,6 @@ name: Enforce Unified Authentication
 
 on:
   workflow_dispatch:
-  push:
-    branches: [master]
-    paths:
-      - 'docs/**/*.html'
-      - 'docs/*.html'
-      - 'docs/gate.js'
-      - '.github/workflows/enforce-auth-gate.yml'
 
 permissions:
   contents: write
@@ -31,7 +24,7 @@ jobs:
         shell: python
         run: |
           from pathlib import Path
-          import os
+          import os, re
 
           root = Path('docs')
           if not root.exists():
@@ -43,21 +36,18 @@ jobs:
                   continue
 
               text = path.read_text(encoding='utf-8', errors='ignore')
-              low = text.lower()
-
-              # Remove an existing gate.js include so we can place the correct
-              # relative path for both root and nested pages.
-              import re
-              text2 = re.sub(r'\s*<script\s+[^>]*src=["\'][^"\']*gate\.js["\'][^>]*>\s*</script>', '', text, flags=re.I)
-              low2 = text2.lower()
+              text2 = re.sub(
+                  r'\s*<script\s+[^>]*src=["\'][^"\']*gate\.js["\'][^>]*>\s*</script>',
+                  '', text, flags=re.I
+              )
               marker = '</head>'
-              if marker not in low2:
+              pos = text2.lower().find(marker)
+              if pos < 0:
                   continue
 
               rel_gate = os.path.relpath(root / 'gate.js', path.parent).replace('\\', '/')
               tag = f'    <script src="{rel_gate}"></script>\n'
-              idx = low2.find(marker)
-              text2 = text2[:idx] + tag + text2[idx:]
+              text2 = text2[:pos] + tag + text2[pos:]
 
               if text2 != text:
                   path.write_text(text2, encoding='utf-8')
@@ -79,5 +69,4 @@ jobs:
             exit 0
           fi
           git commit -m "chore: require account authentication on site pages"
-          git pull --rebase origin master
           git push origin HEAD:master
