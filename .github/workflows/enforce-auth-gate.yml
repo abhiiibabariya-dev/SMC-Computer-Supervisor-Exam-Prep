@@ -1,0 +1,60 @@
+name: Enforce Unified Authentication
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  protect-pages:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Inject unified auth gate
+        shell: python
+        run: |
+          from pathlib import Path
+
+          root = Path('docs')
+          skip = {'login.html', 'admin-dashboard-x7k9m.html'}
+          changed = []
+
+          for path in root.rglob('*.html'):
+              if path.name in skip:
+                  continue
+              text = path.read_text(encoding='utf-8')
+              if 'src="gate.js"' in text or "src='gate.js'" in text:
+                  continue
+              marker = '</head>'
+              if marker not in text.lower():
+                  continue
+              idx = text.lower().find(marker)
+              text = text[:idx] + '    <script src="gate.js"></script>\n' + text[idx:]
+              path.write_text(text, encoding='utf-8')
+              changed.append(str(path))
+
+          print(f'Protected {len(changed)} HTML pages')
+          for item in changed:
+              print(item)
+
+      - name: Commit page protection changes
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/*.html docs/**/*.html
+          if git diff --cached --quiet; then
+            echo "No HTML changes required."
+            exit 0
+          fi
+          git commit -m "chore: require account authentication on site pages"
+          git push
