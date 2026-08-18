@@ -1,13 +1,18 @@
 {
-  "updated_at": "2026-08-18T15:25:49.819355+00:00",
+  "updated_at": "2026-08-18T15:39:36.318389+00:00",
   "sources_scanned": 28,
-  "links_found_this_scan": 715,
-  "new_items": 715,
-  "total_items": 715,
+  "links_found_this_scan": 710,
+  "new_items": 710,
+  "total_items": 710,
   "errors": [
     {
-      "source": "GPSSB",
-      "url": "https://gpssb.gujarat.gov.in",
+      "source": "GSSSB",
+      "url": "https://gsssb.gujarat.gov.in",
+      "error": "<urlopen error [Errno 101] Network is unreachable>"
+    },
+    {
+      "source": "OJAS Gujarat",
+      "url": "https://ojas.gujarat.gov.in",
       "error": "<urlopen error [Errno 101] Network is unreachable>"
     },
     {
@@ -16,8 +21,8 @@
       "error": "<urlopen error [Errno 101] Network is unreachable>"
     },
     {
-      "source": "GSSSB",
-      "url": "https://gsssb.gujarat.gov.in",
+      "source": "GPSSB",
+      "url": "https://gpssb.gujarat.gov.in",
       "error": "<urlopen error [Errno 101] Network is unreachable>"
     },
     {
@@ -29,11 +34,6 @@
       "source": "Gujarat Education Department",
       "url": "https://education.gujarat.gov.in",
       "error": "<urlopen error _ssl.c:1015: The handshake operation timed out>"
-    },
-    {
-      "source": "OJAS Gujarat",
-      "url": "https://ojas.gujarat.gov.in",
-      "error": "<urlopen error [Errno 101] Network is unreachable>"
     },
     {
       "source": "Gujarat Health Department",
@@ -51,6 +51,11 @@
       "error": "HTTP Error 503: Service Unavailable"
     },
     {
+      "source": "Gujarat Biotechnology Research Centre",
+      "url": "https://www.gbrc.gujarat.gov.in/WebCMS/Start/Announcement",
+      "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.gbrc.gujarat.gov.in'. (_ssl.c:1032)>"
+    },
+    {
       "source": "Gujarat Government",
       "url": "https://gujaratindia.gov.in",
       "error": "<urlopen error _ssl.c:1015: The handshake operation timed out>"
@@ -61,13 +66,13 @@
       "error": "The read operation timed out"
     },
     {
-      "source": "Ahmedabad Municipal Recruitment",
-      "url": "https://ahmedabadcity.gov.in/AMCWEBREC/HRMS/FrmVacancyDetail.aspx",
+      "source": "Ahmedabad Municipal Corporation",
+      "url": "https://ahmedabadcity.gov.in",
       "error": "<urlopen error timed out>"
     },
     {
-      "source": "Ahmedabad Municipal Corporation",
-      "url": "https://ahmedabadcity.gov.in",
+      "source": "Ahmedabad Municipal Recruitment",
+      "url": "https://ahmedabadcity.gov.in/AMCWEBREC/HRMS/FrmVacancyDetail.aspx",
       "error": "<urlopen error timed out>"
     },
     {
@@ -76,6 +81,6 @@
       "error": "<urlopen error timed out>"
     }
   ],
-  "smc_items": 60,
+  "smc_items": 61,
   "mode": "live_snapshot"
 }
