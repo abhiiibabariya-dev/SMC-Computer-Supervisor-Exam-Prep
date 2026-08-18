@@ -16,8 +16,6 @@ on:
 permissions:
   contents: write
 
-# Never cancel a scan just because another scheduled/manual run starts.
-# The scanner is parallelized and normally completes well inside the window.
 concurrency:
   group: gujarat-government-jobs-monitor
   cancel-in-progress: false
@@ -36,19 +34,21 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.x'
+          python-version: '3.13'
 
       - name: Scan Gujarat government, municipal and SMC recruitment sources
-        timeout-minutes: 10
+        timeout-minutes: 12
         run: python3 gujarat-monitor/smc_jobs.py
 
       - name: Sync official SMC exam and recruitment status
+        timeout-minutes: 2
         run: |
           python3 gujarat-monitor/sync_smc_site_status.py
           mkdir -p docs/gujarat-monitor
           cp gujarat-monitor/smc-status.json docs/gujarat-monitor/smc-status.json
 
       - name: Update every HTML page from official status
+        timeout-minutes: 2
         run: python3 gujarat-monitor/inject_live_updates.py
 
       - name: Validate generated data and HTML
@@ -57,6 +57,7 @@ jobs:
           python3 -m json.tool gujarat-jobs.json >/dev/null
           test -f docs/auto-live-jobs.js
           test "$(find docs -type f -name '*.html' | wc -l)" -gt 0
+          test "$(python3 -c 'import json; d=json.load(open("gujarat-jobs.json")); print(len(d.get("items", [])))')" -gt 0
           echo "Validation passed."
 
       - name: Show monitor report
