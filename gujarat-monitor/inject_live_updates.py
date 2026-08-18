@@ -7,7 +7,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DOCS = ROOT / "docs"
 STATUS = ROOT / "gujarat-monitor" / "smc-status.json"
 MARKER = "auto-live-jobs.js"
-TAG = '<script src="/SMC-Computer-Supervisor-Exam-Prep/auto-live-jobs.js" defer></script>'
+TAG = '<script src="/SMC-Computer-Supervisor-Exam-Prep/auto-live-jobs.js?v=live" defer></script>'
 
 try:
     status = json.loads(STATUS.read_text(encoding="utf-8"))
@@ -34,8 +34,11 @@ for path in DOCS.rglob("*.html"):
     text = path.read_text(encoding="utf-8", errors="ignore")
     original = text
 
+    # Always upgrade an older unversioned script tag so browsers receive the
+    # current live layer instead of a cached copy.
+    text = re.sub(r'<script src="/SMC-Computer-Supervisor-Exam-Prep/auto-live-jobs\.js"[^>]*></script>', TAG, text)
+
     if pro_done:
-        # SEO/social metadata
         replacements = [
             (r"a\s+live\s+countdown\s+to\s+the\s+12\s+July\s+2026\s+exam", "official post-exam updates, answer keys and results"),
             (r"live\s+countdown\s+to\s+the\s+12\s+July\s+2026\s+exam", "official post-exam updates, answer keys and results"),
@@ -54,13 +57,10 @@ for path in DOCS.rglob("*.html"):
         ]
         for pattern, repl in replacements:
             text = re.sub(pattern, repl, text, flags=re.I)
-
         text = re.sub(r"SMC written exam scheduled for\s*12\s*July\s*2026[^<.]*\.", "SMC: Public Relation Officer written examination was held on 12 July 2026. Other cadres follow their own official SMC notices.", text, flags=re.I)
         text = re.sub(r"A live countdown switches on here the moment SMC announces the date\.\s*Until then[^<.]*\.", "The PRO exam was held on 12 July 2026. Track official answer key, result and selection updates here.", text, flags=re.I)
         text = re.sub(r"Written Exam:\s*To Be Announced", "Written Exam: PRO held 12 July 2026", text, flags=re.I)
         text = re.sub(r"Admit Card:\s*Coming Soon", "Admit Card: Check official SMC notices", text, flags=re.I)
-
-        # Clean duplicate JSON-LD fields left by older automation versions.
         text = re.sub(r'(\s*"endDate":\s*"2026-07-12T13:00:00\+05:30",){2,}', '\n      "endDate": "2026-07-12T13:00:00+05:30",', text)
         text = re.sub(r'"name":\s*"SMC Computer Supervisor / Clerk Exam 2026"', '"name": "SMC Public Relation Officer Written Examination 2026"', text, flags=re.I)
         text = re.sub(r'"description":\s*"Written examination for SMC 2026 posts \(Clerk, Staff Nurse, Driver, PRO\)\."', '"description": "SMC Public Relation Officer written examination held on 12 July 2026. Other cadres have separate official schedules and notices."', text, flags=re.I)
@@ -70,8 +70,6 @@ for path in DOCS.rglob("*.html"):
         text = re.sub(r"Application Deadline\s*:\s*15\s*April\s*2026", "Applications Closed", text, flags=re.I)
 
     if july26_postponed:
-        # Do not globally mark every post as postponed. Surface the official
-        # notice through the live layer and annotate matching 26 July text.
         text = re.sub(r"26\s*July\s*2026[^<]{0,180}(?:scheduled|written exam|exam date)", lambda m: m.group(0) + " — SMC POSTPONED NOTICE EXISTS; CHECK OFFICIAL NOTICE", text, flags=re.I)
 
     if MARKER not in text:
@@ -87,4 +85,4 @@ for path in DOCS.rglob("*.html"):
 
 print(f"HTML pages scanned: {scanned}")
 print(f"HTML pages changed: {changed}")
-print(f"Live script injected: {injected}")
+print(f"Live script injected/updated: {injected}")
