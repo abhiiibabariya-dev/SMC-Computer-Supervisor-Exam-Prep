@@ -16,15 +16,17 @@ on:
 permissions:
   contents: write
 
+# Never cancel a live data scan just because the next scheduled run starts.
+# A fresh run waits for the previous one, preventing half-written/stale data.
 concurrency:
   group: gujarat-government-jobs-monitor
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   monitor:
     if: github.event_name != 'push' || github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 18
 
     steps:
       - name: Checkout repository
@@ -54,7 +56,7 @@ jobs:
       - name: Scan Gujarat government, municipal and SMC recruitment sources
         id: scan
         continue-on-error: true
-        timeout-minutes: 12
+        timeout-minutes: 14
         run: python3 gujarat-monitor/smc_jobs.py
 
       - name: Restore last good snapshot if scan failed
@@ -67,14 +69,14 @@ jobs:
           cp -f .monitor-backup/jobs_report.json gujarat-monitor/jobs_report.json 2>/dev/null || true
 
       - name: Sync official SMC exam and recruitment status
-        timeout-minutes: 2
+        timeout-minutes: 3
         run: |
           python3 gujarat-monitor/sync_smc_site_status.py
           mkdir -p docs/gujarat-monitor
           cp gujarat-monitor/smc-status.json docs/gujarat-monitor/smc-status.json
 
       - name: Update every HTML page from official status
-        timeout-minutes: 2
+        timeout-minutes: 3
         run: python3 gujarat-monitor/inject_live_updates.py
 
       - name: Validate generated data, live layer and all pages
@@ -118,6 +120,7 @@ jobs:
 
       - name: Commit jobs, official status and all-page updates
         run: |
+          set -e
           git config user.name "Gujarat Jobs Monitor"
           git config user.email "actions@github.com"
           git add -A gujarat-monitor gujarat-jobs.json docs .github/workflows/smc-auto-monitor.yml
