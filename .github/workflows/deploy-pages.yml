@@ -1,0 +1,67 @@
+name: Deploy SMC Prep to GitHub Pages
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Prepare site
+        run: |
+          rm -rf _site
+          test -f docs/index.html
+          cp -R docs _site
+          touch _site/.nojekyll
+
+          # Protect all normal HTML pages with the same Firebase auth gate.
+          # login.html remains public so unauthenticated users can sign in.
+          python3 - <<'PY'
+          from pathlib import Path
+          root = Path('_site')
+          gate = '<script src="/SMC-Computer-Supervisor-Exam-Prep/gate.js"></script>'
+          for p in root.rglob('*.html'):
+              if p.name.lower() == 'login.html':
+                  continue
+              text = p.read_text(encoding='utf-8', errors='ignore')
+              if 'gate.js' in text:
+                  continue
+              marker = '</head>'
+              pos = text.lower().find(marker)
+              if pos >= 0:
+                  text = text[:pos] + '    ' + gate + '\n' + text[pos:]
+                  p.write_text(text, encoding='utf-8')
+          PY
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
