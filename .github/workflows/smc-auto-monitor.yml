@@ -43,6 +43,8 @@ jobs:
       - name: Sync official SMC exam/recruitment status
         run: |
           python3 gujarat-monitor/sync_smc_site_status.py
+          mkdir -p docs/gujarat-monitor
+          cp gujarat-monitor/smc-status.json docs/gujarat-monitor/smc-status.json
 
       - name: Inject live layer into every HTML page
         run: |
