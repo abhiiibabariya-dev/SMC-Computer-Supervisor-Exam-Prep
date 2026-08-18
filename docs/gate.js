@@ -10,23 +10,14 @@
 
   var path=(location.pathname||'').toLowerCase();
   var file=path.split('/').pop()||'index.html';
-  var PUBLIC=['login.html'];
-  var ADMIN=['admin-dashboard-x7k9m.html'];
-  if(PUBLIC.indexOf(file)>=0 || ADMIN.indexOf(file)>=0) return;
+  if(file==='login.html') return;
 
   var RETURN_KEY='smc_auth_return', PROFILE_KEY='smc_account';
   var cfg=null, auth=null;
 
   function esc(v){return String(v==null?'':v).replace(/[&<>"']/g,function(c){return({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]);});}
-  function loginUrl(){
-    var base=path.substring(0,path.lastIndexOf('/')+1);
-    try{sessionStorage.setItem(RETURN_KEY,location.pathname+location.search+location.hash);}catch(e){}
-    return base+'login.html';
-  }
-  function hidePage(){
-    var s=document.createElement('style');s.id='smc-auth-style';s.textContent='body{visibility:hidden!important}';
-    (document.head||document.documentElement).appendChild(s);
-  }
+  function loginUrl(){var base=path.substring(0,path.lastIndexOf('/')+1);try{sessionStorage.setItem(RETURN_KEY,location.pathname+location.search+location.hash);}catch(e){}return base+'login.html';}
+  function hidePage(){var s=document.createElement('style');s.id='smc-auth-style';s.textContent='body{visibility:hidden!important}';(document.head||document.documentElement).appendChild(s);}
   function showPage(){var s=document.getElementById('smc-auth-style');if(s)s.remove();}
   hidePage();
 
@@ -48,11 +39,7 @@
   function fail(msg){overlay();var m=document.getElementById('smcAuthMsg'),s=document.getElementById('smcAuthState');if(m)m.textContent=msg||'Authentication unavailable.';if(s){s.textContent='LOGIN REQUIRED';s.className='err';}setTimeout(function(){location.replace(loginUrl());},700);}
   function dbUrl(){return (cfg&&cfg.databaseURL)||window.SMC_FIREBASE_URL||'';}
   function profile(user){var url=dbUrl();if(!url)return Promise.resolve(null);return fetch(url+'/users/'+encodeURIComponent(user.uid)+'.json',{cache:'no-store'}).then(function(r){return r.ok?r.json():null;}).catch(function(){return null;});}
-  function account(user,p){
-    p=p||{};var plan=p.plan||'free';
-    var a={uid:user.uid||'',email:user.email||'',name:p.name||user.displayName||'',mobile:p.mobile||'',post:p.post||'',postLabel:p.postLabel||'',plan:plan,planLabel:p.planLabel||(plan==='premium99'?'Premium ₹99':plan==='premium49'?'Premium ₹49':'Free'),signed_in_at:new Date().toISOString()};
-    try{localStorage.setItem(PROFILE_KEY,JSON.stringify(a));}catch(e){}return a;
-  }
+  function account(user,p){p=p||{};var plan=p.plan||'free';var a={uid:user.uid||'',email:user.email||'',name:p.name||user.displayName||'',mobile:p.mobile||'',post:p.post||'',postLabel:p.postLabel||'',plan:plan,planLabel:p.planLabel||(plan==='premium99'?'Premium ₹99':plan==='premium49'?'Premium ₹49':'Free'),signed_in_at:new Date().toISOString()};try{localStorage.setItem(PROFILE_KEY,JSON.stringify(a));}catch(e){}return a;}
   function audit(user,a){var url=dbUrl();if(!url)return;try{fetch(url+'/auth_audit.json',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({uid:user.uid,event:'authenticated',page:location.pathname,t:new Date().toISOString(),email:user.email||'',plan:a.plan||'free'})}).catch(function(){});}catch(e){}}
   function chip(user,a){
     if(document.getElementById('smcAuthChip'))return;var c=document.createElement('div');c.id='smcAuthChip';
