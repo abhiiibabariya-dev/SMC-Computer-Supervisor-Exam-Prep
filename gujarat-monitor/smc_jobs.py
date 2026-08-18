@@ -19,7 +19,7 @@ STATE = BASE / "jobs_state.json"
 PUBLIC = ROOT / "gujarat-jobs.json"
 REPORT = BASE / "jobs_report.json"
 
-UA = "Mozilla/5.0 (X11; Linux x86_64) Gujarat-Govt-Job-Monitor/4.1"
+UA = "Mozilla/5.0 (X11; Linux x86_64) Gujarat-Govt-Job-Monitor/5.0"
 TIMEOUT = 10
 RETRIES = 3
 SSL_FALLBACK = ssl._create_unverified_context()
@@ -35,6 +35,7 @@ KEYWORDS = [
     "junior clerk", "senior clerk"
 ]
 DISCOVERY_TERMS = ("recruitment", "vacancy", "vacancies", "job", "jobs", "exam", "admit card", "answer key", "result", "selection", "notification")
+CURRENT_YEARS = {str(datetime.now(timezone.utc).year), str(datetime.now(timezone.utc).year + 1)}
 
 
 def load_json(path, default):
@@ -64,8 +65,6 @@ def fetch(url):
                 return r.status, r.read(), r.geturl()
         except Exception as e:
             last_error = e
-            # Some government portals intermittently return 502/503/504.
-            # Retry those failures before recording the source as unavailable.
             if attempt < RETRIES:
                 time.sleep(attempt)
                 try:
@@ -114,6 +113,11 @@ def relevant(title, url, src):
         title_l = title.lower()
         if not any(k in title_l for k in DISCOVERY_TERMS):
             return False
+        # Discovery feeds are noisy. Keep current/future recruitment information,
+        # but reject old articles such as 2019/2021 jobs that otherwise look relevant.
+        years = re.findall(r"\b20\d{2}\b", title_l)
+        if years and not any(y in CURRENT_YEARS for y in years):
+            return False
         name = src.get("name", "").lower()
         if "smc" in name:
             return any(k in title_l for k in ("surat municipal", "smc", "surat municipal corporation"))
@@ -153,6 +157,7 @@ def scan_source(src):
         status, body, final_url = fetch(base_url)
         document = body.decode("utf-8", errors="ignore")
         source_text = clean(document)
+        checked = datetime.now(timezone.utc).isoformat()
         for u, title in links(document, final_url):
             if not relevant(title, u, src):
                 continue
@@ -167,7 +172,7 @@ def scan_source(src):
                 "url": u,
                 "priority": priority(name, u, title, src),
                 "source_type": src.get("type", "government"),
-                "checked_at": datetime.now(timezone.utc).isoformat()
+                "checked_at": checked
             })
         if not is_discovery(src) and (relevant(name, base_url, src) or relevant(source_text[:5000], base_url, src)):
             found.append({
@@ -177,15 +182,44 @@ def scan_source(src):
                 "url": final_url,
                 "priority": priority(name, final_url, name, src),
                 "source_type": src.get("type", "government"),
-                "checked_at": datetime.now(timezone.utc).isoformat()
+                "checked_at": checked
             })
         return {"source": name, "items": found, "error": None}
     except Exception as e:
         return {"source": name, "items": [], "error": {"source": name, "url": base_url, "error": str(e)}}
 
 
+def merge_change_metadata(items, old_items, now):
+    old_by_id = {x.get("id"): x for x in old_items if isinstance(x, dict) and x.get("id")}
+    changed = 0
+    new_count = 0
+    for item in items:
+        old = old_by_id.get(item.get("id"))
+        if not old:
+            item["first_seen_at"] = now
+            item["last_changed_at"] = now
+            item["change_type"] = "new"
+            new_count += 1
+            continue
+        item["first_seen_at"] = old.get("first_seen_at", old.get("checked_at", now))
+        comparable = (old.get("title"), old.get("url"), old.get("priority"), old.get("source"), old.get("source_type"))
+        current = (item.get("title"), item.get("url"), item.get("priority"), item.get("source"), item.get("source_type"))
+        if comparable != current:
+            item["last_changed_at"] = now
+            item["change_type"] = "updated"
+            changed += 1
+        else:
+            item["last_changed_at"] = old.get("last_changed_at", old.get("first_seen_at", now))
+            item["change_type"] = "unchanged"
+    return new_count, changed
+
+
 def main():
     sources = load_json(SOURCES, {"sources": []}).get("sources", [])
+    old_items = load_json(JOBS, [])
+    if not isinstance(old_items, list):
+        old_items = []
+
     results = []
     with concurrent.futures.ThreadPoolExecutor(max_workers=8) as pool:
         futures = [pool.submit(scan_source, src) for src in sources]
@@ -205,16 +239,19 @@ def main():
 
     unique = {item["id"]: item for item in found}
     all_jobs = list(unique.values())
-    rank = {"critical": 0, "high": 1, "medium": 2}
-    all_jobs.sort(key=lambda x: (rank.get(x.get("priority"), 9), x.get("source", "").lower(), x.get("title", "").lower()))
-
     now = datetime.now(timezone.utc).isoformat()
+    new_count, changed_count = merge_change_metadata(all_jobs, old_items, now)
+
+    rank = {"critical": 0, "high": 1, "medium": 2}
+    all_jobs.sort(key=lambda x: (rank.get(x.get("priority"), 9), x.get("last_changed_at", ""), x.get("source", "").lower(), x.get("title", "").lower()), reverse=True)
+
     smc_count = sum(1 for x in all_jobs if x.get("priority") == "critical")
     report = {
         "updated_at": now,
         "sources_scanned": len(sources),
         "links_found_this_scan": len(found),
-        "new_items": len(all_jobs),
+        "new_items": new_count,
+        "updated_items": changed_count,
         "total_items": len(all_jobs),
         "errors": errors,
         "smc_items": smc_count,
@@ -222,8 +259,8 @@ def main():
     }
 
     save_json(JOBS, all_jobs)
-    save_json(PUBLIC, {"updated_at": now, "region": "Gujarat", "focus": "Gujarat Government Jobs and SMC Recruitment", "total": len(all_jobs), "items": all_jobs})
-    save_json(STATE, {"last_run": now, "total_items": len(all_jobs), "new_items": len(all_jobs), "errors": errors, "mode": "live_snapshot"})
+    save_json(PUBLIC, {"updated_at": now, "region": "Gujarat", "focus": "Gujarat Government Jobs and SMC Recruitment", "total": len(all_jobs), "new_items": new_count, "updated_items": changed_count, "items": all_jobs})
+    save_json(STATE, {"last_run": now, "total_items": len(all_jobs), "new_items": new_count, "updated_items": changed_count, "errors": errors, "mode": "live_snapshot"})
     save_json(REPORT, report)
 
     print("\n==========================================")
@@ -231,6 +268,8 @@ def main():
     print("==========================================")
     print(f"Sources scanned : {len(sources)}")
     print(f"Live items      : {len(all_jobs)}")
+    print(f"New items       : {new_count}")
+    print(f"Updated items   : {changed_count}")
     print(f"SMC priority    : {smc_count}")
     print(f"Warnings        : {len(errors)}")
     print("Mode            : LIVE SNAPSHOT")
