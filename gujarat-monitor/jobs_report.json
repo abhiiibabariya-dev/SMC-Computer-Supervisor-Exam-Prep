@@ -1,20 +1,10 @@
 {
-  "updated_at": "2026-08-18T09:51:50.466139+00:00",
+  "updated_at": "2026-08-18T10:05:02.452598+00:00",
   "sources_scanned": 15,
-  "links_found_this_scan": 332,
-  "new_items": 0,
-  "total_items": 332,
+  "links_found_this_scan": 802,
+  "new_items": 473,
+  "total_items": 805,
   "errors": [
-    {
-      "source": "Gujarat High Court Recruitment",
-      "url": "https://gujarathighcourt.nic.in/currentopening",
-      "error": "HTTP Error 404: Not Found"
-    },
-    {
-      "source": "KCG Gujarat Recruitment",
-      "url": "https://recruitment.gujgoa.edu.in",
-      "error": "<urlopen error [Errno 7] No address associated with hostname>"
-    },
     {
       "source": "Gujarat Primary Education Recruitment",
       "url": "https://rte.orpgujarat.com",
