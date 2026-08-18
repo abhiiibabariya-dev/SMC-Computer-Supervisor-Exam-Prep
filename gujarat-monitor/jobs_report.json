@@ -1,13 +1,13 @@
 {
-  "updated_at": "2026-08-18T14:20:36.239812+00:00",
+  "updated_at": "2026-08-18T14:57:21.727385+00:00",
   "sources_scanned": 28,
-  "links_found_this_scan": 698,
-  "new_items": 698,
-  "total_items": 698,
+  "links_found_this_scan": 720,
+  "new_items": 720,
+  "total_items": 720,
   "errors": [
     {
-      "source": "GPSSB",
-      "url": "https://gpssb.gujarat.gov.in",
+      "source": "GPSC",
+      "url": "https://gpsc.gujarat.gov.in",
       "error": "<urlopen error [Errno 101] Network is unreachable>"
     },
     {
@@ -21,8 +21,8 @@
       "error": "<urlopen error [Errno 101] Network is unreachable>"
     },
     {
-      "source": "GPSC",
-      "url": "https://gpsc.gujarat.gov.in",
+      "source": "GPSSB",
+      "url": "https://gpssb.gujarat.gov.in",
       "error": "<urlopen error [Errno 101] Network is unreachable>"
     },
     {
@@ -36,13 +36,13 @@
       "error": "<urlopen error _ssl.c:1015: The handshake operation timed out>"
     },
     {
-      "source": "Gujarat Health Department",
-      "url": "https://gujhealth.gujarat.gov.in",
+      "source": "Gujarat Forest and Environment",
+      "url": "https://forests.gujarat.gov.in",
       "error": "<urlopen error _ssl.c:1015: The handshake operation timed out>"
     },
     {
-      "source": "Gujarat Forest and Environment",
-      "url": "https://forests.gujarat.gov.in",
+      "source": "Gujarat Health Department",
+      "url": "https://gujhealth.gujarat.gov.in",
       "error": "<urlopen error _ssl.c:1015: The handshake operation timed out>"
     },
     {
@@ -71,16 +71,11 @@
       "error": "<urlopen error timed out>"
     },
     {
-      "source": "Gandhinagar Municipal Corporation",
-      "url": "https://gandhinagarmunicipal.com/recruitment/",
-      "error": "<urlopen error timed out>"
-    },
-    {
       "source": "Vadodara Municipal Corporation",
       "url": "https://vmc.gov.in",
       "error": "<urlopen error timed out>"
     }
   ],
-  "smc_items": 59,
+  "smc_items": 64,
   "mode": "live_snapshot"
 }
