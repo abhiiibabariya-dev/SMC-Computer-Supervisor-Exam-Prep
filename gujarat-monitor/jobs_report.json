@@ -1,15 +1,80 @@
 {
-  "updated_at": "2026-08-18T10:05:02.452598+00:00",
-  "sources_scanned": 15,
-  "links_found_this_scan": 802,
-  "new_items": 473,
-  "total_items": 805,
+  "updated_at": "2026-08-18T12:07:12.854510+00:00",
+  "sources_scanned": 28,
+  "links_found_this_scan": 727,
+  "new_items": 151,
+  "total_items": 956,
   "errors": [
+    {
+      "source": "OJAS Gujarat",
+      "url": "https://ojas.gujarat.gov.in",
+      "error": "<urlopen error [Errno 101] Network is unreachable>"
+    },
+    {
+      "source": "GPSC",
+      "url": "https://gpsc.gujarat.gov.in",
+      "error": "<urlopen error [Errno 101] Network is unreachable>"
+    },
+    {
+      "source": "GSSSB",
+      "url": "https://gsssb.gujarat.gov.in",
+      "error": "<urlopen error [Errno 101] Network is unreachable>"
+    },
+    {
+      "source": "GPSSB",
+      "url": "https://gpssb.gujarat.gov.in",
+      "error": "<urlopen error [Errno 101] Network is unreachable>"
+    },
+    {
+      "source": "Gujarat Police",
+      "url": "https://police.gujarat.gov.in",
+      "error": "<urlopen error _ssl.c:1064: The handshake operation timed out>"
+    },
+    {
+      "source": "Gujarat Education Department",
+      "url": "https://education.gujarat.gov.in",
+      "error": "<urlopen error _ssl.c:1064: The handshake operation timed out>"
+    },
+    {
+      "source": "Gujarat Health Department",
+      "url": "https://gujhealth.gujarat.gov.in",
+      "error": "<urlopen error _ssl.c:1064: The handshake operation timed out>"
+    },
+    {
+      "source": "Gujarat Forest and Environment",
+      "url": "https://forests.gujarat.gov.in",
+      "error": "<urlopen error _ssl.c:1064: The handshake operation timed out>"
+    },
+    {
+      "source": "Gujarat Government",
+      "url": "https://gujaratindia.gov.in",
+      "error": "<urlopen error _ssl.c:1064: The handshake operation timed out>"
+    },
     {
       "source": "Gujarat Primary Education Recruitment",
       "url": "https://rte.orpgujarat.com",
       "error": "HTTP Error 503: Service Unavailable"
+    },
+    {
+      "source": "Gujarat Biotechnology Research Centre",
+      "url": "https://www.gbrc.gujarat.gov.in/WebCMS/Start/Announcement",
+      "error": "The read operation timed out"
+    },
+    {
+      "source": "Ahmedabad Municipal Corporation",
+      "url": "https://ahmedabadcity.gov.in",
+      "error": "<urlopen error timed out>"
+    },
+    {
+      "source": "Ahmedabad Municipal Recruitment",
+      "url": "https://ahmedabadcity.gov.in/AMCWEBREC/HRMS/FrmVacancyDetail.aspx",
+      "error": "<urlopen error timed out>"
+    },
+    {
+      "source": "Vadodara Municipal Corporation",
+      "url": "https://vmc.gov.in",
+      "error": "<urlopen error timed out>"
     }
   ],
-  "smc_items": 10
+  "smc_items": 76
 }
