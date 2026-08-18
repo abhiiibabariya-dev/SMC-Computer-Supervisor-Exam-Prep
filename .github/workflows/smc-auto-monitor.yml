@@ -1,0 +1,45 @@
+name: SMC Official Update Monitor
+
+on:
+  schedule:
+    # Every 6 hours
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Check official SMC sources
+        run: |
+          python scripts/smc_monitor.py
+
+      - name: Show report
+        run: |
+          cat .smc-monitor/report.json
+
+      - name: Commit updated monitor state
+        run: |
+          git config user.name "SMC Update Monitor"
+          git config user.email "actions@github.com"
+
+          git add .smc-monitor/state.json
+
+          if git diff --staged --quiet; then
+            echo "No state changes."
+          else
+            git commit -m "chore: update SMC source monitor state"
+            git push
+          fi
