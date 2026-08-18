@@ -8,6 +8,7 @@ on:
     paths:
       - 'gujarat-monitor/smc_jobs.py'
       - 'gujarat-monitor/sources.json'
+      - 'gujarat-monitor/sync_smc_site_status.py'
       - 'gujarat-monitor/inject_live_updates.py'
       - 'docs/auto-live-jobs.js'
       - '.github/workflows/smc-auto-monitor.yml'
@@ -39,30 +40,34 @@ jobs:
         run: |
           python3 gujarat-monitor/smc_jobs.py
 
-      - name: Inject live jobs layer into every HTML page
+      - name: Sync official SMC exam/recruitment status
+        run: |
+          python3 gujarat-monitor/sync_smc_site_status.py
+
+      - name: Inject live layer into every HTML page
         run: |
           python3 gujarat-monitor/inject_live_updates.py
 
       - name: Show monitor report
         if: always()
         run: |
-          if [ -f gujarat-monitor/jobs_report.json ]; then
-            cat gujarat-monitor/jobs_report.json
-          else
-            echo 'Monitor report was not created.'
-          fi
+          echo '=== JOB MONITOR ==='
+          if [ -f gujarat-monitor/jobs_report.json ]; then cat gujarat-monitor/jobs_report.json; fi
+          echo '=== SMC STATUS ==='
+          if [ -f gujarat-monitor/smc-status.json ]; then cat gujarat-monitor/smc-status.json; fi
 
-      - name: Commit updated jobs data and all-page live layer
+      - name: Commit updated jobs, status and all-page live layer
         run: |
           git config user.name "Gujarat Jobs Monitor"
           git config user.email "actions@github.com"
 
-          git add gujarat-monitor/jobs.json \
+          git add -A gujarat-monitor/jobs.json \
                   gujarat-monitor/jobs_state.json \
                   gujarat-monitor/jobs_report.json \
+                  gujarat-monitor/smc-status.json \
                   gujarat-jobs.json \
                   gujarat-monitor/inject_live_updates.py \
-                  docs/auto-live-jobs.js \
+                  gujarat-monitor/sync_smc_site_status.py \
                   docs
 
           if git diff --staged --quiet; then
@@ -70,11 +75,11 @@ jobs:
             exit 0
           fi
 
-          git commit -m "chore: update Gujarat jobs and sync all pages"
+          git commit -m "chore: refresh SMC status and sync every page"
 
           for attempt in 1 2 3 4 5; do
             if git pull --rebase origin master && git push origin master; then
-              echo "Jobs data and all-page live layer pushed successfully."
+              echo "Jobs, official SMC status and all-page updates pushed successfully."
               exit 0
             fi
             echo "Push attempt $attempt failed; retrying..."
