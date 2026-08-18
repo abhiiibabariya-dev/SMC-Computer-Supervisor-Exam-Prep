@@ -11,6 +11,7 @@ permissions:
 jobs:
   monitor:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
 
     steps:
       - name: Checkout repository
@@ -21,7 +22,7 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Scan Gujarat government recruitment sources
+      - name: Scan Gujarat government and SMC recruitment sources
         run: |
           python3 gujarat-monitor/smc_jobs.py
 
