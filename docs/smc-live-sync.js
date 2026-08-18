@@ -1,47 +1,17 @@
-/* SMC Live Sync
- * Site-wide safety net for time-sensitive recruitment/exam messaging.
- * Loaded on every HTML page by the GitHub Actions synchronizer.
- */
+/* SMC Live Sync: site-wide time-sensitive status safety net. */
 (function(){
   'use strict';
-  var APP_CLOSE = new Date('2026-04-15T23:00:00+05:30');
   var EXAM_DATE = new Date('2026-07-12T10:00:00+05:30');
   var now = new Date();
-
-  function replaceText(root){
-    var walker = document.createTreeWalker(root || document.body, NodeFilter.SHOW_TEXT);
-    var nodes=[], n;
-    while((n=walker.nextNode())) nodes.push(n);
-    nodes.forEach(function(node){
-      var s=node.nodeValue;
-      var original=s;
-      s=s.replace(/🔥\s*EXAM ON 12 JULY 2026\s*[—-]\s*Final Revision Time! Tap for the Exam-Day Guide/gi,
-        '✅ EXAM COMPLETED — 12 JULY 2026 | Answer Key & Result Updates');
-      s=s.replace(/SMC written exam scheduled for <b>12 July 2026<\/b>[^.]*\./gi,
-        'SMC written exam was held on <b>12 July 2026</b>. Official answer-key and result updates are now the focus.');
-      s=s.replace(/📅\s*EXAM DATE OUT\s*[—-]\s*Written Exam on 12 July 2026! Call Letter Coming Soon/gi,
-        '✅ EXAM COMPLETED — Written Exam held on 12 July 2026');
-      s=s.replace(/Call Letter Coming Soon/gi,'Call Letter Phase Closed');
-      s=s.replace(/Exam Date, Admit Card\s*[—-]\s*Not Yet Announced/gi,
-        'Exam Completed — 12 July 2026');
-      s=s.replace(/<b[^>]*>Coming Soon<\/b>/gi,'<b>Phase Closed</b>');
-      s=s.replace(/<b[^>]*>To Be Announced<\/b>/gi,'<b>Completed — 12 July 2026</b>');
-      s=s.replace(/NOW\s*[—-]\s*Exam Prep/gi,'NOW — Post-Exam Updates');
-      s=s.replace(/YOU ARE HERE — Final revision phase\. Practice mock tests &amp; daily MCQs\. Exam is close!/gi,
-        'YOU ARE HERE — Post-exam phase. Track answer keys, objections, results and merit-list updates.');
-      s=s.replace(/Before 12 July 2026/gi,'Before 12 July 2026 — completed');
-      if(s!==original) node.nodeValue=s;
-    });
-  }
 
   function updateExamCard(){
     var grid=document.getElementById('countdown');
     if(!grid || now < EXAM_DATE) return;
-    grid.innerHTML = '<div style="width:100%;display:flex;flex-direction:column;gap:10px;padding:18px 20px;background:rgba(52,211,153,0.06);border:1px solid rgba(52,211,153,0.25);border-radius:14px">'
+    grid.innerHTML='<div style="width:100%;display:flex;flex-direction:column;gap:10px;padding:18px 20px;background:rgba(52,211,153,0.06);border:1px solid rgba(52,211,153,0.25);border-radius:14px">'
       +'<div style="font-size:.95em;color:#d4d4d8"><span style="color:#34d399;font-weight:700">✓</span> &nbsp;<b>Applications:</b> Closed on 15 April 2026</div>'
       +'<div style="font-size:.95em;color:#d4d4d8"><span style="color:#34d399;font-weight:700">✓</span> &nbsp;<b>Written Exam:</b> Completed on 12 July 2026</div>'
       +'<div style="font-size:.95em;color:#d4d4d8"><span style="color:#fbbf24">●</span> &nbsp;<b>Current Phase:</b> Answer Key / Result / Merit Updates</div>'
-      +'<div style="font-size:.8em;color:#a1a1aa;margin-top:4px;line-height:1.5">The countdown has ended because the examination date has passed. This section now tracks post-exam updates instead of showing obsolete pre-exam messaging.</div>'
+      +'<div style="font-size:.8em;color:#a1a1aa;margin-top:4px;line-height:1.5">The countdown has ended because the examination date has passed. This section now tracks post-exam updates instead of obsolete pre-exam messaging.</div>'
       +'</div>';
     var status=document.getElementById('cd-status');
     if(status){status.textContent='Post-Exam Updates';status.style.color='#34d399';}
@@ -49,19 +19,80 @@
     if(label) label.innerHTML='<i style="background:#34d399"></i>Exam Status';
   }
 
+  function updateAlert(){
+    document.querySelectorAll('.al-title').forEach(function(el){
+      if(/EXAM ON 12 JULY 2026/i.test(el.textContent))
+        el.textContent='✅ EXAM COMPLETED — 12 JULY 2026 | Answer Key & Result Updates';
+    });
+    document.querySelectorAll('.al-desc').forEach(function(el){
+      if(/SMC written exam scheduled for/i.test(el.textContent))
+        el.textContent='SMC written exam was held on 12 July 2026. Official SMC answer-key and post-exam updates are now the focus.';
+    });
+  }
+
+  function updateNews(){
+    document.querySelectorAll('.news-item').forEach(function(item){
+      var title=item.querySelector('.news-title');
+      if(!title) return;
+      var t=title.textContent;
+      if(/EXAM DATE OUT.*12 July 2026/i.test(t)){
+        title.textContent='✅ EXAM COMPLETED — Written Exam held on 12 July 2026';
+        var desc=item.querySelector('.news-desc');
+        if(desc) desc.textContent='The written examination was held on 12 July 2026. The official SMC Answer Key page now carries post-exam updates, including a provisional answer key for the Public Relation Officer examination.';
+        item.querySelectorAll('.news-tag').forEach(function(tag){tag.textContent=tag.textContent.match(/CALL LETTER/i)?'PHASE CLOSED':'EXAM COMPLETED';});
+        var date=item.querySelector('.news-date'); if(date) date.textContent='Post-exam update';
+      }
+      if(/Exam Date, Admit Card.*Not Yet Announced/i.test(t)){
+        title.textContent='✅ Exam Completed — 12 July 2026';
+        var desc2=item.querySelector('.news-desc');
+        if(desc2) desc2.textContent='The pre-exam announcement phase is over. Track official SMC answer keys, objections, results and merit-list updates.';
+        item.querySelectorAll('.news-tag').forEach(function(tag){tag.textContent='COMPLETED';});
+        var date2=item.querySelector('.news-date'); if(date2) date2.textContent='Post-exam';
+      }
+    });
+  }
+
+  function updateTimeline(){
+    document.querySelectorAll('.tl-item').forEach(function(item){
+      var date=item.querySelector('.tl-date'), text=item.querySelector('.tl-text');
+      if(!date) return;
+      if(/NOW.*Exam Prep/i.test(date.textContent)){
+        date.textContent='NOW — Post-Exam Updates';
+        if(text) text.textContent='✅ YOU ARE HERE — Track answer keys, objections, results and merit-list updates.';
+        item.classList.remove('upcoming'); item.classList.add('active');
+      }
+      if(/Before 12 July 2026/i.test(date.textContent)){
+        date.textContent='Before 12 July 2026 ✓';
+        if(text) text.textContent='Admit-card / call-letter phase completed.';
+        item.classList.remove('upcoming'); item.classList.add('active');
+      }
+      if(date.textContent.trim()==='12 July 2026'){
+        date.textContent='12 July 2026 ✓';
+        if(text) text.textContent='✅ WRITTEN EXAMINATION COMPLETED — post-exam updates now active.';
+        item.classList.remove('upcoming'); item.classList.add('active');
+      }
+    });
+  }
+
+  function updateGenericText(){
+    var walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT), nodes=[],n;
+    while((n=walker.nextNode())) nodes.push(n);
+    nodes.forEach(function(node){
+      var s=node.nodeValue, old=s;
+      s=s.replace(/Call Letter Coming Soon/gi,'Call Letter Phase Closed');
+      s=s.replace(/YOU ARE HERE — Final revision phase\. Practice mock tests & daily MCQs\. Exam is close!/gi,'YOU ARE HERE — Post-exam phase. Track answer keys, results and merit-list updates.');
+      if(s!==old) node.nodeValue=s;
+    });
+  }
+
   function run(){
     try{
-      replaceText(document.body);
       updateExamCard();
-      var stamp=document.querySelector('.last-updated');
-      if(stamp && /Last updated:/i.test(stamp.textContent)){
-        var d=new Date();
-        var months=['January','February','March','April','May','June','July','August','September','October','November','December'];
-        stamp.textContent=stamp.textContent.replace(/Last updated:\s*[^·]+/i,
-          'Last updated: '+d.getDate()+' '+months[d.getMonth()]+' '+d.getFullYear());
-      }
+      updateAlert();
+      updateNews();
+      updateTimeline();
+      updateGenericText();
     }catch(e){}
   }
-  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',run);
-  else run();
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',run); else run();
 })();
