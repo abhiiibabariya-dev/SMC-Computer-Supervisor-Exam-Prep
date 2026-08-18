@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Client Dashboard | SMC Prep</title>
+<meta name="description" content="SMC Prep client dashboard for account, live recruitment updates and exam preparation.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script src="firebase-config.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
+<script src="auto-live-jobs.js?v=20260818-4" defer></script>
+<style>
+:root{--bg:#08090b;--card:#111317;--line:rgba(255,255,255,.09);--text:#f5f5f5;--muted:#9ca3af;--green:#86efac;--purple:#a78bfa}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(circle at 20% 10%,rgba(99,102,241,.2),transparent 34%),radial-gradient(circle at 85% 80%,rgba(34,197,94,.1),transparent 32%),var(--bg);color:var(--muted);font-family:'Plus Jakarta Sans',system-ui,sans-serif}.wrap{width:min(960px,100%);margin:auto;padding:28px 16px 70px}.nav{display:flex;gap:7px;align-items:center;background:rgba(17,19,23,.94);border:1px solid var(--line);border-radius:16px;padding:9px 12px;position:sticky;top:10px;z-index:50}.nav .brand{color:#fff;font-weight:900;margin-right:auto}.nav a{color:var(--muted);text-decoration:none;font-size:.75rem;font-weight:800;padding:8px 10px;border-radius:9px}.nav a:hover{background:rgba(255,255,255,.05);color:#fff}.hero{padding:48px 4px 22px}.eyebrow{color:var(--green);font-size:.7rem;font-weight:900;letter-spacing:.7px;text-transform:uppercase}.hero h1{color:#fff;font-size:clamp(2rem,6vw,3.3rem);line-height:1.05;margin:8px 0}.hero p{max-width:650px;line-height:1.6;font-size:.85rem}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.card{background:rgba(17,19,23,.94);border:1px solid var(--line);border-radius:18px;padding:18px}.card h2{color:#fff;font-size:1rem;margin:0 0 8px}.value{color:#f5f5f5;font-weight:800;font-size:.9rem;word-break:break-word}.small{font-size:.7rem;line-height:1.5}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:13px}.btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 13px;border-radius:11px;background:var(--green);color:#06130a;text-decoration:none;font-size:.72rem;font-weight:900;border:0;cursor:pointer}.btn.alt{background:rgba(255,255,255,.07);color:#fff}.notice{margin-top:12px;padding:12px;border-radius:12px;background:rgba(251,191,36,.06);border:1px solid rgba(251,191,36,.12);font-size:.67rem;line-height:1.55}.msg{margin-top:12px;font-size:.72rem;color:#86efac}@media(max-width:650px){.grid{grid-template-columns:1fr}.nav{overflow:auto;white-space:nowrap}.wrap{padding-left:12px;padding-right:12px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="nav"><a class="brand" href="index.html">SMC Prep</a><a href="live-jobs.html">Live Jobs</a><a href="govt-jobs.html">All Jobs</a><a href="index.html">Home</a></nav>
+<header class="hero"><div class="eyebrow">Client dashboard</div><h1 id="hello">Your SMC Prep account</h1><p>One place for your account, live recruitment updates and preparation shortcuts. Login is optional for public pages.</p></header>
+<section class="grid">
+  <div class="card"><h2>👤 Account</h2><div class="value" id="email">Checking account…</div><div class="small" id="uid"></div><div class="actions"><button class="btn alt" id="logout" type="button">Logout</button></div></div>
+  <div class="card"><h2>🎯 Preparation</h2><div class="value" id="post">No post selected</div><div class="small">Your existing SMC Prep post selection is kept separately from Firebase login, so the current access-gate flow is not replaced or damaged.</div><div class="actions"><a class="btn" href="index.html">Open Prep</a><a class="btn alt" href="mock-test.html">Mock Tests</a></div></div>
+  <div class="card"><h2>🔔 Live updates</h2><div class="value">Automatic notification center</div><div class="small">New or changed recruitment information can appear through the global notification bell. Old discovery/news articles are filtered out.</div><div class="actions"><a class="btn" href="live-jobs.html">View Live Jobs</a></div></div>
+  <div class="card"><h2>📌 Important</h2><div class="value">Account login is not payment security</div><div class="notice">GitHub Pages is a static site. Firebase Authentication can securely authenticate users, but private paid files/data should not be exposed as public static files. Protect private data with Firebase rules or a backend before adding paid/private content.</div></div>
+</section>
+<div class="msg" id="msg"></div>
+</div>
+<script>
+(function(){
+'use strict';
+const cfg=window.SMC_FIREBASE_CONFIG||{};
+const msg=document.getElementById('msg');
+function say(t){msg.textContent=t||'';}
+function saveAccount(user){
+  const account={uid:user.uid||'',email:user.email||'',name:user.displayName||'',photo:user.photoURL||'',signed_in_at:new Date().toISOString()};
+  try{localStorage.setItem('smc_account',JSON.stringify(account));}catch(e){}
+  return account;
+}
+function show(user){
+  const a=saveAccount(user);document.getElementById('hello').textContent='Welcome'+(a.name?' '+a.name:'');document.getElementById('email').textContent=a.email||'Authenticated account';document.getElementById('uid').textContent=a.uid?'Account ID: '+a.uid:'';
+  try{const u=JSON.parse(localStorage.getItem('smc_user')||'null');if(u&&u.postLabel)document.getElementById('post').textContent=u.postLabel;}catch(e){}
+}
+if(!cfg.apiKey||!cfg.authDomain||!cfg.appId){say('Firebase configuration is unavailable. Public preparation pages remain available.');return;}
+try{
+  if(!firebase.apps.length)firebase.initializeApp(cfg);
+  const auth=firebase.auth();
+  auth.onAuthStateChanged(function(user){if(!user){say('You are not currently signed in.');return;}show(user);});
+  document.getElementById('logout').addEventListener('click',async function(){try{await auth.signOut();localStorage.removeItem('smc_account');location.href='login.html';}catch(e){say('Logout failed. Please try again.');}});
+}catch(e){say('Unable to initialize Firebase Authentication.');}
+})();
+</script>
+</body>
+</html>
