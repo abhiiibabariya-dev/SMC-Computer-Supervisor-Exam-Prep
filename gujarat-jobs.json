@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-18T09:37:43.573989+00:00",
+  "updated_at": "2026-08-18T09:51:50.466139+00:00",
   "region": "Gujarat",
   "focus": "Gujarat Government Jobs and SMC Recruitment",
   "total": 332,
@@ -11,7 +11,7 @@
       "url": "https://www.suratmunicipal.gov.in/Information/RTIAppStatus",
       "priority": "critical",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:30:45.301018+00:00"
+      "checked_at": "2026-08-18T09:45:11.156647+00:00"
     },
     {
       "id": "9fb4659c700c8f4513a0",
@@ -20,7 +20,7 @@
       "url": "https://www.suratmunicipal.gov.in/Content/Documents/rtiact/Disclosure/Town%20Development/TDO/Engineers.pdf",
       "priority": "critical",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:30:45.301472+00:00"
+      "checked_at": "2026-08-18T09:45:11.157038+00:00"
     },
     {
       "id": "0f2905a29f1cb718c552",
@@ -29,7 +29,7 @@
       "url": "https://www.suratmunicipal.gov.in/Information/RecruitmentDashboard",
       "priority": "critical",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:30:45.300846+00:00"
+      "checked_at": "2026-08-18T09:45:11.156475+00:00"
     },
     {
       "id": "5e3f1529969e359fec5c",
@@ -38,7 +38,7 @@
       "url": "https://www.suratmunicipal.gov.in/information/recruitment",
       "priority": "critical",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:30:45.302466+00:00"
+      "checked_at": "2026-08-18T09:45:11.158317+00:00"
     },
     {
       "id": "9a95043bea1ed091811c",
@@ -47,7 +47,7 @@
       "url": "https://www.suratmunicipal.gov.in/Information/RTIAppStatus",
       "priority": "critical",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:30:45.986560+00:00"
+      "checked_at": "2026-08-18T09:45:11.927964+00:00"
     },
     {
       "id": "6a84376c0e27099b00f3",
@@ -56,7 +56,7 @@
       "url": "https://www.suratmunicipal.gov.in/Services/TreePlantApplication",
       "priority": "critical",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:30:45.987541+00:00"
+      "checked_at": "2026-08-18T09:45:11.928748+00:00"
     },
     {
       "id": "95b103da88cd787d716b",
@@ -65,7 +65,7 @@
       "url": "https://www.suratmunicipal.gov.in/Content/Documents/rtiact/Disclosure/Town%20Development/TDO/Engineers.pdf",
       "priority": "critical",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:30:45.986876+00:00"
+      "checked_at": "2026-08-18T09:45:11.928222+00:00"
     },
     {
       "id": "72dd22f87c71ea61615e",
@@ -74,7 +74,7 @@
       "url": "https://www.suratmunicipal.gov.in/Content/Documents/News/GRUDA2022AppForms_UnderCerti.pdf",
       "priority": "critical",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:30:45.987603+00:00"
+      "checked_at": "2026-08-18T09:45:11.928788+00:00"
     },
     {
       "id": "c4e581b3a0d007c33131",
@@ -83,7 +83,7 @@
       "url": "https://www.suratmunicipal.gov.in/Information/RecruitmentDashboard",
       "priority": "critical",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:30:45.986415+00:00"
+      "checked_at": "2026-08-18T09:45:11.927859+00:00"
     },
     {
       "id": "e39a963e152ae4b46374",
@@ -92,7 +92,7 @@
       "url": "https://www.suratmunicipal.gov.in",
       "priority": "critical",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:30:45.988372+00:00"
+      "checked_at": "2026-08-18T09:45:11.929438+00:00"
     },
     {
       "id": "8bdfbe8b7e5ddfb7ed4c",
@@ -101,7 +101,7 @@
       "url": "https://gpsc.gujarat.gov.in/dashboard?stage=Advertisement",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.262127+00:00"
+      "checked_at": "2026-08-18T09:46:26.414436+00:00"
     },
     {
       "id": "eb4c17ec2911d7311c91",
@@ -110,7 +110,7 @@
       "url": "https://gpsc.gujarat.gov.in/Documents/AC-2026-1902261.pdf",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.262268+00:00"
+      "checked_at": "2026-08-18T09:46:26.414594+00:00"
     },
     {
       "id": "05795c1c1cc3e0d7970c",
@@ -119,7 +119,7 @@
       "url": "https://gpsc.gujarat.gov.in/newseventdetail?NewsID=15550",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.263996+00:00"
+      "checked_at": "2026-08-18T09:46:26.416695+00:00"
     },
     {
       "id": "d724dbf66b6a2560389a",
@@ -128,7 +128,7 @@
       "url": "https://gpsc.gujarat.gov.in/newseventdetail?NewsID=21450",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.263934+00:00"
+      "checked_at": "2026-08-18T09:46:26.416621+00:00"
     },
     {
       "id": "d44401d71da709376304",
@@ -137,7 +137,7 @@
       "url": "https://gpsc.gujarat.gov.in/Documents/Answer-Key.pdf",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.262003+00:00"
+      "checked_at": "2026-08-18T09:46:26.414285+00:00"
     },
     {
       "id": "bb3a5393ceab9bfc1536",
@@ -146,7 +146,7 @@
       "url": "https://gpsc.gujarat.gov.in/StageDocument?name=answerkey",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.262063+00:00"
+      "checked_at": "2026-08-18T09:46:26.414358+00:00"
     },
     {
       "id": "a39e81ff510650fd3baa",
@@ -155,7 +155,7 @@
       "url": "https://gpsc.gujarat.gov.in/Documents/Application-Scrutiny.pdf",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.262017+00:00"
+      "checked_at": "2026-08-18T09:46:26.414300+00:00"
     },
     {
       "id": "62866e3ea1ba1d743981",
@@ -164,7 +164,7 @@
       "url": "https://gpsc.gujarat.gov.in/newseventdetail?NewsID=26968",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.263489+00:00"
+      "checked_at": "2026-08-18T09:46:26.416087+00:00"
     },
     {
       "id": "b72215a05ee28253ed31",
@@ -173,7 +173,7 @@
       "url": "https://gpsc.gujarat.gov.in/RecruitmentOpen",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.262282+00:00"
+      "checked_at": "2026-08-18T09:46:26.414610+00:00"
     },
     {
       "id": "c173dbd5821539523481",
@@ -182,7 +182,7 @@
       "url": "https://gpsc.gujarat.gov.in/Documents/Call-Letter.pdf",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.261978+00:00"
+      "checked_at": "2026-08-18T09:46:26.414255+00:00"
     },
     {
       "id": "eb99cd6d890d1c0583f5",
@@ -191,7 +191,7 @@
       "url": "https://gpsc-ojas.gujarat.gov.in/AdvtList.aspx?type=lCxUjNjnTp8=",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.262226+00:00"
+      "checked_at": "2026-08-18T09:46:26.414554+00:00"
     },
     {
       "id": "0828387f442d0919f06f",
@@ -200,7 +200,7 @@
       "url": "https://gpsc.gujarat.gov.in/newseventdetail?NewsID=28611",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.262917+00:00"
+      "checked_at": "2026-08-18T09:46:26.415378+00:00"
     },
     {
       "id": "220399a099aed2646d90",
@@ -209,7 +209,7 @@
       "url": "https://gpsc.gujarat.gov.in/newseventdetail?NewsID=28485",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.263066+00:00"
+      "checked_at": "2026-08-18T09:46:26.415553+00:00"
     },
     {
       "id": "90e0a659cd98ca3ff3a9",
@@ -218,7 +218,7 @@
       "url": "https://gpsc.gujarat.gov.in/Download-Call-Letter",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.261794+00:00"
+      "checked_at": "2026-08-18T09:46:26.414030+00:00"
     },
     {
       "id": "9d7a57211cd0347d58f3",
@@ -227,7 +227,7 @@
       "url": "https://gpsc.gujarat.gov.in/callletters",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.262321+00:00"
+      "checked_at": "2026-08-18T09:46:26.414668+00:00"
     },
     {
       "id": "ba0a7cfee3ba7aaf299e",
@@ -236,7 +236,7 @@
       "url": "https://gpsc.gujarat.gov.in/newseventdetail?NewsID=28675",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.262724+00:00"
+      "checked_at": "2026-08-18T09:46:26.415149+00:00"
     },
     {
       "id": "ebdcb728faf58d3b40aa",
@@ -245,7 +245,7 @@
       "url": "https://gpsc.gujarat.gov.in/newseventdetail?NewsID=28687",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.262451+00:00"
+      "checked_at": "2026-08-18T09:46:26.414825+00:00"
     },
     {
       "id": "b2dea1c96f51732639af",
@@ -254,7 +254,7 @@
       "url": "https://gpsc.gujarat.gov.in/dashboard?stage=Exam",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.262139+00:00"
+      "checked_at": "2026-08-18T09:46:26.414451+00:00"
     },
     {
       "id": "37720d109f1f77aed2c0",
@@ -263,7 +263,7 @@
       "url": "https://gpsc.gujarat.gov.in/Documents/Exam-Center.pdf",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.261990+00:00"
+      "checked_at": "2026-08-18T09:46:26.414270+00:00"
     },
     {
       "id": "30a0b7a2ef0dd5f16c12",
@@ -272,7 +272,7 @@
       "url": "https://gpsc.gujarat.gov.in/Documents/ES-04072026.pdf",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.261780+00:00"
+      "checked_at": "2026-08-18T09:46:26.414014+00:00"
     },
     {
       "id": "75b5c97dffd1d64aa525",
@@ -281,7 +281,7 @@
       "url": "https://gpsc.gujarat.gov.in/StageDocument?name=syllabus",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.261763+00:00"
+      "checked_at": "2026-08-18T09:46:26.413993+00:00"
     },
     {
       "id": "b59a3a460508d6f6e6bc",
@@ -290,7 +290,7 @@
       "url": "https://gpsc.gujarat.gov.in/newseventdetail?NewsID=28673",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.262774+00:00"
+      "checked_at": "2026-08-18T09:46:26.415208+00:00"
     },
     {
       "id": "186bd0141e8be39ee91b",
@@ -299,7 +299,7 @@
       "url": "https://gpsc.gujarat.gov.in/newseventdetail?NewsID=28674",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.262748+00:00"
+      "checked_at": "2026-08-18T09:46:26.415179+00:00"
     },
     {
       "id": "7be32d6251f758acb15d",
@@ -308,7 +308,7 @@
       "url": "https://gpsc.gujarat.gov.in/newseventdetail?NewsID=28677",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.262667+00:00"
+      "checked_at": "2026-08-18T09:46:26.415082+00:00"
     },
     {
       "id": "ba86f8a4ec809fa2deba",
@@ -317,7 +317,7 @@
       "url": "https://gpsc.gujarat.gov.in/newseventdetail?NewsID=28669",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.262846+00:00"
+      "checked_at": "2026-08-18T09:46:26.415294+00:00"
     },
     {
       "id": "8454134ade13e7edd7e8",
@@ -326,7 +326,7 @@
       "url": "https://gpsc.gujarat.gov.in/newseventdetail?NewsID=28670",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.262829+00:00"
+      "checked_at": "2026-08-18T09:46:26.415273+00:00"
     },
     {
       "id": "0bbcc445a8a0e3a1dd73",
@@ -335,7 +335,7 @@
       "url": "https://gpsc.gujarat.gov.in/newseventdetail?NewsID=28671",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.262811+00:00"
+      "checked_at": "2026-08-18T09:46:26.415251+00:00"
     },
     {
       "id": "54e96b858843450d26da",
@@ -344,7 +344,7 @@
       "url": "https://gpsc.gujarat.gov.in/newseventdetail?NewsID=28678",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.262648+00:00"
+      "checked_at": "2026-08-18T09:46:26.415060+00:00"
     },
     {
       "id": "0eb24109727d44989484",
@@ -353,7 +353,7 @@
       "url": "https://gpsc.gujarat.gov.in/newseventdetail?NewsID=28672",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.262793+00:00"
+      "checked_at": "2026-08-18T09:46:26.415230+00:00"
     },
     {
       "id": "4116f28a73dab96e9d99",
@@ -362,7 +362,7 @@
       "url": "http://gpsc-ojas.gujarat.gov.in/ScribeApplication.aspx",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.264060+00:00"
+      "checked_at": "2026-08-18T09:46:26.416773+00:00"
     },
     {
       "id": "9b5250c2e7eddfc39fe4",
@@ -371,7 +371,7 @@
       "url": "https://gpsc.gujarat.gov.in",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.264494+00:00"
+      "checked_at": "2026-08-18T09:46:26.417383+00:00"
     },
     {
       "id": "caeaeac2204b57312433",
@@ -380,7 +380,7 @@
       "url": "https://gpsc.gujarat.gov.in/newseventdetail?NewsID=28412",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.263167+00:00"
+      "checked_at": "2026-08-18T09:46:26.415675+00:00"
     },
     {
       "id": "aa53ccc9e9ee69e7f493",
@@ -389,7 +389,7 @@
       "url": "https://gpsc.gujarat.gov.in/newseventdetail?NewsID=28523",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.263042+00:00"
+      "checked_at": "2026-08-18T09:46:26.415525+00:00"
     },
     {
       "id": "4e737c569d2b3059bd93",
@@ -398,7 +398,7 @@
       "url": "https://gpsc.gujarat.gov.in/newseventdetail?NewsID=28628",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.262869+00:00"
+      "checked_at": "2026-08-18T09:46:26.415320+00:00"
     },
     {
       "id": "ec0513935c1c3fcb4ec1",
@@ -407,7 +407,7 @@
       "url": "https://gpsc.gujarat.gov.in/newseventdetail?NewsID=28199",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.263207+00:00"
+      "checked_at": "2026-08-18T09:46:26.415721+00:00"
     },
     {
       "id": "020c236b876bfc7444fe",
@@ -416,7 +416,7 @@
       "url": "https://gpsc.gujarat.gov.in/newseventdetail?NewsID=28537",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.262985+00:00"
+      "checked_at": "2026-08-18T09:46:26.415458+00:00"
     },
     {
       "id": "71fdf03e6123f93f1a53",
@@ -425,7 +425,7 @@
       "url": "https://gpsc.gujarat.gov.in/newseventdetail?NewsID=27298",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.263429+00:00"
+      "checked_at": "2026-08-18T09:46:26.415983+00:00"
     },
     {
       "id": "b253f6880dc038da2d56",
@@ -434,7 +434,7 @@
       "url": "https://gpsc.gujarat.gov.in/newseventdetail?NewsID=28569",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.262962+00:00"
+      "checked_at": "2026-08-18T09:46:26.415431+00:00"
     },
     {
       "id": "ba9dac4885fa9924ceb1",
@@ -443,7 +443,7 @@
       "url": "https://gpsc.gujarat.gov.in/newseventdetail?NewsID=28450",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.263126+00:00"
+      "checked_at": "2026-08-18T09:46:26.415624+00:00"
     },
     {
       "id": "b2a0e35d5c344628f4e9",
@@ -452,7 +452,7 @@
       "url": "https://gpsc.gujarat.gov.in/newseventdetail?NewsID=26694",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.263597+00:00"
+      "checked_at": "2026-08-18T09:46:26.416216+00:00"
     },
     {
       "id": "20119123e4c6e71d7959",
@@ -461,7 +461,7 @@
       "url": "https://gpsc.gujarat.gov.in/newseventdetail?NewsID=26943",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.263510+00:00"
+      "checked_at": "2026-08-18T09:46:26.416115+00:00"
     },
     {
       "id": "f176e55ecd468ac3b93a",
@@ -470,7 +470,7 @@
       "url": "https://gpsc.gujarat.gov.in/newseventdetail?NewsID=28532",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.263005+00:00"
+      "checked_at": "2026-08-18T09:46:26.415482+00:00"
     },
     {
       "id": "29d37afdce75d7a78573",
@@ -479,7 +479,7 @@
       "url": "https://gpsc.gujarat.gov.in/newseventdetail?NewsID=27615",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.263350+00:00"
+      "checked_at": "2026-08-18T09:46:26.415889+00:00"
     },
     {
       "id": "41387f11ac17f95147c2",
@@ -488,7 +488,7 @@
       "url": "https://gpsc.gujarat.gov.in/newseventdetail?NewsID=26793",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.263551+00:00"
+      "checked_at": "2026-08-18T09:46:26.416163+00:00"
     },
     {
       "id": "8d0bee96b8cf935987c3",
@@ -497,7 +497,7 @@
       "url": "https://gpsc.gujarat.gov.in/newseventdetail?NewsID=27472",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.263391+00:00"
+      "checked_at": "2026-08-18T09:46:26.415938+00:00"
     },
     {
       "id": "45f5e39189805bdec376",
@@ -506,7 +506,7 @@
       "url": "https://gpsc.gujarat.gov.in/newseventdetail?NewsID=26695",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.263574+00:00"
+      "checked_at": "2026-08-18T09:46:26.416188+00:00"
     },
     {
       "id": "99c4978d2cec97799146",
@@ -515,7 +515,7 @@
       "url": "https://gpsc.gujarat.gov.in/newseventdetail?NewsID=27750",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.263309+00:00"
+      "checked_at": "2026-08-18T09:46:26.415841+00:00"
     },
     {
       "id": "58d7201b7809a93a9cd1",
@@ -524,7 +524,7 @@
       "url": "https://gpsc.gujarat.gov.in/newseventdetail?NewsID=28598",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.262940+00:00"
+      "checked_at": "2026-08-18T09:46:26.415406+00:00"
     },
     {
       "id": "90066c7a45226b6d7baf",
@@ -533,7 +533,7 @@
       "url": "https://gpsc.gujarat.gov.in/newseventdetail?NewsID=28616",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.262892+00:00"
+      "checked_at": "2026-08-18T09:46:26.415348+00:00"
     },
     {
       "id": "d5850da3941fbc8c00c8",
@@ -542,7 +542,7 @@
       "url": "https://gpsc.gujarat.gov.in/newseventdetail?NewsID=26272",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.263638+00:00"
+      "checked_at": "2026-08-18T09:46:26.416264+00:00"
     },
     {
       "id": "d38e143fc531b44d9350",
@@ -551,7 +551,7 @@
       "url": "https://gpsc.gujarat.gov.in/newseventdetail?NewsID=28346",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.263186+00:00"
+      "checked_at": "2026-08-18T09:46:26.415696+00:00"
     },
     {
       "id": "274cba290510aa5df7c7",
@@ -560,7 +560,7 @@
       "url": "https://gpsc.gujarat.gov.in/newseventdetail?NewsID=24568",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.263830+00:00"
+      "checked_at": "2026-08-18T09:46:26.416497+00:00"
     },
     {
       "id": "83f3ac2c79948e5a70cd",
@@ -569,7 +569,7 @@
       "url": "https://gpsc.gujarat.gov.in/newseventdetail?NewsID=28686",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.262478+00:00"
+      "checked_at": "2026-08-18T09:46:26.414857+00:00"
     },
     {
       "id": "05eb77035101ab6e6a98",
@@ -578,7 +578,7 @@
       "url": "https://gpsc.gujarat.gov.in/newseventdetail?NewsID=28685",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.262505+00:00"
+      "checked_at": "2026-08-18T09:46:26.414890+00:00"
     },
     {
       "id": "ac61e8425bf53f975b4a",
@@ -587,7 +587,7 @@
       "url": "https://gpsc.gujarat.gov.in/newseventdetail?NewsID=28682",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.262556+00:00"
+      "checked_at": "2026-08-18T09:46:26.414949+00:00"
     },
     {
       "id": "81aabdbefd0928fac2e5",
@@ -596,7 +596,7 @@
       "url": "https://gpsc.gujarat.gov.in/newseventdetail?NewsID=28680",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.262612+00:00"
+      "checked_at": "2026-08-18T09:46:26.415015+00:00"
     },
     {
       "id": "0a7530b0b9afeb0ba8d4",
@@ -605,7 +605,7 @@
       "url": "https://gpsc.gujarat.gov.in/newseventdetail?NewsID=28681",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.262581+00:00"
+      "checked_at": "2026-08-18T09:46:26.414979+00:00"
     },
     {
       "id": "3198700b41f95352675c",
@@ -614,7 +614,7 @@
       "url": "https://gpsc.gujarat.gov.in/newseventdetail?NewsID=28676",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.262697+00:00"
+      "checked_at": "2026-08-18T09:46:26.415118+00:00"
     },
     {
       "id": "7ace7a2439d7d208f61b",
@@ -623,7 +623,7 @@
       "url": "https://gpsc.gujarat.gov.in/pressrelease",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.262332+00:00"
+      "checked_at": "2026-08-18T09:46:26.414681+00:00"
     },
     {
       "id": "8e138f9b477edc5d94f0",
@@ -632,7 +632,7 @@
       "url": "https://gpsc.gujarat.gov.in/newseventdetail?NewsID=27617",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.263329+00:00"
+      "checked_at": "2026-08-18T09:46:26.415864+00:00"
     },
     {
       "id": "a9d1797ca0ca9c86987e",
@@ -641,7 +641,7 @@
       "url": "https://gpsc.gujarat.gov.in/newseventdetail?NewsID=27755",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.263288+00:00"
+      "checked_at": "2026-08-18T09:46:26.415817+00:00"
     },
     {
       "id": "b37f14597e35e74755ff",
@@ -650,7 +650,7 @@
       "url": "https://gpsc.gujarat.gov.in/newseventdetail?NewsID=27570",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.263371+00:00"
+      "checked_at": "2026-08-18T09:46:26.415914+00:00"
     },
     {
       "id": "fdc811051664469f5096",
@@ -659,7 +659,7 @@
       "url": "https://gpsc.gujarat.gov.in/newseventdetail?NewsID=26927",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.263530+00:00"
+      "checked_at": "2026-08-18T09:46:26.416138+00:00"
     },
     {
       "id": "df1bd1690077db1243a2",
@@ -668,7 +668,7 @@
       "url": "https://gpsc.gujarat.gov.in/newseventdetail?NewsID=28017",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.263248+00:00"
+      "checked_at": "2026-08-18T09:46:26.415770+00:00"
     },
     {
       "id": "56d05488272679d3ca77",
@@ -677,7 +677,7 @@
       "url": "https://gpsc.gujarat.gov.in/Online-Application",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.261720+00:00"
+      "checked_at": "2026-08-18T09:46:26.413940+00:00"
     },
     {
       "id": "a15f460826c3af576364",
@@ -686,7 +686,7 @@
       "url": "https://gpsc.gujarat.gov.in/Documents/Online-Application.pdf",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.261946+00:00"
+      "checked_at": "2026-08-18T09:46:26.414215+00:00"
     },
     {
       "id": "8895ab9251debe741ba0",
@@ -695,7 +695,7 @@
       "url": "https://gpsc-ojas.gujarat.gov.in/CommonApplication.aspx",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.261824+00:00"
+      "checked_at": "2026-08-18T09:46:26.414066+00:00"
     },
     {
       "id": "c58cd58eab5ee9e67ede",
@@ -704,7 +704,7 @@
       "url": "https://gpsc-ojas.gujarat.gov.in/MiscFees_4.aspx?opt=LUbWdmhKlwjaHr/CUNi26A==",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.261809+00:00"
+      "checked_at": "2026-08-18T09:46:26.414048+00:00"
     },
     {
       "id": "35bb1ff44c22c96b2101",
@@ -713,7 +713,7 @@
       "url": "https://gpsc.gujarat.gov.in/newseventdetail?NewsID=28683",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.262525+00:00"
+      "checked_at": "2026-08-18T09:46:26.414913+00:00"
     },
     {
       "id": "69cced060ca3f4d7fd03",
@@ -722,7 +722,7 @@
       "url": "https://gpsc.gujarat.gov.in/newseventdetail?NewsID=28689",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.262407+00:00"
+      "checked_at": "2026-08-18T09:46:26.414771+00:00"
     },
     {
       "id": "208e0e800bf38c579de1",
@@ -731,7 +731,7 @@
       "url": "https://gpsc.gujarat.gov.in/newseventdetail?NewsID=28690",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.262381+00:00"
+      "checked_at": "2026-08-18T09:46:26.414740+00:00"
     },
     {
       "id": "4bf80d62659492b7abd9",
@@ -740,7 +740,7 @@
       "url": "https://gpsc.gujarat.gov.in/newseventdetail?NewsID=28691",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.262355+00:00"
+      "checked_at": "2026-08-18T09:46:26.414710+00:00"
     },
     {
       "id": "7816990326dd6a881d39",
@@ -749,7 +749,7 @@
       "url": "https://gpsc.gujarat.gov.in/newseventdetail?NewsID=24937",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.263778+00:00"
+      "checked_at": "2026-08-18T09:46:26.416433+00:00"
     },
     {
       "id": "f59fd83988165c967bd1",
@@ -758,7 +758,7 @@
       "url": "https://gpsc.gujarat.gov.in/newseventdetail?NewsID=22568",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.263911+00:00"
+      "checked_at": "2026-08-18T09:46:26.416595+00:00"
     },
     {
       "id": "9b6d69dd2b84edac8146",
@@ -767,7 +767,7 @@
       "url": "https://gpsc.gujarat.gov.in/newseventdetail?NewsID=22885",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.263890+00:00"
+      "checked_at": "2026-08-18T09:46:26.416569+00:00"
     },
     {
       "id": "61d711f00a1d79275951",
@@ -776,7 +776,7 @@
       "url": "https://gpsc.gujarat.gov.in/newseventdetail?NewsID=19814",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.263955+00:00"
+      "checked_at": "2026-08-18T09:46:26.416647+00:00"
     },
     {
       "id": "7208bc04e9c0e8206aff",
@@ -785,7 +785,7 @@
       "url": "http://gpscojas.mygetepay.com",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.264082+00:00"
+      "checked_at": "2026-08-18T09:46:26.416799+00:00"
     },
     {
       "id": "0251c75797b7edfcf686",
@@ -794,7 +794,7 @@
       "url": "https://gpsc.gujarat.gov.in/newseventdetail?NewsID=28171",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.263227+00:00"
+      "checked_at": "2026-08-18T09:46:26.415745+00:00"
     },
     {
       "id": "2e34a09633a5224dbd91",
@@ -803,7 +803,7 @@
       "url": "https://gpsc.gujarat.gov.in/StageDocument?name=provisionalresult",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.262084+00:00"
+      "checked_at": "2026-08-18T09:46:26.414384+00:00"
     },
     {
       "id": "8d0f073c039a0ef21b7a",
@@ -812,7 +812,7 @@
       "url": "https://gpsc.gujarat.gov.in/dashboard?stage=Result",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.262159+00:00"
+      "checked_at": "2026-08-18T09:46:26.414476+00:00"
     },
     {
       "id": "29ea26fbeea48b8e0f7b",
@@ -821,7 +821,7 @@
       "url": "http://gpsc.gujarat.gov.in/Archieved/pdf/Suggestion-of-Candidate-for-Provisional-Key-24-12-16.pdf",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.264132+00:00"
+      "checked_at": "2026-08-18T09:46:26.416861+00:00"
     },
     {
       "id": "cb4c4762a9bc5eeed385",
@@ -830,7 +830,7 @@
       "url": "http://gpsc.gujarat.gov.in/Documents/AdvertismentDocument/2019-9-4_49.pdf",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.264145+00:00"
+      "checked_at": "2026-08-18T09:46:26.416877+00:00"
     },
     {
       "id": "94c43979da8786e52262",
@@ -839,7 +839,7 @@
       "url": "https://gpsc.gujarat.gov.in/newseventdetail?NewsID=24776",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.263818+00:00"
+      "checked_at": "2026-08-18T09:46:26.416482+00:00"
     },
     {
       "id": "6c02fca036f7303654f3",
@@ -848,7 +848,7 @@
       "url": "https://gpsc.gujarat.gov.in/newseventdetail?NewsID=27299",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.263410+00:00"
+      "checked_at": "2026-08-18T09:46:26.415960+00:00"
     },
     {
       "id": "ad1677bbc1ec6976a86c",
@@ -857,7 +857,7 @@
       "url": "https://gpsc.gujarat.gov.in/newseventdetail?NewsID=27866",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.263269+00:00"
+      "checked_at": "2026-08-18T09:46:26.415794+00:00"
     },
     {
       "id": "5941d7e3039f043bf99d",
@@ -866,7 +866,7 @@
       "url": "https://gpsc.gujarat.gov.in/newseventdetail?NewsID=26131",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.263697+00:00"
+      "checked_at": "2026-08-18T09:46:26.416334+00:00"
     },
     {
       "id": "bb68e566ac1470dd25a4",
@@ -875,7 +875,7 @@
       "url": "https://gpsc.gujarat.gov.in/newseventdetail?NewsID=28428",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:54.263146+00:00"
+      "checked_at": "2026-08-18T09:46:26.415648+00:00"
     },
     {
       "id": "58eb1f26eb4bd256df83",
@@ -884,7 +884,7 @@
       "url": "https://gpssb.gujarat.gov.in/writereaddata/Portal/EventActivity/83/1403_1_1_DC_APML.pdf",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:33:32.936004+00:00"
+      "checked_at": "2026-08-18T09:47:38.294408+00:00"
     },
     {
       "id": "4969848464badbd1a1c1",
@@ -893,7 +893,7 @@
       "url": "https://gpssb.gujarat.gov.in/writereaddata/Portal/EventActivity/91/1381_1_1_04-07-2026_AAE_RESPONSE_SHEET.pdf",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:33:32.936910+00:00"
+      "checked_at": "2026-08-18T09:47:38.295198+00:00"
     },
     {
       "id": "8b09e20edfbc46baab0d",
@@ -902,7 +902,7 @@
       "url": "https://gpssb.gujarat.gov.in/writereaddata/Portal/EventActivity/95/1382_1_1_05-07-2026_LAB_TECH_RESPONSE_SHEET.pdf",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:33:32.936860+00:00"
+      "checked_at": "2026-08-18T09:47:38.295155+00:00"
     },
     {
       "id": "d55355d13b73141d795c",
@@ -911,7 +911,7 @@
       "url": "https://gpssb.gujarat.gov.in/writereaddata/Portal/EventActivity/74/1408_1_1_VAS_DISQUALIFIED.pdf",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:33:32.935841+00:00"
+      "checked_at": "2026-08-18T09:47:38.294253+00:00"
     },
     {
       "id": "38e2fce7494eb98f894c",
@@ -920,7 +920,7 @@
       "url": "https://gpssb.gujarat.gov.in/writereaddata/Portal/EventActivity/74/1411_1_1_VAS_SRD_PML_Without_Name.pdf",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:33:32.935952+00:00"
+      "checked_at": "2026-08-18T09:47:38.294361+00:00"
     },
     {
       "id": "edcc68fd872e03fbf74b",
@@ -929,7 +929,7 @@
       "url": "https://gpssb.gujarat.gov.in/writereaddata/Portal/EventActivity/91/1383_1_1_AAE_PAK.pdf",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:33:32.936812+00:00"
+      "checked_at": "2026-08-18T09:47:38.295113+00:00"
     },
     {
       "id": "625bfac14970828f261a",
@@ -938,7 +938,7 @@
       "url": "https://gpssb.gujarat.gov.in/writereaddata/Portal/EventActivity/95/1384_1_1_LT_PAK_2026-27.pdf",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:33:32.936770+00:00"
+      "checked_at": "2026-08-18T09:47:38.295077+00:00"
     },
     {
       "id": "39d2c310c289d113024a",
@@ -947,7 +947,7 @@
       "url": "https://gpssb.gujarat.gov.in/writereaddata/Portal/EventActivity/82/1385_1_1_AAE_SRD_LIST_Without_Name__3_.pdf",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:33:32.936730+00:00"
+      "checked_at": "2026-08-18T09:47:38.295040+00:00"
     },
     {
       "id": "a1a76a8ff1f647234fdd",
@@ -956,7 +956,7 @@
       "url": "https://gpssb.gujarat.gov.in/writereaddata/Portal/EventActivity/74/1417_1_1_07_VAS_DISTRICT_ALLOTMENT_LIST.pdf",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:33:32.935683+00:00"
+      "checked_at": "2026-08-18T09:47:38.294121+00:00"
     },
     {
       "id": "1dc592c1f509e97a203e",
@@ -965,7 +965,7 @@
       "url": "https://gpssb.gujarat.gov.in/writereaddata/Portal/EventActivity/90/1386_1_1_19-202526_AAE_DISQUALIFY_NOTIFICATION.pdf",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:33:32.936686+00:00"
+      "checked_at": "2026-08-18T09:47:38.295003+00:00"
     },
     {
       "id": "47eba1a57d06b2e01158",
@@ -974,7 +974,7 @@
       "url": "https://gpssb.gujarat.gov.in/writereaddata/Portal/EventActivity/54/1419_1_1_LTSRD_FAK_WEBSITE_ADVT.pdf",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:33:32.935607+00:00"
+      "checked_at": "2026-08-18T09:47:38.294052+00:00"
     },
     {
       "id": "6bf9471d06775362a3ca",
@@ -983,7 +983,7 @@
       "url": "https://gpssb.gujarat.gov.in/writereaddata/Portal/EventActivity/82/1388_1_1_15_202526_AAE_SDR_DIST_ALLOTMENT_WITHOUT_NAME_14July26.pdf",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:33:32.936646+00:00"
+      "checked_at": "2026-08-18T09:47:38.294968+00:00"
     },
     {
       "id": "fcba89461aa3a9e02e31",
@@ -992,7 +992,7 @@
       "url": "https://gpssb.gujarat.gov.in/writereaddata/Portal/EventActivity/90/1390_1_1_Link_for_Real_Time_Vacant_Seat.pdf",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:33:32.936555+00:00"
+      "checked_at": "2026-08-18T09:47:38.294889+00:00"
     },
     {
       "id": "e94e73a7540b575b7bd3",
@@ -1001,7 +1001,7 @@
       "url": "https://gpssb.gujarat.gov.in/writereaddata/Portal/EventActivity/90/1391_1_1_Revised_District_Allocation_Programme.pdf",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:33:32.936586+00:00"
+      "checked_at": "2026-08-18T09:47:38.294917+00:00"
     },
     {
       "id": "b0b7091c3b9c39882599",
@@ -1010,7 +1010,7 @@
       "url": "https://gpssb.gujarat.gov.in/writereaddata/Portal/EventActivity/90/1389_1_1_19_202526_AAE_CIVIL__District_Alloction_Programme.pdf",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:33:32.936510+00:00"
+      "checked_at": "2026-08-18T09:47:38.294849+00:00"
     },
     {
       "id": "91d055d6467a93b0d196",
@@ -1019,7 +1019,7 @@
       "url": "https://gpssb.gujarat.gov.in/writereaddata/Portal/EventActivity/101/1394_1_1_nachi202627.pdf",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:33:32.936413+00:00"
+      "checked_at": "2026-08-18T09:47:38.294764+00:00"
     },
     {
       "id": "215bc52eeebe6f19b601",
@@ -1028,7 +1028,7 @@
       "url": "https://gpssb.gujarat.gov.in/writereaddata/Portal/EventActivity/100/1393_1_1_higher_level_exam_notification.pdf",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:33:32.936375+00:00"
+      "checked_at": "2026-08-18T09:47:38.294731+00:00"
     },
     {
       "id": "92552be38661b54f686f",
@@ -1037,7 +1037,7 @@
       "url": "https://gpssb.gujarat.gov.in/writereaddata/Portal/EventActivity/99/1392_1_1_lower_exam.pdf",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:33:32.936339+00:00"
+      "checked_at": "2026-08-18T09:47:38.294700+00:00"
     },
     {
       "id": "12f8faed98919f7b3943",
@@ -1046,7 +1046,7 @@
       "url": "https://gpssb.gujarat.gov.in/writereaddata/Portal/EventActivity/102/1395_1_1_vistran_adhikari.pdf",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:33:32.936457+00:00"
+      "checked_at": "2026-08-18T09:47:38.294803+00:00"
     },
     {
       "id": "8212b24a3d4f8b9292f0",
@@ -1055,7 +1055,7 @@
       "url": "https://gpssb.gujarat.gov.in/writereaddata/Portal/EventActivity/70/1396_1_1_VAK_Final_List_Website.pdf",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:33:32.936302+00:00"
+      "checked_at": "2026-08-18T09:47:38.294668+00:00"
     },
     {
       "id": "752b34822bde2c559d87",
@@ -1064,7 +1064,7 @@
       "url": "https://gpssb.gujarat.gov.in/writereaddata/Portal/EventActivity/54/1374_1_1_22-06-26_LT_Response_Key_ADVT.pdf",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:33:32.937214+00:00"
+      "checked_at": "2026-08-18T09:47:38.295517+00:00"
     },
     {
       "id": "975dcab91a7f3ca0ac03",
@@ -1073,7 +1073,7 @@
       "url": "https://gpssb.gujarat.gov.in/writereaddata/Portal/EventActivity/92/1375_1_1_02_LSI_WEBSITE_ADVT.pdf",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:33:32.937177+00:00"
+      "checked_at": "2026-08-18T09:47:38.295399+00:00"
     },
     {
       "id": "9593aa107e9406b20f20",
@@ -1082,7 +1082,7 @@
       "url": "https://gpssb.gujarat.gov.in/writereaddata/Portal/EventActivity/90/1398_1_1_AAE_CIVIL_DIST_ALLOTMENT_Without_Name__1_.pdf",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:33:32.936227+00:00"
+      "checked_at": "2026-08-18T09:47:38.294602+00:00"
     },
     {
       "id": "2cab0bb34e1845d4685c",
@@ -1091,7 +1091,7 @@
       "url": "https://gpssb.gujarat.gov.in/writereaddata/Portal/EventActivity/54/1376_1_1_ADVT_01_LT_PAK.pdf",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:33:32.937095+00:00"
+      "checked_at": "2026-08-18T09:47:38.295363+00:00"
     },
     {
       "id": "f666db657beffec60653",
@@ -1100,7 +1100,7 @@
       "url": "https://gpssb.gujarat.gov.in/writereaddata/Portal/EventActivity/99/1399_1_1_suthara_jahenamu.pdf",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:33:32.936192+00:00"
+      "checked_at": "2026-08-18T09:47:38.294571+00:00"
     },
     {
       "id": "3cf861a14c2b8e059af3",
@@ -1109,7 +1109,7 @@
       "url": "https://gpssb.gujarat.gov.in/writereaddata/Portal/EventActivity/70/1400_1_1_03_VAK_SRD_DIST_ALLOTMENT_WITHOUT_NAME.pdf",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:33:32.936150+00:00"
+      "checked_at": "2026-08-18T09:47:38.294540+00:00"
     },
     {
       "id": "f8d0c424065cbe6eda18",
@@ -1118,7 +1118,7 @@
       "url": "https://gpssb.gujarat.gov.in/writereaddata/Portal/EventActivity/75/1401_1_1_FINAL_RA_ADVT_merged.pdf",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:33:32.936115+00:00"
+      "checked_at": "2026-08-18T09:47:38.294504+00:00"
     },
     {
       "id": "354af0fb7ee49d49567a",
@@ -1127,7 +1127,7 @@
       "url": "https://gpssb.gujarat.gov.in/writereaddata/Portal/EventActivity/95/1380_1_1_ADVT_04-2026-27_LT_Scribe_lahiya_web_note.pdf",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:33:32.937030+00:00"
+      "checked_at": "2026-08-18T09:47:38.295304+00:00"
     },
     {
       "id": "02972f457f8eb539ddd8",
@@ -1136,7 +1136,7 @@
       "url": "https://gpssb.gujarat.gov.in/writereaddata/Portal/EventActivity/95/1379_1_1_call_latter__ADVT_04__LT_Instruction_webnotee.pdf",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:33:32.936990+00:00"
+      "checked_at": "2026-08-18T09:47:38.295269+00:00"
     },
     {
       "id": "9f501a6645db1c04fa4b",
@@ -1145,7 +1145,7 @@
       "url": "https://gpssb.gujarat.gov.in/writereaddata/Portal/EventActivity/97/1378_1_1_07_JPH_MERGE_PDF.pdf",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:33:32.936949+00:00"
+      "checked_at": "2026-08-18T09:47:38.295233+00:00"
     },
     {
       "id": "74a6973cc406cd289633",
@@ -1154,7 +1154,7 @@
       "url": "https://gpssb.gujarat.gov.in/writereaddata/Portal/EventActivity/75/1402_1_1_08_RA_SRD_DIST_ALLOTMENT_Without_Name.pdf",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:33:32.936066+00:00"
+      "checked_at": "2026-08-18T09:47:38.294461+00:00"
     },
     {
       "id": "73ea2c92e9868a84063d",
@@ -1163,7 +1163,7 @@
       "url": "https://gpssb.gujarat.gov.in/advertisements.htm",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:33:32.935414+00:00"
+      "checked_at": "2026-08-18T09:47:38.293878+00:00"
     },
     {
       "id": "7b09c54125ccac2f85d4",
@@ -1172,7 +1172,7 @@
       "url": "https://gpssb.gujarat.gov.in/answer-key-list.htm?2",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:33:32.935452+00:00"
+      "checked_at": "2026-08-18T09:47:38.293915+00:00"
     },
     {
       "id": "308c8de84f26b4d5c4d8",
@@ -1181,7 +1181,7 @@
       "url": "https://gpssb.gujarat.gov.in/departmental-exams.htm",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:33:32.935530+00:00"
+      "checked_at": "2026-08-18T09:47:38.293983+00:00"
     },
     {
       "id": "8c214ecd193eed4371f8",
@@ -1190,7 +1190,7 @@
       "url": "https://gpssb.gujarat.gov.in/exam-list.htm?1",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:33:32.935433+00:00"
+      "checked_at": "2026-08-18T09:47:38.293897+00:00"
     },
     {
       "id": "bd0fd34616dff9be81da",
@@ -1199,7 +1199,7 @@
       "url": "https://gpssb.gujarat.gov.in/examination-rules.htm",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:33:32.935341+00:00"
+      "checked_at": "2026-08-18T09:47:38.293811+00:00"
     },
     {
       "id": "9e9b6d9e2aa8fd8a84b0",
@@ -1208,7 +1208,7 @@
       "url": "https://gpssb.gujarat.gov.in/final-selection-list.htm?5",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:33:32.935512+00:00"
+      "checked_at": "2026-08-18T09:47:38.293967+00:00"
     },
     {
       "id": "0312ffa0a2f70f46c5c0",
@@ -1217,7 +1217,7 @@
       "url": "https://gpssb.gujarat.gov.in",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:33:32.937545+00:00"
+      "checked_at": "2026-08-18T09:47:38.295837+00:00"
     },
     {
       "id": "e12d5c491a8fef7b7364",
@@ -1226,7 +1226,7 @@
       "url": "https://gpssb.gujarat.gov.in/hindi-gujarati-exam.htm",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:33:32.935548+00:00"
+      "checked_at": "2026-08-18T09:47:38.293999+00:00"
     },
     {
       "id": "ac397b1e9f9bfa867577",
@@ -1235,7 +1235,7 @@
       "url": "https://gpssb.gujarat.gov.in/old-advertisements.htm",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:33:32.937320+00:00"
+      "checked_at": "2026-08-18T09:47:38.295631+00:00"
     },
     {
       "id": "de9edbd6465bcfff4917",
@@ -1244,7 +1244,7 @@
       "url": "https://gpssb.gujarat.gov.in/Provisional-merit-list.htm?4",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:33:32.935491+00:00"
+      "checked_at": "2026-08-18T09:47:38.293948+00:00"
     },
     {
       "id": "cef44099b43a7d5aa190",
@@ -1253,7 +1253,7 @@
       "url": "https://gpssb.gujarat.gov.in/recruitment-rules.htm",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:33:32.935231+00:00"
+      "checked_at": "2026-08-18T09:47:38.293016+00:00"
     },
     {
       "id": "da0c3e510de05a2b69b7",
@@ -1262,7 +1262,7 @@
       "url": "https://gpssb.gujarat.gov.in/results-list.htm?3",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:33:32.935471+00:00"
+      "checked_at": "2026-08-18T09:47:38.293931+00:00"
     },
     {
       "id": "c69ddcbadb3801a61350",
@@ -1271,7 +1271,7 @@
       "url": "https://gpssb.gujarat.gov.in/notifications.htm",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:33:32.935305+00:00"
+      "checked_at": "2026-08-18T09:47:38.293760+00:00"
     },
     {
       "id": "ceba1d6088899e0075b6",
@@ -1280,7 +1280,7 @@
       "url": "https://gpssb.gujarat.gov.in/advertisement-list.htm",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:33:32.937279+00:00"
+      "checked_at": "2026-08-18T09:47:38.295592+00:00"
     },
     {
       "id": "b75d78cfe8eb2fa90133",
@@ -1289,7 +1289,7 @@
       "url": "https://gsssb.gujarat.gov.in/UpcomingExams",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:32:58.094977+00:00"
+      "checked_at": "2026-08-18T09:47:02.827687+00:00"
     },
     {
       "id": "aed88531b1cb7d46d31f",
@@ -1298,7 +1298,7 @@
       "url": "https://gsssb.gujarat.gov.in/AdvertisementStatus",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:32:58.095193+00:00"
+      "checked_at": "2026-08-18T09:47:02.827835+00:00"
     },
     {
       "id": "8530513f11542c0a482e",
@@ -1307,7 +1307,7 @@
       "url": "https://gsssb.gujarat.gov.in/Notification",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:32:58.095030+00:00"
+      "checked_at": "2026-08-18T09:47:02.827724+00:00"
     },
     {
       "id": "6b7d0734c8c9e24fdb79",
@@ -1316,7 +1316,7 @@
       "url": "https://gsssb.gujarat.gov.in/ResultList",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:32:58.095147+00:00"
+      "checked_at": "2026-08-18T09:47:02.827804+00:00"
     },
     {
       "id": "808f8d7c84efb1349762",
@@ -1325,7 +1325,7 @@
       "url": "https://gsssb.gujarat.gov.in/ActiveExam",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:32:58.094853+00:00"
+      "checked_at": "2026-08-18T09:47:02.827616+00:00"
     },
     {
       "id": "b000884a63e7a6837a4e",
@@ -1334,7 +1334,7 @@
       "url": "https://education.gujarat.gov.in/Home/main/ContactDetailsoftheDepartmentOfficers",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:36:02.892527+00:00"
+      "checked_at": "2026-08-18T09:50:08.852125+00:00"
     },
     {
       "id": "0bae136f039889f366b2",
@@ -1343,7 +1343,7 @@
       "url": "https://education.gujarat.gov.in/Home/main/DetailsofPublicInformationOfficersandFirstAppellateAuthority",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:36:02.892548+00:00"
+      "checked_at": "2026-08-18T09:50:08.852149+00:00"
     },
     {
       "id": "08284ac86d33e6620b61",
@@ -1352,7 +1352,7 @@
       "url": "https://education.gujarat.gov.in",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:36:02.892621+00:00"
+      "checked_at": "2026-08-18T09:50:08.852232+00:00"
     },
     {
       "id": "79577a4523dc8f2c3dce",
@@ -1361,7 +1361,7 @@
       "url": "https://education.gujarat.gov.in/Home/main/GujaratStateTechnicalExaminationBoard",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:36:02.892336+00:00"
+      "checked_at": "2026-08-18T09:50:08.851916+00:00"
     },
     {
       "id": "77da75dc5918b7ff6e59",
@@ -1370,7 +1370,7 @@
       "url": "https://education.gujarat.gov.in/Main/NotificationCircular",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:36:02.892477+00:00"
+      "checked_at": "2026-08-18T09:50:08.852069+00:00"
     },
     {
       "id": "7544bc9ce7a3296375a6",
@@ -1379,7 +1379,7 @@
       "url": "https://education.gujarat.gov.in/Home/main/StateExaminationBoard",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:36:02.892379+00:00"
+      "checked_at": "2026-08-18T09:50:08.851958+00:00"
     },
     {
       "id": "2d8174327c1979256a3c",
@@ -1388,7 +1388,7 @@
       "url": "https://gujhealth.gujarat.gov.in/carieer.htm",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:36:38.003408+00:00"
+      "checked_at": "2026-08-18T09:50:45.545453+00:00"
     },
     {
       "id": "a41c6872b979e833d720",
@@ -1397,7 +1397,7 @@
       "url": "https://gogservices.gujarat.gov.in/healthfeedback.html",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:36:38.003782+00:00"
+      "checked_at": "2026-08-18T09:50:45.545955+00:00"
     },
     {
       "id": "de308e54220160e45368",
@@ -1406,7 +1406,7 @@
       "url": "https://gujhealth.gujarat.gov.in/Portal/Document/1_2705_1_1_202602201357001681.pdf",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:36:38.003998+00:00"
+      "checked_at": "2026-08-18T09:50:45.546272+00:00"
     },
     {
       "id": "90f95f8890ebea7e1b23",
@@ -1415,7 +1415,7 @@
       "url": "https://gujhealth.gujarat.gov.in",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:36:38.005324+00:00"
+      "checked_at": "2026-08-18T09:50:45.547559+00:00"
     },
     {
       "id": "83bf973223b5ef0a74be",
@@ -1424,7 +1424,7 @@
       "url": "https://gujhealth.gujarat.gov.in/Portal/News/1824_1_MERGE_FINAL.pdf",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:36:38.004421+00:00"
+      "checked_at": "2026-08-18T09:50:45.546709+00:00"
     },
     {
       "id": "b0584587797fcf8a061d",
@@ -1433,7 +1433,7 @@
       "url": "https://gujhealth.gujarat.gov.in/notification.htm",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:36:38.003314+00:00"
+      "checked_at": "2026-08-18T09:50:45.545316+00:00"
     },
     {
       "id": "5d94be493a217db84155",
@@ -1442,7 +1442,7 @@
       "url": "https://gujhealth.gujarat.gov.in/Portal/News/1827_1_Legal_Officer_Advertisment_2025-26.pdf",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:36:38.004370+00:00"
+      "checked_at": "2026-08-18T09:50:45.546659+00:00"
     },
     {
       "id": "748ecbdc99ecd649b102",
@@ -1451,7 +1451,7 @@
       "url": "https://gujhealth.gujarat.gov.in/Portal/News/1835_1_Class-3-Provisional-Seniority-List-2026.pdf",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:36:38.004211+00:00"
+      "checked_at": "2026-08-18T09:50:45.546505+00:00"
     },
     {
       "id": "b3720c23d09e67fe5a35",
@@ -1460,7 +1460,7 @@
       "url": "https://gujhealth.gujarat.gov.in/Portal/News/1823_1_Draft_Letter_Advertisement-Engl_Guj.pdf",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:36:38.004442+00:00"
+      "checked_at": "2026-08-18T09:50:45.546731+00:00"
     },
     {
       "id": "7f2fd13aa67fdd2f1342",
@@ -1469,7 +1469,7 @@
       "url": "https://gujhealth.gujarat.gov.in/Portal/News/1834_1_headners-class-3-provisional-merit-list-2026.pdf",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:36:38.004240+00:00"
+      "checked_at": "2026-08-18T09:50:45.546535+00:00"
     },
     {
       "id": "6bf8ca4c02d5a56f7dfb",
@@ -1478,7 +1478,7 @@
       "url": "https://gujhealth.gujarat.gov.in/Portal/News/1841_1_Advertisement_February.pdf",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:36:38.004015+00:00"
+      "checked_at": "2026-08-18T09:50:45.546295+00:00"
     },
     {
       "id": "99462e79e0e6e8cd25a7",
@@ -1487,7 +1487,7 @@
       "url": "https://gujhealth.gujarat.gov.in/Portal/News/1842_1_Assistant_Professor__Amendment_.pdf",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:36:38.004042+00:00"
+      "checked_at": "2026-08-18T09:50:45.546328+00:00"
     },
     {
       "id": "71772bd1028a4fcb70b4",
@@ -1496,7 +1496,7 @@
       "url": "https://gujhealth.gujarat.gov.in/Portal/News/1843_1_Assistant_Professor-RR.pdf",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:36:38.004072+00:00"
+      "checked_at": "2026-08-18T09:50:45.546359+00:00"
     },
     {
       "id": "72c87ce570b7e91dc380",
@@ -1505,7 +1505,7 @@
       "url": "https://gujhealth.gujarat.gov.in/Portal/News/1863_1_11_Month_Advt_08-2026-1.pdf",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:36:38.003823+00:00"
+      "checked_at": "2026-08-18T09:50:45.546013+00:00"
     },
     {
       "id": "b12b34c0a0ab16fcfec9",
@@ -1514,7 +1514,7 @@
       "url": "https://gujhealth.gujarat.gov.in/Portal/News/1854_1_Advertisement-1.pdf",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:36:38.003908+00:00"
+      "checked_at": "2026-08-18T09:50:45.546141+00:00"
     },
     {
       "id": "db4912d30a9ed8e4b92b",
@@ -1523,7 +1523,7 @@
       "url": "https://gujhealth.gujarat.gov.in/Portal/News/1820_1_Advertisement_12092025.pdf",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:36:38.004494+00:00"
+      "checked_at": "2026-08-18T09:50:45.546783+00:00"
     },
     {
       "id": "ed6e67323c65452da5df",
@@ -1532,7 +1532,7 @@
       "url": "https://gujhealth.gujarat.gov.in/Portal/News/1832_1_Final_Vacancy_December.pdf",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:36:38.004285+00:00"
+      "checked_at": "2026-08-18T09:50:45.546571+00:00"
     },
     {
       "id": "9bb8aa9fc4025d57b80e",
@@ -1541,7 +1541,7 @@
       "url": "https://gujhealth.gujarat.gov.in/Portal/News/1829_1_advertisement-nove-25.pdf",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:36:38.004324+00:00"
+      "checked_at": "2026-08-18T09:50:45.546612+00:00"
     },
     {
       "id": "226527e9b9e28d703039",
@@ -1550,7 +1550,7 @@
       "url": "https://police.gujarat.gov.in/dgp/CMS.aspx?content_id=525",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:35:26.409043+00:00"
+      "checked_at": "2026-08-18T09:49:31.595943+00:00"
     },
     {
       "id": "372fdb3217692f7bd711",
@@ -1559,7 +1559,7 @@
       "url": "https://police.gujarat.gov.in/dgp/downloads/io_test_format.pdf",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:35:26.409109+00:00"
+      "checked_at": "2026-08-18T09:49:31.596004+00:00"
     },
     {
       "id": "cead8f700316afbe29e9",
@@ -1568,7 +1568,7 @@
       "url": "https://police.gujarat.gov.in/dgp/CMS.aspx?content_id=3679",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:35:26.408577+00:00"
+      "checked_at": "2026-08-18T09:49:31.595500+00:00"
     },
     {
       "id": "8852098b80b59c92ad57",
@@ -1577,7 +1577,7 @@
       "url": "https://police.gujarat.gov.in/upload/Medal_detail_dgp_040921.pdf",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:35:26.408308+00:00"
+      "checked_at": "2026-08-18T09:49:31.595245+00:00"
     },
     {
       "id": "9a68f37cb70feca3da41",
@@ -1586,7 +1586,7 @@
       "url": "https://police.gujarat.gov.in/dgp/downloads/medal.pdf",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:35:26.409011+00:00"
+      "checked_at": "2026-08-18T09:49:31.595914+00:00"
     },
     {
       "id": "16487a47c26ae484f7c8",
@@ -1595,7 +1595,7 @@
       "url": "https://police.gujarat.gov.in/dgp/CMS.aspx?content_id=520",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:35:26.408982+00:00"
+      "checked_at": "2026-08-18T09:49:31.595887+00:00"
     },
     {
       "id": "e4d475b0e0aef68a76fd",
@@ -1604,7 +1604,7 @@
       "url": "https://police.gujarat.gov.in/dgp/CMS.aspx?content_id=143",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:35:26.409588+00:00"
+      "checked_at": "2026-08-18T09:49:31.596380+00:00"
     },
     {
       "id": "25a455d7117cdba79a72",
@@ -1613,7 +1613,7 @@
       "url": "https://police.gujarat.gov.in/dgp/downloads/copta.pdf",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:35:26.409278+00:00"
+      "checked_at": "2026-08-18T09:49:31.596091+00:00"
     },
     {
       "id": "7697ddeca359399038ae",
@@ -1622,7 +1622,7 @@
       "url": "https://police.gujarat.gov.in/dgp/CMS.aspx?content_id=555",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:35:26.408824+00:00"
+      "checked_at": "2026-08-18T09:49:31.595738+00:00"
     },
     {
       "id": "ad767f005db0be91d81e",
@@ -1631,7 +1631,7 @@
       "url": "https://police.gujarat.gov.in/dgp/CMS.aspx?content_id=522",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:35:26.408850+00:00"
+      "checked_at": "2026-08-18T09:49:31.595765+00:00"
     },
     {
       "id": "506a97703ccb00bf54ce",
@@ -1640,7 +1640,7 @@
       "url": "https://police.gujarat.gov.in/dgp/CMS.aspx?content_id=3808",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:35:26.408395+00:00"
+      "checked_at": "2026-08-18T09:49:31.595325+00:00"
     },
     {
       "id": "1cb682967ea34cd25648",
@@ -1649,7 +1649,7 @@
       "url": "https://police.gujarat.gov.in/dgp/CMS.aspx?content_id=3812",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:35:26.408432+00:00"
+      "checked_at": "2026-08-18T09:49:31.595361+00:00"
     },
     {
       "id": "4effef63152ff7ad80ef",
@@ -1658,7 +1658,7 @@
       "url": "https://police.gujarat.gov.in/dgp/CMS.aspx?content_id=3811",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:35:26.408467+00:00"
+      "checked_at": "2026-08-18T09:49:31.595394+00:00"
     },
     {
       "id": "68ae9706f3879ea0897a",
@@ -1667,7 +1667,7 @@
       "url": "https://police.gujarat.gov.in/dgp/CMS.aspx?content_id=528",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:35:26.408237+00:00"
+      "checked_at": "2026-08-18T09:49:31.595187+00:00"
     },
     {
       "id": "60f388d79c4f610a3e24",
@@ -1676,7 +1676,7 @@
       "url": "https://police.gujarat.gov.in/dgp/CMS.aspx?content_id=3810",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:35:26.408916+00:00"
+      "checked_at": "2026-08-18T09:49:31.595826+00:00"
     },
     {
       "id": "9d4086b3a3182156e130",
@@ -1685,7 +1685,7 @@
       "url": "https://police.gujarat.gov.in/dgp/CMS.aspx?content_id=530",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:35:26.408339+00:00"
+      "checked_at": "2026-08-18T09:49:31.595272+00:00"
     },
     {
       "id": "4cc22cc371e109e8fc2e",
@@ -1694,7 +1694,7 @@
       "url": "https://police.gujarat.gov.in/dgp/CMS.aspx?Search=PS",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:35:26.408729+00:00"
+      "checked_at": "2026-08-18T09:49:31.595651+00:00"
     },
     {
       "id": "fb44a0256aa34da344c2",
@@ -1703,7 +1703,7 @@
       "url": "https://police.gujarat.gov.in/dgp/CMS.aspx?feedback=true",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:35:26.409615+00:00"
+      "checked_at": "2026-08-18T09:49:31.596405+00:00"
     },
     {
       "id": "54a19fda6d5e85b5fd0e",
@@ -1712,7 +1712,7 @@
       "url": "https://police.gujarat.gov.in/dgp/CMS.aspx?content_id=16233",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:35:26.409243+00:00"
+      "checked_at": "2026-08-18T09:49:31.596060+00:00"
     },
     {
       "id": "74c5c26abd4ef29e0edd",
@@ -1721,7 +1721,7 @@
       "url": "https://police.gujarat.gov.in/dgp/CMS.aspx?content_id=34712",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:35:26.408266+00:00"
+      "checked_at": "2026-08-18T09:49:31.595217+00:00"
     },
     {
       "id": "c54371d729ae1d190b8a",
@@ -1730,7 +1730,7 @@
       "url": "https://police.gujarat.gov.in/dgp/CMS.aspx?content_id=3807",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:35:26.408881+00:00"
+      "checked_at": "2026-08-18T09:49:31.595793+00:00"
     },
     {
       "id": "c3d5489220c065147c5e",
@@ -1739,7 +1739,7 @@
       "url": "https://police.gujarat.gov.in/dgp/CMS.aspx?content_id=3678",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:35:26.408550+00:00"
+      "checked_at": "2026-08-18T09:49:31.595475+00:00"
     },
     {
       "id": "cf35211817b27a694cd7",
@@ -1748,7 +1748,7 @@
       "url": "https://police.gujarat.gov.in/dgp/CMS.aspx?content_id=3697",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:35:26.408208+00:00"
+      "checked_at": "2026-08-18T09:49:31.595160+00:00"
     },
     {
       "id": "0bc5af635527add8fc4d",
@@ -1757,7 +1757,7 @@
       "url": "https://police.gujarat.gov.in/dgp/downloads/lokrakshak_bharti.pdf",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:35:26.409198+00:00"
+      "checked_at": "2026-08-18T09:49:31.596027+00:00"
     },
     {
       "id": "9b027b3d654c94e17987",
@@ -1766,7 +1766,7 @@
       "url": "https://police.gujarat.gov.in/dgp/CMS.aspx?content_id=506",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:35:26.408176+00:00"
+      "checked_at": "2026-08-18T09:49:31.595128+00:00"
     },
     {
       "id": "5037e2fb3c7ca54715a2",
@@ -1775,7 +1775,7 @@
       "url": "https://police.gujarat.gov.in/dgp/CMS.aspx?content_id=3681",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:35:26.408622+00:00"
+      "checked_at": "2026-08-18T09:49:31.595544+00:00"
     },
     {
       "id": "aabe20c77cbc4514f793",
@@ -1784,7 +1784,7 @@
       "url": "https://police.gujarat.gov.in/dgp/CMS.aspx?orgchart=true",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:35:26.409448+00:00"
+      "checked_at": "2026-08-18T09:49:31.596248+00:00"
     },
     {
       "id": "eabfd24871f56f4212ec",
@@ -1793,7 +1793,7 @@
       "url": "https://police.gujarat.gov.in/dgp/CMS.aspx?content_id=3809",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:35:26.408955+00:00"
+      "checked_at": "2026-08-18T09:49:31.595862+00:00"
     },
     {
       "id": "a020e0004fbd96803d01",
@@ -1802,7 +1802,7 @@
       "url": "https://police.gujarat.gov.in/dgp/CMS.aspx?classification_id=471",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:35:26.408368+00:00"
+      "checked_at": "2026-08-18T09:49:31.595300+00:00"
     },
     {
       "id": "860995cd0cf47de59bf1",
@@ -1811,7 +1811,7 @@
       "url": "https://police.gujarat.gov.in/dgp/CMS.aspx?content_id=3677",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:35:26.408523+00:00"
+      "checked_at": "2026-08-18T09:49:31.595448+00:00"
     },
     {
       "id": "3a87aca33af669550b11",
@@ -1820,7 +1820,7 @@
       "url": "https://police.gujarat.gov.in/dgp/CMS.aspx?classification_id=466",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:35:26.408494+00:00"
+      "checked_at": "2026-08-18T09:49:31.595421+00:00"
     },
     {
       "id": "506b7b86a619e095de2f",
@@ -1829,7 +1829,7 @@
       "url": "https://police.gujarat.gov.in/dgp/downloads/unarm_psi_bharti.pdf",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:35:26.409073+00:00"
+      "checked_at": "2026-08-18T09:49:31.595969+00:00"
     },
     {
       "id": "cb88196e898d1c074887",
@@ -1838,7 +1838,7 @@
       "url": "https://police.gujarat.gov.in/upload/DGP_Bulk_SMS_Social_Media_State_Nodal.pdf",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:35:26.409324+00:00"
+      "checked_at": "2026-08-18T09:49:31.596132+00:00"
     },
     {
       "id": "70b3ffb590f32f7c980f",
@@ -1847,7 +1847,7 @@
       "url": "https://police.gujarat.gov.in/dgp/default.aspx",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:35:26.409653+00:00"
+      "checked_at": "2026-08-18T09:49:31.596440+00:00"
     },
     {
       "id": "8f45b6c237d52361966d",
@@ -1856,7 +1856,7 @@
       "url": "https://police.gujarat.gov.in/dgp/CMS.aspx?content_id=47",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:35:26.407875+00:00"
+      "checked_at": "2026-08-18T09:49:31.594851+00:00"
     },
     {
       "id": "649404ce51f05f87937b",
@@ -1865,7 +1865,7 @@
       "url": "https://police.gujarat.gov.in/dgp/default.aspx",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:35:26.407997+00:00"
+      "checked_at": "2026-08-18T09:49:31.594958+00:00"
     },
     {
       "id": "d9c401ccc0e49df299ed",
@@ -1874,7 +1874,7 @@
       "url": "https://ifp.gujarat.gov.in/portal/web?requestType=ApplicationRH&screenId=169&actionVal=ViewIntention",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:35:26.409515+00:00"
+      "checked_at": "2026-08-18T09:49:31.596312+00:00"
     },
     {
       "id": "5c18e0dfa58186805d94",
@@ -1883,7 +1883,7 @@
       "url": "https://police.gujarat.gov.in/upload/ips_gujarat_cadre_register.html",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:35:26.409421+00:00"
+      "checked_at": "2026-08-18T09:49:31.596222+00:00"
     },
     {
       "id": "d88c6a5fae3528febabd",
@@ -1892,7 +1892,7 @@
       "url": "https://ifp.gujarat.gov.in/portal/web?requestType=ApplicationRH&actionVal=viewStrategicPartnershipForm&queryType=Select&screenId=186",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:35:26.409537+00:00"
+      "checked_at": "2026-08-18T09:49:31.596332+00:00"
     },
     {
       "id": "23c4b2daca336485924a",
@@ -1901,7 +1901,7 @@
       "url": "https://police.gujarat.gov.in/upload/IPS_Civil_List-2026_Web18022026.pdf",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:35:26.409393+00:00"
+      "checked_at": "2026-08-18T09:49:31.596197+00:00"
     },
     {
       "id": "5f45a1956380cc041380",
@@ -1910,7 +1910,7 @@
       "url": "https://police.gujarat.gov.in/upload/Book_dgp_16082018.pdf",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:35:26.408760+00:00"
+      "checked_at": "2026-08-18T09:49:31.595681+00:00"
     },
     {
       "id": "5caebf670941d977ce87",
@@ -1919,7 +1919,7 @@
       "url": "https://police.gujarat.gov.in/dgp/cms.aspx?content_id=46",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:35:26.408032+00:00"
+      "checked_at": "2026-08-18T09:49:31.594991+00:00"
     },
     {
       "id": "21e7a42e71fe1d6db89c",
@@ -1928,7 +1928,7 @@
       "url": "https://police.gujarat.gov.in/dgp/CMS.aspx?content_id=427984",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:35:26.408794+00:00"
+      "checked_at": "2026-08-18T09:49:31.595711+00:00"
     },
     {
       "id": "dee1e1541ee60f599e05",
@@ -1937,7 +1937,7 @@
       "url": "https://police.gujarat.gov.in/dgp/cms.aspx?content_id=397224",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:35:26.407966+00:00"
+      "checked_at": "2026-08-18T09:49:31.594929+00:00"
     },
     {
       "id": "903e438f2592879aa728",
@@ -1946,7 +1946,7 @@
       "url": "https://police.gujarat.gov.in/upload/DPCASAMPAKNUMBER.PDF",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:35:26.408674+00:00"
+      "checked_at": "2026-08-18T09:49:31.595595+00:00"
     },
     {
       "id": "1a7cfae78111e4f16116",
@@ -1955,7 +1955,7 @@
       "url": "https://police.gujarat.gov.in/upload/file16052025.pdf",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:35:26.409357+00:00"
+      "checked_at": "2026-08-18T09:49:31.596163+00:00"
     },
     {
       "id": "a177cf23d5cd790f7120",
@@ -1964,7 +1964,7 @@
       "url": "https://kcg.gujarat.gov.in/career",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:20.884579+00:00"
+      "checked_at": "2026-08-18T09:48:26.053562+00:00"
     },
     {
       "id": "69eab93d2c079a1ff0af",
@@ -1973,7 +1973,7 @@
       "url": "https://kcg.gujarat.gov.in/recruitments",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:20.884031+00:00"
+      "checked_at": "2026-08-18T09:48:26.053283+00:00"
     },
     {
       "id": "bf017b6b9aa38a953a58",
@@ -1982,7 +1982,7 @@
       "url": "https://kcg.gujarat.gov.in/global-career-and-admission-counseling-centre-council-industry-academia-collaboration",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:20.885073+00:00"
+      "checked_at": "2026-08-18T09:48:26.053812+00:00"
     },
     {
       "id": "36aafcba6ea11b15db4d",
@@ -1991,7 +1991,7 @@
       "url": "https://kcg.gujarat.gov.in/recruitments",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:20.885768+00:00"
+      "checked_at": "2026-08-18T09:48:26.054114+00:00"
     },
     {
       "id": "51d4d98d297834f4ea68",
@@ -2000,7 +2000,7 @@
       "url": "https://kcg.gujarat.gov.in/archive-recruitment",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:20.884692+00:00"
+      "checked_at": "2026-08-18T09:48:26.053617+00:00"
     },
     {
       "id": "306108cee3aa2f891fcd",
@@ -2009,7 +2009,7 @@
       "url": "https://kcg.gujarat.gov.in/gu/recruitments",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:20.884129+00:00"
+      "checked_at": "2026-08-18T09:48:26.053338+00:00"
     },
     {
       "id": "3a0f540828b05ebf9378",
@@ -2018,7 +2018,7 @@
       "url": "https://ojas.gujarat.gov.in/ScribeApplication.aspx",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:18.756406+00:00"
+      "checked_at": "2026-08-18T09:45:43.346451+00:00"
     },
     {
       "id": "8e73a9332ea9bf7a6826",
@@ -2027,7 +2027,7 @@
       "url": "https://ojas.gujarat.gov.in/KnowFeeStatus.aspx?opt=BXCSj2f6m64=",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:18.756136+00:00"
+      "checked_at": "2026-08-18T09:45:43.346372+00:00"
     },
     {
       "id": "5fae087befc81d442a2a",
@@ -2036,7 +2036,7 @@
       "url": "https://ojas.gujarat.gov.in/ConfirmApplication.aspx?opt=QQjOj4QCNFo=",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:18.756016+00:00"
+      "checked_at": "2026-08-18T09:45:43.346339+00:00"
     },
     {
       "id": "c4e1247193a073111cd4",
@@ -2045,7 +2045,7 @@
       "url": "https://ojas.gujarat.gov.in/AdditionalApp.aspx?opt=UTe3UtUTveU=",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:18.756283+00:00"
+      "checked_at": "2026-08-18T09:45:43.346415+00:00"
     },
     {
       "id": "9f565c6b928235c87638",
@@ -2054,7 +2054,7 @@
       "url": "https://ojas.gujarat.gov.in/ScribeApplicationReceipt.aspx",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:18.756441+00:00"
+      "checked_at": "2026-08-18T09:45:43.346461+00:00"
     },
     {
       "id": "d3ba41740ff0060f5116",
@@ -2063,7 +2063,7 @@
       "url": "https://ojas.gujarat.gov.in/EditApplication.aspx?opt=x3JMxY5kMpk=",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:18.755876+00:00"
+      "checked_at": "2026-08-18T09:45:43.346298+00:00"
     },
     {
       "id": "cada849c5ac5935731f6",
@@ -2072,7 +2072,7 @@
       "url": "https://ojas.gujarat.gov.in/Paylatefees.aspx?opt=6tNlqIrOAAk=",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:18.756172+00:00"
+      "checked_at": "2026-08-18T09:45:43.346383+00:00"
     },
     {
       "id": "6d0f8e707679bdd011ad",
@@ -2081,7 +2081,7 @@
       "url": "https://ojas.gujarat.gov.in",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:18.757882+00:00"
+      "checked_at": "2026-08-18T09:45:43.346851+00:00"
     },
     {
       "id": "2e3f677189cd61a45002",
@@ -2090,7 +2090,7 @@
       "url": "https://ojas.gujarat.gov.in/PrintApplForm.aspx?opt=OTMUam2FvAo=",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:18.756209+00:00"
+      "checked_at": "2026-08-18T09:45:43.346394+00:00"
     },
     {
       "id": "cfad248f396f3502f960",
@@ -2099,7 +2099,7 @@
       "url": "https://ojas.gujarat.gov.in/PrintApplFormStatic.aspx?opt=6tNlqIrOAAk=",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:18.756061+00:00"
+      "checked_at": "2026-08-18T09:45:43.346351+00:00"
     },
     {
       "id": "727c77646d434a553378",
@@ -2108,7 +2108,7 @@
       "url": "https://ojas.gujarat.gov.in/AdditionalApp.aspx?opt=Bvzhv5xz5J/TxuSuPBUqhQ==",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:18.756344+00:00"
+      "checked_at": "2026-08-18T09:45:43.346433+00:00"
     },
     {
       "id": "440361ec798e06f678c0",
@@ -2117,7 +2117,7 @@
       "url": "https://ojas.gujarat.gov.in/AdvtDetails.aspx?sid=BawiY/eTJhQ=&yr=iNSQ32x8ipg=&ano=a2GSpnDbruI=",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:18.757103+00:00"
+      "checked_at": "2026-08-18T09:45:43.346651+00:00"
     },
     {
       "id": "630a314282df32f13e02",
@@ -2126,7 +2126,7 @@
       "url": "https://ojas.gujarat.gov.in/Preference.aspx?opt=LUbWdmhKlwjaHr/CUNi26A==",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:18.756248+00:00"
+      "checked_at": "2026-08-18T09:45:43.346405+00:00"
     },
     {
       "id": "b4ca7b8b14857e1f0fa2",
@@ -2135,7 +2135,7 @@
       "url": "https://ojas.gujarat.gov.in/jobupload.aspx",
       "priority": "high",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:31:18.755969+00:00"
+      "checked_at": "2026-08-18T09:45:43.346326+00:00"
     },
     {
       "id": "91a9c0c79d7319132b2c",
@@ -2144,7 +2144,7 @@
       "url": "https://www.gnaec.in/",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:36:38.004663+00:00"
+      "checked_at": "2026-08-18T09:50:45.546962+00:00"
     },
     {
       "id": "e718eef02488d1286cb1",
@@ -2153,7 +2153,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/NewDoc/Gyan Sahayak Adv SEC_H_SEC_-2026 27 2ND ROUND_v1.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.387663+00:00"
+      "checked_at": "2026-08-18T09:48:26.800880+00:00"
     },
     {
       "id": "1c91f1096d13228b157c",
@@ -2162,7 +2162,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/Merit/AHMEDABADCITY_ENGLISH.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.388131+00:00"
+      "checked_at": "2026-08-18T09:48:26.801452+00:00"
     },
     {
       "id": "94531dfdd306785a9f36",
@@ -2171,7 +2171,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/HSMerit/AHMEDABADCITY_English.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.389726+00:00"
+      "checked_at": "2026-08-18T09:48:26.802678+00:00"
     },
     {
       "id": "d01a13baf282e01cb40e",
@@ -2180,7 +2180,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/Merit/AHMEDABADCITY_GUJARATI.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.388165+00:00"
+      "checked_at": "2026-08-18T09:48:26.801491+00:00"
     },
     {
       "id": "665a775dc81daddcfe3a",
@@ -2189,7 +2189,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/HSMerit/AHMEDABADCITY_Gujarati.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.389751+00:00"
+      "checked_at": "2026-08-18T09:48:26.802705+00:00"
     },
     {
       "id": "024a755f9b633fbd7d34",
@@ -2198,7 +2198,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/Merit/AHMEDABADCITY_HINDI.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.388201+00:00"
+      "checked_at": "2026-08-18T09:48:26.801528+00:00"
     },
     {
       "id": "2806dca37a477f6ed76c",
@@ -2207,7 +2207,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/HSMerit/AHMEDABADCITY_Hindi.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.389775+00:00"
+      "checked_at": "2026-08-18T09:48:26.802733+00:00"
     },
     {
       "id": "54c60a96393322b304dd",
@@ -2216,7 +2216,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/HSMerit/AHMEDABADRURAL_English.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.389799+00:00"
+      "checked_at": "2026-08-18T09:48:26.802762+00:00"
     },
     {
       "id": "27ad8fcd81c52d1fffe5",
@@ -2225,7 +2225,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/Merit/AHMEDABADRURAL_GUJARATI.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.388236+00:00"
+      "checked_at": "2026-08-18T09:48:26.801565+00:00"
     },
     {
       "id": "4f43724d66d84645f6de",
@@ -2234,7 +2234,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/HSMerit/AHMEDABADRURAL_Gujarati.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.389824+00:00"
+      "checked_at": "2026-08-18T09:48:26.802790+00:00"
     },
     {
       "id": "68326e7349de6b9927e1",
@@ -2243,7 +2243,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/Merit/AMRELI_GUJARATI.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.388271+00:00"
+      "checked_at": "2026-08-18T09:48:26.801601+00:00"
     },
     {
       "id": "a06e1d023659897e5e95",
@@ -2252,7 +2252,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/HSMerit/AMRELI_Gujarati.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.389848+00:00"
+      "checked_at": "2026-08-18T09:48:26.802817+00:00"
     },
     {
       "id": "9ffc1287714c56c6a824",
@@ -2261,7 +2261,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/Merit/ANAND_GUJARATI.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.388306+00:00"
+      "checked_at": "2026-08-18T09:48:26.801638+00:00"
     },
     {
       "id": "7724a3be02533b2c28d8",
@@ -2270,7 +2270,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/HSMerit/ANAND_Gujarati.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.389873+00:00"
+      "checked_at": "2026-08-18T09:48:26.802844+00:00"
     },
     {
       "id": "cfe4bacbe8979b8895bd",
@@ -2279,7 +2279,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/Merit/ARAVALI_GUJARATI.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.388340+00:00"
+      "checked_at": "2026-08-18T09:48:26.801681+00:00"
     },
     {
       "id": "82e41c09e29279676fbb",
@@ -2288,7 +2288,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/HSMerit/ARAVALI_Gujarati.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.389897+00:00"
+      "checked_at": "2026-08-18T09:48:26.802871+00:00"
     },
     {
       "id": "f5cadd2f85abfbb129fb",
@@ -2297,7 +2297,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/Merit/BANASKANTHA_ENGLISH.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.388374+00:00"
+      "checked_at": "2026-08-18T09:48:26.801709+00:00"
     },
     {
       "id": "5480a73359bcf2e10ba1",
@@ -2306,7 +2306,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/Merit/BANASKANTHA_GUJARATI.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.388408+00:00"
+      "checked_at": "2026-08-18T09:48:26.801736+00:00"
     },
     {
       "id": "46ad17689301d1c6fb9a",
@@ -2315,7 +2315,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/HSMerit/BANASKANTHA_Gujarati.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.389921+00:00"
+      "checked_at": "2026-08-18T09:48:26.802899+00:00"
     },
     {
       "id": "adebec61e836c791ddfa",
@@ -2324,7 +2324,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/HSMerit/BANASKANTHA_Hindi.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.389945+00:00"
+      "checked_at": "2026-08-18T09:48:26.802926+00:00"
     },
     {
       "id": "011992b3e35076eab694",
@@ -2333,7 +2333,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/Merit/BHARUCH_GUJARATI.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.388442+00:00"
+      "checked_at": "2026-08-18T09:48:26.801762+00:00"
     },
     {
       "id": "596b507f1211398eaba4",
@@ -2342,7 +2342,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/HSMerit/BHARUCH_Gujarati.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.389968+00:00"
+      "checked_at": "2026-08-18T09:48:26.802953+00:00"
     },
     {
       "id": "6c3caa4938e34178085f",
@@ -2351,7 +2351,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/Merit/BHAVNAGAR_GUJARATI.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.388477+00:00"
+      "checked_at": "2026-08-18T09:48:26.801789+00:00"
     },
     {
       "id": "82003ea0ba7a37739c04",
@@ -2360,7 +2360,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/HSMerit/BHAVNAGAR_Gujarati.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.389992+00:00"
+      "checked_at": "2026-08-18T09:48:26.802979+00:00"
     },
     {
       "id": "954e07370fb12a0f92f9",
@@ -2369,7 +2369,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/Merit/BOTAD_GUJARATI.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.388510+00:00"
+      "checked_at": "2026-08-18T09:48:26.801816+00:00"
     },
     {
       "id": "4867c631776c94476277",
@@ -2378,7 +2378,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/HSMerit/BOTAD_Gujarati.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.390016+00:00"
+      "checked_at": "2026-08-18T09:48:26.803006+00:00"
     },
     {
       "id": "0a14337240f2d5c950a4",
@@ -2387,7 +2387,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/Merit/CHHOTAUDEPUR_GUJARATI.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.388544+00:00"
+      "checked_at": "2026-08-18T09:48:26.801844+00:00"
     },
     {
       "id": "714b7cff051244a048f5",
@@ -2396,7 +2396,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/HSMerit/CHHOTAUDEPUR_Gujarati.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.390041+00:00"
+      "checked_at": "2026-08-18T09:48:26.803033+00:00"
     },
     {
       "id": "e83761e56dd2fe6469ee",
@@ -2405,7 +2405,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/Merit/DAHOD_GUJARATI.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.388577+00:00"
+      "checked_at": "2026-08-18T09:48:26.801870+00:00"
     },
     {
       "id": "2d718514ae5b6601a41c",
@@ -2414,7 +2414,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/HSMerit/DAHOD_Gujarati.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.390064+00:00"
+      "checked_at": "2026-08-18T09:48:26.803059+00:00"
     },
     {
       "id": "59cefc8c254eb6473448",
@@ -2423,7 +2423,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/Merit/DANG_GUJARATI.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.388610+00:00"
+      "checked_at": "2026-08-18T09:48:26.801896+00:00"
     },
     {
       "id": "411e9903a7c1b89a2e49",
@@ -2432,7 +2432,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/HSMerit/DANG_Gujarati.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.390088+00:00"
+      "checked_at": "2026-08-18T09:48:26.803086+00:00"
     },
     {
       "id": "94215194116d61b6facc",
@@ -2441,7 +2441,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/Merit/DEVBHUMIDWARKA_GUJARATI.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.388644+00:00"
+      "checked_at": "2026-08-18T09:48:26.801923+00:00"
     },
     {
       "id": "fbf909b3eb73f10f9915",
@@ -2450,7 +2450,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/HSMerit/DEVBHUMIDWARKA_Gujarati.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.390112+00:00"
+      "checked_at": "2026-08-18T09:48:26.803114+00:00"
     },
     {
       "id": "9c6faf3a83d98ca51c1c",
@@ -2459,7 +2459,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/Merit/GANDHINAGAR_ENGLISH.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.388678+00:00"
+      "checked_at": "2026-08-18T09:48:26.801950+00:00"
     },
     {
       "id": "6cfc800948f51f18de1b",
@@ -2468,7 +2468,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/Merit/GANDHINAGAR_GUJARATI.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.388711+00:00"
+      "checked_at": "2026-08-18T09:48:26.801977+00:00"
     },
     {
       "id": "38cd446a57f52bbcdf5b",
@@ -2477,7 +2477,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/HSMerit/GANDHINAGAR_Gujarati.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.390137+00:00"
+      "checked_at": "2026-08-18T09:48:26.803141+00:00"
     },
     {
       "id": "140a9d7b72e7effaf63b",
@@ -2486,7 +2486,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/HSMerit/GANDHINAGAR_Hindi.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.390160+00:00"
+      "checked_at": "2026-08-18T09:48:26.803168+00:00"
     },
     {
       "id": "7cdb7683efd3fb69fce8",
@@ -2495,7 +2495,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/Merit/GIRSOMNATH_GUJARATI.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.388747+00:00"
+      "checked_at": "2026-08-18T09:48:26.802003+00:00"
     },
     {
       "id": "5fc4806774639435dd6f",
@@ -2504,7 +2504,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/HSMerit/GIR SOMNATH_Gujarati.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.390185+00:00"
+      "checked_at": "2026-08-18T09:48:26.803194+00:00"
     },
     {
       "id": "95c9c436c397fbe2cf75",
@@ -2513,7 +2513,7 @@
       "url": "https://gyansahayak.ssgujarat.org",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.390877+00:00"
+      "checked_at": "2026-08-18T09:48:26.803944+00:00"
     },
     {
       "id": "940661520dd226f5dd61",
@@ -2522,7 +2522,7 @@
       "url": "http://hscgyansahayak.ssgujarat.org/ViewMeritListNew.aspx",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.388006+00:00"
+      "checked_at": "2026-08-18T09:48:26.801316+00:00"
     },
     {
       "id": "1bad73e5c763f35ba349",
@@ -2531,7 +2531,7 @@
       "url": "http://hscgyansahayak.ssgujarat.org/ViewVacancies.aspx",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.388035+00:00"
+      "checked_at": "2026-08-18T09:48:26.801350+00:00"
     },
     {
       "id": "a718bca7722c1e45d544",
@@ -2540,7 +2540,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/Merit/JAMNAGAR_GUJARATI.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.388784+00:00"
+      "checked_at": "2026-08-18T09:48:26.802030+00:00"
     },
     {
       "id": "89d20f69a1bd782af5b4",
@@ -2549,7 +2549,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/HSMerit/JAMNAGAR_Gujarati.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.390208+00:00"
+      "checked_at": "2026-08-18T09:48:26.803221+00:00"
     },
     {
       "id": "93a19c914909fcd0ab6e",
@@ -2558,7 +2558,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/Merit/JUNAGADH_GUJARATI.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.388822+00:00"
+      "checked_at": "2026-08-18T09:48:26.802056+00:00"
     },
     {
       "id": "3116e6e7bb011e817f0b",
@@ -2567,7 +2567,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/HSMerit/JUNAGADH_Gujarati.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.390232+00:00"
+      "checked_at": "2026-08-18T09:48:26.803247+00:00"
     },
     {
       "id": "1e9aded4075ef6e5eb6c",
@@ -2576,7 +2576,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/Merit/KHEDA_GUJARATI.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.388855+00:00"
+      "checked_at": "2026-08-18T09:48:26.802082+00:00"
     },
     {
       "id": "ae227f17127e0d445152",
@@ -2585,7 +2585,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/HSMerit/KHEDA_Gujarati.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.390255+00:00"
+      "checked_at": "2026-08-18T09:48:26.803273+00:00"
     },
     {
       "id": "7776fd664b0855061f0b",
@@ -2594,7 +2594,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/Merit/KUTCH_GUJARATI.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.388887+00:00"
+      "checked_at": "2026-08-18T09:48:26.802106+00:00"
     },
     {
       "id": "49ec5ecf40ff2139a618",
@@ -2603,7 +2603,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/HSMerit/KUTCH_Gujarati.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.390278+00:00"
+      "checked_at": "2026-08-18T09:48:26.803300+00:00"
     },
     {
       "id": "078a3f6c966c736984e5",
@@ -2612,7 +2612,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/HSMerit/KUTCH_Hindi.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.390301+00:00"
+      "checked_at": "2026-08-18T09:48:26.803326+00:00"
     },
     {
       "id": "3907906076f0904542cd",
@@ -2621,7 +2621,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/Merit/MAHESANA_ENGLISH.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.388921+00:00"
+      "checked_at": "2026-08-18T09:48:26.802133+00:00"
     },
     {
       "id": "1b6b2be3553d11cd7486",
@@ -2630,7 +2630,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/Merit/MAHESANA_GUJARATI.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.388955+00:00"
+      "checked_at": "2026-08-18T09:48:26.802159+00:00"
     },
     {
       "id": "c6df56f97a67a36e5960",
@@ -2639,7 +2639,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/HSMerit/MAHESANA_Gujarati.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.390325+00:00"
+      "checked_at": "2026-08-18T09:48:26.803351+00:00"
     },
     {
       "id": "774b60e8a62e091f3482",
@@ -2648,7 +2648,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/Merit/MAHISAGAR_GUJARATI.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.388989+00:00"
+      "checked_at": "2026-08-18T09:48:26.802185+00:00"
     },
     {
       "id": "3c695cb587ccb36faa63",
@@ -2657,7 +2657,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/HSMerit/MAHISAGAR_Gujarati.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.390348+00:00"
+      "checked_at": "2026-08-18T09:48:26.803379+00:00"
     },
     {
       "id": "31708aedd7c6937dbbb7",
@@ -2666,7 +2666,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/Merit/MORBI_GUJARATI.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.389021+00:00"
+      "checked_at": "2026-08-18T09:48:26.802210+00:00"
     },
     {
       "id": "af8f8db306303e433d29",
@@ -2675,7 +2675,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/HSMerit/MORBI_Gujarati.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.390372+00:00"
+      "checked_at": "2026-08-18T09:48:26.803404+00:00"
     },
     {
       "id": "991131ad2bdf99f67ae8",
@@ -2684,7 +2684,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/Merit/NARMADA_GUJARATI.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.389055+00:00"
+      "checked_at": "2026-08-18T09:48:26.802236+00:00"
     },
     {
       "id": "c88dd461e3c9b885cfad",
@@ -2693,7 +2693,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/HSMerit/NARMADA_Gujarati.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.390395+00:00"
+      "checked_at": "2026-08-18T09:48:26.803430+00:00"
     },
     {
       "id": "4535341a995f6ec0661e",
@@ -2702,7 +2702,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/Merit/NAVSARI_GUJARATI.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.389088+00:00"
+      "checked_at": "2026-08-18T09:48:26.802261+00:00"
     },
     {
       "id": "77c154341a0093293631",
@@ -2711,7 +2711,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/HSMerit/NAVSARI_Gujarati.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.390419+00:00"
+      "checked_at": "2026-08-18T09:48:26.803456+00:00"
     },
     {
       "id": "54acbf79748c64ba72de",
@@ -2720,7 +2720,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/Merit/PANCHMAHALS_GUJARATI.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.389122+00:00"
+      "checked_at": "2026-08-18T09:48:26.802287+00:00"
     },
     {
       "id": "090352d62fe407dbc898",
@@ -2729,7 +2729,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/HSMerit/PANCHMAHALS_Gujarati.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.390446+00:00"
+      "checked_at": "2026-08-18T09:48:26.803487+00:00"
     },
     {
       "id": "123eb9909ee405c85f7b",
@@ -2738,7 +2738,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/Merit/PATAN_GUJARATI.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.389254+00:00"
+      "checked_at": "2026-08-18T09:48:26.802312+00:00"
     },
     {
       "id": "23340a4bad49f7336933",
@@ -2747,7 +2747,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/HSMerit/PATAN_Gujarati.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.390471+00:00"
+      "checked_at": "2026-08-18T09:48:26.803512+00:00"
     },
     {
       "id": "3bbf48369d75cd485381",
@@ -2756,7 +2756,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/Merit/PORBANDAR_ENGLISH.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.389297+00:00"
+      "checked_at": "2026-08-18T09:48:26.802338+00:00"
     },
     {
       "id": "41a895d7e7d510d6b58e",
@@ -2765,7 +2765,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/Merit/PORBANDAR_GUJARATI.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.389332+00:00"
+      "checked_at": "2026-08-18T09:48:26.802363+00:00"
     },
     {
       "id": "c7a354c3bca8a4e62cff",
@@ -2774,7 +2774,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/HSMerit/PORBANDAR_Gujarati.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.390496+00:00"
+      "checked_at": "2026-08-18T09:48:26.803539+00:00"
     },
     {
       "id": "d02789737de20215633f",
@@ -2783,7 +2783,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/HSMerit/RAJKOT_English.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.390520+00:00"
+      "checked_at": "2026-08-18T09:48:26.803565+00:00"
     },
     {
       "id": "2470705cfd1c62134c16",
@@ -2792,7 +2792,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/Merit/RAJKOT_GUJARATI.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.389366+00:00"
+      "checked_at": "2026-08-18T09:48:26.802390+00:00"
     },
     {
       "id": "badd942d9e0bee130abe",
@@ -2801,7 +2801,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/HSMerit/RAJKOT_Gujarati.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.390543+00:00"
+      "checked_at": "2026-08-18T09:48:26.803592+00:00"
     },
     {
       "id": "129bedfa4b376f075ffd",
@@ -2810,7 +2810,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/Merit/SABARKANTHA_GUJARATI.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.389400+00:00"
+      "checked_at": "2026-08-18T09:48:26.802416+00:00"
     },
     {
       "id": "8713644203c9105f49f6",
@@ -2819,7 +2819,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/HSMerit/SABARKANTHA_Gujarati.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.390567+00:00"
+      "checked_at": "2026-08-18T09:48:26.803619+00:00"
     },
     {
       "id": "99599bb4bf8f8a8e775e",
@@ -2828,7 +2828,7 @@
       "url": "https://gyansahayak.ssgujarat.org/ViewMeritListNew.aspx",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.387439+00:00"
+      "checked_at": "2026-08-18T09:48:26.800634+00:00"
     },
     {
       "id": "003b122984fb48150d1c",
@@ -2837,7 +2837,7 @@
       "url": "https://gyansahayak.ssgujarat.org/ViewVacancies.aspx",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.387522+00:00"
+      "checked_at": "2026-08-18T09:48:26.800727+00:00"
     },
     {
       "id": "00422d7269a00d7d75c8",
@@ -2846,7 +2846,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/Merit/SURAT_ENGLISH.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.389434+00:00"
+      "checked_at": "2026-08-18T09:48:26.802441+00:00"
     },
     {
       "id": "0c543453684dd18745d6",
@@ -2855,7 +2855,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/Merit/SURAT_GUJARATI.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.389467+00:00"
+      "checked_at": "2026-08-18T09:48:26.802467+00:00"
     },
     {
       "id": "52f3038378a3fb76c9b9",
@@ -2864,7 +2864,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/HSMerit/SURAT_Gujarati.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.390592+00:00"
+      "checked_at": "2026-08-18T09:48:26.803647+00:00"
     },
     {
       "id": "1a615d47a9c69b21e24e",
@@ -2873,7 +2873,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/Merit/SURAT_HINDI.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.389501+00:00"
+      "checked_at": "2026-08-18T09:48:26.802493+00:00"
     },
     {
       "id": "6e306a11efa33d5d2047",
@@ -2882,7 +2882,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/HSMerit/SURAT_Hindi.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.390616+00:00"
+      "checked_at": "2026-08-18T09:48:26.803674+00:00"
     },
     {
       "id": "85b21054afe35aef990f",
@@ -2891,7 +2891,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/Merit/SURENDRANAGAR_GUJARATI.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.389537+00:00"
+      "checked_at": "2026-08-18T09:48:26.802520+00:00"
     },
     {
       "id": "cdf37ee076d00e8ebf20",
@@ -2900,7 +2900,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/HSMerit/SURENDRANAGAR_Gujarati.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.390641+00:00"
+      "checked_at": "2026-08-18T09:48:26.803702+00:00"
     },
     {
       "id": "afd24ed54e03d8b44330",
@@ -2909,7 +2909,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/Merit/TAPI_GUJARATI.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.389570+00:00"
+      "checked_at": "2026-08-18T09:48:26.802546+00:00"
     },
     {
       "id": "6e8054abffac590e4bf7",
@@ -2918,7 +2918,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/HSMerit/TAPI_Gujarati.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.390664+00:00"
+      "checked_at": "2026-08-18T09:48:26.803728+00:00"
     },
     {
       "id": "e2f0de1ec45dd2280c9b",
@@ -2927,7 +2927,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/Merit/VADODARA_ENGLISH.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.389605+00:00"
+      "checked_at": "2026-08-18T09:48:26.802571+00:00"
     },
     {
       "id": "1a1aaac12ada86f1c2d5",
@@ -2936,7 +2936,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/HSMerit/VADODARA_English.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.390689+00:00"
+      "checked_at": "2026-08-18T09:48:26.803753+00:00"
     },
     {
       "id": "03d068fe174cba6b893e",
@@ -2945,7 +2945,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/Merit/VADODARA_GUJARATI.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.389638+00:00"
+      "checked_at": "2026-08-18T09:48:26.802596+00:00"
     },
     {
       "id": "07dbe582f5b72faa6293",
@@ -2954,7 +2954,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/HSMerit/VADODARA_Gujarati.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.390713+00:00"
+      "checked_at": "2026-08-18T09:48:26.803779+00:00"
     },
     {
       "id": "09ed16a8f8a3c6e359a2",
@@ -2963,7 +2963,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/Merit/VADODARA_HINDI.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.389670+00:00"
+      "checked_at": "2026-08-18T09:48:26.802624+00:00"
     },
     {
       "id": "b49a6416af5bff2d4ac6",
@@ -2972,7 +2972,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/Merit/VALSAD_GUJARATI.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.389701+00:00"
+      "checked_at": "2026-08-18T09:48:26.802650+00:00"
     },
     {
       "id": "ee40a2d2c6e1ecd6a441",
@@ -2981,7 +2981,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/HSMerit/VALSAD_Gujarati.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.390738+00:00"
+      "checked_at": "2026-08-18T09:48:26.803804+00:00"
     },
     {
       "id": "18e566d4b4ad40187eeb",
@@ -2990,7 +2990,7 @@
       "url": "https://gyansahayak.ssgujarat.org/assets/documents/NewDoc/UserManual_24072026.pdf",
       "priority": "medium",
       "source_type": "government",
-      "checked_at": "2026-08-18T09:34:21.387761+00:00"
+      "checked_at": "2026-08-18T09:48:26.800980+00:00"
     }
   ]
 }
