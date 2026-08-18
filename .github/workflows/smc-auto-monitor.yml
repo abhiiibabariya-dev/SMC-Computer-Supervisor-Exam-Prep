@@ -8,14 +8,20 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: gujarat-government-jobs-monitor
+  cancel-in-progress: true
+
 jobs:
   monitor:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -27,22 +33,38 @@ jobs:
           python3 gujarat-monitor/smc_jobs.py
 
       - name: Show monitor report
+        if: always()
         run: |
-          cat gujarat-monitor/jobs_report.json
+          if [ -f gujarat-monitor/jobs_report.json ]; then
+            cat gujarat-monitor/jobs_report.json
+          else
+            echo 'Monitor report was not created.'
+          fi
 
       - name: Commit updated Gujarat jobs data
         run: |
           git config user.name "Gujarat Jobs Monitor"
           git config user.email "actions@github.com"
 
-          git add gujarat-monitor/jobs.json
-          git add gujarat-monitor/jobs_state.json
-          git add gujarat-monitor/jobs_report.json
-          git add gujarat-jobs.json
+          git add gujarat-monitor/jobs.json \
+                  gujarat-monitor/jobs_state.json \
+                  gujarat-monitor/jobs_report.json \
+                  gujarat-jobs.json
 
           if git diff --staged --quiet; then
             echo "No changes detected."
-          else
-            git commit -m "chore: update Gujarat government jobs"
-            git push
+            exit 0
           fi
+
+          git commit -m "chore: update Gujarat government jobs"
+
+          # Rebase before pushing so a normal site/workflow update cannot
+          # make the monitor fail because master moved during the scan.
+          for attempt in 1 2 3; do
+            git pull --rebase origin master && git push origin master && exit 0
+            echo "Push attempt $attempt failed; retrying..."
+            sleep 5
+          done
+
+          echo "Unable to push after 3 attempts."
+          exit 1
