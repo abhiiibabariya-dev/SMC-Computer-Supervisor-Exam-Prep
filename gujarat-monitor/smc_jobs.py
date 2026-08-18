@@ -26,7 +26,7 @@ KEYWORDS = [
     "staff nurse", "engineer", "technician", "assistant",
     "officer", "teacher", "police", "constable", "forest guard",
     "apprentice", "laboratory", "lab technician", "pharmacist",
-    "mpHW", "fHW", "talati", "junior clerk", "senior clerk"
+    "m phw", "f hw", "talati", "junior clerk", "senior clerk"
 ]
 
 SMC_WORDS = [
@@ -77,7 +77,6 @@ def clean(text):
 def links(document, base_url):
     result = []
 
-    # Normal HTML pages.
     for m in re.finditer(
         r'<a[^>]+href=["\']([^"\']+)["\'][^>]*>(.*?)</a>',
         document,
@@ -89,12 +88,11 @@ def links(document, base_url):
             continue
         result.append((urljoin(base_url, href), title))
 
-    # RSS/Atom discovery feeds. This lets the monitor discover jobs published
-    # across the wider web while still ranking official Gujarat/SMC sources first.
+    # RSS/Atom discovery feeds allow discovery across the wider web.
     for m in re.finditer(
         r'<item\b.*?<title[^>]*>(.*?)</title>.*?<link[^>]*>(.*?)</link>',
         document,
-        flags=re.I|S
+        flags=re.I|re.S
     ):
         title = clean(m.group(1))
         href = clean(m.group(2)).strip()
@@ -111,7 +109,6 @@ def links(document, base_url):
         if href:
             result.append((urljoin(base_url, href), title))
 
-    # De-duplicate links while preserving order.
     seen = set()
     out = []
     for u, title in result:
@@ -155,7 +152,6 @@ def main():
     for src in sources:
         name = src.get("name", "Unknown")
         base_url = src.get("url", "")
-
         try:
             status, body, final_url = fetch(base_url)
             document = body.decode("utf-8", errors="ignore")
@@ -166,13 +162,11 @@ def main():
             for u, title in candidates:
                 if not relevant(title, u):
                     continue
-
                 key = (name, u)
                 if key in seen:
                     continue
                 seen.add(key)
-
-                item = {
+                local.append({
                     "id": make_id(name, u, title),
                     "source": name,
                     "title": title[:300] if title else u,
@@ -180,10 +174,8 @@ def main():
                     "priority": priority(name, u, title),
                     "source_type": src.get("type", "government"),
                     "checked_at": datetime.now(timezone.utc).isoformat()
-                }
-                local.append(item)
+                })
 
-            # Preserve the source page when it itself is a recruitment/update page.
             if relevant(name, base_url) or relevant(source_text[:5000], base_url):
                 item = {
                     "id": make_id(name, base_url, name),
@@ -199,12 +191,10 @@ def main():
 
             found.extend(local)
             print(f"[OK] {name} -> {len(local)} relevant updates")
-
         except Exception as e:
             errors.append({"source": name, "url": base_url, "error": str(e)})
             print(f"[ERROR] {name} -> {e}")
 
-    # Keep historical items so temporary website outages never erase data.
     merged = {x.get("id"): x for x in old_jobs if x.get("id")}
     new_count = 0
     for item in found:
@@ -222,7 +212,6 @@ def main():
 
     now = datetime.now(timezone.utc).isoformat()
     smc_count = sum(1 for x in all_jobs if x.get("priority") == "critical")
-
     report = {
         "updated_at": now,
         "sources_scanned": len(sources),
