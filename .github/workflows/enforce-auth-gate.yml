@@ -2,9 +2,20 @@ name: Enforce Unified Authentication
 
 on:
   workflow_dispatch:
+  push:
+    branches: [master]
+    paths:
+      - 'docs/**/*.html'
+      - 'docs/*.html'
+      - 'docs/gate.js'
+      - '.github/workflows/enforce-auth-gate.yml'
 
 permissions:
   contents: write
+
+concurrency:
+  group: smc-auth-gate
+  cancel-in-progress: false
 
 jobs:
   protect-pages:
@@ -14,40 +25,59 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          fetch-depth: 1
+          fetch-depth: 0
 
-      - name: Inject unified auth gate
+      - name: Inject unified auth gate into every HTML page
         shell: python
         run: |
           from pathlib import Path
+          import os
+
           root = Path('docs')
-          skip = {'login.html'}
+          if not root.exists():
+              raise SystemExit('docs directory not found')
+
           changed = []
           for path in root.rglob('*.html'):
-              if path.name in skip:
+              if path.name.lower() == 'login.html':
                   continue
-              text = path.read_text(encoding='utf-8')
-              if 'src="gate.js"' in text or "src='gate.js'" in text:
-                  continue
+
+              text = path.read_text(encoding='utf-8', errors='ignore')
               low = text.lower()
+
+              # Remove an existing gate.js include so we can place the correct
+              # relative path for both root and nested pages.
+              import re
+              text2 = re.sub(r'\s*<script\s+[^>]*src=["\'][^"\']*gate\.js["\'][^>]*>\s*</script>', '', text, flags=re.I)
+              low2 = text2.lower()
               marker = '</head>'
-              if marker not in low:
+              if marker not in low2:
                   continue
-              idx = low.find(marker)
-              text = text[:idx] + '    <script src="gate.js"></script>\n' + text[idx:]
-              path.write_text(text, encoding='utf-8')
-              changed.append(str(path))
+
+              rel_gate = os.path.relpath(root / 'gate.js', path.parent).replace('\\', '/')
+              tag = f'    <script src="{rel_gate}"></script>\n'
+              idx = low2.find(marker)
+              text2 = text2[:idx] + tag + text2[idx:]
+
+              if text2 != text:
+                  path.write_text(text2, encoding='utf-8')
+                  changed.append(str(path))
+
           print(f'Protected {len(changed)} HTML pages')
+          for item in changed:
+              print(' -', item)
 
       - name: Commit page protection changes
         shell: bash
         run: |
+          set -e
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add docs/*.html docs/**/*.html
+          git add -A docs
           if git diff --cached --quiet; then
             echo "No HTML changes required."
             exit 0
           fi
           git commit -m "chore: require account authentication on site pages"
-          git push
+          git pull --rebase origin master
+          git push origin HEAD:master
