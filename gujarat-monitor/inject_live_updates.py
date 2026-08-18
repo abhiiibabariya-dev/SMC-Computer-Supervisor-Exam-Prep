@@ -34,36 +34,44 @@ for path in DOCS.rglob("*.html"):
     text = path.read_text(encoding="utf-8", errors="ignore")
     original = text
 
-    # Global SEO/social text must never advertise a stale countdown after the
-    # exam. Replace only the known stale phrases.
     if pro_done:
-        text = re.sub(r"live countdown to 12 July 2026", "official post-exam updates, answer keys and results", text, flags=re.I)
-        text = re.sub(r"live countdown to the 12 July 2026 exam", "official post-exam updates, answer keys and results", text, flags=re.I)
-        text = re.sub(r"countdown to 12 July 2026", "post-exam updates after 12 July 2026", text, flags=re.I)
-        text = re.sub(r"countdown to the 12 July 2026 exam", "post-exam updates after 12 July 2026", text, flags=re.I)
+        # SEO/social metadata
+        replacements = [
+            (r"a\s+live\s+countdown\s+to\s+the\s+12\s+July\s+2026\s+exam", "official post-exam updates, answer keys and results"),
+            (r"live\s+countdown\s+to\s+the\s+12\s+July\s+2026\s+exam", "official post-exam updates, answer keys and results"),
+            (r"live\s+countdown\s+to\s+12\s+July\s+2026", "official post-exam updates, answer keys and results"),
+            (r"countdown\s+to\s+the\s+12\s+July\s+2026\s+exam", "post-exam updates after 12 July 2026"),
+            (r"countdown\s+to\s+12\s+July\s+2026", "post-exam updates after 12 July 2026"),
+            (r"Final\s+revision\s+time\s+is\s+NOW!", "Exam completed. Track official answer key, result and selection updates."),
+            (r"NOW\s*[—-]\s*Exam\s+Prep", "NOW — Answer Key & Result Tracking"),
+            (r"Before\s+12\s+July\s+2026", "Post-exam status"),
+            (r"Admit\s+card\s*/\s*call\s+letter\s+download\s*—\s*from\s*suratmunicipal\.gov\.in[^<.]*\.", "Check the official SMC Recruitment pages for answer keys, results and selection notices."),
+            (r"Final\s+revision\s+phase\.\s*Practice\s+mock\s+tests\s*&\s*daily\s+MCQs\.", "Post-exam tracking phase. Follow official answer key, result and merit updates."),
+            (r"EXAM\s+DATE\s+OUT\s*[—-]\s*Written\s+Exam\s+on\s+12\s+July\s+2026!", "PRO EXAM COMPLETED — 12 JULY 2026"),
+            (r"EXAM\s+12\s+JUL\s+CALL\s+LETTER\s+SOON", "PRO EXAM COMPLETED — ANSWER KEY / RESULT TRACKING"),
+            (r"EXAM\s+ON\s+12\s+JULY\s+2026\s*[—-]\s*Final\s+Revision\s+Time!", "PRO EXAM COMPLETED — 12 JULY 2026"),
+            (r"EXAM\s+ON\s+12\s+JULY\s+2026", "PRO EXAM COMPLETED — 12 JULY 2026"),
+        ]
+        for pattern, repl in replacements:
+            text = re.sub(pattern, repl, text, flags=re.I)
+
+        text = re.sub(r"SMC written exam scheduled for\s*12\s*July\s*2026[^<.]*\.", "SMC: Public Relation Officer written examination was held on 12 July 2026. Other cadres follow their own official SMC notices.", text, flags=re.I)
+        text = re.sub(r"A live countdown switches on here the moment SMC announces the date\.\s*Until then[^<.]*\.", "The PRO exam was held on 12 July 2026. Track official answer key, result and selection updates here.", text, flags=re.I)
+        text = re.sub(r"Written Exam:\s*To Be Announced", "Written Exam: PRO held 12 July 2026", text, flags=re.I)
+        text = re.sub(r"Admit Card:\s*Coming Soon", "Admit Card: Check official SMC notices", text, flags=re.I)
+
+        # Clean duplicate JSON-LD fields left by older automation versions.
+        text = re.sub(r'(\s*"endDate":\s*"2026-07-12T13:00:00\+05:30",){2,}', '\n      "endDate": "2026-07-12T13:00:00+05:30",', text)
+        text = re.sub(r'"name":\s*"SMC Computer Supervisor / Clerk Exam 2026"', '"name": "SMC Public Relation Officer Written Examination 2026"', text, flags=re.I)
+        text = re.sub(r'"description":\s*"Written examination for SMC 2026 posts \(Clerk, Staff Nurse, Driver, PRO\)\."', '"description": "SMC Public Relation Officer written examination held on 12 July 2026. Other cadres have separate official schedules and notices."', text, flags=re.I)
 
     if app_closed:
         text = re.sub(r"Applications\s+Closed\s*[—-]\s*15\s*April\s*2026", "Applications Closed", text, flags=re.I)
         text = re.sub(r"Application Deadline\s*:\s*15\s*April\s*2026", "Applications Closed", text, flags=re.I)
 
-    if pro_done:
-        text = re.sub(r"SMC written exam scheduled for\s*12\s*July\s*2026[^<.]*\.", "SMC: Public Relation Officer written examination was held on 12 July 2026. Other cadres follow their own official SMC notices.", text, flags=re.I)
-        text = re.sub(r"A live countdown switches on here the moment SMC announces the date\.\s*Until then[^<.]*\.", "The PRO exam was held on 12 July 2026. Track official answer key, result and selection updates here.", text, flags=re.I)
-        text = re.sub(r"Written Exam:\s*To Be Announced", "Written Exam: PRO held 12 July 2026", text, flags=re.I)
-        text = re.sub(r"Admit Card:\s*Coming Soon", "Admit Card: Check official SMC notices", text, flags=re.I)
-        text = re.sub(r"EXAM ON 12 JULY 2026\s*[—-]\s*Final Revision Time!", "PRO EXAM COMPLETED — 12 JULY 2026", text, flags=re.I)
-        text = re.sub(r"EXAM ON 12 JULY 2026", "PRO EXAM COMPLETED — 12 JULY 2026", text, flags=re.I)
-
-        # Remove duplicate endDate fields accidentally accumulated in the
-        # homepage JSON-LD by earlier updates.
-        text = re.sub(r'(\s*"endDate":\s*"2026-07-12T13:00:00\+05:30",){2,}', '\n      "endDate": "2026-07-12T13:00:00+05:30",', text)
-
-        # A global homepage Event schema claiming all SMC posts were the same
-        # exam is misleading. Mark it as the historical PRO event instead.
-        text = re.sub(r'"name":\s*"SMC Computer Supervisor / Clerk Exam 2026"', '"name": "SMC Public Relation Officer Written Examination 2026"', text, flags=re.I)
-        text = re.sub(r'"description":\s*"Written examination for SMC 2026 posts \(Clerk, Staff Nurse, Driver, PRO\)\."', '"description": "SMC Public Relation Officer written examination held on 12 July 2026. Other cadres have separate official schedules and notices."', text, flags=re.I)
-
     if july26_postponed:
+        # Do not globally mark every post as postponed. Surface the official
+        # notice through the live layer and annotate matching 26 July text.
         text = re.sub(r"26\s*July\s*2026[^<]{0,180}(?:scheduled|written exam|exam date)", lambda m: m.group(0) + " — SMC POSTPONED NOTICE EXISTS; CHECK OFFICIAL NOTICE", text, flags=re.I)
 
     if MARKER not in text:
