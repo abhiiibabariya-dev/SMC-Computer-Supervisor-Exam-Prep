@@ -34,6 +34,14 @@ for path in DOCS.rglob("*.html"):
     text = path.read_text(encoding="utf-8", errors="ignore")
     original = text
 
+    # Global SEO/social text must never advertise a stale countdown after the
+    # exam. Replace only the known stale phrases.
+    if pro_done:
+        text = re.sub(r"live countdown to 12 July 2026", "official post-exam updates, answer keys and results", text, flags=re.I)
+        text = re.sub(r"live countdown to the 12 July 2026 exam", "official post-exam updates, answer keys and results", text, flags=re.I)
+        text = re.sub(r"countdown to 12 July 2026", "post-exam updates after 12 July 2026", text, flags=re.I)
+        text = re.sub(r"countdown to the 12 July 2026 exam", "post-exam updates after 12 July 2026", text, flags=re.I)
+
     if app_closed:
         text = re.sub(r"Applications\s+Closed\s*[—-]\s*15\s*April\s*2026", "Applications Closed", text, flags=re.I)
         text = re.sub(r"Application Deadline\s*:\s*15\s*April\s*2026", "Applications Closed", text, flags=re.I)
@@ -45,6 +53,15 @@ for path in DOCS.rglob("*.html"):
         text = re.sub(r"Admit Card:\s*Coming Soon", "Admit Card: Check official SMC notices", text, flags=re.I)
         text = re.sub(r"EXAM ON 12 JULY 2026\s*[—-]\s*Final Revision Time!", "PRO EXAM COMPLETED — 12 JULY 2026", text, flags=re.I)
         text = re.sub(r"EXAM ON 12 JULY 2026", "PRO EXAM COMPLETED — 12 JULY 2026", text, flags=re.I)
+
+        # Remove duplicate endDate fields accidentally accumulated in the
+        # homepage JSON-LD by earlier updates.
+        text = re.sub(r'(\s*"endDate":\s*"2026-07-12T13:00:00\+05:30",){2,}', '\n      "endDate": "2026-07-12T13:00:00+05:30",', text)
+
+        # A global homepage Event schema claiming all SMC posts were the same
+        # exam is misleading. Mark it as the historical PRO event instead.
+        text = re.sub(r'"name":\s*"SMC Computer Supervisor / Clerk Exam 2026"', '"name": "SMC Public Relation Officer Written Examination 2026"', text, flags=re.I)
+        text = re.sub(r'"description":\s*"Written examination for SMC 2026 posts \(Clerk, Staff Nurse, Driver, PRO\)\."', '"description": "SMC Public Relation Officer written examination held on 12 July 2026. Other cadres have separate official schedules and notices."', text, flags=re.I)
 
     if july26_postponed:
         text = re.sub(r"26\s*July\s*2026[^<]{0,180}(?:scheduled|written exam|exam date)", lambda m: m.group(0) + " — SMC POSTPONED NOTICE EXISTS; CHECK OFFICIAL NOTICE", text, flags=re.I)
