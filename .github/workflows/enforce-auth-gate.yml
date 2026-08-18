@@ -23,25 +23,23 @@ jobs:
         shell: python
         run: |
           from pathlib import Path
-
           root = Path('docs')
-          skip = {'login.html', 'admin-dashboard-x7k9m.html'}
+          skip = {'login.html'}
           changed = []
-
           for path in root.rglob('*.html'):
               if path.name in skip:
                   continue
               text = path.read_text(encoding='utf-8')
               if 'src="gate.js"' in text or "src='gate.js'" in text:
                   continue
+              low = text.lower()
               marker = '</head>'
-              if marker not in text.lower():
+              if marker not in low:
                   continue
-              idx = text.lower().find(marker)
+              idx = low.find(marker)
               text = text[:idx] + '    <script src="gate.js"></script>\n' + text[idx:]
               path.write_text(text, encoding='utf-8')
               changed.append(str(path))
-
           print(f'Protected {len(changed)} HTML pages')
           for item in changed:
               print(item)
