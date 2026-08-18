@@ -1,9 +1,9 @@
 {
-  "updated_at": "2026-08-18T12:07:12.854510+00:00",
+  "updated_at": "2026-08-18T12:59:10.242035+00:00",
   "sources_scanned": 28,
-  "links_found_this_scan": 727,
-  "new_items": 151,
-  "total_items": 956,
+  "links_found_this_scan": 715,
+  "new_items": 715,
+  "total_items": 715,
   "errors": [
     {
       "source": "OJAS Gujarat",
@@ -16,39 +16,34 @@
       "error": "<urlopen error [Errno 101] Network is unreachable>"
     },
     {
-      "source": "GSSSB",
-      "url": "https://gsssb.gujarat.gov.in",
-      "error": "<urlopen error [Errno 101] Network is unreachable>"
-    },
-    {
       "source": "GPSSB",
       "url": "https://gpssb.gujarat.gov.in",
       "error": "<urlopen error [Errno 101] Network is unreachable>"
     },
     {
-      "source": "Gujarat Police",
-      "url": "https://police.gujarat.gov.in",
-      "error": "<urlopen error _ssl.c:1064: The handshake operation timed out>"
+      "source": "GSSSB",
+      "url": "https://gsssb.gujarat.gov.in",
+      "error": "<urlopen error [Errno 101] Network is unreachable>"
     },
     {
-      "source": "Gujarat Education Department",
-      "url": "https://education.gujarat.gov.in",
-      "error": "<urlopen error _ssl.c:1064: The handshake operation timed out>"
+      "source": "Gujarat Police",
+      "url": "https://police.gujarat.gov.in",
+      "error": "<urlopen error _ssl.c:1015: The handshake operation timed out>"
     },
     {
       "source": "Gujarat Health Department",
       "url": "https://gujhealth.gujarat.gov.in",
-      "error": "<urlopen error _ssl.c:1064: The handshake operation timed out>"
+      "error": "<urlopen error _ssl.c:1015: The handshake operation timed out>"
     },
     {
       "source": "Gujarat Forest and Environment",
       "url": "https://forests.gujarat.gov.in",
-      "error": "<urlopen error _ssl.c:1064: The handshake operation timed out>"
+      "error": "<urlopen error _ssl.c:1015: The handshake operation timed out>"
     },
     {
-      "source": "Gujarat Government",
-      "url": "https://gujaratindia.gov.in",
-      "error": "<urlopen error _ssl.c:1064: The handshake operation timed out>"
+      "source": "Gujarat Education Department",
+      "url": "https://education.gujarat.gov.in",
+      "error": "<urlopen error _ssl.c:1015: The handshake operation timed out>"
     },
     {
       "source": "Gujarat Primary Education Recruitment",
@@ -56,9 +51,14 @@
       "error": "HTTP Error 503: Service Unavailable"
     },
     {
-      "source": "Gujarat Biotechnology Research Centre",
-      "url": "https://www.gbrc.gujarat.gov.in/WebCMS/Start/Announcement",
+      "source": "KCG Gujarat Recruitment",
+      "url": "https://kcg.gujarat.gov.in/recruitments",
       "error": "The read operation timed out"
+    },
+    {
+      "source": "Gujarat Government",
+      "url": "https://gujaratindia.gov.in",
+      "error": "<urlopen error _ssl.c:1015: The handshake operation timed out>"
     },
     {
       "source": "Ahmedabad Municipal Corporation",
@@ -76,5 +76,6 @@
       "error": "<urlopen error timed out>"
     }
   ],
-  "smc_items": 76
+  "smc_items": 59,
+  "mode": "live_snapshot"
 }
