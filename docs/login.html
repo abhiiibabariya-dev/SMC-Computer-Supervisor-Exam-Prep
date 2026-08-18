@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Client Login | SMC Prep</title>
-<meta name="description" content="Client login for SMC Prep.">
+<meta name="description" content="Secure Firebase client login for SMC Prep.">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <script src="firebase-config.js"></script>
@@ -12,10 +12,8 @@
 <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
 <style>
 :root{--bg:#08090b;--card:#111317;--line:rgba(255,255,255,.09);--text:#f5f5f5;--muted:#9ca3af;--green:#86efac;--purple:#a78bfa}
-*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(circle at 20% 10%,rgba(99,102,241,.22),transparent 34%),radial-gradient(circle at 85% 80%,rgba(34,197,94,.12),transparent 32%),var(--bg);color:var(--muted);font-family:'Plus Jakarta Sans',system-ui,sans-serif;display:flex;align-items:center;justify-content:center;padding:20px}.wrap{width:min(440px,100%)}.brand{text-align:center;margin-bottom:18px}.brand b{display:block;color:#fff;font-size:1.35rem}.brand span{font-size:.75rem;color:var(--green)}.card{background:rgba(17,19,23,.95);border:1px solid var(--line);border-radius:22px;padding:24px;box-shadow:0 24px 70px rgba(0,0,0,.42);backdrop-filter:blur(14px)}h1{margin:0;color:#fff;font-size:1.5rem}.sub{margin:7px 0 20px;font-size:.8rem;line-height:1.5}.tabs{display:grid;grid-template-columns:1fr 1fr;gap:6px;background:rgba(255,255,255,.04);padding:5px;border-radius:12px;margin-bottom:18px}.tabs button{border:0;background:transparent;color:#9ca3af;border-radius:9px;padding:10px;font-weight:800;cursor:pointer}.tabs button.active{background:rgba(167,139,250,.18);color:#fff}.field{margin-bottom:12px}.field label{display:block;color:#d4d4d8;font-size:.72rem;font-weight:700;margin-bottom:6px}.field input{width:100%;padding:12px 13px;border-radius:12px;border:1px solid rgba(255,255,255,.1);background:#0d0f12;color:#fff;outline:none;font:500 .85rem inherit}.field input:focus{border-color:rgba(134,239,172,.45)}.btn{width:100%;border:0;border-radius:12px;padding:12px;background:linear-gradient(135deg,#86efac,#a78bfa);color:#08100b;font-weight:900;cursor:pointer}.google{margin-top:9px;background:rgba(255,255,255,.06);color:#fff;border:1px solid rgba(255,255,255,.1)}.msg{min-height:20px;margin:10px 0 0;font-size:.72rem;text-align:center}.back{display:block;text-align:center;margin-top:16px;color:#86efac;text-decoration:none;font-size:.75rem;font-weight:700}.note{margin-top:16px;padding:10px 12px;border-radius:11px;background:rgba(251,191,36,.07);border:1px solid rgba(251,191,36,.13);color:#d6d3d1;font-size:.65rem;line-height:1.5}@media(max-width:480px){.card{padding:20px}}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(circle at 20% 10%,rgba(99,102,241,.22),transparent 34%),radial-gradient(circle at 85% 80%,rgba(34,197,94,.12),transparent 32%),var(--bg);color:var(--muted);font-family:'Plus Jakarta Sans',system-ui,sans-serif;display:flex;align-items:center;justify-content:center;padding:20px}.wrap{width:min(440px,100%)}.brand{text-align:center;margin-bottom:18px}.brand b{display:block;color:#fff;font-size:1.35rem}.brand span{font-size:.75rem;color:var(--green)}.card{background:rgba(17,19,23,.95);border:1px solid var(--line);border-radius:22px;padding:24px;box-shadow:0 24px 70px rgba(0,0,0,.42)}h1{margin:0;color:#fff;font-size:1.5rem}.sub{margin:7px 0 20px;font-size:.8rem;line-height:1.5}.tabs{display:grid;grid-template-columns:1fr 1fr;gap:6px;background:rgba(255,255,255,.04);padding:5px;border-radius:12px;margin-bottom:18px}.tabs button{border:0;background:transparent;color:#9ca3af;border-radius:9px;padding:10px;font-weight:800;cursor:pointer}.tabs button.active{background:rgba(167,139,250,.18);color:#fff}.field{margin-bottom:12px}.field label{display:block;color:#d4d4d8;font-size:.72rem;font-weight:700;margin-bottom:6px}.field input{width:100%;padding:12px 13px;border-radius:12px;border:1px solid rgba(255,255,255,.1);background:#0d0f12;color:#fff;outline:none;font:500 .85rem inherit}.field input:focus{border-color:rgba(134,239,172,.45)}.btn{width:100%;border:0;border-radius:12px;padding:12px;background:linear-gradient(135deg,#86efac,#a78bfa);color:#08100b;font-weight:900;cursor:pointer}.google{margin-top:9px;background:rgba(255,255,255,.06);color:#fff;border:1px solid rgba(255,255,255,.1)}.reset{display:block;text-align:center;margin-top:11px;color:#c4b5fd;font-size:.72rem;font-weight:800;text-decoration:none}.msg{min-height:20px;margin:10px 0 0;font-size:.72rem;text-align:center}.back{display:block;text-align:center;margin-top:16px;color:#86efac;text-decoration:none;font-size:.75rem;font-weight:700}.note{margin-top:16px;padding:10px 12px;border-radius:11px;background:rgba(251,191,36,.07);border:1px solid rgba(251,191,36,.13);color:#d6d3d1;font-size:.65rem;line-height:1.5}@media(max-width:480px){.card{padding:20px}}
 </style>
-    <script src="smc-live-sync.js"></script>
-    <script src="/SMC-Computer-Supervisor-Exam-Prep/auto-live-jobs.js?v=20260818-2" defer></script>
 </head>
 <body>
 <div class="wrap">
@@ -29,32 +27,40 @@
       <div class="field"><label for="password">Password</label><input id="password" type="password" autocomplete="current-password" required minlength="6" placeholder="Minimum 6 characters"></div>
       <button class="btn" id="submitBtn" type="submit">Login</button>
       <button class="btn google" id="googleBtn" type="button">Continue with Google</button>
+      <a class="reset" href="#" id="resetBtn">Forgot password?</a>
       <div class="msg" id="msg"></div>
     </form>
-    <div class="note">This is Firebase Authentication. Your GitHub Pages site can provide account login, but static files are not true server-side protected. For private client documents or paid content, the next step is to protect the data itself with Firebase rules or move the protected area behind a backend.</div>
-    <a class="back" href="index.html">← Back to SMC Prep</a>
+    <div class="note">This login uses Firebase Authentication. It is an account layer only. Public GitHub Pages files remain public, so private or paid content must be protected at the data/backend layer before it is exposed.</div>
+    <a class="back" href="index.html">← Continue as visitor</a>
   </div>
 </div>
 <script>
 (function(){
   'use strict';
   const cfg=window.SMC_FIREBASE_CONFIG||{};
-  const msg=document.getElementById('msg');
-  const form=document.getElementById('authForm');
-  const loginTab=document.getElementById('loginTab');
-  const signupTab=document.getElementById('signupTab');
-  const submit=document.getElementById('submitBtn');
-  const title=document.getElementById('title');
-  const subtitle=document.getElementById('subtitle');
-  let mode='login';
+  const msg=document.getElementById('msg'),form=document.getElementById('authForm'),loginTab=document.getElementById('loginTab'),signupTab=document.getElementById('signupTab'),submit=document.getElementById('submitBtn'),title=document.getElementById('title'),subtitle=document.getElementById('subtitle');
+  let mode='login',auth=null;
   function say(t,ok){msg.textContent=t||'';msg.style.color=ok?'#86efac':'#fca5a5';}
   function setMode(m){mode=m;const sign=m==='signup';loginTab.classList.toggle('active',!sign);signupTab.classList.toggle('active',sign);title.textContent=sign?'Create Client Account':'Client Login';subtitle.textContent=sign?'Create an account for the SMC Prep client area.':'Sign in to your SMC Prep client account.';submit.textContent=sign?'Create Account':'Login';say('');}
+  function saveAccount(user){try{localStorage.setItem('smc_account',JSON.stringify({uid:user.uid||'',email:user.email||'',name:user.displayName||'',photo:user.photoURL||'',signed_in_at:new Date().toISOString()}));}catch(e){}}
   loginTab.onclick=()=>setMode('login');signupTab.onclick=()=>setMode('signup');
-  if(!cfg.apiKey||!cfg.authDomain||!cfg.appId){say('Firebase web configuration is missing.');return;}
-  try{if(!firebase.apps.length)firebase.initializeApp(cfg);const auth=firebase.auth();
-    auth.onAuthStateChanged(function(user){if(user){location.href='index.html';}});
-    form.addEventListener('submit',async function(e){e.preventDefault();say('Please wait…',true);const email=document.getElementById('email').value.trim();const password=document.getElementById('password').value;try{if(mode==='signup'){await auth.createUserWithEmailAndPassword(email,password);say('Account created. Opening site…',true);}else{await auth.signInWithEmailAndPassword(email,password);say('Login successful. Opening site…',true);}}catch(err){const map={'auth/invalid-credential':'Email or password is incorrect.','auth/email-already-in-use':'This email already has an account.','auth/weak-password':'Password should be at least 6 characters.','auth/invalid-email':'Please enter a valid email address.','auth/too-many-requests':'Too many attempts. Please try again later.','auth/operation-not-allowed':'Email/password login is not enabled in Firebase yet.'};say(map[err.code]||err.message||'Authentication failed.');}});
-    document.getElementById('googleBtn').addEventListener('click',async function(){try{say('Opening Google sign-in…',true);await auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());}catch(err){say(err.code==='auth/popup-blocked'?'Popup was blocked. Please allow popups for this site.':err.message||'Google sign-in failed.');}});
+  if(!cfg.apiKey||!cfg.authDomain||!cfg.appId){say('Firebase web configuration is missing. Public preparation pages remain available.');return;}
+  try{
+    if(!firebase.apps.length)firebase.initializeApp(cfg);
+    auth=firebase.auth();
+    auth.onAuthStateChanged(function(user){if(user){saveAccount(user);location.replace('client-dashboard.html');}});
+    form.addEventListener('submit',async function(e){
+      e.preventDefault();
+      const email=document.getElementById('email').value.trim(),password=document.getElementById('password').value;
+      say('Please wait…',true);
+      try{
+        let cred;
+        if(mode==='signup')cred=await auth.createUserWithEmailAndPassword(email,password);else cred=await auth.signInWithEmailAndPassword(email,password);
+        if(cred&&cred.user)saveAccount(cred.user);say(mode==='signup'?'Account created. Opening dashboard…':'Login successful. Opening dashboard…',true);setTimeout(()=>location.replace('client-dashboard.html'),250);
+      }catch(err){const map={'auth/invalid-credential':'Email or password is incorrect.','auth/email-already-in-use':'This email already has an account.','auth/weak-password':'Password should be at least 6 characters.','auth/invalid-email':'Please enter a valid email address.','auth/too-many-requests':'Too many attempts. Please try again later.','auth/operation-not-allowed':'Email/password login is not enabled in Firebase yet.'};say(map[err.code]||err.message||'Authentication failed.');}
+    });
+    document.getElementById('googleBtn').addEventListener('click',async function(){try{say('Opening Google sign-in…',true);const cred=await auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());if(cred&&cred.user)saveAccount(cred.user);location.replace('client-dashboard.html');}catch(err){say(err.code==='auth/popup-blocked'?'Popup was blocked. Please allow popups for this site.':err.message||'Google sign-in failed.');}});
+    document.getElementById('resetBtn').addEventListener('click',async function(e){e.preventDefault();const email=document.getElementById('email').value.trim();if(!email){say('Enter your email first, then tap Forgot password.');return;}try{await auth.sendPasswordResetEmail(email);say('Password reset email sent. Check your inbox.',true);}catch(err){say(err.message||'Unable to send password reset email.');}});
   }catch(e){say('Unable to initialize Firebase Authentication.');}
 })();
 </script>
