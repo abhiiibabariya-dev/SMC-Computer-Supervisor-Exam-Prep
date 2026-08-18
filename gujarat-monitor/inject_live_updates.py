@@ -6,8 +6,10 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 DOCS = ROOT / "docs"
 STATUS = ROOT / "gujarat-monitor" / "smc-status.json"
-MARKER = "auto-live-jobs.js"
-TAG = '<script src="/SMC-Computer-Supervisor-Exam-Prep/auto-live-jobs.js?v=20260818-2" defer></script>'
+SCRIPT = "auto-live-jobs.js"
+VERSION = "20260818-4"
+TAG = f'<script src="/SMC-Computer-Supervisor-Exam-Prep/auto-live-jobs.js?v={VERSION}" defer></script>'
+OLD_TAG_RE = r'<script\s+src="(?:/SMC-Computer-Supervisor-Exam-Prep/)?auto-live-jobs\.js[^>]*></script>'
 
 try:
     status = json.loads(STATUS.read_text(encoding="utf-8"))
@@ -34,20 +36,17 @@ for path in DOCS.rglob("*.html"):
     text = path.read_text(encoding="utf-8", errors="ignore")
     original = text
 
-    # Replace any existing live-script URL so browsers cannot keep an old cached layer.
-    text = re.sub(r'<script src="/SMC-Computer-Supervisor-Exam-Prep/auto-live-jobs\.js[^>]*></script>', TAG, text)
+    # Always replace old live-script paths and cache versions with the current one.
+    text = re.sub(OLD_TAG_RE, TAG, text, flags=re.I)
 
     if pro_done:
         replacements = [
             (r"a\s+live\s+countdown\s+to\s+the\s+12\s+July\s+2026\s+exam", "official post-exam updates, answer keys and results"),
-            (r"live\s+countdown\s+to\s+the\s+12\s+July\s+2026\s+exam", "official post-exam updates, answer keys and results"),
             (r"live\s+countdown\s+to\s+12\s+July\s+2026", "official post-exam updates, answer keys and results"),
             (r"countdown\s+to\s+the\s+12\s+July\s+2026\s+exam", "post-exam updates after 12 July 2026"),
-            (r"countdown\s+to\s+12\s+July\s+2026", "post-exam updates after 12 July 2026"),
             (r"Final\s+revision\s+time\s+is\s+NOW!", "Exam completed. Track official answer key, result and selection updates."),
             (r"NOW\s*[—-]\s*Exam\s+Prep", "NOW — Answer Key & Result Tracking"),
             (r"Before\s+12\s+July\s+2026", "Post-exam status"),
-            (r"Admit\s+card\s*/\s*call\s+letter\s+download\s*—\s*from\s*suratmunicipal\.gov\.in[^<.]*\.", "Check the official SMC Recruitment pages for answer keys, results and selection notices."),
             (r"Final\s+revision\s+phase\.\s*Practice\s+mock\s+tests\s*&\s*daily\s+MCQs\.", "Post-exam tracking phase. Follow official answer key, result and merit updates."),
             (r"EXAM\s+DATE\s+OUT\s*[—-]\s*Written\s+Exam\s+on\s+12\s+July\s+2026!", "PRO EXAM COMPLETED — 12 JULY 2026"),
             (r"EXAM\s+12\s+JUL\s+CALL\s+LETTER\s+SOON", "PRO EXAM COMPLETED — ANSWER KEY / RESULT TRACKING"),
@@ -60,7 +59,6 @@ for path in DOCS.rglob("*.html"):
         text = re.sub(r"A live countdown switches on here the moment SMC announces the date\.\s*Until then[^<.]*\.", "The PRO exam was held on 12 July 2026. Track official answer key, result and selection updates here.", text, flags=re.I)
         text = re.sub(r"Written Exam:\s*To Be Announced", "Written Exam: PRO held 12 July 2026", text, flags=re.I)
         text = re.sub(r"Admit Card:\s*Coming Soon", "Admit Card: Check official SMC notices", text, flags=re.I)
-        text = re.sub(r'(\s*"endDate":\s*"2026-07-12T13:00:00\+05:30",){2,}', '\n      "endDate": "2026-07-12T13:00:00+05:30",', text)
         text = re.sub(r'"name":\s*"SMC Computer Supervisor / Clerk Exam 2026"', '"name": "SMC Public Relation Officer Written Examination 2026"', text, flags=re.I)
         text = re.sub(r'"description":\s*"Written examination for SMC 2026 posts \(Clerk, Staff Nurse, Driver, PRO\)\."', '"description": "SMC Public Relation Officer written examination held on 12 July 2026. Other cadres have separate official schedules and notices."', text, flags=re.I)
 
@@ -71,9 +69,8 @@ for path in DOCS.rglob("*.html"):
     if july26_postponed:
         text = re.sub(r"26\s*July\s*2026[^<]{0,180}(?:scheduled|written exam|exam date)", lambda m: m.group(0) + " — SMC POSTPONED NOTICE EXISTS; CHECK OFFICIAL NOTICE", text, flags=re.I)
 
-    if MARKER not in text:
-        lower = text.lower()
-        pos = lower.rfind("</head>")
+    if SCRIPT not in text:
+        pos = text.lower().rfind("</head>")
         if pos >= 0:
             text = text[:pos] + "    " + TAG + "\n" + text[pos:]
             injected += 1
