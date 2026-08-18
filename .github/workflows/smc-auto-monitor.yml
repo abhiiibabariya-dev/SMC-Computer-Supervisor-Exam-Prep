@@ -1,8 +1,7 @@
-name: SMC Official Update Monitor
+name: Gujarat Government Jobs Monitor
 
 on:
   schedule:
-    # Every 1 hour
     - cron: '17 * * * *'
   workflow_dispatch:
 
@@ -22,24 +21,27 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Check official SMC sources
+      - name: Scan Gujarat government recruitment sources
         run: |
-          python scripts/smc_monitor.py
+          python3 gujarat-monitor/smc_jobs.py
 
-      - name: Show report
+      - name: Show monitor report
         run: |
-          cat .smc-monitor/report.json
+          cat gujarat-monitor/jobs_report.json
 
-      - name: Commit updated monitor state
+      - name: Commit updated Gujarat jobs data
         run: |
-          git config user.name "SMC Update Monitor"
+          git config user.name "Gujarat Jobs Monitor"
           git config user.email "actions@github.com"
 
-          git add .smc-monitor/state.json
+          git add gujarat-monitor/jobs.json
+          git add gujarat-monitor/jobs_state.json
+          git add gujarat-monitor/jobs_report.json
+          git add gujarat-jobs.json
 
           if git diff --staged --quiet; then
-            echo "No state changes."
+            echo "No changes detected."
           else
-            git commit -m "chore: update SMC source monitor state"
+            git commit -m "chore: update Gujarat government jobs"
             git push
           fi

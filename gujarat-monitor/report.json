@@ -1,0 +1,52 @@
+{
+  "checked_at": "2026-08-18T09:18:25.277963+00:00",
+  "sources_checked": 9,
+  "changes": [
+    {
+      "source": "OJAS Gujarat",
+      "type": "initial_scan",
+      "url": "https://ojas.gujarat.gov.in"
+    },
+    {
+      "source": "GPSC",
+      "type": "initial_scan",
+      "url": "https://gpsc.gujarat.gov.in"
+    },
+    {
+      "source": "GSSSB",
+      "type": "initial_scan",
+      "url": "https://gsssb.gujarat.gov.in"
+    },
+    {
+      "source": "GPSSB",
+      "type": "initial_scan",
+      "url": "https://gpssb.gujarat.gov.in"
+    },
+    {
+      "source": "Gujarat High Court Recruitment",
+      "type": "initial_scan",
+      "url": "https://gujarathighcourt.nic.in/currentopenings"
+    },
+    {
+      "source": "KCG Gujarat Recruitment",
+      "type": "error",
+      "url": "https://recruitment.gujgov.edu.in",
+      "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1082)>"
+    },
+    {
+      "source": "KCG Official Recruitment",
+      "type": "initial_scan",
+      "url": "https://kcg.gujarat.gov.in/recruitments"
+    },
+    {
+      "source": "Gyan Sahayak Gujarat",
+      "type": "initial_scan",
+      "url": "https://gyansahayak.ssgujarat.org"
+    },
+    {
+      "source": "Gujarat Primary Education Recruitment",
+      "type": "initial_scan",
+      "url": "https://htatph.dpegujarat.in"
+    }
+  ]
+}
