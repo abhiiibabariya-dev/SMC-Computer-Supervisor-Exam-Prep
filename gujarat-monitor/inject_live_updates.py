@@ -7,7 +7,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DOCS = ROOT / "docs"
 STATUS = ROOT / "gujarat-monitor" / "smc-status.json"
 MARKER = "auto-live-jobs.js"
-TAG = '<script src="/SMC-Computer-Supervisor-Exam-Prep/auto-live-jobs.js?v=live" defer></script>'
+TAG = '<script src="/SMC-Computer-Supervisor-Exam-Prep/auto-live-jobs.js?v=20260818-2" defer></script>'
 
 try:
     status = json.loads(STATUS.read_text(encoding="utf-8"))
@@ -34,9 +34,8 @@ for path in DOCS.rglob("*.html"):
     text = path.read_text(encoding="utf-8", errors="ignore")
     original = text
 
-    # Always upgrade an older unversioned script tag so browsers receive the
-    # current live layer instead of a cached copy.
-    text = re.sub(r'<script src="/SMC-Computer-Supervisor-Exam-Prep/auto-live-jobs\.js"[^>]*></script>', TAG, text)
+    # Replace any existing live-script URL so browsers cannot keep an old cached layer.
+    text = re.sub(r'<script src="/SMC-Computer-Supervisor-Exam-Prep/auto-live-jobs\.js[^>]*></script>', TAG, text)
 
     if pro_done:
         replacements = [
