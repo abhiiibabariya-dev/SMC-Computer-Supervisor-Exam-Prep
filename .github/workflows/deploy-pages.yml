@@ -52,8 +52,11 @@ jobs:
               if page.name.lower()=='client-dashboard.html':tags.append(f'<script src="{rel(profile)}"></script>')
               updated=text[:head]+'\n'+'\n'.join(tags)+'\n'+text[head:]
               if page.name.lower()=='premium.html':
-                  body=updated.lower().find('</body>')
-                  if body>=0:updated=updated[:body]+f'\n<script src="{rel(pay)}"></script>\n'+updated[body:]
+                  # Load payment/entitlement override after the page's legacy inline scripts.
+                  # This is important because premium.html still contains the old client-side
+                  # verifyPayment function; the Firebase-backed implementation must win.
+                  end=updated.lower().rfind('</body>')
+                  if end>=0:updated=updated[:end]+f'\n<script src="{rel(pay)}"></script>\n'+updated[end:]
               page.write_text(updated,encoding='utf-8');changed.append(str(page))
           print(f'Prepared {len(changed)} authenticated HTML pages')
       - name: Validate published site
