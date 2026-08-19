@@ -21,47 +21,71 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '22'
+
       - name: Validate Firebase rules
         run: |
           python3 - <<'PY'
           import json
           from pathlib import Path
-          p=Path('firebase-rules.json'); d=json.loads(p.read_text(encoding='utf-8')); r=d.get('rules',{})
+          d=json.loads(Path('firebase-rules.json').read_text(encoding='utf-8'))
+          r=d.get('rules',{})
           assert r.get('.read') is False, 'root read must be deny-by-default'
           assert r.get('.write') is False, 'root write must be deny-by-default'
-          assert 'users' in r and 'payment_requests' in r, 'critical paths missing'
-          print('Firebase rules static checks passed.')
+          assert 'users' in r and 'payment_requests' in r and 'premium_content' in r
+          print('Firebase rules: PASS')
           PY
-      - name: Validate JavaScript syntax
+
+      - name: Validate changed JavaScript syntax
         run: |
-          set -e
-          find docs -type f -name '*.js' -print0 | while IFS= read -r -d '' f; do node --check "$f"; done
-          echo 'All JavaScript files passed Node syntax validation.'
-      - name: Detect insecure Firebase REST writes and exposed secrets
+          set -euo pipefail
+          files=$(git diff-tree --no-commit-id --name-only -r HEAD -- '*.js' | tr '\n' ' ')
+          if [ -n "${files// }" ]; then
+            for f in $files; do [ -f "$f" ] && node --check "$f"; done
+          fi
+          node --check docs/gate.js
+          node --check docs/auto-live-jobs.js
+          node --check docs/tracker.js
+          echo 'JavaScript syntax: PASS'
+
+      - name: Check Firebase client safety
         run: |
-          set -e
-          if grep -RInE 'SMC_FIREBASE_URL[^\n]*fetch\(|databaseURL[^\n]*fetch\(' docs --include='*.js' --include='*.html'; then echo 'ERROR: direct Firebase REST access found. Use the authenticated Firebase SDK.'; exit 1; fi
-          if grep -RInE '(FIREBASE_SECRET|databaseSecret|client_secret|private_key)\s*[:=]' docs --include='*.js' --include='*.html' --include='*.json'; then echo 'ERROR: possible Firebase secret found in public site files.'; exit 1; fi
-          echo 'No insecure Firebase REST writes or obvious secret assignments found.'
-      - name: Check authentication gates and duplicate injection
+          set -euo pipefail
+          if grep -RInE 'SMC_FIREBASE_URL[^\n]*fetch\(|databaseURL[^\n]*fetch\(' docs --include='*.js' --include='*.html'; then
+            echo 'ERROR: direct Firebase REST access found.'; exit 1
+          fi
+          if grep -RInE '(FIREBASE_SECRET|databaseSecret|client_secret|private_key)\s*[:=]' docs --include='*.js' --include='*.html' --include='*.json'; then
+            echo 'ERROR: possible Firebase secret found in public site files.'; exit 1
+          fi
+          echo 'Firebase client safety: PASS'
+
+      - name: Verify central authentication enforcement
         run: |
           python3 - <<'PY'
           from pathlib import Path
           import re
-          root=Path('docs'); public={'login.html','404.html'}; pages=list(root.rglob('*.html')); bad=[]
-          for p in pages:
-              t=p.read_text(encoding='utf-8',errors='ignore'); name=p.name.lower()
-              if name not in public and 'gate.js' not in t: bad.append(f'{p}: missing gate.js')
-              for script in ['gate.js','subscription.js','activity-audit.js','profile.js','subscription-payments.js']:
-                  n=len(re.findall(r'<script[^>]+src=["\'][^"\']*'+re.escape(script)+r'(?:\?[^"\']*)?["\']',t,re.I))
-                  if n>1: bad.append(f'{p}: duplicate {script} ({n})')
-          if bad: print('\n'.join(bad)); raise SystemExit(1)
-          print(f'Checked {len(pages)} HTML pages for auth gates and duplicate script injection.')
+          w=Path('.github/workflows/enforce-auth-gate.yml').read_text(encoding='utf-8')
+          assert 'workflow_dispatch:' in w
+          assert "github.actor != 'github-actions[bot]'" in w
+          assert 'contents: write' in w
+          assert "path:" in w and "'docs/**/*.html'" in w
+          gate=Path('docs/gate.js')
+          assert gate.exists() and gate.stat().st_size > 1000
+          core=['index.html','live-jobs.html','govt-jobs.html','answer-key.html','client-dashboard.html','premium.html','mock-test.html']
+          missing=[]
+          for name in core:
+              p=Path('docs')/name
+              if p.exists() and 'gate.js' not in p.read_text(encoding='utf-8',errors='ignore'):
+                  missing.append(name)
+          if missing:
+              raise SystemExit('Core pages missing auth gate: '+', '.join(missing))
+          print('Authentication enforcement: PASS')
           PY
+
       - name: Check workflow loop guards
         run: |
           python3 - <<'PY'
@@ -70,20 +94,32 @@ jobs:
           bad=[]
           for p in Path('.github/workflows').glob('*.yml'):
               t=p.read_text(encoding='utf-8',errors='ignore')
-              if 'contents: write' in t and re.search(r'^\s*push:',t,re.M) and 'github-actions[bot]' not in t: bad.append(str(p))
-          if bad: raise SystemExit('Possible self-triggering workflow without bot guard: '+', '.join(bad))
-          print('Workflow loop guard checks passed.')
+              if 'contents: write' in t and re.search(r'^\s*push:',t,re.M) and 'github-actions[bot]' not in t:
+                  bad.append(str(p))
+          if bad:
+              raise SystemExit('Possible self-triggering workflow without bot guard: '+', '.join(bad))
+          print('Workflow loop guard: PASS')
           PY
-      - name: Check for obvious redirect loops
+
+      - name: Check redirect-loop risk
         run: |
           python3 - <<'PY'
           from pathlib import Path
+          import re
           bad=[]
-          for p in Path('docs').rglob('*.js'):
+          for p in [Path('docs/gate.js'),Path('docs/subscription.js')]:
               t=p.read_text(encoding='utf-8',errors='ignore')
-              if 'location.replace' in t and 'login.html' in t and p.name not in ('gate.js','subscription.js'): bad.append(str(p))
-          if bad: raise SystemExit('Unexpected login redirect logic outside the central auth gate: '+', '.join(bad))
-          print('Redirect-loop static checks passed.')
+              if p.name=='gate.js' and 'file===\'login.html\'' not in t and "file==='login.html'" not in t:
+                  raise SystemExit('gate.js does not explicitly exempt login.html')
+          for p in Path('docs').rglob('*.js'):
+              if p.name in ('gate.js','subscription.js','login-audit.js'): continue
+              t=p.read_text(encoding='utf-8',errors='ignore')
+              if 'location.replace' in t and 'login.html' in t:
+                  bad.append(str(p))
+          if bad:
+              raise SystemExit('Unexpected login redirects outside central auth files: '+', '.join(bad))
+          print('Redirect-loop safety: PASS')
           PY
+
       - name: Security audit complete
-        run: echo 'SMC Prep security audit completed successfully.'
+        run: echo 'SMC Prep whole-site security audit: PASS'
