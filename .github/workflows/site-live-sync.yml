@@ -1,12 +1,6 @@
 name: SMC Site Live Sync
 
 on:
-  push:
-    branches: [master]
-    paths:
-      - 'docs/**/*.html'
-      - 'docs/smc-live-sync.js'
-      - '.github/workflows/site-live-sync.yml'
   schedule:
     - cron: '17 * * * *'
   workflow_dispatch: {}
@@ -20,12 +14,13 @@ concurrency:
 
 jobs:
   sync:
-    if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Normalize live sync and stale exam text
         shell: python
@@ -51,8 +46,6 @@ jobs:
             if p.name.lower().endswith('.backup.html'): continue
             t=p.read_text(encoding='utf-8',errors='ignore'); old=t
             for a,b in replacements: t=t.replace(a,b)
-
-            # Remove duplicate schema endDate entries left by older sync runs.
             lines=t.splitlines(True); seen_end=False; out=[]
             for line in lines:
               if '"endDate": "2026-07-12T13:00:00+05:30"' in line:
@@ -60,7 +53,6 @@ jobs:
                 seen_end=True
               out.append(line)
             t=''.join(out)
-
             matches=list(rx.finditer(t))
             if len(matches)==0:
               pos=t.lower().find('</head>')
