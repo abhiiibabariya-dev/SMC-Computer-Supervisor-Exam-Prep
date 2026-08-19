@@ -1,19 +1,14 @@
 {
-  "updated_at": "2026-08-19T18:45:21.268903+00:00",
+  "updated_at": "2026-08-19T19:14:29.189240+00:00",
   "sources_scanned": 28,
-  "links_found_this_scan": 690,
-  "new_items": 16,
+  "links_found_this_scan": 683,
+  "new_items": 9,
   "updated_items": 0,
-  "total_items": 690,
+  "total_items": 683,
   "errors": [
     {
       "source": "GSSSB",
       "url": "https://gsssb.gujarat.gov.in",
-      "error": "<urlopen error [Errno 101] Network is unreachable>"
-    },
-    {
-      "source": "OJAS Gujarat",
-      "url": "https://ojas.gujarat.gov.in",
       "error": "<urlopen error [Errno 101] Network is unreachable>"
     },
     {
@@ -24,6 +19,11 @@
     {
       "source": "GPSSB",
       "url": "https://gpssb.gujarat.gov.in",
+      "error": "<urlopen error [Errno 101] Network is unreachable>"
+    },
+    {
+      "source": "OJAS Gujarat",
+      "url": "https://ojas.gujarat.gov.in",
       "error": "<urlopen error [Errno 101] Network is unreachable>"
     },
     {
@@ -52,14 +52,19 @@
       "error": "HTTP Error 503: Service Unavailable"
     },
     {
+      "source": "Gujarat Biotechnology Research Centre",
+      "url": "https://www.gbrc.gujarat.gov.in/WebCMS/Start/Announcement",
+      "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.gbrc.gujarat.gov.in'. (_ssl.c:1032)>"
+    },
+    {
+      "source": "Gujarat Government",
+      "url": "https://gujaratindia.gov.in",
+      "error": "<urlopen error _ssl.c:1015: The handshake operation timed out>"
+    },
+    {
       "source": "KCG Gujarat Recruitment",
       "url": "https://kcg.gujarat.gov.in/recruitments",
       "error": "The read operation timed out"
-    },
-    {
-      "source": "Ahmedabad Municipal Recruitment",
-      "url": "https://ahmedabadcity.gov.in/AMCWEBREC/HRMS/FrmVacancyDetail.aspx",
-      "error": "<urlopen error timed out>"
     },
     {
       "source": "Ahmedabad Municipal Corporation",
@@ -67,9 +72,9 @@
       "error": "<urlopen error timed out>"
     },
     {
-      "source": "Gujarat Government",
-      "url": "https://gujaratindia.gov.in",
-      "error": "<urlopen error _ssl.c:1015: The handshake operation timed out>"
+      "source": "Ahmedabad Municipal Recruitment",
+      "url": "https://ahmedabadcity.gov.in/AMCWEBREC/HRMS/FrmVacancyDetail.aspx",
+      "error": "<urlopen error timed out>"
     },
     {
       "source": "Vadodara Municipal Corporation",
