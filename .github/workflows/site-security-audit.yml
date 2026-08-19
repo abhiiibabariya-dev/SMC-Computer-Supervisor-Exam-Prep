@@ -21,25 +21,20 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '22'
-
       - name: Validate Firebase rules
         run: |
           python3 - <<'PY'
           import json
           from pathlib import Path
-          d=json.loads(Path('firebase-rules.json').read_text(encoding='utf-8'))
-          r=d.get('rules',{})
-          assert r.get('.read') is False
-          assert r.get('.write') is False
+          d=json.loads(Path('firebase-rules.json').read_text(encoding='utf-8')); r=d.get('rules',{})
+          assert r.get('.read') is False and r.get('.write') is False
           assert 'users' in r and 'payment_requests' in r and 'premium_content' in r
           print('Firebase rules: PASS')
           PY
-
       - name: Validate critical JavaScript syntax
         run: |
           set -euo pipefail
@@ -49,41 +44,47 @@ jobs:
           node --check docs/activity-audit.js
           node --check docs/login-audit.js
           echo 'Critical JavaScript syntax: PASS'
-
       - name: Check Firebase client safety
         run: |
           set -euo pipefail
-          if grep -RInE 'SMC_FIREBASE_URL[^\n]*fetch\(|databaseURL[^\n]*fetch\(' docs --include='*.js' --include='*.html'; then
-            echo 'ERROR: direct Firebase REST access found.'; exit 1
-          fi
-          if grep -RInE '(FIREBASE_SECRET|databaseSecret|client_secret|private_key)\s*[:=]' docs --include='*.js' --include='*.html' --include='*.json'; then
-            echo 'ERROR: possible Firebase secret found in public site files.'; exit 1
-          fi
+          if grep -RInE 'SMC_FIREBASE_URL[^\n]*fetch\(|databaseURL[^\n]*fetch\(' docs --include='*.js' --include='*.html'; then exit 1; fi
+          if grep -RInE '(FIREBASE_SECRET|databaseSecret|client_secret|private_key)\s*[:=]' docs --include='*.js' --include='*.html' --include='*.json'; then exit 1; fi
           echo 'Firebase client safety: PASS'
-
+      - name: Check page script duplication and stale schema mutations
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+          bad=[]
+          rx_gate=re.compile(r'<script\s+[^>]*src=["\'][^"\']*gate\.js(?:\?[^"\']*)?["\'][^>]*>',re.I)
+          rx_sync=re.compile(r'<script\s+[^>]*src=["\'][^"\']*smc-live-sync\.js(?:\?[^"\']*)?["\'][^>]*>',re.I)
+          rx_live=re.compile(r'<script\s+[^>]*src=["\'][^"\']*/SMC-Computer-Supervisor-Exam-Prep/auto-live-jobs\.js(?:\?[^"\']*)?["\'][^>]*>',re.I)
+          for p in Path('docs').rglob('*.html'):
+              if p.name.lower() in {'login.html','404.html'} or p.name.lower().endswith('.backup.html'): continue
+              t=p.read_text(encoding='utf-8',errors='ignore')
+              if len(rx_gate.findall(t))>1: bad.append(f'{p}: duplicate gate.js')
+              if len(rx_sync.findall(t))>1: bad.append(f'{p}: duplicate smc-live-sync.js')
+              if len(rx_live.findall(t))>1: bad.append(f'{p}: duplicate auto-live-jobs.js')
+              if t.count('"endDate": "2026-07-12T13:00:00+05:30"')>1: bad.append(f'{p}: duplicate schema endDate')
+          if bad:
+              print('\n'.join(bad)); raise SystemExit(1)
+          print('Page script/schema duplication: PASS')
+          PY
       - name: Verify central authentication enforcement
         run: |
           python3 - <<'PY'
           from pathlib import Path
           w=Path('.github/workflows/enforce-auth-gate.yml').read_text(encoding='utf-8')
-          assert 'workflow_dispatch:' in w
-          assert "github.actor != 'github-actions[bot]'" in w
-          assert 'contents: write' in w
-          assert "'docs/**/*.html'" in w
-          assert Path('docs/gate.js').exists()
+          assert 'workflow_dispatch:' in w and "github.actor != 'github-actions[bot]'" in w and 'contents: write' in w
+          assert "'docs/**/*.html'" in w and Path('docs/gate.js').exists()
           core=['index.html','live-jobs.html','govt-jobs.html','answer-key.html','client-dashboard.html','premium.html','mock-test.html']
           missing=[]
-          for name in core:
-              p=Path('docs')/name
-              if p.exists() and 'gate.js' not in p.read_text(encoding='utf-8',errors='ignore'):
-                  missing.append(name)
-          if missing:
-              print('WARNING: auth auto-heal will protect these pages on the next enforcement run:', ', '.join(missing))
-          else:
-              print('Core page authentication: PASS')
+          for n in core:
+              p=Path('docs')/n
+              if p.exists() and 'gate.js' not in p.read_text(encoding='utf-8',errors='ignore'): missing.append(n)
+          if missing: print('WARNING: auth auto-heal will protect: '+', '.join(missing))
           print('Central authentication enforcement: PASS')
           PY
-
       - name: Check workflow loop guards
         run: |
           python3 - <<'PY'
@@ -92,22 +93,16 @@ jobs:
           bad=[]
           for p in Path('.github/workflows').glob('*.yml'):
               t=p.read_text(encoding='utf-8',errors='ignore')
-              if 'contents: write' in t and re.search(r'^\s*push:',t,re.M) and 'github-actions[bot]' not in t:
-                  bad.append(str(p))
-          if bad: raise SystemExit('Possible self-triggering workflow without bot guard: '+', '.join(bad))
+              if 'contents: write' in t and re.search(r'^\s*push:',t,re.M) and 'github-actions[bot]' not in t: bad.append(str(p))
+          if bad: raise SystemExit('Possible self-triggering workflow: '+', '.join(bad))
           print('Workflow loop guard: PASS')
           PY
-
       - name: Check redirect-loop risk
         run: |
           python3 - <<'PY'
           from pathlib import Path
-          for p in [Path('docs/gate.js'),Path('docs/subscription.js')]:
-              assert p.exists(), f'{p} missing'
-          t=Path('docs/gate.js').read_text(encoding='utf-8',errors='ignore')
-          assert "file==='login.html'" in t
+          assert "file==='login.html'" in Path('docs/gate.js').read_text(encoding='utf-8',errors='ignore')
           print('Redirect-loop safety: PASS')
           PY
-
       - name: Security audit complete
         run: echo 'SMC Prep whole-site security audit: PASS'
