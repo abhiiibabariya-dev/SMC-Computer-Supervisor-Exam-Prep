@@ -1,24 +1,19 @@
 name: Enforce Unified Authentication
 
 on:
-  push:
-    branches: [master]
-    paths:
-      - 'docs/**/*.html'
-      - 'docs/gate.js'
-      - '.github/workflows/enforce-auth-gate.yml'
   workflow_dispatch: {}
+  schedule:
+    - cron: '47 3 * * *'
 
 permissions:
   contents: write
 
 concurrency:
   group: smc-auth-gate
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   protect-pages:
-    if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -76,5 +71,5 @@ jobs:
             echo "No HTML changes required."
             exit 0
           fi
-          git commit -m "chore: enforce authentication on site pages"
+          git commit -m "chore: enforce authentication on site pages [skip ci]"
           git push origin HEAD:master
