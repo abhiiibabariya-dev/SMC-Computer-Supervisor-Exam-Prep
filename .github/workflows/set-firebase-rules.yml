@@ -1,19 +1,5 @@
 name: Set Firebase Security Rules
 
-# Installs append-only security rules on the Realtime Database so the site can
-# WRITE new visits / clicks / leads / security events again, while public READS
-# stay blocked. The daily report reads with the admin FIREBASE_SECRET, which
-# bypasses these rules, so reporting is unaffected.
-#
-# Rule model (per collection):
-#   "$id": { ".write": "!data.exists()" }
-#     → anyone may CREATE a new push-id child (tracker.js / gate.js use POST),
-#       but nobody may overwrite or delete an existing record (tamper-proof).
-#   ".read": false at the root → no anonymous reads of any data.
-#
-# Run manually:  Actions → "Set Firebase Security Rules" → Run workflow.
-# Requires the existing repo secret FIREBASE_SECRET (legacy DB secret).
-
 on:
   workflow_dispatch: {}
 
@@ -22,6 +8,7 @@ permissions:
 
 env:
   FIREBASE_URL: 'https://smc-exam-prep-38d22-default-rtdb.asia-southeast1.firebasedatabase.app'
+  ADMIN_UID: 'OfRWMa7HZgVYQrq4fzLjU3Wl30ml'
 
 jobs:
   set-rules:
@@ -32,18 +19,48 @@ jobs:
           FB_SECRET: ${{ secrets.FIREBASE_SECRET }}
         run: |
           if [ -z "$FB_SECRET" ]; then
-            echo "::error::FIREBASE_SECRET is not set. Add it in Settings → Secrets → Actions."
+            echo "::error::FIREBASE_SECRET is not set."
             exit 1
           fi
 
-      - name: Write rules file
+      - name: Write production rules
         run: |
           cat > rules.json <<'JSON'
           {
             "rules": {
               ".read": false,
               ".write": false,
+
               "_healthcheck": { ".read": false, ".write": true },
+
+              "admins": {
+                "$uid": { ".read": "auth !== null && auth.uid === $uid && auth.uid === 'OfRWMa7HZgVYQrq4fzLjU3Wl30ml'", ".write": false }
+              },
+
+              "users": {
+                "$uid": {
+                  ".read": "auth !== null && (auth.uid === $uid || auth.uid === 'OfRWMa7HZgVYQrq4fzLjU3Wl30ml')",
+                  ".write": "auth !== null && (auth.uid === 'OfRWMa7HZgVYQrq4fzLjU3Wl30ml' || (auth.uid === $uid && !data.exists()))",
+                  ".validate": "auth !== null && (auth.uid === 'OfRWMa7HZgVYQrq4fzLjU3Wl30ml' || (auth.uid === $uid && newData.child('uid').val() === $uid && newData.child('plan').val() === 'free' && newData.child('subscriptionStatus').val() === 'none' && newData.child('entitlements').child('mockTests').val() === false && newData.child('entitlements').child('fullAccess').val() === false))"
+                }
+              },
+
+              "payment_requests": {
+                ".read": "auth !== null && auth.uid === 'OfRWMa7HZgVYQrq4fzLjU3Wl30ml'",
+                "$orderId": {
+                  ".read": "auth !== null && (auth.uid === 'OfRWMa7HZgVYQrq4fzLjU3Wl30ml' || data.child('uid').val() === auth.uid)",
+                  ".write": "auth !== null && (auth.uid === 'OfRWMa7HZgVYQrq4fzLjU3Wl30ml' || (!data.exists() && newData.child('uid').val() === auth.uid && newData.child('status').val() === 'pending' && (newData.child('plan').val() === 'premium49' || newData.child('plan').val() === 'premium99')))",
+                  ".validate": "newData.child('orderId').val() === $orderId && newData.child('uid').isString() && newData.child('status').isString()"
+                }
+              },
+
+              "premium_content": {
+                "$resource": {
+                  ".read": "auth !== null && root.child('users').child(auth.uid).child('subscriptionStatus').val() === 'active' && (root.child('users').child(auth.uid).child('expiresAt').val() === null || root.child('users').child(auth.uid).child('expiresAt').val() === '' || root.child('users').child(auth.uid).child('expiresAt').val() > now)",
+                  ".write": "auth !== null && auth.uid === 'OfRWMa7HZgVYQrq4fzLjU3Wl30ml'"
+                }
+              },
+
               "visits":      { "$id": { ".write": "!data.exists()" } },
               "clicks":      { "$id": { ".write": "!data.exists()" } },
               "leads":       { "$id": { ".write": "!data.exists()" } },
@@ -53,66 +70,30 @@ jobs:
             }
           }
           JSON
-          echo "Rules to install:"; cat rules.json
+          cat rules.json
 
-      - name: Install rules on Realtime Database
+      - name: Install rules
         env:
           FB_SECRET: ${{ secrets.FIREBASE_SECRET }}
         run: |
           set -e
-          HTTP=$(curl -s -o resp.txt -w '%{http_code}' \
-            -X PUT "${FIREBASE_URL}/.settings/rules.json?auth=${FB_SECRET}" \
-            -H 'Content-Type: application/json' \
-            --data-binary @rules.json)
+          HTTP=$(curl -s -o resp.txt -w '%{http_code}' -X PUT "${FIREBASE_URL}/.settings/rules.json?auth=${FB_SECRET}" -H 'Content-Type: application/json' --data-binary @rules.json)
           echo "HTTP $HTTP"; cat resp.txt; echo
-          if [ "$HTTP" != "200" ]; then
-            echo "::error::Failed to install rules (HTTP $HTTP). The FIREBASE_SECRET may lack admin rights or be malformed."
-            exit 1
-          fi
-          echo "✅ Security rules installed."
+          test "$HTTP" = "200"
 
-      - name: Verify (write should succeed, read should be denied)
+      - name: Verify anonymous access remains blocked
         run: |
           set -e
-          # Probe writes go to a throwaway /_healthcheck node so they never pollute
-          # the real visits/leads/security collections shown in the daily report.
-          echo "→ Anonymous WRITE to /_healthcheck (expect success):"
-          W=$(curl -s -o /dev/null -w '%{http_code}' \
-            -X POST "${FIREBASE_URL}/_healthcheck.json" \
-            -H 'Content-Type: application/json' \
-            -d '{"check":"rules-verify"}')
-          echo "   HTTP $W"
-          echo "→ Anonymous READ of /_healthcheck (expect 401):"
-          R=$(curl -s -o /dev/null -w '%{http_code}' "${FIREBASE_URL}/_healthcheck.json")
-          echo "   HTTP $R"
-          if [ "$W" = "200" ] && [ "$R" = "401" ]; then
-            echo "✅ Writes restored, reads still private."
-          else
-            echo "::warning::Unexpected result (write=$W, read=$R). Review the rules."
-          fi
+          R=$(curl -s -o /dev/null -w '%{http_code}' "${FIREBASE_URL}/users/test.json")
+          echo "Anonymous user read HTTP $R"
+          test "$R" = "401"
+          W=$(curl -s -o /dev/null -w '%{http_code}' -X PUT "${FIREBASE_URL}/users/test.json" -H 'Content-Type: application/json' -d '{"uid":"test","plan":"premium99"}')
+          echo "Anonymous user write HTTP $W"
+          test "$W" = "401"
 
-      - name: Purge diagnostic / test records
+      - name: Purge diagnostic record
         env:
           FB_SECRET: ${{ secrets.FIREBASE_SECRET }}
         run: |
-          set -e
-          # Admin auth bypasses rules → read each collection, delete only records that
-          # carry a known diagnostic marker, leaving all real visitor data untouched.
           curl -s -X DELETE "${FIREBASE_URL}/_healthcheck.json?auth=${FB_SECRET}" -o /dev/null || true
-          for coll in leads security visits clicks leaderboard quizscores; do
-            curl -fsS "${FIREBASE_URL}/${coll}.json?auth=${FB_SECRET}" -o c.json || echo '{}' > c.json
-            [ -s c.json ] || echo '{}' > c.json
-            keys=$(jq -r 'to_entries[]? | select(
-                      ((.value.ref // "")        | test("claude-verify|diagnostic"; "i")) or
-                      ((.value.src // "")        | test("set-firebase-rules|diagnostic"; "i")) or
-                      ((.value.name // "")       | test("Diagnostic Test"; "i")) or
-                      (((.value.name // "") == "Test") and ((.value.mobile // "") == "")) or
-                      ((.value.localTime // "")  | test("workflow-verify"; "i")) or
-                      ((.value.pg // "")         | test("^/diagnostic$"; "i"))
-                    ) | .key' c.json 2>/dev/null || true)
-            for k in $keys; do
-              echo "  deleting ${coll}/${k}"
-              curl -s -X DELETE "${FIREBASE_URL}/${coll}/${k}.json?auth=${FB_SECRET}" -o /dev/null || true
-            done
-          done
-          echo "✅ Diagnostic records purged (real visitor data untouched)."
+          echo "Rules deployed and diagnostic record removed."
