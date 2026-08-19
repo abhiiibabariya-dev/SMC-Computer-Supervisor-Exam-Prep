@@ -1,9 +1,14 @@
 {
-  "last_run": "2026-08-19T22:33:12.624702+00:00",
+  "last_run": "2026-08-19T22:55:51.839595+00:00",
   "total_items": 692,
   "new_items": 0,
   "updated_items": 0,
   "errors": [
+    {
+      "source": "GPSC",
+      "url": "https://gpsc.gujarat.gov.in",
+      "error": "<urlopen error [Errno 101] Network is unreachable>"
+    },
     {
       "source": "GPSSB",
       "url": "https://gpssb.gujarat.gov.in",
@@ -12,11 +17,6 @@
     {
       "source": "OJAS Gujarat",
       "url": "https://ojas.gujarat.gov.in",
-      "error": "<urlopen error [Errno 101] Network is unreachable>"
-    },
-    {
-      "source": "GPSC",
-      "url": "https://gpsc.gujarat.gov.in",
       "error": "<urlopen error [Errno 101] Network is unreachable>"
     },
     {
@@ -50,14 +50,14 @@
       "error": "HTTP Error 503: Service Unavailable"
     },
     {
-      "source": "Gujarat Government",
-      "url": "https://gujaratindia.gov.in",
-      "error": "<urlopen error _ssl.c:1015: The handshake operation timed out>"
-    },
-    {
       "source": "KCG Gujarat Recruitment",
       "url": "https://kcg.gujarat.gov.in/recruitments",
       "error": "The read operation timed out"
+    },
+    {
+      "source": "Gujarat Government",
+      "url": "https://gujaratindia.gov.in",
+      "error": "<urlopen error _ssl.c:1015: The handshake operation timed out>"
     },
     {
       "source": "Ahmedabad Municipal Corporation",
