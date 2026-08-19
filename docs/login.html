@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Sign In | SMC Prep</title>
+<title>Sign In | Gujarat Govt Jobs Hub</title>
 <meta name="description" content="Secure account sign in for SMC Exam Prep. Free and premium members use the same account.">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -17,9 +17,9 @@
 </head>
 <body>
 <div class="wrap">
-  <div class="brand"><b>SMC Prep</b><span>ONE ACCOUNT • FREE + PREMIUM</span></div>
+  <div class="brand"><b>Gujarat Govt Jobs Hub</b><span>ONE ACCOUNT • FREE + PREMIUM</span></div>
   <div class="card">
-    <h1 id="title">Sign in to SMC Prep</h1>
+    <h1 id="title">Sign in to Gujarat Govt Jobs Hub</h1>
     <p class="sub" id="subtitle">One account for your practice, study material, notifications and subscription access.</p>
     <div class="tabs"><button id="loginTab" class="active" type="button">Login</button><button id="signupTab" type="button">Create Account</button></div>
     <form id="authForm">
@@ -34,14 +34,14 @@
       <div class="msg" id="msg"></div>
     </form>
     <div class="note">🔐 Free users and ₹49 / ₹99 subscribers use the same secure account. Your subscription plan is attached to your account after payment verification.</div>
-    <a class="back" href="index.html">Back to SMC Prep</a>
+    <a class="back" href="index.html">Back to Gujarat Govt Jobs Hub</a>
   </div>
 </div>
 <script>
 (function(){'use strict';
 const cfg=window.SMC_FIREBASE_CONFIG||{};const msg=document.getElementById('msg'),form=document.getElementById('authForm'),loginTab=document.getElementById('loginTab'),signupTab=document.getElementById('signupTab'),submit=document.getElementById('submitBtn'),title=document.getElementById('title'),subtitle=document.getElementById('subtitle');let mode='login',auth=null,db=null;
 function say(t,ok){msg.textContent=t||'';msg.style.color=ok?'#86efac':'#fca5a5';}
-function setMode(m){mode=m;const sign=m==='signup';loginTab.classList.toggle('active',!sign);signupTab.classList.toggle('active',sign);document.querySelectorAll('.extra').forEach(x=>x.style.display=sign?'block':'none');title.textContent=sign?'Create your SMC Prep account':'Sign in to SMC Prep';subtitle.textContent=sign?'Create one account. Use the same account later if you purchase ₹49 or ₹99 access.':'One account for your practice, study material, notifications and subscription access.';submit.textContent=sign?'Create Account':'Login';say('');}
+function setMode(m){mode=m;const sign=m==='signup';loginTab.classList.toggle('active',!sign);signupTab.classList.toggle('active',sign);document.querySelectorAll('.extra').forEach(x=>x.style.display=sign?'block':'none');title.textContent=sign?'Create your Gujarat Govt Jobs Hub account':'Sign in to Gujarat Govt Jobs Hub';subtitle.textContent=sign?'Create one account. Use the same account later if you purchase ₹49 or ₹99 access.':'One account for your practice, study material, notifications and subscription access.';submit.textContent=sign?'Create Account':'Login';say('');}
 function saveAccount(user,extra){try{localStorage.setItem('smc_account',JSON.stringify({uid:user.uid||'',email:user.email||'',name:extra&&extra.name||user.displayName||'',mobile:extra&&extra.mobile||'',post:extra&&extra.post||'',plan:'free',planLabel:'Free',signed_in_at:new Date().toISOString()}));}catch(e){}}
 async function saveProfile(user,extra){if(!db)return;const ref=db.ref('users/'+user.uid);const snap=await ref.once('value');if(snap.exists())return;await ref.set({uid:user.uid,email:user.email||'',name:extra&&extra.name||user.displayName||'',mobile:extra&&extra.mobile||'',post:extra&&extra.post||'',plan:'free',planLabel:'Free',subscriptionStatus:'none',expiresAt:null,entitlements:{mockTests:false,fullAccess:false},createdAt:new Date().toISOString(),updatedAt:new Date().toISOString()});}
 loginTab.onclick=()=>setMode('login');signupTab.onclick=()=>setMode('signup');
