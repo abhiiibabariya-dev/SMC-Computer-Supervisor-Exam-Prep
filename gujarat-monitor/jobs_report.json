@@ -1,11 +1,21 @@
 {
-  "updated_at": "2026-08-19T20:03:55.383082+00:00",
+  "updated_at": "2026-08-19T20:37:41.316495+00:00",
   "sources_scanned": 28,
-  "links_found_this_scan": 693,
-  "new_items": 19,
+  "links_found_this_scan": 692,
+  "new_items": 0,
   "updated_items": 0,
-  "total_items": 693,
+  "total_items": 692,
   "errors": [
+    {
+      "source": "OJAS Gujarat",
+      "url": "https://ojas.gujarat.gov.in",
+      "error": "<urlopen error [Errno 101] Network is unreachable>"
+    },
+    {
+      "source": "GPSC",
+      "url": "https://gpsc.gujarat.gov.in",
+      "error": "<urlopen error [Errno 101] Network is unreachable>"
+    },
     {
       "source": "GPSSB",
       "url": "https://gpssb.gujarat.gov.in",
@@ -17,19 +27,9 @@
       "error": "<urlopen error [Errno 101] Network is unreachable>"
     },
     {
-      "source": "GPSC",
-      "url": "https://gpsc.gujarat.gov.in",
-      "error": "<urlopen error [Errno 101] Network is unreachable>"
-    },
-    {
       "source": "Gujarat Police",
       "url": "https://police.gujarat.gov.in",
       "error": "<urlopen error _ssl.c:1015: The handshake operation timed out>"
-    },
-    {
-      "source": "OJAS Gujarat",
-      "url": "https://ojas.gujarat.gov.in",
-      "error": "<urlopen error [Errno 101] Network is unreachable>"
     },
     {
       "source": "Gujarat Education Department",
@@ -59,7 +59,7 @@
     {
       "source": "KCG Gujarat Recruitment",
       "url": "https://kcg.gujarat.gov.in/recruitments",
-      "error": "<urlopen error [Errno 101] Network is unreachable>"
+      "error": "The read operation timed out"
     },
     {
       "source": "Ahmedabad Municipal Corporation",
@@ -77,6 +77,6 @@
       "error": "<urlopen error timed out>"
     }
   ],
-  "smc_items": 41,
+  "smc_items": 40,
   "mode": "live_snapshot"
 }
