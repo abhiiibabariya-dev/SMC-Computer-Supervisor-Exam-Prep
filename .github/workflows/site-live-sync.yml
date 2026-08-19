@@ -3,8 +3,13 @@ name: SMC Site Live Sync
 on:
   push:
     branches: [master]
+    paths:
+      - 'docs/**/*.html'
+      - 'docs/smc-live-sync.js'
+      - '.github/workflows/site-live-sync.yml'
   schedule:
-    - cron: '*/30 * * * *'
+    - cron: '17 * * * *'
+  workflow_dispatch: {}
 
 permissions:
   contents: write
@@ -17,74 +22,53 @@ jobs:
   sync:
     if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Synchronize time-sensitive site content
+      - name: Normalize live sync and stale exam text
         shell: python
         run: |
           from pathlib import Path
           import re
-          from datetime import datetime, timezone
-
-          root = Path('docs')
-          if not root.exists():
-              raise SystemExit('docs directory not found')
-
-          changed = []
-          script = '<script src="smc-live-sync.js"></script>'
-
-          replacements = [
-              ('🔥 EXAM ON 12 JULY 2026 — Final Revision Time! Tap for the Exam-Day Guide', '✅ EXAM COMPLETED — 12 JULY 2026 | Answer Key & Result Updates'),
-              ('📅 EXAM DATE OUT — Written Exam on 12 July 2026! Call Letter Coming Soon', '✅ EXAM COMPLETED — Written Exam held on 12 July 2026'),
-              ('Call Letter Coming Soon', 'Call Letter Phase Closed'),
-              ('Exam Date, Admit Card — Not Yet Announced', 'Exam Completed — 12 July 2026'),
-              ('NOW — Exam Prep', 'NOW — Post-Exam Updates'),
-              ('Before 12 July 2026', 'Before 12 July 2026 ✓'),
-              ('Written Exam: To Be Announced', 'Written Exam: Completed on 12 July 2026'),
-              ('Admit Card: Coming Soon', 'Admit Card: Phase Closed'),
-              ('Exam is close!', 'Exam completed — post-exam updates are active.'),
+          root=Path('docs')
+          tag='<script src="smc-live-sync.js?v=20260819"></script>'
+          rx=re.compile(r'<script\s+[^>]*src=["\'][^"\']*smc-live-sync\.js(?:\?[^"\']*)?["\'][^>]*>\s*</script>',re.I)
+          replacements=[
+            ('🔥 EXAM ON 12 JULY 2026 — Final Revision Time! Tap for the Exam-Day Guide','✅ EXAM COMPLETED — 12 JULY 2026 | Answer Key & Result Updates'),
+            ('📅 EXAM DATE OUT — Written Exam on 12 July 2026! Call Letter Coming Soon','✅ EXAM COMPLETED — Written Exam held on 12 July 2026'),
+            ('Call Letter Coming Soon','Call Letter Phase Closed'),
+            ('Exam Date, Admit Card — Not Yet Announced','Exam Completed — 12 July 2026'),
+            ('NOW — Exam Prep','NOW — Post-Exam Updates'),
+            ('Before 12 July 2026','Before 12 July 2026 ✓'),
+            ('Written Exam: To Be Announced','Written Exam: Completed on 12 July 2026'),
+            ('Admit Card: Coming Soon','Admit Card: Phase Closed'),
+            ('Exam is close!','Exam completed — post-exam updates are active.'),
           ]
+          changed=[]
+          for p in root.rglob('*.html'):
+            if p.name.lower().endswith('.backup.html'): continue
+            t=p.read_text(encoding='utf-8',errors='ignore'); old=t
+            for a,b in replacements: t=t.replace(a,b)
+            matches=list(rx.finditer(t))
+            if len(matches)==0:
+              pos=t.lower().find('</head>')
+              if pos>=0: t=t[:pos]+'    '+tag+'\n'+t[pos:]
+            elif len(matches)>1:
+              t=rx.sub('',t); pos=t.lower().find('</head>')
+              if pos>=0: t=t[:pos]+'    '+tag+'\n'+t[pos:]
+            elif matches[0].group(0)!=tag:
+              m=matches[0]; t=t[:m.start()]+tag+t[m.end():]
+            if t!=old: p.write_text(t,encoding='utf-8'); changed.append(str(p))
+          print('Changed',len(changed),'HTML pages')
 
-          for path in root.rglob('*.html'):
-              text = path.read_text(encoding='utf-8', errors='ignore')
-              original = text
-
-              for old, new in replacements:
-                  text = text.replace(old, new)
-
-              # Fix stale schema metadata on the homepage.
-              if path.name == 'index.html':
-                  text = text.replace('"eventStatus": "https://schema.org/EventScheduled"', '"eventStatus": "https://schema.org/EventCompleted"')
-                  if '"endDate": "2026-07-12T10:00:00+05:30"' not in text:
-                      text = text.replace('"startDate": "2026-07-12T10:00:00+05:30",', '"startDate": "2026-07-12T10:00:00+05:30",\n      "endDate": "2026-07-12T13:00:00+05:30",')
-                  text = text.replace('live exam countdown. Prepare for Clerk, Staff Nurse, Driver &amp; PRO posts. Exam: 12 July 2026.', 'post-exam updates, answer keys, results and merit lists for Clerk, Staff Nurse, Driver &amp; PRO posts. Written exam held: 12 July 2026.')
-
-              # Inject the safety-net script into every HTML page exactly once.
-              if script not in text and '</head>' in text:
-                  text = text.replace('</head>', '    ' + script + '\n</head>', 1)
-
-              if text != original:
-                  path.write_text(text, encoding='utf-8')
-                  changed.append(str(path))
-
-          if changed:
-              print('Updated', len(changed), 'HTML files')
-              for p in changed:
-                  print(' -', p)
-          else:
-              print('No stale HTML content needed changes')
-
-      - name: Commit synchronized site
-        shell: bash
+      - name: Commit only real changes
         run: |
+          set -e
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add docs
-          if git diff --cached --quiet; then
-            echo 'No changes to commit.'
-            exit 0
-          fi
-          git commit -m 'Auto-sync live exam and recruitment status'
-          git push
+          if git diff --cached --quiet; then echo 'No changes to commit.'; exit 0; fi
+          git commit -m 'chore: sync site status [skip ci]'
+          git push origin HEAD:master
