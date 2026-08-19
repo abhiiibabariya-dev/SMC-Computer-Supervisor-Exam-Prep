@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-19T23:30:31.271651+00:00",
+  "updated_at": "2026-08-19T23:51:49.952553+00:00",
   "sources_scanned": 28,
   "links_found_this_scan": 692,
   "new_items": 0,
@@ -17,13 +17,13 @@
       "error": "<urlopen error [Errno 101] Network is unreachable>"
     },
     {
-      "source": "GSSSB",
-      "url": "https://gsssb.gujarat.gov.in",
+      "source": "OJAS Gujarat",
+      "url": "https://ojas.gujarat.gov.in",
       "error": "<urlopen error [Errno 101] Network is unreachable>"
     },
     {
-      "source": "OJAS Gujarat",
-      "url": "https://ojas.gujarat.gov.in",
+      "source": "GSSSB",
+      "url": "https://gsssb.gujarat.gov.in",
       "error": "<urlopen error [Errno 101] Network is unreachable>"
     },
     {
@@ -32,13 +32,13 @@
       "error": "<urlopen error _ssl.c:1015: The handshake operation timed out>"
     },
     {
-      "source": "Gujarat Health Department",
-      "url": "https://gujhealth.gujarat.gov.in",
+      "source": "Gujarat Education Department",
+      "url": "https://education.gujarat.gov.in",
       "error": "<urlopen error _ssl.c:1015: The handshake operation timed out>"
     },
     {
-      "source": "Gujarat Education Department",
-      "url": "https://education.gujarat.gov.in",
+      "source": "Gujarat Health Department",
+      "url": "https://gujhealth.gujarat.gov.in",
       "error": "<urlopen error _ssl.c:1015: The handshake operation timed out>"
     },
     {
@@ -62,13 +62,13 @@
       "error": "The read operation timed out"
     },
     {
-      "source": "Ahmedabad Municipal Recruitment",
-      "url": "https://ahmedabadcity.gov.in/AMCWEBREC/HRMS/FrmVacancyDetail.aspx",
+      "source": "Ahmedabad Municipal Corporation",
+      "url": "https://ahmedabadcity.gov.in",
       "error": "<urlopen error timed out>"
     },
     {
-      "source": "Ahmedabad Municipal Corporation",
-      "url": "https://ahmedabadcity.gov.in",
+      "source": "Ahmedabad Municipal Recruitment",
+      "url": "https://ahmedabadcity.gov.in/AMCWEBREC/HRMS/FrmVacancyDetail.aspx",
       "error": "<urlopen error timed out>"
     },
     {
