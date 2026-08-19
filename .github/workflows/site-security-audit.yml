@@ -1,0 +1,116 @@
+name: Site Security Audit
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+concurrency:
+  group: site-security-audit-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Validate Firebase rules
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('firebase-rules.json')
+          d=json.loads(p.read_text(encoding='utf-8'))
+          r=d.get('rules',{})
+          assert r.get('.read') is False, 'root read must be deny-by-default'
+          assert r.get('.write') is False, 'root write must be deny-by-default'
+          assert 'users' in r and 'payment_requests' in r, 'critical paths missing'
+          print('Firebase rules static checks passed.')
+          PY
+
+      - name: Validate JavaScript syntax
+        run: |
+          set -e
+          find docs -type f -name '*.js' -print0 | while IFS= read -r -d '' f; do
+            node --check "$f"
+          done
+          echo 'All JavaScript files passed Node syntax validation.'
+
+      - name: Detect insecure Firebase REST writes and exposed secrets
+        run: |
+          set -e
+          if grep -RInE 'SMC_FIREBASE_URL[^\n]*fetch\(|databaseURL[^\n]*fetch\(' docs --include='*.js' --include='*.html'; then
+            echo 'ERROR: direct Firebase REST access found. Use the authenticated Firebase SDK.'
+            exit 1
+          fi
+          if grep -RInE '(FIREBASE_SECRET|databaseSecret|client_secret|private_key)\s*[:=]' docs --include='*.js' --include='*.html' --include='*.json'; then
+            echo 'ERROR: possible Firebase secret found in public site files.'
+            exit 1
+          fi
+          echo 'No insecure Firebase REST writes or obvious secret assignments found.'
+
+      - name: Check authentication gates and duplicate injection
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+          root=Path('docs')
+          bad=[]
+          for p in root.rglob('*.html'):
+              t=p.read_text(encoding='utf-8',errors='ignore')
+              name=p.name.lower()
+              if name != 'login.html' and 'gate.js' not in t:
+                  bad.append(f'{p}: missing gate.js')
+              for script in ['gate.js','subscription.js','activity-audit.js','profile.js','subscription-payments.js']:
+                  n=len(re.findall(r'<script[^>]+src=["\'][^"\']*'+re.escape(script)+r'(?:\?[^"\']*)?["\']',t,re.I))
+                  if n>1:
+                      bad.append(f'{p}: duplicate {script} ({n})')
+          if bad:
+              print('\n'.join(bad)); raise SystemExit(1)
+          print(f'Checked {len(list(root.rglob("*.html")))} HTML pages for auth gates and duplicate script injection.')
+          PY
+
+      - name: Check workflow loop guards
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+          bad=[]
+          for p in Path('.github/workflows').glob('*.yml'):
+              t=p.read_text(encoding='utf-8',errors='ignore')
+              if 'contents: write' in t and re.search(r'^\s*push:',t,re.M) and 'github-actions[bot]' not in t:
+                  bad.append(str(p))
+          if bad:
+              raise SystemExit('Possible self-triggering workflow without bot guard: '+', '.join(bad))
+          print('Workflow loop guard checks passed.')
+          PY
+
+      - name: Check for obvious redirect loops
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          bad=[]
+          for p in Path('docs').rglob('*.js'):
+              t=p.read_text(encoding='utf-8',errors='ignore')
+              if 'location.replace' in t and "login.html" in t and p.name not in ('gate.js','subscription.js'):
+                  bad.append(str(p))
+          if bad:
+              raise SystemExit('Unexpected login redirect logic outside the central auth gate: '+', '.join(bad))
+          print('Redirect-loop static checks passed.')
+          PY
+
+      - name: Security audit complete
+        run: echo 'SMC Prep security audit completed successfully.'
