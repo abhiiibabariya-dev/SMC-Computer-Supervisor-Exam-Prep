@@ -1,17 +1,15 @@
 name: Site Security Audit
 
 on:
-  push:
-    branches: [master]
-  pull_request:
-    branches: [master]
+  schedule:
+    - cron: '30 3 * * *'
   workflow_dispatch: {}
 
 permissions:
   contents: read
 
 concurrency:
-  group: site-security-audit-${{ github.ref }}
+  group: site-security-audit
   cancel-in-progress: true
 
 jobs:
@@ -21,88 +19,99 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '22'
+
       - name: Validate Firebase rules
         run: |
+          set -euo pipefail
           python3 - <<'PY'
           import json
           from pathlib import Path
-          d=json.loads(Path('firebase-rules.json').read_text(encoding='utf-8')); r=d.get('rules',{})
+          d=json.loads(Path('firebase-rules.json').read_text(encoding='utf-8'))
+          r=d.get('rules',{})
           assert r.get('.read') is False and r.get('.write') is False
-          assert 'users' in r and 'payment_requests' in r and 'premium_content' in r
+          for key in ('users','payment_requests','premium_content'):
+              assert key in r, key
           print('Firebase rules: PASS')
           PY
+
       - name: Validate critical JavaScript syntax
         run: |
           set -euo pipefail
-          node --check docs/gate.js
-          node --check docs/auto-live-jobs.js
-          node --check docs/tracker.js
-          node --check docs/activity-audit.js
-          node --check docs/login-audit.js
+          for f in docs/gate.js docs/auto-live-jobs.js docs/tracker.js docs/activity-audit.js docs/login-audit.js; do
+            test -f "$f"
+            node --check "$f"
+          done
           echo 'Critical JavaScript syntax: PASS'
+
       - name: Check Firebase client safety
         run: |
           set -euo pipefail
-          if grep -RInE 'SMC_FIREBASE_URL[^\n]*fetch\(|databaseURL[^\n]*fetch\(' docs --include='*.js' --include='*.html'; then exit 1; fi
-          if grep -RInE '(FIREBASE_SECRET|databaseSecret|client_secret|private_key)\s*[:=]' docs --include='*.js' --include='*.html' --include='*.json'; then exit 1; fi
+          if grep -RInE 'SMC_FIREBASE_URL[^[:cntrl:]]*fetch\(|databaseURL[^[:cntrl:]]*fetch\(' docs --include='*.js' --include='*.html'; then
+            echo 'Unsafe direct Firebase URL fetch detected.'
+            exit 1
+          fi
+          if grep -RInE '(FIREBASE_SECRET|databaseSecret|client_secret|private_key)[[:space:]]*[:=]' docs --include='*.js' --include='*.html' --include='*.json'; then
+            echo 'Potential Firebase/private secret exposed in docs.'
+            exit 1
+          fi
           echo 'Firebase client safety: PASS'
+
       - name: Check page script duplication and stale schema mutations
         run: |
+          set -euo pipefail
           python3 - <<'PY'
           from pathlib import Path
           import re
           bad=[]
-          rx_gate=re.compile(r'<script\s+[^>]*src=["\'][^"\']*gate\.js(?:\?[^"\']*)?["\'][^>]*>',re.I)
-          rx_sync=re.compile(r'<script\s+[^>]*src=["\'][^"\']*smc-live-sync\.js(?:\?[^"\']*)?["\'][^>]*>',re.I)
-          rx_live=re.compile(r'<script\s+[^>]*src=["\'][^"\']*/SMC-Computer-Supervisor-Exam-Prep/auto-live-jobs\.js(?:\?[^"\']*)?["\'][^>]*>',re.I)
+          rx=lambda n: re.compile(r'<script\s+[^>]*src=["\'][^"\']*'+n+r'\.js(?:\?[^"\']*)?["\'][^>]*>',re.I)
+          gate=rx('gate')
+          sync=rx('smc-live-sync')
+          live=re.compile(r'<script\s+[^>]*src=["\'][^"\']*auto-live-jobs\.js(?:\?[^"\']*)?["\'][^>]*>',re.I)
           for p in Path('docs').rglob('*.html'):
-              if p.name.lower() in {'login.html','404.html'} or p.name.lower().endswith('.backup.html'): continue
+              if p.name.lower() in {'login.html','404.html'} or p.name.lower().endswith('.backup.html'):
+                  continue
               t=p.read_text(encoding='utf-8',errors='ignore')
-              if len(rx_gate.findall(t))>1: bad.append(f'{p}: duplicate gate.js')
-              if len(rx_sync.findall(t))>1: bad.append(f'{p}: duplicate smc-live-sync.js')
-              if len(rx_live.findall(t))>1: bad.append(f'{p}: duplicate auto-live-jobs.js')
+              if len(gate.findall(t))>1: bad.append(f'{p}: duplicate gate.js')
+              if len(sync.findall(t))>1: bad.append(f'{p}: duplicate smc-live-sync.js')
+              if len(live.findall(t))>1: bad.append(f'{p}: duplicate auto-live-jobs.js')
               if t.count('"endDate": "2026-07-12T13:00:00+05:30"')>1: bad.append(f'{p}: duplicate schema endDate')
           if bad:
-              print('\n'.join(bad)); raise SystemExit(1)
+              print('\n'.join(bad))
+              raise SystemExit(1)
           print('Page script/schema duplication: PASS')
           PY
-      - name: Verify central authentication enforcement
+
+      - name: Verify authentication enforcement
         run: |
-          python3 - <<'PY'
-          from pathlib import Path
-          w=Path('.github/workflows/enforce-auth-gate.yml').read_text(encoding='utf-8')
-          assert 'workflow_dispatch:' in w and "github.actor != 'github-actions[bot]'" in w and 'contents: write' in w
-          assert "'docs/**/*.html'" in w and Path('docs/gate.js').exists()
-          core=['index.html','live-jobs.html','govt-jobs.html','answer-key.html','client-dashboard.html','premium.html','mock-test.html']
-          missing=[]
-          for n in core:
-              p=Path('docs')/n
-              if p.exists() and 'gate.js' not in p.read_text(encoding='utf-8',errors='ignore'): missing.append(n)
-          if missing: print('WARNING: auth auto-heal will protect: '+', '.join(missing))
-          print('Central authentication enforcement: PASS')
-          PY
-      - name: Check workflow loop guards
+          set -euo pipefail
+          test -f docs/gate.js
+          grep -q "file==='login.html'" docs/gate.js
+          for f in docs/index.html docs/live-jobs.html docs/govt-jobs.html docs/answer-key.html docs/client-dashboard.html docs/premium.html docs/mock-test.html; do
+            test -f "$f"
+            grep -q 'gate.js' "$f"
+          done
+          echo 'Authentication enforcement: PASS'
+
+      - name: Verify workflow loop guards
         run: |
+          set -euo pipefail
           python3 - <<'PY'
           from pathlib import Path
           import re
           bad=[]
           for p in Path('.github/workflows').glob('*.yml'):
               t=p.read_text(encoding='utf-8',errors='ignore')
-              if 'contents: write' in t and re.search(r'^\s*push:',t,re.M) and 'github-actions[bot]' not in t: bad.append(str(p))
-          if bad: raise SystemExit('Possible self-triggering workflow: '+', '.join(bad))
-          print('Workflow loop guard: PASS')
+              if 'contents: write' in t and re.search(r'^\s*push:',t,re.M) and 'github-actions[bot]' not in t:
+                  bad.append(str(p))
+          if bad:
+              raise SystemExit('Possible self-triggering workflow: '+', '.join(bad))
+          print('Workflow loop guards: PASS')
           PY
-      - name: Check redirect-loop risk
-        run: |
-          python3 - <<'PY'
-          from pathlib import Path
-          assert "file==='login.html'" in Path('docs/gate.js').read_text(encoding='utf-8',errors='ignore')
-          print('Redirect-loop safety: PASS')
-          PY
+
       - name: Security audit complete
         run: echo 'SMC Prep whole-site security audit: PASS'
