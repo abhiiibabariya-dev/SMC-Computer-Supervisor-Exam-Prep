@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SMC Subscription Admin</title>
+<script src="firebase-config.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
+<style>
+body{margin:0;background:#08090b;color:#eee;font-family:system-ui,sans-serif}.wrap{max-width:1100px;margin:auto;padding:22px}.card{background:#111317;border:1px solid #292b33;border-radius:18px;padding:18px;margin-bottom:14px}h1,h2{margin:0 0 12px}.muted{color:#9ca3af;font-size:13px}.pill{display:inline-block;padding:4px 9px;border-radius:99px;font-size:12px;background:#272933}.active{color:#86efac}.pending{color:#fde68a}.expired{color:#fca5a5}.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.btn{border:0;border-radius:10px;padding:9px 12px;font-weight:800;cursor:pointer}.approve{background:#86efac;color:#07130b}.reject{background:#3a2024;color:#fca5a5}.neutral{background:#252730;color:#fff}.request{border-top:1px solid #292b33;padding:14px 0}.request:first-child{border-top:0}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}@media(max-width:700px){.grid{grid-template-columns:1fr}.wrap{padding:12px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="card"><h1>🛡️ Subscription Administration</h1><div id="who" class="muted">Checking admin authentication…</div><div class="row" style="margin-top:12px"><button class="btn neutral" id="refresh">Refresh</button><a class="btn neutral" href="client-dashboard.html">Client Dashboard</a><button class="btn reject" id="logout">Logout</button></div></div>
+<div class="card"><h2>Payment requests</h2><div class="muted">Approve only after you verify the UPI transaction externally. Approval is the only action that grants the Firebase entitlement.</div><div id="list" style="margin-top:12px">Loading…</div></div>
+</div>
+<script>
+(function(){
+'use strict';
+const ADMIN_UID='OfRWMa7HZgVYQrq4fzLjU3Wl30ml';
+const cfg=window.SMC_FIREBASE_CONFIG||{}, db=(cfg.databaseURL||window.SMC_FIREBASE_URL||'').replace(/\/$/,'');
+if(!firebase.apps.length)firebase.initializeApp(cfg);
+const auth=firebase.auth();
+function esc(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function isAdmin(u){return !!u&&u.uid===ADMIN_UID;}
+function get(path){return fetch(db+path+'.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('HTTP '+r.status);return r.json();});}
+function put(path,data){return fetch(db+path+'.json',{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)}).then(r=>{if(!r.ok)throw Error('HTTP '+r.status);return r.json();});}
+function patch(path,data){return fetch(db+path+'.json',{method:'PATCH',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)}).then(r=>{if(!r.ok)throw Error('HTTP '+r.status);return r.json();});}
+function expiryChoice(plan){
+  const v=prompt('Expiry: enter LIFETIME, 30D, 90D, or an ISO date like 2026-12-31T23:59:59+05:30','LIFETIME');
+  if(v===null)return null;
+  const x=v.trim().toUpperCase();
+  if(x==='LIFETIME')return null;
+  if(x==='30D'||x==='90D'){const d=new Date();d.setDate(d.getDate()+(x==='30D'?30:90));return d.toISOString();}
+  const t=Date.parse(v);if(!Number.isFinite(t))throw Error('Invalid expiry');return new Date(t).toISOString();
+}
+async function approve(r){
+  try{
+    const plan=r.plan==='premium99'?'premium99':'premium49';
+    const expiresAt=expiryChoice(plan);if(v===undefined){};
+    const ent={mockTests:true,fullAccess:plan==='premium99'};
+    await patch('/users/'+encodeURIComponent(r.uid),{plan,planLabel:plan==='premium99'?'Premium ₹99':'Premium ₹49',subscriptionStatus:'active',expiresAt,entitlements:ent,approvedAt:new Date().toISOString(),approvedBy:auth.currentUser.uid,lastPaymentOrder:r.orderId,lastPaymentTxn:r.txnId||'',lastPaymentAmount:Number(r.amount)||0});
+    await patch('/payment_requests/'+encodeURIComponent(r.orderId),{status:'approved',reviewedAt:new Date().toISOString(),reviewedBy:auth.currentUser.uid,approvedPlan:plan,approvedExpiresAt:expiresAt});
+    await load();
+  }catch(e){alert(e.message||'Approval failed');}
+}
+async function reject(r){if(!confirm('Reject payment request '+r.orderId+'?'))return;try{await patch('/payment_requests/'+encodeURIComponent(r.orderId),{status:'rejected',reviewedAt:new Date().toISOString(),reviewedBy:auth.currentUser.uid});await load();}catch(e){alert(e.message||'Reject failed');}}
+async function load(){
+  const list=document.getElementById('list');list.textContent='Loading…';
+  try{
+    const data=await get('/payment_requests');const rows=Object.values(data||{}).filter(x=>x&&x.status==='pending').sort((a,b)=>String(b.createdAt).localeCompare(String(a.createdAt)));
+    if(!rows.length){list.innerHTML='<div class="muted">No pending payment requests.</div>';return;}
+    list.innerHTML=rows.map((r,i)=>'<div class="request"><div class="grid"><div><b>'+esc(r.name||'User')+'</b><div class="muted">'+esc(r.email||'')+'</div></div><div><b>'+esc(r.planLabel||r.plan||'')+'</b><div class="muted">₹'+esc(r.amount||'')+' • '+esc(r.orderId||'')+'</div></div><div><b>UTR</b><div class="muted">'+esc(r.txnId||'Not supplied')+'</div></div></div><div class="muted" style="margin:8px 0">UID: '+esc(r.uid||'')+' • Submitted: '+esc(r.createdAt||'')+'</div><div class="row"><button class="btn approve" data-i="'+i+'">Approve</button><button class="btn reject" data-r="'+i+'">Reject</button></div></div>').join('');
+    list.querySelectorAll('[data-i]').forEach(b=>b.onclick=()=>approve(rows[Number(b.dataset.i)]));
+    list.querySelectorAll('[data-r]').forEach(b=>b.onclick=()=>reject(rows[Number(b.dataset.r)]));
+  }catch(e){list.innerHTML='<div class="muted">Unable to read payment requests. Check Firebase rules and admin UID.</div>'}
+}
+auth.onAuthStateChanged(async u=>{if(!u){location.replace('login.html');return;}if(!isAdmin(u)){document.getElementById('who').textContent='Access denied for this account.';setTimeout(()=>location.replace('client-dashboard.html'),1200);return;}document.getElementById('who').innerHTML='Signed in as <b>'+esc(u.email||u.uid)+'</b> • Admin';load();});
+document.getElementById('refresh').onclick=load;document.getElementById('logout').onclick=()=>auth.signOut().then(()=>location.replace('login.html'));
+})();
+</script>
+</body>
+</html>
