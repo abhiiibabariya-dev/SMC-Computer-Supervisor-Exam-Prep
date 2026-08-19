@@ -7,9 +7,9 @@ ROOT = Path(__file__).resolve().parents[1]
 DOCS = ROOT / "docs"
 STATUS = ROOT / "gujarat-monitor" / "smc-status.json"
 SCRIPT = "auto-live-jobs.js"
-VERSION = "20260818-4"
+VERSION = "20260819-1"
 TAG = f'<script src="/SMC-Computer-Supervisor-Exam-Prep/auto-live-jobs.js?v={VERSION}" defer></script>'
-OLD_TAG_RE = r'<script\s+src="(?:/SMC-Computer-Supervisor-Exam-Prep/)?auto-live-jobs\.js[^>]*></script>'
+OLD_TAG_RE = r'<script\s+src="(?:/SMC-Computer-Supervisor-Exam-Prep/)?auto-live-jobs\.js(?:\?[^" ]*)?"[^>]*></script>'
 
 try:
     status = json.loads(STATUS.read_text(encoding="utf-8"))
@@ -30,13 +30,12 @@ injected = 0
 scanned = 0
 
 for path in DOCS.rglob("*.html"):
-    if not path.is_file():
+    if not path.is_file() or path.name.lower().endswith('.backup.html'):
         continue
     scanned += 1
     text = path.read_text(encoding="utf-8", errors="ignore")
     original = text
 
-    # Always replace old live-script paths and cache versions with the current one.
     text = re.sub(OLD_TAG_RE, TAG, text, flags=re.I)
 
     if pro_done:
