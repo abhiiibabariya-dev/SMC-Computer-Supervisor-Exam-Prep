@@ -2,10 +2,7 @@
   "rules": {
     ".read": false,
     ".write": false,
-    "_healthcheck": {
-      ".read": false,
-      ".write": false
-    },
+    "_healthcheck": {".read": false, ".write": false},
     "admins": {
       "$uid": {
         ".read": "auth !== null && auth.uid === $uid && $uid === 'OfRWMa7HZgVYQrq4fzLjU3Wl30ml'",
@@ -29,7 +26,7 @@
     },
     "premium_content": {
       "$resource": {
-        ".read": "auth !== null && root.child('users').child(auth.uid).child('subscriptionStatus').val() === 'active' && (root.child('users').child(auth.uid).child('expiresAt').val() === null || root.child('users').child(auth.uid).child('expiresAt').val() === '' || root.child('users').child(auth.uid).child('expiresAt').val() > now)",
+        ".read": "auth !== null && root.child('users').child(auth.uid).child('subscriptionStatus').val() === 'active' && root.child('users').child(auth.uid).child('entitlements').child('fullAccess').val() === true && (root.child('users').child(auth.uid).child('expiresAt').val() === null || root.child('users').child(auth.uid).child('expiresAt').val() === '' || root.child('users').child(auth.uid).child('expiresAt').val() > now)",
         ".write": "auth !== null && auth.uid === 'OfRWMa7HZgVYQrq4fzLjU3Wl30ml'"
       }
     },
@@ -45,31 +42,11 @@
         ".validate": "newData.child('uid').isString() && newData.child('event').isString() && newData.child('t').isString()"
       }
     },
-    "visits": {
-      "$id": {
-        ".write": "auth !== null && !data.exists()"
-      }
-    },
-    "clicks": {
-      "$id": {
-        ".write": "auth !== null && !data.exists()"
-      }
-    },
-    "leads": {
-      "$id": {
-        ".write": "auth !== null && !data.exists()"
-      }
-    },
-    "security": {
-      "$id": {
-        ".write": "auth !== null && !data.exists()"
-      }
-    },
-    "quizscores": {
-      "$id": {
-        ".write": "auth !== null && !data.exists()"
-      }
-    },
+    "visits": {"$id": {".write": "auth !== null && !data.exists()"}},
+    "clicks": {"$id": {".write": "auth !== null && !data.exists()"}},
+    "leads": {"$id": {".write": "auth !== null && !data.exists()"}},
+    "security": {"$id": {".write": "auth !== null && !data.exists()"}},
+    "quizscores": {"$id": {".write": "auth !== null && !data.exists()"}},
     "leaderboard": {
       ".read": true,
       "$id": {
