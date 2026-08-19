@@ -1,27 +1,27 @@
 {
-  "last_run": "2026-08-19T20:59:59.051058+00:00",
-  "total_items": 691,
-  "new_items": 5,
+  "last_run": "2026-08-19T21:33:33.218284+00:00",
+  "total_items": 692,
+  "new_items": 6,
   "updated_items": 0,
   "errors": [
-    {
-      "source": "OJAS Gujarat",
-      "url": "https://ojas.gujarat.gov.in",
-      "error": "<urlopen error [Errno 101] Network is unreachable>"
-    },
     {
       "source": "GPSC",
       "url": "https://gpsc.gujarat.gov.in",
       "error": "<urlopen error [Errno 101] Network is unreachable>"
     },
     {
-      "source": "GSSSB",
-      "url": "https://gsssb.gujarat.gov.in",
+      "source": "OJAS Gujarat",
+      "url": "https://ojas.gujarat.gov.in",
       "error": "<urlopen error [Errno 101] Network is unreachable>"
     },
     {
       "source": "GPSSB",
       "url": "https://gpssb.gujarat.gov.in",
+      "error": "<urlopen error [Errno 101] Network is unreachable>"
+    },
+    {
+      "source": "GSSSB",
+      "url": "https://gsssb.gujarat.gov.in",
       "error": "<urlopen error [Errno 101] Network is unreachable>"
     },
     {
