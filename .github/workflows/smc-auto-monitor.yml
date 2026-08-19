@@ -25,7 +25,6 @@ jobs:
     if: github.event_name != 'push' || github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
     timeout-minutes: 18
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -79,29 +78,26 @@ jobs:
 
       - name: Validate generated data, live layer and all pages
         run: |
+          set -euo pipefail
           python3 -m json.tool gujarat-monitor/smc-status.json >/dev/null
           python3 -m json.tool gujarat-jobs.json >/dev/null
           test -f docs/auto-live-jobs.js
           node --check docs/auto-live-jobs.js
-          test "$(find docs -type f -name '*.html' | wc -l)" -gt 0
+          test "$(find docs -type f -name '*.html' ! -name '*.backup.html' | wc -l)" -gt 0
           test "$(python3 -c 'import json; d=json.load(open("gujarat-jobs.json")); print(len(d.get("items", [])))')" -gt 0
           python3 - <<'PY'
           from pathlib import Path
           import re
-          pages=list(Path('docs').rglob('*.html'))
+          pages=[p for p in Path('docs').rglob('*.html') if not p.name.lower().endswith('.backup.html')]
           missing=[]
           wrong=[]
-          pattern=re.compile(r'<script\\s+src="/SMC-Computer-Supervisor-Exam-Prep/auto-live-jobs\\.js(?:\\?[^" ]*)?"[^>]*></script>', re.I)
+          pattern=re.compile(r'<script\s+src="/SMC-Computer-Supervisor-Exam-Prep/auto-live-jobs\.js(?:\?[^" ]*)?"[^>]*></script>', re.I)
           for p in pages:
               t=p.read_text(encoding='utf-8',errors='ignore')
-              if 'auto-live-jobs.js' not in t:
-                  missing.append(str(p))
-              if not pattern.search(t):
-                  wrong.append(str(p))
-          if missing:
-              raise SystemExit('Pages missing global live layer: '+', '.join(missing))
-          if wrong:
-              raise SystemExit('Pages missing the correct GitHub Pages live-layer path: '+', '.join(wrong))
+              if 'auto-live-jobs.js' not in t: missing.append(str(p))
+              if not pattern.search(t): wrong.append(str(p))
+          if missing: raise SystemExit('Pages missing global live layer: '+', '.join(missing))
+          if wrong: raise SystemExit('Pages missing the correct GitHub Pages live-layer path: '+', '.join(wrong))
           print(f'Validated {len(pages)} HTML pages with the correct global live layer.')
           PY
           echo "Validation passed."
@@ -121,23 +117,12 @@ jobs:
       - name: Commit jobs, official status and all-page updates
         run: |
           set -e
-          git config user.name "Gujarat Jobs Monitor"
-          git config user.email "actions@github.com"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A gujarat-monitor gujarat-jobs.json docs .github/workflows/smc-auto-monitor.yml
           if git diff --staged --quiet; then
             echo "No changes detected."
             exit 0
           fi
-          git commit -m "chore: refresh official Gujarat and SMC updates"
-          for attempt in 1 2 3 4 5; do
-            git fetch origin master
-            if git rebase origin/master && git push origin master; then
-              echo "Live jobs/status update pushed successfully."
-              exit 0
-            fi
-            git rebase --abort 2>/dev/null || true
-            echo "Push attempt $attempt failed; retrying..."
-            sleep 8
-          done
-          echo "Unable to push after 5 attempts."
-          exit 1
+          git commit -m "chore: refresh official Gujarat and SMC updates [skip ci]"
+          git push origin master
