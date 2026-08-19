@@ -51,6 +51,16 @@ jobs:
             if p.name.lower().endswith('.backup.html'): continue
             t=p.read_text(encoding='utf-8',errors='ignore'); old=t
             for a,b in replacements: t=t.replace(a,b)
+
+            # Remove duplicate schema endDate entries left by older sync runs.
+            lines=t.splitlines(True); seen_end=False; out=[]
+            for line in lines:
+              if '"endDate": "2026-07-12T13:00:00+05:30"' in line:
+                if seen_end: continue
+                seen_end=True
+              out.append(line)
+            t=''.join(out)
+
             matches=list(rx.finditer(t))
             if len(matches)==0:
               pos=t.lower().find('</head>')
