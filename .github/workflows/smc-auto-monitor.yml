@@ -16,8 +16,6 @@ on:
 permissions:
   contents: write
 
-# Never cancel a live data scan just because the next scheduled run starts.
-# A fresh run waits for the previous one, preventing half-written/stale data.
 concurrency:
   group: gujarat-government-jobs-monitor
   cancel-in-progress: false
@@ -62,7 +60,7 @@ jobs:
       - name: Restore last good snapshot if scan failed
         if: steps.scan.outcome == 'failure'
         run: |
-          echo "Monitor scan failed. Keeping the last known-good snapshot instead of publishing broken/empty data."
+          echo "Monitor scan failed. Keeping the last known-good job snapshot."
           cp -f .monitor-backup/gujarat-jobs.json gujarat-jobs.json 2>/dev/null || true
           cp -f .monitor-backup/jobs.json gujarat-monitor/jobs.json 2>/dev/null || true
           cp -f .monitor-backup/jobs_state.json gujarat-monitor/jobs_state.json 2>/dev/null || true
@@ -89,19 +87,21 @@ jobs:
           test "$(python3 -c 'import json; d=json.load(open("gujarat-jobs.json")); print(len(d.get("items", [])))')" -gt 0
           python3 - <<'PY'
           from pathlib import Path
+          import re
           pages=list(Path('docs').rglob('*.html'))
-          wrong=[]
           missing=[]
+          wrong=[]
+          pattern=re.compile(r'<script\\s+src="/SMC-Computer-Supervisor-Exam-Prep/auto-live-jobs\\.js(?:\\?[^" ]*)?"[^>]*></script>', re.I)
           for p in pages:
               t=p.read_text(encoding='utf-8',errors='ignore')
               if 'auto-live-jobs.js' not in t:
                   missing.append(str(p))
-              if 'src="/SMC-Computer-Supervisor-Exam-Prep/auto-live-jobs.js' in t:
+              if not pattern.search(t):
                   wrong.append(str(p))
           if missing:
               raise SystemExit('Pages missing global live layer: '+', '.join(missing))
           if wrong:
-              raise SystemExit('Pages contain invalid root live-layer path: '+', '.join(wrong))
+              raise SystemExit('Pages missing the correct GitHub Pages live-layer path: '+', '.join(wrong))
           print(f'Validated {len(pages)} HTML pages with the correct global live layer.')
           PY
           echo "Validation passed."
