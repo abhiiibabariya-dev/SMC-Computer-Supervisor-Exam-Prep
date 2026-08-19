@@ -1,7 +1,13 @@
 name: Enforce Unified Authentication
 
 on:
-  workflow_dispatch:
+  push:
+    branches: [master]
+    paths:
+      - 'docs/**/*.html'
+      - 'docs/gate.js'
+      - '.github/workflows/enforce-auth-gate.yml'
+  workflow_dispatch: {}
 
 permissions:
   contents: write
@@ -12,6 +18,7 @@ concurrency:
 
 jobs:
   protect-pages:
+    if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -32,12 +39,13 @@ jobs:
 
           changed = []
           for path in root.rglob('*.html'):
-              if path.name.lower() == 'login.html':
+              name = path.name.lower()
+              if name in {'login.html', '404.html'} or name.endswith('.backup.html'):
                   continue
 
               text = path.read_text(encoding='utf-8', errors='ignore')
               text2 = re.sub(
-                  r'\s*<script\s+[^>]*src=["\'][^"\']*gate\.js["\'][^>]*>\s*</script>',
+                  r'\s*<script\s+[^>]*src=["\'][^"\']*gate\.js(?:\?[^"\']*)?["\'][^>]*>\s*</script>',
                   '', text, flags=re.I
               )
               marker = '</head>'
@@ -46,7 +54,7 @@ jobs:
                   continue
 
               rel_gate = os.path.relpath(root / 'gate.js', path.parent).replace('\\', '/')
-              tag = f'    <script src="{rel_gate}"></script>\n'
+              tag = f'    <script src="{rel_gate}?v=20260819"></script>\n'
               text2 = text2[:pos] + tag + text2[pos:]
 
               if text2 != text:
@@ -68,5 +76,5 @@ jobs:
             echo "No HTML changes required."
             exit 0
           fi
-          git commit -m "chore: require account authentication on site pages"
+          git commit -m "chore: enforce authentication on site pages"
           git push origin HEAD:master
