@@ -1,59 +1,98 @@
-/* SMC Prep Global Live Layer v5 */
+/* SMC Prep Live Jobs Renderer v6
+ * No Firebase dependency. Public job data is read from the repository JSON.
+ * The page always renders a usable state, even when the monitor JSON is unavailable.
+ */
 (function(){
   'use strict';
-  if(window.__SMC_GLOBAL_LIVE_V5__) return;
-  window.__SMC_GLOBAL_LIVE_V5__=true;
-  const BASE='/SMC-Computer-Supervisor-Exam-Prep/';
-  const DATA_URL=BASE+'gujarat-jobs.json';
-  const STATUS_URL=BASE+'gujarat-monitor/smc-status.json';
-  const OFFICIAL_SMC='https://www.suratmunicipal.gov.in/Information/RecruitmentNews';
-  const path=(location.pathname||'').toLowerCase();
-  const isFullPage=path.endsWith('/live-jobs.html')||path.endsWith('/govt-jobs.html')||document.body.hasAttribute('data-live-jobs-page');
-  const isCompactPage=path.endsWith('/index.html')||path.endsWith('/')||path.endsWith('/answer-key.html');
-  const isLogin=path.endsWith('/login.html');
-  const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  const getJson=async url=>{const r=await fetch(url+'?t='+Date.now(),{cache:'no-store'});if(!r.ok)throw new Error('HTTP '+r.status);return r.json();};
-  const years=t=>String(t||'').match(/\b20\d{2}\b/g)||[];
-  function isUseful(x){
-    if(!x||!x.title||!x.url)return false;
-    const t=String(x.title), ys=years(t), discovery=String(x.source_type||'').toLowerCase()==='discovery';
-    if(ys.some(y=>Number(y)<2026))return false;
-    if(discovery){
-      if(/\b(?:bihar|kerala|karnataka|upsc|uppsc|mppsc|bpsc|rpsc|ssc)\b/i.test(t)&&!/gujarat|surat|smc/i.test(t))return false;
-      if(!/(recruitment|vacanc|job|exam|admit card|answer key|result|selection|notification|apply online|ojas|gpsc|gsssb|gpssb|gujarat|surat|smc)/i.test(t))return false;
-    }
-    return true;
+  if(window.__SMC_GLOBAL_LIVE_V6__) return;
+  window.__SMC_GLOBAL_LIVE_V6__=true;
+
+  var BASE='/SMC-Computer-Supervisor-Exam-Prep/';
+  var DATA_URL=BASE+'gujarat-jobs.json';
+  var STATUS_URL=BASE+'gujarat-monitor/smc-status.json';
+  var OFFICIAL_SMC='https://www.suratmunicipal.gov.in/Information/RecruitmentNews';
+  var path=(location.pathname||'').toLowerCase();
+  var full=path.endsWith('/live-jobs.html')||path.endsWith('/govt-jobs.html')||document.body.hasAttribute('data-live-jobs-page');
+  var compact=path.endsWith('/index.html')||path.endsWith('/')||path.endsWith('/answer-key.html');
+
+  function esc(v){return String(v==null?'':v).replace(/[&<>"']/g,function(c){return({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]);});}
+  function css(){
+    if(document.getElementById('smc-live-v6-style'))return;
+    var s=document.createElement('style');s.id='smc-live-v6-style';s.textContent=''
+      +'#smc-live-v6{max-width:1080px;margin:18px auto;padding:0 12px;font-family:inherit;position:relative;z-index:10}'
+      +'#smc-live-v6 .panel{background:#111317;border:1px solid rgba(255,255,255,.09);border-radius:18px;padding:16px;box-shadow:0 12px 36px rgba(0,0,0,.22)}'
+      +'#smc-live-v6 .head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}'
+      +'#smc-live-v6 .title{color:#fff;font-size:1rem;font-weight:900}'
+      +'#smc-live-v6 .sub{color:#9ca3af;font-size:.7rem;margin-top:4px;line-height:1.5}'
+      +'#smc-live-v6 .state{color:#86efac;font-size:.66rem;font-weight:900}'
+      +'#smc-live-v6 .actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}'
+      +'#smc-live-v6 .actions a,#smc-live-v6 .actions button{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:10px;padding:9px 12px;text-decoration:none;font:800 .7rem system-ui,sans-serif;cursor:pointer}'
+      +'#smc-live-v6 .primary{background:#86efac;color:#06130a}'
+      +'#smc-live-v6 .secondary{background:rgba(255,255,255,.07);color:#fff}'
+      +'#smc-live-v6 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:10px;margin-top:13px}'
+      +'#smc-live-v6 .card{display:block;text-decoration:none;color:#fff;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.08);border-radius:13px;padding:13px;min-height:105px;transition:transform .15s,border-color .15s}'
+      +'#smc-live-v6 .card:hover,#smc-live-v6 .card:focus{transform:translateY(-1px);border-color:rgba(134,239,172,.38);outline:none}'
+      +'#smc-live-v6 .org{font-size:.6rem;font-weight:900;text-transform:uppercase;letter-spacing:.5px;color:#a7f3d0}'
+      +'#smc-live-v6 .name{font-size:.8rem;font-weight:800;line-height:1.45;margin-top:6px}'
+      +'#smc-live-v6 .tag{display:inline-block;margin-top:8px;padding:3px 7px;border-radius:999px;background:rgba(134,239,172,.1);color:#86efac;font-size:.56rem;font-weight:900}'
+      +'#smc-live-v6 .empty{padding:20px;text-align:center;color:#9ca3af;background:rgba(255,255,255,.025);border:1px dashed rgba(255,255,255,.1);border-radius:13px}'
+      +'#smc-live-v6 .error{color:#fca5a5}'
+      +'#smc-live-v6 .foot{margin-top:12px;text-align:right;color:#71717a;font-size:.6rem}'
+      +'@media(max-width:620px){#smc-live-v6{padding:0 10px}#smc-live-v6 .grid{grid-template-columns:1fr}}';
+    document.head.appendChild(s);
   }
-  const isSMC=x=>/suratmunicipal\.gov\.in|surat municipal corporation|\bsmc\b|computer supervisor/i.test((x.url||'')+' '+(x.title||'')+' '+(x.source||''));
-  const rank=x=>isSMC(x)?0:(x.priority==='critical'?0:x.priority==='high'?1:2);
-  const dateText=iso=>{if(!iso)return '';const d=new Date(iso);return isNaN(d)?String(iso):d.toLocaleDateString('en-IN',{day:'numeric',month:'short',year:'numeric'});};
-  const eventKey=e=>String(e.id||'')+'|'+String(e.status||'')+'|'+String(e.date||'')+'|'+String(e.title||'');
-  const itemKey=x=>String(x.id||((x.title||'')+'|'+(x.url||'')));
-  const loadSet=k=>{try{const a=JSON.parse(localStorage.getItem(k)||'[]');return new Set(Array.isArray(a)?a:[]);}catch(e){return new Set();}};
-  const saveSet=(k,s)=>{try{localStorage.setItem(k,JSON.stringify(Array.from(s).slice(-500)));}catch(e){}};
-
-  function styles(){if(document.getElementById('smc-live-v5-style'))return;const s=document.createElement('style');s.id='smc-live-v5-style';s.textContent=`
-  #smc-live-card{max-width:1040px;margin:22px auto;padding:0 16px;font-family:inherit;position:relative;z-index:20}#smc-live-card .box{background:linear-gradient(135deg,rgba(10,20,16,.96),rgba(11,15,24,.96));border:1px solid rgba(134,239,172,.18);border-radius:18px;padding:16px;box-shadow:0 12px 38px rgba(0,0,0,.18)}#smc-live-card .head,.gj-head{display:flex;justify-content:space-between;align-items:center;gap:12px}.smc-live-title{color:#fff;font-weight:900;font-size:1rem}.smc-live-ok{color:#86efac;font-size:.68rem;font-weight:900;white-space:nowrap}.smc-live-sub{color:#9ca3af;font-size:.72rem;margin-top:5px}.smc-live-actions{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}.smc-live-actions a{color:#06130a;background:#86efac;text-decoration:none;border-radius:10px;padding:9px 12px;font-size:.7rem;font-weight:900}.smc-live-actions a.alt{background:rgba(255,255,255,.07);color:#fff}
-  #gj-live-updates{max-width:1100px;margin:22px auto;padding:0 16px;position:relative;z-index:20;font-family:inherit}.gj-box{background:linear-gradient(135deg,rgba(10,20,16,.98),rgba(10,14,22,.98));border:1px solid rgba(134,239,172,.2);border-radius:18px;padding:18px;box-shadow:0 12px 40px rgba(0,0,0,.22)}.gj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px}.gj-item{display:block;text-decoration:none;color:inherit;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.07);border-radius:13px;padding:13px;transition:transform .2s,border-color .2s}.gj-item:hover{transform:translateY(-1px);border-color:rgba(134,239,172,.28)}.gj-org{font-size:.62rem;font-weight:900;letter-spacing:.6px;text-transform:uppercase;color:#a7f3d0;margin-bottom:5px}.gj-name{font-size:.8rem;line-height:1.42;font-weight:800;color:#f4f4f5}.gj-tag{display:inline-block;margin-top:7px;padding:3px 8px;border-radius:999px;font-size:.58rem;font-weight:800;background:rgba(134,239,172,.1);color:#86efac}.gj-status{font-size:.62rem;font-weight:900;color:#fde68a;margin-top:6px}.gj-footer{text-align:right;color:#71717a;font-size:.62rem;margin-top:12px}
-  #smc-update-bell{position:fixed;right:16px;bottom:18px;z-index:2147482000;border:1px solid rgba(255,255,255,.13);background:rgba(17,17,19,.95);color:#fff;border-radius:999px;padding:10px 13px;font:800 13px/1 system-ui,sans-serif;box-shadow:0 8px 30px rgba(0,0,0,.38);cursor:pointer}.smc-badge{display:inline-flex;min-width:20px;height:20px;align-items:center;justify-content:center;margin-left:6px;border-radius:999px;background:#22c55e;color:#04120a;font-size:11px}.smc-badge.zero{background:rgba(255,255,255,.12);color:#d4d4d8}
-  #smc-update-popup{position:fixed;inset:0;z-index:2147483000;background:rgba(4,5,8,.78);display:flex;align-items:center;justify-content:center;padding:14px;backdrop-filter:blur(7px)}.smc-popup-card{width:min(560px,100%);max-height:88vh;overflow:auto;background:#111317;border:1px solid rgba(134,239,172,.2);border-radius:20px;padding:18px;box-shadow:0 24px 70px rgba(0,0,0,.55)}.smc-popup-head{display:flex;justify-content:space-between;gap:12px}.smc-popup-title{color:#fff;font-size:1.1rem;font-weight:900}.smc-popup-sub{color:#9ca3af;font-size:.72rem;margin-top:4px}.smc-popup-close{border:0;background:rgba(255,255,255,.07);color:#fff;border-radius:10px;padding:8px 10px;cursor:pointer}.smc-popup-item{display:block;text-decoration:none;color:#fff;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.07);border-radius:13px;padding:12px;margin-top:9px}.smc-popup-item b{display:block;font-size:.78rem;line-height:1.42}.smc-popup-item span{display:block;color:#86efac;font-size:.61rem;font-weight:900;margin-top:5px}.smc-popup-actions{display:flex;gap:8px;margin-top:13px}.smc-popup-actions a,.smc-popup-actions button{flex:1;border:0;border-radius:11px;padding:10px;text-align:center;font:800 .72rem system-ui,sans-serif;text-decoration:none;cursor:pointer}.smc-view{background:#86efac;color:#06130a}.smc-dismiss{background:rgba(255,255,255,.08);color:#fff}@media(max-width:620px){#smc-live-card,#gj-live-updates{padding:0 11px}.gj-grid{grid-template-columns:1fr}#smc-update-bell{right:10px;bottom:12px}.smc-popup-card{padding:14px;border-radius:17px}}
-  `;document.head.appendChild(s);}
-
-  function events(status){const labels={completed:'COMPLETED',postponed:'POSTPONED',scheduled:'SCHEDULED',cancelled:'CANCELLED'};return(Array.isArray(status?.events)?status.events:[]).map(e=>({key:eventKey(e),title:(e.title||'SMC recruitment update')+(e.date?' • '+dateText(e.date):''),status:labels[e.status]||String(e.status||'UPDATE').toUpperCase(),cadres:Array.isArray(e.cadres)?e.cadres:[],url:e.source||OFFICIAL_SMC}));}
-  function replaceStaleText(status){const ev=events(status),pro=ev.find(e=>/public relation officer|PRO/i.test(e.cadres.join(' ')));if(!pro||pro.status!=='COMPLETED')return;const walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT),nodes=[];let n;while((n=walker.nextNode()))nodes.push(n);nodes.forEach(node=>{let t=node.nodeValue,old=t;t=t.replace(/EXAM ON 12 JULY 2026\s*[—-]\s*Final Revision Time!/i,'PRO EXAM COMPLETED — 12 JULY 2026').replace(/EXAM ON 12 JULY 2026/i,'PRO EXAM COMPLETED — 12 JULY 2026').replace(/Written Exam:\s*To Be Announced/i,'Written Exam: PRO held 12 July 2026').replace(/Admit Card:\s*Coming Soon/i,'Admit Card: Check official SMC notices').replace(/Applications Closed\s*[—-]\s*15 April 2026/i,'Applications Closed');if(t!==old)node.nodeValue=t;});}
-
-  function renderCompact(data,status){if(!isCompactPage)return;const old=document.getElementById('smc-live-card');if(old)old.remove();const ev=events(status),first=ev[0];const card=document.createElement('section');card.id='smc-live-card';card.innerHTML=`<div class="box"><div class="head"><div><div class="smc-live-title">🔔 Live Gujarat &amp; SMC Updates</div><div class="smc-live-sub">Official status and genuinely new recruitment updates are handled automatically.</div></div><div class="smc-live-ok">● AUTO-UPDATED</div></div><div class="smc-live-sub" style="margin-top:10px">${first?esc(first.title):'No active SMC status event detected right now.'}${first?' • '+esc(first.status):''}</div><div class="smc-live-actions"><a href="${BASE}live-jobs.html">View live jobs</a><a class="alt" href="${BASE}answer-key.html">Answer keys &amp; results</a></div></div>`;const anchor=document.querySelector('.quick-access,.main,main');if(anchor)anchor.parentNode.insertBefore(card,anchor);else document.body.appendChild(card);}
-
-  function renderFull(data,status){if(!isFullPage)return;const items=(Array.isArray(data?.items)?data.items:[]).filter(isUseful).sort((a,b)=>{const r=rank(a)-rank(b);return r||String(b.last_changed_at||'').localeCompare(String(a.last_changed_at||''));}).slice(0,80);const ev=events(status);let root=document.getElementById('gj-live-updates');if(!root){root=document.createElement('section');root.id='gj-live-updates';const slot=document.getElementById('live-jobs-slot'),anchor=slot||document.querySelector('.job-list,#jobList,.main,main');if(slot)slot.replaceWith(root);else if(anchor)anchor.parentNode.insertBefore(root,anchor);else document.body.appendChild(root);}const eventHtml=ev.map(e=>`<a class="gj-item" href="${esc(e.url)}" target="_blank" rel="noopener noreferrer"><div class="gj-org">SMC OFFICIAL STATUS</div><div class="gj-name">${esc(e.title)}</div><div class="gj-status">${esc(e.status)}</div>${e.cadres.length?`<div class="gj-org" style="margin-top:5px">${esc(e.cadres.join(' • '))}</div>`:''}</a>`).join('');const cards=items.map(x=>`<a class="gj-item" href="${esc(x.url)}" target="_blank" rel="noopener noreferrer"><div class="gj-org">${esc(x.source||'Gujarat Government')}</div><div class="gj-name">${esc(x.title)}</div><span class="gj-tag">${isSMC(x)?'⭐ SMC PRIORITY':'LIVE UPDATE'}</span></a>`).join('');root.innerHTML=`<div class="gj-box"><div class="gj-head"><div><div class="smc-live-title">Gujarat Government &amp; SMC Live Jobs / Updates</div><div class="smc-live-sub">Current recruitment information only. Historical discovery/news articles are filtered out.</div></div><div class="smc-live-ok">● AUTO-UPDATED</div></div>${eventHtml?`<div class="gj-grid" style="margin-top:14px">${eventHtml}</div>`:''}<div class="gj-grid" style="margin-top:12px">${cards||'<div class="smc-live-sub">No current recruitment records available.</div>'}</div><div class="gj-footer">${items.length} current records • Last monitor scan ${esc(status?.updated_at||data?.updated_at||'unknown')}</div></div>`;}
-
-  function itemList(data){return(Array.isArray(data?.items)?data.items:[]).filter(isUseful);}
-  function unread(data,status){const seenI=loadSet('smc_seen_change_keys_v2'),seenE=loadSet('smc_seen_event_keys_v2');const items=itemList(data).filter(x=>x.last_changed_at&&!seenI.has(itemKey(x)));const ev=events(status).filter(e=>!seenE.has(e.key));return{items,events:ev};}
-  function seedFirst(data,status){if(localStorage.getItem('smc_live_initialized_v2'))return false;saveSet('smc_seen_change_keys_v2',new Set(itemList(data).map(itemKey)));saveSet('smc_seen_event_keys_v2',new Set(events(status).map(e=>e.key)));localStorage.setItem('smc_live_initialized_v2','1');return true;}
-
-  function popup(u){const list=[];u.events.slice(0,5).forEach(e=>list.push({key:e.key,title:e.title,url:e.url,label:'SMC OFFICIAL STATUS • '+e.status}));u.items.slice(0,10).forEach(x=>list.push({key:itemKey(x),title:x.title,url:x.url,label:(x.change_type==='updated'?'UPDATED':'NEW')+' • '+(x.source||'Gujarat Government')}));if(!list.length||document.getElementById('smc-update-popup'))return;const m=document.createElement('div');m.id='smc-update-popup';m.innerHTML=`<div class="smc-popup-card"><div class="smc-popup-head"><div><div class="smc-popup-title">🔔 New Update Available</div><div class="smc-popup-sub">Only information detected as new or changed since your last visit.</div></div><button class="smc-popup-close" type="button">✕</button></div>${list.slice(0,8).map(x=>`<a class="smc-popup-item" href="${esc(x.url)}" target="_blank" rel="noopener noreferrer"><b>${esc(x.title)}</b><span>${esc(x.label)}</span></a>`).join('')}<div class="smc-popup-actions"><a class="smc-view" href="${BASE}live-jobs.html">View all updates</a><button class="smc-dismiss" type="button">Dismiss</button></div></div>`;document.body.appendChild(m);const close=()=>{const si=loadSet('smc_seen_change_keys_v2'),se=loadSet('smc_seen_event_keys_v2');u.items.forEach(x=>si.add(itemKey(x)));u.events.forEach(x=>se.add(x.key));saveSet('smc_seen_change_keys_v2',si);saveSet('smc_seen_event_keys_v2',se);m.remove();const b=document.getElementById('smc-update-bell');if(b)b.remove();};m.querySelector('.smc-popup-close').onclick=close;m.querySelector('.smc-dismiss').onclick=close;m.addEventListener('click',e=>{if(e.target===m)close();});}
-  function bell(u){if(isLogin)return;let b=document.getElementById('smc-update-bell');if(!b){b=document.createElement('button');b.id='smc-update-bell';b.type='button';document.body.appendChild(b);}const count=u.items.length+u.events.length;b.innerHTML=`🔔<span class="smc-badge ${count?'':'zero'}">${count>99?'99+':count}</span>`;b.onclick=()=>popup(u);}
-
-  async function start(){styles();if(isLogin)return;try{const[data,status]=await Promise.all([getJson(DATA_URL),getJson(STATUS_URL)]);window.SMC_LIVE_DATA={data,status,loaded_at:new Date().toISOString()};replaceStaleText(status);renderCompact(data,status);renderFull(data,status);const first=seedFirst(data,status),u=unread(data,status);bell(u);if(!first&&(u.items.length||u.events.length))setTimeout(()=>popup(u),900);}catch(e){console.warn('[SMC live layer]',e);}}
+  function getJson(url){
+    return fetch(url+'?v=6&t='+Date.now(),{cache:'no-store',credentials:'same-origin'}).then(function(r){
+      if(!r.ok)throw new Error('HTTP '+r.status+' '+url);return r.json();
+    });
+  }
+  function useful(x){
+    if(!x||!x.title||!x.url)return false;
+    var years=String(x.title).match(/\b20\d{2}\b/g)||[];
+    return !years.some(function(y){return Number(y)<2026;});
+  }
+  function smc(x){return /suratmunicipal\.gov\.in|surat municipal corporation|\bsmc\b|computer supervisor/i.test(String(x.url||'')+' '+String(x.title||'')+' '+String(x.source||''));}
+  function dateText(v){if(!v)return '';var d=new Date(v);return isNaN(d)?String(v):d.toLocaleDateString('en-IN',{day:'numeric',month:'short',year:'numeric'});}
+  function events(status){
+    var a=status&&Array.isArray(status.events)?status.events:[];
+    return a.map(function(e){return {title:String(e.title||'SMC recruitment update')+(e.date?' • '+dateText(e.date):''),status:String(e.status||'update').toUpperCase(),url:e.source||OFFICIAL_SMC,cadres:Array.isArray(e.cadres)?e.cadres:[]};});
+  }
+  function root(){
+    var r=document.getElementById('smc-live-v6');if(r)return r;
+    r=document.createElement('section');r.id='smc-live-v6';
+    var slot=document.getElementById('live-jobs-slot');
+    if(slot)slot.replaceWith(r);else document.body.appendChild(r);
+    return r;
+  }
+  function render(data,status,error){
+    css();
+    if(!full&&!compact)return;
+    var r=root(),items=(data&&Array.isArray(data.items)?data.items:[]).filter(useful).sort(function(a,b){
+      var sa=smc(a)?0:(a.priority==='critical'?1:a.priority==='high'?2:3),sb=smc(b)?0:(b.priority==='critical'?1:b.priority==='high'?2:3);
+      return sa-sb||String(b.last_changed_at||'').localeCompare(String(a.last_changed_at||''));
+    }).slice(0,60);
+    var ev=events(status);
+    if(compact){
+      var e=ev[0];
+      r.innerHTML='<div class="panel"><div class="head"><div><div class="title">🔔 Live Gujarat &amp; SMC Updates</div><div class="sub">Official recruitment and SMC status are refreshed automatically.</div></div><div class="state">● AUTO-UPDATED</div></div>'
+        +'<div class="sub" style="margin-top:10px">'+(e?esc(e.title)+' • '+esc(e.status):'No active SMC status event detected right now.')+'</div>'
+        +'<div class="actions"><a class="primary" href="'+BASE+'live-jobs.html">View Live Jobs</a><a class="secondary" href="'+BASE+'answer-key.html">Answer Keys &amp; Results</a></div></div>';
+      return;
+    }
+    var eventHtml=ev.map(function(e){return '<a class="card" href="'+esc(e.url)+'" target="_blank" rel="noopener noreferrer"><div class="org">SMC OFFICIAL STATUS</div><div class="name">'+esc(e.title)+'</div><span class="tag">'+esc(e.status)+'</span>'+(e.cadres.length?'<div class="org" style="margin-top:7px">'+esc(e.cadres.join(' • '))+'</div>':'')+'</a>';}).join('');
+    var cardHtml=items.map(function(x){return '<a class="card" href="'+esc(x.url)+'" target="_blank" rel="noopener noreferrer"><div class="org">'+esc(x.source||'Gujarat Government')+'</div><div class="name">'+esc(x.title)+'</div><span class="tag">'+(smc(x)?'⭐ SMC PRIORITY':'LIVE UPDATE')+'</span></a>';}).join('');
+    var msg=error?'<div class="empty"><b class="error">Live data could not be refreshed.</b><br><span>Showing the safe page controls. Tap Retry after checking your connection.</span></div>':(!eventHtml&&!cardHtml?'<div class="empty">No current recruitment records are available right now.</div>':'');
+    r.innerHTML='<div class="panel"><div class="head"><div><div class="title">Gujarat Government &amp; SMC Live Jobs / Updates</div><div class="sub">Current recruitment information only. Every result below is a real link and opens the source in a new tab.</div></div><div class="state">● AUTO-UPDATED</div></div>'
+      +'<div class="actions"><button class="primary" type="button" id="smc-live-retry">↻ Refresh Live Data</button><a class="secondary" href="'+OFFICIAL_SMC+'" target="_blank" rel="noopener noreferrer">Official SMC Recruitment</a></div>'
+      +(eventHtml?'<div class="grid">'+eventHtml+'</div>':'')+(cardHtml?'<div class="grid">'+cardHtml+'</div>':'')+msg
+      +'<div class="foot">'+items.length+' current records • '+esc((status&&status.updated_at)||(data&&data.updated_at)||new Date().toISOString())+'</div></div>';
+    var b=document.getElementById('smc-live-retry');if(b)b.addEventListener('click',load);
+  }
+  function load(){
+    if(!full&&!compact)return;
+    render(null,null,null);
+    Promise.all([getJson(DATA_URL),getJson(STATUS_URL)]).then(function(v){render(v[0],v[1],null);}).catch(function(err){console.warn('[SMC Live Jobs]',err);render(null,null,err);});
+  }
+  function start(){try{load();}catch(e){render(null,null,e);}}
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});else start();
-  setInterval(()=>{if(document.visibilityState==='visible')start();},300000);
 })();
