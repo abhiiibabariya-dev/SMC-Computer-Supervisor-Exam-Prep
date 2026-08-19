@@ -42,6 +42,7 @@ jobs:
               ".read":"auth !== null && root.child('users').child(auth.uid).child('subscriptionStatus').val() === 'active' && (root.child('users').child(auth.uid).child('expiresAt').val() === null || root.child('users').child(auth.uid).child('expiresAt').val() === '' || root.child('users').child(auth.uid).child('expiresAt').val() > now)",
               ".write":"auth !== null && auth.uid === 'OfRWMa7HZgVYQrq4fzLjU3Wl30ml'"
             }},
+            "audit":{"$id":{".write":"auth !== null && !data.exists() && newData.child('uid').val() === auth.uid",".validate":"newData.child('uid').isString() && newData.child('ev').isString() && newData.child('t').isString()"}},
             "visits":{"$id":{".write":"!data.exists()"}},"clicks":{"$id":{".write":"!data.exists()"}},"leads":{"$id":{".write":"!data.exists()"}},"security":{"$id":{".write":"!data.exists()"}},"quizscores":{"$id":{".write":"!data.exists()"}},"leaderboard":{".read":true,"$id":{".write":"!data.exists()"}}
           }}
           JSON
