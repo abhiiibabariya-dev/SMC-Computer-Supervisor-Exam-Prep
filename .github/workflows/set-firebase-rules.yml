@@ -3,6 +3,9 @@ name: Set Firebase Security Rules
 on:
   push:
     branches: [master]
+    paths:
+      - 'firebase-rules.json'
+      - '.github/workflows/set-firebase-rules.yml'
   workflow_dispatch: {}
 
 permissions:
@@ -15,52 +18,58 @@ env:
 jobs:
   set-rules:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
-      - name: Validate secret
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate rules file
+        run: |
+          set -euo pipefail
+          test -s firebase-rules.json
+          python3 -m json.tool firebase-rules.json >/dev/null
+          grep -q '".read": false' firebase-rules.json
+          grep -q '".write": false' firebase-rules.json
+          grep -q "$ADMIN_UID" firebase-rules.json
+          echo 'Rules JSON and default-deny checks passed.'
+
+      - name: Validate deployment credential
         env:
           FB_SECRET: ${{ secrets.FIREBASE_SECRET }}
         run: |
-          if [ -z "$FB_SECRET" ]; then echo "::error::FIREBASE_SECRET is not set."; exit 1; fi
-      - name: Write production rules
-        run: |
-          cat > rules.json <<'JSON'
-          {"rules":{
-            ".read":false,".write":false,
-            "_healthcheck":{".read":false,".write":true},
-            "admins":{"$uid":{".read":"auth !== null && auth.uid === $uid && auth.uid === 'OfRWMa7HZgVYQrq4fzLjU3Wl30ml'",".write":false}},
-            "users":{"$uid":{
-              ".read":"auth !== null && (auth.uid === $uid || auth.uid === 'OfRWMa7HZgVYQrq4fzLjU3Wl30ml')",
-              ".write":"auth !== null && (auth.uid === 'OfRWMa7HZgVYQrq4fzLjU3Wl30ml' || (auth.uid === $uid && !data.exists()))",
-              ".validate":"auth !== null && (auth.uid === 'OfRWMa7HZgVYQrq4fzLjU3Wl30ml' || (auth.uid === $uid && newData.child('uid').val() === $uid && newData.child('plan').val() === 'free' && newData.child('subscriptionStatus').val() === 'none' && newData.child('entitlements').child('mockTests').val() === false && newData.child('entitlements').child('fullAccess').val() === false))"
-            }},
-            "payment_requests":{".read":"auth !== null && auth.uid === 'OfRWMa7HZgVYQrq4fzLjU3Wl30ml'","$orderId":{
-              ".read":"auth !== null && (auth.uid === 'OfRWMa7HZgVYQrq4fzLjU3Wl30ml' || data.child('uid').val() === auth.uid)",
-              ".write":"auth !== null && (auth.uid === 'OfRWMa7HZgVYQrq4fzLjU3Wl30ml' || (!data.exists() && newData.child('uid').val() === auth.uid && newData.child('status').val() === 'pending' && (newData.child('plan').val() === 'premium49' || newData.child('plan').val() === 'premium99')))",
-              ".validate":"newData.child('orderId').val() === $orderId && newData.child('uid').isString() && newData.child('status').isString()"
-            }},
-            "premium_content":{"$resource":{
-              ".read":"auth !== null && root.child('users').child(auth.uid).child('subscriptionStatus').val() === 'active' && (root.child('users').child(auth.uid).child('expiresAt').val() === null || root.child('users').child(auth.uid).child('expiresAt').val() === '' || root.child('users').child(auth.uid).child('expiresAt').val() > now)",
-              ".write":"auth !== null && auth.uid === 'OfRWMa7HZgVYQrq4fzLjU3Wl30ml'"
-            }},
-            "audit":{"$id":{".write":"auth !== null && !data.exists() && newData.child('uid').val() === auth.uid",".validate":"newData.child('uid').isString() && newData.child('ev').isString() && newData.child('t').isString()"}},
-            "visits":{"$id":{".write":"!data.exists()"}},"clicks":{"$id":{".write":"!data.exists()"}},"leads":{"$id":{".write":"!data.exists()"}},"security":{"$id":{".write":"!data.exists()"}},"quizscores":{"$id":{".write":"!data.exists()"}},"leaderboard":{".read":true,"$id":{".write":"!data.exists()"}}
-          }}
-          JSON
-      - name: Install rules
+          set -euo pipefail
+          if [ -z "${FB_SECRET:-}" ]; then
+            echo '::error::FIREBASE_SECRET is missing. Add/update the repository Actions secret before production rules can be deployed.'
+            exit 1
+          fi
+          echo 'Firebase deployment credential is present.'
+
+      - name: Deploy production rules
         env:
           FB_SECRET: ${{ secrets.FIREBASE_SECRET }}
         run: |
-          set -e
-          HTTP=$(curl -s -o resp.txt -w '%{http_code}' -X PUT "${FIREBASE_URL}/.settings/rules.json?auth=${FB_SECRET}" -H 'Content-Type: application/json' --data-binary @rules.json)
-          echo "HTTP $HTTP"; cat resp.txt; test "$HTTP" = "200"
-      - name: Verify anonymous access remains blocked
+          set -euo pipefail
+          HTTP=$(curl -sS -o resp.txt -w '%{http_code}' -X PUT "${FIREBASE_URL}/.settings/rules.json?auth=${FB_SECRET}" -H 'Content-Type: application/json' --data-binary @firebase-rules.json)
+          echo "Firebase rules API HTTP $HTTP"
+          cat resp.txt
+          test "$HTTP" = "200"
+
+      - name: Verify anonymous access is blocked
         run: |
-          set -e
-          R=$(curl -s -o /dev/null -w '%{http_code}' "${FIREBASE_URL}/users/test.json"); echo "Anonymous read HTTP $R"; test "$R" = "401"
-          W=$(curl -s -o /dev/null -w '%{http_code}' -X PUT "${FIREBASE_URL}/users/test.json" -H 'Content-Type: application/json' -d '{"uid":"test","plan":"premium99"}'); echo "Anonymous write HTTP $W"; test "$W" = "401"
-      - name: Purge diagnostic record
-        env:
-          FB_SECRET: ${{ secrets.FIREBASE_SECRET }}
+          set -euo pipefail
+          R=$(curl -sS -o /dev/null -w '%{http_code}' "${FIREBASE_URL}/users/security-test.json")
+          echo "Anonymous read HTTP $R"
+          test "$R" = "401"
+          W=$(curl -sS -o /dev/null -w '%{http_code}' -X PUT "${FIREBASE_URL}/users/security-test.json" -H 'Content-Type: application/json' -d '{"uid":"security-test","plan":"premium99"}')
+          echo "Anonymous write HTTP $W"
+          test "$W" = "401"
+
+      - name: Verify sensitive paths are not publicly readable
         run: |
-          curl -s -X DELETE "${FIREBASE_URL}/_healthcheck.json?auth=${FB_SECRET}" -o /dev/null || true
-          echo "Rules deployed and diagnostic record removed."
+          set -euo pipefail
+          for path in users payment_requests audit security; do
+            code=$(curl -sS -o /dev/null -w '%{http_code}' "${FIREBASE_URL}/${path}.json")
+            echo "Anonymous ${path} read HTTP $code"
+            test "$code" = "401"
+          done
+          echo 'Production rule verification passed.'
