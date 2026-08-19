@@ -1,6 +1,10 @@
-name: SMC Site Live Sync
+name: Gujarat Govt Jobs Hub Live Sync
 
 on:
+  push:
+    branches: [master]
+    paths:
+      - '.github/workflows/site-live-sync.yml'
   schedule:
     - cron: '17 * * * *'
   workflow_dispatch: {}
@@ -9,11 +13,12 @@ permissions:
   contents: write
 
 concurrency:
-  group: smc-site-live-sync
+  group: gujarat-govt-jobs-hub-live-sync
   cancel-in-progress: true
 
 jobs:
   sync:
+    if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -22,7 +27,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Normalize live sync and stale exam text
+      - name: Normalize branding, live sync and stale exam text
         shell: python
         run: |
           from pathlib import Path
@@ -31,6 +36,8 @@ jobs:
           tag='<script src="smc-live-sync.js?v=20260819"></script>'
           rx=re.compile(r'<script\s+[^>]*src=["\'][^"\']*smc-live-sync\.js(?:\?[^"\']*)?["\'][^>]*>\s*</script>',re.I)
           replacements=[
+            ('SMC Exam Prep 2026','Gujarat Govt Jobs Hub | SMC Exam Prep 2026'),
+            ('SMC Prep','Gujarat Govt Jobs Hub'),
             ('🔥 EXAM ON 12 JULY 2026 — Final Revision Time! Tap for the Exam-Day Guide','✅ EXAM COMPLETED — 12 JULY 2026 | Answer Key & Result Updates'),
             ('📅 EXAM DATE OUT — Written Exam on 12 July 2026! Call Letter Coming Soon','✅ EXAM COMPLETED — Written Exam held on 12 July 2026'),
             ('Call Letter Coming Soon','Call Letter Phase Closed'),
@@ -72,5 +79,5 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add docs
           if git diff --cached --quiet; then echo 'No changes to commit.'; exit 0; fi
-          git commit -m 'chore: sync site status [skip ci]'
+          git commit -m 'chore: rebrand site and sync status [skip ci]'
           git push origin HEAD:master
