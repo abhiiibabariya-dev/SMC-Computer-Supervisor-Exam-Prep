@@ -1,9 +1,10 @@
 {
-  "updated_at": "2026-08-18T15:39:36.318389+00:00",
+  "updated_at": "2026-08-19T18:45:21.268903+00:00",
   "sources_scanned": 28,
-  "links_found_this_scan": 710,
-  "new_items": 710,
-  "total_items": 710,
+  "links_found_this_scan": 690,
+  "new_items": 16,
+  "updated_items": 0,
+  "total_items": 690,
   "errors": [
     {
       "source": "GSSSB",
@@ -51,24 +52,9 @@
       "error": "HTTP Error 503: Service Unavailable"
     },
     {
-      "source": "Gujarat Biotechnology Research Centre",
-      "url": "https://www.gbrc.gujarat.gov.in/WebCMS/Start/Announcement",
-      "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.gbrc.gujarat.gov.in'. (_ssl.c:1032)>"
-    },
-    {
-      "source": "Gujarat Government",
-      "url": "https://gujaratindia.gov.in",
-      "error": "<urlopen error _ssl.c:1015: The handshake operation timed out>"
-    },
-    {
       "source": "KCG Gujarat Recruitment",
       "url": "https://kcg.gujarat.gov.in/recruitments",
       "error": "The read operation timed out"
-    },
-    {
-      "source": "Ahmedabad Municipal Corporation",
-      "url": "https://ahmedabadcity.gov.in",
-      "error": "<urlopen error timed out>"
     },
     {
       "source": "Ahmedabad Municipal Recruitment",
@@ -76,11 +62,21 @@
       "error": "<urlopen error timed out>"
     },
     {
+      "source": "Ahmedabad Municipal Corporation",
+      "url": "https://ahmedabadcity.gov.in",
+      "error": "<urlopen error timed out>"
+    },
+    {
+      "source": "Gujarat Government",
+      "url": "https://gujaratindia.gov.in",
+      "error": "<urlopen error _ssl.c:1015: The handshake operation timed out>"
+    },
+    {
       "source": "Vadodara Municipal Corporation",
       "url": "https://vmc.gov.in",
       "error": "<urlopen error timed out>"
     }
   ],
-  "smc_items": 61,
+  "smc_items": 39,
   "mode": "live_snapshot"
 }
