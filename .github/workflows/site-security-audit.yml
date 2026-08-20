@@ -9,7 +9,7 @@ on:
       - '.github/workflows/**'
   schedule:
     - cron: '30 3 * * *'
-  workflow_dispatch: {}
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -32,32 +32,34 @@ jobs:
           node-version: '22'
 
       - name: Validate Firebase rules
+        shell: bash
         run: |
           set -euo pipefail
           python3 - <<'PY'
           import json
           from pathlib import Path
           d=json.loads(Path('firebase-rules.json').read_text(encoding='utf-8'))
-          r=d.get('rules',{})
-          assert r.get('.read') is False and r.get('.write') is False
+          r=d['rules']
+          assert r.get('.read') is False
+          assert r.get('.write') is False
           required=('users','payment_requests','premium_content','visits','clicks','leads','security','quizscores','leaderboard')
           for key in required:
               assert key in r, key
           u=r['users']['$uid']
-          assert 'auth.token.email_verified' in u['.write']
-          assert 'auth.token.phone_number' in u['.write']
-          assert 'auth.token.email_verified' in u['.validate']
-          assert 'auth.token.phone_number' in u['.validate']
+          for token in ('auth.token.email_verified','auth.token.phone_number'):
+              assert token in u['.write'], token
+              assert token in u['.validate'], token
           for key in ('visits','clicks','leads','security','quizscores','leaderboard'):
-              node=r[key]
-              assert node.get('$id',{}).get('.write','').find('auth !== null') >= 0, f'{key}: write must require auth'
-              assert '.validate' in node.get('$id',{}), f'{key}: missing validation'
-          assert r['leaderboard'].get('.read') is True, 'leaderboard public read is intentional and must remain explicit'
-          assert r['premium_content']['$resource']['.write'].find('auth.uid') >= 0
+              node=r[key]['$id']
+              assert 'auth !== null' in node['.write'], key
+              assert '.validate' in node, key
+          assert r['leaderboard'].get('.read') is True
+          assert 'auth.uid' in r['premium_content']['$resource']['.write']
           print('Firebase rules: PASS')
           PY
 
       - name: Validate critical JavaScript syntax
+        shell: bash
         run: |
           set -euo pipefail
           for f in docs/gate.js docs/profile-enhancer.js docs/auto-live-jobs.js docs/tracker.js docs/activity-audit.js docs/login-audit.js; do
@@ -67,6 +69,7 @@ jobs:
           echo 'Critical JavaScript syntax: PASS'
 
       - name: Check client-side secrets
+        shell: bash
         run: |
           set -euo pipefail
           if grep -RInE '(FIREBASE_SECRET|databaseSecret|client_secret|private_key)[[:space:]]*[:=]' docs --include='*.js' --include='*.html' --include='*.json'; then
@@ -76,29 +79,33 @@ jobs:
           echo 'Client-side secret scan: PASS'
 
       - name: Check page script duplication
+        shell: bash
         run: |
           set -euo pipefail
           python3 - <<'PY'
           from pathlib import Path
           import re
-          bad=[]
-          patterns={
-            'gate.js': re.compile(r'<script\\s+[^>]*src=["\\\'][^"\\\']*gate\\.js(?:\\?[^"\\\']*)?["\\\'][^>]*>',re.I),
-            'smc-live-sync.js': re.compile(r'<script\\s+[^>]*src=["\\\'][^"\\\']*smc-live-sync\\.js(?:\\?[^"\\\']*)?["\\\'][^>]*>',re.I),
-            'auto-live-jobs.js': re.compile(r'<script\\s+[^>]*src=["\\\'][^"\\\']*auto-live-jobs\\.js(?:\\?[^"\\\']*)?["\\\'][^>]*>',re.I),
+          patterns = {
+              'gate.js': re.compile(r'<script[^>]+src=["\'][^"\']*gate\.js(?:\?[^"\']*)?["\']', re.I),
+              'smc-live-sync.js': re.compile(r'<script[^>]+src=["\'][^"\']*smc-live-sync\.js(?:\?[^"\']*)?["\']', re.I),
+              'auto-live-jobs.js': re.compile(r'<script[^>]+src=["\'][^"\']*auto-live-jobs\.js(?:\?[^"\']*)?["\']', re.I),
           }
+          bad=[]
           for p in Path('docs').rglob('*.html'):
-            if p.name.lower() in {'login.html','404.html'} or p.name.lower().endswith('.backup.html'):
-              continue
-            t=p.read_text(encoding='utf-8',errors='ignore')
-            for name,rx in patterns.items():
-              if len(rx.findall(t))>1: bad.append(f'{p}: duplicate {name}')
+              if p.name.lower() in {'login.html','404.html'} or p.name.lower().endswith('.backup.html'):
+                  continue
+              text=p.read_text(encoding='utf-8', errors='ignore')
+              for name, rx in patterns.items():
+                  if len(rx.findall(text)) > 1:
+                      bad.append(f'{p}: duplicate {name}')
           if bad:
-            print('\n'.join(bad)); raise SystemExit(1)
+              print('\n'.join(bad))
+              raise SystemExit(1)
           print('Page script duplication: PASS')
           PY
 
       - name: Verify authentication enforcement
+        shell: bash
         run: |
           set -euo pipefail
           test -f docs/gate.js
@@ -109,14 +116,18 @@ jobs:
             test -f "$f"
             grep -q 'gate.js' "$f"
           done
-          echo 'Authentication enforcement: PASS'
+          grep -q 'MIGRATION_KEY' docs/gate.js
+          grep -q 'auth.signOut' docs/gate.js
+          grep -q 'linkWithPhoneNumber' docs/profile-setup.html
+          grep -q 'confirmation.confirm' docs/profile-setup.html
+          echo 'Authentication and mobile OTP enforcement: PASS'
 
       - name: Verify branding and workflow hygiene
+        shell: bash
         run: |
           set -euo pipefail
           if find .github/workflows -maxdepth 1 -type f \( -name '*.backup' -o -name '*.bak' -o -name '*.old' \) | grep -q .; then
             echo 'Obsolete backup workflow found.'
-            find .github/workflows -maxdepth 1 -type f \( -name '*.backup' -o -name '*.bak' -o -name '*.old' \)
             exit 1
           fi
           if grep -RInE 'Gujarat Govt Jobs Hub[[:space:]]*\|[[:space:]]*Gujarat Govt Jobs Hub' docs --include='*.html'; then
@@ -126,6 +137,7 @@ jobs:
           echo 'Branding/workflow hygiene: PASS'
 
       - name: Verify workflow loop guards
+        shell: bash
         run: |
           set -euo pipefail
           python3 - <<'PY'
@@ -133,11 +145,11 @@ jobs:
           import re
           bad=[]
           for p in Path('.github/workflows').glob('*.yml'):
-            t=p.read_text(encoding='utf-8',errors='ignore')
-            if 'contents: write' in t and re.search(r'^\\s*push:',t,re.M) and 'github-actions[bot]' not in t:
-              bad.append(str(p))
+              text=p.read_text(encoding='utf-8', errors='ignore')
+              if 'contents: write' in text and re.search(r'^\s*push:', text, re.M) and 'github-actions[bot]' not in text:
+                  bad.append(str(p))
           if bad:
-            raise SystemExit('Possible self-triggering workflow: '+', '.join(bad))
+              raise SystemExit('Possible self-triggering workflow: ' + ', '.join(bad))
           print('Workflow loop guards: PASS')
           PY
 
