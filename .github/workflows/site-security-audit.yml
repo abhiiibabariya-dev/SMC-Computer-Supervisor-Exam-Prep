@@ -43,6 +43,11 @@ jobs:
           required=('users','payment_requests','premium_content','visits','clicks','leads','security','quizscores','leaderboard')
           for key in required:
               assert key in r, key
+          u=r['users']['$uid']
+          assert 'auth.token.email_verified' in u['.write']
+          assert 'auth.token.phone_number' in u['.write']
+          assert 'auth.token.email_verified' in u['.validate']
+          assert 'auth.token.phone_number' in u['.validate']
           for key in ('visits','clicks','leads','security','quizscores','leaderboard'):
               node=r[key]
               assert node.get('$id',{}).get('.write','').find('auth !== null') >= 0, f'{key}: write must require auth'
@@ -55,7 +60,7 @@ jobs:
       - name: Validate critical JavaScript syntax
         run: |
           set -euo pipefail
-          for f in docs/gate.js docs/auto-live-jobs.js docs/tracker.js docs/activity-audit.js docs/login-audit.js; do
+          for f in docs/gate.js docs/profile-enhancer.js docs/auto-live-jobs.js docs/tracker.js docs/activity-audit.js docs/login-audit.js; do
             test -f "$f"
             node --check "$f"
           done
@@ -97,7 +102,9 @@ jobs:
         run: |
           set -euo pipefail
           test -f docs/gate.js
+          test -f docs/profile-setup.html
           grep -q "file==='login.html'" docs/gate.js
+          grep -q "file==='profile-setup.html'" docs/gate.js
           for f in docs/index.html docs/live-jobs.html docs/govt-jobs.html docs/answer-key.html docs/client-dashboard.html docs/premium.html docs/mock-test.html; do
             test -f "$f"
             grep -q 'gate.js' "$f"
