@@ -12,9 +12,11 @@ s = s.replace('from: SMC Exam Prep Bot <${{ secrets.MAIL_USERNAME }}>', 'from: G
 # Enrich audit records from the identity/lead records using the mobile number.
 anchor = "          jq --arg c \"$CUTOFF\" '[.[]? | select((.t    // \"\") > $c)]' audit.json    > audit_24.json    || echo '[]' > audit_24.json\n"
 insert = r'''\n          # ---- Enrich audit identities (name + mobile + chosen post) ----
-          # Match by normalized last-10-digit mobile number so records that have a
-          # number but no name can use the identity captured by the access gate.
-          jq --slurpfile leads leads_24.json '
+          # Firebase returns /audit as an object keyed by push IDs. Normalize it to
+          # an array before joining identities, then match by normalized last-10-digit
+          # mobile number so events with a number but no name get the correct identity.
+          jq '[.[]?]' audit.json > audit_array.json && mv audit_array.json audit.json
+          jq --slurpfile leads leads.json '
             ($leads[0] // []) as $ls
             | ($ls
               | map(select((.mobile // "") != "")
