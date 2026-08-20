@@ -18,11 +18,11 @@ jobs:
     timeout-minutes: 10
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 0
 
-      - name: Inject unified auth gate into every HTML page
+      - name: Inject unified auth gate into protected HTML pages
         shell: python
         run: |
           from pathlib import Path
@@ -35,7 +35,7 @@ jobs:
           changed = []
           for path in root.rglob('*.html'):
               name = path.name.lower()
-              if name in {'login.html', '404.html'} or name.endswith('.backup.html'):
+              if name in {'index.html', 'login.html', '404.html'} or name.endswith('.backup.html'):
                   continue
 
               text = path.read_text(encoding='utf-8', errors='ignore')
@@ -49,7 +49,7 @@ jobs:
                   continue
 
               rel_gate = os.path.relpath(root / 'gate.js', path.parent).replace('\\', '/')
-              tag = f'    <script src="{rel_gate}?v=20260819"></script>\n'
+              tag = f'    <script src="{rel_gate}?v=20260821"></script>\n'
               text2 = text2[:pos] + tag + text2[pos:]
 
               if text2 != text:
@@ -71,5 +71,5 @@ jobs:
             echo "No HTML changes required."
             exit 0
           fi
-          git commit -m "chore: enforce authentication on site pages [skip ci]"
+          git commit -m "chore: enforce authentication on protected pages [skip ci]"
           git push origin HEAD:master
