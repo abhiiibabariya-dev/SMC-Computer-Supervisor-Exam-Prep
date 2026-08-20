@@ -7,7 +7,7 @@ from urllib.request import Request, urlopen
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "gujarat-monitor" / "smc-status.json"
-UA = "Mozilla/5.0 SMC-Exam-Prep-Live-Status/3.1"
+UA = "Mozilla/5.0 SMC-Exam-Prep-Live-Status/3.2"
 CTX = ssl._create_unverified_context()
 URLS = [
     "https://www.suratmunicipal.gov.in/Information/RecruitmentNews",
@@ -16,6 +16,7 @@ URLS = [
     "https://www.suratmunicipal.gov.in/Information/RecruitmentResult",
     "https://www.suratmunicipal.gov.in/Information/SelectionWaitingList",
 ]
+
 
 def fetch(url):
     req = Request(url, headers={"User-Agent": UA, "Accept-Language": "en-IN,en;q=0.9"})
@@ -28,11 +29,13 @@ def fetch(url):
             last_error = e
     raise last_error
 
+
 def clean(s):
     s = re.sub(r"<script.*?</script>", " ", s, flags=re.I | re.S)
     s = re.sub(r"<style.*?</style>", " ", s, flags=re.I | re.S)
     s = re.sub(r"<[^>]+>", " ", s)
     return re.sub(r"\s+", " ", s).strip()
+
 
 def fetch_one(url):
     try:
@@ -40,8 +43,16 @@ def fetch_one(url):
     except Exception as e:
         return url, "", str(e)
 
-# Check all official SMC pages in parallel. The previous sequential version
-# could exceed the 3-minute GitHub Actions timeout when a page was slow.
+
+def semantic_equal(a, b):
+    if not isinstance(a, dict) or not isinstance(b, dict):
+        return a == b
+    ignored = {"updated_at"}
+    return {k: v for k, v in a.items() if k not in ignored} == {k: v for k, v in b.items() if k not in ignored}
+
+
+# Check all official SMC pages in parallel. A temporary failure is recorded,
+# but timestamps do not change when the actual status is unchanged.
 pages, errors = [], []
 with concurrent.futures.ThreadPoolExecutor(max_workers=len(URLS)) as pool:
     results = list(pool.map(fetch_one, URLS))
@@ -51,6 +62,7 @@ for u, text, error in results:
     else:
         pages.append((u, text))
 
+errors.sort(key=lambda x: (x["url"], x["error"]))
 page_text = {u: t for u, t in pages}
 news_text = page_text.get(URLS[0], "")
 answer_text = page_text.get(URLS[1], "")
@@ -60,8 +72,10 @@ all_text = " ".join(page_text.values())
 
 events = []
 
+
 def add_event(event_id, date, status, title, cadres, source=URLS[0]):
     events.append({"id": event_id, "date": date, "status": status, "title": title, "cadres": cadres, "source": source})
+
 
 if re.search(r"12\s*/\s*07\s*/\s*2026", answer_text, re.I) and re.search(r"public\s+relation\s+officer|જનસંપર્ક અધિકારી", answer_text, re.I):
     add_event("smc-2026-07-12-pro", "2026-07-12", "completed", "Public Relation Officer written examination", ["Public Relation Officer", "PRO"], URLS[1])
@@ -76,7 +90,6 @@ application_deadline = "2026-04-15" if re.search(r"15\s*(?:/|-|\.)\s*04\s*(?:/|-
 
 now = datetime.now(timezone.utc)
 status = {
-    "updated_at": now.isoformat(),
     "official_sources": URLS,
     "events": events,
     "answer_key_available": answer_key_available,
@@ -88,5 +101,11 @@ status = {
     "source_health": {"sources_checked": len(URLS), "sources_ok": len(pages), "sources_failed": len(errors)}
 }
 
-OUT.write_text(json.dumps(status, indent=2, ensure_ascii=False), encoding="utf-8")
+try:
+    old = json.loads(OUT.read_text(encoding="utf-8"))
+except Exception:
+    old = {}
+
+status["updated_at"] = old.get("updated_at", now.isoformat()) if semantic_equal(status, old) else now.isoformat()
+OUT.write_text(json.dumps(status, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 print(json.dumps(status, indent=2, ensure_ascii=False))
