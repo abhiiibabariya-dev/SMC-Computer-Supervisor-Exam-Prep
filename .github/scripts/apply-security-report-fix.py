@@ -63,3 +63,4 @@ if 'Enrich audit identities (name + mobile + chosen post)' not in s:
 
 path.write_text(s, encoding='utf-8')
 print('Security report branding and identity enrichment patched.')
+# Trigger the one-time workflow when this fixer is updated.
