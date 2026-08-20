@@ -12,8 +12,8 @@
     "users": {
       "$uid": {
         ".read": "auth !== null && (auth.uid === $uid || auth.uid === 'OfRWMa7HZgVYQrq4fzLjU3Wl30ml')",
-        ".write": "auth !== null && (auth.uid === 'OfRWMa7HZgVYQrq4fzLjU3Wl30ml' || (auth.uid === $uid && !data.exists()))",
-        ".validate": "auth !== null && (auth.uid === 'OfRWMa7HZgVYQrq4fzLjU3Wl30ml' || (auth.uid === $uid && newData.child('uid').val() === $uid && newData.child('plan').val() === 'free' && newData.child('planLabel').val() === 'Free' && newData.child('subscriptionStatus').val() === 'none' && newData.child('expiresAt').val() === null && newData.child('entitlements').child('mockTests').val() === false && newData.child('entitlements').child('fullAccess').val() === false))"
+        ".write": "auth !== null && (auth.uid === 'OfRWMa7HZgVYQrq4fzLjU3Wl30ml' || (auth.uid === $uid && auth.token.email_verified === true && auth.token.phone_number != null))",
+        ".validate": "auth !== null && (auth.uid === 'OfRWMa7HZgVYQrq4fzLjU3Wl30ml' || (auth.uid === $uid && newData.child('uid').val() === $uid && newData.child('email').val() === auth.token.email && newData.child('emailVerified').val() === true && newData.child('phoneVerified').val() === true && newData.child('mobile').val() === auth.token.phone_number && newData.child('name').isString() && newData.child('name').val().length >= 2 && newData.child('name').val().length <= 100 && newData.child('post').isString() && newData.child('post').val().length >= 2 && newData.child('post').val().length <= 100 && newData.child('plan').val() === data.child('plan').val() && newData.child('planLabel').val() === data.child('planLabel').val() && newData.child('subscriptionStatus').val() === data.child('subscriptionStatus').val() && newData.child('expiresAt').val() === data.child('expiresAt').val() && newData.child('entitlements').child('mockTests').val() === data.child('entitlements').child('mockTests').val() && newData.child('entitlements').child('fullAccess').val() === data.child('entitlements').child('fullAccess').val()))"
       }
     },
     "payment_requests": {
