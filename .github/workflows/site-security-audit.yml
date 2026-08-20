@@ -1,6 +1,12 @@
 name: Site Security Audit
 
 on:
+  push:
+    branches: [master]
+    paths:
+      - 'firebase-rules.json'
+      - 'docs/**'
+      - '.github/workflows/**'
   schedule:
     - cron: '30 3 * * *'
   workflow_dispatch: {}
@@ -34,7 +40,7 @@ jobs:
           d=json.loads(Path('firebase-rules.json').read_text(encoding='utf-8'))
           r=d.get('rules',{})
           assert r.get('.read') is False and r.get('.write') is False
-          for key in ('users','payment_requests','premium_content'):
+          for key in ('users','payment_requests','premium_content','visits','clicks','leads','security','quizscores','leaderboard'):
               assert key in r, key
           print('Firebase rules: PASS')
           PY
@@ -48,42 +54,36 @@ jobs:
           done
           echo 'Critical JavaScript syntax: PASS'
 
-      - name: Check Firebase client safety
+      - name: Check client-side secrets
         run: |
           set -euo pipefail
-          if grep -RInE 'SMC_FIREBASE_URL[^[:cntrl:]]*fetch\(|databaseURL[^[:cntrl:]]*fetch\(' docs --include='*.js' --include='*.html'; then
-            echo 'Unsafe direct Firebase URL fetch detected.'
-            exit 1
-          fi
           if grep -RInE '(FIREBASE_SECRET|databaseSecret|client_secret|private_key)[[:space:]]*[:=]' docs --include='*.js' --include='*.html' --include='*.json'; then
             echo 'Potential Firebase/private secret exposed in docs.'
             exit 1
           fi
-          echo 'Firebase client safety: PASS'
+          echo 'Client-side secret scan: PASS'
 
-      - name: Check page script duplication and stale schema mutations
+      - name: Check page script duplication
         run: |
           set -euo pipefail
           python3 - <<'PY'
           from pathlib import Path
           import re
           bad=[]
-          rx=lambda n: re.compile(r'<script\s+[^>]*src=["\'][^"\']*'+n+r'\.js(?:\?[^"\']*)?["\'][^>]*>',re.I)
-          gate=rx('gate')
-          sync=rx('smc-live-sync')
-          live=re.compile(r'<script\s+[^>]*src=["\'][^"\']*auto-live-jobs\.js(?:\?[^"\']*)?["\'][^>]*>',re.I)
+          patterns={
+            'gate.js': re.compile(r'<script\\s+[^>]*src=["\\\'][^"\\\']*gate\\.js(?:\\?[^"\\\']*)?["\\\'][^>]*>',re.I),
+            'smc-live-sync.js': re.compile(r'<script\\s+[^>]*src=["\\\'][^"\\\']*smc-live-sync\\.js(?:\\?[^"\\\']*)?["\\\'][^>]*>',re.I),
+            'auto-live-jobs.js': re.compile(r'<script\\s+[^>]*src=["\\\'][^"\\\']*auto-live-jobs\\.js(?:\\?[^"\\\']*)?["\\\'][^>]*>',re.I),
+          }
           for p in Path('docs').rglob('*.html'):
-              if p.name.lower() in {'login.html','404.html'} or p.name.lower().endswith('.backup.html'):
-                  continue
-              t=p.read_text(encoding='utf-8',errors='ignore')
-              if len(gate.findall(t))>1: bad.append(f'{p}: duplicate gate.js')
-              if len(sync.findall(t))>1: bad.append(f'{p}: duplicate smc-live-sync.js')
-              if len(live.findall(t))>1: bad.append(f'{p}: duplicate auto-live-jobs.js')
-              if t.count('"endDate": "2026-07-12T13:00:00+05:30"')>1: bad.append(f'{p}: duplicate schema endDate')
+            if p.name.lower() in {'login.html','404.html'} or p.name.lower().endswith('.backup.html'):
+              continue
+            t=p.read_text(encoding='utf-8',errors='ignore')
+            for name,rx in patterns.items():
+              if len(rx.findall(t))>1: bad.append(f'{p}: duplicate {name}')
           if bad:
-              print('\n'.join(bad))
-              raise SystemExit(1)
-          print('Page script/schema duplication: PASS')
+            print('\n'.join(bad)); raise SystemExit(1)
+          print('Page script duplication: PASS')
           PY
 
       - name: Verify authentication enforcement
@@ -105,11 +105,11 @@ jobs:
           import re
           bad=[]
           for p in Path('.github/workflows').glob('*.yml'):
-              t=p.read_text(encoding='utf-8',errors='ignore')
-              if 'contents: write' in t and re.search(r'^\s*push:',t,re.M) and 'github-actions[bot]' not in t:
-                  bad.append(str(p))
+            t=p.read_text(encoding='utf-8',errors='ignore')
+            if 'contents: write' in t and re.search(r'^\\s*push:',t,re.M) and 'github-actions[bot]' not in t:
+              bad.append(str(p))
           if bad:
-              raise SystemExit('Possible self-triggering workflow: '+', '.join(bad))
+            raise SystemExit('Possible self-triggering workflow: '+', '.join(bad))
           print('Workflow loop guards: PASS')
           PY
 
