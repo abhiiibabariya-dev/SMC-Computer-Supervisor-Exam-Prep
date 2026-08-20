@@ -29,22 +29,34 @@ jobs:
             echo 'FIREBASE_SERVICE_ACCOUNT_JSON is not configured. Cleanup is safely skipped.'
             exit 0
           fi
+
+          cleanup_secret() { rm -f /tmp/firebase-service-account.json; }
+          trap cleanup_secret EXIT
+
           printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-service-account.json
           chmod 600 /tmp/firebase-service-account.json
+
           npm init -y >/dev/null 2>&1
           npm install --silent firebase-admin@latest
-          node <<'NODE'
-          (async () => {
-            const fs = require('fs');
-            const { initializeApp, cert } = require('firebase-admin/app');
-            const { getAuth } = require('firebase-admin/auth');
-            const { getDatabase } = require('firebase-admin/database');
 
-            const serviceAccount = JSON.parse(fs.readFileSync('/tmp/firebase-service-account.json','utf8'));
+          # Explicit CommonJS mode avoids Node 22's ambiguous-module detection.
+          # All asynchronous work is contained inside an async function.
+          node --input-type=commonjs <<'NODE'
+          const fs = require('fs');
+          const { initializeApp, cert } = require('firebase-admin/app');
+          const { getAuth } = require('firebase-admin/auth');
+          const { getDatabase } = require('firebase-admin/database');
+
+          (async () => {
+            const serviceAccount = JSON.parse(
+              fs.readFileSync('/tmp/firebase-service-account.json', 'utf8')
+            );
+
             const app = initializeApp({
               credential: cert(serviceAccount),
               databaseURL: process.env.FIREBASE_DATABASE_URL
             });
+
             const auth = getAuth(app);
             const db = getDatabase(app);
             const adminUid = process.env.ADMIN_UID;
@@ -55,25 +67,31 @@ jobs:
 
             do {
               const page = await auth.listUsers(1000, nextPageToken);
+
               for (const u of page.users) {
                 scanned++;
+
+                // Never remove the configured administrator account.
                 if (u.uid === adminUid) continue;
+
                 const created = new Date(u.metadata.creationTime || 0).getTime();
                 const stale = created > 0 && created < cutoff;
                 const incomplete = !u.emailVerified || !u.phoneNumber;
+
                 if (!stale || !incomplete) continue;
+
                 await auth.deleteUser(u.uid);
                 await db.ref('users/' + u.uid).remove().catch(() => {});
                 removed++;
                 console.log(`Removed stale unverified account: ${u.uid}`);
               }
+
               nextPageToken = page.pageToken;
             } while (nextPageToken);
 
             console.log(`Account cleanup complete. Scanned=${scanned}, removed=${removed}`);
-          })().catch(err => {
+          })().catch((err) => {
             console.error(err);
             process.exit(1);
           });
           NODE
-          rm -f /tmp/firebase-service-account.json
