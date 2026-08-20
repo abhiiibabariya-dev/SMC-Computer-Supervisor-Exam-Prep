@@ -1,8 +1,8 @@
 {
   "region": "Gujarat",
   "focus": "Gujarat Government Jobs and SMC Recruitment",
-  "total": 687,
-  "new_items": 4,
+  "total": 692,
+  "new_items": 9,
   "updated_items": 0,
   "items": [
     {
@@ -7818,51 +7818,111 @@
       "change_type": "unchanged"
     },
     {
-      "id": "8fd6d83297530fc44343",
+      "id": "c1c80c413c2c7689122a",
+      "source": "SMC Official Recruitment",
+      "title": "Recruitments",
+      "url": "https://www.suratmunicipal.gov.in/Information/RecruitmentDashboard",
+      "priority": "critical",
+      "source_type": "government",
+      "checked_at": "2026-08-20T06:00:34.642295+00:00",
+      "first_seen_at": "2026-08-20T06:03:19.333210+00:00",
+      "last_changed_at": "2026-08-20T06:03:19.333210+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "0f2905a29f1cb718c552",
+      "source": "SMC Official Recruitment",
+      "title": "Recruitment",
+      "url": "https://www.suratmunicipal.gov.in/Information/RecruitmentDashboard",
+      "priority": "critical",
+      "source_type": "government",
+      "checked_at": "2026-08-20T06:00:34.642295+00:00",
+      "first_seen_at": "2026-08-20T06:03:19.333210+00:00",
+      "last_changed_at": "2026-08-20T06:03:19.333210+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "9fb4659c700c8f4513a0",
+      "source": "SMC Official Recruitment",
+      "title": "Engineers (237 KB)",
+      "url": "https://www.suratmunicipal.gov.in/Content/Documents/rtiact/Disclosure/Town%20Development/TDO/Engineers.pdf",
+      "priority": "critical",
+      "source_type": "government",
+      "checked_at": "2026-08-20T06:00:34.642295+00:00",
+      "first_seen_at": "2026-08-20T06:03:19.333210+00:00",
+      "last_changed_at": "2026-08-20T06:03:19.333210+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "aa8325d68462f20f300d",
+      "source": "SMC Official Recruitment",
+      "title": "Check RTI Application Status",
+      "url": "https://www.suratmunicipal.gov.in/Information/RTIAppStatus",
+      "priority": "critical",
+      "source_type": "government",
+      "checked_at": "2026-08-20T06:00:34.642295+00:00",
+      "first_seen_at": "2026-08-20T06:03:19.333210+00:00",
+      "last_changed_at": "2026-08-20T06:03:19.333210+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "43ccf0fbc2f6ba8ca403",
+      "source": "SMC Official Recruitment",
+      "title": "Back to Dashboard",
+      "url": "https://www.suratmunicipal.gov.in/Information/RecruitmentDashboard",
+      "priority": "critical",
+      "source_type": "government",
+      "checked_at": "2026-08-20T06:00:34.642295+00:00",
+      "first_seen_at": "2026-08-20T06:03:19.333210+00:00",
+      "last_changed_at": "2026-08-20T06:03:19.333210+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "8444639496c9082c40bc",
       "source": "SMC Google News Discovery",
-      "title": "Surat Municipal Corporation Election Result 2026: Congress opens account after 5 years, AAP faces setback - indianexpress.com",
+      "title": "Surat Municipal Corporation Election Result 2026: Congress opens account after 5 years, AAP faces setback - The Indian Express",
       "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxQSEtTbkZEYWgxTEN6bGJCczZvVzhhcXo2T2dXdHFLcXh6dlo0emx3SERVN1hWY281OFpCWFotNUJ4M3dCbmNIUFJ3Y1lBVllEQXpHRUhpbFhWYWZVQXRVYVViaW90Q1Y0c1htUFE2cnhFRm1mUV9ucDNuRnJWUzhsZDBPazdRc1dmNjA5MGVrSFNyUXJ6dEpnZC1nMUx4QzVIekFkYTh3VzZqTG14enhDXzVEcVhGellrMkVJTmw1dkpLSWV4RkZTdjFUVkl6Ums3MTQ1ZGNsUdIB3gFBVV95cUxNOF9Za0lnTFZIU3prS0hpX1hMSnJYNUx4TzBkYlRKQjBQSjFSd1FVSUl4dU9SU05lZUd3U1FCSHhvUU1fSzVXWjBBZy1HZjVLdTFYZHhXLUE4STF1WGtrLWd1OVBUU2xPRWZpTE03YWh3bDJaa3REYzQ4al9XTEZPcS15NjVSMG1NWDAyLUhPTkVDQXQtY1p4U1oxR2t6eVFfRDZaNmlUYXlDaUZ1SVFqUHpGZm5KNjY1UkJmWkx0Z0tfUUN2VU4xSFhINnBJRElzWmVEdVlXLUJ1TUJkbWc?oc=5",
       "priority": "critical",
       "source_type": "discovery",
-      "checked_at": "2026-08-20T05:36:18.260607+00:00",
-      "first_seen_at": "2026-08-20T05:39:04.748459+00:00",
-      "last_changed_at": "2026-08-20T05:39:04.748459+00:00",
+      "checked_at": "2026-08-20T06:00:32.504150+00:00",
+      "first_seen_at": "2026-08-20T06:03:19.333210+00:00",
+      "last_changed_at": "2026-08-20T06:03:19.333210+00:00",
       "change_type": "new"
     },
     {
-      "id": "7ea656e7e832c242f11f",
+      "id": "e0b03b21461adfcd5ea5",
       "source": "SMC Google News Discovery",
-      "title": "SMC recruitment 2026: Application starts for over 1900 posts, details here - bestcolleges.indiatoday.in",
+      "title": "SMC recruitment 2026: Application starts for over 1900 posts, details here - India Today",
       "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPdmZmMVYyWWlabmFQOTYwUzlBWFlqWjZRVFJOVW92T3V1OHllbnctZVNyUXJMRUFQZW1VaVFOSkRWX0xOVXlRVUlPYzlud0N5ZWhwZHJQSHBXQnhjeTNqbDNReWV2d1FpQ0k5bHk5VVVncU85bGliOU83bUVPeDhybFpYVkRXRFBsem1HUVgzb0NneFExRmx1TDMySXRJVWJOZGZVOHVfVXItcC05ZE53cGxpVjM1V2w4ZFF2SWVVbkFfUQ?oc=5",
       "priority": "critical",
       "source_type": "discovery",
-      "checked_at": "2026-08-20T05:36:18.260607+00:00",
-      "first_seen_at": "2026-08-20T05:39:04.748459+00:00",
-      "last_changed_at": "2026-08-20T05:39:04.748459+00:00",
+      "checked_at": "2026-08-20T06:00:32.504150+00:00",
+      "first_seen_at": "2026-08-20T06:03:19.333210+00:00",
+      "last_changed_at": "2026-08-20T06:03:19.333210+00:00",
       "change_type": "new"
     },
     {
-      "id": "43ed29c2fddf1037c2be",
+      "id": "410f653b35a133b2333e",
       "source": "SMC Google News Discovery",
-      "title": "SMC Apprentice Recruitment 2026 Notification Out – Apply Online for Apprentice Posts - competition.careers360.com",
+      "title": "SMC Apprentice Recruitment 2026 Notification Out – Apply Online for Apprentice Posts - Careers360",
       "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQdUViWkw0ZWZzSnBid3RRa1c5S0FfbERJdkc1MWthU0swODV5a18wRWllVHZpV00xNmZ5cnE0VTBucTRHNWRLYVNXcUIxWHoteGdBcnFtdERQSEJoSXdlOHliRm9ac0RyU1BMcFZ5cDg5NHRVMHAxTVhDd2JCZUZzNg?oc=5",
       "priority": "critical",
       "source_type": "discovery",
-      "checked_at": "2026-08-20T05:36:18.260607+00:00",
-      "first_seen_at": "2026-08-20T05:39:04.748459+00:00",
-      "last_changed_at": "2026-08-20T05:39:04.748459+00:00",
+      "checked_at": "2026-08-20T06:00:32.504150+00:00",
+      "first_seen_at": "2026-08-20T06:03:19.333210+00:00",
+      "last_changed_at": "2026-08-20T06:03:19.333210+00:00",
       "change_type": "new"
     },
     {
-      "id": "a49d1b97be19b1b84a92",
+      "id": "36eb6bc2de05da7fc0e8",
       "source": "SMC Google News Discovery",
-      "title": "Probe against 3 dismissed SMC staff for hiding qualification to secure job - indianexpress.com",
+      "title": "Probe against 3 dismissed SMC staff for hiding qualification to secure job - The Indian Express",
       "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxQMUIyUUF0bjVaT0dtcU9zbFc3YS1iZlQtbzJTRE1zdkN2S0hMeEo1V3oxbjNYU0dyT2xhdnluVXpXMjVMOU9UWXFIajN4SGJVeGFpY3F1NGV0a3U0bGw4Q29zWkhELTF0RHQ5eENxZjVNREZaQ2t0NmZSUUZ6SGZjODl2UWp1RDJIUWZxYXFWeWtDc19raHlMZ3dGcWwySmpaYll6dV93VUtwakxWZ1FzZFlaOE5sTGtPcFdseW1iMzdlcGNwelQ1OUVFYVBlREHSAdYBQVVfeXFMTzZjVGtqdVFwZUhKbWNmcmpHS0FZX2N0OTYxdmZpQXlSMklkajJxS1dvZjgzSEkyYm80a19OZGtuY05mdmN2WGNyd3FjV1Y1LTVBeWNUOGdaNmVzbFM5OUwxU0dzQmRIRzZ6ZVM4SkRPbFVvTHplQjI4SHBtbXgyN0hDeTRQTjlBT0tBeTBMNW82bEd6QzFaSFkwWHpqVlAweDJidHJ6elZGeUVTNzBLQVZMM1o0Xzg1QXVTQlRjUjVISWp3SXdwd1hHRmt3NmpsbW53djBUUQ?oc=5",
       "priority": "critical",
       "source_type": "discovery",
-      "checked_at": "2026-08-20T05:36:18.260607+00:00",
-      "first_seen_at": "2026-08-20T05:39:04.748459+00:00",
-      "last_changed_at": "2026-08-20T05:39:04.748459+00:00",
+      "checked_at": "2026-08-20T06:00:32.504150+00:00",
+      "first_seen_at": "2026-08-20T06:03:19.333210+00:00",
+      "last_changed_at": "2026-08-20T06:03:19.333210+00:00",
       "change_type": "new"
     },
     {
@@ -8250,5 +8310,5 @@
       "change_type": "unchanged"
     }
   ],
-  "updated_at": "2026-08-20T05:39:04.748459+00:00"
+  "updated_at": "2026-08-20T06:03:19.333210+00:00"
 }
