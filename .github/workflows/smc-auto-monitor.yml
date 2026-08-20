@@ -72,6 +72,44 @@ jobs:
           mkdir -p docs/gujarat-monitor
           cp gujarat-monitor/smc-status.json docs/gujarat-monitor/smc-status.json
 
+      - name: Safety-check job snapshot
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+
+          backup_path = Path('.monitor-backup/jobs.json')
+          current_path = Path('gujarat-monitor/jobs.json')
+          report_path = Path('gujarat-monitor/jobs_report.json')
+
+          if not current_path.exists():
+              raise SystemExit('Current job snapshot is missing.')
+
+          current = json.loads(current_path.read_text(encoding='utf-8'))
+          if not isinstance(current, list):
+              raise SystemExit('Current job snapshot is not a list.')
+
+          old = []
+          if backup_path.exists():
+              old = json.loads(backup_path.read_text(encoding='utf-8'))
+              if not isinstance(old, list):
+                  old = []
+
+          report = json.loads(report_path.read_text(encoding='utf-8')) if report_path.exists() else {}
+          errors = report.get('errors') or []
+
+          if old and errors and len(current) < int(len(old) * 0.80):
+              raise SystemExit(
+                  f'Safety gate blocked publication: job count dropped from {len(old)} to {len(current)} while sources are failing.'
+              )
+
+          if not current:
+              raise SystemExit('Safety gate blocked publication: job snapshot is empty.')
+
+          print(f'Safety gate passed: {len(current)} jobs, {len(errors)} source warnings.')
+          PY
+
       - name: Update every HTML page from official status
         timeout-minutes: 3
         run: python3 gujarat-monitor/inject_live_updates.py
@@ -81,6 +119,7 @@ jobs:
           set -euo pipefail
           python3 -m json.tool gujarat-monitor/smc-status.json >/dev/null
           python3 -m json.tool gujarat-jobs.json >/dev/null
+          python3 -m json.tool gujarat-monitor/jobs_report.json >/dev/null
           test -f docs/auto-live-jobs.js
           node --check docs/auto-live-jobs.js
           test "$(find docs -type f -name '*.html' ! -name '*.backup.html' | wc -l)" -gt 0
