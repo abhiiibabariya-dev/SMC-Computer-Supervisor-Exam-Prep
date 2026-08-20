@@ -14,7 +14,7 @@ jobs:
     timeout-minutes: 10
     steps:
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: '22'
 
@@ -39,8 +39,6 @@ jobs:
           npm init -y >/dev/null 2>&1
           npm install --silent firebase-admin@latest
 
-          # Explicit CommonJS mode avoids Node 22's ambiguous-module detection.
-          # All asynchronous work is contained inside an async function.
           node --input-type=commonjs <<'NODE'
           const fs = require('fs');
           const { initializeApp, cert } = require('firebase-admin/app');
@@ -70,8 +68,6 @@ jobs:
 
               for (const u of page.users) {
                 scanned++;
-
-                // Never remove the configured administrator account.
                 if (u.uid === adminUid) continue;
 
                 const created = new Date(u.metadata.creationTime || 0).getTime();
