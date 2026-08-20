@@ -1,7 +1,7 @@
 {
   "sources_scanned": 28,
   "links_found_this_scan": 693,
-  "new_items": 5,
+  "new_items": 0,
   "updated_items": 0,
   "total_items": 693,
   "errors": [
@@ -31,11 +31,6 @@
       "error": "<urlopen error [Errno 101] Network is unreachable>"
     },
     {
-      "source": "Gujarat Biotechnology Research Centre",
-      "url": "https://www.gbrc.gujarat.gov.in/WebCMS/Start/Announcement",
-      "error": "<urlopen error [Errno 101] Network is unreachable>"
-    },
-    {
       "source": "Gujarat Education Department",
       "url": "https://education.gujarat.gov.in",
       "error": "<urlopen error _ssl.c:1015: The handshake operation timed out>"
@@ -53,27 +48,17 @@
     {
       "source": "Gujarat Health Department",
       "url": "https://gujhealth.gujarat.gov.in",
-      "error": "<urlopen error [Errno 101] Network is unreachable>"
-    },
-    {
-      "source": "Gujarat Informatics Limited",
-      "url": "https://gil.gujarat.gov.in/News.aspx?flag=0",
-      "error": "<urlopen error [Errno 101] Network is unreachable>"
+      "error": "<urlopen error _ssl.c:1015: The handshake operation timed out>"
     },
     {
       "source": "Gujarat Police",
       "url": "https://police.gujarat.gov.in",
-      "error": "<urlopen error [Errno 101] Network is unreachable>"
+      "error": "<urlopen error _ssl.c:1015: The handshake operation timed out>"
     },
     {
       "source": "Gujarat Primary Education Recruitment",
       "url": "https://rte.orpgujarat.com",
       "error": "HTTP Error 503: Service Unavailable"
-    },
-    {
-      "source": "Gujarat Social Justice & Empowerment",
-      "url": "https://sje.gujarat.gov.in",
-      "error": "<urlopen error [Errno 101] Network is unreachable>"
     },
     {
       "source": "KCG Gujarat Recruitment",
@@ -95,8 +80,11 @@
   "successful_sources": [
     "Bhavnagar Municipal Corporation",
     "Gandhinagar Municipal Corporation",
+    "Gujarat Biotechnology Research Centre",
     "Gujarat High Court Recruitment",
+    "Gujarat Informatics Limited",
     "Gujarat Jobs Google News Discovery",
+    "Gujarat Social Justice & Empowerment",
     "Gyan Sahayak Gujarat",
     "Jamnagar Municipal Corporation",
     "Rajkot Municipal Corporation",
@@ -107,5 +95,5 @@
   ],
   "smc_items": 41,
   "mode": "live_snapshot",
-  "updated_at": "2026-08-20T16:55:31.209541+00:00"
+  "updated_at": "2026-08-20T17:38:21.045070+00:00"
 }
