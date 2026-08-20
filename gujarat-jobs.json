@@ -1,10 +1,22 @@
 {
   "region": "Gujarat",
   "focus": "Gujarat Government Jobs and SMC Recruitment",
-  "total": 692,
+  "total": 693,
   "new_items": 7,
   "updated_items": 0,
   "items": [
+    {
+      "id": "523f078c77dd686fcd74",
+      "source": "Gujarat Jobs Google News Discovery",
+      "title": "GSSSB Work Assistant Recruitment 2026 Out, Last Date To Apply Online for 336 Posts - Adda247",
+      "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQZURXWl8wc1hMbmhtSTF5UjJDNEJOOEhJS2dXdWhtdkZ0N05nVVlMVWhrclg2X212Zlh6Qm11Y1R6ZW8tZzBBNjVkVDlBVFptN2dRTjlWVTNWSFlVNXhfR1FvUnJBb29CMzhVNGtLYndKUEpEQnRBQndBaC1MMzBxR1ljVnNqUQ?oc=5",
+      "priority": "high",
+      "source_type": "discovery",
+      "checked_at": "2026-08-20T08:59:49.475148+00:00",
+      "first_seen_at": "2026-08-20T09:01:27.339666+00:00",
+      "last_changed_at": "2026-08-20T09:01:27.339666+00:00",
+      "change_type": "new"
+    },
     {
       "id": "61a96c2e3647da0cff46",
       "source": "Gujarat Jobs Google News Discovery",
@@ -7818,63 +7830,75 @@
       "change_type": "unchanged"
     },
     {
-      "id": "37b2bf8a1b593e976045",
+      "id": "90d6cc66b5e1e9f154f5",
       "source": "SMC Jobs Google News Discovery 2",
-      "title": "SMC Staff Nurse Recruitment 2026, Application Form (Started), 150 Vacancies, Apply Online - pw.live",
+      "title": "SMC Staff Nurse Recruitment 2026, Application Form (Started), 150 Vacancies, Apply Online - PW",
       "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE1QQ0RQRU1LUUJvRDNGMjVZS3Mxa2dGdHJNdXBDSXpjTGhyTFQ5blF4TlRaVUl3NVNhaS1yUmxqRndxQnd0bFNidGtEalFFUVFzWXRib3Ficlp6TEhHNnpQUEYtVmRFQXJaWUo5MW01Y25sZ3dt?oc=5",
       "priority": "critical",
       "source_type": "discovery",
-      "checked_at": "2026-08-20T08:19:55.817350+00:00",
-      "first_seen_at": "2026-08-20T08:21:33.242551+00:00",
-      "last_changed_at": "2026-08-20T08:21:33.242551+00:00",
+      "checked_at": "2026-08-20T08:59:49.865070+00:00",
+      "first_seen_at": "2026-08-20T09:01:27.339666+00:00",
+      "last_changed_at": "2026-08-20T09:01:27.339666+00:00",
       "change_type": "new"
     },
     {
-      "id": "8541a955f971f96cf951",
+      "id": "0f485f136d3b5fe07746",
       "source": "SMC Jobs Google News Discovery 2",
-      "title": "SMC Recruitment 2026: Notification, Vacancies, Application Process - pw.live",
+      "title": "SMC Recruitment 2026: Notification, Vacancies, Application Process - PW",
       "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE1pYnJyQnpDZ2Z4QUNqa1ZsYkNVRFF5YktPTXlWZzBtLVBXTFdXSm1GalVvX29EQlh1LWZkWUc2YnlGOXhZclk5WVlzWGhSTW5NX3dqWnpYQ0Q3VUhoU19CYWNR?oc=5",
       "priority": "critical",
       "source_type": "discovery",
-      "checked_at": "2026-08-20T08:19:55.817350+00:00",
-      "first_seen_at": "2026-08-20T08:21:33.242551+00:00",
-      "last_changed_at": "2026-08-20T08:21:33.242551+00:00",
+      "checked_at": "2026-08-20T08:59:49.865070+00:00",
+      "first_seen_at": "2026-08-20T09:01:27.339666+00:00",
+      "last_changed_at": "2026-08-20T09:01:27.339666+00:00",
       "change_type": "new"
     },
     {
-      "id": "8fd6d83297530fc44343",
+      "id": "8444639496c9082c40bc",
       "source": "SMC Google News Discovery",
-      "title": "Surat Municipal Corporation Election Result 2026: Congress opens account after 5 years, AAP faces setback - indianexpress.com",
+      "title": "Surat Municipal Corporation Election Result 2026: Congress opens account after 5 years, AAP faces setback - The Indian Express",
       "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxQSEtTbkZEYWgxTEN6bGJCczZvVzhhcXo2T2dXdHFLcXh6dlo0emx3SERVN1hWY281OFpCWFotNUJ4M3dCbmNIUFJ3Y1lBVllEQXpHRUhpbFhWYWZVQXRVYVViaW90Q1Y0c1htUFE2cnhFRm1mUV9ucDNuRnJWUzhsZDBPazdRc1dmNjA5MGVrSFNyUXJ6dEpnZC1nMUx4QzVIekFkYTh3VzZqTG14enhDXzVEcVhGellrMkVJTmw1dkpLSWV4RkZTdjFUVkl6Ums3MTQ1ZGNsUdIB3gFBVV95cUxNOF9Za0lnTFZIU3prS0hpX1hMSnJYNUx4TzBkYlRKQjBQSjFSd1FVSUl4dU9SU05lZUd3U1FCSHhvUU1fSzVXWjBBZy1HZjVLdTFYZHhXLUE4STF1WGtrLWd1OVBUU2xPRWZpTE03YWh3bDJaa3REYzQ4al9XTEZPcS15NjVSMG1NWDAyLUhPTkVDQXQtY1p4U1oxR2t6eVFfRDZaNmlUYXlDaUZ1SVFqUHpGZm5KNjY1UkJmWkx0Z0tfUUN2VU4xSFhINnBJRElzWmVEdVlXLUJ1TUJkbWc?oc=5",
       "priority": "critical",
       "source_type": "discovery",
-      "checked_at": "2026-08-20T08:18:46.977964+00:00",
-      "first_seen_at": "2026-08-20T08:21:33.242551+00:00",
-      "last_changed_at": "2026-08-20T08:21:33.242551+00:00",
+      "checked_at": "2026-08-20T08:58:39.663237+00:00",
+      "first_seen_at": "2026-08-20T09:01:27.339666+00:00",
+      "last_changed_at": "2026-08-20T09:01:27.339666+00:00",
       "change_type": "new"
     },
     {
-      "id": "51cd97a96c0f9318f7b3",
+      "id": "abb378cc30eacfbd8d57",
       "source": "SMC Google News Discovery",
-      "title": "SMC Staff Nurse Recruitment 2026, Application Form (Started), 150 Vacancies, Apply Online - pw.live",
+      "title": "SMC Staff Nurse Recruitment 2026, Application Form (Started), 150 Vacancies, Apply Online - PW",
       "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE1QQ0RQRU1LUUJvRDNGMjVZS3Mxa2dGdHJNdXBDSXpjTGhyTFQ5blF4TlRaVUl3NVNhaS1yUmxqRndxQnd0bFNidGtEalFFUVFzWXRib3Ficlp6TEhHNnpQUEYtVmRFQXJaWUo5MW01Y25sZ3dt?oc=5",
       "priority": "critical",
       "source_type": "discovery",
-      "checked_at": "2026-08-20T08:18:46.977964+00:00",
-      "first_seen_at": "2026-08-20T08:21:33.242551+00:00",
-      "last_changed_at": "2026-08-20T08:21:33.242551+00:00",
+      "checked_at": "2026-08-20T08:58:39.663237+00:00",
+      "first_seen_at": "2026-08-20T09:01:27.339666+00:00",
+      "last_changed_at": "2026-08-20T09:01:27.339666+00:00",
       "change_type": "new"
     },
     {
-      "id": "cf6f3864ef98d9a501d0",
+      "id": "3411dd0a79ccaa0fac17",
       "source": "SMC Google News Discovery",
-      "title": "SMC Recruitment 2026: Notification, Vacancies, Application Process - pw.live",
+      "title": "SMC Recruitment 2026: Notification, Vacancies, Application Process - PW",
       "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE1pYnJyQnpDZ2Z4QUNqa1ZsYkNVRFF5YktPTXlWZzBtLVBXTFdXSm1GalVvX29EQlh1LWZkWUc2YnlGOXhZclk5WVlzWGhSTW5NX3dqWnpYQ0Q3VUhoU19CYWNR?oc=5",
       "priority": "critical",
       "source_type": "discovery",
-      "checked_at": "2026-08-20T08:18:46.977964+00:00",
-      "first_seen_at": "2026-08-20T08:21:33.242551+00:00",
-      "last_changed_at": "2026-08-20T08:21:33.242551+00:00",
+      "checked_at": "2026-08-20T08:58:39.663237+00:00",
+      "first_seen_at": "2026-08-20T09:01:27.339666+00:00",
+      "last_changed_at": "2026-08-20T09:01:27.339666+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "36eb6bc2de05da7fc0e8",
+      "source": "SMC Google News Discovery",
+      "title": "Probe against 3 dismissed SMC staff for hiding qualification to secure job - The Indian Express",
+      "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxQMUIyUUF0bjVaT0dtcU9zbFc3YS1iZlQtbzJTRE1zdkN2S0hMeEo1V3oxbjNYU0dyT2xhdnluVXpXMjVMOU9UWXFIajN4SGJVeGFpY3F1NGV0a3U0bGw4Q29zWkhELTF0RHQ5eENxZjVNREZaQ2t0NmZSUUZ6SGZjODl2UWp1RDJIUWZxYXFWeWtDc19raHlMZ3dGcWwySmpaYll6dV93VUtwakxWZ1FzZFlaOE5sTGtPcFdseW1iMzdlcGNwelQ1OUVFYVBlREHSAdYBQVVfeXFMTzZjVGtqdVFwZUhKbWNmcmpHS0FZX2N0OTYxdmZpQXlSMklkajJxS1dvZjgzSEkyYm80a19OZGtuY05mdmN2WGNyd3FjV1Y1LTVBeWNUOGdaNmVzbFM5OUwxU0dzQmRIRzZ6ZVM4SkRPbFVvTHplQjI4SHBtbXgyN0hDeTRQTjlBT0tBeTBMNW82bEd6QzFaSFkwWHpqVlAweDJidHJ6elZGeUVTNzBLQVZMM1o0Xzg1QXVTQlRjUjVISWp3SXdwd1hHRmt3NmpsbW53djBUUQ?oc=5",
+      "priority": "critical",
+      "source_type": "discovery",
+      "checked_at": "2026-08-20T08:58:39.663237+00:00",
+      "first_seen_at": "2026-08-20T09:01:27.339666+00:00",
+      "last_changed_at": "2026-08-20T09:01:27.339666+00:00",
       "change_type": "new"
     },
     {
@@ -7882,18 +7906,6 @@
       "source": "SMC Google News Discovery",
       "title": "SMC recruitment 2026: Application starts for over 1900 posts, details here - India Today",
       "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPdmZmMVYyWWlabmFQOTYwUzlBWFlqWjZRVFJOVW92T3V1OHllbnctZVNyUXJMRUFQZW1VaVFOSkRWX0xOVXlRVUlPYzlud0N5ZWhwZHJQSHBXQnhjeTNqbDNReWV2d1FpQ0k5bHk5VVVncU85bGliOU83bUVPeDhybFpYVkRXRFBsem1HUVgzb0NneFExRmx1TDMySXRJVWJOZGZVOHVfVXItcC05ZE53cGxpVjM1V2w4ZFF2SWVVbkFfUQ?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-08-20T08:18:46.977964+00:00",
-      "first_seen_at": "2026-08-20T08:21:33.242551+00:00",
-      "last_changed_at": "2026-08-20T08:21:33.242551+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "a49d1b97be19b1b84a92",
-      "source": "SMC Google News Discovery",
-      "title": "Probe against 3 dismissed SMC staff for hiding qualification to secure job - indianexpress.com",
-      "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxQMUIyUUF0bjVaT0dtcU9zbFc3YS1iZlQtbzJTRE1zdkN2S0hMeEo1V3oxbjNYU0dyT2xhdnluVXpXMjVMOU9UWXFIajN4SGJVeGFpY3F1NGV0a3U0bGw4Q29zWkhELTF0RHQ5eENxZjVNREZaQ2t0NmZSUUZ6SGZjODl2UWp1RDJIUWZxYXFWeWtDc19raHlMZ3dGcWwySmpaYll6dV93VUtwakxWZ1FzZFlaOE5sTGtPcFdseW1iMzdlcGNwelQ1OUVFYVBlREHSAdYBQVVfeXFMTzZjVGtqdVFwZUhKbWNmcmpHS0FZX2N0OTYxdmZpQXlSMklkajJxS1dvZjgzSEkyYm80a19OZGtuY05mdmN2WGNyd3FjV1Y1LTVBeWNUOGdaNmVzbFM5OUwxU0dzQmRIRzZ6ZVM4SkRPbFVvTHplQjI4SHBtbXgyN0hDeTRQTjlBT0tBeTBMNW82bEd6QzFaSFkwWHpqVlAweDJidHJ6elZGeUVTNzBLQVZMM1o0Xzg1QXVTQlRjUjVISWp3SXdwd1hHRmt3NmpsbW53djBUUQ?oc=5",
       "priority": "critical",
       "source_type": "discovery",
       "checked_at": "2026-08-20T08:18:46.977964+00:00",
@@ -8310,5 +8322,5 @@
       "change_type": "unchanged"
     }
   ],
-  "updated_at": "2026-08-20T08:21:33.242551+00:00"
+  "updated_at": "2026-08-20T09:01:27.339666+00:00"
 }
