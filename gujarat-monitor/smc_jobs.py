@@ -19,7 +19,7 @@ STATE = BASE / "jobs_state.json"
 PUBLIC = ROOT / "gujarat-jobs.json"
 REPORT = BASE / "jobs_report.json"
 
-UA = "Mozilla/5.0 (X11; Linux x86_64) Gujarat-Govt-Job-Monitor/5.0"
+UA = "Mozilla/5.0 (X11; Linux x86_64) Gujarat-Govt-Job-Monitor/5.1"
 TIMEOUT = 10
 RETRIES = 3
 SSL_FALLBACK = ssl._create_unverified_context()
@@ -48,8 +48,16 @@ def load_json(path, default):
 def save_json(path, data):
     path.parent.mkdir(parents=True, exist_ok=True)
     tmp = path.with_suffix(path.suffix + ".tmp")
-    tmp.write_text(json.dumps(data, indent=2, ensure_ascii=False), encoding="utf-8")
+    tmp.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     tmp.replace(path)
+
+
+def semantic_equal(a, b, ignored=("updated_at", "last_run")):
+    if not isinstance(a, dict) or not isinstance(b, dict):
+        return a == b
+    aa = {k: v for k, v in a.items() if k not in ignored}
+    bb = {k: v for k, v in b.items() if k not in ignored}
+    return aa == bb
 
 
 def fetch(url):
@@ -113,8 +121,6 @@ def relevant(title, url, src):
         title_l = title.lower()
         if not any(k in title_l for k in DISCOVERY_TERMS):
             return False
-        # Discovery feeds are noisy. Keep current/future recruitment information,
-        # but reject old articles such as 2019/2021 jobs that otherwise look relevant.
         years = re.findall(r"\b20\d{2}\b", title_l)
         if years and not any(y in CURRENT_YEARS for y in years):
             return False
@@ -207,10 +213,12 @@ def merge_change_metadata(items, old_items, now):
         if comparable != current:
             item["last_changed_at"] = now
             item["change_type"] = "updated"
+            item["checked_at"] = now
             changed += 1
         else:
             item["last_changed_at"] = old.get("last_changed_at", old.get("first_seen_at", now))
-            item["change_type"] = "unchanged"
+            item["change_type"] = old.get("change_type", "unchanged")
+            item["checked_at"] = old.get("checked_at", old.get("first_seen_at", now))
     return new_count, changed
 
 
@@ -219,6 +227,10 @@ def main():
     old_items = load_json(JOBS, [])
     if not isinstance(old_items, list):
         old_items = []
+    old_by_source = {}
+    for item in old_items:
+        if isinstance(item, dict) and item.get("source"):
+            old_by_source.setdefault(item["source"], []).append(item)
 
     results = []
     with concurrent.futures.ThreadPoolExecutor(max_workers=8) as pool:
@@ -231,13 +243,23 @@ def main():
             else:
                 print(f"[OK] {result['source']} -> {len(result['items'])} relevant updates")
 
-    found, errors = [], []
+    found, errors, empty_sources = [], [], []
+    successful_sources = set()
     for r in results:
         found.extend(r["items"])
         if r["error"]:
             errors.append(r["error"])
+            # Never delete a source's last known-good jobs because of a temporary outage.
+            found.extend(old_by_source.get(r["source"], []))
+        else:
+            successful_sources.add(r["source"])
+            # A sudden zero-result response is treated as suspicious. Preserve the
+            # previous source snapshot until a future scan confirms real changes.
+            if not r["items"] and old_by_source.get(r["source"]):
+                empty_sources.append(r["source"])
+                found.extend(old_by_source[r["source"]])
 
-    unique = {item["id"]: item for item in found}
+    unique = {item["id"]: item for item in found if isinstance(item, dict) and item.get("id")}
     all_jobs = list(unique.values())
     now = datetime.now(timezone.utc).isoformat()
     new_count, changed_count = merge_change_metadata(all_jobs, old_items, now)
@@ -246,21 +268,61 @@ def main():
     all_jobs.sort(key=lambda x: (rank.get(x.get("priority"), 9), x.get("last_changed_at", ""), x.get("source", "").lower(), x.get("title", "").lower()), reverse=True)
 
     smc_count = sum(1 for x in all_jobs if x.get("priority") == "critical")
+    old_count = len(old_items)
+    count_drop = old_count > 0 and len(all_jobs) < int(old_count * 0.8)
+    if count_drop and errors:
+        # The source failures already have their old snapshots restored. This is a
+        # final guard against a parser regression removing a large portion of data.
+        print(f"[WARN] Large count drop detected ({old_count} -> {len(all_jobs)}) with source failures; restoring full last-known-good snapshot.")
+        all_jobs = old_items
+        new_count = 0
+        changed_count = 0
+
+    source_errors = sorted(errors, key=lambda x: (x.get("source", ""), x.get("error", "")))
     report = {
-        "updated_at": now,
         "sources_scanned": len(sources),
         "links_found_this_scan": len(found),
         "new_items": new_count,
         "updated_items": changed_count,
         "total_items": len(all_jobs),
-        "errors": errors,
+        "errors": source_errors,
+        "empty_sources": sorted(empty_sources),
+        "successful_sources": sorted(successful_sources),
         "smc_items": smc_count,
         "mode": "live_snapshot",
     }
+    old_report = load_json(REPORT, {})
+    report_changed = not semantic_equal(report, old_report)
+    if report_changed or not old_report:
+        report["updated_at"] = now
+    else:
+        report["updated_at"] = old_report.get("updated_at", now)
+
+    public = {
+        "region": "Gujarat",
+        "focus": "Gujarat Government Jobs and SMC Recruitment",
+        "total": len(all_jobs),
+        "new_items": new_count,
+        "updated_items": changed_count,
+        "items": all_jobs,
+    }
+    old_public = load_json(PUBLIC, {})
+    public["updated_at"] = now if not semantic_equal(public, old_public) else old_public.get("updated_at", now)
+
+    state = {
+        "total_items": len(all_jobs),
+        "new_items": new_count,
+        "updated_items": changed_count,
+        "errors": source_errors,
+        "empty_sources": sorted(empty_sources),
+        "mode": "live_snapshot",
+    }
+    old_state = load_json(STATE, {})
+    state["last_run"] = now if not semantic_equal(state, old_state) else old_state.get("last_run", now)
 
     save_json(JOBS, all_jobs)
-    save_json(PUBLIC, {"updated_at": now, "region": "Gujarat", "focus": "Gujarat Government Jobs and SMC Recruitment", "total": len(all_jobs), "new_items": new_count, "updated_items": changed_count, "items": all_jobs})
-    save_json(STATE, {"last_run": now, "total_items": len(all_jobs), "new_items": new_count, "updated_items": changed_count, "errors": errors, "mode": "live_snapshot"})
+    save_json(PUBLIC, public)
+    save_json(STATE, state)
     save_json(REPORT, report)
 
     print("\n==========================================")
@@ -272,7 +334,8 @@ def main():
     print(f"Updated items   : {changed_count}")
     print(f"SMC priority    : {smc_count}")
     print(f"Warnings        : {len(errors)}")
-    print("Mode            : LIVE SNAPSHOT")
+    print(f"Empty sources   : {len(empty_sources)}")
+    print("Mode            : FAILURE-SAFE LIVE SNAPSHOT")
     print("==========================================")
 
 
