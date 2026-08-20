@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: Prepare site
         shell: python
         run: |
@@ -49,18 +49,20 @@ jobs:
                   page.write_text(text,encoding='utf-8');changed.append(str(page));continue
               text=page.read_text(encoding='utf-8',errors='ignore')
               for script in (gate,sub,pay,profile,boot,activity):
-                  text=re.sub(r'\s*<script\s+[^>]*src=["\'][^"\']*'+re.escape(script.name)+r'["\'][^>]*>\s*</script>','',text,flags=re.I)
+                  text=re.sub(r'\s*<script\s+[^>]*src=["\'][^"\']*'+re.escape(script.name)+r'(?:\?[^"\']*)?["\'][^>]*>\s*</script>','',text,flags=re.I)
+              if page.name.lower()=='index.html':
+                  page.write_text(text,encoding='utf-8');changed.append(str(page));continue
               head=text.lower().find('</head>')
               if head<0: continue
               rel=lambda p:os.path.relpath(p,page.parent).replace('\\','/')
-              tags=[f'<script src="{rel(gate)}"></script>',f'<script src="{rel(sub)}"></script>',f'<script src="{rel(activity)}"></script>']
+              tags=[f'<script src="{rel(gate)}?v=20260821"></script>',f'<script src="{rel(sub)}"></script>',f'<script src="{rel(activity)}"></script>']
               if page.name.lower()=='client-dashboard.html':tags.append(f'<script src="{rel(profile)}"></script>')
               updated=text[:head]+'\n'+'\n'.join(tags)+'\n'+text[head:]
               if page.name.lower()=='premium.html':
                   end=updated.lower().rfind('</body>')
                   if end>=0:updated=updated[:end]+f'\n<script src="{rel(pay)}"></script>\n'+updated[end:]
               page.write_text(updated,encoding='utf-8');changed.append(str(page))
-          print(f'Prepared {len(changed)} authenticated HTML pages')
+          print(f'Prepared {len(changed)} HTML pages')
       - name: Validate published site
         run: |
           test -f _site/index.html
@@ -72,7 +74,7 @@ jobs:
           test -f _site/profile-bootstrap.js
           test -f _site/activity-audit.js
           test -f _site/login-audit.js
-          grep -q 'gate.js' _site/index.html
+          ! grep -q 'gate.js' _site/index.html
           grep -q 'subscription.js' _site/mock-test.html
           grep -q 'activity-audit.js' _site/index.html
           grep -q 'subscription-payments.js' _site/premium.html
