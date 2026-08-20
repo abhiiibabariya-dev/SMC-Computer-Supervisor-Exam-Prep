@@ -40,8 +40,15 @@ jobs:
           d=json.loads(Path('firebase-rules.json').read_text(encoding='utf-8'))
           r=d.get('rules',{})
           assert r.get('.read') is False and r.get('.write') is False
-          for key in ('users','payment_requests','premium_content','visits','clicks','leads','security','quizscores','leaderboard'):
+          required=('users','payment_requests','premium_content','visits','clicks','leads','security','quizscores','leaderboard')
+          for key in required:
               assert key in r, key
+          for key in ('visits','clicks','leads','security','quizscores','leaderboard'):
+              node=r[key]
+              assert node.get('$id',{}).get('.write','').find('auth !== null') >= 0, f'{key}: write must require auth'
+              assert '.validate' in node.get('$id',{}), f'{key}: missing validation'
+          assert r['leaderboard'].get('.read') is True, 'leaderboard public read is intentional and must remain explicit'
+          assert r['premium_content']['$resource']['.write'].find('auth.uid') >= 0
           print('Firebase rules: PASS')
           PY
 
@@ -97,6 +104,20 @@ jobs:
           done
           echo 'Authentication enforcement: PASS'
 
+      - name: Verify branding and workflow hygiene
+        run: |
+          set -euo pipefail
+          if find .github/workflows -maxdepth 1 -type f \( -name '*.backup' -o -name '*.bak' -o -name '*.old' \) | grep -q .; then
+            echo 'Obsolete backup workflow found.'
+            find .github/workflows -maxdepth 1 -type f \( -name '*.backup' -o -name '*.bak' -o -name '*.old' \)
+            exit 1
+          fi
+          if grep -RInE 'Gujarat Govt Jobs Hub[[:space:]]*\|[[:space:]]*Gujarat Govt Jobs Hub' docs --include='*.html'; then
+            echo 'Duplicate website branding found.'
+            exit 1
+          fi
+          echo 'Branding/workflow hygiene: PASS'
+
       - name: Verify workflow loop guards
         run: |
           set -euo pipefail
@@ -114,4 +135,4 @@ jobs:
           PY
 
       - name: Security audit complete
-        run: echo 'SMC Prep whole-site security audit: PASS'
+        run: echo 'Gujarat Govt Jobs Hub whole-site security audit: PASS'
