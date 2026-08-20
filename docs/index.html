@@ -618,6 +618,98 @@
         .goog-te-gadget{font-size:0 !important}
         .skiptranslate{display:none !important}
         #google_translate_element{position:fixed;bottom:-100px;opacity:0;pointer-events:none}
+
+        /* ============ ENHANCED ANIMATIONS & POLISH ============ */
+        /* Page entrance */
+        .page{opacity:0;transform:translateY(30px);transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1),transform 0.8s cubic-bezier(0.16,1,0.3,1)}
+        .page.loaded{opacity:1;transform:none}
+
+        /* Enhanced card hover with 3D tilt */
+        .k,.fun-card{transform-style:preserve-3d;perspective:1000px;transition:all 0.4s cubic-bezier(0.16,1,0.3,1)}
+        .k:hover,.fun-card:hover{transform:translateY(-8px) scale(1.02);box-shadow:0 25px 60px rgba(0,0,0,0.5),0 0 0 1px rgba(139,92,246,0.15),0 0 40px rgba(139,92,246,0.08)}
+        .k:active,.fun-card:active{transform:translateY(-4px) scale(1.01);transition:0.1s}
+
+        /* Button magnetic hover */
+        .b-primary{position:relative;overflow:hidden}
+        .b-primary::before{content:'';position:absolute;inset:-2px;background:linear-gradient(135deg,#7c3aed,#6366f1,#c084fc,#ec4899,#7c3aed);background-size:300% 300%;z-index:-1;border-radius:14px;animation:borderRotate 4s linear infinite;opacity:0;transition:opacity 0.3s}
+        .b-primary:hover::before{opacity:1}
+        @keyframes borderRotate{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+        .b-primary .shimmer{position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.2),transparent);animation:shimmer 2s infinite}
+        @keyframes shimmer{0%{left:-100%}100%{left:200%}}
+
+        /* Stats counter glow pulse */
+        .st .n{transition:text-shadow 0.3s,transform 0.3s}
+        .st:hover .n{text-shadow:0 0 30px rgba(139,92,246,0.6),0 0 60px rgba(139,92,246,0.3);transform:scale(1.05)}
+
+        /* Smooth section header underline */
+        .sec-name::after{content:'';position:absolute;bottom:-6px;left:0;width:0;height:3px;background:linear-gradient(90deg,#7c3aed,#c084fc,#ec4899);border-radius:2px;transition:width 0.7s cubic-bezier(0.16,1,0.3,1)}
+        .sr.v .sec-name::after{width:80px}
+
+        /* Enhanced scroll reveal stagger */
+        .sr{opacity:0;transform:translateY(50px);transition:all 1s cubic-bezier(0.16,1,0.3,1)}
+        .sr.v{opacity:1;transform:none}
+        .sr.v .k,.sr.v .fun-card{opacity:0;transform:translateY(30px);animation:cardReveal 0.7s cubic-bezier(0.16,1,0.3,1) forwards}
+        .sr.v .k:nth-child(1),.sr.v .fun-card:nth-child(1){animation-delay:0.05s}
+        .sr.v .k:nth-child(2),.sr.v .fun-card:nth-child(2){animation-delay:0.1s}
+        .sr.v .k:nth-child(3),.sr.v .fun-card:nth-child(3){animation-delay:0.15s}
+        .sr.v .k:nth-child(4),.sr.v .fun-card:nth-child(4){animation-delay:0.2s}
+        .sr.v .k:nth-child(5),.sr.v .fun-card:nth-child(5){animation-delay:0.25s}
+        .sr.v .k:nth-child(6),.sr.v .fun-card:nth-child(6){animation-delay:0.3s}
+        @keyframes cardReveal{to{opacity:1;transform:none}}
+
+        /* Countdown flip animation */
+        .cd-n{display:inline-block;transition:transform 0.3s,opacity 0.3s}
+        .cd-n.updating{transform:rotateX(90deg);opacity:0}
+        .cd-item{position:relative;overflow:hidden}
+        .cd-item::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(239,68,68,0.06),transparent);animation:cdPulse 3s ease infinite;pointer-events:none}
+        @keyframes cdPulse{0%,100%{opacity:0.4;transform:scale(0.9)}50%{opacity:1;transform:scale(1.1)}}
+
+        /* News item stagger */
+        .news-item{opacity:0;transform:translateX(-20px);animation:newsSlideIn 0.6s cubic-bezier(0.16,1,0.3,1) forwards}
+        .news-item:nth-child(1){animation-delay:0.1s}.news-item:nth-child(2){animation-delay:0.15s}.news-item:nth-child(3){animation-delay:0.2s}
+        .news-item:nth-child(4){animation-delay:0.25s}.news-item:nth-child(5){animation-delay:0.3s}.news-item:nth-child(6){animation-delay:0.35s}
+        @keyframes newsSlideIn{to{opacity:1;transform:none}}
+
+        /* Vacancy chip pop-in */
+        .vacancy-chip{opacity:0;transform:scale(0.9);animation:chipPop 0.4s cubic-bezier(0.16,1,0.3,1) forwards}
+        .vacancy-chip:nth-child(1){animation-delay:0.05s}.vacancy-chip:nth-child(2){animation-delay:0.1s}.vacancy-chip:nth-child(3){animation-delay:0.15s}
+        .vacancy-chip:nth-child(4){animation-delay:0.2s}.vacancy-chip:nth-child(5){animation-delay:0.25s}.vacancy-chip:nth-child(6){animation-delay:0.3s}
+        @keyframes chipPop{to{opacity:1;transform:scale(1)}}
+
+        /* Quiz option spring */
+        .quiz-opt{transition:all 0.2s cubic-bezier(0.34,1.56,0.64,1)}
+        .quiz-opt:active{transform:scale(0.98)}
+        .quiz-opt.correct{animation:correctPop 0.4s cubic-bezier(0.34,1.56,0.64,1)}
+        .quiz-opt.wrong{animation:wrongShake 0.4s cubic-bezier(0.34,1.56,0.64,1)}
+        @keyframes correctPop{0%{transform:scale(1)}50%{transform:scale(1.05)}100%{transform:scale(1)}}
+        @keyframes wrongShake{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+
+        /* Fun card bounce */
+        .fun-icon{transition:transform 0.3s cubic-bezier(0.34,1.56,0.64,1)}
+        .fun-card:hover .fun-icon{transform:translateY(-8px) rotate(5deg)}
+
+        /* Motivational banner shimmer sweep */
+        .moti-banner::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.03),transparent);animation:motiShine 4s linear infinite}
+        @keyframes motiShine{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
+
+        /* Footer link hover */
+        footer a{position:relative;overflow:hidden}
+        footer a::before{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:linear-gradient(90deg,#7c3aed,#c084fc);transition:width 0.3s}
+        footer a:hover::before{width:100%}
+
+        /* Reduced motion */
+        @media (prefers-reduced-motion: reduce){
+          *, *::before, *::after{animation-duration:0.001ms !important;animation-iteration-count:1 !important;transition-duration:0.001ms !important}
+          .mesh i,.glow-orb,.hero-glow,.aurora-beam,.floater,#particles,.cursor-dot,.cursor-ring,.spotlight,.noise{display:none !important}
+        }
+
+        /* Mobile performance */
+        @media(max-width:768px){
+          .mesh i,.glow-orb,.hero-glow,.hero h1 .gr{animation:none !important}
+          .mesh i,.glow-orb{filter:none !important;opacity:0.15 !important}
+          *{backdrop-filter:none !important;-webkit-backdrop-filter:none !important}
+          .k:hover,.fun-card:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(0,0,0,0.3)}
+        }
     </style>
     <script>window.SMC_COMMUNITY_URL="https://whatsapp.com/channel/0029Vb8VJOk0wajr7dC5K13a";</script>
     <script src="share.js"></script>
@@ -626,6 +718,73 @@
     <script src="smc-live-sync.js?v=20260821"></script>
     <script src="/SMC-Computer-Supervisor-Exam-Prep/auto-live-jobs.js?v=20260819-1" defer></script>
     <script src="gate.js?v=20260819"></script>
+    <script>
+      // Trigger page entrance animation
+      document.addEventListener('DOMContentLoaded', () => {
+        requestAnimationFrame(() => {
+          document.getElementById('mainPage')?.classList.add('loaded');
+        });
+      });
+
+      // Enhanced card 3D tilt on desktop
+      if (window.innerWidth > 768) {
+        document.addEventListener('mousemove', (e) => {
+          document.querySelectorAll('.k, .fun-card').forEach(card => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const cx = rect.width / 2;
+            const cy = rect.height / 2;
+            const rotateX = ((y - cy) / cy) * -3;
+            const rotateY = ((x - cx) / cx) * 3;
+            if (x > 0 && x < rect.width && y > 0 && y < rect.height) {
+              card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px) scale(1.02)`;
+            }
+          });
+        });
+        document.addEventListener('mouseleave', () => {
+          document.querySelectorAll('.k, .fun-card').forEach(card => {
+            card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0) scale(1)';
+          });
+        });
+      }
+
+      // Countdown number flip animation
+      function flipNumber(id, newVal) {
+        const el = document.getElementById(id);
+        if (el && el.textContent !== String(newVal)) {
+          el.classList.add('updating');
+          setTimeout(() => {
+            el.textContent = newVal;
+            el.classList.remove('updating');
+          }, 150);
+        }
+      }
+
+      // Ripple click effect on cards/buttons
+      document.addEventListener('click', (e) => {
+        const target = e.target.closest('.k, .b, .fun-card, .vacancy-chip, .quiz-opt');
+        if (!target) return;
+        const ripple = document.createElement('span');
+        ripple.style.cssText = 'position:absolute;border-radius:50%;background:rgba(167,139,250,0.4);transform:scale(0);animation:rippleOut 0.5s ease-out;pointer-events:none;z-index:10';
+        const rect = target.getBoundingClientRect();
+        const size = Math.max(rect.width, rect.height);
+        ripple.style.width = ripple.style.height = size + 'px';
+        ripple.style.left = (e.clientX - rect.left - size / 2) + 'px';
+        ripple.style.top = (e.clientY - rect.top - size / 2) + 'px';
+        target.style.position = target.style.position || 'relative';
+        target.appendChild(ripple);
+        setTimeout(() => ripple.remove(), 500);
+      });
+
+      // Add ripple keyframes if not exists
+      if (!document.getElementById('ripple-style')) {
+        const style = document.createElement('style');
+        style.id = 'ripple-style';
+        style.textContent = '@keyframes rippleOut{to{transform:scale(4);opacity:0}}';
+        document.head.appendChild(style);
+      }
+    </script>
 </head>
 <body>
 
@@ -668,12 +827,14 @@
     <a href="quiz.html">Quizzes</a>
     <a href="leaderboard.html">🏆</a>
     <a href="ai.html" class="accent">AI</a>
+    <a href="login.html">Login</a>
+    <a href="client-dashboard.html" id="profileLink" style="display:none">Profile</a>
 </nav>
 
 <!-- VIEWER -->
 <div id="vw"><div id="vb"><button class="bk" onclick="X()">Back</button><span class="vn" id="vn"></span><div style="width:70px"></div></div><div id="vc"><div class="ld">Loading...</div></div></div>
 
-<div class="page">
+<div class="page" id="mainPage">
 
 <!-- HERO -->
 <section class="hero">
@@ -1309,15 +1470,15 @@ window.addEventListener('popstate',()=>{if(document.getElementById('vw').classLi
     if(labelEl)labelEl.innerHTML='<i style="background:#34d399"></i>'+EXAM_LABEL;
     function update(){
         const diff=target-Date.now();
-        if(diff<=0){if(statusEl)statusEl.textContent='Exam day is here!';clearInterval(iv);return;}
+        if(diff<=0){if(statusEl)statusEl.textContent='Exam day is here!';clearInterval(_cdIv);return;}
         const d=Math.floor(diff/86400000);
         const h=Math.floor((diff%86400000)/3600000);
         const m=Math.floor((diff%3600000)/60000);
         const s=Math.floor((diff%60000)/1000);
-        document.getElementById('cd-days').textContent=d;
-        document.getElementById('cd-hours').textContent=h;
-        document.getElementById('cd-mins').textContent=m;
-        document.getElementById('cd-secs').textContent=s;
+        flipNumber('cd-days',d);
+        flipNumber('cd-hours',h);
+        flipNumber('cd-mins',m);
+        flipNumber('cd-secs',s);
         if(statusEl){statusEl.textContent=d+' days left';statusEl.style.color='#34d399';}
     }
     update();
@@ -2218,6 +2379,27 @@ function applyTheme(){
 // Apply saved preferences on load
 if(isLight)applyTheme();
 if(isGujarati)applyLang();
+
+// ===== AUTH STATE FOR NAV LINKS =====
+(function(){
+  const cfg = window.SMC_FIREBASE_CONFIG || {};
+  if(cfg.apiKey && cfg.authDomain && cfg.appId){
+    try{
+      if(!firebase.apps.length) firebase.initializeApp(cfg);
+      firebase.auth().onAuthStateChanged(user => {
+        const loginLink = document.querySelector('a[href="login.html"]');
+        const profileLink = document.getElementById('profileLink');
+        if(user){
+          if(loginLink) loginLink.style.display = 'none';
+          if(profileLink) profileLink.style.display = 'inline-block';
+        }else{
+          if(loginLink) loginLink.style.display = 'inline-block';
+          if(profileLink) profileLink.style.display = 'none';
+        }
+      });
+    }catch(e){}
+  }
+})();
 </script>
     <script src="pwa.js" defer></script>
     <script src="i18n.js"></script>

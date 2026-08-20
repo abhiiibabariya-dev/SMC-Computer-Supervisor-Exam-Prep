@@ -1,0 +1,133 @@
+<!-- ============================================================
+     SHARED NAVIGATION COMPONENT
+     Include in all pages: <div id="nav-placeholder"></div>
+     Then load via: fetch('nav.html').then(r=>r.text()).then(h=>document.getElementById('nav-placeholder').innerHTML=h)
+     ============================================================ -->
+<nav class="nav" id="nav">
+  <div class="nav-logo">Gujarat Govt Jobs Hub</div>
+  <a href="index.html">Home</a>
+  <a href="daily-quiz.html">Daily Quiz</a>
+  <a href="quiz.html">Practice Quizzes</a>
+  <a href="mock-test.html">Mock Tests</a>
+  <a href="leaderboard.html">🏆 Leaderboard</a>
+  <a href="ai.html" class="accent">AI Assistant</a>
+  <a href="revision-plan.html">📅 Revision</a>
+  <a href="exam-day.html">🎟️ Exam Day</a>
+  <a href="answer-key.html">🔑 Answer Key</a>
+</nav>
+
+<!-- Viewer Modal (shared across all pages) -->
+<div id="vw">
+  <div id="vb">
+    <button class="bk" onclick="closeViewer()">Back</button>
+    <span class="vn" id="vn"></span>
+    <div style="width:70px"></div>
+  </div>
+  <div id="vc"><div class="ld">Loading...</div></div>
+</div>
+
+<!-- Floating Toggles (shared) -->
+<div class="float-toggles">
+  <button class="float-btn theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+    <span id="themeIcon">☀️</span>
+    <span class="float-label">Toggle Theme</span>
+  </button>
+  <button class="float-btn lang-btn" onclick="toggleLang()" aria-label="Toggle language">
+    <span id="langIcon">🌐</span>
+    <span class="float-label">Toggle Language</span>
+  </button>
+</div>
+
+<script>
+// Navigation scroll effect
+window.addEventListener('scroll', () => {
+  const nav = document.getElementById('nav');
+  if (nav) nav.classList.toggle('scrolled', window.scrollY > 20);
+});
+
+// Page loaded animation
+document.addEventListener('DOMContentLoaded', () => {
+  document.body.classList.add('page-loaded');
+  const page = document.querySelector('.page');
+  if (page) page.classList.add('loaded');
+});
+
+// Viewer functions (shared)
+function openViewer(title, content) {
+  const vw = document.getElementById('vw');
+  const vn = document.getElementById('vn');
+  const vc = document.getElementById('vc');
+  if (vw && vn && vc) {
+    vn.textContent = title;
+    vc.innerHTML = content;
+    vw.classList.add('on');
+    document.body.style.overflow = 'hidden';
+  }
+}
+
+function closeViewer() {
+  const vw = document.getElementById('vw');
+  if (vw) {
+    vw.classList.remove('on');
+    document.body.style.overflow = '';
+  }
+}
+
+function O(path, title) {
+  fetch(path)
+    .then(r => r.text())
+    .then(html => {
+      // Simple markdown to HTML conversion for basic content
+      const formatted = html
+        .replace(/^### (.*$)/gim, '<h3>$1</h3>')
+        .replace(/^## (.*$)/gim, '<h2>$1</h2>')
+        .replace(/^# (.*$)/gim, '<h1>$1</h1>')
+        .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+        .replace(/\*(.*?)\*/g, '<em>$1</em>')
+        .replace(/`(.*?)`/g, '<code>$1</code>')
+        .replace(/\n/g, '<br>');
+      openViewer(title, formatted);
+    })
+    .catch(() => openViewer(title, '<p class="ld">Failed to load content</p>'));
+}
+
+// Theme toggle
+function toggleTheme() {
+  const html = document.documentElement;
+  const icon = document.getElementById('themeIcon');
+  const isLight = html.classList.toggle('light');
+  localStorage.setItem('theme', isLight ? 'light' : 'dark');
+  if (icon) icon.textContent = isLight ? '🌙' : '☀️';
+}
+
+// Language toggle
+function toggleLang() {
+  const current = localStorage.getItem('lang') || 'en';
+  const next = current === 'en' ? 'gu' : current === 'gu' ? 'hi' : 'en';
+  localStorage.setItem('lang', next);
+  const icon = document.getElementById('langIcon');
+  if (icon) icon.textContent = next === 'en' ? '🇺🇸' : next === 'gu' ? '🇮🇳' : '🇮🇳';
+  if (window.smcLang) window.smcLang(next);
+  location.reload();
+}
+
+// Initialize theme on load
+(() => {
+  const saved = localStorage.getItem('theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const isLight = saved ? saved === 'light' : !prefersDark;
+  if (isLight) document.documentElement.classList.add('light');
+  const icon = document.getElementById('themeIcon');
+  if (icon) icon.textContent = isLight ? '🌙' : '☀️';
+})();
+
+// Close viewer on Escape key
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeViewer();
+});
+
+// Close viewer on backdrop click
+document.addEventListener('click', (e) => {
+  if (e.target.id === 'vw') closeViewer();
+});
+</script>
