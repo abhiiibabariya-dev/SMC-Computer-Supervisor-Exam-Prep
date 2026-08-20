@@ -91,13 +91,13 @@ jobs:
             test "$write_code" = "401"
           done
 
-      - name: Verify leaderboard is public read but protected write
+      - name: Verify leaderboard is private and write-protected
         shell: bash
         run: |
           set -euo pipefail
           read_code=$(curl -sS -o /dev/null -w '%{http_code}' "${FIREBASE_URL}/leaderboard.json")
           echo "Anonymous leaderboard read HTTP $read_code"
-          test "$read_code" = "200"
+          test "$read_code" = "401"
           write_code=$(curl -sS -o /dev/null -w '%{http_code}' -X POST "${FIREBASE_URL}/leaderboard.json" -H 'Content-Type: application/json' -d '{"name":"security-test","mobile":"","subj":"test","score":1,"total":1,"secs":1,"t":"2026-01-01T00:00:00Z"}')
           echo "Anonymous leaderboard write HTTP $write_code"
           test "$write_code" = "401"
