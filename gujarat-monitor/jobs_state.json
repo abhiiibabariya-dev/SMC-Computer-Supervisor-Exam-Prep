@@ -1,17 +1,12 @@
 {
-  "last_run": "2026-08-20T01:39:53.619828+00:00",
-  "total_items": 692,
-  "new_items": 6,
+  "last_run": "2026-08-20T02:44:41.931076+00:00",
+  "total_items": 680,
+  "new_items": 10,
   "updated_items": 0,
   "errors": [
     {
-      "source": "OJAS Gujarat",
-      "url": "https://ojas.gujarat.gov.in",
-      "error": "<urlopen error [Errno 101] Network is unreachable>"
-    },
-    {
-      "source": "GPSC",
-      "url": "https://gpsc.gujarat.gov.in",
+      "source": "GSSSB",
+      "url": "https://gsssb.gujarat.gov.in",
       "error": "<urlopen error [Errno 101] Network is unreachable>"
     },
     {
@@ -20,8 +15,13 @@
       "error": "<urlopen error [Errno 101] Network is unreachable>"
     },
     {
-      "source": "GSSSB",
-      "url": "https://gsssb.gujarat.gov.in",
+      "source": "OJAS Gujarat",
+      "url": "https://ojas.gujarat.gov.in",
+      "error": "<urlopen error [Errno 101] Network is unreachable>"
+    },
+    {
+      "source": "GPSC",
+      "url": "https://gpsc.gujarat.gov.in",
       "error": "<urlopen error [Errno 101] Network is unreachable>"
     },
     {
@@ -48,6 +48,11 @@
       "source": "Gujarat Primary Education Recruitment",
       "url": "https://rte.orpgujarat.com",
       "error": "HTTP Error 503: Service Unavailable"
+    },
+    {
+      "source": "Gujarat Biotechnology Research Centre",
+      "url": "https://www.gbrc.gujarat.gov.in/WebCMS/Start/Announcement",
+      "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.gbrc.gujarat.gov.in'. (_ssl.c:1032)>"
     },
     {
       "source": "Gujarat Government",
