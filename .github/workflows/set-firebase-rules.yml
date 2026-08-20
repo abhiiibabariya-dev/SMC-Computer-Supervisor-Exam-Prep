@@ -31,7 +31,11 @@ jobs:
           grep -q '".read": false' firebase-rules.json
           grep -q '".write": false' firebase-rules.json
           grep -q "$ADMIN_UID" firebase-rules.json
-          echo 'Rules JSON and default-deny checks passed.'
+          grep -q 'quizscores' firebase-rules.json
+          grep -q 'leaderboard' firebase-rules.json
+          grep -q 'visits' firebase-rules.json
+          grep -q 'security' firebase-rules.json
+          echo 'Rules JSON and required security-path checks passed.'
 
       - name: Validate deployment credential
         env:
@@ -58,18 +62,33 @@ jobs:
         run: |
           set -euo pipefail
           R=$(curl -sS -o /dev/null -w '%{http_code}' "${FIREBASE_URL}/users/security-test.json")
-          echo "Anonymous read HTTP $R"
+          echo "Anonymous users read HTTP $R"
           test "$R" = "401"
           W=$(curl -sS -o /dev/null -w '%{http_code}' -X PUT "${FIREBASE_URL}/users/security-test.json" -H 'Content-Type: application/json' -d '{"uid":"security-test","plan":"premium99"}')
-          echo "Anonymous write HTTP $W"
+          echo "Anonymous users write HTTP $W"
           test "$W" = "401"
 
-      - name: Verify sensitive paths are not publicly readable
+      - name: Verify sensitive paths are not publicly readable or writable
         run: |
           set -euo pipefail
-          for path in users payment_requests audit security; do
+          for path in users payment_requests audit security visits clicks leads quizscores; do
             code=$(curl -sS -o /dev/null -w '%{http_code}' "${FIREBASE_URL}/${path}.json")
             echo "Anonymous ${path} read HTTP $code"
             test "$code" = "401"
+            write_code=$(curl -sS -o /dev/null -w '%{http_code}' -X POST "${FIREBASE_URL}/${path}.json" -H 'Content-Type: application/json' -d '{}')
+            echo "Anonymous ${path} write HTTP $write_code"
+            test "$write_code" = "401"
           done
-          echo 'Production rule verification passed.'
+
+      - name: Verify leaderboard is public read but protected write
+        run: |
+          set -euo pipefail
+          read_code=$(curl -sS -o /dev/null -w '%{http_code}' "${FIREBASE_URL}/leaderboard.json")
+          echo "Anonymous leaderboard read HTTP $read_code"
+          test "$read_code" = "200"
+          write_code=$(curl -sS -o /dev/null -w '%{http_code}' -X POST "${FIREBASE_URL}/leaderboard.json" -H 'Content-Type: application/json' -d '{"name":"security-test","mobile":"","subj":"test","score":1,"total":1,"secs":1,"t":"2026-01-01T00:00:00Z"}')
+          echo "Anonymous leaderboard write HTTP $write_code"
+          test "$write_code" = "401"
+
+      - name: Verify production rule verification completed
+        run: echo 'Firebase security-rule smoke tests passed.'
