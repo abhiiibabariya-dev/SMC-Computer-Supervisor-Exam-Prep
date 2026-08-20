@@ -112,15 +112,16 @@ jobs:
           test -f docs/profile-setup.html
           grep -q "file==='login.html'" docs/gate.js
           grep -q "file==='profile-setup.html'" docs/gate.js
+          grep -q 'auth.onAuthStateChanged' docs/profile-setup.html
+          grep -q 'linkWithPhoneNumber' docs/profile-setup.html
           for f in docs/index.html docs/live-jobs.html docs/govt-jobs.html docs/answer-key.html docs/client-dashboard.html docs/premium.html docs/mock-test.html; do
             test -f "$f"
             grep -q 'gate.js' "$f"
           done
           grep -q 'MIGRATION_KEY' docs/gate.js
           grep -q 'auth.signOut' docs/gate.js
-          grep -q 'linkWithPhoneNumber' docs/profile-setup.html
           grep -q 'confirmation.confirm' docs/profile-setup.html
-          echo 'Authentication and mobile OTP enforcement: PASS'
+          echo 'Authentication, Firebase session restoration and mobile OTP enforcement: PASS'
 
       - name: Verify branding and workflow hygiene
         shell: bash
@@ -135,6 +136,20 @@ jobs:
             exit 1
           fi
           echo 'Branding/workflow hygiene: PASS'
+
+      - name: Verify legacy admin console is retired
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f docs/admin-dashboard-x7k9m.html
+          if grep -RInE 'ADMIN_PIN_HASH|smc_admin_session|setAdminPin\(' docs/admin-dashboard-x7k9m.html; then
+            echo 'Legacy client-side admin PIN/session code is still present.'
+            exit 1
+          fi
+          grep -q 'admin-subscriptions.html' docs/admin-dashboard-x7k9m.html
+          grep -q 'ADMIN_UID' docs/admin-subscriptions.html
+          grep -q 'auth.onAuthStateChanged' docs/admin-subscriptions.html
+          echo 'Legacy admin console retirement: PASS'
 
       - name: Verify workflow loop guards
         shell: bash
