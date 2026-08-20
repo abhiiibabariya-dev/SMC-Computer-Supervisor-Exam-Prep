@@ -1,7 +1,7 @@
 {
   "sources_scanned": 28,
   "links_found_this_scan": 693,
-  "new_items": 5,
+  "new_items": 0,
   "updated_items": 0,
   "total_items": 693,
   "errors": [
@@ -29,11 +29,6 @@
       "source": "GSSSB",
       "url": "https://gsssb.gujarat.gov.in",
       "error": "<urlopen error [Errno 101] Network is unreachable>"
-    },
-    {
-      "source": "Gandhinagar Municipal Corporation",
-      "url": "https://gandhinagarmunicipal.com/recruitment/",
-      "error": "<urlopen error timed out>"
     },
     {
       "source": "Gujarat Biotechnology Research Centre",
@@ -73,7 +68,7 @@
     {
       "source": "KCG Gujarat Recruitment",
       "url": "https://kcg.gujarat.gov.in/recruitments",
-      "error": "The read operation timed out"
+      "error": "<urlopen error [Errno 101] Network is unreachable>"
     },
     {
       "source": "OJAS Gujarat",
@@ -89,6 +84,7 @@
   "empty_sources": [],
   "successful_sources": [
     "Bhavnagar Municipal Corporation",
+    "Gandhinagar Municipal Corporation",
     "Gujarat High Court Recruitment",
     "Gujarat Informatics Limited",
     "Gujarat Jobs Google News Discovery",
@@ -103,5 +99,5 @@
   ],
   "smc_items": 41,
   "mode": "live_snapshot",
-  "updated_at": "2026-08-20T10:15:40.830210+00:00"
+  "updated_at": "2026-08-20T10:51:59.184072+00:00"
 }
