@@ -1,7 +1,7 @@
 {
   "sources_scanned": 28,
   "links_found_this_scan": 692,
-  "new_items": 6,
+  "new_items": 7,
   "updated_items": 0,
   "total_items": 692,
   "errors": [
@@ -29,11 +29,6 @@
       "source": "GSSSB",
       "url": "https://gsssb.gujarat.gov.in",
       "error": "<urlopen error [Errno 101] Network is unreachable>"
-    },
-    {
-      "source": "Gujarat Biotechnology Research Centre",
-      "url": "https://www.gbrc.gujarat.gov.in/WebCMS/Start/Announcement",
-      "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.gbrc.gujarat.gov.in'. (_ssl.c:1032)>"
     },
     {
       "source": "Gujarat Education Department",
@@ -76,11 +71,6 @@
       "error": "<urlopen error [Errno 101] Network is unreachable>"
     },
     {
-      "source": "Rajkot Municipal Corporation",
-      "url": "https://www.rmc.gov.in",
-      "error": "The read operation timed out"
-    },
-    {
       "source": "Vadodara Municipal Corporation",
       "url": "https://vmc.gov.in",
       "error": "<urlopen error timed out>"
@@ -90,12 +80,14 @@
   "successful_sources": [
     "Bhavnagar Municipal Corporation",
     "Gandhinagar Municipal Corporation",
+    "Gujarat Biotechnology Research Centre",
     "Gujarat High Court Recruitment",
     "Gujarat Informatics Limited",
     "Gujarat Jobs Google News Discovery",
     "Gujarat Social Justice & Empowerment",
     "Gyan Sahayak Gujarat",
     "Jamnagar Municipal Corporation",
+    "Rajkot Municipal Corporation",
     "SMC Google News Discovery",
     "SMC Jobs Google News Discovery 2",
     "SMC Official Recruitment",
@@ -103,5 +95,5 @@
   ],
   "smc_items": 41,
   "mode": "live_snapshot",
-  "updated_at": "2026-08-20T07:49:40.490630+00:00"
+  "updated_at": "2026-08-20T08:21:33.242551+00:00"
 }
