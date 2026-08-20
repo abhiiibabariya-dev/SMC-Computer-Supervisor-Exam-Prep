@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-19T23:51:49.952553+00:00",
+  "updated_at": "2026-08-20T00:04:30.226128+00:00",
   "sources_scanned": 28,
   "links_found_this_scan": 692,
   "new_items": 0,
@@ -7,13 +7,13 @@
   "total_items": 692,
   "errors": [
     {
-      "source": "GPSC",
-      "url": "https://gpsc.gujarat.gov.in",
+      "source": "GPSSB",
+      "url": "https://gpssb.gujarat.gov.in",
       "error": "<urlopen error [Errno 101] Network is unreachable>"
     },
     {
-      "source": "GPSSB",
-      "url": "https://gpssb.gujarat.gov.in",
+      "source": "GPSC",
+      "url": "https://gpsc.gujarat.gov.in",
       "error": "<urlopen error [Errno 101] Network is unreachable>"
     },
     {
@@ -62,13 +62,13 @@
       "error": "The read operation timed out"
     },
     {
-      "source": "Ahmedabad Municipal Corporation",
-      "url": "https://ahmedabadcity.gov.in",
+      "source": "Ahmedabad Municipal Recruitment",
+      "url": "https://ahmedabadcity.gov.in/AMCWEBREC/HRMS/FrmVacancyDetail.aspx",
       "error": "<urlopen error timed out>"
     },
     {
-      "source": "Ahmedabad Municipal Recruitment",
-      "url": "https://ahmedabadcity.gov.in/AMCWEBREC/HRMS/FrmVacancyDetail.aspx",
+      "source": "Ahmedabad Municipal Corporation",
+      "url": "https://ahmedabadcity.gov.in",
       "error": "<urlopen error timed out>"
     },
     {
