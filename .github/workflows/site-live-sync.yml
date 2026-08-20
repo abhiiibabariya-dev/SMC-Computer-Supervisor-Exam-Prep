@@ -23,7 +23,7 @@ jobs:
     timeout-minutes: 10
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 0
 
@@ -33,7 +33,7 @@ jobs:
           from pathlib import Path
           import re
           root = Path('docs')
-          tag = '<script src="smc-live-sync.js?v=20260819"></script>'
+          tag = '<script src="smc-live-sync.js?v=20260821"></script>'
           rx = re.compile(r'<script\s+[^>]*src=["\'][^"\']*smc-live-sync\.js(?:\?[^"\']*)?["\'][^>]*>\s*</script>', re.I)
 
           changed = []
@@ -44,8 +44,6 @@ jobs:
             t = p.read_text(encoding='utf-8', errors='ignore')
             old = t
 
-            # Idempotent branding normalization. Collapse any previous repeated prefix
-            # before applying the canonical brand, so hourly runs do not mutate pages.
             t = re.sub(r'(?:Gujarat Govt Jobs Hub\s*\|\s*)+', 'Gujarat Govt Jobs Hub | ', t)
             t = re.sub(r'(?<!Gujarat Govt Jobs Hub \| )SMC Exam Prep 2026',
                         'Gujarat Govt Jobs Hub | SMC Exam Prep 2026', t)
@@ -66,7 +64,6 @@ jobs:
             for a, b in replacements:
               t = t.replace(a, b)
 
-            # Keep only one copy of the stale endDate schema entry.
             lines = t.splitlines(True)
             seen_end = False
             out = []
