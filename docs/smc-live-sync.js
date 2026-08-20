@@ -1,6 +1,9 @@
 /* SMC Live Sync: site-wide time-sensitive status safety net. */
 (function(){
   'use strict';
+  /* The homepage is intentionally public. Protected pages use gate.js. */
+  var currentFile=(location.pathname.split('/').pop()||'index.html').toLowerCase();
+  if(currentFile==='index.html') window.__SMC_UNIFIED_AUTH__=true;
   var EXAM_DATE = new Date('2026-07-12T10:00:00+05:30');
   var now = new Date();
 
