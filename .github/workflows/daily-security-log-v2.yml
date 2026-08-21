@@ -1,0 +1,85 @@
+name: Daily Security & Activity Report v2
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+env:
+  FIREBASE_URL: 'https://smc-exam-prep-38d22-default-rtdb.asia-southeast1.firebasedatabase.app'
+  TO_EMAIL: 'abhibabariya@gmail.com'
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch Firebase activity
+        env:
+          FB_SECRET: ${{ secrets.FIREBASE_SECRET }}
+        run: |
+          set -e
+          AUTH=""; [ -n "$FB_SECRET" ] && AUTH="?auth=${FB_SECRET}"
+          for f in users payment_requests audit visits clicks leads security; do
+            curl -fsS "${FIREBASE_URL}/${f}.json${AUTH}" -o "${f}.json" || echo '{}' > "${f}.json"
+            [ -s "${f}.json" ] || echo '{}' > "${f}.json"
+            [ "$(cat "${f}.json")" = "null" ] && echo '{}' > "${f}.json"
+          done
+      - name: Build privacy-safe report
+        id: report
+        run: |
+          set -e
+          CUTOFF=$(date -u -d '24 hours ago' '+%Y-%m-%dT%H:%M:%S')
+          WIN=$(date -u -d '35 minutes ago' '+%Y-%m-%dT%H:%M:%S')
+          DATE_IST=$(TZ='Asia/Kolkata' date '+%d %B %Y, %I:%M %p')
+          jq --arg c "$CUTOFF" '[.[]? | select((.t // .timestamp // "") > $c)]' audit.json > audit24.json
+          jq --arg c "$CUTOFF" '[.[]? | select((.t // .timestamp // "") > $c)]' visits.json > visits24.json
+          jq --arg c "$CUTOFF" '[.[]? | select((.ts // .t // "") > $c)]' clicks.json > clicks24.json
+          jq --arg c "$CUTOFF" '[.[]? | select((.t // "") > $c)]' leads.json > leads24.json
+          jq --arg c "$CUTOFF" '[.[]? | select((.time // "") > $c)]' security.json > security24.json
+          jq '[.[]?] | length' users.json > users_count
+          U=$(cat users_count); P49=$(jq '[.[]? | select(.plan=="premium49")] | length' users.json); P99=$(jq '[.[]? | select(.plan=="premium99")] | length' users.json); FREE=$(jq '[.[]? | select((.plan // "free")=="free")] | length' users.json)
+          V=$(jq 'length' visits24.json); C=$(jq 'length' clicks24.json); A=$(jq 'length' audit24.json); L=$(jq 'length' leads24.json); S=$(jq 'length' security24.json); W=$(jq '[.[]? | select(.level=="warn")] | length' security24.json)
+          REC=$(jq --arg c "$WIN" '[.[]? | select((.t // .timestamp // "") > $c)] | length' audit.json); VREC=$(jq --arg c "$WIN" '[.[]? | select((.t // .timestamp // "") > $c)] | length' visits.json); LREC=$(jq --arg c "$WIN" '[.[]? | select((.t // "") > $c)] | length' leads.json)
+          HAS=false; [ "$REC" -gt 0 ] || [ "$VREC" -gt 0 ] || [ "$LREC" -gt 0 ] && HAS=true
+          DIGEST=false; [ "$(date -u +%H)" = "04" ] && DIGEST=true
+          THREAT='LOW'; [ "$W" -gt 0 ] && THREAT='ELEVATED'; [ "$W" -ge 5 ] && THREAT='HIGH'
+          esc(){ sed 's/&/\&amp;/g;s/</\&lt;/g;s/>/\&gt;/g;s/"/\&quot;/g'; }
+          mask_email(){ printf '%s' "$1" | awk 'BEGIN{FS="@"}{if(index($0,"@")==0){print $0;next}; pre=$1; dom=$2; printf "%s***@%s",substr(pre,1,1),dom}'; }
+          mask_mobile(){ printf '%s' "$1" | tr -cd '0-9' | awk 'length($0)==10{printf "******%s",substr($0,7,4)} length($0)!=10{printf ""}'; }
+          cat > report.html <<EOF
+          <div style="background:#0b0f1a;padding:24px;font-family:Arial,sans-serif"><table width="680" cellpadding="0" cellspacing="0" align="center" style="background:#131a2a;border:1px solid #1e293b;border-radius:16px;overflow:hidden"><tr><td style="background:#4f46e5;padding:22px 26px"><div style="color:#c7d2fe;font-size:12px;font-weight:700">SMC EXAM PREP • SECURITY OPERATIONS</div><div style="color:#fff;font-size:21px;font-weight:800;margin-top:4px">🛡 Daily Security &amp; Activity Report</div><div style="color:#e0e7ff;font-size:12px;margin-top:6px">${DATE_IST} IST • Threat level: <b>${THREAT}</b></div></td></tr><tr><td style="padding:22px 26px;color:#cbd5e1"><div style="font-weight:800;margin-bottom:10px">📊 Last 24 hours</div><table width="100%"><tr><td>Visits<br><b style="color:#fff;font-size:20px">$V</b></td><td>Clicks<br><b style="color:#fff;font-size:20px">$C</b></td><td>Audit events<br><b style="color:#fff;font-size:20px">$A</b></td><td>New IDs<br><b style="color:#fff;font-size:20px">$L</b></td><td>Alerts<br><b style="color:#fbbf24;font-size:20px">$W</b></td></tr></table><div style="margin-top:22px;font-weight:800">👥 Account overview</div><p style="font-size:12px">Total: <b>$U</b> • Free: <b>$FREE</b> • Premium ₹49: <b>$P49</b> • Premium ₹99: <b>$P99</b></p><div style="margin-top:22px;font-weight:800">👣 Visitor audit trail</div>
+          EOF
+          jq -r '[.[]?] | map(. + {sidk:(.sid // "nosid")}) | group_by(.sidk) | map({name:([.[]|(.name//"")|select(.!="")]|last),mobile:([.[]|(.mobile//"")|select(.!="")]|last),last:([.[]|.t]|max),evs:sort_by(.t)}) | sort_by(.last)|reverse|.[:100][] | @json' audit24.json | while read -r row; do
+            name=$(printf '%s' "$row" | jq -r '.name // "Anonymous visitor"'); mobile=$(printf '%s' "$row" | jq -r '.mobile // ""'); last=$(printf '%s' "$row" | jq -r '.last // ""');
+            if printf '%s' "$name" | grep -q '@'; then name=$(mask_email "$name"); fi
+            mm=$(mask_mobile "$mobile"); [ -z "$mm" ] && mm='hidden';
+            printf '<div style="margin:10px 0;padding:10px;border:1px solid #1e293b;border-radius:10px"><b style="color:#fff">%s</b> <span style="color:#64748b">• %s</span><div style="font-size:11px;color:#94a3b8;margin-top:5px">' "$(printf '%s' "$name" | esc)" "$(printf '%s' "$mm" | esc)" >> report.html
+            printf '%s' "$row" | jq -r '.evs[] | [(.lt//.t//"-"),(.ev//"event"),(.d//.pg//"-")] | @tsv' | while IFS=$'\t' read -r t ev detail; do printf '<div style="padding:4px 0;border-bottom:1px solid #1e293b">%s • <b>%s</b> • %s</div>' "$(printf '%s' "$t"|esc)" "$(printf '%s' "$ev"|esc)" "$(printf '%s' "$detail"|esc)" >> report.html; done
+            echo '</div></div>' >> report.html
+          done
+          echo '<div style="margin-top:22px;font-weight:800">🔐 Security events</div><table width="100%" cellpadding="6" style="font-size:11px">' >> report.html
+          jq -r '.[]? | [(.localTime//.time//"-"),(.level//"ok"),(.msg//"-")] | @tsv' security24.json | while IFS=$'\t' read -r t lvl msg; do printf '<tr><td>%s</td><td>%s</td><td>%s</td></tr>' "$(printf '%s' "$t"|esc)" "$(printf '%s' "$lvl"|esc)" "$(printf '%s' "$msg"|esc)" >> report.html; done
+          echo '</table><div style="margin-top:22px;font-weight:800">💳 Pending payments</div><table width="100%" cellpadding="6" style="font-size:11px">' >> report.html
+          jq -r '[.[]? | select((.status//"")=="pending")] | sort_by(.createdAt) | reverse | .[:50][] | [(.createdAt//"-"),(.name//"User"),(.email//""),(.planLabel//.plan//""),((.amount//"?")|tostring),(.txnId//"-")] | @tsv' payment_requests.json | while IFS=$'\t' read -r t nm em pl amt utr; do if printf '%s' "$em"|grep -q '@'; then em=$(mask_email "$em"); fi; printf '<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>₹%s</td><td>%s</td></tr>' "$(printf '%s' "$t"|esc)" "$(printf '%s' "$nm"|esc)" "$(printf '%s' "$em"|esc)" "$(printf '%s' "$pl"|esc)" "$(printf '%s' "$amt"|esc)" "$(printf '%s' "$utr"|esc)" >> report.html; done
+          cat >> report.html <<EOF
+          </table><div style="margin-top:22px;padding-top:12px;border-top:1px solid #1e293b;color:#64748b;font-size:10px">Privacy: email addresses and mobile numbers are masked in this report. Full account details are available only in the authenticated Admin Control Center. Generated automatically by GitHub Actions.</div></td></tr></table></div>
+          EOF
+          echo "has_activity=$HAS" >> "$GITHUB_OUTPUT"; echo "is_digest=$DIGEST" >> "$GITHUB_OUTPUT"; echo "subject=🛡 SMC Activity — ${DATE_IST} IST — ${V} visits, ${A} audit events, ${W} alerts" >> "$GITHUB_OUTPUT"
+      - name: Send email
+        if: >-
+          steps.report.outputs.has_activity == 'true' || steps.report.outputs.is_digest == 'true' || github.event_name == 'workflow_dispatch'
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          secure: true
+          username: ${{ secrets.MAIL_USERNAME }}
+          password: ${{ secrets.MAIL_PASSWORD }}
+          subject: ${{ steps.report.outputs.subject }}
+          to: ${{ env.TO_EMAIL }}
+          from: SMC Exam Prep Bot <${{ secrets.MAIL_USERNAME }}>
+          html_body: file://report.html
