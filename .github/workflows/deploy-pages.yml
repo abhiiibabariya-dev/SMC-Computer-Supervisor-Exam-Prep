@@ -72,8 +72,12 @@ jobs:
                       text=text[:end]+f'\n<script src="{rel(transitions)}"></script>\n<script src="{rel(leaderboardsafety)}"></script>\n'+text[end:]
                   page.write_text(text,encoding='utf-8');changed.append(str(page));continue
               tags=[f'<script src="{rel(gate)}?v=20260821"></script>',f'<script src="{rel(sub)}"></script>',f'<script src="{rel(activity)}"></script>',f'<script src="{rel(leaderboardsafety)}"></script>']
-              # client-dashboard has its own complete Firebase account renderer.
-              # Do not inject the legacy profile.js renderer or the subscription card appears twice.
+              if page.name.lower()!='client-dashboard.html':
+                  tags.append(f'<script src="{rel(profile)}"></script>')
+              else:
+                  # client-dashboard has its own complete Firebase account renderer.
+                  # Do not inject the legacy profile.js renderer or the subscription card appears twice.
+                  pass
               updated=text[:head]+'\n'+'\n'.join(tags)+'\n'+text[head:]
               if page.name.lower()=='premium.html':
                   end=updated.lower().rfind('</body>')
@@ -110,6 +114,7 @@ jobs:
           grep -q 'subscription.js' _site/mock-test.html
           grep -q 'subscription-payments.js' _site/premium.html
           ! grep -q 'profile.js' _site/client-dashboard.html
+          grep -q 'profile.js' _site/premium.html
           grep -q 'animations.css' _site/client-dashboard.html
       - name: Configure Pages
         uses: actions/configure-pages@v5
