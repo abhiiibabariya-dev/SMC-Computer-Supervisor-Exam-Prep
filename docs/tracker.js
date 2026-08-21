@@ -24,4 +24,94 @@ function save(v){try{var a=JSON.parse(localStorage.getItem('smc_visitors')||'[]'
 window.addEventListener('beforeunload',function(){try{if(!v)return;var d=Math.round((Date.now()-st)/1000),a=JSON.parse(localStorage.getItem('smc_visitors')||'[]');if(a.length)a[a.length-1].dur=d+'s';localStorage.setItem('smc_visitors',JSON.stringify(a));}catch(e){}});
 idle(function attachClicks(){var clickTimeout=null,clickQueue=[];document.addEventListener('click',function(e){var c=e.target.closest('a,button,.k,.opt,.chip');if(c){var u=ident(),g=smcGeoCached(),label=(c.textContent||'').trim().substring(0,60)||(c.getAttribute&&(c.getAttribute('aria-label')||c.getAttribute('title'))||c.tagName);clickQueue.push({t:new Date().toLocaleTimeString('en-IN'),ts:new Date().toISOString(),x:label,p:location.pathname,sid:sid(),name:u.name,mobile:u.mobile,uid:u.uid,city:g.city||'',country:g.country||'',isp:g.isp||'',ip:g.ip||''});if(clickTimeout)clearTimeout(clickTimeout);clickTimeout=setTimeout(function(){var k=[];try{k=JSON.parse(localStorage.getItem('smc_clicks')||'[]');}catch(e){}for(var i=0;i<clickQueue.length;i++)k.push(clickQueue[i]);if(k.length>500)k.splice(0,k.length-500);try{localStorage.setItem('smc_clicks',JSON.stringify(k));}catch(e){}for(var j=0;j<clickQueue.length;j++){sendToCloud('clicks',clickQueue[j]);audit('click',clickQueue[j].x);}clickQueue=[];},450);}} ,{passive:true});});
 function sendToCloud(collection,data){try{if(!window.firebase||!firebase.auth||!firebase.database)return;var user=firebase.auth().currentUser;if(!user)return;firebase.database().ref(collection).push(Object.assign({},data,{uid:user.uid})).catch(function(){});}catch(e){}}
+
+/* ===== PREMIUM ACCOUNT ACCESS BRIDGE =====
+   The old premium flow generated a device-local key and never created the
+   Firebase payment request that the admin console approves. This bridge makes
+   payment requests account-bound and makes premium access follow the approved
+   Firebase entitlement instead of localStorage. */
+(function(){
+  var page=(location.pathname.split('/').pop()||'').toLowerCase();
+  if(page!=='premium.html'&&page!=='mock-test.html')return;
+  var cfg=window.SMC_FIREBASE_CONFIG||{},fbReady=false,fbAuth=null,fbDb=null,currentUser=null,unsub=null;
+  function load(src){return new Promise(function(ok,no){var s=document.createElement('script');s.src=src;s.onload=ok;s.onerror=function(){no(new Error(src))};document.head.appendChild(s)})}
+  function init(){
+    var p=Promise.resolve();
+    if(!window.firebase||!firebase.initializeApp)p=p.then(function(){return load('https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js')});
+    if(!window.firebase||!firebase.auth)p=p.then(function(){return load('https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js')});
+    if(!window.firebase||!firebase.database)p=p.then(function(){return load('https://www.gstatic.com/firebasejs/10.12.5/firebase-database-compat.js')});
+    return p.then(function(){if(!cfg.apiKey||!cfg.authDomain||!cfg.appId||!cfg.databaseURL)throw new Error('Firebase configuration missing');if(!firebase.apps.length)firebase.initializeApp(cfg);fbAuth=firebase.auth();fbDb=firebase.database();fbReady=true;return new Promise(function(resolve){var once=false;fbAuth.onAuthStateChanged(function(u){currentUser=u;if(!once){once=true;resolve(u)}});});});
+  }
+  function activeEnt(p){
+    if(!p||p.subscriptionStatus!=='active')return false;
+    if(!(p.entitlements&&p.entitlements.mockTests===true))return false;
+    if(p.expiresAt){var t=Date.parse(p.expiresAt);if(Number.isFinite(t)&&t<=Date.now())return false;}
+    return true;
+  }
+  function fullEnt(p){
+    if(!activeEnt(p))return false;
+    return p.entitlements&&p.entitlements.fullAccess===true;
+  }
+  function premiumUi(){
+    var box=document.getElementById('alreadyPremium');
+    if(box)box.style.display='block';
+    document.querySelectorAll('.screen').forEach(function(s){s.classList.remove('active')});
+    document.querySelectorAll('.premium-lock').forEach(function(e){e.style.display='none'});
+    document.querySelectorAll('[data-pbadge]').forEach(function(e){e.textContent='UNLOCKED';e.className='tc-badge free'});
+    document.querySelectorAll('.premium-card').forEach(function(e){e.classList.remove('locked')});
+  }
+  function pendingUi(orderId){
+    var r=document.getElementById('keyResult'),v=document.getElementById('verifyPayBtn');
+    if(v)v.style.display='none';
+    if(r){r.style.display='block';r.innerHTML='<div class="access-key-box"><div style="font-size:3em;margin-bottom:4px">⏳</div><h3 style="color:var(--accent);font-weight:800;font-size:1.3em">Payment submitted</h3><p style="color:var(--txt);font-size:.85em;margin:8px 0">Your payment is waiting for admin approval. You do not need an access key.</p><div style="font-size:.7em;color:var(--dim);margin-bottom:8px">ORDER ID</div><div class="access-key" style="font-size:1em">'+String(orderId).replace(/[&<>"']/g,'')+'</div><p style="color:var(--dim);font-size:.75em;margin-top:10px">Keep this account signed in. Access will activate automatically after approval.</p></div><div class="btn-row" style="margin-top:16px"><a class="btn btn-primary" href="mock-test.html">Go to Mock Tests</a></div>'}
+  }
+  function overridePremium(){
+    if(page!=='premium.html')return;
+    var oldGo=window.goStep;
+    if(typeof oldGo==='function'){
+      window.goStep=function(step){
+        if(step===3){
+          var n=document.getElementById('userName'),p=document.getElementById('userPhone'),e=document.getElementById('userEmail');
+          if(n&&!n.value.trim())n.value=(currentUser&&currentUser.displayName)||'Account Holder';
+          if(e&&currentUser)e.value=currentUser.email||'';
+          if(p)p.value='';
+          for(var i=1;i<=4;i++){var dot=document.getElementById('sd'+i),line=document.getElementById('sl'+(i-1));if(i<step){if(dot)dot.className='step-dot done';if(line)line.className='step-line done'}else if(i===step){if(dot)dot.className='step-dot active';if(line)line.className='step-line done'}else{if(dot)dot.className='step-dot';if(line)line.className='step-line'}}
+          document.querySelectorAll('.screen').forEach(function(s){s.classList.remove('active')});var target=document.getElementById('screen3');if(target)target.classList.add('active');if(typeof showPayment==='function')showPayment();if(typeof startSessionTimer==='function')startSessionTimer();window.scrollTo(0,0);return;
+        }
+        return oldGo(step);
+      };
+    }
+    window.verifyPayment=async function(){
+      if(!fbReady||!fbAuth||!fbDb){alert('Secure payment service is still loading. Please try again.');return;}
+      var u=fbAuth.currentUser;if(!u){location.replace('login.html');return;}
+      var txn=(document.getElementById('txnId')||{}).value.trim(),amount=parseInt((document.getElementById('txnAmount')||{}).value,10),plan=PLANS[selectedPlan];
+      if(txn.length<6){alert('Enter the UTR / Transaction ID.');return;}
+      if(amount!==plan.price){alert('Enter the exact amount paid: ₹'+plan.price);return;}
+      var order=orderNumber||generateOrderId(),now=new Date().toISOString();
+      var btn=document.getElementById('finalVerifyBtn');if(btn){btn.disabled=true;btn.textContent='Submitting payment...';}
+      try{
+        await fbDb.ref('payment_requests/'+order).set({orderId:order,uid:u.uid,email:u.email||'',name:(document.getElementById('userName')||{}).value.trim()||u.displayName||'Account Holder',phone:(document.getElementById('userPhone')||{}).value.trim(),plan:plan.price===99?'premium99':'premium49',planLabel:plan.name,amount:plan.price,txnId:txn,status:'pending',createdAt:now});
+        try{localStorage.setItem('smc_last_payment_request',JSON.stringify({orderId:order,plan:plan.name,amount:plan.price,txnId:txn,createdAt:now}));}catch(e){}
+        pendingUi(order);
+        if(typeof smcAudit==='function')smcAudit('payment_submitted','Payment request '+order+' submitted for '+plan.name);
+      }catch(e){console.error(e);alert('Payment request could not be submitted. Please check your signed-in account and try again.');if(btn){btn.disabled=false;btn.textContent='Verify & Get Access Key';}}
+    };
+    var email=document.getElementById('userEmail');if(email&&currentUser)email.value=currentUser.email||'';
+  }
+  function watchPremium(u){
+    if(!u)return;
+    if(unsub){try{unsub()}catch(e){}}
+    unsub=fbDb.ref('users/'+u.uid).on('value',function(s){var p=s.val()||{};if(page==='premium.html'&&fullEnt(p))premiumUi();if(page==='mock-test.html'&&activeEnt(p))premiumUi();});
+  }
+  init().then(function(u){
+    if(page==='premium.html'&&!u){location.replace('login.html');return;}
+    watchPremium(u);
+    if(page==='premium.html')overridePremium();
+    if(page==='mock-test.html'){
+      window.tryPremiumMock=function(id){if(window.__smcPremiumActive)startMock(id);else location.href='premium.html'};
+      window.tryMock3=function(){window.tryPremiumMock(3)};
+      fbAuth.onAuthStateChanged(function(user){currentUser=user;watchPremium(user);if(user)fbDb.ref('users/'+user.uid).once('value').then(function(s){window.__smcPremiumActive=activeEnt(s.val()||{});if(window.__smcPremiumActive)premiumUi();});});
+    }
+  }).catch(function(e){console.error('Premium bridge init failed',e);});
+})();
 })();
