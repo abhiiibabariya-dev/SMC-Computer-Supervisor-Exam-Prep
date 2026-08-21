@@ -51,6 +51,10 @@ jobs:
               for script in (gate,sub,pay,profile,boot,activity):
                   text=re.sub(r'\s*<script\s+[^>]*src=["\'][^"\']*'+re.escape(script.name)+r'(?:\?[^"\']*)?["\'][^>]*>\s*</script>','',text,flags=re.I)
               if page.name.lower()=='index.html':
+                  head=text.lower().find('</head>')
+                  if head>=0:
+                      rel=os.path.relpath(activity,page.parent).replace('\\','/')
+                      text=text[:head]+f'\n<script src="{rel}"></script>\n'+text[head:]
                   page.write_text(text,encoding='utf-8');changed.append(str(page));continue
               head=text.lower().find('</head>')
               if head<0: continue
@@ -80,6 +84,7 @@ jobs:
           ! grep -q 'gate.js' _site/index.html
           ! grep -q 'smcAuthOverlay' _site/index.html
           ! grep -q 'Secure Firebase authentication could not be initialized' _site/index.html
+          grep -q 'activity-audit.js' _site/index.html
           grep -q 'subscription.js' _site/mock-test.html
           grep -q 'subscription-payments.js' _site/premium.html
           grep -q 'profile.js' _site/client-dashboard.html
