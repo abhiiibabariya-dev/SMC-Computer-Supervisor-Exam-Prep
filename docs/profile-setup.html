@@ -73,17 +73,16 @@ $('profileForm').addEventListener('submit',async function(ev){
   if(!validMobile(mobile))throw new Error('Enter a valid 10-digit Indian mobile number.');
   if(!post)throw new Error('Select the post you are preparing for.');
   var ref=db.ref('users/'+u.uid),snap=await ref.once('value'),old=snap.val()||{},now=new Date().toISOString();
-  var updates={name:name,mobile:mobile,post:post,postLabel:post,updatedAt:now};
+  var updates={name:name,mobile:mobile,post:post,postLabel:post,emailVerified:true,updatedAt:now};
   if(!old.uid)updates.uid=u.uid;
   if(!old.email)updates.email=u.email||'';
-  if(old.emailVerified===undefined)updates.emailVerified=true;
   if(old.phoneVerified===undefined)updates.phoneVerified=false;
   if(!old.createdAt)updates.createdAt=now;
   await ref.update(updates);
   try{await u.updateProfile({displayName:name})}catch(e){}
   var finalSnap=await ref.once('value'),finalData=finalSnap.val()||{};
   try{localStorage.setItem('smc_account',JSON.stringify({uid:u.uid,email:u.email||'',name:name,mobile:mobile,post:post,emailVerified:true,phoneVerified:false,plan:finalData.plan||'free',planLabel:finalData.planLabel||'Free',subscriptionStatus:finalData.subscriptionStatus||'none'}))}catch(e){}
-  check('profileCheck',true,'Profile is complete.');say('Profile saved. Opening your account...',true);
+  check('profileCheck',true,'Profile is complete and verified.');say('Profile saved. Opening your account...',true);
   setTimeout(function(){location.replace('client-dashboard.html')},250);
  }catch(e){
   console.error(e);
