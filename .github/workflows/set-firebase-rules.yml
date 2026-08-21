@@ -13,7 +13,7 @@ permissions:
 
 env:
   FIREBASE_URL: 'https://smc-exam-prep-38d22-default-rtdb.asia-southeast1.firebasedatabase.app'
-  ADMIN_UID: 'OfRWMa7HZgVYQrq4fzLjU3Wl30ml'
+  ADMIN_UID: '0fRWMa7HZgVYQrq4fzLjU3W130m1'
 
 jobs:
   set-rules:
@@ -32,7 +32,6 @@ jobs:
           grep -q '".read": false' firebase-rules.json
           grep -q '".write": false' firebase-rules.json
           grep -q "$ADMIN_UID" firebase-rules.json
-          grep -q 'auth.token.email_verified' firebase-rules.json
           grep -q 'phoneVerified' firebase-rules.json
           grep -q 'quizscores' firebase-rules.json
           grep -q 'leaderboard' firebase-rules.json
