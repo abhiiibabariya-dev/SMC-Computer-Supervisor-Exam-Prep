@@ -95,7 +95,7 @@ jobs:
 
           print('Changed', len(changed), 'HTML pages')
 
-      - name: Commit only real changes
+      - name: Commit real changes and trigger Pages deployment
         run: |
           set -e
           git config user.name 'github-actions[bot]'
@@ -105,5 +105,5 @@ jobs:
             echo 'No changes to commit.'
             exit 0
           fi
-          git commit -m 'chore: rebrand site and sync status [skip ci]'
+          git commit -m 'chore: rebrand site and sync status'
           git push origin HEAD:master
