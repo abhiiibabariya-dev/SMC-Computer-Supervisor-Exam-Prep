@@ -26,22 +26,7 @@ jobs:
           export NOW="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
           payload=$(python3 - <<'PY'
 import json, os
-print(json.dumps({
-  'uid':'eQXLQB0WQGMEWaafXDRNB9sB5MC2',
-  'email':'yeshabhavsar18@gmail.com',
-  'name':'Yesha Bhavsar',
-  'plan':'premium99',
-  'planLabel':'Premium ₹99',
-  'subscriptionStatus':'active',
-  'expiresAt':None,
-  'entitlements':{'mockTests':True,'fullAccess':True},
-  'approvedAt':os.environ['NOW'],
-  'approvedBy':'0fRWMa7HZgVYQrq4fzLjU3W130m1',
-  'lastPaymentOrder':'MANUAL-YESHA-20260821',
-  'lastPaymentTxn':'UPI-VERIFIED-659081021042',
-  'lastPaymentAmount':99,
-  'provisionedByAdmin':True
-}))
+print(json.dumps({'uid':'eQXLQB0WQGMEWaafXDRNB9sB5MC2','email':'yeshabhavsar18@gmail.com','name':'Yesha Bhavsar','plan':'premium99','planLabel':'Premium ₹99','subscriptionStatus':'active','expiresAt':None,'entitlements':{'mockTests':True,'fullAccess':True},'approvedAt':os.environ['NOW'],'approvedBy':'0fRWMa7HZgVYQrq4fzLjU3W130m1','lastPaymentOrder':'MANUAL-YESHA-20260821','lastPaymentTxn':'UPI-VERIFIED-659081021042','lastPaymentAmount':99,'provisionedByAdmin':True}))
 PY
 )
           HTTP=$(curl -sS -L --retry 5 --retry-all-errors --retry-delay 2 --connect-timeout 15 --max-time 60 -o resp.json -w '%{http_code}' -X PATCH "${FIREBASE_URL}/users/${TARGET_UID}.json?auth=${FB_SECRET}" -H 'Content-Type: application/json' --data "$payload")
@@ -65,7 +50,7 @@ assert u.get('expiresAt') is None
 assert u.get('entitlements',{}).get('fullAccess') is True
 print('Verified: Premium ₹99 / Full Access / Lifetime')
 PY
-      - name: Record successful grant
+      - name: Record and remove one-time workflow
         shell: bash
         run: |
           cat > grant-result.json <<'EOF'
@@ -74,5 +59,6 @@ PY
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add grant-result.json
-          git commit -m 'chore: record one-time premium grant result'
+          git rm .github/workflows/grant-yesha-premium-once.yml
+          git commit -m 'chore: record and remove one-time premium grant'
           git push
