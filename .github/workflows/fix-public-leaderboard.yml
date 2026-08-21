@@ -1,0 +1,72 @@
+name: One-time public leaderboard repair
+
+on:
+  push:
+    paths:
+      - '.github/workflows/fix-public-leaderboard.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  repair:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Repair public leaderboard read/write paths
+        shell: python
+        run: |
+          from pathlib import Path
+          import re
+
+          quiz = Path('docs/quiz.html')
+          text = quiz.read_text(encoding='utf-8')
+          pattern = re.compile(r"  function postLeaderboard\(s,sc,tot,secs\)\{.*?\n  \}", re.S)
+          replacement = '''  function postLeaderboard(s,sc,tot,secs){
+    if(!FB||!window.firebase||!firebase.auth)return;
+    var user=firebase.auth().currentUser;
+    if(!user)return;
+    var p={}; try{p=JSON.parse(localStorage.getItem('smc_account')||'{}');}catch(e){}
+    var rec={uid:user.uid,name:(p.name||user.displayName||'Anonymous'),subj:s,score:sc,total:tot,secs:secs,t:new Date().toISOString()};
+    try{fetch(FB+'/leaderboard_public.json',{method:'POST',body:JSON.stringify(rec),headers:{'Content-Type':'application/json'}}).catch(function(){});}catch(e){}
+  }'''
+          text2, count = pattern.subn(replacement, text, count=1)
+          if count != 1:
+              raise SystemExit('Could not locate quiz leaderboard writer.')
+          quiz.write_text(text2, encoding='utf-8')
+
+          lb = Path('docs/leaderboard.html')
+          lt = lb.read_text(encoding='utf-8')
+          lt2 = lt.replace("FB+'/leaderboard.json'", "FB+'/leaderboard_public.json'")
+          if lt2 == lt:
+              raise SystemExit('Could not locate leaderboard reader.')
+          lb.write_text(lt2, encoding='utf-8')
+
+      - name: Validate repaired files
+        run: |
+          set -euo pipefail
+          node --check <(python3 - <<'PY'
+          from pathlib import Path
+          import re
+          t=Path('docs/quiz.html').read_text(encoding='utf-8')
+          blocks=re.findall(r'<script>(.*?)</script>',t,re.S)
+          print('\n'.join(blocks))
+          PY
+          )
+          grep -q 'leaderboard_public.json' docs/quiz.html
+          grep -q 'leaderboard_public.json' docs/leaderboard.html
+          ! grep -q "mobile:(u.mobile" docs/quiz.html
+
+      - name: Commit repair and retire this one-time workflow
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/quiz.html docs/leaderboard.html
+          git rm .github/workflows/fix-public-leaderboard.yml
+          git commit -m 'fix: restore secure public leaderboard flow'
+          git push origin HEAD:master
