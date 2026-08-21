@@ -37,15 +37,11 @@ jobs:
               if not (source/f).is_file(): raise SystemExit(f'docs/{f} is missing')
           if site.exists(): shutil.rmtree(site)
           shutil.copytree(source,site);(site/'.nojekyll').touch()
-
-          # Generate the public timestamp at build time instead of committing a
-          # timestamp every day. This removes a competing scheduled writer.
           home=site/'index.html'
           html=home.read_text(encoding='utf-8',errors='ignore')
           today=datetime.now(ZoneInfo('Asia/Kolkata')).strftime('%d %B %Y')
           html=re.sub(r'Last updated:\s*.*?\s*&middot;',f'Last updated: {today} &middot;',html,count=1,flags=re.I)
           home.write_text(html,encoding='utf-8')
-
           gate=site/'gate.js';sub=site/'subscription.js';pay=site/'subscription-payments.js';profile=site/'profile.js';boot=site/'profile-bootstrap.js';activity=site/'activity-audit.js';loginaudit=site/'login-audit.js';animations=site/'animations.css';transitions=site/'transitions.js';leaderboardsafety=site/'leaderboard-safety.js'
           changed=[]
           for page in site.rglob('*.html'):
@@ -63,12 +59,9 @@ jobs:
                       text=text[:pos]+f'\n<script src="{rel}"></script>\n'+text[pos:]
                   end=text.lower().rfind('</body>')
                   if end>=0:
-                      rel=os.path.relpath(loginaudit,page.parent).replace('\\','/')
-                      text=text[:end]+f'\n<script src="{rel}"></script>\n'+text[end:]
-                      rel=os.path.relpath(transitions,page.parent).replace('\\','/')
-                      text=text[:end]+f'\n<script src="{rel}"></script>\n'+text[end:]
-                      rel=os.path.relpath(leaderboardsafety,page.parent).replace('\\','/')
-                      text=text[:end]+f'\n<script src="{rel}"></script>\n'+text[end:]
+                      for script in (loginaudit,transitions,leaderboardsafety):
+                          rel=os.path.relpath(script,page.parent).replace('\\','/')
+                          text=text[:end]+f'\n<script src="{rel}"></script>\n'+text[end:]
                   page.write_text(text,encoding='utf-8');changed.append(str(page));continue
               text=page.read_text(encoding='utf-8',errors='ignore')
               for script in (gate,sub,pay,profile,boot,activity,transitions,leaderboardsafety):
@@ -87,8 +80,7 @@ jobs:
                       text=text[:end]+f'\n<script src="{rel(transitions)}"></script>\n<script src="{rel(leaderboardsafety)}"></script>\n'+text[end:]
                   page.write_text(text,encoding='utf-8');changed.append(str(page));continue
               tags=[f'<script src="{rel(gate)}?v=20260821"></script>',f'<script src="{rel(sub)}"></script>',f'<script src="{rel(activity)}"></script>',f'<script src="{rel(leaderboardsafety)}"></script>']
-              if page.name.lower()!='client-dashboard.html':
-                  tags.append(f'<script src="{rel(profile)}"></script>')
+              if page.name.lower()!='client-dashboard.html': tags.append(f'<script src="{rel(profile)}"></script>')
               updated=text[:head]+'\n'+'\n'.join(tags)+'\n'+text[head:]
               if page.name.lower()=='premium.html':
                   end=updated.lower().rfind('</body>')
@@ -131,10 +123,10 @@ jobs:
           echo 'Pages build validation passed.'
 
       - name: Configure Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
 
       - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v5
         with:
           path: _site
 
@@ -147,4 +139,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
