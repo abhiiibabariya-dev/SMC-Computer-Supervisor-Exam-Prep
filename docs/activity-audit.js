@@ -1,7 +1,14 @@
-/* SMC authenticated activity audit. Writes to /audit using the Firebase SDK. */
+/* Gujarat Govt Jobs Hub authenticated activity audit. */
 (function(){'use strict';if(window.__SMC_ACTIVITY_AUDIT__)return;window.__SMC_ACTIVITY_AUDIT__=true;
 function load(src){return new Promise(function(ok,no){var s=document.createElement('script');s.src=src;s.onload=ok;s.onerror=no;document.head.appendChild(s);});}
-function boot(){var p=Promise.resolve();if(!window.firebase||!firebase.auth)p=p.then(function(){return load('https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js');});if(!window.firebase||!firebase.database)p=p.then(function(){return load('https://www.gstatic.com/firebasejs/10.12.5/firebase-database-compat.js');});return p.then(function(){var cfg=window.SMC_FIREBASE_CONFIG||{};if(!firebase.apps.length)firebase.initializeApp(cfg);});}
+function boot(){
+  var p=Promise.resolve();
+  if(!window.SMC_FIREBASE_CONFIG)p=p.then(function(){return load('firebase-config.js');});
+  if(!window.firebase||!firebase.initializeApp)p=p.then(function(){return load('https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js');});
+  if(!window.firebase||!firebase.auth)p=p.then(function(){return load('https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js');});
+  if(!window.firebase||!firebase.database)p=p.then(function(){return load('https://www.gstatic.com/firebasejs/10.12.5/firebase-database-compat.js');});
+  return p.then(function(){var cfg=window.SMC_FIREBASE_CONFIG||{};if(!cfg.apiKey||!cfg.authDomain||!cfg.appId||!cfg.databaseURL)throw new Error('Firebase config missing');if(!firebase.apps.length)firebase.initializeApp(cfg);});
+}
 function sid(){try{var k='smc_audit_sid',v=localStorage.getItem(k);if(!v){v='sid-'+Date.now().toString(36)+'-'+Math.random().toString(36).slice(2,10);localStorage.setItem(k,v);}return v;}catch(e){return'sid-'+Math.random().toString(36).slice(2);}}
 function cachedProfile(){try{return JSON.parse(localStorage.getItem('smc_account')||'{}')||{};}catch(e){return{};}}
 function profile(user){return firebase.database().ref('users/'+user.uid).once('value').then(function(s){return s.val()||{};}).catch(function(){return cachedProfile();});}
