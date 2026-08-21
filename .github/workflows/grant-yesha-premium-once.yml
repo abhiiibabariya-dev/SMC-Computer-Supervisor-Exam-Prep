@@ -6,7 +6,7 @@ on:
       - '.github/workflows/grant-yesha-premium-once.yml'
   workflow_dispatch: {}
 permissions:
-  contents: read
+  contents: write
 env:
   FIREBASE_URL: 'https://smc-exam-prep-38d22-default-rtdb.asia-southeast1.firebasedatabase.app'
   TARGET_UID: 'eQXLQB0WQGMEWaafXDRNB9sB5MC2'
@@ -15,6 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
+      - uses: actions/checkout@v5
       - name: Grant lifetime Full Access
         env:
           FB_SECRET: ${{ secrets.FIREBASE_SECRET }}
@@ -43,10 +44,7 @@ print(json.dumps({
 }))
 PY
 )
-          HTTP=$(curl -sS -L --retry 5 --retry-all-errors --retry-delay 2 --connect-timeout 15 --max-time 60 \
-            -o resp.json -w '%{http_code}' \
-            -X PATCH "${FIREBASE_URL}/users/${TARGET_UID}.json?auth=${FB_SECRET}" \
-            -H 'Content-Type: application/json' --data "$payload")
+          HTTP=$(curl -sS -L --retry 5 --retry-all-errors --retry-delay 2 --connect-timeout 15 --max-time 60 -o resp.json -w '%{http_code}' -X PATCH "${FIREBASE_URL}/users/${TARGET_UID}.json?auth=${FB_SECRET}" -H 'Content-Type: application/json' --data "$payload")
           echo "Firebase grant HTTP $HTTP"
           cat resp.json
           test "$HTTP" = "200"
@@ -56,8 +54,7 @@ PY
         shell: bash
         run: |
           set -euo pipefail
-          curl -sS -L --retry 5 --retry-all-errors --retry-delay 2 --connect-timeout 15 --max-time 60 \
-            "${FIREBASE_URL}/users/${TARGET_UID}.json?auth=${FB_SECRET}" -o user.json
+          curl -sS -L --retry 5 --retry-all-errors --retry-delay 2 --connect-timeout 15 --max-time 60 "${FIREBASE_URL}/users/${TARGET_UID}.json?auth=${FB_SECRET}" -o user.json
           python3 - <<'PY'
 import json
 u=json.load(open('user.json',encoding='utf-8'))
@@ -68,3 +65,14 @@ assert u.get('expiresAt') is None
 assert u.get('entitlements',{}).get('fullAccess') is True
 print('Verified: Premium ₹99 / Full Access / Lifetime')
 PY
+      - name: Record successful grant
+        shell: bash
+        run: |
+          cat > grant-result.json <<'EOF'
+          {"status":"success","uid":"eQXLQB0WQGMEWaafXDRNB9sB5MC2","email":"yeshabhavsar18@gmail.com","plan":"premium99","access":"full","expiry":"lifetime"}
+          EOF
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add grant-result.json
+          git commit -m 'chore: record one-time premium grant result'
+          git push
