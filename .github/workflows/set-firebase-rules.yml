@@ -48,7 +48,7 @@ jobs:
           set -euo pipefail
           if [ -z "${FB_SECRET:-}" ]; then
             echo '::error::Repository secret FIREBASE_SECRET is missing.'
-            echo 'Add it under Settings > Secrets and variables > Actions before deploying Firebase rules.'
+            echo 'Add or update FIREBASE_SECRET under Settings > Secrets and variables > Actions.'
             exit 1
           fi
           echo 'Firebase deployment credential is present.'
@@ -59,34 +59,58 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          HTTP=$(curl -sS -o resp.txt -w '%{http_code}' --retry 3 --retry-delay 2 -X PUT "${FIREBASE_URL}/.settings/rules.json?auth=${FB_SECRET}" -H 'Content-Type: application/json' --data-binary @firebase-rules.json)
-          echo "Firebase rules API HTTP $HTTP"
+          rm -f resp.txt
+          HTTP=$(curl -sS -L --retry 5 --retry-all-errors --retry-delay 2 --connect-timeout 15 --max-time 60 \
+            -o resp.txt -w '%{http_code}' \
+            -X PUT "${FIREBASE_URL}/.settings/rules.json?auth=${FB_SECRET}" \
+            -H 'Content-Type: application/json' \
+            --data-binary @firebase-rules.json)
+          echo "Firebase rules API final HTTP $HTTP"
           cat resp.txt
           if [ "$HTTP" != "200" ]; then
-            echo '::error::Firebase rejected the security rules. See the response above.'
+            echo '::error::Firebase rejected the security rules. Check FIREBASE_SECRET and the Firebase project/database URL.'
             exit 1
           fi
+          echo 'Production Firebase rules deployed successfully.'
+
+      - name: Verify deployed rules match repository
+        env:
+          FB_SECRET: ${{ secrets.FIREBASE_SECRET }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -sS -L --retry 5 --retry-all-errors --retry-delay 2 --connect-timeout 15 --max-time 60 \
+            "${FIREBASE_URL}/.settings/rules.json?auth=${FB_SECRET}" \
+            -o deployed-rules.json
+          python3 - <<'PY'
+          import json
+          with open('firebase-rules.json', encoding='utf-8') as f: expected=json.load(f)
+          with open('deployed-rules.json', encoding='utf-8') as f: actual=json.load(f)
+          if expected != actual:
+              raise SystemExit('Deployed Firebase rules do not exactly match firebase-rules.json')
+          print('Deployed rules exactly match repository rules.')
+          PY
 
       - name: Verify anonymous access is blocked
         shell: bash
         run: |
           set -euo pipefail
-          R=$(curl -sS -o /dev/null -w '%{http_code}' "${FIREBASE_URL}/users/security-test.json")
+          R=$(curl -sS -L --retry 3 --retry-all-errors --retry-delay 1 -o /dev/null -w '%{http_code}' "${FIREBASE_URL}/users/security-test.json")
           echo "Anonymous users read HTTP $R"
           test "$R" = "401"
-          W=$(curl -sS -o /dev/null -w '%{http_code}' -X PUT "${FIREBASE_URL}/users/security-test.json" -H 'Content-Type: application/json' -d '{"uid":"security-test","plan":"premium99"}')
+          W=$(curl -sS -L --retry 3 --retry-all-errors --retry-delay 1 -o /dev/null -w '%{http_code}' -X PUT "${FIREBASE_URL}/users/security-test.json" -H 'Content-Type: application/json' -d '{"uid":"security-test","plan":"premium99"}')
           echo "Anonymous users write HTTP $W"
           test "$W" = "401"
 
-      - name: Verify sensitive paths are not publicly readable or writable
+      - name: Verify sensitive paths are protected
         shell: bash
         run: |
           set -euo pipefail
           for path in users payment_requests audit security visits clicks leads quizscores; do
-            code=$(curl -sS -o /dev/null -w '%{http_code}' "${FIREBASE_URL}/${path}.json")
+            code=$(curl -sS -L --retry 3 --retry-all-errors --retry-delay 1 -o /dev/null -w '%{http_code}' "${FIREBASE_URL}/${path}.json")
             echo "Anonymous ${path} read HTTP $code"
             test "$code" = "401"
-            write_code=$(curl -sS -o /dev/null -w '%{http_code}' -X POST "${FIREBASE_URL}/${path}.json" -H 'Content-Type: application/json' -d '{}')
+            write_code=$(curl -sS -L --retry 3 --retry-all-errors --retry-delay 1 -o /dev/null -w '%{http_code}' -X POST "${FIREBASE_URL}/${path}.json" -H 'Content-Type: application/json' -d '{}')
             echo "Anonymous ${path} write HTTP $write_code"
             test "$write_code" = "401"
           done
@@ -95,12 +119,12 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          read_code=$(curl -sS -o /dev/null -w '%{http_code}' "${FIREBASE_URL}/leaderboard.json")
+          read_code=$(curl -sS -L --retry 3 --retry-all-errors --retry-delay 1 -o /dev/null -w '%{http_code}' "${FIREBASE_URL}/leaderboard.json")
           echo "Anonymous leaderboard read HTTP $read_code"
           test "$read_code" = "401"
-          write_code=$(curl -sS -o /dev/null -w '%{http_code}' -X POST "${FIREBASE_URL}/leaderboard.json" -H 'Content-Type: application/json' -d '{"name":"security-test","mobile":"","subj":"test","score":1,"total":1,"secs":1,"t":"2026-01-01T00:00:00Z"}')
+          write_code=$(curl -sS -L --retry 3 --retry-all-errors --retry-delay 1 -o /dev/null -w '%{http_code}' -X POST "${FIREBASE_URL}/leaderboard.json" -H 'Content-Type: application/json' -d '{"name":"security-test","mobile":"","subj":"test","score":1,"total":1,"secs":1,"t":"2026-01-01T00:00:00Z"}')
           echo "Anonymous leaderboard write HTTP $write_code"
           test "$write_code" = "401"
 
       - name: Security rule deployment complete
-        run: echo 'Firebase security-rule smoke tests passed.'
+        run: echo 'Firebase security-rule deployment and smoke tests passed.'
