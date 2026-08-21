@@ -1,0 +1,71 @@
+name: Grant requested premium access once
+on:
+  push:
+    branches: [master]
+    paths:
+      - '.github/workflows/grant-yesha-premium-once.yml'
+  workflow_dispatch: {}
+permissions:
+  contents: read
+env:
+  FIREBASE_URL: 'https://smc-exam-prep-38d22-default-rtdb.asia-southeast1.firebasedatabase.app'
+  TARGET_UID: 'eQXLQB0WQGMEWaafXDRNB9sB5MC2'
+jobs:
+  grant:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Grant lifetime Full Access
+        env:
+          FB_SECRET: ${{ secrets.FIREBASE_SECRET }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -n "${FB_SECRET:-}"
+          now=$(date -u +%Y-%m-%dT%H:%M:%SZ)
+          payload=$(python3 - <<'PY'
+import json, os
+now=os.environ['NOW']
+print(json.dumps({
+  'uid':'eQXLQB0WQGMEWaafXDRNB9sB5MC2',
+  'email':'yeshabhavsar18@gmail.com',
+  'name':'Yesha Bhavsar',
+  'plan':'premium99',
+  'planLabel':'Premium ₹99',
+  'subscriptionStatus':'active',
+  'expiresAt':None,
+  'entitlements':{'mockTests':True,'fullAccess':True},
+  'approvedAt':now,
+  'approvedBy':'0fRWMa7HZgVYQrq4fzLjU3W130m1',
+  'lastPaymentOrder':'MANUAL-YESHA-20260821',
+  'lastPaymentTxn':'UPI-VERIFIED-659081021042',
+  'lastPaymentAmount':99,
+  'provisionedByAdmin':True
+}))
+PY
+)
+          HTTP=$(NOW="$now" curl -sS -L --retry 5 --retry-all-errors --retry-delay 2 --connect-timeout 15 --max-time 60 \
+            -o resp.json -w '%{http_code}' \
+            -X PATCH "${FIREBASE_URL}/users/${TARGET_UID}.json?auth=${FB_SECRET}" \
+            -H 'Content-Type: application/json' --data "$payload")
+          echo "Firebase grant HTTP $HTTP"
+          cat resp.json
+          test "$HTTP" = "200"
+      - name: Verify entitlement
+        env:
+          FB_SECRET: ${{ secrets.FIREBASE_SECRET }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -sS -L --retry 5 --retry-all-errors --retry-delay 2 --connect-timeout 15 --max-time 60 \
+            "${FIREBASE_URL}/users/${TARGET_UID}.json?auth=${FB_SECRET}" -o user.json
+          python3 - <<'PY'
+import json
+u=json.load(open('user.json',encoding='utf-8'))
+assert u.get('plan')=='premium99'
+assert u.get('planLabel')=='Premium ₹99'
+assert u.get('subscriptionStatus')=='active'
+assert u.get('expiresAt') is None
+assert u.get('entitlements',{}).get('fullAccess') is True
+print('Verified: Premium ₹99 / Full Access / Lifetime')
+PY
