@@ -5,8 +5,65 @@
     "users": {
       "$uid": {
         ".read": "auth !== null && (auth.uid === $uid || auth.uid === 'OfRWMa7HZgVYQrq4fzLjU3Wl30ml')",
-        ".write": "auth !== null && (auth.uid === 'OfRWMa7HZgVYQrq4fzLjU3Wl30ml' || (auth.uid === $uid && auth.token.email_verified === true))",
-        ".validate": "auth !== null && (auth.uid === 'OfRWMa7HZgVYQrq4fzLjU3Wl30ml' || (auth.uid === $uid && auth.token.email_verified === true && newData.child('uid').val() === $uid && newData.child('email').val() === auth.token.email && newData.child('emailVerified').val() === true && newData.child('phoneVerified').val() === false && newData.child('mobile').isString() && newData.child('mobile').val().length >= 10 && newData.child('mobile').val().length <= 15 && newData.child('name').isString() && newData.child('name').val().length >= 2 && newData.child('name').val().length <= 100 && newData.child('post').isString() && newData.child('post').val().length >= 2 && newData.child('post').val().length <= 100 && newData.child('plan').val() === (data.exists() ? (data.child('plan').exists() ? data.child('plan').val() : 'free') : 'free') && newData.child('planLabel').val() === (data.exists() ? (data.child('planLabel').exists() ? data.child('planLabel').val() : 'Free') : 'Free') && newData.child('subscriptionStatus').val() === (data.exists() ? (data.child('subscriptionStatus').exists() ? data.child('subscriptionStatus').val() : 'none') : 'none') && newData.child('expiresAt').val() === (data.exists() ? (data.child('expiresAt').exists() ? data.child('expiresAt').val() : null) : null) && newData.child('entitlements').child('mockTests').val() === (data.exists() ? (data.child('entitlements').child('mockTests').exists() ? data.child('entitlements').child('mockTests').val() : false) : false) && newData.child('entitlements').child('fullAccess').val() === (data.exists() ? (data.child('entitlements').child('fullAccess').exists() ? data.child('entitlements').child('fullAccess').val() : false) : false)))"
+        "uid": {
+          ".write": "auth !== null && (auth.uid === 'OfRWMa7HZgVYQrq4fzLjU3Wl30ml' || (auth.uid === $uid && !data.exists() && auth.token.email_verified === true && newData.val() === $uid))",
+          ".validate": "newData.isString() && newData.val() === $uid"
+        },
+        "email": {
+          ".write": "auth !== null && (auth.uid === 'OfRWMa7HZgVYQrq4fzLjU3Wl30ml' || (auth.uid === $uid && !data.exists() && auth.token.email_verified === true && newData.val() === auth.token.email))",
+          ".validate": "newData.isString() && newData.val() === auth.token.email"
+        },
+        "emailVerified": {
+          ".write": "auth !== null && (auth.uid === 'OfRWMa7HZgVYQrq4fzLjU3Wl30ml' || (auth.uid === $uid && !data.exists() && auth.token.email_verified === true && newData.val() === true))",
+          ".validate": "newData.val() === true"
+        },
+        "phoneVerified": {
+          ".write": "auth !== null && (auth.uid === 'OfRWMa7HZgVYQrq4fzLjU3Wl30ml' || (auth.uid === $uid && !data.exists() && auth.token.email_verified === true && newData.val() === false))",
+          ".validate": "newData.val() === false"
+        },
+        "name": {
+          ".write": "auth !== null && (auth.uid === 'OfRWMa7HZgVYQrq4fzLjU3Wl30ml' || (auth.uid === $uid && auth.token.email_verified === true))",
+          ".validate": "newData.isString() && newData.val().length >= 2 && newData.val().length <= 100"
+        },
+        "mobile": {
+          ".write": "auth !== null && (auth.uid === 'OfRWMa7HZgVYQrq4fzLjU3Wl30ml' || (auth.uid === $uid && auth.token.email_verified === true))",
+          ".validate": "newData.isString() && newData.val().matches(/^[6-9][0-9]{9}$/)"
+        },
+        "post": {
+          ".write": "auth !== null && (auth.uid === 'OfRWMa7HZgVYQrq4fzLjU3Wl30ml' || (auth.uid === $uid && auth.token.email_verified === true))",
+          ".validate": "newData.isString() && newData.val().length >= 2 && newData.val().length <= 100"
+        },
+        "postLabel": {
+          ".write": "auth !== null && (auth.uid === 'OfRWMa7HZgVYQrq4fzLjU3Wl30ml' || (auth.uid === $uid && auth.token.email_verified === true))",
+          ".validate": "newData.isString() && newData.val().length >= 2 && newData.val().length <= 100"
+        },
+        "createdAt": {
+          ".write": "auth !== null && (auth.uid === 'OfRWMa7HZgVYQrq4fzLjU3Wl30ml' || (auth.uid === $uid && !data.exists() && auth.token.email_verified === true))",
+          ".validate": "newData.isString() && newData.val().length >= 10 && newData.val().length <= 50"
+        },
+        "updatedAt": {
+          ".write": "auth !== null && (auth.uid === 'OfRWMa7HZgVYQrq4fzLjU3Wl30ml' || (auth.uid === $uid && auth.token.email_verified === true))",
+          ".validate": "newData.isString() && newData.val().length >= 10 && newData.val().length <= 50"
+        },
+        "plan": {
+          ".write": "auth !== null && auth.uid === 'OfRWMa7HZgVYQrq4fzLjU3Wl30ml'",
+          ".validate": "newData.isString() && (newData.val() === 'free' || newData.val() === 'premium49' || newData.val() === 'premium99')"
+        },
+        "planLabel": {
+          ".write": "auth !== null && auth.uid === 'OfRWMa7HZgVYQrq4fzLjU3Wl30ml'",
+          ".validate": "newData.isString() && newData.val().length <= 50"
+        },
+        "subscriptionStatus": {
+          ".write": "auth !== null && auth.uid === 'OfRWMa7HZgVYQrq4fzLjU3Wl30ml'",
+          ".validate": "newData.isString() && (newData.val() === 'none' || newData.val() === 'active' || newData.val() === 'expired')"
+        },
+        "expiresAt": {
+          ".write": "auth !== null && auth.uid === 'OfRWMa7HZgVYQrq4fzLjU3Wl30ml'"
+        },
+        "entitlements": {
+          ".write": "auth !== null && auth.uid === 'OfRWMa7HZgVYQrq4fzLjU3Wl30ml'",
+          ".validate": "newData.hasChildren(['mockTests','fullAccess']) && newData.child('mockTests').isBoolean() && newData.child('fullAccess').isBoolean()"
+        }
       }
     },
     "admins": {
