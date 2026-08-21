@@ -18,7 +18,7 @@ permissions:
 
 concurrency:
   group: gujarat-government-jobs-monitor
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   monitor:
@@ -78,35 +78,21 @@ jobs:
           python3 - <<'PY'
           import json
           from pathlib import Path
-
           backup_path = Path('.monitor-backup/jobs.json')
           current_path = Path('gujarat-monitor/jobs.json')
           report_path = Path('gujarat-monitor/jobs_report.json')
-
-          if not current_path.exists():
-              raise SystemExit('Current job snapshot is missing.')
-
+          if not current_path.exists(): raise SystemExit('Current job snapshot is missing.')
           current = json.loads(current_path.read_text(encoding='utf-8'))
-          if not isinstance(current, list):
-              raise SystemExit('Current job snapshot is not a list.')
-
+          if not isinstance(current, list): raise SystemExit('Current job snapshot is not a list.')
           old = []
           if backup_path.exists():
               old = json.loads(backup_path.read_text(encoding='utf-8'))
-              if not isinstance(old, list):
-                  old = []
-
+              if not isinstance(old, list): old = []
           report = json.loads(report_path.read_text(encoding='utf-8')) if report_path.exists() else {}
           errors = report.get('errors') or []
-
           if old and errors and len(current) < int(len(old) * 0.80):
-              raise SystemExit(
-                  f'Safety gate blocked publication: job count dropped from {len(old)} to {len(current)} while sources are failing.'
-              )
-
-          if not current:
-              raise SystemExit('Safety gate blocked publication: job snapshot is empty.')
-
+              raise SystemExit(f'Safety gate blocked publication: job count dropped from {len(old)} to {len(current)} while sources are failing.')
+          if not current: raise SystemExit('Safety gate blocked publication: job snapshot is empty.')
           print(f'Safety gate passed: {len(current)} jobs, {len(errors)} source warnings.')
           PY
 
@@ -128,8 +114,7 @@ jobs:
           from pathlib import Path
           import re
           pages=[p for p in Path('docs').rglob('*.html') if not p.name.lower().endswith('.backup.html')]
-          missing=[]
-          wrong=[]
+          missing=[]; wrong=[]
           pattern=re.compile(r'<script\s+src="/SMC-Computer-Supervisor-Exam-Prep/auto-live-jobs\.js(?:\?[^" ]*)?"[^>]*></script>', re.I)
           for p in pages:
               t=p.read_text(encoding='utf-8',errors='ignore')
@@ -139,7 +124,6 @@ jobs:
           if wrong: raise SystemExit('Pages missing the correct GitHub Pages live-layer path: '+', '.join(wrong))
           print(f'Validated {len(pages)} HTML pages with the correct global live layer.')
           PY
-          echo "Validation passed."
 
       - name: Show monitor report
         if: always()
@@ -153,9 +137,10 @@ jobs:
             echo 'The source scan failed; last known-good job data was preserved.'
           fi
 
-      - name: Commit jobs, official status and all-page updates
+      - name: Commit and push updates safely
+        shell: bash
         run: |
-          set -e
+          set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A gujarat-monitor gujarat-jobs.json docs .github/workflows/smc-auto-monitor.yml
@@ -164,4 +149,18 @@ jobs:
             exit 0
           fi
           git commit -m "chore: refresh official Gujarat and SMC updates [skip ci]"
-          git push origin master
+          for attempt in 1 2 3; do
+            git fetch origin master
+            if git rebase origin/master; then
+              if git push origin HEAD:master; then
+                echo "Repository update pushed successfully on attempt $attempt."
+                exit 0
+              fi
+            else
+              echo "Rebase failed on attempt $attempt; aborting rebase."
+              git rebase --abort || true
+            fi
+            sleep $((attempt * 3))
+          done
+          echo '::error::Unable to push monitor update after 3 attempts.'
+          exit 1
