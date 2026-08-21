@@ -40,11 +40,17 @@ jobs:
                       text=re.sub(r'\s*<script\s+[^>]*src=["\'][^"\']*'+re.escape(script.name)+r'(?:\?[^"\']*)?["\'][^>]*>\s*</script>','',text,flags=re.I)
                   pos=text.lower().find('</head>')
                   if pos>=0:
+                      css=os.path.relpath(animations,page.parent).replace('\\','/')
+                      if not re.search(r'<link\s+[^>]*href=["\'][^"\']*'+re.escape(os.path.basename(css))+r'["\'][^>]*>',text,re.I):
+                          text=text[:pos]+f'\n<link rel="stylesheet" href="{css}">\n'+text[pos:]
+                          pos=text.lower().find('</head>')
                       rel=os.path.relpath(boot,page.parent).replace('\\','/')
                       text=text[:pos]+f'\n<script src="{rel}"></script>\n'+text[pos:]
                   end=text.lower().rfind('</body>')
                   if end>=0:
                       rel=os.path.relpath(loginaudit,page.parent).replace('\\','/')
+                      text=text[:end]+f'\n<script src="{rel}"></script>\n'+text[end:]
+                      rel=os.path.relpath(transitions,page.parent).replace('\\','/')
                       text=text[:end]+f'\n<script src="{rel}"></script>\n'+text[end:]
                   page.write_text(text,encoding='utf-8');changed.append(str(page));continue
               text=page.read_text(encoding='utf-8',errors='ignore')
@@ -92,6 +98,8 @@ jobs:
           grep -q 'activity-audit.js' _site/index.html
           grep -q 'animations.css' _site/index.html
           grep -q 'transitions.js' _site/index.html
+          grep -q 'animations.css' _site/login.html
+          grep -q 'transitions.js' _site/login.html
           grep -q 'subscription.js' _site/mock-test.html
           grep -q 'subscription-payments.js' _site/premium.html
           grep -q 'profile.js' _site/client-dashboard.html
