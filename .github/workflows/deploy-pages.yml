@@ -3,7 +3,9 @@ name: Deploy SMC Prep to GitHub Pages
 on:
   push:
     branches: [master]
-  workflow_dispatch:
+  schedule:
+    - cron: '12,42 * * * *'
+  workflow_dispatch: {}
 
 permissions:
   contents: read
@@ -17,9 +19,11 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - name: Checkout repository
         uses: actions/checkout@v5
+
       - name: Prepare site
         shell: python
         run: |
@@ -74,10 +78,6 @@ jobs:
               tags=[f'<script src="{rel(gate)}?v=20260821"></script>',f'<script src="{rel(sub)}"></script>',f'<script src="{rel(activity)}"></script>',f'<script src="{rel(leaderboardsafety)}"></script>']
               if page.name.lower()!='client-dashboard.html':
                   tags.append(f'<script src="{rel(profile)}"></script>')
-              else:
-                  # client-dashboard has its own complete Firebase account renderer.
-                  # Do not inject the legacy profile.js renderer or the subscription card appears twice.
-                  pass
               updated=text[:head]+'\n'+'\n'.join(tags)+'\n'+text[head:]
               if page.name.lower()=='premium.html':
                   end=updated.lower().rfind('</body>')
@@ -86,22 +86,12 @@ jobs:
               if end>=0:updated=updated[:end]+f'\n<script src="{rel(transitions)}"></script>\n'+updated[end:]
               page.write_text(updated,encoding='utf-8');changed.append(str(page))
           print(f'Prepared {len(changed)} HTML pages')
-      - name: Validate published site
+
+      - name: Validate published site and JavaScript
         run: |
           set -euo pipefail
-          test -f _site/index.html
-          test -f _site/login.html
-          test -f _site/gate.js
-          test -f _site/subscription.js
-          test -f _site/subscription-payments.js
-          test -f _site/firebase-config.js
-          test -f _site/profile-bootstrap.js
-          test -f _site/activity-audit.js
-          test -f _site/login-audit.js
-          test -f _site/animations.css
-          test -f _site/transitions.js
-          test -f _site/leaderboard-safety.js
-          ! grep -q 'gate.js' _site/index.html
+          for f in index.html login.html gate.js firebase-config.js subscription.js subscription-payments.js profile.js profile-bootstrap.js activity-audit.js login-audit.js animations.css transitions.js leaderboard-safety.js; do test -f "_site/$f"; done
+          ! grep -q 'src="gate.js' _site/index.html
           ! grep -q 'smcAuthOverlay' _site/index.html
           ! grep -q 'Secure Firebase authentication could not be initialized' _site/index.html
           grep -q 'activity-audit.js' _site/index.html
@@ -111,17 +101,32 @@ jobs:
           grep -q 'leaderboard-safety.js' _site/quiz.html
           grep -q 'animations.css' _site/login.html
           grep -q 'transitions.js' _site/login.html
+          grep -q 'profile-bootstrap.js' _site/login.html
+          grep -q 'login-audit.js' _site/login.html
           grep -q 'subscription.js' _site/mock-test.html
           grep -q 'subscription-payments.js' _site/premium.html
           ! grep -q 'profile.js' _site/client-dashboard.html
           grep -q 'profile.js' _site/premium.html
           grep -q 'animations.css' _site/client-dashboard.html
+          node --check _site/gate.js
+          node --check _site/profile-bootstrap.js
+          node --check _site/profile.js
+          node --check _site/activity-audit.js
+          node --check _site/login-audit.js
+          node --check _site/transitions.js
+          node --check _site/leaderboard-safety.js
+          node --check _site/subscription.js
+          node --check _site/subscription-payments.js
+          echo 'Pages build validation passed.'
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v4
         with:
           path: _site
+
   deploy:
     environment:
       name: github-pages
