@@ -1,0 +1,63 @@
+name: Deploy Firebase Security Rules v2
+on:
+  push:
+    branches: [master]
+    paths: ['firebase-rules.json','.github/workflows/set-firebase-rules-v2.yml']
+  workflow_dispatch: {}
+permissions:
+  contents: read
+env:
+  FIREBASE_URL: 'https://smc-exam-prep-38d22-default-rtdb.asia-southeast1.firebasedatabase.app'
+  ADMIN_UID: '0fRWMa7HZgVYQrq4fzLjU3W130m1'
+  ADMIN_EMAIL: 'abhibariya007@gmail.com'
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate rules JSON
+        run: |
+          set -euo pipefail
+          python3 -m json.tool firebase-rules.json >/dev/null
+          grep -q '".read": false' firebase-rules.json
+          grep -q '".write": false' firebase-rules.json
+          grep -q "$ADMIN_UID" firebase-rules.json
+          grep -q "$ADMIN_EMAIL" firebase-rules.json
+          grep -q 'emailVerified' firebase-rules.json
+          grep -q 'phoneVerified' firebase-rules.json
+          grep -q 'premium49' firebase-rules.json
+          grep -q 'premium99' firebase-rules.json
+          echo 'Firebase rules validation passed.'
+      - name: Check deployment secret
+        env:
+          FB_SECRET: ${{ secrets.FIREBASE_SECRET }}
+        run: test -n "${FB_SECRET:-}"
+      - name: Deploy rules
+        env:
+          FB_SECRET: ${{ secrets.FIREBASE_SECRET }}
+        run: |
+          set -euo pipefail
+          code=$(curl -sS -L --retry 5 --retry-all-errors --retry-delay 2 --connect-timeout 15 --max-time 60 -o response.txt -w '%{http_code}' -X PUT "${FIREBASE_URL}/.settings/rules.json?auth=${FB_SECRET}" -H 'Content-Type: application/json' --data-binary @firebase-rules.json)
+          cat response.txt
+          test "$code" = 200
+      - name: Verify exact deployed rules
+        env:
+          FB_SECRET: ${{ secrets.FIREBASE_SECRET }}
+        run: |
+          curl -sS -L --retry 5 --retry-all-errors --retry-delay 2 "${FIREBASE_URL}/.settings/rules.json?auth=${FB_SECRET}" -o deployed.json
+          python3 - <<'PY'
+          import json
+          with open('firebase-rules.json') as f: a=json.load(f)
+          with open('deployed.json') as f: b=json.load(f)
+          assert a==b, 'Deployed rules differ from repository rules'
+          print('Exact rules match confirmed.')
+          PY
+      - name: Verify anonymous database protection
+        run: |
+          set -euo pipefail
+          for p in users payment_requests audit visits clicks leads security quizscores leaderboard; do
+            code=$(curl -sS -L --retry 3 --retry-all-errors -o /dev/null -w '%{http_code}' "${FIREBASE_URL}/${p}.json")
+            test "$code" = 401
+          done
+          echo 'Anonymous reads are blocked for all sensitive paths.'
