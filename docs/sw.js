@@ -3,9 +3,9 @@
  *   - HTML navigations: network-first (fresh content), fall back to cache, then offline page.
  *   - Static assets: stale-while-revalidate.
  *   - Authentication-critical files are always fetched from the network so an old
- *     cached login gate cannot survive a deployment.
+ *     cached login/profile gate cannot survive a deployment.
  */
-const CACHE = 'smc-v4';
+const CACHE = 'smc-v5';
 const CORE = [
   './',
   './index.html',
@@ -37,6 +37,7 @@ const CORE = [
 const AUTH_CRITICAL = new Set([
   'gate.js',
   'login.html',
+  'profile-setup.html',
   'client-dashboard.html',
   'admin-subscriptions.html'
 ]);
@@ -72,8 +73,8 @@ self.addEventListener('fetch', (e) => {
   const url = new URL(req.url);
   if (url.origin !== self.location.origin) return;
 
-  // Never cache authentication gates/pages. This prevents stale auth code from
-  // surviving a deployment and causing redirect loops or old access decisions.
+  // Never cache authentication gates/pages. This prevents stale auth code or a
+  // stale profile-save page from surviving a deployment.
   if (isAuthCritical(url)) {
     e.respondWith(fetch(req, { cache: 'no-store' }));
     return;
