@@ -22,10 +22,9 @@ jobs:
         run: |
           set -euo pipefail
           test -n "${FB_SECRET:-}"
-          now=$(date -u +%Y-%m-%dT%H:%M:%SZ)
+          export NOW="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
           payload=$(python3 - <<'PY'
 import json, os
-now=os.environ['NOW']
 print(json.dumps({
   'uid':'eQXLQB0WQGMEWaafXDRNB9sB5MC2',
   'email':'yeshabhavsar18@gmail.com',
@@ -35,7 +34,7 @@ print(json.dumps({
   'subscriptionStatus':'active',
   'expiresAt':None,
   'entitlements':{'mockTests':True,'fullAccess':True},
-  'approvedAt':now,
+  'approvedAt':os.environ['NOW'],
   'approvedBy':'0fRWMa7HZgVYQrq4fzLjU3W130m1',
   'lastPaymentOrder':'MANUAL-YESHA-20260821',
   'lastPaymentTxn':'UPI-VERIFIED-659081021042',
@@ -44,7 +43,7 @@ print(json.dumps({
 }))
 PY
 )
-          HTTP=$(NOW="$now" curl -sS -L --retry 5 --retry-all-errors --retry-delay 2 --connect-timeout 15 --max-time 60 \
+          HTTP=$(curl -sS -L --retry 5 --retry-all-errors --retry-delay 2 --connect-timeout 15 --max-time 60 \
             -o resp.json -w '%{http_code}' \
             -X PATCH "${FIREBASE_URL}/users/${TARGET_UID}.json?auth=${FB_SECRET}" \
             -H 'Content-Type: application/json' --data "$payload")
