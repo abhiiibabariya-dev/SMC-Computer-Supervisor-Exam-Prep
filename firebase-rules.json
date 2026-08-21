@@ -3,7 +3,7 @@
     ".read": false,
     ".write": false,
     "users": {
-      ".read": "auth !== null && (auth.uid === '0fRWMa7HZgVYQrq4fzLjU3W130m1' || auth.token.email === 'abhibabariya007@gmail.com')",
+      ".read": "auth !== null && (auth.uid === '0fRWMa7HZgVYQrq4fzLjU3W130m1' || auth.token.email === 'abhibariya007@gmail.com')",
       "$uid": {
         ".read": "auth !== null && (auth.uid === $uid || auth.uid === '0fRWMa7HZgVYQrq4fzLjU3W130m1' || auth.token.email === 'abhibariya007@gmail.com')",
         "uid": {".write": "auth !== null && (auth.uid === '0fRWMa7HZgVYQrq4fzLjU3W130m1' || auth.token.email === 'abhibariya007@gmail.com' || (auth.uid === $uid && !data.exists() && newData.val() === $uid))", ".validate": "newData.isString() && newData.val() === $uid"},
@@ -18,7 +18,7 @@
         "updatedAt": {".write": "auth !== null && (auth.uid === '0fRWMa7HZgVYQrq4fzLjU3W130m1' || auth.token.email === 'abhibariya007@gmail.com' || auth.uid === $uid)", ".validate": "newData.isString() && newData.val().length >= 10 && newData.val().length <= 50"},
         "plan": {".write": "auth !== null && (auth.uid === '0fRWMa7HZgVYQrq4fzLjU3W130m1' || auth.token.email === 'abhibariya007@gmail.com')", ".validate": "newData.isString() && (newData.val() === 'free' || newData.val() === 'premium49' || newData.val() === 'premium99')"},
         "planLabel": {".write": "auth !== null && (auth.uid === '0fRWMa7HZgVYQrq4fzLjU3W130m1' || auth.token.email === 'abhibariya007@gmail.com')", ".validate": "newData.isString() && newData.val().length <= 50"},
-        "subscriptionStatus": {"write": "auth !== null && (auth.uid === '0fRWMa7HZgVYQrq4fzLjU3W130m1' || auth.token.email === 'abhibariya007@gmail.com')", ".validate": "newData.isString() && (newData.val() === 'none' || newData.val() === 'active' || newData.val() === 'expired' || newData.val() === 'pending' || newData.val() === 'rejected')"},
+        "subscriptionStatus": {".write": "auth !== null && (auth.uid === '0fRWMa7HZgVYQrq4fzLjU3W130m1' || auth.token.email === 'abhibariya007@gmail.com')", ".validate": "newData.isString() && (newData.val() === 'none' || newData.val() === 'active' || newData.val() === 'expired' || newData.val() === 'pending' || newData.val() === 'rejected')"},
         "expiresAt": {".write": "auth !== null && (auth.uid === '0fRWMa7HZgVYQrq4fzLjU3W130m1' || auth.token.email === 'abhibariya007@gmail.com')"},
         "entitlements": {".write": "auth !== null && (auth.uid === '0fRWMa7HZgVYQrq4fzLjU3W130m1' || auth.token.email === 'abhibariya007@gmail.com')", ".validate": "newData.hasChildren(['mockTests','fullAccess']) && newData.child('mockTests').isBoolean() && newData.child('fullAccess').isBoolean()"}
       }
