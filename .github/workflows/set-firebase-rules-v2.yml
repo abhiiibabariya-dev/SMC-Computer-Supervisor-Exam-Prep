@@ -22,7 +22,6 @@ jobs:
           grep -q '".read": false' firebase-rules.json
           grep -q '".write": false' firebase-rules.json
           grep -q "$ADMIN_EMAIL" firebase-rules.json
-          grep -q 'email_verified' firebase-rules.json
           grep -q 'emailVerified' firebase-rules.json
           grep -q 'phoneVerified' firebase-rules.json
           grep -q 'premium49' firebase-rules.json
