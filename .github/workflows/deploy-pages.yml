@@ -28,6 +28,8 @@ jobs:
         shell: python
         run: |
           from pathlib import Path
+          from datetime import datetime
+          from zoneinfo import ZoneInfo
           import os,re,shutil
           source=Path('docs');site=Path('_site')
           required=['index.html','login.html','gate.js','firebase-config.js','subscription.js','subscription-payments.js','profile.js','profile-bootstrap.js','activity-audit.js','login-audit.js','animations.css','transitions.js','leaderboard-safety.js']
@@ -35,6 +37,15 @@ jobs:
               if not (source/f).is_file(): raise SystemExit(f'docs/{f} is missing')
           if site.exists(): shutil.rmtree(site)
           shutil.copytree(source,site);(site/'.nojekyll').touch()
+
+          # Generate the public timestamp at build time instead of committing a
+          # timestamp every day. This removes a competing scheduled writer.
+          home=site/'index.html'
+          html=home.read_text(encoding='utf-8',errors='ignore')
+          today=datetime.now(ZoneInfo('Asia/Kolkata')).strftime('%d %B %Y')
+          html=re.sub(r'Last updated:\s*.*?\s*&middot;',f'Last updated: {today} &middot;',html,count=1,flags=re.I)
+          home.write_text(html,encoding='utf-8')
+
           gate=site/'gate.js';sub=site/'subscription.js';pay=site/'subscription-payments.js';profile=site/'profile.js';boot=site/'profile-bootstrap.js';activity=site/'activity-audit.js';loginaudit=site/'login-audit.js';animations=site/'animations.css';transitions=site/'transitions.js';leaderboardsafety=site/'leaderboard-safety.js'
           changed=[]
           for page in site.rglob('*.html'):
