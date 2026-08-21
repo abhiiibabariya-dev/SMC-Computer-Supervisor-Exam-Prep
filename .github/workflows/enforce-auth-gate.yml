@@ -60,7 +60,7 @@ jobs:
           for item in changed:
               print(' -', item)
 
-      - name: Commit page protection changes
+      - name: Commit page protection changes and trigger deployment
         shell: bash
         run: |
           set -e
@@ -71,5 +71,5 @@ jobs:
             echo "No HTML changes required."
             exit 0
           fi
-          git commit -m "chore: enforce authentication on protected pages [skip ci]"
+          git commit -m "chore: enforce authentication on protected pages"
           git push origin HEAD:master
