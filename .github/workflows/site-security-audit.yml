@@ -25,10 +25,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '22'
+
       - name: Validate Firebase rules
         shell: bash
         run: |
@@ -40,33 +42,43 @@ jobs:
           r=d['rules']
           assert r.get('.read') is False
           assert r.get('.write') is False
-          for key in ('users','payment_requests','premium_content','visits','clicks','leads','security','quizscores','leaderboard'):
+          for key in ('users','payment_requests','premium_content','visits','clicks','leads','security','quizscores','leaderboard','leaderboard_public'):
               assert key in r, key
           u=r['users']['$uid']
-          assert 'auth.token.email_verified' in u['.validate']
-          assert 'auth.token.phone_number' not in u['.write']
-          assert 'auth.token.phone_number' not in u['.validate']
-          for key in ('visits','clicks','leads','security','quizscores','leaderboard'):
+          assert u.get('.read')
+          assert 'auth.token.email_verified' in u['name']['.write']
+          assert 'auth.token.email_verified' in u['emailVerified']['.write']
+          assert 'auth.token.email_verified' in u['uid']['.write']
+          assert 'auth.token.phone_number' not in json.dumps(u)
+          for key in ('visits','clicks','leads','security','quizscores'):
               assert 'auth !== null' in r[key]['$id']['.write']
               assert '.validate' in r[key]['$id']
-          assert r['leaderboard']['.read'] is True
+          assert 'auth.uid' in r['leaderboard']['.read']
+          assert 'auth !== null' in r['leaderboard_public']['.read']
           print('Firebase rules: PASS')
           PY
+
       - name: Validate critical JavaScript syntax
         shell: bash
         run: |
           set -euo pipefail
-          for f in docs/gate.js docs/login.html docs/profile-setup.html docs/profile-enhancer.js docs/auto-live-jobs.js docs/tracker.js docs/activity-audit.js docs/login-audit.js; do
+          for f in docs/gate.js docs/profile-enhancer.js docs/auto-live-jobs.js docs/tracker.js docs/activity-audit.js docs/login-audit.js docs/profile-bootstrap.js; do
             test -f "$f"
-            if [[ "$f" == *.html ]]; then grep -q 'firebase.initializeApp' "$f"; else node --check "$f"; fi
+            node --check "$f"
           done
+          test -f docs/login.html
+          test -f docs/profile-setup.html
+          grep -q 'firebase.initializeApp' docs/login.html
+          grep -q 'firebase.initializeApp' docs/profile-setup.html
           echo 'Critical JavaScript/config syntax: PASS'
+
       - name: Check client-side secrets
         shell: bash
         run: |
           set -euo pipefail
           if grep -RInE '(FIREBASE_SECRET|databaseSecret|client_secret|private_key)[[:space:]]*[:=]' docs --include='*.js' --include='*.html' --include='*.json'; then exit 1; fi
           echo 'Client-side secret scan: PASS'
+
       - name: Check page script duplication
         shell: bash
         run: |
@@ -74,16 +86,21 @@ jobs:
           python3 - <<'PY'
           from pathlib import Path
           import re
-          patterns={'gate.js':re.compile(r'<script[^>]+src=["\'][^"\']*gate\.js(?:\?[^"\']*)?["\']',re.I),'smc-live-sync.js':re.compile(r'<script[^>]+src=["\'][^"\']*smc-live-sync\.js(?:\?[^"\']*)?["\']',re.I),'auto-live-jobs.js':re.compile(r'<script[^>]+src=["\'][^"\']*auto-live-jobs\.js(?:\?[^"\']*)?["\']',re.I)}
+          patterns={
+            'gate.js':re.compile(r'<script[^>]+src=["\'][^"\']*gate\.js(?:\?[^"\']*)?["\']',re.I),
+            'smc-live-sync.js':re.compile(r'<script[^>]+src=["\'][^"\']*smc-live-sync\.js(?:\?[^"\']*)?["\']',re.I),
+            'auto-live-jobs.js':re.compile(r'<script[^>]+src=["\'][^"\']*auto-live-jobs\.js(?:\?[^"\']*)?["\']',re.I)
+          }
           bad=[]
           for p in Path('docs').rglob('*.html'):
-              if p.name.lower() in {'login.html','404.html'} or p.name.lower().endswith('.backup.html'): continue
+              if p.name.lower() in {'index.html','login.html','404.html'} or p.name.lower().endswith('.backup.html'): continue
               text=p.read_text(encoding='utf-8',errors='ignore')
               for name,rx in patterns.items():
                   if len(rx.findall(text))>1: bad.append(f'{p}: duplicate {name}')
           if bad: print('\n'.join(bad)); raise SystemExit(1)
           print('Page script duplication: PASS')
           PY
+
       - name: Verify authentication enforcement
         shell: bash
         run: |
@@ -98,9 +115,13 @@ jobs:
           grep -q 'emailVerified' docs/gate.js
           grep -q 'phoneVerified:false' docs/profile-setup.html
           grep -q 'Complete your profile' docs/profile-setup.html
-          for f in docs/index.html docs/live-jobs.html docs/govt-jobs.html docs/answer-key.html docs/client-dashboard.html docs/premium.html docs/mock-test.html; do test -f "$f"; grep -q 'gate.js' "$f"; done
+          # Public landing page stays public. Protected pages must contain the gate.
+          for f in docs/live-jobs.html docs/govt-jobs.html docs/answer-key.html docs/client-dashboard.html docs/premium.html docs/mock-test.html; do test -f "$f"; grep -q 'gate.js' "$f"; done
+          ! grep -q 'gate.js' docs/index.html
+          ! grep -q 'gate.js' docs/login.html
           grep -q 'auth.signOut' docs/gate.js
           echo 'Authentication, email verification and stable profile completion flow: PASS'
+
       - name: Verify branding and workflow hygiene
         shell: bash
         run: |
@@ -108,6 +129,7 @@ jobs:
           if find .github/workflows -maxdepth 1 -type f \( -name '*.backup' -o -name '*.bak' -o -name '*.old' \) | grep -q .; then exit 1; fi
           if grep -RInE 'Gujarat Govt Jobs Hub[[:space:]]*\|[[:space:]]*Gujarat Govt Jobs Hub' docs --include='*.html'; then exit 1; fi
           echo 'Branding/workflow hygiene: PASS'
+
       - name: Verify legacy admin console is retired
         shell: bash
         run: |
@@ -118,6 +140,7 @@ jobs:
           grep -q 'ADMIN_UID' docs/admin-subscriptions.html
           grep -q 'auth.onAuthStateChanged' docs/admin-subscriptions.html
           echo 'Legacy admin console retirement: PASS'
+
       - name: Verify workflow loop guards
         shell: bash
         run: |
@@ -128,9 +151,11 @@ jobs:
           bad=[]
           for p in Path('.github/workflows').glob('*.yml'):
               text=p.read_text(encoding='utf-8',errors='ignore')
-              if 'contents: write' in text and re.search(r'^\s*push:',text,re.M) and 'github-actions[bot]' not in text: bad.append(str(p))
+              if 'contents: write' in text and re.search(r'^\s*push:',text,re.M) and 'github-actions[bot]' not in text:
+                  bad.append(str(p))
           if bad: raise SystemExit('Possible self-triggering workflow: '+', '.join(bad))
           print('Workflow loop guards: PASS')
           PY
+
       - name: Security audit complete
         run: echo 'Gujarat Govt Jobs Hub whole-site security audit: PASS'
