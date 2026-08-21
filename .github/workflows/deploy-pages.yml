@@ -31,13 +31,13 @@ jobs:
               if not (source/f).is_file(): raise SystemExit(f'docs/{f} is missing')
           if site.exists(): shutil.rmtree(site)
           shutil.copytree(source,site);(site/'.nojekyll').touch()
-          gate=site/'gate.js';sub=site/'subscription.js';pay=site/'subscription-payments.js';profile=site/'profile.js';boot=site/'profile-bootstrap.js';activity=site/'activity-audit.js';loginaudit=site/'login-audit.js'
+          gate=site/'gate.js';sub=site/'subscription.js';pay=site/'subscription-payments.js';profile=site/'profile.js';boot=site/'profile-bootstrap.js';activity=site/'activity-audit.js';loginaudit=site/'login-audit.js';animations=site/'animations.css';transitions=site/'transitions.js'
           changed=[]
           for page in site.rglob('*.html'):
               if page.name.lower()=='login.html':
                   text=page.read_text(encoding='utf-8',errors='ignore')
-                  for script in (boot,loginaudit):
-                      text=re.sub(r'\s*<script\s+[^>]*src=["\'][^"\']*'+re.escape(script.name)+r'["\'][^>]*>\s*</script>','',text,flags=re.I)
+                  for script in (boot,loginaudit,transitions):
+                      text=re.sub(r'\s*<script\s+[^>]*src=["\'][^"\']*'+re.escape(script.name)+r'(?:\?[^"\']*)?["\'][^>]*>\s*</script>','',text,flags=re.I)
                   pos=text.lower().find('</head>')
                   if pos>=0:
                       rel=os.path.relpath(boot,page.parent).replace('\\','/')
@@ -48,23 +48,28 @@ jobs:
                       text=text[:end]+f'\n<script src="{rel}"></script>\n'+text[end:]
                   page.write_text(text,encoding='utf-8');changed.append(str(page));continue
               text=page.read_text(encoding='utf-8',errors='ignore')
-              for script in (gate,sub,pay,profile,boot,activity):
+              for script in (gate,sub,pay,profile,boot,activity,transitions):
                   text=re.sub(r'\s*<script\s+[^>]*src=["\'][^"\']*'+re.escape(script.name)+r'(?:\?[^"\']*)?["\'][^>]*>\s*</script>','',text,flags=re.I)
-              if page.name.lower()=='index.html':
-                  head=text.lower().find('</head>')
-                  if head>=0:
-                      rel=os.path.relpath(activity,page.parent).replace('\\','/')
-                      text=text[:head]+f'\n<script src="{rel}"></script>\n'+text[head:]
-                  page.write_text(text,encoding='utf-8');changed.append(str(page));continue
+              rel=lambda p:os.path.relpath(p,page.parent).replace('\\','/')
               head=text.lower().find('</head>')
               if head<0: continue
-              rel=lambda p:os.path.relpath(p,page.parent).replace('\\','/')
+              css=rel(animations)
+              if not re.search(r'<link\s+[^>]*href=["\'][^"\']*'+re.escape(os.path.basename(css))+r'["\'][^>]*>',text,re.I):
+                  text=text[:head]+f'\n<link rel="stylesheet" href="{css}">\n'+text[head:]
+                  head=text.lower().find('</head>')
+              if page.name.lower()=='index.html':
+                  text=text[:head]+f'\n<script src="{rel(activity)}"></script>\n'+text[head:]
+                  end=text.lower().rfind('</body>')
+                  if end>=0:text=text[:end]+f'\n<script src="{rel(transitions)}"></script>\n'+text[end:]
+                  page.write_text(text,encoding='utf-8');changed.append(str(page));continue
               tags=[f'<script src="{rel(gate)}?v=20260821"></script>',f'<script src="{rel(sub)}"></script>',f'<script src="{rel(activity)}"></script>']
               if page.name.lower()=='client-dashboard.html':tags.append(f'<script src="{rel(profile)}"></script>')
               updated=text[:head]+'\n'+'\n'.join(tags)+'\n'+text[head:]
               if page.name.lower()=='premium.html':
                   end=updated.lower().rfind('</body>')
                   if end>=0:updated=updated[:end]+f'\n<script src="{rel(pay)}"></script>\n'+updated[end:]
+              end=updated.lower().rfind('</body>')
+              if end>=0:updated=updated[:end]+f'\n<script src="{rel(transitions)}"></script>\n'+updated[end:]
               page.write_text(updated,encoding='utf-8');changed.append(str(page))
           print(f'Prepared {len(changed)} HTML pages')
       - name: Validate published site
@@ -85,6 +90,8 @@ jobs:
           ! grep -q 'smcAuthOverlay' _site/index.html
           ! grep -q 'Secure Firebase authentication could not be initialized' _site/index.html
           grep -q 'activity-audit.js' _site/index.html
+          grep -q 'animations.css' _site/index.html
+          grep -q 'transitions.js' _site/index.html
           grep -q 'subscription.js' _site/mock-test.html
           grep -q 'subscription-payments.js' _site/premium.html
           grep -q 'profile.js' _site/client-dashboard.html
