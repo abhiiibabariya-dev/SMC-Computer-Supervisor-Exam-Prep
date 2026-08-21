@@ -3,8 +3,6 @@ name: Deploy SMC Prep to GitHub Pages
 on:
   push:
     branches: [master]
-  schedule:
-    - cron: '12,42 * * * *'
   workflow_dispatch: {}
 
 permissions:
