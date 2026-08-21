@@ -8,7 +8,6 @@ permissions:
   contents: read
 env:
   FIREBASE_URL: 'https://smc-exam-prep-38d22-default-rtdb.asia-southeast1.firebasedatabase.app'
-  ADMIN_UID: '0fRWMa7HZgVYQrq4fzLjU3W130m1'
   ADMIN_EMAIL: 'abhibariya007@gmail.com'
 jobs:
   deploy:
@@ -22,8 +21,8 @@ jobs:
           python3 -m json.tool firebase-rules.json >/dev/null
           grep -q '".read": false' firebase-rules.json
           grep -q '".write": false' firebase-rules.json
-          grep -q "$ADMIN_UID" firebase-rules.json
           grep -q "$ADMIN_EMAIL" firebase-rules.json
+          grep -q 'email_verified' firebase-rules.json
           grep -q 'emailVerified' firebase-rules.json
           grep -q 'phoneVerified' firebase-rules.json
           grep -q 'premium49' firebase-rules.json
@@ -45,6 +44,7 @@ jobs:
         env:
           FB_SECRET: ${{ secrets.FIREBASE_SECRET }}
         run: |
+          set -euo pipefail
           curl -sS -L --retry 5 --retry-all-errors --retry-delay 2 "${FIREBASE_URL}/.settings/rules.json?auth=${FB_SECRET}" -o deployed.json
           python3 - <<'PY'
           import json
