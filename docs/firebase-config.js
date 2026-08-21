@@ -3,6 +3,9 @@
 // Instructions: https://console.firebase.google.com
 window.SMC_FIREBASE_URL = 'https://smc-exam-prep-38d22-default-rtdb.asia-southeast1.firebasedatabase.app';
 
+// Public landing page must never be intercepted by the protected-page auth gate.
+try{var __smcFile=(location.pathname.split('/').pop()||'index.html').toLowerCase();if(__smcFile==='index.html')window.__SMC_UNIFIED_AUTH__=true;}catch(e){}
+
 window.SMC_FIREBASE_CONFIG = {
   apiKey: "AIzaSyBsK3fKL8bmGZM8OY3g7mtLbAym0V5SIc0",
   authDomain: "smc-exam-prep-38d22.firebaseapp.com",
