@@ -37,9 +37,9 @@ function sendToCloud(collection,data){try{if(!window.firebase||!firebase.auth||!
   function load(src){return new Promise(function(ok,no){var s=document.createElement('script');s.src=src;s.onload=ok;s.onerror=function(){no(new Error(src))};document.head.appendChild(s)})}
   function init(){
     var p=Promise.resolve();
-    if(!window.firebase||!firebase.initializeApp)p=p.then(function(){return load('https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js')});
-    if(!window.firebase||!firebase.auth)p=p.then(function(){return load('https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js')});
-    if(!window.firebase||!firebase.database)p=p.then(function(){return load('https://www.gstatic.com/firebasejs/10.12.5/firebase-database-compat.js')});
+    if(!window.firebase||!firebase.initializeApp)p=p.then(function(){return load('https://www.gstatic.com/firebasejs/12.17.1/firebase-app-compat.js')});
+    if(!window.firebase||!firebase.auth)p=p.then(function(){return load('https://www.gstatic.com/firebasejs/12.17.1/firebase-auth-compat.js')});
+    if(!window.firebase||!firebase.database)p=p.then(function(){return load('https://www.gstatic.com/firebasejs/12.17.1/firebase-database-compat.js')});
     return p.then(function(){if(!cfg.apiKey||!cfg.authDomain||!cfg.appId||!cfg.databaseURL)throw new Error('Firebase configuration missing');if(!firebase.apps.length)firebase.initializeApp(cfg);fbAuth=firebase.auth();fbDb=firebase.database();fbReady=true;return new Promise(function(resolve){var once=false;fbAuth.onAuthStateChanged(function(u){currentUser=u;if(!once){once=true;resolve(u)}});});});
   }
   function activeEnt(p){

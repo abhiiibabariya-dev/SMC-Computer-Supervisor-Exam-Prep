@@ -7,7 +7,7 @@
 function load(src){return new Promise(function(ok,no){var s=document.createElement('script');s.src=src;s.onload=ok;s.onerror=no;document.head.appendChild(s);});}
 var cfg=window.SMC_FIREBASE_CONFIG||{};
 var p=Promise.resolve();
-if(!window.firebase||!firebase.database)p=p.then(function(){return load('https://www.gstatic.com/firebasejs/10.12.5/firebase-database-compat.js');});
+if(!window.firebase||!firebase.database)p=p.then(function(){return load('https://www.gstatic.com/firebasejs/12.17.1/firebase-database-compat.js');});
 p.then(function(){
   if(!firebase.apps.length)firebase.initializeApp(cfg);
   firebase.auth().onAuthStateChanged(function(user){
