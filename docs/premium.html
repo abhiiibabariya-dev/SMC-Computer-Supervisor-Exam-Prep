@@ -863,21 +863,27 @@ function sendWhatsApp(){
 }
 
 // ===== EMAILJS CONFIG =====
-// Setup steps (one-time, 5 min):
-//   1. Sign up free at https://www.emailjs.com (200 emails/month free).
-//   2. Add an Email Service (Gmail recommended) → copy SERVICE_ID.
-//   3. Create two templates:
-//      a) "customer_receipt" with variables: {{to_email}} {{name}} {{order}} {{plan}} {{amount}} {{key}} {{txn}} {{date}}
-//      b) "admin_order" with variables: {{name}} {{phone}} {{email}} {{order}} {{plan}} {{amount}} {{key}} {{txn}} {{date}} {{device}}
-//      → copy each TEMPLATE_ID.
-//   4. Account → API Keys → copy PUBLIC_KEY.
-//   5. Paste the four values below. That's it.
+// To enable actual email notifications (instead of opening email client):
+//   1. Sign up free at https://www.emailjs.com
+//   2. Create an Email Service (e.g., Gmail) → copy SERVICE_ID
+//   3. Create two Email Templates:
+//
+//      TEMPLATE 1 - Customer Receipt:
+//         Name: customer_receipt
+//         Variables: to_email, name, order, plan, amount, key, txn, date
+//
+//      TEMPLATE 2 - Admin Notification:
+//         Name: admin_order
+//         Variables: name, phone, email, order, plan, amount, key, txn, date, device
+//
+//   4. In EmailJS Account → API Keys, copy your PUBLIC_KEY
+//   5. Replace the placeholder values below with your actual credentials:
 const EMAILJS = {
-    PUBLIC_KEY:     'PASTE_PUBLIC_KEY_HERE',
-    SERVICE_ID:     'PASTE_SERVICE_ID_HERE',
-    TEMPLATE_CUSTOMER: 'PASTE_CUSTOMER_TEMPLATE_ID_HERE',
-    TEMPLATE_ADMIN:    'PASTE_ADMIN_TEMPLATE_ID_HERE',
-    ADMIN_EMAIL:    'bhinang@techowl.com'
+    PUBLIC_KEY:     'YOUR_EMAILJS_PUBLIC_KEY_HERE',      // Get from EmailJS Account → API Keys
+    SERVICE_ID:     'YOUR_EMAILJS_SERVICE_ID_HERE',      // Get from EmailJS Email Services
+    TEMPLATE_CUSTOMER: 'YOUR_CUSTOMER_TEMPLATE_ID_HERE', // Get from EmailJS Email Templates
+    TEMPLATE_ADMIN:    'YOUR_ADMIN_TEMPLATE_ID_HERE',    // Get from EmailJS Email Templates
+    ADMIN_EMAIL:    'abhibabariya007@gmail.com'          // Admin email for notifications
 };
 function emailjsReady(){
     return window.emailjs && EMAILJS.PUBLIC_KEY.indexOf('PASTE_')!==0 && EMAILJS.SERVICE_ID.indexOf('PASTE_')!==0;
