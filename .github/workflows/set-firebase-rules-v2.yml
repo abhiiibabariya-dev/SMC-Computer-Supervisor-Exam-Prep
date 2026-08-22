@@ -26,7 +26,7 @@ jobs:
           grep -q 'phoneVerified' firebase-rules.json
           grep -q 'premium49' firebase-rules.json
           grep -q 'premium99' firebase-rules.json
-          echo 'Firebase rules validation passed.'
+          echo 'Firebase rules validation passed for admin + subscription paths.'
       - name: Check deployment secret
         env:
           FB_SECRET: ${{ secrets.FIREBASE_SECRET }}
