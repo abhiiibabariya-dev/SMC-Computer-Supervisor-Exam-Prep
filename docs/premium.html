@@ -185,7 +185,7 @@
             <p>You already have full access. All mock tests and premium content are unlocked.</p>
         </div>
         <div class="btn-row">
-            <a class="btn btn-primary" href="mock-test.html">Go to Mock Tests</a>
+            <a class="btn btn-primary" href="#" onclick="trackAndGoToMockTests('already_premium')">Go to Mock Tests</a>
             <a class="btn btn-ghost" href="index.html">Home</a>
         </div>
     </div>
@@ -380,7 +380,7 @@
                 <div style="margin-top:12px;padding:8px 12px;background:rgba(250,204,21,0.06);border:1px solid rgba(250,204,21,0.12);border-radius:8px;font-size:0.7em;color:#fde68a;text-align:center">&#128274; Premium is locked to this device. Access activates automatically.</div>
 
                 <div class="btn-row" style="margin-top:16px">
-                    <a class="btn btn-primary" href="mock-test.html" style="font-size:1em;padding:16px">&#127942; Go to Mock Tests &#8594;</a>
+                    <a class="btn btn-primary" href="#" onclick="trackAndGoToMockTests('payment_success')" style="font-size:1em;padding:16px">&#127942; Go to Mock Tests &#8594;</a>
                 </div>
             </div>
 
@@ -604,6 +604,13 @@ function selectPlan(idx){
     document.querySelectorAll('.plan').forEach((p,i)=>{
         p.classList.toggle('selected',i===idx);
     });
+    // Track plan selection in Google Analytics
+    const planName = PLANS[idx].name;
+    gtag('event', 'select_plan', {
+      currency: 'INR',
+      value: PLANS[idx].price,
+      plan: planName
+    });
 }
 
 function generateOrderId(){
@@ -642,6 +649,19 @@ function goStep(step){
 
     // Step-specific logic
     if(step===3){
+        // Track when user enters payment details
+        const plan = PLANS[selectedPlan];
+        gtag('event', 'begin_checkout', {
+          currency: 'INR',
+          value: plan.price,
+          items: [{
+            item_name: plan.name,
+            item_id: plan.name.toLowerCase().replace(/\s+/g, '_'),
+            price: plan.price,
+            quantity: 1
+          }]
+        });
+
         showPayment();
         startSessionTimer();
     }
@@ -774,6 +794,23 @@ async function verifyPayment(){
         localStorage.setItem('smc_orders',JSON.stringify(orders));
     }
 
+    // Track successful purchase in Google Analytics
+    const plan = PLANS[selectedPlan];
+    gtag('event', 'purchase', {
+      transaction_id: orderNumber,
+      affiliation: 'SMC Exam Prep',
+      value: plan.price,
+      currency: 'INR',
+      tax: 0,
+      shipping: 0,
+      items: [{
+        item_name: plan.name,
+        item_id: plan.name.toLowerCase().replace(/\s+/g, '_'),
+        price: plan.price,
+        quantity: 1
+      }]
+    });
+
     // Show key
     document.getElementById('accessKey').textContent=accessKey;
     document.getElementById('keyResult').style.display='block';
@@ -781,7 +818,7 @@ async function verifyPayment(){
     fillReceipt();
 
     // Update step
-    document.getElementById('sd4').className='step-dot done';
+    document.getElementById('sd4').className='step-done';
     document.getElementById('sl3').className='step-line done';
 
     if(sessionTimeout)clearInterval(sessionTimeout);
