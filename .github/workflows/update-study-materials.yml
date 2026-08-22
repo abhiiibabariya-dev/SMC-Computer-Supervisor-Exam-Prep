@@ -1,0 +1,50 @@
+name: Update Study Materials
+
+on:
+  schedule:
+    # Run daily at 2:00 AM UTC
+    - cron: '0 2 * * *'
+  workflow_dispatch:  # Allow manual triggering
+
+permissions:
+  contents: write  # Needed to commit and push changes
+
+jobs:
+  update-materials:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+        with:
+          # Fetch full history to check for changes
+          fetch-depth: 0
+
+      - name: Set up Python (for any Python-based update logic)
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies (if needed)
+        run: |
+          # Install any tools needed for material updates
+          # Example: install pandoc for markdown to PDF conversion
+          # sudo apt-get update && sudo apt-get install -y pandoc texlive-xetex
+          echo "Checking for update dependencies..."
+          # Add your dependency installation commands here
+
+      - name: Run materials update script
+        id: update_materials
+        run: |
+          chmod +x .github/scripts/update-materials.sh
+          .github/scripts/update-materials.sh
+        
+      - name: Check for updates
+        if: steps.update_materials.outcome == 'success'
+        run: |
+          echo "Materials update check completed successfully"
+          
+      - name: Notify if no changes
+        if: steps.update_materials.outcome == 'success' && github.event_name == 'workflow_dispatch'
+        run: |
+          echo "Manual update check completed - no changes were needed"
