@@ -38,26 +38,26 @@
 ### 1.4 Final Accounts Format
 **Trading Account**
 ```
-Sales (વેચાણ)                    xxx
-Less: Cost of Goods Sold          xxx
-  Opening Stock                   xxx
-  + Purchases                     xxx
-  + Direct Expenses               xxx
-  - Closing Stock                (xxx)
-= Gross Profit (કુલ નફો)         xxx
+Sales (વેચાણ)                    1,00,000
+Less: Cost of Goods Sold          60,000
+  Opening Stock                   10,000
+  + Purchases                     50,000
+  + Direct Expenses               5,000
+  - Closing Stock                (5,000)
+= Gross Profit (કુલ નફો)         40,000
 ```
 
 **Profit & Loss Account**
 ```
-Gross Profit                      xxx
-+ Other Income                    xxx
+Gross Profit                      40,000
++ Other Income                    5,000
 Less: Indirect Expenses
-  Salary (પગાર)                  xxx
-  Rent (ભાડું)                    xxx
-  Depreciation (ઘસારો)           xxx
-  Interest                        xxx
-  Bad Debts                       xxx
-= Net Profit (ચોખ્ખો નફો)       xxx
+  Salary (પગાર)                  15,000
+  Rent (ભાડું)                    5,000
+  Depreciation (ઘસારો)           2,000
+  Interest                        1,000
+  Bad Debts                       1,000
+= Net Profit (ચોખ્ખો નફો)       31,000
 ```
 
 ---
