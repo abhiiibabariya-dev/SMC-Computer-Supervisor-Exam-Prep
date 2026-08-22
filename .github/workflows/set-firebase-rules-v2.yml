@@ -8,7 +8,7 @@ permissions:
   contents: read
 env:
   FIREBASE_URL: 'https://smc-exam-prep-38d22-default-rtdb.asia-southeast1.firebasedatabase.app'
-  ADMIN_EMAIL: 'abhibariya007@gmail.com'
+  ADMIN_EMAIL: 'abhibabariya007@gmail.com'
 jobs:
   deploy:
     runs-on: ubuntu-latest
