@@ -30,7 +30,7 @@ jobs:
           from zoneinfo import ZoneInfo
           import os,re,shutil
           source=Path('docs');site=Path('_site')
-          required=['index.html','login.html','gate.js','firebase-config.js','subscription.js','subscription-payments.js','profile.js','profile-bootstrap.js','activity-audit.js','login-audit.js','animations.css','transitions.js','leaderboard-safety.js']
+          required=['index.html','login.html','gate.js','firebase-config.js','subscription.js','subscription-payments.js','profile.js','profile-bootstrap.js','activity-audit.js','login-audit.js','animations.css','transitions.js','leaderboard-safety.js','quizscore-auth.js','smc-live-sync.js']
           for f in required:
               if not (source/f).is_file(): raise SystemExit(f'docs/{f} is missing')
           if site.exists(): shutil.rmtree(site)
@@ -39,13 +39,17 @@ jobs:
           html=home.read_text(encoding='utf-8',errors='ignore')
           today=datetime.now(ZoneInfo('Asia/Kolkata')).strftime('%d %B %Y')
           html=re.sub(r'Last updated:\s*.*?\s*&middot;',f'Last updated: {today} &middot;',html,count=1,flags=re.I)
+          # Keep static HTML aligned with the current scheduled exam so crawlers do not see the old July state.
+          html=html.replace("const EXAM_DATE='2026-07-12T10:00:00+05:30'","const EXAM_DATE='2026-09-06T10:00:00+05:30'")
+          html=html.replace('Written Exam: Completed on 12 July 2026','Written Exam: Scheduled for 6 September 2026')
+          html=html.replace('EXAM COMPLETED — 12 JULY 2026','EXAM UPDATE — 6 SEPTEMBER 2026')
           home.write_text(html,encoding='utf-8')
-          gate=site/'gate.js';sub=site/'subscription.js';pay=site/'subscription-payments.js';profile=site/'profile.js';boot=site/'profile-bootstrap.js';activity=site/'activity-audit.js';loginaudit=site/'login-audit.js';animations=site/'animations.css';transitions=site/'transitions.js';leaderboardsafety=site/'leaderboard-safety.js'
+          gate=site/'gate.js';sub=site/'subscription.js';pay=site/'subscription-payments.js';profile=site/'profile.js';boot=site/'profile-bootstrap.js';activity=site/'activity-audit.js';loginaudit=site/'login-audit.js';animations=site/'animations.css';transitions=site/'transitions.js';leaderboardsafety=site/'leaderboard-safety.js';quizscoreauth=site/'quizscore-auth.js'
           changed=[]
           for page in site.rglob('*.html'):
               if page.name.lower()=='login.html':
                   text=page.read_text(encoding='utf-8',errors='ignore')
-                  for script in (boot,loginaudit,transitions,leaderboardsafety):
+                  for script in (boot,loginaudit,transitions,leaderboardsafety,quizscoreauth):
                       text=re.sub(r'\s*<script\s+[^>]*src=["\'][^"\']*'+re.escape(script.name)+r'(?:\?[^"\']*)?["\'][^>]*>\s*</script>','',text,flags=re.I)
                   pos=text.lower().find('</head>')
                   if pos>=0:
@@ -62,7 +66,7 @@ jobs:
                           text=text[:end]+f'\n<script src="{rel}"></script>\n'+text[end:]
                   page.write_text(text,encoding='utf-8');changed.append(str(page));continue
               text=page.read_text(encoding='utf-8',errors='ignore')
-              for script in (gate,sub,pay,profile,boot,activity,transitions,leaderboardsafety):
+              for script in (gate,sub,pay,profile,boot,activity,transitions,leaderboardsafety,quizscoreauth):
                   text=re.sub(r'\s*<script\s+[^>]*src=["\'][^"\']*'+re.escape(script.name)+r'(?:\?[^"\']*)?["\'][^>]*>\s*</script>','',text,flags=re.I)
               rel=lambda p:os.path.relpath(p,page.parent).replace('\\','/')
               head=text.lower().find('</head>')
@@ -77,8 +81,9 @@ jobs:
                   if end>=0:
                       text=text[:end]+f'\n<script src="{rel(transitions)}"></script>\n<script src="{rel(leaderboardsafety)}"></script>\n'+text[end:]
                   page.write_text(text,encoding='utf-8');changed.append(str(page));continue
-              tags=[f'<script src="{rel(gate)}?v=20260821"></script>',f'<script src="{rel(sub)}"></script>',f'<script src="{rel(activity)}"></script>',f'<script src="{rel(leaderboardsafety)}"></script>']
+              tags=[f'<script src="{rel(gate)}?v=20260822"></script>',f'<script src="{rel(sub)}"></script>',f'<script src="{rel(activity)}"></script>',f'<script src="{rel(leaderboardsafety)}"></script>']
               if page.name.lower()!='client-dashboard.html': tags.append(f'<script src="{rel(profile)}"></script>')
+              if page.name.lower()=='daily-quiz.html': tags.append(f'<script src="{rel(quizscoreauth)}"></script>')
               updated=text[:head]+'\n'+'\n'.join(tags)+'\n'+text[head:]
               if page.name.lower()=='premium.html':
                   end=updated.lower().rfind('</body>')
@@ -91,10 +96,11 @@ jobs:
       - name: Validate published site and JavaScript
         run: |
           set -euo pipefail
-          for f in index.html login.html gate.js firebase-config.js subscription.js subscription-payments.js profile.js profile-bootstrap.js activity-audit.js login-audit.js animations.css transitions.js leaderboard-safety.js; do test -f "_site/$f"; done
+          for f in index.html login.html gate.js firebase-config.js subscription.js subscription-payments.js profile.js profile-bootstrap.js activity-audit.js login-audit.js animations.css transitions.js leaderboard-safety.js quizscore-auth.js smc-live-sync.js; do test -f "_site/$f"; done
           ! grep -q 'src="gate.js' _site/index.html
           ! grep -q 'smcAuthOverlay' _site/index.html
           ! grep -q 'Secure Firebase authentication could not be initialized' _site/index.html
+          ! grep -q 'Written Exam: Completed on 12 July 2026' _site/index.html
           grep -q 'activity-audit.js' _site/index.html
           grep -q 'animations.css' _site/index.html
           grep -q 'transitions.js' _site/index.html
@@ -106,6 +112,7 @@ jobs:
           grep -q 'login-audit.js' _site/login.html
           grep -q 'subscription.js' _site/mock-test.html
           grep -q 'subscription-payments.js' _site/premium.html
+          grep -q 'quizscore-auth.js' _site/daily-quiz.html
           ! grep -q 'profile.js' _site/client-dashboard.html
           grep -q 'profile.js' _site/premium.html
           grep -q 'animations.css' _site/client-dashboard.html
@@ -118,6 +125,8 @@ jobs:
           node --check _site/leaderboard-safety.js
           node --check _site/subscription.js
           node --check _site/subscription-payments.js
+          node --check _site/quizscore-auth.js
+          node --check _site/smc-live-sync.js
           echo 'Pages build validation passed.'
 
       - name: Configure Pages
