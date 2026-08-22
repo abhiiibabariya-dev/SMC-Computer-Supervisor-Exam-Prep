@@ -44,23 +44,27 @@
 
 ## Folder Structure
 
-```
-Exams/
-├── subjects/
-│   ├── 01_computer_knowledge.md      (Most important - 200+ MCQs)
-│   ├── 02_general_knowledge.md       (Gujarat GK + Current Affairs)
-│   ├── 03_gujarati_language.md       (Grammar + Comprehension)
-│   ├── 04_english_language.md        (Grammar + Vocabulary)
-│   └── 05_mathematics.md             (Quantitative Aptitude)
-├── papers/
-│   ├── previous_paper_analysis.md    (2023 exam pattern analysis)
-│   ├── mock_test_1.md                (Full mock test - 100 marks)
-│   ├── mock_test_2.md                (Full mock test - 100 marks)
-│   └── mock_test_3.md                (Full mock test - 100 marks)
-├── resources/
-│   └── study_plan_and_links.md       (60-day plan + official links)
-└── README.md                         (This file)
-```
+The repository contains preparation materials for various SMC and related Gujarat government job exams. Each exam post has its own directory, typically containing:
+
+- `00_overview.md` – Exam overview and details
+- `01_study_material.md` – Comprehensive study notes
+- `02_mcqs.md` – Multiple-choice questions for practice
+- `03_mock_test_1.md` – First mock test
+- `04_mock_test_2.md` – Second mock test
+
+Some directories may have additional files or subdirectories (e.g., language-specific materials, practical guides, previous papers).
+
+Key directories include:
+- `computer_supervisor_exam/` – Materials for SMC Computer Supervisor (Code 513)
+- `clerk_exam/` – Materials for Clerk and related posts
+- `staff_nurse_exam/` – Materials for Staff Nurse
+- `aquarium_attendant/` / `aquarium_inspector/` – Materials for aquarium-related posts
+- And many others for various SMC positions.
+
+Additionally:
+- `docs/` – Deployable website source (GitHub Pages)
+- `scripts/` – Utility scripts
+- `resources/` – General resources and links
 
 ## Key Links
 - [SMC Official Recruitment](https://www.suratmunicipal.gov.in/information/recruitment)
