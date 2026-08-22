@@ -22,7 +22,7 @@ jobs:
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
           FIREBASE_DATABASE_URL: https://smc-exam-prep-38d22-default-rtdb.asia-southeast1.firebasedatabase.app
-          ADMIN_UID: OfRWMa7HZgVYQrq4fzLjU3Wl30ml
+          ADMIN_EMAIL: abhibabariya007@gmail.com
         run: |
           set -euo pipefail
           if [ -z "${FIREBASE_SERVICE_ACCOUNT_JSON:-}" ]; then
@@ -46,18 +46,14 @@ jobs:
           const { getDatabase } = require('firebase-admin/database');
 
           (async () => {
-            const serviceAccount = JSON.parse(
-              fs.readFileSync('/tmp/firebase-service-account.json', 'utf8')
-            );
-
+            const serviceAccount = JSON.parse(fs.readFileSync('/tmp/firebase-service-account.json', 'utf8'));
             const app = initializeApp({
               credential: cert(serviceAccount),
               databaseURL: process.env.FIREBASE_DATABASE_URL
             });
-
             const auth = getAuth(app);
             const db = getDatabase(app);
-            const adminUid = process.env.ADMIN_UID;
+            const adminEmail = process.env.ADMIN_EMAIL.toLowerCase();
             const cutoff = Date.now() - 7 * 24 * 60 * 60 * 1000;
             let nextPageToken;
             let scanned = 0;
@@ -65,23 +61,23 @@ jobs:
 
             do {
               const page = await auth.listUsers(1000, nextPageToken);
-
               for (const u of page.users) {
                 scanned++;
-                if (u.uid === adminUid) continue;
+                if ((u.email || '').toLowerCase() === adminEmail) continue;
 
                 const created = new Date(u.metadata.creationTime || 0).getTime();
                 const stale = created > 0 && created < cutoff;
-                const incomplete = !u.emailVerified || !u.phoneNumber;
+                // Mobile is collected for account matching, not SMS/phone verification.
+                // Never delete an account merely because Firebase Auth has no phoneNumber.
+                const unverified = u.emailVerified !== true;
 
-                if (!stale || !incomplete) continue;
+                if (!stale || !unverified) continue;
 
                 await auth.deleteUser(u.uid);
                 await db.ref('users/' + u.uid).remove().catch(() => {});
                 removed++;
                 console.log(`Removed stale unverified account: ${u.uid}`);
               }
-
               nextPageToken = page.pageToken;
             } while (nextPageToken);
 
