@@ -152,7 +152,9 @@
     </style>
     <script src="smc-live-sync.js?v=20260821"></script>
     <script src="/SMC-Computer-Supervisor-Exam-Prep/auto-live-jobs.js?v=20260819-1" defer></script>
-    <script src="gate.js?v=20260821"></script>
+<script src="gate.js?v=20260821"></script>
+<script src="gate.js?v=20260819"></script>
+<script src="subscription-payments.js?v=20260821"></script>
 </head>
 <body>
 
@@ -522,29 +524,125 @@ const DeviceLock={
             key:accessKey,
             device:fp,
             boundAt:new Date().toISOString(),
-            ua:navigator.userAgent.substring(0,80)
+            ua:navigator.userAgent.substring(0,80),
+            version: 2
         };
-        localStorage.setItem('smc_device_bind',JSON.stringify(binding));
+
+        // Store in multiple locations for redundancy
+        try {
+            localStorage.setItem('smc_device_bind', JSON.stringify(binding));
+        } catch(e) {}
+
+        // Also try IndexedDB for additional persistence
+        try {
+            if (window.indexedDB) {
+                const request = indexedDB.open('SMC_Premium', 1);
+                request.onupgradeneeded = function(event) {
+                    const db = event.target.result;
+                    db.createObjectStore('bindings', { keyPath: 'id' });
+                };
+                request.onsuccess = function(event) {
+                    const db = event.target.result;
+                    const transaction = db.transaction(['bindings'], 'readwrite');
+                    const objectStore = transaction.objectStore('bindings');
+                    objectStore.put({ id: 'device_bind', ...binding });
+                };
+            }
+        } catch(e) {}
+
+        // Set a cookie as additional backup
+        try {
+            const expiration = new Date();
+            expiration.setFullYear(expiration.getFullYear() + 1);
+            document.cookie = 'smc_bind=' + encodeURIComponent(JSON.stringify(binding)) +
+                '; expires=' + expiration.toUTCString() + '; path=/; SameSite=Strict';
+        } catch(e) {}
+
         return fp;
     },
 
     // Verify current device matches
     async verify(){
-        const stored=localStorage.getItem('smc_device_bind');
-        if(!stored)return{valid:false,reason:'no_binding'};
-        const binding=JSON.parse(stored);
-        const currentFP=await this.getFingerprint();
+        let stored = null;
 
-        // Allow small tolerance (browser updates can change minor things)
-        // Compare first 70% of fingerprint chars for fuzzy match
-        const storedShort=binding.device.substring(0,Math.floor(binding.device.length*0.7));
-        const currentShort=currentFP.substring(0,Math.floor(currentFP.length*0.7));
+        // Try localStorage first
+        try { stored = localStorage.getItem('smc_device_bind'); } catch(e) { stored = null; }
 
-        if(storedShort===currentShort){
-            return{valid:true,key:binding.key,device:currentFP};
+        // Try cookies if localStorage failed
+        if (!stored) {
+            try {
+                const cookies = document.cookie.split(';');
+                for (const cookie of cookies) {
+                    const [name, value] = cookie.trim().split('=');
+                    if (name === 'smc_bind') {
+                        stored = decodeURIComponent(value);
+                        break;
+                    }
+                }
+            } catch(e) { /* ignore */ }
         }
 
-        return{valid:false,reason:'device_mismatch',expected:binding.device.substring(0,8),got:currentFP.substring(0,8)};
+        // Try IndexedDB as last resort
+        if (!stored) {
+            try {
+                if (window.indexedDB) {
+                    const request = indexedDB.open('SMC_Premium', 1);
+                    request.onsuccess = function(event) {
+                        const db = event.target.result;
+                        const transaction = db.transaction(['bindings'], 'readonly');
+                        const objectStore = transaction.objectStore('bindings');
+                        const getRequest = objectStore.get('device_bind');
+                        getRequest.onsuccess = function(getEvent) {
+                            if (getEvent.target.result) {
+                                stored = JSON.stringify(getEvent.target.result);
+                            }
+                        };
+                    };
+                }
+            } catch(e) { /* ignore */ }
+        }
+
+        if(!stored)return{valid:false,reason:'no_binding'};
+
+        let binding;
+        try {
+            binding = JSON.parse(stored);
+        } catch(e) {
+            return {valid:false,reason:'invalid_binding_format'};
+        }
+
+        if (!binding.key || !binding.device || !binding.boundAt) {
+            return {valid:false,reason:'incomplete_binding'};
+        }
+
+        const currentFP = await this.getFingerprint();
+
+        // More robust comparison - compare semantic components
+        // Split fingerprint into parts and compare each
+        const storedParts = binding.device.split('|');
+        const currentParts = currentFP.split('|');
+
+        if (storedParts.length !== currentParts.length) {
+            return {valid:false,reason:'fingerprint_structure_mismatch'};
+        }
+
+        // Check at least 80% of components match (more robust than character comparison)
+        let matchCount = 0;
+        const requiredMatchRatio = 0.8;
+
+        for (let i = 0; i < storedParts.length; i++) {
+            if (storedParts[i] === currentParts[i]) {
+                matchCount++;
+            }
+        }
+
+        const matchRatio = matchCount / storedParts.length;
+
+        if (matchRatio >= requiredMatchRatio) {
+            return {valid:true, key: binding.key, device: currentFP};
+        }
+
+        return {valid:false, reason: 'device_mismatch', expected: binding.device.substring(0,10), got: currentFP.substring(0,10)};
     }
 };
 
@@ -682,15 +780,26 @@ function showPayment(){
     // Generate real UPI QR code
     const qrEl=document.getElementById('payQr');
     const upiLink='upi://pay?pa='+encodeURIComponent(window._pd())+'&pn=SMC+Exam+Prep&am='+plan.price+'&cu=INR&tn=SMC+Premium+'+orderNumber;
-    try{
-        const qr=qrcode(0,'M');
-        qr.addData(upiLink);
-        qr.make();
-        qrEl.innerHTML=qr.createImgTag(5,8);
-    }catch(e){
+
+    // Delay generation until after some initialization
+    setTimeout(function() {
+      try {
+        if (typeof qrcode === 'function') {
+          const qr = qrcode(0, 'M');
+          qr.addData(upiLink);
+          qr.make();
+          qrEl.innerHTML = qr.createImgTag(5, 8);
+        } else {
+          // Fallback: use Google Charts API for QR
+          qrEl.innerHTML = '<img src="https://chart.googleapis.com/chart?cht=qr&chs=200x200&chl=' +
+            encodeURIComponent(upiLink) + '&choe=UTF-8" width="200" height="200" alt="UPI QR Code">';
+        }
+      } catch (e) {
         // Fallback: use Google Charts API for QR
-        qrEl.innerHTML='<img src="https://chart.googleapis.com/chart?cht=qr&chs=200x200&chl='+encodeURIComponent(upiLink)+'&choe=UTF-8" width="200" height="200" alt="UPI QR Code">';
-    }
+        qrEl.innerHTML = '<img src="https://chart.googleapis.com/chart?cht=qr&chs=200x200&chl=' +
+          encodeURIComponent(upiLink) + '&choe=UTF-8" width="200" height="200" alt="UPI QR Code">';
+      }
+    }, 2000);
 
     // Log order (localStorage for admin)
     const orders=JSON.parse(localStorage.getItem('smc_orders')||'[]');
