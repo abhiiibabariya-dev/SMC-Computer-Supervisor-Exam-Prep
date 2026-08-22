@@ -21,13 +21,22 @@ jobs:
         env:
           FB_SECRET: ${{ secrets.FIREBASE_SECRET }}
         run: |
-          set -e
           AUTH=""; [ -n "$FB_SECRET" ] && AUTH="?auth=${FB_SECRET}"
+          echo "Fetching Firebase data for: users payment_requests audit visits clicks leads security"
           for f in users payment_requests audit visits clicks leads security; do
-            curl -fsS "${FIREBASE_URL}/${f}.json${AUTH}" -o "${f}.json" || echo '{}' > "${f}.json"
-            [ -s "${f}.json" ] || echo '{}' > "${f}.json"
-            [ "$(cat "${f}.json")" = "null" ] && echo '{}' > "${f}.json"
+            echo "Fetching $f..."
+            if curl -fsS "${FIREBASE_URL}/${f}.json${AUTH}" -o "${f}.json"; then
+              echo "Successfully fetched $f"
+              if [ ! -s "${f}.json" ] || [ "$(cat "${f}.json")" = "null" ]; then
+                echo "Warning: $f data is empty or null, creating empty JSON"
+                echo '{}' > "${f}.json"
+              fi
+            else
+              echo "Warning: Failed to fetch $f, creating empty JSON"
+              echo '{}' > "${f}.json"
+            fi
           done
+          echo "Finished fetching Firebase data"
       - name: Build privacy-safe report
         id: report
         run: |
