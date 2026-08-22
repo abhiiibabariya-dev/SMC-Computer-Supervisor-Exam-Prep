@@ -24,12 +24,13 @@ jobs:
     timeout-minutes: 10
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
-          node-version: '22'
+          node-version: '24'
+          package-manager-cache: false
 
       - name: Validate Firebase rules
         shell: bash
@@ -40,21 +41,27 @@ jobs:
           from pathlib import Path
           d=json.loads(Path('firebase-rules.json').read_text(encoding='utf-8'))
           r=d['rules']
+          admin="auth.token.email === 'abhibabariya007@gmail.com'"
           assert r.get('.read') is False
           assert r.get('.write') is False
           for key in ('users','payment_requests','premium_content','visits','clicks','leads','security','quizscores','leaderboard','leaderboard_public'):
               assert key in r, key
           u=r['users']['$uid']
           assert u.get('.read')
-          assert 'auth.token.email_verified' in u['name']['.write']
-          assert 'auth.token.email_verified' in u['emailVerified']['.write']
-          assert 'auth.token.email_verified' in u['uid']['.write']
+          assert "auth.uid === $uid" in u['.read']
+          assert '!data.exists()' in u['.write']
+          assert admin in u['.write']
+          for key in ('plan','planLabel','subscriptionStatus','expiresAt','entitlements'):
+              assert admin in u[key]['.write'], key
+          assert 'auth.token.email_verified' not in json.dumps(u)
           assert 'auth.token.phone_number' not in json.dumps(u)
           for key in ('visits','clicks','leads','security','quizscores'):
               assert 'auth !== null' in r[key]['$id']['.write']
               assert '.validate' in r[key]['$id']
-          assert 'auth.uid' in r['leaderboard']['.read']
+          assert admin in r['leaderboard']['.read']
           assert 'auth !== null' in r['leaderboard_public']['.read']
+          assert 'auth.uid' in r['leaderboard_public']['$id']['.write']
+          assert 'fullAccess' in r['premium_content']['$resource']['.read']
           print('Firebase rules: PASS')
           PY
 
@@ -115,7 +122,6 @@ jobs:
           grep -q 'emailVerified' docs/gate.js
           grep -q 'phoneVerified:false' docs/profile-setup.html
           grep -q 'Complete your profile' docs/profile-setup.html
-          # Public landing page stays public. Protected pages must contain the gate.
           for f in docs/live-jobs.html docs/govt-jobs.html docs/answer-key.html docs/client-dashboard.html docs/premium.html docs/mock-test.html; do test -f "$f"; grep -q 'gate.js' "$f"; done
           ! grep -q 'gate.js' docs/index.html
           ! grep -q 'gate.js' docs/login.html
