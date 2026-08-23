@@ -39,11 +39,12 @@ jobs:
           html=home.read_text(encoding='utf-8',errors='ignore')
           today=datetime.now(ZoneInfo('Asia/Kolkata')).strftime('%d %B %Y')
           html=re.sub(r'Last updated:\s*.*?\s*&middot;',f'Last updated: {today} &middot;',html,count=1,flags=re.I)
-          # Keep the production exam state aligned with official SMC status. Do not invent a future date.
+          # Keep the production exam state aligned with official SMC status. The 12 July 2026 PRO exam is completed.
           html=html.replace("const EXAM_DATE='2026-09-06T10:00:00+05:30'","const EXAM_DATE='2026-07-12T10:00:00+05:30'")
-          html=html.replace('Written Exam: Completed on 12 July 2026','Written Exam: Completed on 12 July 2026')
           html=html.replace('EXAM UPDATE — 6 SEPTEMBER 2026','EXAM COMPLETED — 12 JULY 2026')
           html=html.replace('PRO EXAM UPDATE — 6 SEPTEMBER 2026','PRO EXAM COMPLETED — 12 JULY 2026')
+          html=html.replace('SMC written exam scheduled for 12 July 2026 (Clerk, Staff Nurse, Driver, PRO & more) · Call letter download opens soon at suratmunicipal.gov.in · Tap to open the new Final Revision & Exam-Day Guide','SMC Public Relation Officer written examination was held on 12 July 2026. Official answer-key, result and selection updates are now the focus. · Check the official SMC recruitment pages for current notices.')
+          html=html.replace('Final Revision & Exam-Day Guide','Post-Exam Answer Key & Result Guide')
           home.write_text(html,encoding='utf-8')
           gate=site/'gate.js';sub=site/'subscription.js';pay=site/'subscription-payments.js';profile=site/'profile.js';boot=site/'profile-bootstrap.js';activity=site/'activity-audit.js';loginaudit=site/'login-audit.js';animations=site/'animations.css';transitions=site/'transitions.js';leaderboardsafety=site/'leaderboard-safety.js';quizscoreauth=site/'quizscore-auth.js';sitenav=site/'site-nav.js'
           changed=[]
@@ -52,12 +53,9 @@ jobs:
               rel=lambda p:os.path.relpath(p,page.parent).replace('\\','/')
               head=text.lower().find('</head>')
               if head<0: continue
-
-              # Inject one universal navigation bar into every published HTML page.
               text=re.sub(r'\s*<script\s+[^>]*src=["\'][^"\']*site-nav\.js(?:\?[^"\']*)?["\'][^>]*>\s*</script>','',text,flags=re.I)
               head=text.lower().find('</head>')
               text=text[:head]+f'\n<script src="{rel(sitenav)}?v=20260822"></script>\n'+text[head:]
-
               if page.name.lower()=='login.html':
                   for script in (boot,loginaudit,transitions,leaderboardsafety,quizscoreauth):
                       text=re.sub(r'\s*<script\s+[^>]*src=["\'][^"\']*'+re.escape(script.name)+r'(?:\?[^"\']*)?["\'][^>]*>\s*</script>','',text,flags=re.I)
@@ -74,7 +72,6 @@ jobs:
                           r=os.path.relpath(script,page.parent).replace('\\','/')
                           text=text[:end]+f'\n<script src="{r}"></script>\n'+text[end:]
                   page.write_text(text,encoding='utf-8');changed.append(str(page));continue
-
               for script in (gate,sub,pay,profile,boot,activity,transitions,leaderboardsafety,quizscoreauth):
                   text=re.sub(r'\s*<script\s+[^>]*src=["\'][^"\']*'+re.escape(script.name)+r'(?:\?[^"\']*)?["\'][^>]*>\s*</script>','',text,flags=re.I)
               head=text.lower().find('</head>')
@@ -110,6 +107,7 @@ jobs:
           ! grep -q 'EXAM ON 12 JULY 2026' _site/index.html
           ! grep -q 'Final Revision Time' _site/index.html
           ! grep -q 'SMC written exam scheduled for 12 July 2026' _site/index.html
+          grep -q 'EXAM COMPLETED — 12 JULY 2026' _site/index.html
           grep -q 'site-nav.js' _site/index.html
           grep -q 'site-nav.js' _site/login.html
           grep -q 'site-nav.js' _site/live-jobs.html
