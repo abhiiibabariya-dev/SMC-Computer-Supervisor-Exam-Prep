@@ -109,15 +109,16 @@ jobs:
           quiz = Path('docs/quiz.html')
           text = quiz.read_text(encoding='utf-8')
           pattern = re.compile(r"  function postLeaderboard\(s,sc,tot,secs\)\{.*?\n  \}", re.S)
-          replacement: |-
-            function postLeaderboard(s,sc,tot,secs){
-              if(!FB||!window.firebase||!firebase.auth)return;
-              var user=firebase.auth().currentUser;
-              if(!user)return;
-              var p={}; try{p=JSON.parse(localStorage.getItem('smc_account')||'{}');}catch(e){}
-              var rec={uid:user.uid,name:(p.name||user.displayName||'Anonymous'),subj:s,score:sc,total:tot,secs:secs,t:new Date().toISOString()};
-              try{fetch(FB+'/leaderboard_public.json',{method:'POST',body:JSON.stringify(rec),headers:{'Content-Type':'application/json'}}).catch(function(){});}catch(e){}
-            }
+          replacement = '''  function postLeaderboard(s,sc,tot,secs){
+    if(!FB||!window.firebase||!firebase.auth)return;
+    var user=firebase.auth().currentUser;
+    if(!user)return;
+    var p={}; try{p=JSON.parse(localStorage.getItem('smc_account')||'{}');}catch(e){}
+    var rec={uid:user.uid,name:(p.name||user.displayName||'Anonymous'),subj:s,score:sc,total:tot,secs:secs,t:new Date().toISOString()};
+    user.getIdToken().then(function(token){
+      return fetch(FB+'/leaderboard_public.json?auth='+encodeURIComponent(token),{method:'POST',body:JSON.stringify(rec),headers:{'Content-Type':'application/json'}});
+    }).catch(function(){});
+  }'''
           text, count = pattern.subn(replacement, text, count=1)
           if count != 1: raise SystemExit('Could not locate quiz leaderboard writer.')
           quiz.write_text(text, encoding='utf-8')
@@ -137,6 +138,8 @@ jobs:
           test -f docs/auto-live-jobs.js
           node --check docs/auto-live-jobs.js
           node --check docs/gate.js
+          node --check docs/leaderboard-safety.js
+          node --check docs/quizscore-auth.js
           test "$(find docs -type f -name '*.html' ! -name '*.backup.html' | wc -l)" -gt 0
           test "$(python3 -c 'import json; d=json.load(open("gujarat-jobs.json")); print(len(d.get("items", [])))')" -gt 0
           python3 - <<'PY'
@@ -181,7 +184,7 @@ jobs:
             echo "No changes detected."
             exit 0
           fi
-          git commit -m "chore: refresh official Gujarat and SMC updates [skip ci]"
+          git commit -m "chore: refresh official Gujarat and SMC updates"
           for attempt in 1 2 3; do
             git fetch origin master
             if git rebase origin/master; then
