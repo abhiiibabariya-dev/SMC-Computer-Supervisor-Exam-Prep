@@ -23,10 +23,12 @@ jobs:
           grep -q '".write": false' firebase-rules.json
           grep -q "$ADMIN_EMAIL" firebase-rules.json
           grep -q 'emailVerified' firebase-rules.json
+          grep -q 'email_verified === true' firebase-rules.json
           grep -q 'phoneVerified' firebase-rules.json
           grep -q 'premium49' firebase-rules.json
           grep -q 'premium99' firebase-rules.json
-          echo 'Firebase rules validation passed for admin + subscription paths.'
+          grep -q 'leaderboard_public' firebase-rules.json
+          echo 'Firebase rules validation passed for admin, verification, subscriptions and public leaderboard paths.'
       - name: Check deployment secret
         env:
           FB_SECRET: ${{ secrets.FIREBASE_SECRET }}
@@ -55,7 +57,7 @@ jobs:
       - name: Verify anonymous database protection
         run: |
           set -euo pipefail
-          for p in users payment_requests audit visits clicks leads security quizscores leaderboard; do
+          for p in users payment_requests audit visits clicks leads security quizscores leaderboard leaderboard_public; do
             code=$(curl -sS -L --retry 3 --retry-all-errors -o /dev/null -w '%{http_code}' "${FIREBASE_URL}/${p}.json")
             test "$code" = 401
           done
