@@ -39,9 +39,11 @@ jobs:
           html=home.read_text(encoding='utf-8',errors='ignore')
           today=datetime.now(ZoneInfo('Asia/Kolkata')).strftime('%d %B %Y')
           html=re.sub(r'Last updated:\s*.*?\s*&middot;',f'Last updated: {today} &middot;',html,count=1,flags=re.I)
-          html=html.replace("const EXAM_DATE='2026-07-12T10:00:00+05:30'","const EXAM_DATE='2026-09-06T10:00:00+05:30'")
-          html=html.replace('Written Exam: Completed on 12 July 2026','Written Exam: Scheduled for 6 September 2026')
-          html=html.replace('EXAM COMPLETED — 12 JULY 2026','EXAM UPDATE — 6 SEPTEMBER 2026')
+          # Keep the production exam state aligned with official SMC status. Do not invent a future date.
+          html=html.replace("const EXAM_DATE='2026-09-06T10:00:00+05:30'","const EXAM_DATE='2026-07-12T10:00:00+05:30'")
+          html=html.replace('Written Exam: Completed on 12 July 2026','Written Exam: Completed on 12 July 2026')
+          html=html.replace('EXAM UPDATE — 6 SEPTEMBER 2026','EXAM COMPLETED — 12 JULY 2026')
+          html=html.replace('PRO EXAM UPDATE — 6 SEPTEMBER 2026','PRO EXAM COMPLETED — 12 JULY 2026')
           home.write_text(html,encoding='utf-8')
           gate=site/'gate.js';sub=site/'subscription.js';pay=site/'subscription-payments.js';profile=site/'profile.js';boot=site/'profile-bootstrap.js';activity=site/'activity-audit.js';loginaudit=site/'login-audit.js';animations=site/'animations.css';transitions=site/'transitions.js';leaderboardsafety=site/'leaderboard-safety.js';quizscoreauth=site/'quizscore-auth.js';sitenav=site/'site-nav.js'
           changed=[]
@@ -105,7 +107,9 @@ jobs:
           ! grep -q 'src="gate.js' _site/index.html
           ! grep -q 'smcAuthOverlay' _site/index.html
           ! grep -q 'Secure Firebase authentication could not be initialized' _site/index.html
-          ! grep -q 'Written Exam: Completed on 12 July 2026' _site/index.html
+          ! grep -q 'EXAM ON 12 JULY 2026' _site/index.html
+          ! grep -q 'Final Revision Time' _site/index.html
+          ! grep -q 'SMC written exam scheduled for 12 July 2026' _site/index.html
           grep -q 'site-nav.js' _site/index.html
           grep -q 'site-nav.js' _site/login.html
           grep -q 'site-nav.js' _site/live-jobs.html
