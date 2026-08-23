@@ -105,7 +105,7 @@
 <script>
 (function(){
   "use strict";
-  var exam=new Date('2026-07-12T10:00:00+05:30').getTime();
+  var exam=new Date('2026-09-06T10:00:00+05:30').getTime();
   var now=Date.now(), live=now>=exam;
   var banner=document.getElementById('banner');
   if(live){ banner.className='banner live'; banner.innerHTML='✅ The exam is done! Check the official answer key below and estimate your score.'; document.getElementById('officialCard').style.display='block'; }

@@ -10,7 +10,7 @@
  */
 (function(){
     "use strict";
-    var EXAM_ISO='2026-07-12T10:00:00+05:30';
+    var EXAM_ISO='2026-09-06T10:00:00+05:30';
     var SITE=(location.origin+location.pathname).replace(/[^\/]*$/,''); // site root (dir of current page)
     var EMAIL='abhiiibabariya@gmail.com';
     // Owner-tunable social-proof base (real DB reads are locked for privacy, so these
@@ -96,7 +96,7 @@
         var dl=daysLeft();
         var m=modal('<div class="gcard"><button class="gclose">&times;</button>'
             +'<h3>🔔 Exam reminders</h3>'
-            +'<div class="gbig">'+(dl>0?dl:0)+'</div><p style="text-align:center;margin-top:-6px">day'+(dl===1?'':'s')+' to the SMC exam (12 July 2026)</p>'
+            +'<div class="gbig">'+(dl>0?dl:0)+'</div><p style="text-align:center;margin-top:-6px">day'+(dl===1?'':'s')+' to the SMC exam (6 September 2026)</p>'
             +'<button class="gbtn gprimary" id="smcIcsExam">📅 Add exam to my calendar</button>'
             +'<button class="gbtn" id="smcIcsDaily">📚 Add daily study reminders (till exam)</button>'
             +'<button class="gbtn" id="smcNotif">🔔 Enable browser alerts</button>'

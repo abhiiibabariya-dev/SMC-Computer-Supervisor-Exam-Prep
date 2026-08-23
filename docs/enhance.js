@@ -34,7 +34,7 @@
         ['💼','Govt Jobs','govt-jobs.html']
     ];
 
-    var EXAM_ISO='2026-07-12T10:00:00+05:30';
+    var EXAM_ISO='2026-09-06T10:00:00+05:30';
     function daysLeft(){ return Math.ceil((new Date(EXAM_ISO).getTime()-Date.now())/86400000); }
     function ready(fn){ if(document.body)fn(); else document.addEventListener('DOMContentLoaded',fn); }
     function injectStyle(id,css){
