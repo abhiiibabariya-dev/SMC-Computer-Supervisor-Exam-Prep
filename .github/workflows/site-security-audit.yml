@@ -41,7 +41,7 @@ jobs:
           from pathlib import Path
           d=json.loads(Path('firebase-rules.json').read_text(encoding='utf-8'))
           r=d['rules']
-          admin="auth.token.email === 'abhibabariya007@gmail.com'"
+          admin="lower(auth.token.email) === 'abhibabariya007@gmail.com'"
           assert r.get('.read') is False
           assert r.get('.write') is False
           for key in ('users','payment_requests','premium_content','visits','clicks','leads','security','quizscores','leaderboard','leaderboard_public'):
@@ -53,8 +53,8 @@ jobs:
           assert admin in u['.write']
           for key in ('plan','planLabel','subscriptionStatus','expiresAt','entitlements'):
               assert admin in u[key]['.write'], key
-          assert 'auth.token.email_verified' not in json.dumps(u)
-          assert 'auth.token.phone_number' not in json.dumps(u)
+          assert "auth.token.email_verified === true" in u['emailVerified']['.write']
+          assert "auth.token.phone_number" not in json.dumps(u)
           for key in ('visits','clicks','leads','security','quizscores'):
               assert 'auth !== null' in r[key]['$id']['.write']
               assert '.validate' in r[key]['$id']
@@ -69,7 +69,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          for f in docs/gate.js docs/profile-enhancer.js docs/auto-live-jobs.js docs/tracker.js docs/activity-audit.js docs/login-audit.js docs/profile-bootstrap.js; do
+          for f in docs/gate.js docs/profile-enhancer.js docs/auto-live-jobs.js docs/tracker.js docs/activity-audit.js docs/login-audit.js docs/profile-bootstrap.js docs/leaderboard-safety.js docs/quizscore-auth.js; do
             test -f "$f"
             node --check "$f"
           done
@@ -134,6 +134,7 @@ jobs:
           set -euo pipefail
           if find .github/workflows -maxdepth 1 -type f \( -name '*.backup' -o -name '*.bak' -o -name '*.old' \) | grep -q .; then exit 1; fi
           if grep -RInE 'Gujarat Govt Jobs Hub[[:space:]]*\|[[:space:]]*Gujarat Govt Jobs Hub' docs --include='*.html'; then exit 1; fi
+          if grep -RIn '\[skip ci\]' .github/workflows --include='*.yml' --include='*.yaml'; then exit 1; fi
           echo 'Branding/workflow hygiene: PASS'
 
       - name: Verify legacy admin console is retired
