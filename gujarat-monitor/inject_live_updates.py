@@ -7,7 +7,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DOCS = ROOT / "docs"
 STATUS = ROOT / "gujarat-monitor" / "smc-status.json"
 SCRIPT = "auto-live-jobs.js"
-VERSION = "20260819-1"
+VERSION = "20260823-1"
 TAG = f'<script src="/SMC-Computer-Supervisor-Exam-Prep/auto-live-jobs.js?v={VERSION}" defer></script>'
 OLD_TAG_RE = r'<script\s+src="(?:/SMC-Computer-Supervisor-Exam-Prep/)?auto-live-jobs\.js(?:\?[^" ]*)?"[^>]*></script>'
 
