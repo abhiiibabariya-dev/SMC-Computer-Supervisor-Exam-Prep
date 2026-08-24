@@ -17,13 +17,26 @@
         "PRO"
       ],
       "source": "https://www.suratmunicipal.gov.in/Information/AnswerKey"
+    },
+    {
+      "id": "smc-2026-09-06-computer-supervisor",
+      "date": "2026-09-06",
+      "status": "scheduled",
+      "title": "Supervisor (Computer) written examination",
+      "cadres": [
+        "Supervisor (Computer)",
+        "Junior Pharmacist",
+        "Assistant Auditor",
+        "Technical Officer"
+      ],
+      "source": "https://www.suratmunicipal.gov.in/Information/RecruitmentNews"
     }
   ],
   "answer_key_available": true,
   "result_available": false,
   "selection_waiting_list_available": false,
-  "application_status": "unknown",
-  "application_deadline": null,
+  "application_status": "closed",
+  "application_deadline": "2026-04-15",
   "errors": [
     {
       "url": "https://www.suratmunicipal.gov.in/Information/RecruitmentResult",
@@ -39,5 +52,5 @@
     "sources_ok": 3,
     "sources_failed": 2
   },
-  "updated_at": "2026-08-20T16:55:33.333182+00:00"
+  "updated_at": "2026-08-24T07:01:00+05:30"
 }
