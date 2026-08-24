@@ -6,7 +6,8 @@
 if(window.__SMC_UNIFIED_AUTH__)return;window.__SMC_UNIFIED_AUTH__=true;
 var script=document.currentScript,rootUrl='';try{if(script&&script.src)rootUrl=new URL('.',script.src).href}catch(e){}if(!rootUrl)rootUrl=new URL('./',location.href).href;
 var file=(location.pathname.split('/').pop()||'index.html').toLowerCase();
-if(file==='login.html')return;
+var PUBLIC_PAGES={'login.html':true,'index.html':true,'404.html':true,'privacy-policy.html':true,'terms-conditions.html':true};
+if(PUBLIC_PAGES[file])return;
 var RETURN_KEY='smc_auth_return',PROFILE_KEY='smc_account',auth=null,processing=false;
 function esc(v){return String(v==null?'':v).replace(/[&<>\"']/g,function(c){return({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#39;'})[c]})}
 function loginUrl(){try{sessionStorage.setItem(RETURN_KEY,location.pathname+location.search+location.hash)}catch(e){}return new URL('login.html',rootUrl).href}
