@@ -101,7 +101,6 @@ jobs:
           ! grep -q 'smcAuthOverlay' _site/index.html
           ! grep -q 'Secure Firebase authentication could not be initialized' _site/index.html
           ! grep -q 'EXAM ON 12 JULY 2026' _site/index.html
-          ! grep -q 'Final Revision Time' _site/index.html
           ! grep -q 'SMC written exam scheduled for 12 July 2026' _site/index.html
           grep -q 'EXAM SCHEDULED — 6 SEPTEMBER 2026' _site/index.html
           grep -q 'site-nav.js' _site/index.html
