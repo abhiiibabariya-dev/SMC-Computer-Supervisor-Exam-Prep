@@ -39,8 +39,21 @@ jobs:
           html=home.read_text(encoding='utf-8',errors='ignore')
           today=datetime.now(ZoneInfo('Asia/Kolkata')).strftime('%d %B %Y')
           html=re.sub(r'Last updated:\s*.*?\s*&middot;',f'Last updated: {today} &middot;',html,count=1,flags=re.I)
-          # Keep EXAM_DATE as-is from source (2026-09-06 for Computer Supervisor).
-          # Do NOT override to PRO exam date.
+          # Normalize the public homepage to the currently official Computer Supervisor schedule.
+          # SMC currently lists Supervisor (Computer), Junior Pharmacist, Assistant Auditor and Technical Officer for 6 September 2026.
+          replacements={
+            'SMC written exam was held on 12 July 2026. Official SMC answer-key and post-exam updates are now the focus.':'SMC Computer Supervisor written exam is scheduled for 6 September 2026. Verify the official SMC notice for call letter and centre details.',
+            'Written Exam: Completed on 12 July 2026':'Written Exam: Scheduled for 6 September 2026',
+            'Current Phase: Answer Key / Result / Merit Updates':'Current Phase: Final Revision / Exam Preparation',
+            'The countdown has ended because the examination date has passed. This section now tracks post-exam updates instead of obsolete pre-exam messaging.':'The countdown is active for the Computer Supervisor written exam scheduled for 6 September 2026.',
+            'NOW — Post-Exam Updates':'NOW — Final Revision / Exam Scheduled',
+            'Final revision phase. Practice mock tests & daily MCQs. Exam completed — post-exam updates are active.':'Final revision phase. Practice mock tests & daily MCQs. Computer Supervisor written exam is scheduled for 6 September 2026.',
+            'Written Exam on 6 September 2026':'Written Exam on 6 September 2026 — Supervisor (Computer) & 3 other cadres',
+            'WRITTEN EXAMINATION — OMR objective test (Clerk, Staff Nurse, Driver, PRO & more)':'WRITTEN EXAMINATION — Supervisor (Computer), Junior Pharmacist, Assistant Auditor & Technical Officer',
+            'EXAM 12 JUL':'EXAM 6 SEP',
+            'Exam Completed — 6 September 2026':'Exam Scheduled — 6 September 2026'
+          }
+          for old,new in replacements.items(): html=html.replace(old,new)
           home.write_text(html,encoding='utf-8')
           gate=site/'gate.js';sub=site/'subscription.js';pay=site/'subscription-payments.js';profile=site/'profile.js';boot=site/'profile-bootstrap.js';activity=site/'activity-audit.js';loginaudit=site/'login-audit.js';animations=site/'animations.css';transitions=site/'transitions.js';leaderboardsafety=site/'leaderboard-safety.js';quizscoreauth=site/'quizscore-auth.js';sitenav=site/'site-nav.js'
           changed=[]
@@ -103,6 +116,8 @@ jobs:
           ! grep -q 'EXAM ON 12 JULY 2026' _site/index.html
           ! grep -q 'SMC written exam scheduled for 12 July 2026' _site/index.html
           grep -q 'EXAM SCHEDULED — 6 SEPTEMBER 2026' _site/index.html
+          grep -q 'Supervisor (Computer)' _site/index.html
+          grep -q 'Final Revision / Exam Preparation' _site/index.html
           grep -q 'site-nav.js' _site/index.html
           grep -q 'site-nav.js' _site/login.html
           grep -q 'site-nav.js' _site/live-jobs.html
