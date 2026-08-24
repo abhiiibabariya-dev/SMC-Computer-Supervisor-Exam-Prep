@@ -7,7 +7,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DOCS = ROOT / "docs"
 STATUS = ROOT / "gujarat-monitor" / "smc-status.json"
 SCRIPT = "auto-live-jobs.js"
-VERSION = "20260824-1"
+VERSION = "20260824-2"
 TAG = f'<script src="/SMC-Computer-Supervisor-Exam-Prep/auto-live-jobs.js?v={VERSION}" defer></script>'
 OLD_TAG_RE = r'<script\s+src="(?:/SMC-Computer-Supervisor-Exam-Prep/)?auto-live-jobs\.js(?:\?[^" ]*)?"[^>]*></script>'
 
@@ -42,13 +42,13 @@ for path in DOCS.rglob("*.html"):
     if computer_supervisor_scheduled:
         # Keep the current Computer Supervisor notice separate from the PRO event.
         text = re.sub(
-            r"SMC written exam scheduled for\s*6\s*September\s*2026\s*\(\s*Clerk,\s*Staff Nurse,\s*Driver,\s*PRO\s*&amp;\s*more\s*\)",
+            r"SMC written exam scheduled for\s*(?:<b>)?6\s*September\s*2026(?:</b>)?\s*\(\s*Clerk,\s*Staff Nurse,\s*Driver,\s*PRO\s*&amp;\s*more\s*\)",
             "SMC written exam scheduled for <b>6 September 2026</b> for Supervisor (Computer), Junior Pharmacist, Assistant Auditor and Technical Officer",
             text,
             flags=re.I,
         )
         text = re.sub(
-            r"SMC written exam scheduled for\s*6\s*September\s*2026\s*\(\s*Clerk,\s*Staff Nurse,\s*Driver,\s*PRO\s*&\s*more\s*\)",
+            r"SMC written exam scheduled for\s*(?:<b>)?6\s*September\s*2026(?:</b>)?\s*\(\s*Clerk,\s*Staff Nurse,\s*Driver,\s*PRO\s*&\s*more\s*\)",
             "SMC written exam scheduled for <b>6 September 2026</b> for Supervisor (Computer), Junior Pharmacist, Assistant Auditor and Technical Officer",
             text,
             flags=re.I,
