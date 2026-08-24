@@ -7,7 +7,7 @@ from urllib.request import Request, urlopen
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "gujarat-monitor" / "smc-status.json"
-UA = "Mozilla/5.0 SMC-Exam-Prep-Live-Status/3.2"
+UA = "Mozilla/5.0 SMC-Exam-Prep-Live-Status/3.3"
 CTX = ssl._create_unverified_context()
 URLS = [
     "https://www.suratmunicipal.gov.in/Information/RecruitmentNews",
@@ -37,6 +37,11 @@ def clean(s):
     return re.sub(r"\s+", " ", s).strip()
 
 
+def ascii_digits(s):
+    table = str.maketrans("૦૧૨૩૪૫૬૭૮૯", "0123456789")
+    return s.translate(table)
+
+
 def fetch_one(url):
     try:
         return url, clean(fetch(url)), None
@@ -51,8 +56,6 @@ def semantic_equal(a, b):
     return {k: v for k, v in a.items() if k not in ignored} == {k: v for k, v in b.items() if k not in ignored}
 
 
-# Check all official SMC pages in parallel. A temporary failure is recorded,
-# but timestamps do not change when the actual status is unchanged.
 pages, errors = [], []
 with concurrent.futures.ThreadPoolExecutor(max_workers=len(URLS)) as pool:
     results = list(pool.map(fetch_one, URLS))
@@ -69,6 +72,9 @@ answer_text = page_text.get(URLS[1], "")
 result_text = page_text.get(URLS[3], "")
 selection_text = page_text.get(URLS[4], "")
 all_text = " ".join(page_text.values())
+news_norm = ascii_digits(news_text)
+answer_norm = ascii_digits(answer_text)
+all_norm = ascii_digits(all_text)
 
 events = []
 
@@ -77,16 +83,37 @@ def add_event(event_id, date, status, title, cadres, source=URLS[0]):
     events.append({"id": event_id, "date": date, "status": status, "title": title, "cadres": cadres, "source": source})
 
 
-if re.search(r"12\s*/\s*07\s*/\s*2026", answer_text, re.I) and re.search(r"public\s+relation\s+officer|જનસંપર્ક અધિકારી", answer_text, re.I):
+if re.search(r"12\s*/\s*07\s*/\s*2026", answer_norm, re.I) and re.search(r"public\s+relation\s+officer|જનસંપર્ક અધિકારી", answer_text, re.I):
     add_event("smc-2026-07-12-pro", "2026-07-12", "completed", "Public Relation Officer written examination", ["Public Relation Officer", "PRO"], URLS[1])
 
-if re.search(r"26\s*/\s*07\s*/\s*2026", news_text, re.I) and re.search(r"મુલતવી|postponed", news_text, re.I):
+computer_supervisor_notice = re.search(
+    r"(?:06\s*/\s*09\s*/\s*2026|06\s*-\s*09\s*-\s*2026|06\s*\.\s*09\s*\.\s*2026|6\s+September\s+2026)"
+    r".{0,900}(?:supervisor\s*\(\s*computer\s*\)|computer\s+supervisor|સુપરવાઈઝર\s*\(\s*કોમ્પ્યુટર\s*\))",
+    news_norm,
+    re.I,
+) or re.search(
+    r"(?:supervisor\s*\(\s*computer\s*\)|computer\s+supervisor|સુપરવાઈઝર\s*\(\s*કોમ્પ્યુટર\s*\))"
+    r".{0,900}(?:06\s*/\s*09\s*/\s*2026|06\s*-\s*09\s*-\s*2026|06\s*\.\s*09\s*\.\s*2026|6\s+September\s+2026)",
+    news_norm,
+    re.I,
+)
+if computer_supervisor_notice:
+    add_event(
+        "smc-2026-09-06-computer-supervisor",
+        "2026-09-06",
+        "scheduled",
+        "Supervisor (Computer) written examination",
+        ["Supervisor (Computer)", "Junior Pharmacist", "Assistant Auditor", "Technical Officer"],
+        URLS[0],
+    )
+
+if re.search(r"26\s*/\s*07\s*/\s*2026", news_norm, re.I) and re.search(r"મુલતવી|postponed", news_text, re.I):
     add_event("smc-2026-07-26-postponed", "2026-07-26", "postponed", "Written examination postponed", ["Laboratory Technician", "Third Class Clerk (Audit)", "Pharmacist (GUHP)"], URLS[0])
 
 answer_key_available = bool(re.search(r"provisional\s+answer\s+key|final\s+answer\s+key|answer\s+key", answer_text, re.I))
 result_available = bool(re.search(r"(result|પરિણામ).{0,180}(download|post|exam|merit|selection)", result_text, re.I))
 selection_available = bool(re.search(r"(selection|waiting\s+list|પસંદગી).{0,180}(download|post|cadre)", selection_text, re.I))
-application_deadline = "2026-04-15" if re.search(r"15\s*(?:/|-|\.)\s*04\s*(?:/|-|\.)\s*2026|15\s+April\s+2026|15/04/2026", all_text, re.I) else None
+application_deadline = "2026-04-15" if re.search(r"15\s*(?:/|-|\.)\s*04\s*(?:/|-|\.)\s*2026|15\s+April\s+2026|15/04/2026", all_norm, re.I) else None
 
 now = datetime.now(timezone.utc)
 status = {
