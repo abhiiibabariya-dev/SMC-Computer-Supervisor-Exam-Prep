@@ -7,7 +7,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DOCS = ROOT / "docs"
 STATUS = ROOT / "gujarat-monitor" / "smc-status.json"
 SCRIPT = "auto-live-jobs.js"
-VERSION = "20260823-1"
+VERSION = "20260824-1"
 TAG = f'<script src="/SMC-Computer-Supervisor-Exam-Prep/auto-live-jobs.js?v={VERSION}" defer></script>'
 OLD_TAG_RE = r'<script\s+src="(?:/SMC-Computer-Supervisor-Exam-Prep/)?auto-live-jobs\.js(?:\?[^" ]*)?"[^>]*></script>'
 
@@ -22,6 +22,7 @@ def has_event(event_id):
     return any(e.get("id") == event_id for e in events)
 
 pro_done = has_event("smc-2026-07-12-pro")
+computer_supervisor_scheduled = has_event("smc-2026-09-06-computer-supervisor")
 july26_postponed = has_event("smc-2026-07-26-postponed")
 app_closed = status.get("application_status") == "closed"
 
@@ -38,13 +39,47 @@ for path in DOCS.rglob("*.html"):
 
     text = re.sub(OLD_TAG_RE, TAG, text, flags=re.I)
 
+    if computer_supervisor_scheduled:
+        # Keep the current Computer Supervisor notice separate from the PRO event.
+        text = re.sub(
+            r"SMC written exam scheduled for\s*6\s*September\s*2026\s*\(\s*Clerk,\s*Staff Nurse,\s*Driver,\s*PRO\s*&amp;\s*more\s*\)",
+            "SMC written exam scheduled for <b>6 September 2026</b> for Supervisor (Computer), Junior Pharmacist, Assistant Auditor and Technical Officer",
+            text,
+            flags=re.I,
+        )
+        text = re.sub(
+            r"SMC written exam scheduled for\s*6\s*September\s*2026\s*\(\s*Clerk,\s*Staff Nurse,\s*Driver,\s*PRO\s*&\s*more\s*\)",
+            "SMC written exam scheduled for <b>6 September 2026</b> for Supervisor (Computer), Junior Pharmacist, Assistant Auditor and Technical Officer",
+            text,
+            flags=re.I,
+        )
+        text = re.sub(
+            r"Written Exam on 6 September 2026",
+            "Written Exam on 6 September 2026 — Supervisor (Computer) &amp; 3 other cadres",
+            text,
+            flags=re.I,
+        )
+        text = re.sub(
+            r"PRO/739 posts — Clerk, Staff Nurse, Driver &amp; PRO",
+            "P.R.O./739 cadres — Supervisor (Computer), Junior Pharmacist, Assistant Auditor &amp; Technical Officer",
+            text,
+            flags=re.I,
+        )
+        text = re.sub(
+            r"PRO/739 posts — Clerk, Staff Nurse, Driver & PRO",
+            "P.R.O./739 cadres — Supervisor (Computer), Junior Pharmacist, Assistant Auditor & Technical Officer",
+            text,
+            flags=re.I,
+        )
+        text = re.sub(r"EXAM\s+12\s+JUL", "EXAM 6 SEP", text, flags=re.I)
+
     if pro_done:
         replacements = [
             (r"a\s+live\s+countdown\s+to\s+the\s+12\s+July\s+2026\s+exam", "official post-exam updates, answer keys and results"),
             (r"live\s+countdown\s+to\s+12\s+July\s+2026", "official post-exam updates, answer keys and results"),
             (r"countdown\s+to\s+the\s+12\s+July\s+2026\s+exam", "post-exam updates after 12 July 2026"),
-            (r"Final\s+revision\s+time\s+is\s+NOW!", "Exam completed. Track official answer key, result and selection updates."),
-            (r"NOW\s*[—-]\s*Exam\s+Prep", "NOW — Answer Key & Result Tracking"),
+            (r"Final\s+revision\s+time\s+is\s+NOW!", "Exam completed for the relevant cadre. Track official answer key, result and selection updates."),
+            (r"NOW\s*[—-]\s*Exam\s+Prep", "NOW — Official Exam & Result Tracking"),
             (r"Before\s+12\s+July\s+2026", "Post-exam status"),
             (r"Final\s+revision\s+phase\.\s*Practice\s+mock\s+tests\s*&\s*daily\s+MCQs\.", "Post-exam tracking phase. Follow official answer key, result and merit updates."),
             (r"EXAM\s+DATE\s+OUT\s*[—-]\s*Written\s+Exam\s+on\s+12\s+July\s+2026!", "PRO EXAM COMPLETED — 12 JULY 2026"),
@@ -58,8 +93,6 @@ for path in DOCS.rglob("*.html"):
         text = re.sub(r"A live countdown switches on here the moment SMC announces the date\.\s*Until then[^<.]*\.", "The PRO exam was held on 12 July 2026. Track official answer key, result and selection updates here.", text, flags=re.I)
         text = re.sub(r"Written Exam:\s*To Be Announced", "Written Exam: PRO held 12 July 2026", text, flags=re.I)
         text = re.sub(r"Admit Card:\s*Coming Soon", "Admit Card: Check official SMC notices", text, flags=re.I)
-        text = re.sub(r'"name":\s*"SMC Computer Supervisor / Clerk Exam 2026"', '"name": "SMC Public Relation Officer Written Examination 2026"', text, flags=re.I)
-        text = re.sub(r'"description":\s*"Written examination for SMC 2026 posts \(Clerk, Staff Nurse, Driver, PRO\)\."', '"description": "SMC Public Relation Officer written examination held on 12 July 2026. Other cadres have separate official schedules and notices."', text, flags=re.I)
 
     if app_closed:
         text = re.sub(r"Applications\s+Closed\s*[—-]\s*15\s*April\s*2026", "Applications Closed", text, flags=re.I)
