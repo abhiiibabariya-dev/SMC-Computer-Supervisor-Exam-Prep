@@ -115,7 +115,9 @@ jobs:
           test -f docs/gate.js
           test -f docs/login.html
           test -f docs/profile-setup.html
-          grep -q "file==='login.html'" docs/gate.js
+          grep -q "'login.html':true" docs/gate.js
+          grep -q "'privacy-policy.html':true" docs/gate.js
+          grep -q "'terms-conditions.html':true" docs/gate.js
           ! grep -q "file==='profile-setup.html'" docs/gate.js
           grep -q 'auth.onAuthStateChanged' docs/login.html
           grep -q 'sendEmailVerification' docs/login.html
