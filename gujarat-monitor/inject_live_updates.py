@@ -7,7 +7,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DOCS = ROOT / "docs"
 STATUS = ROOT / "gujarat-monitor" / "smc-status.json"
 SCRIPT = "auto-live-jobs.js"
-VERSION = "20260824-3"
+VERSION = "20260824-4"
 TAG = f'<script src="/SMC-Computer-Supervisor-Exam-Prep/auto-live-jobs.js?v={VERSION}" defer></script>'
 OLD_TAG_RE = r'<script\s+src="(?:/SMC-Computer-Supervisor-Exam-Prep/)?auto-live-jobs\.js(?:\?[^" ]*)?"[^>]*></script>'
 
@@ -42,22 +42,21 @@ for path in DOCS.rglob("*.html"):
     cs_page = lower_name in {"index.html", "supervisor.html"} or "computer supervisor" in text[:12000].lower()
 
     if computer_supervisor_scheduled:
-        text = re.sub(
-            r"SMC written exam scheduled for\s*(?:<b>)?6\s*September\s*2026(?:</b>)?\s*\(\s*Clerk,\s*Staff Nurse,\s*Driver,\s*PRO\s*&amp;\s*more\s*\)",
-            "SMC written exam scheduled for <b>6 September 2026</b> for Supervisor (Computer), Junior Pharmacist, Assistant Auditor and Technical Officer",
-            text,
-            flags=re.I,
-        )
-        text = re.sub(
-            r"SMC written exam scheduled for\s*(?:<b>)?6\s*September\s*2026(?:</b>)?\s*\(\s*Clerk,\s*Staff Nurse,\s*Driver,\s*PRO\s*&\s*more\s*\)",
-            "SMC written exam scheduled for <b>6 September 2026</b> for Supervisor (Computer), Junior Pharmacist, Assistant Auditor and Technical Officer",
-            text,
-            flags=re.I,
-        )
+        # Keep the main Computer Supervisor site and page in pre-exam state.
+        text = re.sub(r"SMC written exam scheduled for\s*(?:<b>)?6\s*September\s*2026(?:</b>)?\s*\(\s*Clerk,\s*Staff Nurse,\s*Driver,\s*PRO\s*&amp;\s*more\s*\)", "SMC written exam scheduled for <b>6 September 2026</b> for Supervisor (Computer), Junior Pharmacist, Assistant Auditor and Technical Officer", text, flags=re.I)
+        text = re.sub(r"SMC written exam scheduled for\s*(?:<b>)?6\s*September\s*2026(?:</b>)?\s*\(\s*Clerk,\s*Staff Nurse,\s*Driver,\s*PRO\s*&\s*more\s*\)", "SMC written exam scheduled for <b>6 September 2026</b> for Supervisor (Computer), Junior Pharmacist, Assistant Auditor and Technical Officer", text, flags=re.I)
         text = re.sub(r"Written Exam on 6 September 2026", "Written Exam on 6 September 2026 — Supervisor (Computer) &amp; 3 other cadres", text, flags=re.I)
         text = re.sub(r"PRO/739 posts — Clerk, Staff Nurse, Driver &amp; PRO", "P.R.O./739 cadres — Supervisor (Computer), Junior Pharmacist, Assistant Auditor &amp; Technical Officer", text, flags=re.I)
         text = re.sub(r"PRO/739 posts — Clerk, Staff Nurse, Driver & PRO", "P.R.O./739 cadres — Supervisor (Computer), Junior Pharmacist, Assistant Auditor & Technical Officer", text, flags=re.I)
         text = re.sub(r"EXAM\s+12\s+JUL", "EXAM 6 SEP", text, flags=re.I)
+        if cs_page:
+            text = re.sub(r"NOW\s*[—-]\s*Post-Exam Updates", "NOW — Final Revision / Exam Scheduled", text, flags=re.I)
+            text = re.sub(r"YOU ARE HERE\s*[—-]\s*Final revision phase\.\s*Practice mock tests &amp; daily MCQs\.\s*Exam completed\s*[—-]\s*post-exam updates are active\.", "YOU ARE HERE — Final revision phase. Practice mock tests &amp; daily MCQs. Computer Supervisor written exam is scheduled for 6 September 2026.", text, flags=re.I)
+            text = re.sub(r"Post-exam status\s*✓[^<]*", "Exam scheduled — call letter / centre details should be verified on the official SMC notice.", text, flags=re.I)
+            text = re.sub(r"WRITTEN EXAMINATION — OMR objective test \(Clerk, Staff Nurse, Driver, PRO &amp; more\)", "WRITTEN EXAMINATION — Supervisor (Computer), Junior Pharmacist, Assistant Auditor &amp; Technical Officer", text, flags=re.I)
+            text = re.sub(r"WRITTEN EXAMINATION — OMR objective test \(Clerk, Staff Nurse, Driver, PRO & more\)", "WRITTEN EXAMINATION — Supervisor (Computer), Junior Pharmacist, Assistant Auditor & Technical Officer", text, flags=re.I)
+            text = re.sub(r"Exam Completed — 6 September 2026", "Exam Scheduled — 6 September 2026", text, flags=re.I)
+            text = re.sub(r"Current Phase:\s*Answer Key / Result / Merit Updates", "Current Phase: Final Revision / Exam Preparation", text, flags=re.I)
 
     # PRO was completed, but the main site and Computer Supervisor page must keep
     # their own scheduled 6 September 2026 state until that cadre's exam occurs.
