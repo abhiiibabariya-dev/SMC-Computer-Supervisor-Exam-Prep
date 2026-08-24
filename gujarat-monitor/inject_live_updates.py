@@ -7,7 +7,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DOCS = ROOT / "docs"
 STATUS = ROOT / "gujarat-monitor" / "smc-status.json"
 SCRIPT = "auto-live-jobs.js"
-VERSION = "20260824-2"
+VERSION = "20260824-3"
 TAG = f'<script src="/SMC-Computer-Supervisor-Exam-Prep/auto-live-jobs.js?v={VERSION}" defer></script>'
 OLD_TAG_RE = r'<script\s+src="(?:/SMC-Computer-Supervisor-Exam-Prep/)?auto-live-jobs\.js(?:\?[^" ]*)?"[^>]*></script>'
 
@@ -38,9 +38,10 @@ for path in DOCS.rglob("*.html"):
     original = text
 
     text = re.sub(OLD_TAG_RE, TAG, text, flags=re.I)
+    lower_name = path.name.lower()
+    cs_page = lower_name in {"index.html", "supervisor.html"} or "computer supervisor" in text[:12000].lower()
 
     if computer_supervisor_scheduled:
-        # Keep the current Computer Supervisor notice separate from the PRO event.
         text = re.sub(
             r"SMC written exam scheduled for\s*(?:<b>)?6\s*September\s*2026(?:</b>)?\s*\(\s*Clerk,\s*Staff Nurse,\s*Driver,\s*PRO\s*&amp;\s*more\s*\)",
             "SMC written exam scheduled for <b>6 September 2026</b> for Supervisor (Computer), Junior Pharmacist, Assistant Auditor and Technical Officer",
@@ -53,27 +54,14 @@ for path in DOCS.rglob("*.html"):
             text,
             flags=re.I,
         )
-        text = re.sub(
-            r"Written Exam on 6 September 2026",
-            "Written Exam on 6 September 2026 — Supervisor (Computer) &amp; 3 other cadres",
-            text,
-            flags=re.I,
-        )
-        text = re.sub(
-            r"PRO/739 posts — Clerk, Staff Nurse, Driver &amp; PRO",
-            "P.R.O./739 cadres — Supervisor (Computer), Junior Pharmacist, Assistant Auditor &amp; Technical Officer",
-            text,
-            flags=re.I,
-        )
-        text = re.sub(
-            r"PRO/739 posts — Clerk, Staff Nurse, Driver & PRO",
-            "P.R.O./739 cadres — Supervisor (Computer), Junior Pharmacist, Assistant Auditor & Technical Officer",
-            text,
-            flags=re.I,
-        )
+        text = re.sub(r"Written Exam on 6 September 2026", "Written Exam on 6 September 2026 — Supervisor (Computer) &amp; 3 other cadres", text, flags=re.I)
+        text = re.sub(r"PRO/739 posts — Clerk, Staff Nurse, Driver &amp; PRO", "P.R.O./739 cadres — Supervisor (Computer), Junior Pharmacist, Assistant Auditor &amp; Technical Officer", text, flags=re.I)
+        text = re.sub(r"PRO/739 posts — Clerk, Staff Nurse, Driver & PRO", "P.R.O./739 cadres — Supervisor (Computer), Junior Pharmacist, Assistant Auditor & Technical Officer", text, flags=re.I)
         text = re.sub(r"EXAM\s+12\s+JUL", "EXAM 6 SEP", text, flags=re.I)
 
-    if pro_done:
+    # PRO was completed, but the main site and Computer Supervisor page must keep
+    # their own scheduled 6 September 2026 state until that cadre's exam occurs.
+    if pro_done and not cs_page:
         replacements = [
             (r"a\s+live\s+countdown\s+to\s+the\s+12\s+July\s+2026\s+exam", "official post-exam updates, answer keys and results"),
             (r"live\s+countdown\s+to\s+12\s+July\s+2026", "official post-exam updates, answer keys and results"),
