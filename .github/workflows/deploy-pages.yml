@@ -35,6 +35,7 @@ jobs:
           html=re.sub(r'Last updated:\s*.*?\s*&middot;',f'Last updated: {today} &middot;',html,count=1,flags=re.I)
           html=re.sub(r'NOW\s*[—-]\s*Post-Exam Updates','NOW — Final Revision / Exam Preparation',html,flags=re.I)
           html=re.sub(r'Final revision phase\. Practice mock tests & daily MCQs\. Exam completed — post-exam updates are active\.', 'Final revision phase. Practice mock tests & daily MCQs. Computer Supervisor written exam is scheduled for 6 September 2026.', html, flags=re.I)
+          html=html.replace('Exam completed — post-exam updates are active','Computer Supervisor exam preparation is active.')
           html=re.sub(r'Post-exam status\s*(?:✓\s*)+', 'Final revision phase — ', html, flags=re.I)
           html=re.sub(r'SMC written exam scheduled for 6 September 2026\s*\([^)]*\)', 'SMC Computer Supervisor written exam scheduled for 6 September 2026', html, flags=re.I)
           html=re.sub(r'Written Exam:\s*Completed on 12 July 2026', 'Written Exam: Scheduled for 6 September 2026', html, flags=re.I)
@@ -95,22 +96,11 @@ jobs:
               if needle.lower() in text.lower(): raise SystemExit(f'Stale homepage state detected: {needle}')
           print('Homepage current-state validation passed.')
           PY
-          grep -q 'site-nav.js' _site/login.html
-          grep -q 'site-nav.js' _site/live-jobs.html
-          grep -q 'site-nav.js' _site/govt-jobs.html
-          grep -q 'transitions.js' _site/index.html
-          grep -q 'leaderboard-safety.js' _site/leaderboard.html
-          grep -q 'leaderboard-safety.js' _site/quiz.html
-          grep -q 'animations.css' _site/login.html
-          grep -q 'transitions.js' _site/login.html
-          grep -q 'profile-bootstrap.js' _site/login.html
-          grep -q 'login-audit.js' _site/login.html
-          grep -q 'subscription.js' _site/mock-test.html
-          grep -q 'subscription-payments.js' _site/premium.html
-          grep -q 'quizscore-auth.js' _site/daily-quiz.html
-          ! grep -q 'profile.js' _site/client-dashboard.html
-          grep -q 'profile.js' _site/premium.html
-          grep -q 'animations.css' _site/client-dashboard.html
+          grep -q 'site-nav.js' _site/login.html; grep -q 'site-nav.js' _site/live-jobs.html; grep -q 'site-nav.js' _site/govt-jobs.html
+          grep -q 'transitions.js' _site/index.html; grep -q 'leaderboard-safety.js' _site/leaderboard.html; grep -q 'leaderboard-safety.js' _site/quiz.html
+          grep -q 'animations.css' _site/login.html; grep -q 'transitions.js' _site/login.html; grep -q 'profile-bootstrap.js' _site/login.html; grep -q 'login-audit.js' _site/login.html
+          grep -q 'subscription.js' _site/mock-test.html; grep -q 'subscription-payments.js' _site/premium.html; grep -q 'quizscore-auth.js' _site/daily-quiz.html
+          ! grep -q 'profile.js' _site/client-dashboard.html; grep -q 'profile.js' _site/premium.html; grep -q 'animations.css' _site/client-dashboard.html
           for f in site-nav.js gate.js profile-bootstrap.js profile.js activity-audit.js login-audit.js transitions.js leaderboard-safety.js subscription.js subscription-payments.js quizscore-auth.js smc-live-sync.js; do node --check "_site/$f"; done
           echo 'Pages build validation passed.'
       - name: Configure Pages
