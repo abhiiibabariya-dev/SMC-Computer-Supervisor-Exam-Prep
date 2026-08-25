@@ -42,6 +42,12 @@ jobs:
           # Normalize the public homepage to the currently official Computer Supervisor schedule.
           # SMC currently lists Supervisor (Computer), Junior Pharmacist, Assistant Auditor and Technical Officer for 6 September 2026.
           replacements={
+            'Free preparation for the SMC (Surat Municipal Corporation) 2026 exam — practice tests, MCQs, current affairs, study material and a post-exam updates, answer keys, results and merit lists for Clerk, Staff Nurse, Driver &amp; PRO posts. Written exam held: 6 September 2026.':'Free preparation for the SMC (Surat Municipal Corporation) 2026 exam — practice tests, MCQs, current affairs, study material and official updates for Supervisor (Computer), Junior Pharmacist, Assistant Auditor and Technical Officer. Written exam scheduled: 6 September 2026.',
+            'Free preparation for the SMC (Surat Municipal Corporation) 2026 exam — practice tests, MCQs, current affairs, study material and a post-exam updates, answer keys, results and merit lists for Clerk, Staff Nurse, Driver & PRO posts. Written exam held: 6 September 2026.':'Free preparation for the SMC (Surat Municipal Corporation) 2026 exam — practice tests, MCQs, current affairs, study material and official updates for Supervisor (Computer), Junior Pharmacist, Assistant Auditor and Technical Officer. Written exam scheduled: 6 September 2026.',
+            'Crack the SMC 2026 exam (Clerk · Staff Nurse · Driver · PRO). Free practice tests, MCQs, daily current affairs &amp; official post-exam updates, answer keys and results. Start free →':'Prepare for the SMC 2026 written exam for Supervisor (Computer), Junior Pharmacist, Assistant Auditor and Technical Officer. Free practice tests, MCQs, current affairs and official updates. Start free →',
+            'Crack the SMC 2026 exam (Clerk · Staff Nurse · Driver · PRO). Free practice tests, MCQs, daily current affairs & official post-exam updates, answer keys and results. Start free →':'Prepare for the SMC 2026 written exam for Supervisor (Computer), Junior Pharmacist, Assistant Auditor and Technical Officer. Free practice tests, MCQs, current affairs and official updates. Start free →',
+            'SMC Public Relation Officer Written Examination 2026':'SMC Computer Supervisor Written Examination 2026',
+            'SMC Computer Supervisor / Clerk written examination scheduled for 6 September 2026. Other cadres have separate official schedules and notices.':'SMC Computer Supervisor written examination scheduled for 6 September 2026. Verify the official SMC notice for the final centre and reporting time.',
             'SMC written exam was held on 12 July 2026. Official SMC answer-key and post-exam updates are now the focus.':'SMC Computer Supervisor written exam is scheduled for 6 September 2026. Verify the official SMC notice for call letter and centre details.',
             'Written Exam: Completed on 12 July 2026':'Written Exam: Scheduled for 6 September 2026',
             'Current Phase: Answer Key / Result / Merit Updates':'Current Phase: Final Revision / Exam Preparation',
@@ -64,7 +70,7 @@ jobs:
               if head<0: continue
               text=re.sub(r'\s*<script\s+[^>]*src=["\'][^"\']*site-nav\.js(?:\?[^"\']*)?["\'][^>]*>\s*</script>','',text,flags=re.I)
               head=text.lower().find('</head>')
-              text=text[:head]+f'\n<script src="{rel(sitenav)}?v=20260823"></script>\n'+text[head:]
+              text=text[:head]+f'\n<script src="{rel(sitenav)}?v=20260825"></script>\n'+text[head:]
               if page.name.lower()=='login.html':
                   for script in (boot,loginaudit,transitions,leaderboardsafety,quizscoreauth):
                       text=re.sub(r'\s*<script\s+[^>]*src=["\'][^"\']*'+re.escape(script.name)+r'(?:\?[^"\']*)?["\'][^>]*>\s*</script>','',text,flags=re.I)
@@ -94,7 +100,7 @@ jobs:
                   if end>=0:
                       text=text[:end]+f'\n<script src="{rel(transitions)}"></script>\n<script src="{rel(leaderboardsafety)}"></script>\n'+text[end:]
                   page.write_text(text,encoding='utf-8');changed.append(str(page));continue
-              tags=[f'<script src="{rel(gate)}?v=20260823"></script>',f'<script src="{rel(sub)}"></script>',f'<script src="{rel(activity)}"></script>',f'<script src="{rel(leaderboardsafety)}"></script>']
+              tags=[f'<script src="{rel(gate)}?v=20260825"></script>',f'<script src="{rel(sub)}"></script>',f'<script src="{rel(activity)}"></script>',f'<script src="{rel(leaderboardsafety)}"></script>']
               if page.name.lower()!='client-dashboard.html': tags.append(f'<script src="{rel(profile)}"></script>')
               if page.name.lower()=='daily-quiz.html': tags.append(f'<script src="{rel(quizscoreauth)}"></script>')
               updated=text[:head]+'\n'+'\n'.join(tags)+'\n'+text[head:]
@@ -115,6 +121,9 @@ jobs:
           ! grep -q 'Secure Firebase authentication could not be initialized' _site/index.html
           ! grep -q 'EXAM ON 12 JULY 2026' _site/index.html
           ! grep -q 'SMC written exam scheduled for 12 July 2026' _site/index.html
+          ! grep -q 'Written exam held: 6 September 2026' _site/index.html
+          ! grep -q 'SMC Public Relation Officer Written Examination 2026' _site/index.html
+          ! grep -q 'Clerk · Staff Nurse · Driver · PRO' _site/index.html
           grep -q 'EXAM SCHEDULED — 6 SEPTEMBER 2026' _site/index.html
           grep -q 'Supervisor (Computer)' _site/index.html
           grep -q 'Final Revision / Exam Preparation' _site/index.html
