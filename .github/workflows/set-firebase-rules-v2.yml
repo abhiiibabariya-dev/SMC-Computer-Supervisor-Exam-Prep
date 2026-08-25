@@ -14,21 +14,30 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Validate rules JSON
         run: |
           set -euo pipefail
-          python3 -m json.tool firebase-rules.json >/dev/null
-          grep -q '".read": false' firebase-rules.json
-          grep -q '".write": false' firebase-rules.json
-          grep -q "$ADMIN_EMAIL" firebase-rules.json
-          grep -q 'emailVerified' firebase-rules.json
-          grep -q 'email_verified === true' firebase-rules.json
-          grep -q 'phoneVerified' firebase-rules.json
-          grep -q 'premium49' firebase-rules.json
-          grep -q 'premium99' firebase-rules.json
-          grep -q 'leaderboard_public' firebase-rules.json
-          echo 'Firebase rules validation passed for admin, verification, subscriptions and public leaderboard paths.'
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          r=json.loads(Path('firebase-rules.json').read_text(encoding='utf-8'))['rules']
+          assert r['.read'] is False
+          assert r['.write'] is False
+          assert 'users' in r and '$uid' in r['users']
+          u=r['users']['$uid']
+          assert '!data.exists()' in u['.write']
+          assert 'auth.uid === $uid' in u['.read']
+          assert "abhibabariya007@gmail.com" in u['.write']
+          assert 'auth.token.email_verified === true' in u['emailVerified']['.write']
+          assert "premium49" in json.dumps(r) and "premium99" in json.dumps(r)
+          assert 'leaderboard_public' in r
+          for key in ('visits','clicks','leads','security','quizscores'):
+              assert 'auth !== null' in r[key]['$id']['.write'], key
+              assert '.validate' in r[key]['$id'], key
+          assert 'fullAccess' in r['premium_content']['$resource']['.read']
+          print('Firebase rules validation passed.')
+          PY
       - name: Check deployment secret
         env:
           FB_SECRET: ${{ secrets.FIREBASE_SECRET }}
