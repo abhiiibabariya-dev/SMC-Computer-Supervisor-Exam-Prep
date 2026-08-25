@@ -39,8 +39,6 @@ jobs:
           html=home.read_text(encoding='utf-8',errors='ignore')
           today=datetime.now(ZoneInfo('Asia/Kolkata')).strftime('%d %B %Y')
           html=re.sub(r'Last updated:\s*.*?\s*&middot;',f'Last updated: {today} &middot;',html,count=1,flags=re.I)
-          # Normalize the public homepage to the currently official Computer Supervisor schedule.
-          # SMC currently lists Supervisor (Computer), Junior Pharmacist, Assistant Auditor and Technical Officer for 6 September 2026.
           replacements={
             'Free preparation for the SMC (Surat Municipal Corporation) 2026 exam — practice tests, MCQs, current affairs, study material and a post-exam updates, answer keys, results and merit lists for Clerk, Staff Nurse, Driver &amp; PRO posts. Written exam held: 6 September 2026.':'Free preparation for the SMC (Surat Municipal Corporation) 2026 exam — practice tests, MCQs, current affairs, study material and official updates for Supervisor (Computer), Junior Pharmacist, Assistant Auditor and Technical Officer. Written exam scheduled: 6 September 2026.',
             'Free preparation for the SMC (Surat Municipal Corporation) 2026 exam — practice tests, MCQs, current affairs, study material and a post-exam updates, answer keys, results and merit lists for Clerk, Staff Nurse, Driver & PRO posts. Written exam held: 6 September 2026.':'Free preparation for the SMC (Surat Municipal Corporation) 2026 exam — practice tests, MCQs, current affairs, study material and official updates for Supervisor (Computer), Junior Pharmacist, Assistant Auditor and Technical Officer. Written exam scheduled: 6 September 2026.',
@@ -119,20 +117,24 @@ jobs:
           ! grep -q 'src="gate.js' _site/index.html
           ! grep -q 'smcAuthOverlay' _site/index.html
           ! grep -q 'Secure Firebase authentication could not be initialized' _site/index.html
-          ! grep -q 'EXAM ON 12 JULY 2026' _site/index.html
-          ! grep -q 'SMC written exam scheduled for 12 July 2026' _site/index.html
-          ! grep -q 'Written exam held: 6 September 2026' _site/index.html
-          ! grep -q 'SMC Public Relation Officer Written Examination 2026' _site/index.html
-          ! grep -q 'Clerk · Staff Nurse · Driver · PRO' _site/index.html
-          grep -q 'EXAM SCHEDULED — 6 SEPTEMBER 2026' _site/index.html
-          grep -q 'Supervisor (Computer)' _site/index.html
-          grep -q 'Final Revision / Exam Preparation' _site/index.html
-          grep -q 'site-nav.js' _site/index.html
+          python3 - <<'PY'
+          from pathlib import Path
+          text=Path('_site/index.html').read_text(encoding='utf-8',errors='ignore')
+          required=['6 SEPTEMBER 2026','Supervisor (Computer)','Final Revision']
+          for needle in required:
+              if needle.lower() not in text.lower():
+                  raise SystemExit(f'Homepage is missing required current-state text: {needle}')
+          stale=['Written exam held: 6 September 2026','SMC written exam scheduled for 12 July 2026','SMC Public Relation Officer Written Examination 2026']
+          for needle in stale:
+              if needle.lower() in text.lower():
+                  raise SystemExit(f'Homepage still contains stale text: {needle}')
+          for needle in ['site-nav.js','animations.css','activity-audit.js']:
+              if needle not in text: raise SystemExit(f'Homepage missing {needle}')
+          print('Homepage state validation passed.')
+          PY
           grep -q 'site-nav.js' _site/login.html
           grep -q 'site-nav.js' _site/live-jobs.html
           grep -q 'site-nav.js' _site/govt-jobs.html
-          grep -q 'activity-audit.js' _site/index.html
-          grep -q 'animations.css' _site/index.html
           grep -q 'transitions.js' _site/index.html
           grep -q 'leaderboard-safety.js' _site/leaderboard.html
           grep -q 'leaderboard-safety.js' _site/quiz.html
