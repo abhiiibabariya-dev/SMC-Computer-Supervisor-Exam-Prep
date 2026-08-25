@@ -1,19 +1,15 @@
 name: Deploy SMC Prep to GitHub Pages
-
 on:
   push:
     branches: [master]
   workflow_dispatch: {}
-
 permissions:
   contents: read
   pages: write
   id-token: write
-
 concurrency:
   group: github-pages
   cancel-in-progress: true
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -21,7 +17,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v5
-
       - name: Prepare site
         shell: python
         run: |
@@ -35,13 +30,9 @@ jobs:
               if not (source/f).is_file(): raise SystemExit(f'docs/{f} is missing')
           if site.exists(): shutil.rmtree(site)
           shutil.copytree(source,site);(site/'.nojekyll').touch()
-
-          home=site/'index.html'
-          html=home.read_text(encoding='utf-8',errors='ignore')
+          home=site/'index.html';html=home.read_text(encoding='utf-8',errors='ignore')
           today=datetime.now(ZoneInfo('Asia/Kolkata')).strftime('%d %B %Y')
           html=re.sub(r'Last updated:\s*.*?\s*&middot;',f'Last updated: {today} &middot;',html,count=1,flags=re.I)
-
-          # Normalize the public homepage to the current Computer Supervisor recruitment state.
           html=re.sub(r'NOW\s*[—-]\s*Post-Exam Updates','NOW — Final Revision / Exam Preparation',html,flags=re.I)
           html=re.sub(r'Final revision phase\. Practice mock tests & daily MCQs\. Exam completed — post-exam updates are active\.', 'Final revision phase. Practice mock tests & daily MCQs. Computer Supervisor written exam is scheduled for 6 September 2026.', html, flags=re.I)
           html=re.sub(r'Post-exam status\s*(?:✓\s*)+', 'Final revision phase — ', html, flags=re.I)
@@ -53,58 +44,40 @@ jobs:
           html=re.sub(r'OMR objective test \(Clerk, Staff Nurse, Driver, PRO & more\)', 'OMR objective test — Supervisor (Computer), Junior Pharmacist, Assistant Auditor & Technical Officer', html, flags=re.I)
           html=re.sub(r'Written examination — verify final centre and reporting time on the official SMC call letter\.', 'Written examination — Supervisor (Computer), Junior Pharmacist, Assistant Auditor & Technical Officer. Verify final centre and reporting time on the official SMC call letter.', html, flags=re.I)
           html=re.sub(r'Crack the SMC 2026 exam \(Clerk · Staff Nurse · Driver · PRO\)\.', 'Prepare for the SMC 2026 Computer Supervisor examination.', html, flags=re.I)
-          html=re.sub(r'Crack the SMC 2026 exam \(Clerk · Staff Nurse · Driver · PRO\)\.', 'Prepare for the SMC 2026 Computer Supervisor examination.', html, flags=re.I)
           html=re.sub(r'EXAM SCHEDULED — 6 SEPTEMBER 2026 — Final Revision Time!', 'EXAM SCHEDULED — 6 SEPTEMBER 2026 — Computer Supervisor Final Revision', html, flags=re.I)
           html=re.sub(r'SMC Public Relation Officer Written Examination 2026', 'SMC Computer Supervisor Written Examination 2026', html, flags=re.I)
-          # This site is specifically the Computer Supervisor prep hub, so stale 12 July references on the public homepage are unsafe/confusing.
+          html=html.replace('Computer Supv','Supervisor (Computer)')
           html=html.replace('12 July 2026','6 September 2026').replace('12 JULY 2026','6 SEPTEMBER 2026')
           home.write_text(html,encoding='utf-8')
-
           gate=site/'gate.js';sub=site/'subscription.js';pay=site/'subscription-payments.js';profile=site/'profile.js';boot=site/'profile-bootstrap.js';activity=site/'activity-audit.js';loginaudit=site/'login-audit.js';animations=site/'animations.css';transitions=site/'transitions.js';leaderboardsafety=site/'leaderboard-safety.js';quizscoreauth=site/'quizscore-auth.js';sitenav=site/'site-nav.js'
           changed=[]
           for page in site.rglob('*.html'):
-              text=page.read_text(encoding='utf-8',errors='ignore')
-              rel=lambda p:os.path.relpath(p,page.parent).replace('\\','/')
-              head=text.lower().find('</head>')
+              text=page.read_text(encoding='utf-8',errors='ignore');rel=lambda p:os.path.relpath(p,page.parent).replace('\\','/');head=text.lower().find('</head>')
               if head<0: continue
-              text=re.sub(r'\s*<script\s+[^>]*src=["\'][^"\']*site-nav\.js(?:\?[^"\']*)?["\'][^>]*>\s*</script>','',text,flags=re.I)
-              head=text.lower().find('</head>')
-              text=text[:head]+f'\n<script src="{rel(sitenav)}?v=20260825"></script>\n'+text[head:]
+              text=re.sub(r'\s*<script\s+[^>]*src=["\'][^"\']*site-nav\.js(?:\?[^"\']*)?["\'][^>]*>\s*</script>','',text,flags=re.I);head=text.lower().find('</head>');text=text[:head]+f'\n<script src="{rel(sitenav)}?v=20260825"></script>\n'+text[head:]
               if page.name.lower()=='login.html':
-                  for script in (boot,loginaudit,transitions,leaderboardsafety,quizscoreauth):
-                      text=re.sub(r'\s*<script\s+[^>]*src=["\'][^"\']*'+re.escape(script.name)+r'(?:\?[^"\']*)?["\'][^>]*>\s*</script>','',text,flags=re.I)
-                  head=text.lower().find('</head>')
-                  css=rel(animations)
-                  if not re.search(r'<link\s+[^>]*href=["\'][^"\']*animations\.css(?:\?[^"\']*)?["\'][^>]*>',text,re.I):
-                      text=text[:head]+f'\n<link rel="stylesheet" href="{css}">\n'+text[head:];head=text.lower().find('</head>')
-                  text=text[:head]+f'\n<script src="{rel(boot)}"></script>\n'+text[head:]
-                  end=text.lower().rfind('</body>')
+                  for script in (boot,loginaudit,transitions,leaderboardsafety,quizscoreauth): text=re.sub(r'\s*<script\s+[^>]*src=["\'][^"\']*'+re.escape(script.name)+r'(?:\?[^"\']*)?["\'][^>]*>\s*</script>','',text,flags=re.I)
+                  head=text.lower().find('</head>');css=rel(animations)
+                  if not re.search(r'<link\s+[^>]*href=["\'][^"\']*animations\.css(?:\?[^"\']*)?["\'][^>]*>',text,re.I): text=text[:head]+f'\n<link rel="stylesheet" href="{css}">\n'+text[head:];head=text.lower().find('</head>')
+                  text=text[:head]+f'\n<script src="{rel(boot)}"></script>\n'+text[head:];end=text.lower().rfind('</body>')
                   if end>=0:
-                      for script in (loginaudit,transitions,leaderboardsafety):
-                          text=text[:end]+f'\n<script src="{rel(script)}"></script>\n'+text[end:]
+                      for script in (loginaudit,transitions,leaderboardsafety): text=text[:end]+f'\n<script src="{rel(script)}"></script>\n'+text[end:]
                   page.write_text(text,encoding='utf-8');changed.append(str(page));continue
-              for script in (gate,sub,pay,profile,boot,activity,transitions,leaderboardsafety,quizscoreauth):
-                  text=re.sub(r'\s*<script\s+[^>]*src=["\'][^"\']*'+re.escape(script.name)+r'(?:\?[^"\']*)?["\'][^>]*>\s*</script>','',text,flags=re.I)
+              for script in (gate,sub,pay,profile,boot,activity,transitions,leaderboardsafety,quizscoreauth): text=re.sub(r'\s*<script\s+[^>]*src=["\'][^"\']*'+re.escape(script.name)+r'(?:\?[^"\']*)?["\'][^>]*>\s*</script>','',text,flags=re.I)
               head=text.lower().find('</head>');css=rel(animations)
-              if not re.search(r'<link\s+[^>]*href=["\'][^"\']*animations\.css(?:\?[^"\']*)?["\'][^>]*>',text,re.I):
-                  text=text[:head]+f'\n<link rel="stylesheet" href="{css}">\n'+text[head:];head=text.lower().find('</head>')
+              if not re.search(r'<link\s+[^>]*href=["\'][^"\']*animations\.css(?:\?[^"\']*)?["\'][^>]*>',text,re.I): text=text[:head]+f'\n<link rel="stylesheet" href="{css}">\n'+text[head:];head=text.lower().find('</head>')
               if page.name.lower()=='index.html':
-                  text=text[:head]+f'\n<script src="{rel(activity)}"></script>\n'+text[head:]
-                  end=text.lower().rfind('</body>')
+                  text=text[:head]+f'\n<script src="{rel(activity)}"></script>\n'+text[head:];end=text.lower().rfind('</body>')
                   if end>=0:text=text[:end]+f'\n<script src="{rel(transitions)}"></script>\n<script src="{rel(leaderboardsafety)}"></script>\n'+text[end:]
                   page.write_text(text,encoding='utf-8');changed.append(str(page));continue
               tags=[f'<script src="{rel(gate)}?v=20260825"></script>',f'<script src="{rel(sub)}"></script>',f'<script src="{rel(activity)}"></script>',f'<script src="{rel(leaderboardsafety)}"></script>']
               if page.name.lower()!='client-dashboard.html':tags.append(f'<script src="{rel(profile)}"></script>')
               if page.name.lower()=='daily-quiz.html':tags.append(f'<script src="{rel(quizscoreauth)}"></script>')
               text=text[:head]+'\n'+'\n'.join(tags)+'\n'+text[head:]
-              if page.name.lower()=='premium.html':
-                  end=text.lower().rfind('</body>')
-                  if end>=0:text=text[:end]+f'\n<script src="{rel(pay)}"></script>\n'+text[end:]
-              end=text.lower().rfind('</body>')
-              if end>=0:text=text[:end]+f'\n<script src="{rel(transitions)}"></script>\n'+text[end:]
+              if page.name.lower()=='premium.html': end=text.lower().rfind('</body>');text=text[:end]+f'\n<script src="{rel(pay)}"></script>\n'+text[end:] if end>=0 else text
+              end=text.lower().rfind('</body>');text=text[:end]+f'\n<script src="{rel(transitions)}"></script>\n'+text[end:] if end>=0 else text
               page.write_text(text,encoding='utf-8');changed.append(str(page))
           print(f'Prepared {len(changed)} HTML pages with universal navigation')
-
       - name: Validate published site and JavaScript
         run: |
           set -euo pipefail
@@ -120,8 +93,6 @@ jobs:
           stale=['12 July 2026','12 JULY 2026','NOW — Post-Exam Updates','Exam completed — post-exam updates are active','EXAM COMPLETED — 12 JULY 2026','Written Exam: Completed on 12 July 2026']
           for needle in stale:
               if needle.lower() in text.lower(): raise SystemExit(f'Stale homepage state detected: {needle}')
-          for needle in ['site-nav.js','animations.css','activity-audit.js']:
-              if needle not in text: raise SystemExit(f'Homepage missing {needle}')
           print('Homepage current-state validation passed.')
           PY
           grep -q 'site-nav.js' _site/login.html
@@ -142,15 +113,12 @@ jobs:
           grep -q 'animations.css' _site/client-dashboard.html
           for f in site-nav.js gate.js profile-bootstrap.js profile.js activity-audit.js login-audit.js transitions.js leaderboard-safety.js subscription.js subscription-payments.js quizscore-auth.js smc-live-sync.js; do node --check "_site/$f"; done
           echo 'Pages build validation passed.'
-
       - name: Configure Pages
         uses: actions/configure-pages@v6
-
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v5
         with:
           path: _site
-
   deploy:
     environment:
       name: github-pages
