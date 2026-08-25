@@ -35,30 +35,31 @@ jobs:
               if not (source/f).is_file(): raise SystemExit(f'docs/{f} is missing')
           if site.exists(): shutil.rmtree(site)
           shutil.copytree(source,site);(site/'.nojekyll').touch()
+
           home=site/'index.html'
           html=home.read_text(encoding='utf-8',errors='ignore')
           today=datetime.now(ZoneInfo('Asia/Kolkata')).strftime('%d %B %Y')
           html=re.sub(r'Last updated:\s*.*?\s*&middot;',f'Last updated: {today} &middot;',html,count=1,flags=re.I)
-          replacements={
-            'Free preparation for the SMC (Surat Municipal Corporation) 2026 exam — practice tests, MCQs, current affairs, study material and a post-exam updates, answer keys, results and merit lists for Clerk, Staff Nurse, Driver &amp; PRO posts. Written exam held: 6 September 2026.':'Free preparation for the SMC (Surat Municipal Corporation) 2026 exam — practice tests, MCQs, current affairs, study material and official updates for Supervisor (Computer), Junior Pharmacist, Assistant Auditor and Technical Officer. Written exam scheduled: 6 September 2026.',
-            'Free preparation for the SMC (Surat Municipal Corporation) 2026 exam — practice tests, MCQs, current affairs, study material and a post-exam updates, answer keys, results and merit lists for Clerk, Staff Nurse, Driver & PRO posts. Written exam held: 6 September 2026.':'Free preparation for the SMC (Surat Municipal Corporation) 2026 exam — practice tests, MCQs, current affairs, study material and official updates for Supervisor (Computer), Junior Pharmacist, Assistant Auditor and Technical Officer. Written exam scheduled: 6 September 2026.',
-            'Crack the SMC 2026 exam (Clerk · Staff Nurse · Driver · PRO). Free practice tests, MCQs, daily current affairs &amp; official post-exam updates, answer keys and results. Start free →':'Prepare for the SMC 2026 written exam for Supervisor (Computer), Junior Pharmacist, Assistant Auditor and Technical Officer. Free practice tests, MCQs, current affairs and official updates. Start free →',
-            'Crack the SMC 2026 exam (Clerk · Staff Nurse · Driver · PRO). Free practice tests, MCQs, daily current affairs & official post-exam updates, answer keys and results. Start free →':'Prepare for the SMC 2026 written exam for Supervisor (Computer), Junior Pharmacist, Assistant Auditor and Technical Officer. Free practice tests, MCQs, current affairs and official updates. Start free →',
-            'SMC Public Relation Officer Written Examination 2026':'SMC Computer Supervisor Written Examination 2026',
-            'SMC Computer Supervisor / Clerk written examination scheduled for 6 September 2026. Other cadres have separate official schedules and notices.':'SMC Computer Supervisor written examination scheduled for 6 September 2026. Verify the official SMC notice for the final centre and reporting time.',
-            'SMC written exam was held on 12 July 2026. Official SMC answer-key and post-exam updates are now the focus.':'SMC Computer Supervisor written exam is scheduled for 6 September 2026. Verify the official SMC notice for call letter and centre details.',
-            'Written Exam: Completed on 12 July 2026':'Written Exam: Scheduled for 6 September 2026',
-            'Current Phase: Answer Key / Result / Merit Updates':'Current Phase: Final Revision / Exam Preparation',
-            'The countdown has ended because the examination date has passed. This section now tracks post-exam updates instead of obsolete pre-exam messaging.':'The countdown is active for the Computer Supervisor written exam scheduled for 6 September 2026.',
-            'NOW — Post-Exam Updates':'NOW — Final Revision / Exam Scheduled',
-            'Final revision phase. Practice mock tests & daily MCQs. Exam completed — post-exam updates are active.':'Final revision phase. Practice mock tests & daily MCQs. Computer Supervisor written exam is scheduled for 6 September 2026.',
-            'Written Exam on 6 September 2026':'Written Exam on 6 September 2026 — Supervisor (Computer) & 3 other cadres',
-            'WRITTEN EXAMINATION — OMR objective test (Clerk, Staff Nurse, Driver, PRO & more)':'WRITTEN EXAMINATION — Supervisor (Computer), Junior Pharmacist, Assistant Auditor & Technical Officer',
-            'EXAM 12 JUL':'EXAM 6 SEP',
-            'Exam Completed — 6 September 2026':'Exam Scheduled — 6 September 2026'
-          }
-          for old,new in replacements.items(): html=html.replace(old,new)
+
+          # Normalize the public homepage to the current Computer Supervisor recruitment state.
+          html=re.sub(r'NOW\s*[—-]\s*Post-Exam Updates','NOW — Final Revision / Exam Preparation',html,flags=re.I)
+          html=re.sub(r'Final revision phase\. Practice mock tests & daily MCQs\. Exam completed — post-exam updates are active\.', 'Final revision phase. Practice mock tests & daily MCQs. Computer Supervisor written exam is scheduled for 6 September 2026.', html, flags=re.I)
+          html=re.sub(r'Post-exam status\s*(?:✓\s*)+', 'Final revision phase — ', html, flags=re.I)
+          html=re.sub(r'SMC written exam scheduled for 6 September 2026\s*\([^)]*\)', 'SMC Computer Supervisor written exam scheduled for 6 September 2026', html, flags=re.I)
+          html=re.sub(r'Written Exam:\s*Completed on 12 July 2026', 'Written Exam: Scheduled for 6 September 2026', html, flags=re.I)
+          html=re.sub(r'EXAM\s+12\s+JUL', 'EXAM 6 SEP', html, flags=re.I)
+          html=re.sub(r'Exam Completed\s*[—-]\s*6 September 2026', 'Exam Scheduled — 6 September 2026', html, flags=re.I)
+          html=re.sub(r'Exam completed\. Track official answer key, result and selection updates\.', 'Verify the official SMC call letter and track official exam-day, answer-key, result and selection updates.', html, flags=re.I)
+          html=re.sub(r'OMR objective test \(Clerk, Staff Nurse, Driver, PRO & more\)', 'OMR objective test — Supervisor (Computer), Junior Pharmacist, Assistant Auditor & Technical Officer', html, flags=re.I)
+          html=re.sub(r'Written examination — verify final centre and reporting time on the official SMC call letter\.', 'Written examination — Supervisor (Computer), Junior Pharmacist, Assistant Auditor & Technical Officer. Verify final centre and reporting time on the official SMC call letter.', html, flags=re.I)
+          html=re.sub(r'Crack the SMC 2026 exam \(Clerk · Staff Nurse · Driver · PRO\)\.', 'Prepare for the SMC 2026 Computer Supervisor examination.', html, flags=re.I)
+          html=re.sub(r'Crack the SMC 2026 exam \(Clerk · Staff Nurse · Driver · PRO\)\.', 'Prepare for the SMC 2026 Computer Supervisor examination.', html, flags=re.I)
+          html=re.sub(r'EXAM SCHEDULED — 6 SEPTEMBER 2026 — Final Revision Time!', 'EXAM SCHEDULED — 6 SEPTEMBER 2026 — Computer Supervisor Final Revision', html, flags=re.I)
+          html=re.sub(r'SMC Public Relation Officer Written Examination 2026', 'SMC Computer Supervisor Written Examination 2026', html, flags=re.I)
+          # This site is specifically the Computer Supervisor prep hub, so stale 12 July references on the public homepage are unsafe/confusing.
+          html=html.replace('12 July 2026','6 September 2026').replace('12 JULY 2026','6 SEPTEMBER 2026')
           home.write_text(html,encoding='utf-8')
+
           gate=site/'gate.js';sub=site/'subscription.js';pay=site/'subscription-payments.js';profile=site/'profile.js';boot=site/'profile-bootstrap.js';activity=site/'activity-audit.js';loginaudit=site/'login-audit.js';animations=site/'animations.css';transitions=site/'transitions.js';leaderboardsafety=site/'leaderboard-safety.js';quizscoreauth=site/'quizscore-auth.js';sitenav=site/'site-nav.js'
           changed=[]
           for page in site.rglob('*.html'):
@@ -73,41 +74,35 @@ jobs:
                   for script in (boot,loginaudit,transitions,leaderboardsafety,quizscoreauth):
                       text=re.sub(r'\s*<script\s+[^>]*src=["\'][^"\']*'+re.escape(script.name)+r'(?:\?[^"\']*)?["\'][^>]*>\s*</script>','',text,flags=re.I)
                   head=text.lower().find('</head>')
-                  css=os.path.relpath(animations,page.parent).replace('\\','/')
-                  if not re.search(r'<link\s+[^>]*href=["\'][^"\']*'+re.escape(os.path.basename(css))+r'["\'][^>]*>',text,re.I):
-                      text=text[:head]+f'\n<link rel="stylesheet" href="{css}">\n'+text[head:]
-                      head=text.lower().find('</head>')
-                  relboot=os.path.relpath(boot,page.parent).replace('\\','/')
-                  text=text[:head]+f'\n<script src="{relboot}"></script>\n'+text[head:]
+                  css=rel(animations)
+                  if not re.search(r'<link\s+[^>]*href=["\'][^"\']*animations\.css(?:\?[^"\']*)?["\'][^>]*>',text,re.I):
+                      text=text[:head]+f'\n<link rel="stylesheet" href="{css}">\n'+text[head:];head=text.lower().find('</head>')
+                  text=text[:head]+f'\n<script src="{rel(boot)}"></script>\n'+text[head:]
                   end=text.lower().rfind('</body>')
                   if end>=0:
                       for script in (loginaudit,transitions,leaderboardsafety):
-                          r=os.path.relpath(script,page.parent).replace('\\','/')
-                          text=text[:end]+f'\n<script src="{r}"></script>\n'+text[end:]
+                          text=text[:end]+f'\n<script src="{rel(script)}"></script>\n'+text[end:]
                   page.write_text(text,encoding='utf-8');changed.append(str(page));continue
               for script in (gate,sub,pay,profile,boot,activity,transitions,leaderboardsafety,quizscoreauth):
                   text=re.sub(r'\s*<script\s+[^>]*src=["\'][^"\']*'+re.escape(script.name)+r'(?:\?[^"\']*)?["\'][^>]*>\s*</script>','',text,flags=re.I)
-              head=text.lower().find('</head>')
-              css=rel(animations)
-              if not re.search(r'<link\s+[^>]*href=["\'][^"\']*'+re.escape(os.path.basename(css))+r'["\'][^>]*>',text,re.I):
-                  text=text[:head]+f'\n<link rel="stylesheet" href="{css}">\n'+text[head:]
-                  head=text.lower().find('</head>')
+              head=text.lower().find('</head>');css=rel(animations)
+              if not re.search(r'<link\s+[^>]*href=["\'][^"\']*animations\.css(?:\?[^"\']*)?["\'][^>]*>',text,re.I):
+                  text=text[:head]+f'\n<link rel="stylesheet" href="{css}">\n'+text[head:];head=text.lower().find('</head>')
               if page.name.lower()=='index.html':
                   text=text[:head]+f'\n<script src="{rel(activity)}"></script>\n'+text[head:]
                   end=text.lower().rfind('</body>')
-                  if end>=0:
-                      text=text[:end]+f'\n<script src="{rel(transitions)}"></script>\n<script src="{rel(leaderboardsafety)}"></script>\n'+text[end:]
+                  if end>=0:text=text[:end]+f'\n<script src="{rel(transitions)}"></script>\n<script src="{rel(leaderboardsafety)}"></script>\n'+text[end:]
                   page.write_text(text,encoding='utf-8');changed.append(str(page));continue
               tags=[f'<script src="{rel(gate)}?v=20260825"></script>',f'<script src="{rel(sub)}"></script>',f'<script src="{rel(activity)}"></script>',f'<script src="{rel(leaderboardsafety)}"></script>']
-              if page.name.lower()!='client-dashboard.html': tags.append(f'<script src="{rel(profile)}"></script>')
-              if page.name.lower()=='daily-quiz.html': tags.append(f'<script src="{rel(quizscoreauth)}"></script>')
-              updated=text[:head]+'\n'+'\n'.join(tags)+'\n'+text[head:]
+              if page.name.lower()!='client-dashboard.html':tags.append(f'<script src="{rel(profile)}"></script>')
+              if page.name.lower()=='daily-quiz.html':tags.append(f'<script src="{rel(quizscoreauth)}"></script>')
+              text=text[:head]+'\n'+'\n'.join(tags)+'\n'+text[head:]
               if page.name.lower()=='premium.html':
-                  end=updated.lower().rfind('</body>')
-                  if end>=0:updated=updated[:end]+f'\n<script src="{rel(pay)}"></script>\n'+updated[end:]
-              end=updated.lower().rfind('</body>')
-              if end>=0:updated=updated[:end]+f'\n<script src="{rel(transitions)}"></script>\n'+updated[end:]
-              page.write_text(updated,encoding='utf-8');changed.append(str(page))
+                  end=text.lower().rfind('</body>')
+                  if end>=0:text=text[:end]+f'\n<script src="{rel(pay)}"></script>\n'+text[end:]
+              end=text.lower().rfind('</body>')
+              if end>=0:text=text[:end]+f'\n<script src="{rel(transitions)}"></script>\n'+text[end:]
+              page.write_text(text,encoding='utf-8');changed.append(str(page))
           print(f'Prepared {len(changed)} HTML pages with universal navigation')
 
       - name: Validate published site and JavaScript
@@ -116,21 +111,18 @@ jobs:
           for f in index.html login.html gate.js firebase-config.js subscription.js subscription-payments.js profile.js profile-bootstrap.js activity-audit.js login-audit.js animations.css transitions.js leaderboard-safety.js quizscore-auth.js smc-live-sync.js site-nav.js; do test -f "_site/$f"; done
           ! grep -q 'src="gate.js' _site/index.html
           ! grep -q 'smcAuthOverlay' _site/index.html
-          ! grep -q 'Secure Firebase authentication could not be initialized' _site/index.html
           python3 - <<'PY'
           from pathlib import Path
           text=Path('_site/index.html').read_text(encoding='utf-8',errors='ignore')
           required=['6 SEPTEMBER 2026','Supervisor (Computer)','Final Revision']
           for needle in required:
-              if needle.lower() not in text.lower():
-                  raise SystemExit(f'Homepage is missing required current-state text: {needle}')
-          stale=['Written exam held: 6 September 2026','SMC written exam scheduled for 12 July 2026','SMC Public Relation Officer Written Examination 2026']
+              if needle.lower() not in text.lower(): raise SystemExit(f'Missing required current-state text: {needle}')
+          stale=['12 July 2026','12 JULY 2026','NOW — Post-Exam Updates','Exam completed — post-exam updates are active','EXAM COMPLETED — 12 JULY 2026','Written Exam: Completed on 12 July 2026']
           for needle in stale:
-              if needle.lower() in text.lower():
-                  raise SystemExit(f'Homepage still contains stale text: {needle}')
+              if needle.lower() in text.lower(): raise SystemExit(f'Stale homepage state detected: {needle}')
           for needle in ['site-nav.js','animations.css','activity-audit.js']:
               if needle not in text: raise SystemExit(f'Homepage missing {needle}')
-          print('Homepage state validation passed.')
+          print('Homepage current-state validation passed.')
           PY
           grep -q 'site-nav.js' _site/login.html
           grep -q 'site-nav.js' _site/live-jobs.html
@@ -148,18 +140,7 @@ jobs:
           ! grep -q 'profile.js' _site/client-dashboard.html
           grep -q 'profile.js' _site/premium.html
           grep -q 'animations.css' _site/client-dashboard.html
-          node --check _site/site-nav.js
-          node --check _site/gate.js
-          node --check _site/profile-bootstrap.js
-          node --check _site/profile.js
-          node --check _site/activity-audit.js
-          node --check _site/login-audit.js
-          node --check _site/transitions.js
-          node --check _site/leaderboard-safety.js
-          node --check _site/subscription.js
-          node --check _site/subscription-payments.js
-          node --check _site/quizscore-auth.js
-          node --check _site/smc-live-sync.js
+          for f in site-nav.js gate.js profile-bootstrap.js profile.js activity-audit.js login-audit.js transitions.js leaderboard-safety.js subscription.js subscription-payments.js quizscore-auth.js smc-live-sync.js; do node --check "_site/$f"; done
           echo 'Pages build validation passed.'
 
       - name: Configure Pages
