@@ -1,22 +1,10 @@
 {
   "region": "Gujarat",
   "focus": "Gujarat Government Jobs and SMC Recruitment",
-  "total": 691,
+  "total": 690,
   "new_items": 0,
   "updated_items": 0,
   "items": [
-    {
-      "id": "523f078c77dd686fcd74",
-      "source": "Gujarat Jobs Google News Discovery",
-      "title": "GSSSB Work Assistant Recruitment 2026 Out, Last Date To Apply Online for 336 Posts - Adda247",
-      "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQZURXWl8wc1hMbmhtSTF5UjJDNEJOOEhJS2dXdWhtdkZ0N05nVVlMVWhrclg2X212Zlh6Qm11Y1R6ZW8tZzBBNjVkVDlBVFptN2dRTjlWVTNWSFlVNXhfR1FvUnJBb29CMzhVNGtLYndKUEpEQnRBQndBaC1MMzBxR1ljVnNqUQ?oc=5",
-      "priority": "high",
-      "source_type": "discovery",
-      "checked_at": "2026-08-26T08:54:42.850993+00:00",
-      "first_seen_at": "2026-08-26T08:56:13.250876+00:00",
-      "last_changed_at": "2026-08-26T08:56:13.250876+00:00",
-      "change_type": "new"
-    },
     {
       "id": "25b2542e8b618b281e83",
       "source": "Gujarat Jobs Google News Discovery",
@@ -8298,5 +8286,5 @@
       "change_type": "unchanged"
     }
   ],
-  "updated_at": "2026-08-26T16:09:16.514001+00:00"
+  "updated_at": "2026-08-26T16:58:20.222132+00:00"
 }
