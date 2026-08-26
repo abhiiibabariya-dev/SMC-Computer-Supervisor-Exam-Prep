@@ -43,7 +43,13 @@ jobs:
               data = json.dumps(payload).encode()
               req = urllib.request.Request(url, data=data, method='PATCH', headers={'Content-Type':'application/json'})
               with urllib.request.urlopen(req, timeout=30) as r:
-                  return json.load(r) if r.read() else None
+                  body = r.read()
+                  if body:
+                      try:
+                          return json.loads(body)
+                      except json.JSONDecodeError:
+                          return body.decode()
+                  return None
 
           def norm_email(v):
               return str(v or '').strip().lower()
