@@ -1,0 +1,74 @@
+name: One-time Premium99 Customer Access
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - '.github/workflows/one-time-yesha-premium99.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  FIREBASE_URL: 'https://smc-exam-prep-38d22-default-rtdb.asia-southeast1.firebasedatabase.app'
+  TARGET_EMAIL_SHA256: '027e9ad7177422891f22775c94401ad65db1bf5a1b4160a61591634e35c2237b'
+  TARGET_MOBILE_SHA256: 'd125c1ef9532551d5da062f7f79f8fdfd9e0b0a3602bf0a1e1958fc73f3c0ddc'
+
+jobs:
+  grant:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Grant Premium ₹99 to the existing matching account
+        env:
+          FB_SECRET: ${{ secrets.FIREBASE_SECRET }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -n "${FB_SECRET:-}"
+          python3 - <<'PY'
+          import hashlib, json, os, urllib.parse, urllib.request
+
+          base = os.environ['FIREBASE_URL'].rstrip('/')
+          secret = os.environ['FB_SECRET']
+          target_email = os.environ['TARGET_EMAIL_SHA256']
+          target_mobile = os.environ['TARGET_MOBILE_SHA256']
+
+          def get(path):
+              url = f"{base}/{path}.json?auth={urllib.parse.quote(secret, safe='')}"
+              with urllib.request.urlopen(url, timeout=30) as r:
+                  return json.load(r) or {}
+
+          def patch(path, payload):
+              url = f"{base}/{path}.json?auth={urllib.parse.quote(secret, safe='')}"
+              req = urllib.request.Request(url, data=json.dumps(payload).encode(), method='PATCH', headers={'Content-Type':'application/json'})
+              with urllib.request.urlopen(req, timeout=30) as r:
+                  return r.read()
+
+          users = get('users')
+          matches = []
+          for uid, profile in users.items():
+              if not isinstance(profile, dict):
+                  continue
+              email = str(profile.get('email') or '').strip().lower()
+              mobile = ''.join(ch for ch in str(profile.get('mobile') or profile.get('phone') or '') if ch.isdigit())[-10:]
+              if hashlib.sha256(email.encode()).hexdigest() == target_email and hashlib.sha256(mobile.encode()).hexdigest() == target_mobile:
+                  matches.append(uid)
+
+          if len(matches) != 1:
+              raise SystemExit(f'Expected exactly one matching existing account, found {len(matches)}')
+
+          uid = matches[0]
+          payload = {
+              'plan': 'premium99',
+              'planLabel': 'Premium ₹99',
+              'subscriptionStatus': 'active',
+              'expiresAt': None,
+              'entitlements': {'mockTests': True, 'fullAccess': True},
+              'manualGrantAt': __import__('datetime').datetime.now(__import__('datetime').timezone.utc).isoformat(),
+              'manualGrantReason': 'Customer support: paid ₹99 plan and login recovery issue'
+          }
+          patch(f'users/{urllib.parse.quote(uid, safe="")}', payload)
+          print('Premium99 grant completed for exactly one existing account.')
+          PY
