@@ -1,7 +1,7 @@
 {
   "sources_scanned": 28,
   "links_found_this_scan": 691,
-  "new_items": 1,
+  "new_items": 0,
   "updated_items": 0,
   "total_items": 691,
   "errors": [
@@ -31,11 +31,6 @@
       "error": "<urlopen error [Errno 101] Network is unreachable>"
     },
     {
-      "source": "Gujarat Biotechnology Research Centre",
-      "url": "https://www.gbrc.gujarat.gov.in/WebCMS/Start/Announcement",
-      "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.gbrc.gujarat.gov.in'. (_ssl.c:1010)>"
-    },
-    {
       "source": "Gujarat Education Department",
       "url": "https://education.gujarat.gov.in",
       "error": "<urlopen error _ssl.c:993: The handshake operation timed out>"
@@ -54,11 +49,6 @@
       "source": "Gujarat Health Department",
       "url": "https://gujhealth.gujarat.gov.in",
       "error": "<urlopen error _ssl.c:993: The handshake operation timed out>"
-    },
-    {
-      "source": "Gujarat High Court Recruitment",
-      "url": "https://gujarathighcourt.nic.in/currentopenings",
-      "error": "<urlopen error timed out>"
     },
     {
       "source": "Gujarat Police",
@@ -90,6 +80,8 @@
   "successful_sources": [
     "Bhavnagar Municipal Corporation",
     "Gandhinagar Municipal Corporation",
+    "Gujarat Biotechnology Research Centre",
+    "Gujarat High Court Recruitment",
     "Gujarat Informatics Limited",
     "Gujarat Jobs Google News Discovery",
     "Gujarat Social Justice & Empowerment",
@@ -103,5 +95,5 @@
   ],
   "smc_items": 39,
   "mode": "live_snapshot",
-  "updated_at": "2026-08-26T08:56:13.250876+00:00"
+  "updated_at": "2026-08-26T09:54:05.187046+00:00"
 }
