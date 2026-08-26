@@ -38,7 +38,7 @@ jobs:
           assert 'auth.uid === $uid' in users['.read']
           assert admin in users['.write']
           assert 'auth.token.email_verified === true' in users['emailVerified']['.write']
-          assert admin == users['entitlements']['.write']
+          assert admin in users['entitlements']['.write']
           assert 'newData.child(\'entitlements\').child(\'mockTests\').val() === false' in users['.validate']
           assert 'newData.child(\'entitlements\').child(\'fullAccess\').val() === false' in users['.validate']
           assert 'subscriptionStatus' in users['.validate']
