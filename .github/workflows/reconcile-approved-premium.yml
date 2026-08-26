@@ -1,0 +1,83 @@
+name: Reconcile Approved Premium Access
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - '.github/workflows/reconcile-approved-premium.yml'
+  schedule:
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  FIREBASE_URL: 'https://smc-exam-prep-38d22-default-rtdb.asia-southeast1.firebasedatabase.app'
+
+jobs:
+  reconcile:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Reconcile approved payment records
+        env:
+          FB_SECRET: ${{ secrets.FIREBASE_SECRET }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -n "${FB_SECRET:-}"
+          python3 - <<'PY'
+          import json, os, urllib.parse, urllib.request
+
+          base = os.environ['FIREBASE_URL'].rstrip('/')
+          secret = os.environ['FB_SECRET']
+
+          def get(path):
+              url = f"{base}/{path}.json?auth={urllib.parse.quote(secret, safe='')}"
+              with urllib.request.urlopen(url, timeout=30) as r:
+                  return json.load(r) or {}
+
+          def patch(path, payload):
+              url = f"{base}/{path}.json?auth={urllib.parse.quote(secret, safe='')}"
+              data = json.dumps(payload).encode()
+              req = urllib.request.Request(url, data=data, method='PATCH', headers={'Content-Type':'application/json'})
+              with urllib.request.urlopen(req, timeout=30) as r:
+                  return json.load(r) if r.read() else None
+
+          payments = get('payment_requests')
+          users = get('users')
+          repaired = 0
+
+          for order_id, req in payments.items():
+              if not isinstance(req, dict) or str(req.get('status', '')).lower() != 'approved':
+                  continue
+              uid = str(req.get('uid', '')).strip()
+              if not uid or uid not in users:
+                  continue
+
+              plan = req.get('approvedPlan') or req.get('plan')
+              amount = req.get('amount')
+              if plan not in ('premium49', 'premium99'):
+                  try:
+                      plan = 'premium49' if float(amount) == 49 else ('premium99' if float(amount) == 99 else None)
+                  except (TypeError, ValueError):
+                      plan = None
+              if plan not in ('premium49', 'premium99'):
+                  continue
+
+              expected = {
+                  'plan': plan,
+                  'planLabel': 'Premium ₹49' if plan == 'premium49' else 'Premium ₹99',
+                  'subscriptionStatus': 'active',
+                  'expiresAt': None,
+                  'entitlements': {'mockTests': True, 'fullAccess': plan == 'premium99'},
+              }
+              user = users.get(uid) or {}
+              mismatch = any(user.get(k) != v for k, v in expected.items())
+              if mismatch:
+                  patch(f'users/{urllib.parse.quote(uid, safe="")}', expected)
+                  repaired += 1
+
+          print(f'Reconciled approved premium accounts: {repaired}')
+          PY
