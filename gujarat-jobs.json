@@ -1,7 +1,7 @@
 {
   "region": "Gujarat",
   "focus": "Gujarat Government Jobs and SMC Recruitment",
-  "total": 691,
+  "total": 690,
   "new_items": 0,
   "updated_items": 0,
   "items": [
@@ -7878,18 +7878,6 @@
       "change_type": "new"
     },
     {
-      "id": "7260aa06b440012128cd",
-      "source": "SMC Google News Discovery",
-      "title": "Process for recruitment of 300 Marshalls begin in Surat municipal corporation - The Times of India",
-      "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxOak1WUGhvVWpWaUZBNTBLbV9fR3owSVlybkpTdmhEX2VHZmRSd1lTNVRIWU9QYklGb2pBN09KalQ2cXp6UVJvWTg3Yk5ud08wclA2TnU0dU9IWUppM2UyQ2R5dGpaU2xhOXg4ZHVUalhSRG5RSm1obGFyNmFzUWFVN3hUSXRtakJHMjlXNmxWT2pJNXVLdUNjVjliOWFpeG5yMVVKYWhZQzczOWg0RklLSUFwOGFlRmVjck5jc1ZVOXc1U3puaHhMeHNTX0luV05Uc3NYZi1qV3dZYmxaU0RaRHJOWdIB6AFBVV95cUxPaWpieEtBcllmT2NlOXVpeG5CenhqNmluaU1HTFpkdTNqUTNVLVJRX2tQcGl3empnRWlhb3FOdEVRVHJhUFRPbFdBbUZtWXNJOTFzUU01RW9jTnRtWUM1V0E4TjVXNmJzQTBMZ3FPMC1CcDM4WXZsd085TG1CQmVLWmZaZDczYmhVeVFjYUp6NmJxeHBNdmw5OUQyOElPSlBPRUVEcURDdlZoMURHX1F2TE03ZzV3VEZtWkZPVmZndG82blc2a0R0ckVtczhZRUp6dlhJb0hHZENmb0NtSHZGQ0JOMUdUVDNX?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-08-26T02:50:40.267372+00:00",
-      "first_seen_at": "2026-08-26T02:53:38.127596+00:00",
-      "last_changed_at": "2026-08-26T02:53:38.127596+00:00",
-      "change_type": "new"
-    },
-    {
       "id": "d5a4bad5a57fe78a6b7d",
       "source": "SMC Google News Discovery",
       "title": "Nepotism Allegations Rock Surat Municipal Corporation Engineer Recruitment - theblunttimes.in",
@@ -8298,5 +8286,5 @@
       "change_type": "unchanged"
     }
   ],
-  "updated_at": "2026-08-26T03:44:02.925765+00:00"
+  "updated_at": "2026-08-26T05:10:59.643809+00:00"
 }
