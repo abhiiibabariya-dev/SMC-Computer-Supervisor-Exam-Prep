@@ -112,8 +112,8 @@ jobs:
           node --check docs/gate.js
           node --check docs/leaderboard-safety.js
           node --check docs/quizscore-auth.js
-          grep -q 'leaderboard_public.json' docs/quiz.html
-          grep -q 'leaderboard_public.json' docs/leaderboard.html
+          grep -q 'leaderboard_public' docs/leaderboard-safety.js
+          grep -q 'email_verified' firebase-rules.json
           echo 'Monitor validation passed.'
 
       - name: Commit and push updates safely
