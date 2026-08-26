@@ -1,15 +1,12 @@
 # 🎯 SMC 2026 — Final Revision & Exam-Day Guide
 
-> **Phase update (June 2026):** Applications closed on **15 April 2026**. The **written exam is
-> scheduled for 12 July 2026** (OMR objective — Clerk, Staff Nurse, Driver, PRO & more). Download
-> your **call letter** from suratmunicipal.gov.in (Recruitment → Download Call Letter) when it opens.
-> Verify your exact date/time/centre on your own call letter. This guide is free — use it well.
+> **Phase update (August 2026):** Applications closed on **15 April 2026**. The **Computer Supervisor written exam is scheduled for 6 September 2026** (OMR objective). The current SMC notice covers Supervisor (Computer), Junior Pharmacist, Assistant Auditor and Technical Officer. Verify your exact reporting time, date and centre on your own official call letter. This guide is free — use it well.
 
 ---
 
 ## ⏳ 7-Day Final Revision Plan
 
-Use this in the last week before your exam (start it the moment the exam date is announced).
+Use this in the last week before your exam.
 
 | Day | Focus | What to do |
 |-----|-------|-----------|
@@ -98,4 +95,4 @@ Use this in the last week before your exam (start it the moment the exam date is
 >
 > **All the best for SMC 2026 — you've got this!** 🚀
 
-*Guide added: June 2026 · Free for all aspirants · SMC Exam Prep*
+*Guide updated: August 2026 · Free for all aspirants · SMC Exam Prep*
