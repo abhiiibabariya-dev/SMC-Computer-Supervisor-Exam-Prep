@@ -1,69 +1,88 @@
 name: Deploy Firebase Security Rules v2
+
 on:
   push:
     branches: [master]
-    paths: ['firebase-rules.json','.github/workflows/set-firebase-rules-v2.yml']
-  workflow_dispatch: {}
+    paths:
+      - 'firebase-rules.json'
+      - '.github/workflows/set-firebase-rules-v2.yml'
+  workflow_dispatch:
+
 permissions:
   contents: read
+
 env:
   FIREBASE_URL: 'https://smc-exam-prep-38d22-default-rtdb.asia-southeast1.firebasedatabase.app'
   ADMIN_EMAIL: 'abhibabariya007@gmail.com'
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - uses: actions/checkout@v6
-      - name: Validate rules JSON
+      - uses: actions/checkout@v4
+
+      - name: Validate rules JSON and security invariants
+        shell: bash
         run: |
           set -euo pipefail
           python3 - <<'PY'
           import json
           from pathlib import Path
-          r=json.loads(Path('firebase-rules.json').read_text(encoding='utf-8'))['rules']
-          assert r['.read'] is False
-          assert r['.write'] is False
-          assert 'users' in r and '$uid' in r['users']
-          u=r['users']['$uid']
-          assert '!data.exists()' in u['.write']
-          assert 'auth.uid === $uid' in u['.read']
-          assert "abhibabariya007@gmail.com" in u['.write']
-          assert 'auth.token.email_verified === true' in u['emailVerified']['.write']
-          assert "premium49" in json.dumps(r) and "premium99" in json.dumps(r)
-          assert 'leaderboard_public' in r
+          rules = json.loads(Path('firebase-rules.json').read_text(encoding='utf-8'))['rules']
+          admin = "lower(auth.token.email) === 'abhibabariya007@gmail.com'"
+          assert rules['.read'] is False
+          assert rules['.write'] is False
+          users = rules['users']['$uid']
+          assert '!data.exists()' in users['.write']
+          assert 'auth.uid === $uid' in users['.read']
+          assert admin in users['.write']
+          assert 'auth.token.email_verified === true' in users['emailVerified']['.write']
+          assert admin == users['entitlements']['.write']
+          assert 'newData.child(\'entitlements\').child(\'mockTests\').val() === false' in users['.validate']
+          assert 'newData.child(\'entitlements\').child(\'fullAccess\').val() === false' in users['.validate']
+          assert 'subscriptionStatus' in users['.validate']
+          assert 'premium_content' in rules and 'fullAccess' in rules['premium_content']['$resource']['.read']
+          assert 'leaderboard_public' in rules
           for key in ('visits','clicks','leads','security','quizscores'):
-              assert 'auth !== null' in r[key]['$id']['.write'], key
-              assert '.validate' in r[key]['$id'], key
-          assert 'fullAccess' in r['premium_content']['$resource']['.read']
+              assert 'auth !== null' in rules[key]['$id']['.write'], key
+              assert '.validate' in rules[key]['$id'], key
+          assert admin in rules['leaderboard']['$id']['.write']
           print('Firebase rules validation passed.')
           PY
+
       - name: Check deployment secret
         env:
           FB_SECRET: ${{ secrets.FIREBASE_SECRET }}
         run: test -n "${FB_SECRET:-}"
+
       - name: Deploy rules
         env:
           FB_SECRET: ${{ secrets.FIREBASE_SECRET }}
+        shell: bash
         run: |
           set -euo pipefail
           code=$(curl -sS -L --retry 5 --retry-all-errors --retry-delay 2 --connect-timeout 15 --max-time 60 -o response.txt -w '%{http_code}' -X PUT "${FIREBASE_URL}/.settings/rules.json?auth=${FB_SECRET}" -H 'Content-Type: application/json' --data-binary @firebase-rules.json)
           cat response.txt
           test "$code" = 200
+
       - name: Verify exact deployed rules
         env:
           FB_SECRET: ${{ secrets.FIREBASE_SECRET }}
+        shell: bash
         run: |
           set -euo pipefail
           curl -sS -L --retry 5 --retry-all-errors --retry-delay 2 "${FIREBASE_URL}/.settings/rules.json?auth=${FB_SECRET}" -o deployed.json
           python3 - <<'PY'
           import json
-          with open('firebase-rules.json') as f: a=json.load(f)
-          with open('deployed.json') as f: b=json.load(f)
-          assert a==b, 'Deployed rules differ from repository rules'
+          with open('firebase-rules.json') as f: expected = json.load(f)
+          with open('deployed.json') as f: actual = json.load(f)
+          assert expected == actual, 'Deployed rules differ from repository rules'
           print('Exact rules match confirmed.')
           PY
+
       - name: Verify anonymous database protection
+        shell: bash
         run: |
           set -euo pipefail
           for p in users payment_requests audit visits clicks leads security quizscores leaderboard leaderboard_public; do
