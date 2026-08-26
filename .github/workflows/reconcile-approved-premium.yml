@@ -45,14 +45,46 @@ jobs:
               with urllib.request.urlopen(req, timeout=30) as r:
                   return json.load(r) if r.read() else None
 
+          def norm_email(v):
+              return str(v or '').strip().lower()
+
+          def norm_phone(v):
+              return ''.join(ch for ch in str(v or '') if ch.isdigit())[-10:]
+
           payments = get('payment_requests')
           users = get('users')
           repaired = 0
+          matched_by = {'uid': 0, 'email': 0, 'phone': 0}
+
+          # Build safe identity indexes from the existing user profiles.
+          email_index = {}
+          phone_index = {}
+          for user_uid, profile in users.items():
+              if not isinstance(profile, dict):
+                  continue
+              email = norm_email(profile.get('email'))
+              phone = norm_phone(profile.get('mobile') or profile.get('phone'))
+              if email:
+                  email_index[email] = user_uid
+              if phone and len(phone) == 10:
+                  phone_index[phone] = user_uid
 
           for order_id, req in payments.items():
               if not isinstance(req, dict) or str(req.get('status', '')).lower() != 'approved':
                   continue
+
+              # Prefer the UID stored with the payment. If that UID is stale or
+              # missing, recover the existing account by the payment email/mobile.
               uid = str(req.get('uid', '')).strip()
+              matched = 'uid'
+              if not uid or uid not in users:
+                  email = norm_email(req.get('email'))
+                  phone = norm_phone(req.get('phone') or req.get('mobile'))
+                  uid = email_index.get(email, '') if email else ''
+                  matched = 'email'
+                  if not uid and phone and len(phone) == 10:
+                      uid = phone_index.get(phone, '')
+                      matched = 'phone'
               if not uid or uid not in users:
                   continue
 
@@ -78,6 +110,8 @@ jobs:
               if mismatch:
                   patch(f'users/{urllib.parse.quote(uid, safe="")}', expected)
                   repaired += 1
+                  matched_by[matched] += 1
 
           print(f'Reconciled approved premium accounts: {repaired}')
+          print(f'Matched accounts by identity: {matched_by}')
           PY
