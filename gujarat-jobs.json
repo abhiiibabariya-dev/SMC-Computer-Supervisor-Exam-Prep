@@ -1,8 +1,8 @@
 {
   "region": "Gujarat",
   "focus": "Gujarat Government Jobs and SMC Recruitment",
-  "total": 690,
-  "new_items": 0,
+  "total": 691,
+  "new_items": 1,
   "updated_items": 0,
   "items": [
     {
@@ -7818,6 +7818,18 @@
       "change_type": "unchanged"
     },
     {
+      "id": "4731f8adc432214d8ecc",
+      "source": "SMC Google News Discovery",
+      "title": "Fake SMC Job Promise Scam Rocks Surat - theblunttimes.in",
+      "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE9IeEl6OVFQdnlfanlTYWR5eWEwSlJfYnRXU1VTQlVZNjkyVWUzX3ZYaFZqQ0FSMHhIYXU5VjJ1OW51RTNnaEtsVV9JU1lfOUNxUUxKWUpqZjdJbWdES2h0SlJPeW14NFc1RmFpeXRkNUVJLTI2S3dwcA?oc=5",
+      "priority": "critical",
+      "source_type": "discovery",
+      "checked_at": "2026-08-26T22:14:55.235212+00:00",
+      "first_seen_at": "2026-08-26T22:17:59.211581+00:00",
+      "last_changed_at": "2026-08-26T22:17:59.211581+00:00",
+      "change_type": "new"
+    },
+    {
       "id": "c1c80c413c2c7689122a",
       "source": "SMC Official Recruitment",
       "title": "Recruitments",
@@ -8286,5 +8298,5 @@
       "change_type": "unchanged"
     }
   ],
-  "updated_at": "2026-08-26T16:58:20.222132+00:00"
+  "updated_at": "2026-08-26T22:17:59.211581+00:00"
 }
