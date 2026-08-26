@@ -1,9 +1,9 @@
 {
   "sources_scanned": 28,
-  "links_found_this_scan": 693,
-  "new_items": 0,
+  "links_found_this_scan": 686,
+  "new_items": 2,
   "updated_items": 0,
-  "total_items": 693,
+  "total_items": 686,
   "errors": [
     {
       "source": "Ahmedabad Municipal Corporation",
@@ -33,27 +33,32 @@
     {
       "source": "Gujarat Education Department",
       "url": "https://education.gujarat.gov.in",
-      "error": "<urlopen error _ssl.c:1015: The handshake operation timed out>"
+      "error": "<urlopen error _ssl.c:993: The handshake operation timed out>"
     },
     {
       "source": "Gujarat Forest and Environment",
       "url": "https://forests.gujarat.gov.in",
-      "error": "<urlopen error _ssl.c:1015: The handshake operation timed out>"
+      "error": "<urlopen error _ssl.c:993: The handshake operation timed out>"
     },
     {
       "source": "Gujarat Government",
       "url": "https://gujaratindia.gov.in",
-      "error": "<urlopen error _ssl.c:1015: The handshake operation timed out>"
+      "error": "<urlopen error _ssl.c:993: The handshake operation timed out>"
     },
     {
       "source": "Gujarat Health Department",
       "url": "https://gujhealth.gujarat.gov.in",
-      "error": "<urlopen error _ssl.c:1015: The handshake operation timed out>"
+      "error": "<urlopen error _ssl.c:993: The handshake operation timed out>"
+    },
+    {
+      "source": "Gujarat High Court Recruitment",
+      "url": "https://gujarathighcourt.nic.in/currentopenings",
+      "error": "<urlopen error timed out>"
     },
     {
       "source": "Gujarat Police",
       "url": "https://police.gujarat.gov.in",
-      "error": "<urlopen error _ssl.c:1015: The handshake operation timed out>"
+      "error": "<urlopen error _ssl.c:993: The handshake operation timed out>"
     },
     {
       "source": "Gujarat Primary Education Recruitment",
@@ -81,7 +86,6 @@
     "Bhavnagar Municipal Corporation",
     "Gandhinagar Municipal Corporation",
     "Gujarat Biotechnology Research Centre",
-    "Gujarat High Court Recruitment",
     "Gujarat Informatics Limited",
     "Gujarat Jobs Google News Discovery",
     "Gujarat Social Justice & Empowerment",
@@ -93,7 +97,7 @@
     "SMC Official Recruitment",
     "SMC Official Website"
   ],
-  "smc_items": 41,
+  "smc_items": 34,
   "mode": "live_snapshot",
-  "updated_at": "2026-08-20T18:51:31.316609+00:00"
+  "updated_at": "2026-08-26T01:43:18.129911+00:00"
 }

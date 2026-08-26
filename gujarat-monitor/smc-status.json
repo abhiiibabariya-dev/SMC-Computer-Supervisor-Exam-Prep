@@ -30,13 +30,25 @@
         "Technical Officer"
       ],
       "source": "https://www.suratmunicipal.gov.in/Information/RecruitmentNews"
+    },
+    {
+      "id": "smc-2026-07-26-postponed",
+      "date": "2026-07-26",
+      "status": "postponed",
+      "title": "Written examination postponed",
+      "cadres": [
+        "Laboratory Technician",
+        "Third Class Clerk (Audit)",
+        "Pharmacist (GUHP)"
+      ],
+      "source": "https://www.suratmunicipal.gov.in/Information/RecruitmentNews"
     }
   ],
   "answer_key_available": true,
   "result_available": false,
   "selection_waiting_list_available": false,
-  "application_status": "closed",
-  "application_deadline": "2026-04-15",
+  "application_status": "unknown",
+  "application_deadline": null,
   "errors": [
     {
       "url": "https://www.suratmunicipal.gov.in/Information/RecruitmentResult",
@@ -52,5 +64,5 @@
     "sources_ok": 3,
     "sources_failed": 2
   },
-  "updated_at": "2026-08-24T07:01:00+05:30"
+  "updated_at": "2026-08-26T01:43:20.012564+00:00"
 }
