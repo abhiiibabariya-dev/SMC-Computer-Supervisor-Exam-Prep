@@ -1,8 +1,8 @@
 {
   "region": "Gujarat",
   "focus": "Gujarat Government Jobs and SMC Recruitment",
-  "total": 692,
-  "new_items": 6,
+  "total": 691,
+  "new_items": 0,
   "updated_items": 0,
   "items": [
     {
@@ -2042,18 +2042,6 @@
       "source_type": "government",
       "checked_at": "2026-08-20T02:41:56.970778+00:00",
       "first_seen_at": "2026-08-18T15:36:51.086724+00:00",
-      "last_changed_at": "2026-08-19T18:45:21.268903+00:00",
-      "change_type": "unchanged"
-    },
-    {
-      "id": "ee12a9cab4659893e963",
-      "source": "Gujarat High Court Recruitment",
-      "title": "STUDY CIRCLE (SYMPOSIUM / WORKSHOP SERIES) FOR ADVOCATES PRACTICING IN THE HIGH COURT OF GUJARAT",
-      "url": "https://gujarathighcourt.nic.in/hccms/sites/default/files/miscnotifications/Flyer_STUDY%20CIRCLE%20SYMPOSIUM%20WORKSHOP_Final_0.pdf",
-      "priority": "high",
-      "source_type": "government",
-      "checked_at": "2026-08-20T02:41:56.970778+00:00",
-      "first_seen_at": "2026-08-18T15:36:51.086616+00:00",
       "last_changed_at": "2026-08-19T18:45:21.268903+00:00",
       "change_type": "unchanged"
     },
@@ -8310,5 +8298,5 @@
       "change_type": "unchanged"
     }
   ],
-  "updated_at": "2026-08-26T02:53:38.127596+00:00"
+  "updated_at": "2026-08-26T03:44:02.925765+00:00"
 }
