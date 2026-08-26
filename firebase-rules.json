@@ -13,7 +13,7 @@
         },
         "mobile": {
           ".write": "auth !== null && (lower(auth.token.email) === 'abhibabariya007@gmail.com' || auth.uid === $uid)",
-          ".validate": "newData.isString()"
+          ".validate": "newData.isString() && newData.val().matches(/^[0-9]{10}$/)"
         },
         "plan": {
           ".write": "auth !== null && (lower(auth.token.email) === 'abhibabariya007@gmail.com' || (auth.uid === $uid && !data.exists() && newData.val() === 'free'))"
