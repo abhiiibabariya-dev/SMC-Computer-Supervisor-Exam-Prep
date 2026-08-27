@@ -31,11 +31,6 @@
       "error": "<urlopen error [Errno 101] Network is unreachable>"
     },
     {
-      "source": "Gandhinagar Municipal Corporation",
-      "url": "https://gandhinagarmunicipal.com/recruitment/",
-      "error": "<urlopen error timed out>"
-    },
-    {
       "source": "Gujarat Education Department",
       "url": "https://education.gujarat.gov.in",
       "error": "<urlopen error _ssl.c:993: The handshake operation timed out>"
@@ -84,6 +79,7 @@
   "empty_sources": [],
   "successful_sources": [
     "Bhavnagar Municipal Corporation",
+    "Gandhinagar Municipal Corporation",
     "Gujarat Biotechnology Research Centre",
     "Gujarat High Court Recruitment",
     "Gujarat Informatics Limited",
@@ -99,5 +95,5 @@
   ],
   "smc_items": 40,
   "mode": "live_snapshot",
-  "updated_at": "2026-08-27T03:23:59.223500+00:00"
+  "updated_at": "2026-08-27T14:22:44.872008+00:00"
 }
