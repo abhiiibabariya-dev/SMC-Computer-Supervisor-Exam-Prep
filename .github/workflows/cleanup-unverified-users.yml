@@ -58,6 +58,19 @@ jobs:
             let nextPageToken;
             let scanned = 0;
             let removed = 0;
+            let skippedPayment = 0;
+
+            // Never delete an unverified account that already has a payment trail.
+            // This protects users who paid but have not completed email verification.
+            const paymentSnap = await db.ref('payment_requests').once('value');
+            const paymentByUid = new Map();
+            for (const [orderId, req] of Object.entries(paymentSnap.val() || {})) {
+              if (!req || !req.uid) continue;
+              const status = String(req.status || '').toLowerCase();
+              if (status === 'pending' || status === 'approved') {
+                paymentByUid.set(String(req.uid), { status, orderId });
+              }
+            }
 
             do {
               const page = await auth.listUsers(1000, nextPageToken);
@@ -73,6 +86,20 @@ jobs:
 
                 if (!stale || !unverified) continue;
 
+                const payment = paymentByUid.get(u.uid);
+                if (payment) {
+                  skippedPayment++;
+                  console.log(`Skipped stale unverified account with ${payment.status} payment: ${u.uid} (${payment.orderId})`);
+                  continue;
+                }
+
+                const profile = await db.ref('users/' + u.uid).once('value').then(s => s.val() || {});
+                if (profile.subscriptionStatus === 'active' || profile.plan === 'premium49' || profile.plan === 'premium99') {
+                  skippedPayment++;
+                  console.log(`Skipped stale unverified account with premium profile: ${u.uid}`);
+                  continue;
+                }
+
                 await auth.deleteUser(u.uid);
                 await db.ref('users/' + u.uid).remove().catch(() => {});
                 removed++;
@@ -81,7 +108,7 @@ jobs:
               nextPageToken = page.pageToken;
             } while (nextPageToken);
 
-            console.log(`Account cleanup complete. Scanned=${scanned}, removed=${removed}`);
+            console.log(`Account cleanup complete. Scanned=${scanned}, removed=${removed}, skippedWithPaymentOrPremium=${skippedPayment}`);
           })().catch((err) => {
             console.error(err);
             process.exit(1);
