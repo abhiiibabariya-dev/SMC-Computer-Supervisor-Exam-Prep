@@ -10,12 +10,16 @@ on:
   schedule:
     - cron: '30 3 * * *'
   workflow_dispatch:
+  workflow_run:
+    workflows: ["Gujarat Government Jobs Monitor"]
+    types: [completed]
 
 permissions:
   contents: read
 
 jobs:
   audit:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
