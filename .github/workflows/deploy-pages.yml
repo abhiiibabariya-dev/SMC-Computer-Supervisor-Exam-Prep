@@ -3,6 +3,9 @@ on:
   push:
     branches: [master]
   workflow_dispatch: {}
+  workflow_run:
+    workflows: ["Gujarat Government Jobs Monitor"]
+    types: [completed]
 permissions:
   contents: read
   pages: write
@@ -12,6 +15,7 @@ concurrency:
   cancel-in-progress: true
 jobs:
   build:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -110,6 +114,7 @@ jobs:
         with:
           path: _site
   deploy:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
