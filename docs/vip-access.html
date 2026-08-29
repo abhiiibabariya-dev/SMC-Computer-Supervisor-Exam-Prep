@@ -76,15 +76,9 @@
 </div>
 
 <script>
-// Access codes are assembled at runtime from char codes (no plain text in source).
-const _codes=(function(){
-    const _c=[
-        [97,98,104,105,50,54,49,49,118,105,112],
-        [98,104,97,105,50,54,49,49,118,105,112],
-        [98,101,104,101,110,50,54,49,49,118,105,112],
-    ];
-    return _c.map(a=>a.map(c=>String.fromCharCode(c)).join(''));
-})();
+// VIP Access - Server-side verification required
+// All premium/VIP access is now controlled by Firebase backend.
+// This page redirects to payment/subscription flow.
 
 let attempts=0;
 
@@ -116,26 +110,23 @@ function checkCode(){
         return;
     }
 
-    if(_codes.includes(code)){
-        // Success!
-        input.classList.add('success');
-        localStorage.setItem('smc_premium_key','VIP-FAMILY-'+Date.now());
-        localStorage.setItem('smc_vip','true');
-        logSec('VIP access granted (code matched)','ok');
+    // All VIP codes removed - redirect to premium purchase
+    attempts++;
+    input.classList.add('error');
+    setTimeout(()=>input.classList.remove('error'),400);
+    input.value='';
+    const left=10-attempts;
+    msg.className='msg err';
+    msg.textContent='VIP access codes have been discontinued. Please purchase a premium plan to unlock access. '+'Attempts left: '+left;
+    logSec('Failed VIP code attempt #'+attempts+' (codes discontinued)','warn');
 
+    // Show premium purchase option after 3 failed attempts
+    if(attempts>=3){
         setTimeout(()=>{
-            document.getElementById('formView').classList.add('hide');
-            document.getElementById('successView').classList.add('show');
-        },500);
-    }else{
-        attempts++;
-        input.classList.add('error');
-        setTimeout(()=>input.classList.remove('error'),400);
-        input.value='';
-        const left=10-attempts;
-        msg.className='msg err';
-        msg.textContent='Wrong code. '+left+' attempts left.';
-        logSec('Failed VIP code attempt #'+attempts,'warn');
+            if(confirm('VIP codes are no longer valid. Would you like to purchase a premium plan?')){
+                window.location.href='premium.html';
+            }
+        },1000);
     }
 }
 

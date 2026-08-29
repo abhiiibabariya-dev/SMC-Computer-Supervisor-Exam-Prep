@@ -17,6 +17,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="emailjs-config.js"></script>
+    <!-- 3D Animation Styles & Scripts -->
+    <link rel="stylesheet" href="animations-3d.css">
+    <script src="three-3d.js"></script>
     <style>
         :root{--bg:#06060a;--s1:#0c0c14;--s2:#12121c;--border:rgba(255,255,255,0.06);--border2:rgba(255,255,255,0.1);--txt:#a1a1aa;--white:#f4f4f5;--dim:#52525b;--accent:#a78bfa;--green:#22c55e;--red:#ef4444}
         *{margin:0;padding:0;box-sizing:border-box}
@@ -155,8 +159,21 @@
 <script src="gate.js?v=20260821"></script>
 <script src="gate.js?v=20260819"></script>
 <script src="subscription-payments.js?v=20260821"></script>
+<script src="https://www.gstatic.com/firebasejs/12.17.1/firebase-functions-compat.js"></script>
 </head>
 <body>
+
+<!-- 3D Scene Containers -->
+<div class="scene-3d" aria-hidden="true">
+  <div class="scene-3d__layer" style="--layer-z: -100;"></div>
+  <div class="scene-3d__layer" style="--layer-z: -50;"></div>
+  <div class="scene-3d__layer" style="--layer-z: 0;"></div>
+</div>
+<div class="particles-3d" aria-hidden="true" id="css-particles-3d"></div>
+<div class="aurora-3d" aria-hidden="true"></div>
+<div class="grid-3d" aria-hidden="true">
+  <div class="grid-3d__plane"></div>
+</div>
 
 <div class="aurora"><div class="aurora-beam"></div><div class="aurora-beam"></div></div>
 <div class="noise"></div>
@@ -174,10 +191,10 @@
 
     <!-- STEPS -->
     <div class="steps">
-        <div class="step"><div class="step-dot active" id="sd1">1</div></div>
-        <div class="step"><div class="step-line" id="sl1"></div><div class="step-dot" id="sd2">2</div></div>
-        <div class="step"><div class="step-line" id="sl2"></div><div class="step-dot" id="sd3">3</div></div>
-        <div class="step"><div class="step-line" id="sl3"></div><div class="step-dot" id="sd4">4</div></div>
+        <div class="step"><div class="step-dot active card-3d" id="sd1">1</div></div>
+        <div class="step"><div class="step-line" id="sl1"></div><div class="step-dot card-3d" id="sd2">2</div></div>
+        <div class="step"><div class="step-line" id="sl2"></div><div class="step-dot card-3d" id="sd3">3</div></div>
+        <div class="step"><div class="step-line" id="sl3"></div><div class="step-dot card-3d" id="sd4">4</div></div>
     </div>
 
     <!-- CHECK IF ALREADY PREMIUM -->
@@ -194,16 +211,16 @@
 
     <!-- SCREEN 1: Choose Plan -->
     <div class="screen active" id="screen1">
-        <div class="card">
-            <h2>&#128142; Unlock Premium Access</h2>
+        <div class="card card-3d">
+            <h2 class="text-3d">&#128142; Unlock Premium Access</h2>
             <p>Choose your plan to unlock all mock tests, 4000+ MCQs with explanations & more.</p>
 
             <div class="plans">
-                <div class="plan selected" onclick="selectPlan(0)" id="plan0">
+                <div class="plan selected card-3d" onclick="selectPlan(0)" id="plan0">
                     <div class="plan-badge">POPULAR</div>
                     <div class="plan-top">
                         <div class="plan-name">Full Access</div>
-                        <div class="plan-price">&#8377;99 <small>one-time</small></div>
+                        <div class="plan-price">&#8377;199 <small>one-time</small></div>
                     </div>
                     <div class="plan-desc">All mock tests + all subjects + lifetime access</div>
                     <div class="plan-features">
@@ -216,10 +233,10 @@
                     </div>
                 </div>
 
-                <div class="plan" onclick="selectPlan(1)" id="plan1">
+                <div class="plan card-3d" onclick="selectPlan(1)" id="plan1">
                     <div class="plan-top">
                         <div class="plan-name">Mock Tests Only</div>
-                        <div class="plan-price">&#8377;49 <small>one-time</small></div>
+                        <div class="plan-price">&#8377;99 <small>one-time</small></div>
                     </div>
                     <div class="plan-desc">All 10 mock tests with answers & explanations</div>
                     <div class="plan-features">
@@ -237,14 +254,14 @@
                 <span class="sec-badge">&#128275; Lifetime Valid</span>
             </div>
 
-            <button class="btn btn-primary" onclick="goStep(2)">Continue to Payment &#8594;</button>
+            <button class="btn btn-primary btn-3d" onclick="goStep(2)">Continue to Payment &#8594;</button>
         </div>
     </div>
 
     <!-- SCREEN 2: Identity Verification -->
     <div class="screen" id="screen2">
-        <div class="card">
-            <h2>&#128272; Verify Your Identity</h2>
+        <div class="card card-3d">
+            <h2 class="text-3d">&#128272; Verify Your Identity</h2>
             <p>For security, please provide your details. This helps us link your payment to your access key.</p>
 
             <div class="input-group">
@@ -271,16 +288,16 @@
             </div>
 
             <div class="btn-row">
-                <button class="btn btn-ghost" onclick="goStep(1)">&#8592; Back</button>
-                <button class="btn btn-primary" id="verifyBtn" onclick="goStep(3)" disabled>Verify & Pay &#8594;</button>
+                <button class="btn btn-ghost btn-3d" onclick="goStep(1)">&#8592; Back</button>
+                <button class="btn btn-primary btn-3d" id="verifyBtn" onclick="goStep(3)" disabled>Verify & Pay &#8594;</button>
             </div>
         </div>
     </div>
 
     <!-- SCREEN 3: Payment -->
     <div class="screen" id="screen3">
-        <div class="card">
-            <h2>&#128176; Complete Payment</h2>
+        <div class="card card-3d">
+            <h2 class="text-3d">&#128176; Complete Payment</h2>
             <p>Pay via UPI to activate your premium access instantly.</p>
 
             <div class="pay-box">
@@ -290,11 +307,11 @@
                 <div class="pay-upi" id="payUpiBox" style="display:none">
                     <div class="pay-upi-label">UPI ID — Pay using any UPI app</div>
                     <div class="pay-upi-id" id="payUpiId">Decrypting...</div>
-                    <button class="copy-btn" id="copyBtn" onclick="copyUPI()">Copy UPI ID</button>
+                    <button class="copy-btn btn-3d" id="copyBtn" onclick="copyUPI()">Copy UPI ID</button>
                 </div>
 
                 <div class="pay-qr-wrap">
-                    <div class="pay-qr" id="payQr">
+                    <div class="pay-qr card-3d" id="payQr">
                         <div style="color:#666;font-size:0.8em;padding:40px">Generating QR...</div>
                     </div>
                     <div class="pay-qr-label">Scan with any UPI app (GPay, PhonePe, Paytm)</div>
@@ -317,17 +334,17 @@
 
             <div class="session-timer">Session expires in: <b id="sessionTimer">15:00</b></div>
 
-            <button class="btn btn-green" onclick="goStep(4)">&#9989; I've Paid — Verify Now</button>
+            <button class="btn btn-green btn-3d" onclick="goStep(4)">&#9989; I've Paid — Verify Now</button>
             <div style="text-align:center;margin-top:8px">
-                <button class="btn btn-ghost" onclick="goStep(2)" style="width:auto;padding:10px 20px;font-size:0.78em">&#8592; Back</button>
+                <button class="btn btn-ghost btn-3d" onclick="goStep(2)" style="width:auto;padding:10px 20px;font-size:0.78em">&#8592; Back</button>
             </div>
         </div>
     </div>
 
     <!-- SCREEN 4: Enter Transaction ID & Get Key -->
     <div class="screen" id="screen4">
-        <div class="card">
-            <h2>&#128273; Enter Transaction Details</h2>
+        <div class="card card-3d">
+            <h2 class="text-3d">&#128273; Enter Transaction Details</h2>
             <p>Enter your UPI transaction ID (UTR number) to verify payment and get your access key.</p>
 
             <div class="input-group">
@@ -342,27 +359,23 @@
             </div>
 
             <div id="keyResult" style="display:none">
-                <div class="access-key-box">
+                <div class="access-key-box card-3d">
                     <div style="font-size:3em;margin-bottom:4px">&#127881;</div>
                     <h3 style="color:var(--green);font-weight:800;font-size:1.3em">Payment Successful!</h3>
-                    <p style="color:var(--txt);font-size:0.85em;margin:8px 0">Your premium access is now active on this device.</p>
-                    <div style="font-size:0.7em;color:var(--dim);margin-bottom:8px">ACCESS KEY</div>
-                    <div class="access-key" id="accessKey">—</div>
-                    <button class="copy-btn" onclick="copyKey()" style="margin-top:4px">Copy Key</button>
+                    <p style="color:var(--txt);font-size:0.85em;margin:8px 0">Your premium access is now active. No access key needed - it's linked to your account.</p>
                 </div>
 
                 <!-- SEND CONFIRMATION -->
                 <div style="margin-top:16px">
-                    <div style="font-size:0.78em;color:var(--dim);text-align:center;margin-bottom:10px;font-weight:600">SEND RECEIPT & ACCESS KEY</div>
+                    <div style="font-size:0.78em;color:var(--dim);text-align:center;margin-bottom:10px;font-weight:600">SEND RECEIPT</div>
 
                     <div class="btn-row">
-                        <button class="btn btn-green" onclick="sendWhatsApp()" style="gap:6px">&#128172; WhatsApp</button>
-                        <button class="btn btn-primary" id="emailBtn" onclick="sendEmail()" style="gap:6px">&#9993; Email</button>
-                        <button class="btn btn-ghost" onclick="sendSMS()" style="gap:6px;background:rgba(14,165,233,0.1);color:#38bdf8;border-color:rgba(14,165,233,0.2)">&#128241; SMS</button>
+                        <button class="btn btn-green btn-3d" onclick="sendWhatsApp()" style="gap:6px">&#128172; WhatsApp</button>
+                        <button class="btn btn-primary btn-3d" id="emailBtn" onclick="sendEmail()" style="gap:6px">&#9993; Email</button>
+                        <button class="btn btn-ghost btn-3d" onclick="sendSMS()" style="gap:6px;background:rgba(14,165,233,0.1);color:#38bdf8;border-color:rgba(14,165,233,0.2)">&#128241; SMS</button>
                     </div>
                     <div class="btn-row" style="margin-top:8px">
-                        <button class="btn btn-ghost" onclick="downloadReceipt()" style="gap:6px">&#128196; Download Receipt</button>
-                        <button class="btn btn-ghost" onclick="copyKey()" style="gap:6px">&#128203; Copy Key</button>
+                        <button class="btn btn-ghost btn-3d" onclick="downloadReceipt()" style="gap:6px">&#128196; Download Receipt</button>
                     </div>
                 </div>
 
@@ -379,17 +392,17 @@
                     </div>
                 </div>
 
-                <div style="margin-top:12px;padding:8px 12px;background:rgba(250,204,21,0.06);border:1px solid rgba(250,204,21,0.12);border-radius:8px;font-size:0.7em;color:#fde68a;text-align:center">&#128274; Premium is locked to this device. Access activates automatically.</div>
+                <div style="margin-top:12px;padding:8px 12px;background:rgba(34,197,94,0.06);border:1px solid rgba(34,197,94,0.12);border-radius:8px;font-size:0.7em;color:#86efac;text-align:center">&#9989; Premium access linked to your Firebase account. Works on all your devices.</div>
 
                 <div class="btn-row" style="margin-top:16px">
-                    <a class="btn btn-primary" href="#" onclick="trackAndGoToMockTests('payment_success')" style="font-size:1em;padding:16px">&#127942; Go to Mock Tests &#8594;</a>
+                    <a class="btn btn-primary btn-3d" href="#" onclick="trackAndGoToMockTests('payment_success')" style="font-size:1em;padding:16px">&#127942; Go to Mock Tests &#8594;</a>
                 </div>
             </div>
 
             <div id="verifyPayBtn">
-                <button class="btn btn-green" onclick="verifyPayment()" id="finalVerifyBtn" disabled>&#128273; Verify & Get Access Key</button>
+                <button class="btn btn-green btn-3d" onclick="verifyPayment()" id="finalVerifyBtn" disabled>&#128273; Verify & Get Access Key</button>
                 <div style="text-align:center;margin-top:8px">
-                    <button class="btn btn-ghost" onclick="goStep(3)" style="width:auto;padding:10px 20px;font-size:0.78em">&#8592; Back</button>
+                    <button class="btn btn-ghost btn-3d" onclick="goStep(3)" style="width:auto;padding:10px 20px;font-size:0.78em">&#8592; Back</button>
                 </div>
             </div>
         </div>
@@ -414,253 +427,50 @@
     window._pd=function(){return _k};
 })();
 
-// ===== DEVICE FINGERPRINT ENGINE =====
-// Generates a unique device ID that's nearly impossible to replicate on another device.
-// Combines: screen, timezone, language, WebGL, canvas, audio, platform, hardware
-const DeviceLock={
-    async getFingerprint(){
-        const components=[];
+// ===== SERVER-SIDE PREMIUM VERIFICATION (Firebase Custom Claims) =====
+// Premium access is verified via Firebase Auth Custom Claims (server-side)
+// No more client-side DeviceLock or localStorage premium keys
 
-        // Screen signature
-        components.push(screen.width+'x'+screen.height);
-        components.push(screen.colorDepth+'');
-        components.push(window.devicePixelRatio+'');
-        components.push(screen.availWidth+'x'+screen.availHeight);
+// Check premium status via Firebase Custom Claims
+async function isPremium() {
+    try {
+        const user = firebase.auth().currentUser;
+        if (!user) return false;
 
-        // Platform & hardware
-        components.push(navigator.platform||'na');
-        components.push(navigator.hardwareConcurrency||'na');
-        components.push(navigator.deviceMemory||'na');
-        components.push(navigator.maxTouchPoints||'0');
-        components.push(navigator.language||'na');
+        // Force token refresh to get latest custom claims
+        const idTokenResult = await user.getIdTokenResult(true);
+        const claims = idTokenResult.claims || {};
 
-        // Timezone
-        components.push(Intl.DateTimeFormat().resolvedOptions().timeZone||'na');
-        components.push(new Date().getTimezoneOffset()+'');
-
-        // Canvas fingerprint — each device renders slightly differently
-        try{
-            const canvas=document.createElement('canvas');
-            canvas.width=200;canvas.height=50;
-            const ctx=canvas.getContext('2d');
-            ctx.textBaseline='top';
-            ctx.font='14px Arial';
-            ctx.fillStyle='#f60';
-            ctx.fillRect(50,0,100,30);
-            ctx.fillStyle='#069';
-            ctx.fillText('SMC-FP-2026',2,15);
-            ctx.fillStyle='rgba(102,204,0,0.7)';
-            ctx.fillText('DeviceLock',4,17);
-            components.push(canvas.toDataURL().slice(-50));
-        }catch(e){components.push('canvas-err')}
-
-        // WebGL renderer — unique per GPU
-        try{
-            const gl=document.createElement('canvas').getContext('webgl');
-            if(gl){
-                const dbg=gl.getExtension('WEBGL_debug_renderer_info');
-                if(dbg){
-                    components.push(gl.getParameter(dbg.UNMASKED_VENDOR_WEBGL)||'na');
-                    components.push(gl.getParameter(dbg.UNMASKED_RENDERER_WEBGL)||'na');
-                }
-            }
-        }catch(e){components.push('webgl-err')}
-
-        // Audio fingerprint (skip on mobile for performance)
-        if(window.innerWidth>=769){
-            try{
-                const actx=new(window.OfflineAudioContext||window.webkitOfflineAudioContext)(1,44100,44100);
-                const osc=actx.createOscillator();
-                osc.type='triangle';osc.frequency.setValueAtTime(10000,actx.currentTime);
-                const comp=actx.createDynamicsCompressor();
-                comp.threshold.setValueAtTime(-50,actx.currentTime);
-                comp.knee.setValueAtTime(40,actx.currentTime);
-                comp.ratio.setValueAtTime(12,actx.currentTime);
-                comp.attack.setValueAtTime(0,actx.currentTime);
-                comp.release.setValueAtTime(0.25,actx.currentTime);
-                osc.connect(comp);comp.connect(actx.destination);
-                osc.start(0);
-                const buf=await actx.startRendering();
-                const data=buf.getChannelData(0);
-                let sum=0;for(let i=4500;i<5000;i++)sum+=Math.abs(data[i]);
-                components.push(sum.toFixed(6));
-            }catch(e){components.push('audio-err')}
-        }else{components.push('mobile-skip')}
-
-        // Installed fonts probe (skip on mobile for performance)
-        if(window.innerWidth>=769){
-            try{
-                const testFonts=['monospace','serif','sans-serif','Arial','Courier','Georgia','Verdana','Times New Roman'];
-                const span=document.createElement('span');
-                span.style.cssText='font-size:72px;position:absolute;left:-9999px;top:-9999px;visibility:hidden';
-                span.textContent='mmmmmmmmmmlli';
-                document.body.appendChild(span);
-                const widths=testFonts.map(f=>{span.style.fontFamily=f;return span.offsetWidth+'-'+span.offsetHeight});
-                document.body.removeChild(span);
-                components.push(widths.join(','));
-            }catch(e){components.push('font-err')}
-        }else{components.push('mobile-skip')}
-
-        // Generate hash from all components
-        const raw=components.join('|||');
-        return this.hashString(raw);
-    },
-
-    hashString(str){
-        // FNV-1a 64-bit (split into two 32-bit for JS)
-        let h1=0x811c9dc5,h2=0x811c9dc5;
-        for(let i=0;i<str.length;i++){
-            const c=str.charCodeAt(i);
-            h1^=c;h1=(h1*0x01000193)>>>0;
-            h2^=(c*7);h2=(h2*0x01000193)>>>0;
-        }
-        return (h1>>>0).toString(36)+(h2>>>0).toString(36);
-    },
-
-    // Save device binding
-    async bind(accessKey){
-        const fp=await this.getFingerprint();
-        const binding={
-            key:accessKey,
-            device:fp,
-            boundAt:new Date().toISOString(),
-            ua:navigator.userAgent.substring(0,80),
-            version: 2
-        };
-
-        // Store in multiple locations for redundancy
-        try {
-            localStorage.setItem('smc_device_bind', JSON.stringify(binding));
-        } catch(e) {}
-
-        // Also try IndexedDB for additional persistence
-        try {
-            if (window.indexedDB) {
-                const request = indexedDB.open('SMC_Premium', 1);
-                request.onupgradeneeded = function(event) {
-                    const db = event.target.result;
-                    db.createObjectStore('bindings', { keyPath: 'id' });
-                };
-                request.onsuccess = function(event) {
-                    const db = event.target.result;
-                    const transaction = db.transaction(['bindings'], 'readwrite');
-                    const objectStore = transaction.objectStore('bindings');
-                    objectStore.put({ id: 'device_bind', ...binding });
-                };
-            }
-        } catch(e) {}
-
-        // Set a cookie as additional backup
-        try {
-            const expiration = new Date();
-            expiration.setFullYear(expiration.getFullYear() + 1);
-            document.cookie = 'smc_bind=' + encodeURIComponent(JSON.stringify(binding)) +
-                '; expires=' + expiration.toUTCString() + '; path=/; SameSite=Strict';
-        } catch(e) {}
-
-        return fp;
-    },
-
-    // Verify current device matches
-    async verify(){
-        let stored = null;
-
-        // Try localStorage first
-        try { stored = localStorage.getItem('smc_device_bind'); } catch(e) { stored = null; }
-
-        // Try cookies if localStorage failed
-        if (!stored) {
-            try {
-                const cookies = document.cookie.split(';');
-                for (const cookie of cookies) {
-                    const [name, value] = cookie.trim().split('=');
-                    if (name === 'smc_bind') {
-                        stored = decodeURIComponent(value);
-                        break;
-                    }
-                }
-            } catch(e) { /* ignore */ }
-        }
-
-        // Try IndexedDB as last resort
-        if (!stored) {
-            try {
-                if (window.indexedDB) {
-                    const request = indexedDB.open('SMC_Premium', 1);
-                    request.onsuccess = function(event) {
-                        const db = event.target.result;
-                        const transaction = db.transaction(['bindings'], 'readonly');
-                        const objectStore = transaction.objectStore('bindings');
-                        const getRequest = objectStore.get('device_bind');
-                        getRequest.onsuccess = function(getEvent) {
-                            if (getEvent.target.result) {
-                                stored = JSON.stringify(getEvent.target.result);
-                            }
-                        };
-                    };
-                }
-            } catch(e) { /* ignore */ }
-        }
-
-        if(!stored)return{valid:false,reason:'no_binding'};
-
-        let binding;
-        try {
-            binding = JSON.parse(stored);
-        } catch(e) {
-            return {valid:false,reason:'invalid_binding_format'};
-        }
-
-        if (!binding.key || !binding.device || !binding.boundAt) {
-            return {valid:false,reason:'incomplete_binding'};
-        }
-
-        const currentFP = await this.getFingerprint();
-
-        // More robust comparison - compare semantic components
-        // Split fingerprint into parts and compare each
-        const storedParts = binding.device.split('|');
-        const currentParts = currentFP.split('|');
-
-        if (storedParts.length !== currentParts.length) {
-            return {valid:false,reason:'fingerprint_structure_mismatch'};
-        }
-
-        // Check at least 80% of components match (more robust than character comparison)
-        let matchCount = 0;
-        const requiredMatchRatio = 0.8;
-
-        for (let i = 0; i < storedParts.length; i++) {
-            if (storedParts[i] === currentParts[i]) {
-                matchCount++;
-            }
-        }
-
-        const matchRatio = matchCount / storedParts.length;
-
-        if (matchRatio >= requiredMatchRatio) {
-            return {valid:true, key: binding.key, device: currentFP};
-        }
-
-        return {valid:false, reason: 'device_mismatch', expected: binding.device.substring(0,10), got: currentFP.substring(0,10)};
+        // Premium access granted via server-side Custom Claims
+        return claims.premium === true || claims.admin === true;
+    } catch (error) {
+        console.error('Premium verification error:', error);
+        return false;
     }
-};
+}
 
-// ===== VIP ACCESS (Owner + Family) =====
-const _vipCodes=(function(){
-    const _v=[
-        [83,77,67,45,79,87,78,69,82,45,50,48,50,54],
-        [83,77,67,45,70,65,77,73,76,89,45,66,82,79],
-        [83,77,67,45,70,65,77,73,76,89,45,83,73,83]
-    ];
-    return _v.map(a=>a.map(c=>String.fromCharCode(c)).join(''));
-})();
-window.unlockVIP=function(code){
-    if(_vipCodes.includes(code)){
-        localStorage.setItem('smc_premium_key','VIP-'+code);
-        localStorage.setItem('smc_vip','true');
-        alert('VIP Access Activated! Refresh the page.');return true;
-    }return false;
+// Check if user has full access (premium99 plan)
+async function hasFullAccess() {
+    try {
+        const user = firebase.auth().currentUser;
+        if (!user) return false;
+
+        const idTokenResult = await user.getIdTokenResult(true);
+        const claims = idTokenResult.claims || {};
+
+        return claims.fullAccess === true || claims.admin === true;
+    } catch (error) {
+        console.error('Full access verification error:', error);
+        return false;
+    }
+}
+
+// ===== VIP ACCESS (REMOVED) =====
+// All VIP codes have been removed. Premium access is now controlled by Firebase backend Custom Claims.
+// Use the premium purchase flow to unlock access.
+window.unlockVIP = function(code) {
+    console.warn('VIP codes are no longer valid. Please purchase a premium plan.');
+    return false;
 };
 
 // ===== STATE =====
@@ -670,30 +480,16 @@ let sessionTimeout=null;
 let sessionSec=900;
 
 const PLANS=[
-    {name:'Full Access',price:99,desc:'All mock tests + subjects + lifetime'},
-    {name:'Mock Tests Only',price:49,desc:'10+ mock tests with explanations'}
+    {name:'Full Access',price:199,desc:'All mock tests + subjects + lifetime'},
+    {name:'Mock Tests Only',price:99,desc:'10+ mock tests with explanations'}
 ];
 
-// Check if already premium + device verification
+// Check if already premium via Firebase Custom Claims
 (async function(){
-    // VIP bypass
-    if(localStorage.getItem('smc_vip')==='true'){
+    const isPremiumUser = await isPremium();
+    if(isPremiumUser){
         document.getElementById('alreadyPremium').style.display='block';
         document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
-        return;
-    }
-    const key=localStorage.getItem('smc_premium_key');
-    if(key){
-        const check=await DeviceLock.verify();
-        if(check.valid){
-            document.getElementById('alreadyPremium').style.display='block';
-            document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
-        }else{
-            // Key exists but device doesn't match = shared key — REVOKE
-            localStorage.removeItem('smc_premium_key');
-            localStorage.removeItem('smc_premium_plan');
-            localStorage.removeItem('smc_device_bind');
-        }
     }
 })();
 
@@ -870,87 +666,85 @@ async function verifyPayment(){
         if(!confirm('Amount entered ('+amount+') does not match plan price ('+plan.price+'). Continue anyway?'))return;
     }
 
-    // Generate access key from transaction + device fingerprint
-    const deviceFP=await DeviceLock.getFingerprint();
-    const keyBase=orderNumber+'-'+txnId.slice(-4)+'-'+deviceFP.slice(0,6);
-    const hash=simpleHash(keyBase);
-    const accessKey='SMC-'+hash;
+    const btn=document.getElementById('finalVerifyBtn');
+    const originalText=btn?.textContent;
+    if(btn){btn.disabled=true;btn.textContent='Verifying payment...';}
 
-    // Save to localStorage
-    localStorage.setItem('smc_premium_key',accessKey);
-    localStorage.setItem('smc_premium_plan',JSON.stringify({
-        plan:plan.name,
-        price:plan.price,
-        orderId:orderNumber,
-        txnId:txnId,
-        activatedAt:new Date().toISOString(),
-        key:accessKey,
-        deviceId:deviceFP.substring(0,12)
-    }));
+    try {
+        // Call Cloud Function for server-side payment verification
+        const { verifyPayment: verifyPaymentFn } = firebase.functions();
+        const result = await verifyPaymentFn({
+            orderId: orderNumber,
+            txnId: txnId,
+            amount: amount,
+            plan: plan.name === 'Full Access' ? 'premium199' : 'premium99'
+        });
 
-    // Bind key to THIS device
-    await DeviceLock.bind(accessKey);
+        if (result.success) {
+            // Premium access is now granted via Firebase Custom Claims (server-side)
+            // No more localStorage access keys or device binding needed
 
-    // Update order status
-    const orders=JSON.parse(localStorage.getItem('smc_orders')||'[]');
-    const order=orders.find(o=>o.orderId===orderNumber);
-    if(order){
-        order.status='submitted';
-        order.txnId=txnId;
-        order.amountPaid=amount;
-        order.accessKey=accessKey;
-        order.deviceId=deviceFP.substring(0,12);
-        localStorage.setItem('smc_orders',JSON.stringify(orders));
+            // Update order status
+            const orders=JSON.parse(localStorage.getItem('smc_orders')||'[]');
+            const order=orders.find(o=>o.orderId===orderNumber);
+            if(order){
+                order.status='approved';
+                order.txnId=txnId;
+                order.amountPaid=amount;
+                localStorage.setItem('smc_orders',JSON.stringify(orders));
+            }
+
+            // Track successful purchase in Google Analytics
+            gtag('event', 'purchase', {
+              transaction_id: orderNumber,
+              affiliation: 'SMC Exam Prep',
+              value: plan.price,
+              currency: 'INR',
+              tax: 0,
+              shipping: 0,
+              items: [{
+                item_name: plan.name,
+                item_id: plan.name.toLowerCase().replace(/\s+/g, '_'),
+                price: plan.price,
+                quantity: 1
+              }]
+            });
+
+            // Show success
+            document.getElementById('keyResult').style.display='block';
+            document.getElementById('verifyPayBtn').style.display='none';
+            fillReceipt();
+
+            // Update step
+            document.getElementById('sd4').className='step-dot done';
+            document.getElementById('sl3').className='step-line done';
+
+            if(sessionTimeout)clearInterval(sessionTimeout);
+
+            // Log payment + auto-notify admin via EmailJS (no-op if not configured)
+            try{
+                const r=getReceiptData();
+                smcSecLog('share','New paid order verified: '+r.order+' / '+r.name+' / '+r.amount,'ok');
+                sendAdminNotification(r, 'server_verified');
+            }catch(e){}
+
+            alert(result.message || 'Payment verified successfully! Premium access activated.');
+        } else {
+            throw new Error(result.message || 'Payment verification failed');
+        }
+    } catch (error) {
+        console.error('Payment verification error:', error);
+        if(btn){btn.disabled=false;btn.textContent=originalText;}
+        alert('Payment verification failed: ' + (error.message || 'Unknown error'));
     }
-
-    // Track successful purchase in Google Analytics
-    const plan = PLANS[selectedPlan];
-    gtag('event', 'purchase', {
-      transaction_id: orderNumber,
-      affiliation: 'SMC Exam Prep',
-      value: plan.price,
-      currency: 'INR',
-      tax: 0,
-      shipping: 0,
-      items: [{
-        item_name: plan.name,
-        item_id: plan.name.toLowerCase().replace(/\s+/g, '_'),
-        price: plan.price,
-        quantity: 1
-      }]
-    });
-
-    // Show key
-    document.getElementById('accessKey').textContent=accessKey;
-    document.getElementById('keyResult').style.display='block';
-    document.getElementById('verifyPayBtn').style.display='none';
-    fillReceipt();
-
-    // Update step
-    document.getElementById('sd4').className='step-done';
-    document.getElementById('sl3').className='step-line done';
-
-    if(sessionTimeout)clearInterval(sessionTimeout);
-
-    // Log payment + auto-notify admin via EmailJS (no-op if not configured)
-    try{
-        const r=getReceiptData();
-        smcSecLog('share','New paid order verified: '+r.order+' / '+r.name+' / '+r.amount,'ok');
-        sendAdminNotification(r,deviceFP.substring(0,12));
-    }catch(e){}
 }
 
+// No more local access keys - premium is managed via Firebase Custom Claims
+// Keep simpleHash for any other uses
 function simpleHash(str){
     let h=0x811c9dc5;
     for(let i=0;i<str.length;i++){h^=str.charCodeAt(i);h=(h*0x01000193)>>>0}
     return h.toString(36).toUpperCase().slice(0,8);
-}
-
-function copyKey(){
-    const key=document.getElementById('accessKey').textContent;
-    navigator.clipboard.writeText(key).catch(()=>{});
-    event.target.textContent='Copied!';
-    setTimeout(()=>event.target.textContent='Copy Key',2000);
 }
 
 // ===== RECEIPT DATA =====
@@ -991,52 +785,35 @@ function sendWhatsApp(){
 📋 Order: ${r.order}
 📦 Plan: ${r.plan}
 💰 Amount: ${r.amount}
-🔑 Access Key: *${r.key}*
 📄 Txn ID: ${r.txn}
 📅 Date: ${r.date}
 👤 Name: ${r.name}
 ━━━━━━━━━━━━━━━
 
 🔓 Your premium access is now active!
-📱 Open the website to access all mock tests.
+📱 Open the website and sign in with your account to access all mock tests.
 
 🌐 https://abhiiibabariya-dev.github.io/SMC-Computer-Supervisor-Exam-Prep/mock-test.html
 
-⚠️ This key is locked to your device. Do not share.`;
+✅ Premium access is linked to your Firebase account (works on all devices).`;
 
     const url='https://wa.me/'+phone+'?text='+encodeURIComponent(msg);
     window.open(url,'_blank');
 }
 
 // ===== EMAILJS CONFIG =====
-// To enable actual email notifications (instead of opening email client):
+// Configuration is now centralized in emailjs-config.js
+// To enable actual email notifications:
 //   1. Sign up free at https://www.emailjs.com
 //   2. Create an Email Service (e.g., Gmail) → copy SERVICE_ID
 //   3. Create two Email Templates:
-//
-//      TEMPLATE 1 - Customer Receipt:
-//         Name: customer_receipt
-//         Variables: to_email, name, order, plan, amount, key, txn, date
-//
-//      TEMPLATE 2 - Admin Notification:
-//         Name: admin_order
-//         Variables: name, phone, email, order, plan, amount, key, txn, date, device
-//
+//      TEMPLATE 1 - Customer Receipt: Variables: to_email, name, order, plan, amount, key, txn, date
+//      TEMPLATE 2 - Admin Notification: Variables: name, phone, email, order, plan, amount, key, txn, date, device
 //   4. In EmailJS Account → API Keys, copy your PUBLIC_KEY
-//   5. Replace the placeholder values below with your actual credentials:
-const EMAILJS = {
-    PUBLIC_KEY:     'YOUR_EMAILJS_PUBLIC_KEY_HERE',      // Get from EmailJS Account → API Keys
-    SERVICE_ID:     'YOUR_EMAILJS_SERVICE_ID_HERE',      // Get from EmailJS Email Services
-    TEMPLATE_CUSTOMER: 'YOUR_CUSTOMER_TEMPLATE_ID_HERE', // Get from EmailJS Email Templates
-    TEMPLATE_ADMIN:    'YOUR_ADMIN_TEMPLATE_ID_HERE',    // Get from EmailJS Email Templates
-    ADMIN_EMAIL:    'abhibabariya007@gmail.com'          // Admin email for notifications
-};
+//   5. Edit emailjs-config.js and replace placeholder values with your actual credentials
 function emailjsReady(){
-    return window.emailjs && EMAILJS.PUBLIC_KEY.indexOf('PASTE_')!==0 && EMAILJS.SERVICE_ID.indexOf('PASTE_')!==0;
+    return window.isEmailJSConfigured && window.isEmailJSConfigured();
 }
-(function initEmailjs(){
-    try{ if(window.emailjs && EMAILJS.PUBLIC_KEY.indexOf('PASTE_')!==0) window.emailjs.init({publicKey:EMAILJS.PUBLIC_KEY}); }catch(e){}
-})();
 
 // ===== SECURITY LOG (Firebase /security + local) =====
 // Writes to /security so events appear in the bi-hourly admin email report,
@@ -1064,24 +841,28 @@ function sendEmail(){
         const btn=document.getElementById('emailBtn');
         const origHTML=btn?btn.innerHTML:'';
         if(btn){btn.disabled=true;btn.textContent='Sending...';}
-        const params={to_email:r.email,name:r.name,order:r.order,plan:r.plan,amount:r.amount,key:r.key,txn:r.txn,date:r.date};
-        window.emailjs.send(EMAILJS.SERVICE_ID,EMAILJS.TEMPLATE_CUSTOMER,params).then(()=>{
-            if(btn){btn.textContent='\u2713 Sent';setTimeout(()=>{btn.innerHTML=origHTML;btn.disabled=false},2500);}
-            smcSecLog('share','Email receipt delivered to '+r.email+' — order '+r.order,'ok');
-        }).catch(err=>{
+        window.sendCustomerReceipt(r).then(result => {
+            if(result.success){
+                if(btn){btn.textContent='✓ Sent';setTimeout(()=>{btn.innerHTML=origHTML;btn.disabled=false},2500);}
+                smcSecLog('share','Email receipt delivered to '+r.email+' — order '+r.order,'ok');
+            } else {
+                if(btn){btn.innerHTML=origHTML;btn.disabled=false;}
+                smcSecLog('share','EmailJS send failed: '+(result.error?'unknown':'not configured')+' — falling back to mailto','warn');
+                mailtoFallback(r);
+            }
+        }).catch(err => {
             if(btn){btn.innerHTML=origHTML;btn.disabled=false;}
-            smcSecLog('share','EmailJS send failed: '+(err&&err.text?err.text:'unknown')+' — falling back to mailto','warn');
+            smcSecLog('share','EmailJS send error: '+(err&&err.text?err.text:'unknown')+' — falling back to mailto','warn');
             mailtoFallback(r);
         });
         return;
-    }
     // Path B: no email entered or EmailJS not configured — fall back to mailto
     mailtoFallback(r);
 }
 
 function mailtoFallback(r){
-    const subject='SMC Exam Prep — Premium Access Key & Receipt ('+r.order+')';
-    const body='SMC Exam Prep — Premium Activated!\n========================================\n\nPayment Receipt\n-----------------\nOrder ID: '+r.order+'\nPlan: '+r.plan+'\nAmount: '+r.amount+'\nAccess Key: '+r.key+'\nTransaction ID: '+r.txn+'\nDate: '+r.date+'\nName: '+r.name+'\n\n========================================\n\nYour premium access is now active!\nOpen the website to access all 9 mock tests:\nhttps://abhiiibabariya-dev.github.io/SMC-Computer-Supervisor-Exam-Prep/mock-test.html\n\nImportant: This key is locked to your device. Do not share.\n\nThank you for purchasing SMC Exam Prep Premium!\nGood luck with your exam!';
+    const subject='SMC Exam Prep — Premium Receipt ('+r.order+')';
+    const body='SMC Exam Prep — Premium Activated!\n========================================\n\nPayment Receipt\n-----------------\nOrder ID: '+r.order+'\nPlan: '+r.plan+'\nAmount: '+r.amount+'\nTransaction ID: '+r.txn+'\nDate: '+r.date+'\nName: '+r.name+'\n\n========================================\n\nYour premium access is now active!\nOpen the website and sign in with your account to access all mock tests:\nhttps://abhiiibabariya-dev.github.io/SMC-Computer-Supervisor-Exam-Prep/mock-test.html\n\nPremium access is linked to your Firebase account (works on all devices).\n\nThank you for purchasing SMC Exam Prep Premium!\nGood luck with your exam!';
     const url='mailto:'+(r.email||'')+'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
     window.open(url);
 }
@@ -1089,11 +870,14 @@ function mailtoFallback(r){
 // ===== ADMIN NOTIFICATION (fires once on payment verification) =====
 function sendAdminNotification(r,deviceId){
     if(!emailjsReady())return;
-    const params={name:r.name,phone:r.phone||'',email:r.email||'',order:r.order,plan:r.plan,amount:r.amount,key:r.key,txn:r.txn,date:r.date,device:deviceId||''};
-    window.emailjs.send(EMAILJS.SERVICE_ID,EMAILJS.TEMPLATE_ADMIN,params).then(()=>{
-        smcSecLog('share','Admin notified of new paid order '+r.order,'ok');
+    window.sendAdminNotification(r, deviceId).then(result => {
+        if(result.success){
+            smcSecLog('share','Admin notified of new paid order '+r.order,'ok');
+        } else {
+            smcSecLog('share','Admin email FAILED for order '+r.order+': '+(result.error?'unknown':'not configured'),'warn');
+        }
     }).catch(err=>{
-        smcSecLog('share','Admin email FAILED for order '+r.order+': '+(err&&err.text?err.text:'unknown'),'warn');
+        smcSecLog('share','Admin email error for order '+r.order+': '+(err&&err.text?err.text:'unknown'),'warn');
     });
 }
 

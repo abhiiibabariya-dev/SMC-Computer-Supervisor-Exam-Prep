@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Admin Profile | Gujarat Govt Jobs Hub</title><meta name="description" content="Administrator profile and system control center for Gujarat Govt Jobs Hub."><meta name="robots" content="noindex,nofollow"><link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="animations.css">
+<script src="firebase-config.js"></script>
+<script src="https://www.gstatic.com/firebasejs/12.17.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/12.17.1/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/12.17.1/firebase-database-compat.js"></script>
+<script src="/SMC-Computer-Supervisor-Exam-Prep/auto-live-jobs.js?v=20260824-5" defer></script>
+<script src="three-3d.js" defer></script>
+<style>
+:root{--bg:#08090b;--card:#111317;--card2:#0d0f12;--line:rgba(255,255,255,.09);--text:#f5f5f5;--muted:#9ca3af;--green:#86efac;--purple:#a78bfa;--gold:#fde68a;--red:#fca5a5}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;background:radial-gradient(circle at 18% 8%,rgba(99,102,241,.18),transparent 32%),radial-gradient(circle at 85% 78%,rgba(34,197,94,.09),transparent 30%),var(--bg);color:var(--muted);font-family:'Plus Jakarta Sans',system-ui,sans-serif}
+.wrap{width:min(1100px,100%);margin:auto;padding:18px 14px 70px}
+.nav{display:flex;gap:5px;align-items:center;background:rgba(17,19,23,.96);border:1px solid var(--line);border-radius:16px;padding:9px 11px;position:sticky;top:10px;z-index:50;box-shadow:0 12px 35px rgba(0,0,0,.22)}
+.nav .brand{color:#fff;font-weight:900;margin-right:auto;text-decoration:none}
+.nav a{color:var(--muted);text-decoration:none;font-size:.72rem;font-weight:800;padding:8px 9px;border-radius:9px}
+.nav a:hover{background:rgba(255,255,255,.05);color:#fff}
+.nav a.accent{background:rgba(99,102,241,.12);color:#c4b5fd}
+.hero{padding:48px 4px 24px;text-align:center}
+.hero .eyebrow{color:var(--green);font-size:.68rem;font-weight:900;letter-spacing:.8px;text-transform:uppercase}
+.avatar{width:96px;height:96px;border-radius:28px;background:linear-gradient(135deg,#7c3aed,#6366f1);display:grid;place-items:center;color:#fff;font-weight:900;font-size:1.8rem;box-shadow:0 16px 50px rgba(99,102,241,.35);margin:0 auto 18px;position:relative;overflow:hidden}
+.avatar::before{content:'';position:absolute;inset:-2px;background:linear-gradient(135deg,#7c3aed,#6366f1,#c084fc,#7c3aed);z-index:-1;border-radius:32px;animation:borderRotate 3s linear infinite;background-size:300% 300%}
+@keyframes borderRotate{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+.hero h1{color:#fff;font-size:clamp(2rem,5vw,3rem);line-height:1.08;margin:6px 0}
+.hero p{margin:6px auto 0;line-height:1.55;font-size:.82rem;max-width:500px}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:28px}
+.card{background:rgba(17,19,23,.96);border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:0 12px 34px rgba(0,0,0,.12);transition:all 0.4s cubic-bezier(0.16,1,0.3,1);position:relative;overflow:hidden}
+.card::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:linear-gradient(135deg,transparent 40%,rgba(255,255,255,0.03) 50%,transparent 60%);transform:rotate(0deg);transition:transform 0.6s}
+.card:hover::before{transform:rotate(180deg)}
+.card:hover{border-color:rgba(99,102,241,.2);transform:translateY(-4px);box-shadow:0 24px 60px rgba(0,0,0,.3),0 0 0 1px rgba(139,92,246,.1)}
+.card h2{color:#fff;font-size:1rem;margin:0 0 14px;display:flex;align-items:center;gap:10px}
+.card h2 i{font-size:1.1em}
+.profile-meta{display:grid;gap:10px;margin-top:12px}
+.meta{display:flex;justify-content:space-between;gap:12px;padding:12px 14px;border-radius:12px;background:var(--card2);border:1px solid rgba(255,255,255,.05);transition:all 0.3s}
+.meta:hover{border-color:rgba(139,92,246,.15);background:rgba(139,92,246,.02)}
+.meta span:first-child{color:#71717a;font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+.meta span:last-child{color:#f4f4f5;font-size:.72rem;font-weight:800;text-align:right;word-break:break-word}
+.badge{display:inline-flex;align-items:center;gap:5px;padding:6px 12px;border-radius:999px;font-size:.62rem;font-weight:900}
+.badge.admin{background:rgba(167,139,250,.1);color:#c4b5fd;border:1px solid rgba(167,139,250,.15);box-shadow:0 0 20px rgba(167,139,250,.08)}
+.badge.green{background:rgba(134,239,172,.1);color:var(--green);border:1px solid rgba(134,239,172,.15)}
+.badge.gold{background:rgba(253,230,138,.08);color:var(--gold);border:1px solid rgba(253,230,138,.14)}
+.stats-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.stat-box{padding:18px 14px;border-radius:14px;background:var(--card2);border:1px solid rgba(255,255,255,.05);text-align:center;transition:all 0.3s}
+.stat-box:hover{border-color:rgba(139,92,246,.15);background:rgba(139,92,246,.02);transform:translateY(-2px)}
+.stat-box .num{font-size:1.8rem;font-weight:900;color:#fff;line-height:1.1}
+.stat-box .lbl{font-size:.6rem;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-top:6px}
+.stat-box.c1 .num{color:#c4b5fd}.stat-box.c2 .num{color:#86efac}.stat-box.c3 .num{color:#fde68a}.stat-box.c4 .num{color:#fca5a5}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 18px;border-radius:12px;background:var(--green);color:#06130a;text-decoration:none;font-size:.7rem;font-weight:900;border:0;cursor:pointer;transition:all 0.35s cubic-bezier(0.16,1,0.3,1);position:relative;overflow:hidden}
+.btn::before{content:'';position:absolute;inset:-2px;background:linear-gradient(135deg,#7c3aed,#6366f1,#c084fc,#7c3aed);z-index:-1;border-radius:16px;animation:borderRotate 3s linear infinite;background-size:300% 300%;opacity:0;transition:opacity 0.3s}
+.btn:hover::before{opacity:1}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(134,239,172,.3);color:#06130a}
+.btn .shimmer{position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.15),transparent);animation:shimmer 3s infinite}
+@keyframes shimmer{0%{left:-100%}100%{left:200%}}
+.btn.alt{background:rgba(255,255,255,.07);color:#fff;border:1px solid rgba(255,255,255,.07)}
+.btn.alt::before{display:none}
+.btn.alt:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.15);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.2)}
+.btn.purple{background:rgba(167,139,250,.14);color:#ddd6fe;border:1px solid rgba(167,139,250,.18)}
+.btn.purple::before{display:none}
+.btn.purple:hover{background:rgba(167,139,250,.2);border-color:rgba(167,139,250,.3);transform:translateY(-2px);box-shadow:0 8px 24px rgba(167,139,250,.2)}
+.btn.danger{background:rgba(252,165,165,.12);color:#fca5a5;border:1px solid rgba(252,165,165,.18)}
+.btn.danger::before{display:none}
+.btn.danger:hover{background:rgba(252,165,165,.2);border-color:rgba(252,165,165,.3);transform:translateY(-2px)}
+.quick-actions{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:12px}
+.action-chip{display:flex;align-items:center;gap:12px;padding:16px 18px;border-radius:14px;background:var(--card2);border:1px solid rgba(255,255,255,.05);text-decoration:none;color:#fff;transition:all 0.3s}
+.action-chip:hover{border-color:rgba(139,92,246,.2);background:rgba(139,92,246,.03);transform:translateY(-2px)}
+.action-chip .ic{font-size:1.6em;width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:rgba(139,92,246,.1);flex-shrink:0}
+.action-chip .tx{font-weight:700;font-size:.75rem;color:#fff}
+.action-chip .sub{font-size:.62rem;color:var(--muted);margin-top:2px}
+.muted{color:#71717a;font-size:.65rem}
+.msg{margin-top:18px;text-align:center;font-size:.7rem;color:var(--green);min-height:20px}
+.footer-note{text-align:center;margin-top:24px;color:#52525b;font-size:.6rem}
+@media(max-width:900px){.grid{grid-template-columns:1fr}}
+@media(max-width:768px){
+.wrap{padding-left:11px;padding-right:11px}
+.hero{padding-top:36px}
+.avatar{width:80px;height:80px;border-radius:24px;font-size:1.5rem}
+.meta{align-items:flex-start;flex-direction:column;gap:4px;text-align:left}
+.meta span:last-child{max-width:100%;text-align:left}
+.quick-actions{grid-template-columns:1fr}
+.nav{overflow:auto;white-space:nowrap}
+}
+</style>
+<script src="smc-live-sync.js?v=20260821"></script>
+<script src="gate.js?v=20260821"></script>
+</head>
+<body>
+<div class="wrap">
+<nav class="nav">
+<a class="brand" href="index.html">Gujarat Govt Jobs Hub</a>
+<a href="admin-console.html">Console</a>
+<a href="admin-subscriptions.html">Subscriptions</a>
+<a href="index.html">Home</a>
+</nav>
+
+<header class="hero">
+<div class="eyebrow">Administrator</div>
+<div class="avatar" id="avatar">AD</div>
+<h1 id="hello">Admin Profile</h1>
+<p>Manage the platform, review subscriptions and monitor activity from this control center.</p>
+</header>
+
+<section class="grid">
+<div class="card">
+<div class="section-title"><h2><i>🛡</i> Administrator Identity</h2><span class="badge admin">ADMIN</span></div>
+<div class="profile-meta">
+<div class="meta"><span>Name</span><span id="name">Loading…</span></div>
+<div class="meta"><span>Email</span><span id="email">Loading…</span></div>
+<div class="meta"><span>Mobile</span><span id="mobile">Not added</span></div>
+<div class="meta"><span>Email verified</span><span id="verified">—</span></div>
+<div class="meta"><span>Admin since</span><span id="memberSince">—</span></div>
+<div class="meta"><span>Account ID</span><span id="uid" title="">—</span></div>
+</div>
+<div class="actions">
+<button class="btn alt" id="logout" type="button">Sign out</button>
+<a class="btn purple" href="admin-console.html">Open Console</a>
+</div>
+</div>
+
+<div class="card">
+<div class="section-title"><h2><i>📊</i> Platform Statistics</h2></div>
+<div class="stats-grid">
+<div class="stat-box c1"><div class="num" id="totalUsers">0</div><div class="lbl">Total Users</div></div>
+<div class="stat-box c2"><div class="num" id="premiumUsers">0</div><div class="lbl">Premium Users</div></div>
+<div class="stat-box c3"><div class="num" id="pendingPay">0</div><div class="lbl">Pending Payments</div></div>
+<div class="stat-box c4"><div class="num" id="totalVisits">0</div><div class="lbl">Total Visits</div></div>
+</div>
+<div class="actions"><a class="btn" href="admin-console.html">Detailed Reports</a></div>
+</div>
+
+<div class="card">
+<div class="section-title"><h2><i>⚡</i> Quick Actions</h2></div>
+<div class="quick-actions">
+<a class="action-chip" href="admin-subscriptions.html">
+<span class="ic">💳</span>
+<div><div class="tx">Subscription Queue</div><div class="sub">Approve pending payments</div></div>
+</a>
+<a class="action-chip" href="admin-console.html">
+<span class="ic">📋</span>
+<div><div class="tx">User Management</div><div class="sub">View & edit accounts</div></div>
+</a>
+<a class="action-chip" href="live-jobs.html">
+<span class="ic">🔔</span>
+<div><div class="tx">Live Jobs</div><div class="sub">Update recruitment feed</div></div>
+</a>
+<a class="action-chip" href="index.html">
+<span class="ic">🌐</span>
+<div><div class="tx">Website</div><div class="sub">Public homepage</div></div>
+</a>
+</div>
+</div>
+
+<div class="card" style="grid-column:1/-1">
+<div class="section-title"><h2><i>🔐</i> Security & Sessions</h2></div>
+<div class="profile-meta" style="grid-template-columns:repeat(3,1fr)">
+<div class="meta"><span>Last login</span><span id="lastLogin">—</span></div>
+<div class="meta"><span>Active sessions</span><span>1</span></div>
+<div class="meta"><span>2FA status</span><span id="mfaStatus">Email verification</span></div>
+</div>
+<div class="notice info" style="margin-top:14px;background:rgba(99,102,241,.07);border:1px solid rgba(99,102,241,.13);color:#c4b5fd;padding:14px 16px;border-radius:12px;font-size:.68rem;line-height:1.6">
+This administrator account has full control over Firebase data and custom claims. Always verify payment UTRs before approving subscriptions.
+</div>
+</div>
+</section>
+
+<div class="msg" id="msg"></div>
+<div class="footer-note">Administrator access is controlled by Firebase custom claims. This page is restricted to verified admin accounts only.</div>
+</div>
+
+<script>(function(){'use strict';
+const ADMIN_EMAIL='abhibabariya007@gmail.com',cfg=window.SMC_FIREBASE_CONFIG||{};
+const $=id=>document.getElementById(id);
+function say(t,ok){$('msg').textContent=t||'';$('msg').style.color=ok?'#86efac':'#fca5a5'}
+function initials(name,email){const s=(name||email||'AD').trim().split(/\s+/);return ((s[0]||'A')[0]+(s[1]||'D')[0]).toUpperCase()}
+function fmtDate(v){if(!v)return'—';const d=new Date(v);return Number.isFinite(d.getTime())?d.toLocaleDateString('en-IN',{day:'2-digit',month:'short',year:'numeric'})+' '+d.toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit'}):'—'}
+function fmtNumber(n){return String(n||0).replace(/\B(?=(\d{3})+(?!\d))/g,",")}
+
+async function render(user,p){
+p=p||{};
+const name=p.name||user.displayName||'Administrator';
+$('avatar').textContent=initials(name,user.email);
+$('hello').textContent='Welcome, '+name.split(' ')[0];
+$('name').textContent=name;
+$('email').textContent=user.email||p.email||'admin@gujaratgovtjobshub.in';
+$('uid').textContent=(user.uid||'').slice(0,10)+'…';
+$('uid').title=user.uid||'';
+$('mobile').textContent=p.mobile||p.phone||'Not added';
+$('verified').textContent=user.emailVerified?'Yes ✓':'No';
+$('verified').style.color=user.emailVerified?'#86efac':'#fca5a5';
+$('memberSince').textContent=fmtDate(p.created_at||p.createdAt||user.metadata&&user.metadata.creationTime);
+$('lastLogin').textContent=fmtDate(p.lastLogin||user.metadata&&user.metadata.lastSignInTime);
+try{
+const db=firebase.database();
+const [usersSnap,paidSnap,visitsSnap]=await Promise.all([
+db.ref('users').once('value'),
+db.ref('payment_requests').orderByChild('status').equalTo('pending').once('value'),
+db.ref('visits').limitToLast(5000).once('value')
+]);
+const users=Object.values(usersSnap.val()||{});
+const totalUsers=users.length;
+const premiumUsers=users.filter(u=>u.plan==='premium99'||u.plan==='premium199').length;
+const pendingPay=Object.keys(paidSnap.val()||{}).length;
+const totalVisits=Object.keys(visitsSnap.val()||{}).length;
+$('totalUsers').textContent=fmtNumber(totalUsers);
+$('premiumUsers').textContent=fmtNumber(premiumUsers);
+$('pendingPay').textContent=fmtNumber(pendingPay);
+$('totalVisits').textContent=fmtNumber(totalVisits);
+}catch(e){console.error('Stats error:',e)}
+}
+
+if(!cfg.apiKey||!cfg.authDomain||!cfg.appId){
+say('Firebase configuration is unavailable.');
+return
+}
+try{
+if(!firebase.apps.length)firebase.initializeApp(cfg);
+const auth=firebase.auth(),db=firebase.database();
+auth.onAuthStateChanged(async u=>{
+if(!u){location.replace('login.html');return}
+try{await u.getIdToken(true)}catch(e){}
+const isAdmin=!!u&&u.emailVerified===true&&u.token&&u.token.admin===true;
+if(!isAdmin){
+if((u.email||'').toLowerCase()===ADMIN_EMAIL){
+location.replace('client-dashboard.html');
+return;
+}
+location.replace('client-dashboard.html');
+return;
+}
+try{
+const snap=await db.ref('users/'+u.uid).once('value');
+await db.ref('users/'+u.uid).update({lastLogin:new Date().toISOString()}).catch(()=>{});
+render(u,snap.val()||{});
+if(typeof smcAudit==='function')smcAudit('admin_profile_view','Admin opened profile page');
+}catch(e){
+render(u,{});
+say('Signed in, but details could not be loaded.');
+}
+});
+$('logout').onclick=async()=>{
+try{if(typeof smcTrackLogout==='function')smcTrackLogout(u.uid);await auth.signOut();location.replace('login.html')}catch(e){say('Unable to sign out.')}
+}
+}catch(e){
+say('Unable to initialize administrator session.')
+}
+})();</script>
+</body>
+</html>

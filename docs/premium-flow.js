@@ -1,38 +1,39 @@
-/* Production payment-request flow for the static premium page.
- * IMPORTANT: this page never grants premium access. It only submits a pending
- * payment request. Firebase admin approval is the only authority that activates
- * subscriptionStatus/plan/entitlements.
- */
-(function(){
-'use strict';
-if(window.__SMC_PREMIUM_FLOW__)return;
-window.__SMC_PREMIUM_FLOW__=true;
-var ADMIN_UID='0fRWMa7HZgVYQrq4fzLjU3W130m1';
-var cfg=window.SMC_FIREBASE_CONFIG||{};
-var db=null,auth=null,user=null,pollTimer=null;
-function load(src){return new Promise(function(ok,no){var s=document.createElement('script');s.src=src;s.onload=ok;s.onerror=function(){no(new Error('Failed to load '+src));};document.head.appendChild(s);});}
-function boot(){var p=Promise.resolve();if(!window.firebase||!firebase.initializeApp)p=p.then(function(){return load('https://www.gstatic.com/firebasejs/12.17.1/firebase-app-compat.js');});if(!window.firebase||!firebase.auth)p=p.then(function(){return load('https://www.gstatic.com/firebasejs/12.17.1/firebase-auth-compat.js');});if(!window.firebase||!firebase.database)p=p.then(function(){return load('https://www.gstatic.com/firebasejs/12.17.1/firebase-database-compat.js');});if(!window.SMCReceipt)p=p.then(function(){return load('receipt.js?v=20260821-2');});return p.then(function(){if(!firebase.apps.length)firebase.initializeApp(cfg);auth=firebase.auth();db=firebase.database();});}
-function esc(v){return String(v==null?'':v).replace(/[&<>"']/g,function(c){return({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c];});}
-function msg(text,kind){var el=document.getElementById('smcPremiumFlowMsg');if(!el){el=document.createElement('div');el.id='smcPremiumFlowMsg';el.style.cssText='margin:12px 0;padding:12px 14px;border-radius:12px;font:700 13px/1.5 system-ui,sans-serif;';var host=document.querySelector('#verifyPayBtn')||document.querySelector('.main')||document.body;host.parentNode.insertBefore(el,host);}el.style.color=kind==='ok'?'#86efac':kind==='warn'?'#fde68a':'#fca5a5';el.style.background=kind==='ok'?'rgba(34,197,94,.08)':kind==='warn'?'rgba(250,204,21,.08)':'rgba(239,68,68,.08)';el.style.border='1px solid '+(kind==='ok'?'rgba(34,197,94,.2)':kind==='warn'?'rgba(250,204,21,.2)':'rgba(239,68,68,.2)');el.textContent=text;}
-function selectedPlan(){var cards=document.querySelectorAll('.plan'),idx=0;cards.forEach(function(c,i){if(c.classList.contains('selected'))idx=i;});return idx===1?{price:49,plan:'premium49',label:'Premium ₹49'}:{price:99,plan:'premium99',label:'Premium ₹99'};}
-function orderId(){var el=document.getElementById('orderId');return el&&el.textContent&&el.textContent!=='—'?el.textContent.trim():'';}
-function makeOrder(){var id=orderId();if(id)return id;id='SMC-'+Date.now().toString(36).toUpperCase()+'-'+Math.random().toString(36).slice(2,7).toUpperCase();var el=document.getElementById('orderId');if(el)el.textContent=id;return id;}
-function field(id){var el=document.getElementById(id);return el?String(el.value||'').trim():'';}
-function hideUnsafeLegacy(){['alreadyPremium'].forEach(function(id){var e=document.getElementById(id);if(e)e.style.display='none';});['accessKey','keyResult'].forEach(function(id){var e=document.getElementById(id);if(e){var box=e.closest('.access-key-box')||e.closest('.screen');if(box&&id==='keyResult')box.style.display='none';}});var keybox=document.querySelector('.access-key-box');if(keybox)keybox.style.display='none';var buttons=document.querySelectorAll('[onclick="copyKey()"],[onclick="sendWhatsApp()"],[onclick="sendSMS()"]');buttons.forEach(function(b){b.style.display='none';});}
-function active(p){if(!p||p.subscriptionStatus!=='active')return false;if(p.expiresAt===null||p.expiresAt===undefined||p.expiresAt==='')return true;var t=Date.parse(p.expiresAt);return Number.isFinite(t)&&t>Date.now();}
-function planLabel(p){return p&&p.planLabel||(p&&p.plan==='premium99'?'Premium ₹99':p&&p.plan==='premium49'?'Premium ₹49':'Free');}
-function getProfile(){return db.ref('users/'+user.uid).once('value').then(function(s){return s.val()||{};});}
-function getPayment(id){return db.ref('payment_requests/'+id).once('value').then(function(s){return s.val()||null;});}
-function setText(id,v){var e=document.getElementById(id);if(e)e.textContent=v==null?'':String(v);}
-function disableLegacyVerify(){var b=document.getElementById('finalVerifyBtn');if(b){b.disabled=false;b.textContent='Submit Payment for Verification';b.onclick=window.verifyPayment;}}
-function showPending(r){hideUnsafeLegacy();var box=document.getElementById('keyResult');if(box)box.style.display='none';var v=document.getElementById('verifyPayBtn');if(v)v.style.display='block';msg('Payment submitted successfully. Order '+r.orderId+' is PENDING verification. Premium access will activate only after administrator approval.','warn');var host=document.querySelector('#screen4')||document.querySelector('#screen3')||document.body;var old=document.getElementById('smcPendingCard');if(!old){old=document.createElement('div');old.id='smcPendingCard';old.style.cssText='margin-top:14px;padding:16px;border-radius:16px;background:#12121c;border:1px solid rgba(250,204,21,.18);color:#d4d4d8;font:13px/1.6 system-ui,sans-serif;';host.appendChild(old);}old.innerHTML='<b style="color:#fde68a">⏳ Payment verification pending</b><br>Order: <b>'+esc(r.orderId)+'</b><br>UPI Transaction ID: <b>'+esc(r.txnId)+'</b><br>Amount: <b>₹'+esc(r.amount)+'</b><br><span style="color:#a1a1aa">Keep your UPI confirmation. Refresh later. The account becomes premium only after admin approval.</span>';}
-function showActive(p,r){hideUnsafeLegacy();var v=document.getElementById('verifyPayBtn');if(v)v.style.display='none';var box=document.getElementById('smcActiveCard');if(!box){box=document.createElement('div');box.id='smcActiveCard';box.style.cssText='margin-top:14px;padding:18px;border-radius:16px;background:rgba(34,197,94,.07);border:1px solid rgba(34,197,94,.2);color:#d4d4d8;font:13px/1.6 system-ui,sans-serif;';var host=document.querySelector('#screen4')||document.querySelector('#screen3')||document.querySelector('.main')||document.body;host.appendChild(box);}var d=r||{};box.innerHTML='<b style="color:#86efac;font-size:16px">✅ '+esc(planLabel(p))+' is active</b><br>Firebase UID: <b>'+esc(user.uid)+'</b><br>Email: <b>'+esc(user.email||p.email||'')+'</b><br>Order: <b>'+esc(d.orderId||p.lastPaymentOrder||'')+'</b><br>Expiry: <b>'+esc(p.expiresAt?new Date(p.expiresAt).toLocaleString('en-IN',{dateStyle:'medium',timeStyle:'short'}):'Lifetime')+'</b><div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px"><button id="smcReceiptDownload" style="border:0;border-radius:10px;padding:10px 13px;background:#22c55e;color:#07130b;font-weight:800">🧾 Download PDF Receipt</button><button id="smcReceiptEmail" style="border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:10px 13px;background:#181823;color:#fff;font-weight:800">✉️ Email Receipt</button><a href="mock-test.html" style="display:inline-block;border-radius:10px;padding:10px 13px;background:#7c3aed;color:#fff;text-decoration:none;font-weight:800">🏆 Open Premium</a></div><div id="smcReceiptStatus" style="margin-top:8px;color:#a1a1aa;font-size:11px"></div>';
-var data={receiptId:d.receiptId||d.orderId||p.lastPaymentOrder||'',uid:user.uid,email:user.email||p.email||'',name:d.name||p.name||user.displayName||'',orderId:d.orderId||p.lastPaymentOrder||'',plan:d.plan||p.plan,planLabel:d.planLabel||p.planLabel||planLabel(p),amount:d.amount||0,txnId:d.txnId||p.lastPaymentTxn||'',createdAt:d.createdAt,approvedAt:d.reviewedAt||d.approvedAt||p.approvedAt,expiresAt:d.approvedExpiresAt||p.expiresAt};
-var dl=document.getElementById('smcReceiptDownload'),em=document.getElementById('smcReceiptEmail'),st=document.getElementById('smcReceiptStatus');if(dl)dl.onclick=function(){st.textContent='Generating receipt…';window.SMCReceipt.download(data).then(function(){st.textContent='PDF receipt generated.';st.style.color='#86efac';}).catch(function(e){st.textContent=e.message||'Receipt generation failed.';st.style.color='#fca5a5';});};if(em)em.onclick=function(){st.textContent='Emailing receipt…';window.SMCReceipt.email(data).then(function(){st.textContent='Receipt email sent to '+data.email+'.';st.style.color='#86efac';}).catch(function(e){st.textContent=e.message||'Email receipt is not configured yet.';st.style.color='#fca5a5';});};}
-function showRejected(r){hideUnsafeLegacy();msg('Payment request was rejected. Please contact support with Order '+(r&&r.orderId||'')+' and UPI transaction '+(r&&r.txnId||'')+'.','err');}
-async function verifyPaymentProduction(){if(!user){msg('Please sign in before submitting a payment.','err');return;}var plan=selectedPlan(),txn=field('txnId'),amount=Number(field('txnAmount'));if(!txn||txn.length<6){msg('Enter the UPI transaction/UTR ID first.','err');return;}if(!Number.isFinite(amount)||amount!==plan.price){msg('The amount must exactly match the selected plan: ₹'+plan.price+'.','err');return;}var profile=await getProfile(),name=field('userName')||profile.name||user.displayName||'',phone=field('userPhone')||profile.mobile||'',email=user.email||field('userEmail')||profile.email||'';if(name.length<2){msg('Enter your full name.','err');return;}if(!/^[6-9][0-9]{9}$/.test(phone)){msg('Enter a valid 10-digit mobile number.','err');return;}var oid=makeOrder(),payload={orderId:oid,uid:user.uid,email:email,name:name,phone:phone,plan:plan.plan,planLabel:plan.label,amount:plan.price,txnId:txn,createdAt:new Date().toISOString(),status:'pending'};var btn=document.getElementById('finalVerifyBtn');if(btn){btn.disabled=true;btn.textContent='Submitting…';}try{await db.ref('payment_requests/'+oid).set(payload);localStorage.setItem('smc_last_payment_order',oid);showPending(payload);if(btn){btn.disabled=true;btn.textContent='Payment Submitted';}}catch(e){if(btn){btn.disabled=false;btn.textContent='Submit Payment for Verification';}msg('Firebase rejected the payment request. Please refresh and try again. '+(e&&e.message?e.message:''),'err');}}
-window.verifyPayment=verifyPaymentProduction;
-async function sync(){if(!user)return;try{var p=await getProfile();if(active(p)){var r=p.lastPaymentOrder?await getPayment(p.lastPaymentOrder):null;showActive(p,r);return;}if(p.subscriptionStatus==='pending'){var id=localStorage.getItem('smc_last_payment_order'),r=id?await getPayment(id):null;if(r&&r.status==='pending')showPending(r);}}catch(e){}}
-function start(){boot().then(function(){auth.onAuthStateChanged(function(u){user=u;if(!u){msg('Please sign in before purchasing premium.','err');return;}var n=document.getElementById('userName'),ph=document.getElementById('userPhone'),em=document.getElementById('userEmail');getProfile().then(function(p){if(n&&!n.value)n.value=p.name||u.displayName||'';if(ph&&!ph.value)ph.value=p.mobile||'';if(em){em.value=u.email||p.email||'';em.readOnly=true;}disableLegacyVerify();sync();if(p.subscriptionStatus!=='active')pollTimer=setInterval(sync,15000);}).catch(function(){disableLegacyVerify();});});}).catch(function(e){msg('Secure payment system could not initialize. Please refresh.','err');});}
-if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});else start();
+// ===== PREMIUM FLOW - Firebase Functions Integration =====
+// Initializes Firebase Functions and provides server-side payment verification
+(function() {
+    'use strict';
+
+    // Wait for Firebase to be initialized
+    function initFunctions() {
+        if (typeof firebase !== 'undefined' && firebase.apps.length > 0) {
+            if (typeof firebase.functions === 'function') {
+                window.firebaseFunctions = firebase.functions();
+                console.log('Firebase Functions initialized');
+            } else {
+                // Load functions SDK if not already loaded
+                const script = document.createElement('script');
+                script.src = 'https://www.gstatic.com/firebasejs/12.17.1/firebase-functions-compat.js';
+                script.onload = () => {
+                    window.firebaseFunctions = firebase.functions();
+                    console.log('Firebase Functions loaded and initialized');
+                };
+                document.head.appendChild(script);
+            }
+        } else {
+            // Firebase not ready yet, retry
+            setTimeout(initFunctions, 100);
+        }
+    }
+
+    // Initialize when DOM is ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initFunctions);
+    } else {
+        initFunctions();
+    }
+
+    // Also expose a function to get the functions instance
+    window.getFirebaseFunctions = function() {
+        return window.firebaseFunctions || (firebase.apps.length && firebase.functions ? firebase.functions() : null);
+    };
 })();

@@ -15,6 +15,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SMC Free Mock Tests 2026</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- 3D Animation Styles & Scripts -->
+    <link rel="stylesheet" href="animations-3d.css">
+    <script src="three-3d.js"></script>
     <style>
         :root{--bg:#06060a;--s1:#0c0c14;--s2:#12121c;--border:rgba(255,255,255,0.06);--border2:rgba(255,255,255,0.1);--txt:#a1a1aa;--white:#f4f4f5;--dim:#52525b;--accent:#a78bfa;--green:#22c55e;--red:#ef4444;--orange:#f59e0b}
         *{margin:0;padding:0;box-sizing:border-box}
@@ -200,6 +203,7 @@
     <script src="smc-live-sync.js?v=20260821"></script>
     <script src="/SMC-Computer-Supervisor-Exam-Prep/auto-live-jobs.js?v=20260824-5" defer></script>
     <script src="gate.js?v=20260821"></script>
+    <script src="https://www.gstatic.com/firebasejs/12.17.1/firebase-functions-compat.js"></script>
 </head>
 <body>
 
@@ -293,7 +297,7 @@
                 <div class="lock-overlay" id="mock3Lock" onclick="event.stopPropagation();window.location.href='premium.html'">
                     <div class="lock-icon">&#128274;</div>
                     <div class="lock-text">Unlock with Premium</div>
-                    <div class="lock-sub">&#8377;49 &mdash; Tap to unlock</div>
+                    <div class="lock-sub">&#8377;99 &mdash; Tap to unlock</div>
                 </div>
             </div>
 
@@ -312,7 +316,7 @@
                 <div class="lock-overlay premium-lock" onclick="event.stopPropagation();window.location.href='premium.html'">
                     <div class="lock-icon">&#128274;</div>
                     <div class="lock-text">Unlock with Premium</div>
-                    <div class="lock-sub">&#8377;49 &mdash; Tap to unlock</div>
+                    <div class="lock-sub">&#8377;99 &mdash; Tap to unlock</div>
                 </div>
             </div>
 
@@ -331,7 +335,7 @@
                 <div class="lock-overlay premium-lock" onclick="event.stopPropagation();window.location.href='premium.html'">
                     <div class="lock-icon">&#128274;</div>
                     <div class="lock-text">Unlock with Premium</div>
-                    <div class="lock-sub">&#8377;49 &mdash; Tap to unlock</div>
+                    <div class="lock-sub">&#8377;99 &mdash; Tap to unlock</div>
                 </div>
             </div>
 
@@ -350,7 +354,7 @@
                 <div class="lock-overlay premium-lock" onclick="event.stopPropagation();window.location.href='premium.html'">
                     <div class="lock-icon">&#128274;</div>
                     <div class="lock-text">Unlock with Premium</div>
-                    <div class="lock-sub">&#8377;49 &mdash; Tap to unlock</div>
+                    <div class="lock-sub">&#8377;99 &mdash; Tap to unlock</div>
                 </div>
             </div>
 
@@ -369,7 +373,7 @@
                 <div class="lock-overlay premium-lock" onclick="event.stopPropagation();window.location.href='premium.html'">
                     <div class="lock-icon">&#128274;</div>
                     <div class="lock-text">Unlock with Premium</div>
-                    <div class="lock-sub">&#8377;49 &mdash; Tap to unlock</div>
+                    <div class="lock-sub">&#8377;99 &mdash; Tap to unlock</div>
                 </div>
             </div>
 
@@ -388,7 +392,7 @@
                 <div class="lock-overlay premium-lock" onclick="event.stopPropagation();window.location.href='premium.html'">
                     <div class="lock-icon">&#128274;</div>
                     <div class="lock-text">Unlock with Premium</div>
-                    <div class="lock-sub">&#8377;49 &mdash; Tap to unlock</div>
+                    <div class="lock-sub">&#8377;99 &mdash; Tap to unlock</div>
                 </div>
             </div>
 
@@ -407,7 +411,7 @@
                 <div class="lock-overlay premium-lock" onclick="event.stopPropagation();window.location.href='premium.html'">
                     <div class="lock-icon">&#128274;</div>
                     <div class="lock-text">Unlock with Premium</div>
-                    <div class="lock-sub">&#8377;49 &mdash; Tap to unlock</div>
+                    <div class="lock-sub">&#8377;99 &mdash; Tap to unlock</div>
                 </div>
             </div>
         </div>
@@ -424,7 +428,7 @@
                 <div class="pf">&#9989; Past Papers</div>
                 <div class="pf">&#9989; Performance Analytics</div>
             </div>
-            <a href="premium.html" class="coming" style="text-decoration:none;cursor:pointer;display:inline-block">&#128274; Unlock Premium Now &mdash; Starting &#8377;49</a>
+            <a href="premium.html" class="coming" style="text-decoration:none;cursor:pointer;display:inline-block">&#128274; Unlock Premium Now &mdash; Starting &#8377;99</a>
         </div>
     </div>
 </div>
@@ -500,7 +504,7 @@
     <div class="premium-cta" style="margin-top:30px">
         <h3>&#127775; Want more mock tests?</h3>
         <p>You've completed a free mock test! Unlock 10+ premium tests with detailed explanations for every question.</p>
-        <a href="premium.html" class="coming" style="text-decoration:none;cursor:pointer;display:inline-block">&#128274; Unlock Premium &mdash; Starting &#8377;49</a>
+        <a href="premium.html" class="coming" style="text-decoration:none;cursor:pointer;display:inline-block">&#128274; Unlock Premium &mdash; Starting &#8377;99</a>
     </div>
 </div>
 
@@ -511,100 +515,82 @@
 </div>
 
 <script>
-// ===== DEVICE LOCK VERIFICATION =====
-const DeviceLock={
-    async getFingerprint(){
-        const c=[];
-        c.push(screen.width+'x'+screen.height);c.push(screen.colorDepth+'');c.push(window.devicePixelRatio+'');
-        c.push(screen.availWidth+'x'+screen.availHeight);c.push(navigator.platform||'na');
-        c.push(navigator.hardwareConcurrency||'na');c.push(navigator.deviceMemory||'na');
-        c.push(navigator.maxTouchPoints||'0');c.push(navigator.language||'na');
-        c.push(Intl.DateTimeFormat().resolvedOptions().timeZone||'na');
-        c.push(new Date().getTimezoneOffset()+'');
-        try{const cv=document.createElement('canvas');cv.width=200;cv.height=50;const ctx=cv.getContext('2d');ctx.textBaseline='top';ctx.font='14px Arial';ctx.fillStyle='#f60';ctx.fillRect(50,0,100,30);ctx.fillStyle='#069';ctx.fillText('SMC-FP-2026',2,15);ctx.fillStyle='rgba(102,204,0,0.7)';ctx.fillText('DeviceLock',4,17);c.push(cv.toDataURL().slice(-50))}catch(e){c.push('ce')}
-        try{const gl=document.createElement('canvas').getContext('webgl');if(gl){const d=gl.getExtension('WEBGL_debug_renderer_info');if(d){c.push(gl.getParameter(d.UNMASKED_VENDOR_WEBGL)||'na');c.push(gl.getParameter(d.UNMASKED_RENDERER_WEBGL)||'na')}}}catch(e){c.push('we')}
-        try{const a=new(window.OfflineAudioContext||window.webkitOfflineAudioContext)(1,44100,44100);const o=a.createOscillator();o.type='triangle';o.frequency.setValueAtTime(10000,a.currentTime);const cp=a.createDynamicsCompressor();cp.threshold.setValueAtTime(-50,a.currentTime);cp.knee.setValueAtTime(40,a.currentTime);cp.ratio.setValueAtTime(12,a.currentTime);cp.attack.setValueAtTime(0,a.currentTime);cp.release.setValueAtTime(0.25,a.currentTime);o.connect(cp);cp.connect(a.destination);o.start(0);const b=await a.startRendering();const d=b.getChannelData(0);let s=0;for(let i=4500;i<5000;i++)s+=Math.abs(d[i]);c.push(s.toFixed(6))}catch(e){c.push('ae')}
-        return this.h(c.join('|||'));
-    },
-    h(s){let h1=0x811c9dc5,h2=0x811c9dc5;for(let i=0;i<s.length;i++){const c=s.charCodeAt(i);h1^=c;h1=(h1*0x01000193)>>>0;h2^=(c*7);h2=(h2*0x01000193)>>>0}return(h1>>>0).toString(36)+(h2>>>0).toString(36)},
-    async verify(){
-        const s=localStorage.getItem('smc_device_bind');if(!s)return{valid:false};
-        const b=JSON.parse(s),fp=await this.getFingerprint();
-        const bs=b.device.substring(0,Math.floor(b.device.length*0.7));
-        const cs=fp.substring(0,Math.floor(fp.length*0.7));
-        return bs===cs?{valid:true}:{valid:false};
-    }
-};
+// ===== SERVER-SIDE PREMIUM VERIFICATION (Firebase Custom Claims) =====
+// Premium access is verified via Firebase Auth Custom Claims (server-side)
+// No more client-side DeviceLock or localStorage premium keys
 
-// ===== VIP ACCESS (Owner + Family) =====
-// These codes bypass device lock — enter in browser console: unlockVIP('code')
-const _vipCodes=(function(){
-    // Encoded VIP codes — not readable in source
-    const _v=[
-        [83,77,67,45,79,87,78,69,82,45,50,48,50,54],      // Owner
-        [83,77,67,45,70,65,77,73,76,89,45,66,82,79],       // Brother
-        [83,77,67,45,70,65,77,73,76,89,45,83,73,83]        // Sister
-    ];
-    return _v.map(a=>a.map(c=>String.fromCharCode(c)).join(''));
-})();
+// Check premium status via Firebase Custom Claims
+async function isPremium() {
+    try {
+        const user = firebase.auth().currentUser;
+        if (!user) return false;
 
-window.unlockVIP=function(code){
-    if(_vipCodes.includes(code)){
-        localStorage.setItem('smc_premium_key','VIP-'+code);
-        localStorage.setItem('smc_vip','true');
-        alert('VIP Access Activated! Refresh the page.');
-        return true;
+        // Force token refresh to get latest custom claims
+        const idTokenResult = await user.getIdTokenResult(true);
+        const claims = idTokenResult.claims || {};
+
+        // Premium access granted via server-side Custom Claims
+        return claims.premium === true || claims.admin === true;
+    } catch (error) {
+        console.error('Premium verification error:', error);
+        return false;
     }
+}
+
+// Check if user has full access (premium99 plan)
+async function hasFullAccess() {
+    try {
+        const user = firebase.auth().currentUser;
+        if (!user) return false;
+
+        const idTokenResult = await user.getIdTokenResult(true);
+        const claims = idTokenResult.claims || {};
+
+        return claims.fullAccess === true || claims.admin === true;
+    } catch (error) {
+        console.error('Full access verification error:', error);
+        return false;
+    }
+}
+
+// ===== VIP ACCESS (REMOVED) =====
+// All VIP codes have been removed. Premium access is now controlled by Firebase backend Custom Claims.
+// Use the premium purchase flow to unlock access.
+window.unlockVIP = function(code) {
+    console.warn('VIP codes are no longer valid. Please purchase a premium plan.');
     return false;
 };
 
-// Check premium status with device verification
-async function isPremium(){
-    // VIP bypass
-    if(localStorage.getItem('smc_vip')==='true')return true;
-    // Normal premium check
-    const key=localStorage.getItem('smc_premium_key');
-    if(!key)return false;
-    const check=await DeviceLock.verify();
-    if(!check.valid){
-        // Device mismatch — shared key detected, revoke
-        localStorage.removeItem('smc_premium_key');
-        localStorage.removeItem('smc_premium_plan');
-        localStorage.removeItem('smc_device_bind');
-        return false;
-    }
-    return true;
-}
-
 function tryPremiumMock(id){
-    const isVip=localStorage.getItem('smc_vip')==='true';
-    const hasKey=!!localStorage.getItem('smc_premium_key');
-    if(isVip||hasKey){
-        startMock(id);
-    }
-    // else lock-overlay handles click → goes to premium.html
+    // Premium check is now async - show loading or redirect to premium page
+    window.location.href = 'premium.html';
 }
 
 function tryMock3(){tryPremiumMock(3)}
 
-// On page load: check premium status and unlock all premium tests
-(function(){
-    const isVip=localStorage.getItem('smc_vip')==='true';
-    const hasKey=!!localStorage.getItem('smc_premium_key');
-    if(isVip||hasKey){
+// On page load: check premium status via Firebase Custom Claims and unlock all premium tests
+async function checkAndUnlockPremium() {
+    const isPremiumUser = await isPremium();
+    const isFullAccess = await hasFullAccess();
+
+    if (isPremiumUser || isFullAccess) {
         // Unlock Mock 3
-        const lock=document.getElementById('mock3Lock');
-        const badge=document.getElementById('mock3Badge');
-        const card=document.getElementById('mock3Card');
-        if(lock)lock.style.display='none';
-        if(badge){badge.textContent='UNLOCKED';badge.className='tc-badge free'}
-        if(card)card.classList.remove('locked');
+        const lock = document.getElementById('mock3Lock');
+        const badge = document.getElementById('mock3Badge');
+        const card = document.getElementById('mock3Card');
+        if (lock) lock.style.display = 'none';
+        if (badge) { badge.textContent = 'UNLOCKED'; badge.className = 'tc-badge free'; }
+        if (card) card.classList.remove('locked');
+
         // Unlock all premium cards
-        document.querySelectorAll('.premium-lock').forEach(el=>el.style.display='none');
-        document.querySelectorAll('[data-pbadge]').forEach(el=>{el.textContent='UNLOCKED';el.className='tc-badge free'});
-        document.querySelectorAll('.premium-card').forEach(el=>el.classList.remove('locked'));
+        document.querySelectorAll('.premium-lock').forEach(el => el.style.display = 'none');
+        document.querySelectorAll('[data-pbadge]').forEach(el => { el.textContent = 'UNLOCKED'; el.className = 'tc-badge free'; });
+        document.querySelectorAll('.premium-card').forEach(el => el.classList.remove('locked'));
     }
-})();
+}
+
+// Run on page load
+document.addEventListener('DOMContentLoaded', checkAndUnlockPremium);
 
 // ===== MOCK TEST QUESTION BANKS =====
 const MOCK={
