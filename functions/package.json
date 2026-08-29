@@ -1,0 +1,25 @@
+{
+  "name": "smc-payment-verification",
+  "description": "Server-side UPI payment verification for SMC website",
+  "main": "index.js",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log",
+    "lint": "echo \"No lint script configured\""
+  },
+  "engines": {
+    "node": "20"
+  },
+  "dependencies": {
+    "axios": "^1.6.0",
+    "firebase-admin": "^12.7.0",
+    "firebase-functions": "^5.1.1"
+  },
+  "private": true,
+  "devDependencies": {
+    "firebase-tools": "^15.28.2"
+  }
+}

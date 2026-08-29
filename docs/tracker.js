@@ -6,6 +6,47 @@ function mobile10(v){var d=String(v||'').replace(/\D/g,'');return d.length>10?d.
 function loadVerifiedIdentity(){try{if(!window.firebase||!firebase.auth||!firebase.database)return;var user=firebase.auth().currentUser;if(!user)return;var uid=user.uid;firebase.database().ref('users/'+uid).once('value').then(function(s){var p=s.val()||{};verifiedIdentity={name:p.name||user.displayName||'',mobile:mobile10(user.phoneNumber||p.mobile||''),uid:uid};}).catch(function(){});}catch(e){}}
 function waitForAuthIdentity(){if(window.firebase&&firebase.auth&&firebase.database){loadVerifiedIdentity();try{firebase.auth().onAuthStateChanged(function(){loadVerifiedIdentity();});}catch(e){}return;}var n=0,t=setInterval(function(){n++;if(window.firebase&&firebase.auth&&firebase.database){clearInterval(t);try{firebase.auth().onAuthStateChanged(function(){loadVerifiedIdentity();});}catch(e){}loadVerifiedIdentity();}if(n>100)clearInterval(t);},100);}
 waitForAuthIdentity();
+
+/* ===== LOGIN / SIGNUP TRACKING ===== */
+function trackLogin(user, isNewAccount, details){
+  try{
+    if(!window.firebase||!firebase.auth||!firebase.database) return;
+    var u = user || firebase.auth().currentUser;
+    if(!u) return;
+    var data = {
+      t: new Date().toISOString(),
+      lt: new Date().toLocaleString('en-IN',{timeZone:'Asia/Kolkata'}),
+      sid: sid(),
+      uid: u.uid,
+      email: u.email || '',
+      name: details && details.name ? details.name : '',
+      mobile: details && details.mobile ? mobile10(details.mobile) : '',
+      event: isNewAccount ? 'account_created' : 'login',
+      pg: location.pathname,
+      method: 'email_password',
+      isNewAccount: !!isNewAccount
+    };
+    firebase.database().ref('auth_audit').push(data).catch(function(){});
+    if(typeof smcAudit==='function') smcAudit(isNewAccount ? 'account_created' : 'login', 'User ' + (isNewAccount ? 'created account' : 'logged in') + ': ' + (u.email||u.uid));
+  }catch(e){console.error('trackLogin error:',e);}
+}
+function trackLogout(uid){
+  try{
+    if(!window.firebase||!firebase.auth||!firebase.database) return;
+    var data = {
+      t: new Date().toISOString(),
+      lt: new Date().toLocaleString('en-IN',{timeZone:'Asia/Kolkata'}),
+      sid: sid(),
+      uid: uid,
+      event: 'logout',
+      pg: location.pathname
+    };
+    firebase.database().ref('auth_audit').push(data).catch(function(){});
+    if(typeof smcAudit==='function') smcAudit('logout', 'User logged out: ' + uid);
+  }catch(e){console.error('trackLogout error:',e);}
+}
+window.smcTrackLogin = trackLogin;
+window.smcTrackLogout = trackLogout;
 function smcGeoCached(){try{var c=sessionStorage.getItem('smc_geo');if(c)return JSON.parse(c);}catch(e){}return {};}
 function smcGeo(){if(window.__smcGeoP)return window.__smcGeoP;window.__smcGeoP=new Promise(function(res){var cached=smcGeoCached();if(cached&&cached.country){res(cached);return;}var tm=setTimeout(function(){res({});},2500);try{fetch('https://ipwho.is/',{cache:'force-cache'}).then(function(r){return r.json();}).then(function(j){clearTimeout(tm);if(!j||j.success===false){res({});return;}var ip=j.ip||'';if(ip.indexOf('.')>=0)ip=ip.replace(/\.\d+$/,'.x');else if(ip.indexOf(':')>=0)ip=ip.replace(/:[0-9a-f]+$/i,':xxxx');var sec=j.security||{},flags=[];for(var k in sec)if(sec[k])flags.push(k);var g={ip:ip,city:j.city||'',region:j.region||'',country:j.country||'',cc:j.country_code||'',isp:(j.connection&&(j.connection.isp||j.connection.org))||'',tz:(j.timezone&&j.timezone.id)||'',proxy:!!(sec.proxy||sec.vpn||sec.tor||sec.hosting),flags:flags.join(',')};try{sessionStorage.setItem('smc_geo',JSON.stringify(g));}catch(e){}res(g);}).catch(function(){clearTimeout(tm);res({});});}catch(e){clearTimeout(tm);res({});}});return window.__smcGeoP;}
 window.smcGeo=smcGeo;window.smcGeoCached=smcGeoCached;smcGeo();

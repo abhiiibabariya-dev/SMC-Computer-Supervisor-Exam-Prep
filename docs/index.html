@@ -69,6 +69,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="daily-content.js"></script>
+    <!-- 3D Animation Styles & Scripts -->
+    <link rel="stylesheet" href="animations-3d.css">
+    <script src="three-3d.js"></script>
     <style>
         :root{--bg:#09090b;--s1:#111113;--s2:#18181b;--border:rgba(255,255,255,0.06);--border2:rgba(255,255,255,0.09);--txt:#a1a1aa;--white:#fafafa;--dim:#71717a;--accent:#6366f1;--accent2:#818cf8}
         *{margin:0;padding:0;box-sizing:border-box}
@@ -123,11 +126,11 @@
         @keyframes heroUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
 
         /* Buttons — Clean */
-        .b{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border-radius:12px;font-weight:700;font-size:0.85em;text-decoration:none;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);cursor:pointer;border:none;font-family:inherit;position:relative;overflow:hidden}
+        .b{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border-radius:12px;font-weight:700;font-size:0.85em;text-decoration:none;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);cursor:pointer;border:none;font-family:inherit;position:relative;overflow:hidden;transform-style:preserve-3d}
         .b-primary{background:var(--accent);color:#fff;box-shadow:0 2px 16px rgba(99,102,241,0.3)}
-        .b-primary:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(99,102,241,0.4);background:#7c3aed}
+        .b-primary:hover{transform:translateY(-2px) translateZ(10px);box-shadow:0 8px 32px rgba(99,102,241,0.4);background:#7c3aed}
         .b-ghost{background:transparent;color:var(--white);border:1px solid var(--border2)}
-        .b-ghost:hover{background:rgba(255,255,255,0.04);border-color:rgba(255,255,255,0.15);transform:translateY(-2px)}
+        .b-ghost:hover{background:rgba(255,255,255,0.04);border-color:rgba(255,255,255,0.15);transform:translateY(-2px) translateZ(10px)}
 
         /* ============ MARQUEE — Clean ============ */
         .marquee-wrap{overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:12px 0;background:rgba(17,17,19,0.6)}
@@ -167,7 +170,7 @@
         /* ============ CARDS — Clean Professional ============ */
         .g{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
         .g2{grid-template-columns:repeat(auto-fill,minmax(190px,1fr))}
-        .k{background:var(--s1);border:1px solid var(--border);border-radius:14px;padding:18px;cursor:pointer;transition:all 0.35s cubic-bezier(0.16,1,0.3,1);text-decoration:none;color:inherit;display:flex;flex-direction:column;position:relative;overflow:hidden}
+        .k{background:var(--s1);border:1px solid var(--border);border-radius:14px;padding:18px;cursor:pointer;transition:all 0.35s cubic-bezier(0.16,1,0.3,1);text-decoration:none;color:inherit;display:flex;flex-direction:column;position:relative;overflow:hidden;transform-style:preserve-3d;perspective:1000px}
         .k::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2));opacity:0;transition:opacity 0.35s}
         .k:hover{border-color:rgba(99,102,241,0.2);transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,0.3)}
         .k:hover::before{opacity:1}
@@ -819,6 +822,29 @@
 <div class="mesh"><i class="m1"></i><i class="m2"></i><i class="m3"></i></div>
 <div class="noise"></div>
 
+<!-- 3D CSS ANIMATIONS -->
+<div class="scene-3d">
+    <div class="scene-3d__layer">
+        <!-- Floating 3D Shapes -->
+        <div class="shape-3d shape-3d--tetrahedron" style="top: 10%; left: 5%;"></div>
+        <div class="shape-3d shape-3d--cube" style="top: 20%; right: 8%;"></div>
+        <div class="shape-3d shape-3d--octahedron" style="top: 40%; left: 3%;"></div>
+        <div class="shape-3d shape-3d--sphere" style="top: 60%; right: 5%;"></div>
+        <div class="shape-3d shape-3d--dodecahedron" style="bottom: 20%; left: 10%;"></div>
+        <div class="shape-3d shape-3d--tetrahedron" style="bottom: 10%; right: 15%;"></div>
+        <div class="shape-3d shape-3d--cube" style="top: 75%; left: 20%;"></div>
+        <div class="shape-3d shape-3d--octahedron" style="top: 5%; right: 25%;"></div>
+    </div>
+</div>
+
+<div class="particles-3d" id="particles3d"></div>
+
+<div class="aurora-3d"></div>
+
+<div class="grid-3d">
+    <div class="grid-3d__plane"></div>
+</div>
+
 <!-- NAV -->
 <nav class="nav" id="nav">
     <div class="nav-logo">Gujarat Govt Jobs Hub</div>
@@ -837,19 +863,27 @@
 <div class="page" id="mainPage">
 
 <!-- HERO -->
-<section class="hero">
-    <div class="hero-chip"><div class="live"></div> SMC Recruitment 2026 &mdash; 2,383+ Posts &middot; 45+ Jobs <span>EXAM PREP MODE ON</span></div>
-    <h1>Everything to<br><span class="gr">Crack Your Exam</span></h1>
-    <p>4,000+ MCQs across all 45 posts — Clerk, Driver, Marshal, Staff Nurse, Pharmacist, Engineers, Technical Asst & more. Applications closed — now it's revision time. Gujarati + English. Free & Premium.</p>
-    <div class="hero-actions">
-        <a class="b b-primary" href="daily-quiz.html"><span class="shimmer"></span>🎯 Today's Daily Quiz</a>
-        <a class="b b-ghost" href="quiz.html">Practice Quizzes</a>
-        <a class="b b-ghost" href="mock-test.html">Mock Tests</a>
-        <a class="b b-ghost" href="ai.html">Ask AI</a>
+<section class="hero hero-3d">
+    <div class="hero-3d__layer hero-3d__bg">
+        <div class="hero-glow"></div><div class="hero-glow"></div><div class="hero-glow"></div>
+        <div class="hero-wave"><svg viewBox="0 0 1200 60" preserveAspectRatio="none"><path d="M0,40 C200,60 400,0 600,30 C800,60 1000,10 1200,40 L1200,60 L0,60 Z" fill="#06060a"/></svg></div>
     </div>
-    <div class="scroll-hint"><div class="scroll-mouse"></div><span>Scroll</span></div>
-    <div class="hero-glow"></div><div class="hero-glow"></div><div class="hero-glow"></div>
-    <div class="hero-wave"><svg viewBox="0 0 1200 60" preserveAspectRatio="none"><path d="M0,40 C200,60 400,0 600,30 C800,60 1000,10 1200,40 L1200,60 L0,60 Z" fill="#06060a"/></svg></div>
+    <div class="hero-3d__layer hero-3d__content">
+        <div class="hero-chip"><div class="live"></div> SMC Recruitment 2026 &mdash; 2,383+ Posts &middot; 45+ Jobs <span>EXAM PREP MODE ON</span></div>
+        <h1 class="text-3d"><span class="text-3d__layer">Everything to</span><br><span class="text-3d__layer gr">Crack Your Exam</span></h1>
+        <p>4,000+ MCQs across all 45 posts — Clerk, Driver, Marshal, Staff Nurse, Pharmacist, Engineers, Technical Asst & more. Applications closed — now it's revision time. Gujarati + English. Free & Premium.</p>
+        <div class="hero-actions">
+            <a class="b b-primary btn-3d" href="daily-quiz.html"><span class="shimmer"></span>🎯 Today's Daily Quiz</a>
+            <a class="b b-ghost btn-3d" href="quiz.html">Practice Quizzes</a>
+            <a class="b b-ghost btn-3d" href="mock-test.html">Mock Tests</a>
+            <a class="b b-ghost btn-3d" href="ai.html">Ask AI</a>
+        </div>
+        <div class="scroll-hint"><div class="scroll-mouse"></div><span>Scroll</span></div>
+    </div>
+    <div class="hero-3d__layer hero-3d__float" style="top: 10%; left: 5%; font-size: 3em;">🎯</div>
+    <div class="hero-3d__layer hero-3d__float" style="top: 20%; right: 8%; font-size: 2.5em;">📚</div>
+    <div class="hero-3d__layer hero-3d__float" style="bottom: 20%; left: 10%; font-size: 2em;">✨</div>
+    <div class="hero-3d__layer hero-3d__float" style="bottom: 10%; right: 15%; font-size: 2.5em;">🚀</div>
 </section>
 
 <!-- MARQUEE -->
@@ -2374,6 +2408,33 @@ function applyTheme(){
 // Apply saved preferences on load
 if(isLight)applyTheme();
 if(isGujarati)applyLang();
+
+// ===== 3D CSS PARTICLES INITIALIZATION =====
+(function() {
+    const particlesContainer = document.getElementById('particles3d');
+    if (!particlesContainer || window.innerWidth < 769) return;
+
+    const particleCount = 80;
+    const colors = ['#a78bfa', '#6366f1', '#c084fc', '#e879f9', '#f0abfc'];
+
+    for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle-3d';
+        particle.style.cssText = `
+            --dx: ${(Math.random() - 0.5) * 2};
+            --dy: ${(Math.random() - 0.5) * 2};
+            --dz: ${(Math.random() - 0.5) * 2};
+            left: ${Math.random() * 100}%;
+            top: ${Math.random() * 100}%;
+            animation-delay: ${Math.random() * 15}s;
+            animation-duration: ${12 + Math.random() * 8}s;
+            width: ${2 + Math.random() * 4}px;
+            height: ${2 + Math.random() * 4}px;
+            color: ${colors[Math.floor(Math.random() * colors.length)]};
+        `;
+        particlesContainer.appendChild(particle);
+    }
+})();
 
 // ===== AUTH STATE FOR NAV LINKS =====
 (function(){
