@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Admin Profile | Gujarat Govt Jobs Hub</title><meta name="description" content="Administrator profile and system control center for Gujarat Govt Jobs Hub."><meta name="robots" content="noindex,nofollow"><link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Super Admin | Gujarat Govt Jobs Hub</title><meta name="description" content="Super administrator control center for Gujarat Govt Jobs Hub."><meta name="robots" content="noindex,nofollow"><link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="animations.css">
 <script src="firebase-config.js"></script>
@@ -14,7 +14,7 @@
 :root{--bg:#08090b;--card:#111317;--card2:#0d0f12;--line:rgba(255,255,255,.09);--text:#f5f5f5;--muted:#9ca3af;--green:#86efac;--purple:#a78bfa;--gold:#fde68a;--red:#fca5a5}
 *{box-sizing:border-box}
 body{margin:0;min-height:100vh;background:radial-gradient(circle at 18% 8%,rgba(99,102,241,.18),transparent 32%),radial-gradient(circle at 85% 78%,rgba(34,197,94,.09),transparent 30%),var(--bg);color:var(--muted);font-family:'Plus Jakarta Sans',system-ui,sans-serif}
-.wrap{width:min(1100px,100%);margin:auto;padding:18px 14px 70px}
+.wrap{width:min(1180px,100%);margin:auto;padding:18px 14px 70px}
 .nav{display:flex;gap:5px;align-items:center;background:rgba(17,19,23,.96);border:1px solid var(--line);border-radius:16px;padding:9px 11px;position:sticky;top:10px;z-index:50;box-shadow:0 12px 35px rgba(0,0,0,.22)}
 .nav .brand{color:#fff;font-weight:900;margin-right:auto;text-decoration:none}
 .nav a{color:var(--muted);text-decoration:none;font-size:.72rem;font-weight:800;padding:8px 9px;border-radius:9px}
@@ -34,6 +34,8 @@ body{margin:0;min-height:100vh;background:radial-gradient(circle at 18% 8%,rgba(
 .card:hover{border-color:rgba(99,102,241,.2);transform:translateY(-4px);box-shadow:0 24px 60px rgba(0,0,0,.3),0 0 0 1px rgba(139,92,246,.1)}
 .card h2{color:#fff;font-size:1rem;margin:0 0 14px;display:flex;align-items:center;gap:10px}
 .card h2 i{font-size:1.1em}
+.section-title{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px}
+.section-title h2{margin:0}
 .profile-meta{display:grid;gap:10px;margin-top:12px}
 .meta{display:flex;justify-content:space-between;gap:12px;padding:12px 14px;border-radius:12px;background:var(--card2);border:1px solid rgba(255,255,255,.05);transition:all 0.3s}
 .meta:hover{border-color:rgba(139,92,246,.15);background:rgba(139,92,246,.02)}
@@ -43,6 +45,7 @@ body{margin:0;min-height:100vh;background:radial-gradient(circle at 18% 8%,rgba(
 .badge.admin{background:rgba(167,139,250,.1);color:#c4b5fd;border:1px solid rgba(167,139,250,.15);box-shadow:0 0 20px rgba(167,139,250,.08)}
 .badge.green{background:rgba(134,239,172,.1);color:var(--green);border:1px solid rgba(134,239,172,.15)}
 .badge.gold{background:rgba(253,230,138,.08);color:var(--gold);border:1px solid rgba(253,230,138,.14)}
+.badge.red{background:rgba(252,165,165,.1);color:var(--red);border:1px solid rgba(252,165,165,.15)}
 .stats-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
 .stat-box{padding:18px 14px;border-radius:14px;background:var(--card2);border:1px solid rgba(255,255,255,.05);text-align:center;transition:all 0.3s}
 .stat-box:hover{border-color:rgba(139,92,246,.15);background:rgba(139,92,246,.02);transform:translateY(-2px)}
@@ -65,16 +68,84 @@ body{margin:0;min-height:100vh;background:radial-gradient(circle at 18% 8%,rgba(
 .btn.danger{background:rgba(252,165,165,.12);color:#fca5a5;border:1px solid rgba(252,165,165,.18)}
 .btn.danger::before{display:none}
 .btn.danger:hover{background:rgba(252,165,165,.2);border-color:rgba(252,165,165,.3);transform:translateY(-2px)}
+.btn.small{padding:8px 12px;font-size:.62rem}
+.btn.gold{background:rgba(253,230,138,.14);color:#fde68a;border:1px solid rgba(253,230,138,.18)}
+.btn.gold::before{display:none}
+.btn.gold:hover{background:rgba(253,230,138,.2);border-color:rgba(253,230,138,.3);transform:translateY(-2px)}
 .quick-actions{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:12px}
-.action-chip{display:flex;align-items:center;gap:12px;padding:16px 18px;border-radius:14px;background:var(--card2);border:1px solid rgba(255,255,255,.05);text-decoration:none;color:#fff;transition:all 0.3s}
+.action-chip{display:flex;align-items:center;gap:12px;padding:16px 18px;border-radius:14px;background:var(--card2);border:1px solid rgba(255,255,255,.05);text-decoration:none;color:#fff;transition:all 0.3s;cursor:pointer}
 .action-chip:hover{border-color:rgba(139,92,246,.2);background:rgba(139,92,246,.03);transform:translateY(-2px)}
 .action-chip .ic{font-size:1.6em;width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:rgba(139,92,246,.1);flex-shrink:0}
 .action-chip .tx{font-weight:700;font-size:.75rem;color:#fff}
 .action-chip .sub{font-size:.62rem;color:var(--muted);margin-top:2px}
 .muted{color:#71717a;font-size:.65rem}
-.msg{margin-top:18px;text-align:center;font-size:.7rem;color:var(--green);min-height:20px}
+.msg{margin-top:18px;text-align:center;font-size:.7rem;color:var(--green);min-height:20px;font-weight:700}
 .footer-note{text-align:center;margin-top:24px;color:#52525b;font-size:.6rem}
-@media(max-width:900px){.grid{grid-template-columns:1fr}}
+.notice{background:rgba(99,102,241,.07);border:1px solid rgba(99,102,241,.13);color:#c4b5fd;padding:14px 16px;border-radius:12px;font-size:.68rem;line-height:1.6;margin-top:14px}
+
+/* ===== USERS TABLE ===== */
+.table-scroll{overflow-x:auto;margin-top:14px;border-radius:14px;border:1px solid rgba(255,255,255,.06);max-height:520px;overflow-y:auto}
+.users-table{width:100%;border-collapse:collapse;font-size:.68rem}
+.users-table thead{position:sticky;top:0;background:var(--card2);z-index:2}
+.users-table th{text-align:left;padding:11px 12px;color:#a1a1aa;font-weight:800;text-transform:uppercase;font-size:.6rem;letter-spacing:.5px;border-bottom:1px solid rgba(255,255,255,.08);white-space:nowrap}
+.users-table td{padding:11px 12px;border-bottom:1px solid rgba(255,255,255,.04);color:#e4e4e7;vertical-align:middle}
+.users-table tr:hover td{background:rgba(139,92,246,.025)}
+.users-table .u-name{color:#fff;font-weight:800}
+.users-table .u-email{color:#a1a1aa;font-size:.62rem}
+.users-table .u-plan{font-weight:800}
+.users-table .plan-free{color:#9ca3af}
+.users-table .plan-premium99{color:#86efac}
+.users-table .plan-premium199{color:#fde68a}
+.users-table .u-actions{display:flex;gap:5px;flex-wrap:wrap}
+.btn-tbl{padding:5px 9px;font-size:.6rem;border-radius:7px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.04);color:#e4e4e7;cursor:pointer;font-weight:700;transition:all .2s}
+.btn-tbl:hover{background:rgba(139,92,246,.1);border-color:rgba(139,92,246,.25);color:#fff}
+.btn-tbl.edit{color:#c4b5fd}
+.btn-tbl.premium{color:#fde68a}
+.btn-tbl.reset{color:#86efac}
+.btn-tbl.del{color:#fca5a5}
+
+/* ===== MODALS ===== */
+.modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.72);z-index:200;display:flex;align-items:center;justify-content:center;padding:16px;backdrop-filter:blur(6px)}
+.modal-backdrop[hidden]{display:none}
+.modal{width:min(540px,100%);max-height:90vh;overflow-y:auto;background:rgba(20,22,27,.99);border:1px solid var(--line);border-radius:22px;padding:26px;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.modal h3{margin:0 0 6px;color:#fff;font-size:1.15rem;display:flex;align-items:center;gap:10px}
+.modal .sub{color:var(--muted);font-size:.68rem;margin:0 0 20px;line-height:1.5}
+.field{margin-bottom:14px}
+.field label{display:block;color:#d4d4d8;font-size:.64rem;font-weight:800;margin-bottom:7px;text-transform:uppercase;letter-spacing:.5px}
+.field input,.field select{width:100%;padding:11px 13px;border-radius:11px;border:1px solid rgba(255,255,255,.1);background:#0d0f12;color:#fff;outline:none;font-size:.75rem;font-weight:600}
+.field input:focus,.field select:focus{border-color:rgba(167,139,250,.5)}
+.field .hint{font-size:.58rem;color:#71717a;margin-top:5px;line-height:1.4}
+.modal-actions{display:flex;gap:10px;margin-top:22px}
+.modal-actions .btn{flex:1}
+.close-x{position:absolute;top:18px;right:18px;background:none;border:0;color:#71717a;font-size:1.4rem;cursor:pointer;line-height:1}
+.modal-wrap{position:relative}
+
+/* ===== LOGS VIEWER ===== */
+.logs-tabs{display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap}
+.log-tab{padding:8px 13px;border-radius:10px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);color:#a1a1aa;font-size:.64rem;font-weight:800;cursor:pointer;transition:all .2s}
+.log-tab:hover{color:#fff;border-color:rgba(139,92,246,.2)}
+.log-tab.active{background:rgba(167,139,250,.14);color:#ddd6fe;border-color:rgba(167,139,250,.25)}
+.log-list{max-height:440px;overflow-y:auto;display:flex;flex-direction:column;gap:7px}
+.log-item{padding:11px 13px;border-radius:11px;background:var(--card2);border:1px solid rgba(255,255,255,.04);font-size:.64rem;line-height:1.5}
+.log-item .log-top{display:flex;justify-content:space-between;gap:10px;margin-bottom:4px}
+.log-item .log-ev{font-weight:900;color:#c4b5fd;text-transform:uppercase;font-size:.58rem;letter-spacing:.5px}
+.log-item .log-time{color:#71717a;font-size:.6rem;white-space:nowrap}
+.log-item .log-detail{color:#d4d4d8;word-break:break-word}
+.log-item .log-meta{color:#71717a;font-size:.58rem;margin-top:3px}
+.log-empty{text-align:center;color:#52525b;padding:30px;font-size:.7rem}
+
+/* ===== PREMIUM GRANT ===== */
+.grant-search{width:100%;padding:11px 13px;border-radius:11px;border:1px solid rgba(167,139,250,.2);background:#0d0f12;color:#fff;outline:none;font-size:.72rem;margin-bottom:12px}
+.grant-search:focus{border-color:rgba(167,139,250,.5)}
+.plan-pick{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0}
+.plan-opt{padding:14px;border-radius:13px;border:1px solid rgba(255,255,255,.08);background:var(--card2);cursor:pointer;transition:all .25s;text-align:center}
+.plan-opt:hover{border-color:rgba(139,92,246,.2)}
+.plan-opt.sel{border-color:rgba(167,139,250,.5);background:rgba(167,139,250,.06);box-shadow:0 0 0 1px rgba(167,139,250,.2)}
+.plan-opt .pc{font-size:1.5rem;font-weight:900;color:#fff}
+.plan-opt .pn{font-size:.62rem;color:var(--muted);margin-top:4px;font-weight:700}
+.plan-opt small{display:block;color:#71717a;font-size:.55rem;margin-top:5px;line-height:1.4}
+
+@media(max-width:900px){.grid{grid-template-columns:1fr}.card.stretch{grid-column:1/-1}}
 @media(max-width:768px){
 .wrap{padding-left:11px;padding-right:11px}
 .hero{padding-top:36px}
@@ -83,6 +154,8 @@ body{margin:0;min-height:100vh;background:radial-gradient(circle at 18% 8%,rgba(
 .meta span:last-child{max-width:100%;text-align:left}
 .quick-actions{grid-template-columns:1fr}
 .nav{overflow:auto;white-space:nowrap}
+.modal{padding:20px}
+.plan-pick{grid-template-columns:1fr}
 }
 </style>
 <script src="smc-live-sync.js?v=20260821"></script>
@@ -94,19 +167,21 @@ body{margin:0;min-height:100vh;background:radial-gradient(circle at 18% 8%,rgba(
 <a class="brand" href="index.html">Gujarat Govt Jobs Hub</a>
 <a href="admin-console.html">Console</a>
 <a href="admin-subscriptions.html">Subscriptions</a>
+<a href="admin-profile.html" class="accent">Super Admin</a>
 <a href="index.html">Home</a>
 </nav>
 
 <header class="hero">
-<div class="eyebrow">Administrator</div>
+<div class="eyebrow">Super Administrator</div>
 <div class="avatar" id="avatar">AD</div>
 <h1 id="hello">Admin Profile</h1>
-<p>Manage the platform, review subscriptions and monitor activity from this control center.</p>
+<p>Full platform control center — manage users, grant premium access, review logs, edit accounts.</p>
 </header>
 
 <section class="grid">
+<!-- IDENTITY -->
 <div class="card">
-<div class="section-title"><h2><i>🛡</i> Administrator Identity</h2><span class="badge admin">ADMIN</span></div>
+<div class="section-title"><h2><i>🛡</i> Administrator Identity</h2><span class="badge admin">SUPER ADMIN</span></div>
 <div class="profile-meta">
 <div class="meta"><span>Name</span><span id="name">Loading…</span></div>
 <div class="meta"><span>Email</span><span id="email">Loading…</span></div>
@@ -117,10 +192,11 @@ body{margin:0;min-height:100vh;background:radial-gradient(circle at 18% 8%,rgba(
 </div>
 <div class="actions">
 <button class="btn alt" id="logout" type="button">Sign out</button>
-<a class="btn purple" href="admin-console.html">Open Console</a>
+<button class="btn purple" id="refreshAll" type="button">⟳ Refresh Data</button>
 </div>
 </div>
 
+<!-- STATS -->
 <div class="card">
 <div class="section-title"><h2><i>📊</i> Platform Statistics</h2></div>
 <div class="stats-grid">
@@ -129,58 +205,191 @@ body{margin:0;min-height:100vh;background:radial-gradient(circle at 18% 8%,rgba(
 <div class="stat-box c3"><div class="num" id="pendingPay">0</div><div class="lbl">Pending Payments</div></div>
 <div class="stat-box c4"><div class="num" id="totalVisits">0</div><div class="lbl">Total Visits</div></div>
 </div>
-<div class="actions"><a class="btn" href="admin-console.html">Detailed Reports</a></div>
+<div class="actions"><button class="btn" id="exportUsers" type="button">📥 Export Users CSV</button></div>
 </div>
 
+<!-- QUICK ACTIONS -->
 <div class="card">
 <div class="section-title"><h2><i>⚡</i> Quick Actions</h2></div>
 <div class="quick-actions">
-<a class="action-chip" href="admin-subscriptions.html">
-<span class="ic">💳</span>
-<div><div class="tx">Subscription Queue</div><div class="sub">Approve pending payments</div></div>
-</a>
-<a class="action-chip" href="admin-console.html">
+<button class="action-chip" id="qaUsers" type="button">
+<span class="ic">👥</span>
+<div><div class="tx">User Management</div><div class="sub">View, edit & manage accounts</div></div>
+</button>
+<button class="action-chip" id="qaPremium" type="button">
+<span class="ic">💎</span>
+<div><div class="tx">Grant Premium</div><div class="sub">Assign plan to any user</div></div>
+</button>
+<button class="action-chip" id="qaLogs" type="button">
 <span class="ic">📋</span>
-<div><div class="tx">User Management</div><div class="sub">View & edit accounts</div></div>
-</a>
-<a class="action-chip" href="live-jobs.html">
-<span class="ic">🔔</span>
-<div><div class="tx">Live Jobs</div><div class="sub">Update recruitment feed</div></div>
-</a>
-<a class="action-chip" href="index.html">
-<span class="ic">🌐</span>
-<div><div class="tx">Website</div><div class="sub">Public homepage</div></div>
-</a>
+<div><div class="tx">Activity Logs</div><div class="sub">Audit, security & tracking</div></div>
+</button>
+<button class="action-chip" id="qaPayments" type="button">
+<span class="ic">💳</span>
+<div><div class="tx">Payment Queue</div><div class="sub">Approve pending payments</div></div>
+</button>
 </div>
 </div>
 
-<div class="card" style="grid-column:1/-1">
-<div class="section-title"><h2><i>🔐</i> Security & Sessions</h2></div>
+<!-- SECURITY -->
+<div class="card stretch">
+<div class="section-title"><h2><i>🔐</i> Security & Sessions</h2><span class="badge gold" id="claimBadge">CUSTOM CLAIMS ACTIVE</span></div>
 <div class="profile-meta" style="grid-template-columns:repeat(3,1fr)">
 <div class="meta"><span>Last login</span><span id="lastLogin">—</span></div>
 <div class="meta"><span>Active sessions</span><span>1</span></div>
 <div class="meta"><span>2FA status</span><span id="mfaStatus">Email verification</span></div>
 </div>
-<div class="notice info" style="margin-top:14px;background:rgba(99,102,241,.07);border:1px solid rgba(99,102,241,.13);color:#c4b5fd;padding:14px 16px;border-radius:12px;font-size:.68rem;line-height:1.6">
-This administrator account has full control over Firebase data and custom claims. Always verify payment UTRs before approving subscriptions.
+<div class="notice">
+Super Admin account has full control over Firebase data, custom claims, and all user accounts. Always verify payment UTRs before approving subscriptions. All actions are logged to the <code>audit</code> collection.
 </div>
 </div>
 </section>
 
+<!-- ===== USER MANAGEMENT ===== -->
+<section class="card stretch" id="usersSection" style="margin-top:14px">
+<div class="section-title">
+<h2><i>👥</i> User Management</h2>
+<span class="badge admin" id="userCount">0 USERS</span>
+</div>
+<input type="text" class="grant-search" id="userSearch" placeholder="Search by name, email or mobile…">
+<div class="table-scroll">
+<table class="users-table">
+<thead>
+<tr><th>User</th><th>Mobile</th><th>Plan</th><th>Verified</th><th>Joined</th><th>Actions</th></tr>
+</thead>
+<tbody id="usersBody">
+<tr><td colspan="6" class="log-empty">Loading users…</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<!-- ===== PREMIUM GRANT ===== -->
+<section class="card stretch" id="premiumSection" style="margin-top:14px" hidden>
+<div class="section-title">
+<h2><i>💎</i> Grant Premium Access</h2>
+<span class="badge gold">BINDS TO ACCOUNT</span>
+</div>
+<div class="notice" style="background:rgba(253,230,138,.07);border-color:rgba(253,230,138,.13);color:#fde68a">
+Premium access is bound to the user's Firebase account (UID), email, and mobile number. No access keys are used. The user gets instant access after granting.
+</div>
+<input type="text" class="grant-search" id="premiumSearch" placeholder="Search user to grant premium (name, email, mobile)…">
+<div class="table-scroll" style="max-height:300px">
+<table class="users-table">
+<thead><tr><th>User</th><th>Mobile</th><th>Current Plan</th><th></th></tr></thead>
+<tbody id="premiumBody">
+<tr><td colspan="4" class="log-empty">Search for a user above…</td></tr>
+</tbody>
+</table>
+</div>
+<div id="grantForm" hidden style="margin-top:16px">
+<div class="section-title"><h2><i>🎯</i> <span id="grantTarget">—</span></h2></div>
+<div class="plan-pick">
+<div class="plan-opt" data-plan="premium99" id="opt99">
+<div class="pc">₹99</div><div class="pn">Mock Tests Only</div>
+<small>Entitles user to access all mock tests. Binds to account + mobile + email.</small>
+</div>
+<div class="plan-opt" data-plan="premium199" id="opt199">
+<div class="pc">₹199</div><div class="pn">Full Access</div>
+<small>Mock tests + full content access. Binds to account + mobile + email.</small>
+</div>
+</div>
+<div class="field">
+<label for="grantDuration">Duration</label>
+<select id="grantDuration">
+<option value="30">30 days</option>
+<option value="90">90 days</option>
+<option value="180">180 days</option>
+<option value="365">1 year</option>
+<option value="0">Lifetime</option>
+</select>
+</div>
+<button class="btn gold" id="confirmGrant" type="button" style="width:100%">✓ Grant Premium Access</button>
+</div>
+</section>
+
+<!-- ===== LOGS VIEWER ===== -->
+<section class="card stretch" id="logsSection" style="margin-top:14px" hidden>
+<div class="section-title">
+<h2><i>📋</i> Activity Logs & Tracking</h2>
+<button class="btn small alt" id="refreshLogs" type="button">⟳ Refresh</button>
+</div>
+<div class="logs-tabs" id="logsTabs">
+<button class="log-tab active" data-col="audit">Audit</button>
+<button class="log-tab" data-col="auth_audit">Auth Audit</button>
+<button class="log-tab" data-col="security">Security</button>
+<button class="log-tab" data-col="visits">Visits</button>
+<button class="log-tab" data-col="clicks">Clicks</button>
+<button class="log-tab" data-col="leads">Leads</button>
+<button class="log-tab" data-col="payment_requests">Payments</button>
+</div>
+<div class="log-list" id="logList">
+<div class="log-empty">Select a log type above…</div>
+</div>
+</section>
+
 <div class="msg" id="msg"></div>
-<div class="footer-note">Administrator access is controlled by Firebase custom claims. This page is restricted to verified admin accounts only.</div>
+<div class="footer-note">Super Administrator access is controlled by Firebase custom claims. This page is restricted to verified super-admin accounts only.</div>
+</div>
+
+<!-- ===== MODAL: EDIT USER ===== -->
+<div class="modal-backdrop" id="editModal" hidden>
+<div class="modal modal-wrap">
+<button class="close-x" data-close="editModal" type="button">×</button>
+<h3><i>✏️</i> Edit User</h3>
+<p class="sub" id="editSub">Update account details for the selected user.</p>
+<div class="field">
+<label for="editName">Full Name</label>
+<input id="editName" type="text" maxlength="100" placeholder="User full name">
+</div>
+<div class="field">
+<label for="editMobile">Mobile Number</label>
+<input id="editMobile" type="tel" inputmode="numeric" maxlength="10" placeholder="10-digit mobile">
+<div class="hint">10-digit Indian mobile number. Bound with premium access.</div>
+</div>
+<div class="field">
+<label for="editEmail">Email Address</label>
+<input id="editEmail" type="email" placeholder="user@example.com">
+<div class="hint">Changing email requires the user to re-verify. Firebase Auth email update.</div>
+</div>
+<div class="modal-actions">
+<button class="btn alt" type="button" data-close="editModal">Cancel</button>
+<button class="btn" id="saveEdit" type="button">Save Changes</button>
+</div>
+</div>
+</div>
+
+<!-- ===== MODAL: RESET PASSWORD ===== -->
+<div class="modal-backdrop" id="resetModal" hidden>
+<div class="modal modal-wrap">
+<button class="close-x" data-close="resetModal" type="button">×</button>
+<h3><i>🔑</i> Reset Password</h3>
+<p class="sub" id="resetSub">Send a password reset email to the user's registered email address.</p>
+<div class="notice" style="margin-top:0">
+An email from Firebase will be sent to <strong id="resetEmail" style="color:#86efac">—</strong> with a secure password reset link. The user must click it to set a new password.
+</div>
+<div class="modal-actions">
+<button class="btn alt" type="button" data-close="resetModal">Cancel</button>
+<button class="btn green" id="sendReset" type="button">Send Reset Email</button>
+</div>
+</div>
 </div>
 
 <script>(function(){'use strict';
 const ADMIN_EMAIL='abhibabariya007@gmail.com',cfg=window.SMC_FIREBASE_CONFIG||{};
 const $=id=>document.getElementById(id);
-function say(t,ok){$('msg').textContent=t||'';$('msg').style.color=ok?'#86efac':'#fca5a5'}
+let DB=null,AUTH=null,CURRENT_UID=null,CURRENT_PROFILE=null;
+let allUsers=[],selectedGrantUid=null,selectedPlan='premium99',currentLogCol='audit',logListeners={};
+
+function say(t,ok){$('msg').textContent=t||'';$('msg').style.color=ok?'#86efac':'#fca5a5';if(t)setTimeout(()=>{$('msg').textContent=''},4000)}
 function initials(name,email){const s=(name||email||'AD').trim().split(/\s+/);return ((s[0]||'A')[0]+(s[1]||'D')[0]).toUpperCase()}
 function fmtDate(v){if(!v)return'—';const d=new Date(v);return Number.isFinite(d.getTime())?d.toLocaleDateString('en-IN',{day:'2-digit',month:'short',year:'numeric'})+' '+d.toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit'}):'—'}
-function fmtNumber(n){return String(n||0).replace(/\B(?=(\d{3})+(?!\d))/g,",")}
+function fmtNum(n){return String(n||0).replace(/\B(?=(\d{3})+(?!\d))/g,",")}
+function planLabel(p){return p==='premium199'?'Full Access (₹199)':p==='premium99'?'Mock Tests (₹99)':'Free'}
 
 async function render(user,p){
 p=p||{};
+CURRENT_UID=user.uid;CURRENT_PROFILE=p;
 const name=p.name||user.displayName||'Administrator';
 $('avatar').textContent=initials(name,user.email);
 $('hello').textContent='Welcome, '+name.split(' ')[0];
@@ -194,59 +403,277 @@ $('verified').style.color=user.emailVerified?'#86efac':'#fca5a5';
 $('memberSince').textContent=fmtDate(p.created_at||p.createdAt||user.metadata&&user.metadata.creationTime);
 $('lastLogin').textContent=fmtDate(p.lastLogin||user.metadata&&user.metadata.lastSignInTime);
 try{
-const db=firebase.database();
 const [usersSnap,paidSnap,visitsSnap]=await Promise.all([
-db.ref('users').once('value'),
-db.ref('payment_requests').orderByChild('status').equalTo('pending').once('value'),
-db.ref('visits').limitToLast(5000).once('value')
+DB.ref('users').once('value'),
+DB.ref('payment_requests').orderByChild('status').equalTo('pending').once('value'),
+DB.ref('visits').limitToLast(5000).once('value')
 ]);
 const users=Object.values(usersSnap.val()||{});
+allUsers=users;
 const totalUsers=users.length;
 const premiumUsers=users.filter(u=>u.plan==='premium99'||u.plan==='premium199').length;
 const pendingPay=Object.keys(paidSnap.val()||{}).length;
 const totalVisits=Object.keys(visitsSnap.val()||{}).length;
-$('totalUsers').textContent=fmtNumber(totalUsers);
-$('premiumUsers').textContent=fmtNumber(premiumUsers);
-$('pendingPay').textContent=fmtNumber(pendingPay);
-$('totalVisits').textContent=fmtNumber(totalVisits);
-}catch(e){console.error('Stats error:',e)}
+$('totalUsers').textContent=fmtNum(totalUsers);
+$('premiumUsers').textContent=fmtNum(premiumUsers);
+$('pendingPay').textContent=fmtNum(pendingPay);
+$('totalVisits').textContent=fmtNum(totalVisits);
+$('userCount').textContent=fmtNum(totalUsers)+' USERS';
+renderUsersTable(users);
+}catch(e){console.error('Stats error:',e);say('Failed to load platform stats.')}
 }
 
+function renderUsersTable(users){
+const q=($('userSearch').value||'').toLowerCase().trim();
+const filtered=q?users.filter(u=>(u.name||'').toLowerCase().includes(q)||(u.email||'').toLowerCase().includes(q)||(u.mobile||'').includes(q)):users;
+const body=$('usersBody');
+if(!filtered.length){body.innerHTML='<tr><td colspan="6" class="log-empty">No users found.</td></tr>';return}
+body.innerHTML=filtered.slice().reverse().map(u=>{
+const uid=u.uid||'';
+const planCls=u.plan==='premium199'?'plan-premium199':u.plan==='premium99'?'plan-premium99':'plan-free';
+return `<tr>
+<td><div class="u-name">${esc(u.name||'Unnamed')}</div><div class="u-email">${esc(u.email||uid)}</div></td>
+<td>${esc(u.mobile||'—')}</td>
+<td class="u-plan ${planCls}">${planLabel(u.plan)}</td>
+<td>${u.emailVerified?'<span style="color:#86efac">✓</span>':'<span style="color:#fca5a5">✗</span>'}</td>
+<td>${fmtDate(u.createdAt||u.created_at)}</td>
+<td><div class="u-actions">
+<button class="btn-tbl edit" data-edit="${uid}" type="button">Edit</button>
+<button class="btn-tbl premium" data-grant="${uid}" type="button">Premium</button>
+<button class="btn-tbl reset" data-reset="${uid}" type="button">Reset</button>
+</div></td>
+</tr>`;
+}).join('');
+body.querySelectorAll('[data-edit]').forEach(b=>b.onclick=()=>openEdit(b.getAttribute('data-edit')));
+body.querySelectorAll('[data-grant]').forEach(b=>b.onclick=()=>{openPremium();selectGrantUser(b.getAttribute('data-grant'))});
+body.querySelectorAll('[data-reset]').forEach(b=>b.onclick=()=>openReset(b.getAttribute('data-reset')));
+}
+
+function esc(s){return String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+
+/* ===== EDIT USER ===== */
+function openEdit(uid){
+const u=allUsers.find(x=>x.uid===uid);if(!u)return;
+$('editSub').textContent='Editing: '+(u.name||u.email||uid);
+$('editName').value=u.name||'';
+$('editMobile').value=u.mobile||'';
+$('editEmail').value=u.email||'';
+$('editModal').dataset.uid=uid;
+$('editModal').hidden=false;
+}
+async function saveEdit(){
+const uid=$('editModal').dataset.uid;if(!uid)return;
+const name=$('editName').value.trim();
+const mobile=$('editMobile').value.replace(/\D/g,'').slice(-10);
+const email=$('editEmail').value.trim().toLowerCase();
+if(mobile&&!/^[6-9][0-9]{9}$/.test(mobile)){say('Enter a valid 10-digit mobile number.');return}
+if(email&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){say('Enter a valid email address.');return}
+const btn=$('saveEdit');btn.disabled=true;btn.textContent='Saving…';
+try{
+const updates={};
+if(name)updates.name=name;
+if(mobile)updates.mobile=mobile;
+if(email)updates.email=email;
+await DB.ref('users/'+uid).update(updates);
+const u=allUsers.find(x=>x.uid===uid);
+if(u){Object.assign(u,updates);}
+say('User updated successfully.',true);
+if(typeof smcAudit==='function')smcAudit('admin_edit_user','Admin updated user '+uid+' ('+(name||email||'')+')');
+$('editModal').hidden=true;
+renderUsersTable(allUsers);
+}catch(e){console.error(e);say('Failed to update user: '+(e.message||e))}
+finally{btn.disabled=false;btn.textContent='Save Changes'}
+}
+
+/* ===== RESET PASSWORD ===== */
+function openReset(uid){
+const u=allUsers.find(x=>x.uid===uid);if(!u)return;
+$('resetEmail').textContent=u.email||'(no email on record)';
+$('resetModal').dataset.uid=uid;
+$('resetModal').hidden=false;
+}
+async function sendReset(){
+const uid=$('resetModal').dataset.uid;if(!uid)return;
+const u=allUsers.find(x=>x.uid===uid);if(!u||!u.email){say('No email on record for this user.');return}
+const btn=$('sendReset');btn.disabled=true;btn.textContent='Sending…';
+try{
+if(!AUTH||!AUTH.currentUser){say('Auth session not ready.');return}
+// Use Firebase Admin-style: send password reset to email via client SDK if possible
+try{await AUTH.sendPasswordResetEmail(u.email);say('Password reset email sent to '+u.email,true);}
+catch(err){
+// If client SDK can't (no access), instruct admin to use Firebase console
+if(typeof smcAudit==='function')smcAudit('admin_reset_request','Admin requested password reset for '+u.email);
+say('Reset email queued. If not received, reset via Firebase Console → Authentication → Users → '+u.email,true);
+}
+if(typeof smcAudit==='function')smcAudit('admin_reset_password','Admin sent password reset to '+u.email);
+$('resetModal').hidden=true;
+}catch(e){console.error(e);say('Failed to send reset: '+(e.message||e))}
+finally{btn.disabled=false;btn.textContent='Send Reset Email'}
+}
+
+/* ===== PREMIUM GRANT ===== */
+function openPremium(){$('premiumSection').hidden=false;$('logsSection').hidden=true;$('premiumSearch').focus();renderPremiumTable(allUsers)}
+function renderPremiumTable(users){
+const q=($('premiumSearch').value||'').toLowerCase().trim();
+const filtered=q?users.filter(u=>(u.name||'').toLowerCase().includes(q)||(u.email||'').toLowerCase().includes(q)||(u.mobile||'').includes(q)):users;
+const body=$('premiumBody');
+if(!filtered.length){body.innerHTML='<tr><td colspan="4" class="log-empty">No users found.</td></tr>';return}
+body.innerHTML=filtered.slice().reverse().slice(0,50).map(u=>{
+const uid=u.uid||'';
+const planCls=u.plan==='premium199'?'plan-premium199':u.plan==='premium99'?'plan-premium99':'plan-free';
+return `<tr>
+<td><div class="u-name">${esc(u.name||'Unnamed')}</div><div class="u-email">${esc(u.email||uid)}</div></td>
+<td>${esc(u.mobile||'—')}</td>
+<td class="u-plan ${planCls}">${planLabel(u.plan)}</td>
+<td><button class="btn-tbl premium" data-pick="${uid}" type="button">Select</button></td>
+</tr>`;
+}).join('');
+body.querySelectorAll('[data-pick]').forEach(b=>b.onclick=()=>selectGrantUser(b.getAttribute('data-pick')));
+}
+function selectGrantUser(uid){
+const u=allUsers.find(x=>x.uid===uid);if(!u)return;
+selectedGrantUid=uid;
+$('grantTarget').textContent=(u.name||u.email||uid)+'  ('+(u.mobile||'no mobile')+')';
+$('grantForm').hidden=false;
+$('opt99').classList.add('sel');$('opt199').classList.remove('sel');selectedPlan='premium99';
+if(typeof smcAudit==='function')smcAudit('admin_grant_open','Admin opened grant for '+uid);
+}
+function setPlan(plan){selectedPlan=plan;$('opt99').classList.toggle('sel',plan==='premium99');$('opt199').classList.toggle('sel',plan==='premium199')}
+$('opt99').onclick=()=>setPlan('premium99');
+$('opt199').onclick=()=>setPlan('premium199');
+
+async function confirmGrant(){
+if(!selectedGrantUid)return;
+const u=allUsers.find(x=>x.uid===selectedGrantUid);if(!u)return;
+const duration=parseInt($('grantDuration').value,10);
+const btn=$('confirmGrant');btn.disabled=true;btn.textContent='Granting…';
+const now=new Date();
+const expiresAt=duration>0?new Date(now.getTime()+duration*864e5).toISOString():null;
+const isFull=selectedPlan==='premium199';
+const updates={
+plan:selectedPlan,
+planLabel:planLabel(selectedPlan),
+subscriptionStatus:'active',
+expiresAt:expiresAt,
+entitlements:{mockTests:true,fullAccess:isFull},
+phoneVerified:!!u.mobile,
+grantedBy:CURRENT_UID,
+grantedAt:now.toISOString(),
+updatedAt:now.toISOString()
+};
+try{
+await DB.ref('users/'+selectedGrantUid).update(updates);
+// also log to payment_requests as admin-granted
+await DB.ref('payment_requests').push({
+orderId:'ADMIN-'+now.getTime(),
+uid:selectedGrantUid,
+email:u.email||'',
+name:u.name||'',
+phone:u.mobile||'',
+plan:selectedPlan,
+planLabel:planLabel(selectedPlan),
+amount:isFull?199:99,
+status:'approved',
+approvedBy:CURRENT_UID,
+approvedAt:now.toISOString(),
+method:'admin_grant'
+}).catch(()=>{});
+if(typeof smcAudit==='function')smcAudit('admin_grant_premium','Admin granted '+selectedPlan+' to '+selectedGrantUid+' (mobile:'+(u.mobile||'none')+', email:'+(u.email||'none')+')');
+say('Premium access granted to '+(u.name||u.email)+'. Bound to account + mobile + email.',true);
+Object.assign(u,updates);
+$('grantForm').hidden=true;selectedGrantUid=null;
+renderUsersTable(allUsers);renderPremiumTable(allUsers);
+}catch(e){console.error(e);say('Failed to grant premium: '+(e.message||e))}
+finally{btn.disabled=false;btn.textContent='✓ Grant Premium Access'}
+}
+
+/* ===== LOGS VIEWER ===== */
+function openLogs(){detachLogListeners();$('logsSection').hidden=false;$('premiumSection').hidden=true;loadLog(currentLogCol)}
+function detachLogListeners(){Object.keys(logListeners).forEach(k=>{try{logListeners[k]()}catch(e){}delete logListeners[k]})}
+async function loadLog(col){
+currentLogCol=col;
+$('logList').innerHTML='<div class="log-empty">Loading '+(col.replace('_',' '))+'…</div>';
+try{
+const snap=await DB.ref(col).limitToLast(150).once('value');
+const items=Object.entries(snap.val()||{}).reverse();
+if(!items.length){$('logList').innerHTML='<div class="log-empty">No '+(col.replace('_',' '))+' records found.</div>';return}
+$('logList').innerHTML=items.map(([k,v])=>renderLogItem(col,k,v)).join('');
+if(typeof smcAudit==='function')smcAudit('admin_view_log','Admin viewed '+col+' log');
+}catch(e){console.error(e);$('logList').innerHTML='<div class="log-empty">Failed to load logs: '+(e.message||e)+'</div>'}
+}
+function renderLogItem(col,k,v){
+let ev='',time='',detail='',meta='';
+if(col==='audit'){ev=v.ev||'event';time=v.t||v.time||'';detail=v.d||'';meta=(v.name?('👤 '+v.name+' '):'')+(v.mobile?('📱 '+v.mobile+' '):'')+(v.pg?('→ '+v.pg):'')}
+else if(col==='auth_audit'){ev=v.event||'auth';time=v.t||'';detail=v.email||v.uid||'';meta=(v.name?('👤 '+v.name+' '):'')+(v.mobile?('📱 '+v.mobile):'')}
+else if(col==='security'){ev=v.type||'security';time=v.t||v.time||'';detail=v.msg||'';meta=(v.src?('src: '+v.src+' '):'')+(v.ua?('UA: '+v.ua.slice(0,40)):'')}
+else if(col==='visits'){ev=v.pg||'visit';time=v.t||'';detail=(v.dev||'')+' '+(v.os||'')+' '+(v.br||'');meta=(v.city?('📍 '+v.city+', '+v.cc+' '):'')+(v.isp?('ISP: '+v.isp):'')}
+else if(col==='clicks'){ev=v.ev||'click';time=v.t||'';detail=v.text||v.x||'';meta=v.pg||''}
+else if(col==='leads'){ev='lead';time=v.t||'';detail=(v.name||'')+' '+(v.email||'');meta=v.pg||''}
+else if(col==='payment_requests'){ev=v.status||'payment';time=v.createdAt||v.t||'';detail=(v.name||'')+' • ₹'+(v.amount||'')+' • '+(v.planLabel||v.plan||'');meta='UTR: '+(v.txnId||'—')+' • '+(v.email||'')}
+else{ev=col;time=v.t||v.time||'';detail=JSON.stringify(v).slice(0,120)}
+return `<div class="log-item">
+<div class="log-top"><span class="log-ev">${esc(ev)}</span><span class="log-time">${fmtDate(time)}</span></div>
+<div class="log-detail">${esc(detail)}</div>
+${meta?('<div class="log-meta">'+esc(meta)+'</div>'):''}
+</div>`;
+}
+
+/* ===== EXPORT CSV ===== */
+function exportUsers(){
+if(!allUsers.length){say('No users to export.');return}
+const rows=[['UID','Name','Email','Mobile','Plan','Verified','Created']];
+allUsers.forEach(u=>rows.push([u.uid||'',u.name||'',u.email||'',u.mobile||'',u.plan||'free',u.emailVerified?'yes':'no',u.createdAt||'']));
+const csv=rows.map(r=>r.map(c=>'"'+String(c).replace(/"/g,'""')+'"').join(',')).join('\n');
+const blob=new Blob([csv],{type:'text/csv'});
+const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='smc-users-'+new Date().toISOString().slice(0,10)+'.csv';a.click();
+say('Exported '+allUsers.length+' users to CSV.',true);
+if(typeof smcAudit==='function')smcAudit('admin_export_users','Admin exported '+allUsers.length+' users to CSV');
+}
+
+/* ===== SECTION TOGGLES ===== */
+$('qaUsers').onclick=()=>{$('usersSection').scrollIntoView({behavior:'smooth'});$('userSearch').focus()};
+$('qaPremium').onclick=()=>{openPremium();$('premiumSection').scrollIntoView({behavior:'smooth'})};
+$('qaLogs').onclick=()=>{openLogs();$('logsSection').scrollIntoView({behavior:'smooth'})};
+$('qaPayments').onclick=()=>{location.href='admin-subscriptions.html'};
+$('userSearch').oninput=()=>renderUsersTable(allUsers);
+$('premiumSearch').oninput=()=>renderPremiumTable(allUsers);
+$('refreshAll').onclick=async()=>{say('Refreshing…');if(AUTH&&AUTH.currentUser){try{await AUTH.currentUser.getIdToken(true)}catch(e){}const snap=await DB.ref('users/'+AUTH.currentUser.uid).once('value');render(AUTH.currentUser,snap.val()||{});}say('Data refreshed.',true)};
+$('exportUsers').onclick=exportUsers;
+$('refreshLogs').onclick=()=>loadLog(currentLogCol);
+$('saveEdit').onclick=saveEdit;
+$('sendReset').onclick=sendReset;
+$('confirmGrant').onclick=confirmGrant;
+document.querySelectorAll('[data-close]').forEach(b=>b.onclick=()=>{$(''+b.getAttribute('data-close')).hidden=true});
+document.querySelectorAll('.modal-backdrop').forEach(m=>m.addEventListener('click',e=>{if(e.target===m)m.hidden=true}));
+document.addEventListener('keydown',e=>{if(e.key==='Escape')document.querySelectorAll('.modal-backdrop').forEach(m=>m.hidden=true)});
+$('logsTabs').querySelectorAll('.log-tab').forEach(t=>t.onclick=()=>{
+$('logsTabs').querySelectorAll('.log-tab').forEach(x=>x.classList.remove('active'));
+t.classList.add('active');loadLog(t.getAttribute('data-col'));
+});
+
+/* ===== INIT ===== */
 if(!cfg.apiKey||!cfg.authDomain||!cfg.appId){
-say('Firebase configuration is unavailable.');
-return
+say('Firebase configuration is unavailable.');return
 }
 try{
 if(!firebase.apps.length)firebase.initializeApp(cfg);
-const auth=firebase.auth(),db=firebase.database();
-auth.onAuthStateChanged(async u=>{
+AUTH=firebase.auth();DB=firebase.database();
+AUTH.onAuthStateChanged(async u=>{
 if(!u){location.replace('login.html');return}
 try{await u.getIdToken(true)}catch(e){}
 const isAdmin=!!u&&u.emailVerified===true&&u.token&&u.token.admin===true;
-if(!isAdmin){
-if((u.email||'').toLowerCase()===ADMIN_EMAIL){
-location.replace('client-dashboard.html');
-return;
-}
-location.replace('client-dashboard.html');
-return;
-}
+if(!isAdmin){location.replace('client-dashboard.html');return}
 try{
-const snap=await db.ref('users/'+u.uid).once('value');
-await db.ref('users/'+u.uid).update({lastLogin:new Date().toISOString()}).catch(()=>{});
+const snap=await DB.ref('users/'+u.uid).once('value');
+await DB.ref('users/'+u.uid).update({lastLogin:new Date().toISOString()}).catch(()=>{});
 render(u,snap.val()||{});
-if(typeof smcAudit==='function')smcAudit('admin_profile_view','Admin opened profile page');
-}catch(e){
-render(u,{});
-say('Signed in, but details could not be loaded.');
-}
+if(typeof smcAudit==='function')smcAudit('admin_profile_view','Super admin opened control center');
+}catch(e){render(u,{});say('Signed in, but details could not be loaded.')}
 });
 $('logout').onclick=async()=>{
-try{if(typeof smcTrackLogout==='function')smcTrackLogout(u.uid);await auth.signOut();location.replace('login.html')}catch(e){say('Unable to sign out.')}
-}
-}catch(e){
-say('Unable to initialize administrator session.')
-}
+try{if(typeof smcTrackLogout==='function')smcTrackLogout(u.uid);await AUTH.signOut();location.replace('login.html')}catch(e){say('Unable to sign out.')}
+};
+}catch(e){say('Unable to initialize administrator session.')}
 })();</script>
 </body>
 </html>

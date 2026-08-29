@@ -362,7 +362,7 @@
                 <div class="access-key-box card-3d">
                     <div style="font-size:3em;margin-bottom:4px">&#127881;</div>
                     <h3 style="color:var(--green);font-weight:800;font-size:1.3em">Payment Successful!</h3>
-                    <p style="color:var(--txt);font-size:0.85em;margin:8px 0">Your premium access is now active. No access key needed - it's linked to your account.</p>
+                    <p style="color:var(--txt);font-size:0.85em;margin:8px 0">Your premium access is now active. No access key needed - it's linked to your Firebase account.</p>
                 </div>
 
                 <!-- SEND CONFIRMATION -->
@@ -392,7 +392,7 @@
                     </div>
                 </div>
 
-                <div style="margin-top:12px;padding:8px 12px;background:rgba(34,197,94,0.06);border:1px solid rgba(34,197,94,0.12);border-radius:8px;font-size:0.7em;color:#86efac;text-align:center">&#9989; Premium access linked to your Firebase account. Works on all your devices.</div>
+                <div style="margin-top:12px;padding:8px 12px;background:rgba(34,197,94,0.06);border:1px solid rgba(34,197,94,0.12);border-radius:8px;font-size:0.7em;color:#86efac;text-align:center">&#9989; Premium access is bound to your Firebase account (UID + email + mobile). Works on all your devices.</div>
 
                 <div class="btn-row" style="margin-top:16px">
                     <a class="btn btn-primary btn-3d" href="#" onclick="trackAndGoToMockTests('payment_success')" style="font-size:1em;padding:16px">&#127942; Go to Mock Tests &#8594;</a>
@@ -795,7 +795,7 @@ function sendWhatsApp(){
 
 🌐 https://abhiiibabariya-dev.github.io/SMC-Computer-Supervisor-Exam-Prep/mock-test.html
 
-✅ Premium access is linked to your Firebase account (works on all devices).`;
+✅ Premium access is bound to your Firebase account (UID + email + mobile). Works on all devices.`;
 
     const url='https://wa.me/'+phone+'?text='+encodeURIComponent(msg);
     window.open(url,'_blank');
