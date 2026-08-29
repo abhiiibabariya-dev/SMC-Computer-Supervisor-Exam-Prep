@@ -7812,6 +7812,90 @@
     "change_type": "unchanged"
   },
   {
+    "id": "c1c80c413c2c7689122a",
+    "source": "SMC Official Recruitment",
+    "title": "Recruitments",
+    "url": "https://www.suratmunicipal.gov.in/Information/RecruitmentDashboard",
+    "priority": "critical",
+    "source_type": "government",
+    "checked_at": "2026-08-29T17:51:24.003701+00:00",
+    "first_seen_at": "2026-08-29T17:54:08.975982+00:00",
+    "last_changed_at": "2026-08-29T17:54:08.975982+00:00",
+    "change_type": "new"
+  },
+  {
+    "id": "0f2905a29f1cb718c552",
+    "source": "SMC Official Recruitment",
+    "title": "Recruitment",
+    "url": "https://www.suratmunicipal.gov.in/Information/RecruitmentDashboard",
+    "priority": "critical",
+    "source_type": "government",
+    "checked_at": "2026-08-29T17:51:24.003701+00:00",
+    "first_seen_at": "2026-08-29T17:54:08.975982+00:00",
+    "last_changed_at": "2026-08-29T17:54:08.975982+00:00",
+    "change_type": "new"
+  },
+  {
+    "id": "9fb4659c700c8f4513a0",
+    "source": "SMC Official Recruitment",
+    "title": "Engineers (237 KB)",
+    "url": "https://www.suratmunicipal.gov.in/Content/Documents/rtiact/Disclosure/Town%20Development/TDO/Engineers.pdf",
+    "priority": "critical",
+    "source_type": "government",
+    "checked_at": "2026-08-29T17:51:24.003701+00:00",
+    "first_seen_at": "2026-08-29T17:54:08.975982+00:00",
+    "last_changed_at": "2026-08-29T17:54:08.975982+00:00",
+    "change_type": "new"
+  },
+  {
+    "id": "aa8325d68462f20f300d",
+    "source": "SMC Official Recruitment",
+    "title": "Check RTI Application Status",
+    "url": "https://www.suratmunicipal.gov.in/Information/RTIAppStatus",
+    "priority": "critical",
+    "source_type": "government",
+    "checked_at": "2026-08-29T17:51:24.003701+00:00",
+    "first_seen_at": "2026-08-29T17:54:08.975982+00:00",
+    "last_changed_at": "2026-08-29T17:54:08.975982+00:00",
+    "change_type": "new"
+  },
+  {
+    "id": "43ccf0fbc2f6ba8ca403",
+    "source": "SMC Official Recruitment",
+    "title": "Back to Dashboard",
+    "url": "https://www.suratmunicipal.gov.in/Information/RecruitmentDashboard",
+    "priority": "critical",
+    "source_type": "government",
+    "checked_at": "2026-08-29T17:51:24.003701+00:00",
+    "first_seen_at": "2026-08-29T17:54:08.975982+00:00",
+    "last_changed_at": "2026-08-29T17:54:08.975982+00:00",
+    "change_type": "new"
+  },
+  {
+    "id": "0bc3325c765144269546",
+    "source": "SMC Google News Discovery",
+    "title": "Surat Municipal Corporation to Reserve Direct Recruitment P… - GujaratSamachar English",
+    "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxOcGhWa0ZnUVR6SXVyeVlYcGFLMEVyM3l0Z3ZYNzYyMVIwcGd4Z0NKU2VxV3pwN2lYdDlCZjVZeDdNeUNRVnhtc1VZMWczbHV4Q1FWdFdNODJwZXJDa1Nfcng0SWQtNVdRdzJyZEZxc045U1ZKWVRzMmg0TV9OSnJveHUyVWkwT0d2VGhQcUhCS00xb2w3cFlydEFyRTYyU284VHRyM3J6SlFRZXJBLUd0Y2dKakVnZWlzVnRlNFBEaGpQQ0EwcFJjVHQ4UHhVS2F2VmFTNDVxOA?oc=5",
+    "priority": "critical",
+    "source_type": "discovery",
+    "checked_at": "2026-08-29T17:51:22.712368+00:00",
+    "first_seen_at": "2026-08-29T17:54:08.975982+00:00",
+    "last_changed_at": "2026-08-29T17:54:08.975982+00:00",
+    "change_type": "new"
+  },
+  {
+    "id": "7260aa06b440012128cd",
+    "source": "SMC Google News Discovery",
+    "title": "Process for recruitment of 300 Marshalls begin in Surat municipal corporation - The Times of India",
+    "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxOak1WUGhvVWpWaUZBNTBLbV9fR3owSVlybkpTdmhEX2VHZmRSd1lTNVRIWU9QYklGb2pBN09KalQ2cXp6UVJvWTg3Yk5ud08wclA2TnU0dU9IWUppM2UyQ2R5dGpaU2xhOXg4ZHVUalhSRG5RSm1obGFyNmFzUWFVN3hUSXRtakJHMjlXNmxWT2pJNXVLdUNjVjliOWFpeG5yMVVKYWhZQzczOWg0RklLSUFwOGFlRmVjck5jc1ZVOXc1U3puaHhMeHNTX0luV05Uc3NYZi1qV3dZYmxaU0RaRHJOWdIB6AFBVV95cUxPaWpieEtBcllmT2NlOXVpeG5CenhqNmluaU1HTFpkdTNqUTNVLVJRX2tQcGl3empnRWlhb3FOdEVRVHJhUFRPbFdBbUZtWXNJOTFzUU01RW9jTnRtWUM1V0E4TjVXNmJzQTBMZ3FPMC1CcDM4WXZsd085TG1CQmVLWmZaZDczYmhVeVFjYUp6NmJxeHBNdmw5OUQyOElPSlBPRUVEcURDdlZoMURHX1F2TE03ZzV3VEZtWkZPVmZndG82blc2a0R0ckVtczhZRUp6dlhJb0hHZENmb0NtSHZGQ0JOMUdUVDNX?oc=5",
+    "priority": "critical",
+    "source_type": "discovery",
+    "checked_at": "2026-08-29T17:51:22.712368+00:00",
+    "first_seen_at": "2026-08-29T17:54:08.975982+00:00",
+    "last_changed_at": "2026-08-29T17:54:08.975982+00:00",
+    "change_type": "new"
+  },
+  {
     "id": "4731f8adc432214d8ecc",
     "source": "SMC Google News Discovery",
     "title": "Fake SMC Job Promise Scam Rocks Surat - theblunttimes.in",
@@ -7848,18 +7932,6 @@
     "change_type": "new"
   },
   {
-    "id": "90d6cc66b5e1e9f154f5",
-    "source": "SMC Jobs Google News Discovery 2",
-    "title": "SMC Staff Nurse Recruitment 2026, Application Form (Started), 150 Vacancies, Apply Online - PW",
-    "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE1QQ0RQRU1LUUJvRDNGMjVZS3Mxa2dGdHJNdXBDSXpjTGhyTFQ5blF4TlRaVUl3NVNhaS1yUmxqRndxQnd0bFNidGtEalFFUVFzWXRib3Ficlp6TEhHNnpQUEYtVmRFQXJaWUo5MW01Y25sZ3dt?oc=5",
-    "priority": "critical",
-    "source_type": "discovery",
-    "checked_at": "2026-08-20T08:59:49.865070+00:00",
-    "first_seen_at": "2026-08-20T09:01:27.339666+00:00",
-    "last_changed_at": "2026-08-20T09:01:27.339666+00:00",
-    "change_type": "new"
-  },
-  {
     "id": "0f485f136d3b5fe07746",
     "source": "SMC Jobs Google News Discovery 2",
     "title": "SMC Recruitment 2026: Notification, Vacancies, Application Process - PW",
@@ -7867,18 +7939,6 @@
     "priority": "critical",
     "source_type": "discovery",
     "checked_at": "2026-08-20T08:59:49.865070+00:00",
-    "first_seen_at": "2026-08-20T09:01:27.339666+00:00",
-    "last_changed_at": "2026-08-20T09:01:27.339666+00:00",
-    "change_type": "new"
-  },
-  {
-    "id": "abb378cc30eacfbd8d57",
-    "source": "SMC Google News Discovery",
-    "title": "SMC Staff Nurse Recruitment 2026, Application Form (Started), 150 Vacancies, Apply Online - PW",
-    "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE1QQ0RQRU1LUUJvRDNGMjVZS3Mxa2dGdHJNdXBDSXpjTGhyTFQ5blF4TlRaVUl3NVNhaS1yUmxqRndxQnd0bFNidGtEalFFUVFzWXRib3Ficlp6TEhHNnpQUEYtVmRFQXJaWUo5MW01Y25sZ3dt?oc=5",
-    "priority": "critical",
-    "source_type": "discovery",
-    "checked_at": "2026-08-20T08:58:39.663237+00:00",
     "first_seen_at": "2026-08-20T09:01:27.339666+00:00",
     "last_changed_at": "2026-08-20T09:01:27.339666+00:00",
     "change_type": "new"
