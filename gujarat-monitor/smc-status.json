@@ -8,17 +8,6 @@
   ],
   "events": [
     {
-      "id": "smc-2026-07-12-pro",
-      "date": "2026-07-12",
-      "status": "completed",
-      "title": "Public Relation Officer written examination",
-      "cadres": [
-        "Public Relation Officer",
-        "PRO"
-      ],
-      "source": "https://www.suratmunicipal.gov.in/Information/AnswerKey"
-    },
-    {
       "id": "smc-2026-09-06-computer-supervisor",
       "date": "2026-09-06",
       "status": "scheduled",
@@ -44,7 +33,7 @@
       "source": "https://www.suratmunicipal.gov.in/Information/RecruitmentNews"
     }
   ],
-  "answer_key_available": true,
+  "answer_key_available": false,
   "result_available": false,
   "selection_waiting_list_available": false,
   "application_status": "unknown",
@@ -64,5 +53,5 @@
     "sources_ok": 3,
     "sources_failed": 2
   },
-  "updated_at": "2026-08-28T19:26:19.446765+00:00"
+  "updated_at": "2026-08-29T09:22:45.755149+00:00"
 }
