@@ -1,7 +1,7 @@
 {
   "sources_scanned": 28,
   "links_found_this_scan": 691,
-  "new_items": 5,
+  "new_items": 0,
   "updated_items": 0,
   "total_items": 691,
   "errors": [
@@ -31,9 +31,9 @@
       "error": "<urlopen error [Errno 101] Network is unreachable>"
     },
     {
-      "source": "Gujarat Biotechnology Research Centre",
-      "url": "https://www.gbrc.gujarat.gov.in/WebCMS/Start/Announcement",
-      "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.gbrc.gujarat.gov.in'. (_ssl.c:1010)>"
+      "source": "Gandhinagar Municipal Corporation",
+      "url": "https://gandhinagarmunicipal.com/recruitment/",
+      "error": "<urlopen error timed out>"
     },
     {
       "source": "Gujarat Education Department",
@@ -84,7 +84,7 @@
   "empty_sources": [],
   "successful_sources": [
     "Bhavnagar Municipal Corporation",
-    "Gandhinagar Municipal Corporation",
+    "Gujarat Biotechnology Research Centre",
     "Gujarat High Court Recruitment",
     "Gujarat Informatics Limited",
     "Gujarat Jobs Google News Discovery",
@@ -99,5 +99,5 @@
   ],
   "smc_items": 40,
   "mode": "live_snapshot",
-  "updated_at": "2026-08-30T21:39:39.298913+00:00"
+  "updated_at": "2026-08-30T23:51:01.343550+00:00"
 }
