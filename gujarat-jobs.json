@@ -1,8 +1,8 @@
 {
   "region": "Gujarat",
   "focus": "Gujarat Government Jobs and SMC Recruitment",
-  "total": 686,
-  "new_items": 1,
+  "total": 691,
+  "new_items": 5,
   "updated_items": 0,
   "items": [
     {
@@ -7818,6 +7818,66 @@
       "change_type": "unchanged"
     },
     {
+      "id": "c1c80c413c2c7689122a",
+      "source": "SMC Official Recruitment",
+      "title": "Recruitments",
+      "url": "https://www.suratmunicipal.gov.in/Information/RecruitmentDashboard",
+      "priority": "critical",
+      "source_type": "government",
+      "checked_at": "2026-08-30T21:36:54.789499+00:00",
+      "first_seen_at": "2026-08-30T21:39:39.298913+00:00",
+      "last_changed_at": "2026-08-30T21:39:39.298913+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "0f2905a29f1cb718c552",
+      "source": "SMC Official Recruitment",
+      "title": "Recruitment",
+      "url": "https://www.suratmunicipal.gov.in/Information/RecruitmentDashboard",
+      "priority": "critical",
+      "source_type": "government",
+      "checked_at": "2026-08-30T21:36:54.789499+00:00",
+      "first_seen_at": "2026-08-30T21:39:39.298913+00:00",
+      "last_changed_at": "2026-08-30T21:39:39.298913+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "9fb4659c700c8f4513a0",
+      "source": "SMC Official Recruitment",
+      "title": "Engineers (237 KB)",
+      "url": "https://www.suratmunicipal.gov.in/Content/Documents/rtiact/Disclosure/Town%20Development/TDO/Engineers.pdf",
+      "priority": "critical",
+      "source_type": "government",
+      "checked_at": "2026-08-30T21:36:54.789499+00:00",
+      "first_seen_at": "2026-08-30T21:39:39.298913+00:00",
+      "last_changed_at": "2026-08-30T21:39:39.298913+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "aa8325d68462f20f300d",
+      "source": "SMC Official Recruitment",
+      "title": "Check RTI Application Status",
+      "url": "https://www.suratmunicipal.gov.in/Information/RTIAppStatus",
+      "priority": "critical",
+      "source_type": "government",
+      "checked_at": "2026-08-30T21:36:54.789499+00:00",
+      "first_seen_at": "2026-08-30T21:39:39.298913+00:00",
+      "last_changed_at": "2026-08-30T21:39:39.298913+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "43ccf0fbc2f6ba8ca403",
+      "source": "SMC Official Recruitment",
+      "title": "Back to Dashboard",
+      "url": "https://www.suratmunicipal.gov.in/Information/RecruitmentDashboard",
+      "priority": "critical",
+      "source_type": "government",
+      "checked_at": "2026-08-30T21:36:54.789499+00:00",
+      "first_seen_at": "2026-08-30T21:39:39.298913+00:00",
+      "last_changed_at": "2026-08-30T21:39:39.298913+00:00",
+      "change_type": "new"
+    },
+    {
       "id": "0bc3325c765144269546",
       "source": "SMC Google News Discovery",
       "title": "Surat Municipal Corporation to Reserve Direct Recruitment P… - GujaratSamachar English",
@@ -8238,5 +8298,5 @@
       "change_type": "unchanged"
     }
   ],
-  "updated_at": "2026-08-30T18:47:48.008171+00:00"
+  "updated_at": "2026-08-30T21:39:39.298913+00:00"
 }
