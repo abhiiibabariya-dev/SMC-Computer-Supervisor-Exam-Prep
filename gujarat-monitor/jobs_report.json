@@ -1,9 +1,9 @@
 {
   "sources_scanned": 28,
-  "links_found_this_scan": 691,
+  "links_found_this_scan": 690,
   "new_items": 0,
   "updated_items": 0,
-  "total_items": 691,
+  "total_items": 690,
   "errors": [
     {
       "source": "Ahmedabad Municipal Corporation",
@@ -29,11 +29,6 @@
       "source": "GSSSB",
       "url": "https://gsssb.gujarat.gov.in",
       "error": "<urlopen error [Errno 101] Network is unreachable>"
-    },
-    {
-      "source": "Gandhinagar Municipal Corporation",
-      "url": "https://gandhinagarmunicipal.com/recruitment/",
-      "error": "<urlopen error timed out>"
     },
     {
       "source": "Gujarat Education Department",
@@ -84,6 +79,7 @@
   "empty_sources": [],
   "successful_sources": [
     "Bhavnagar Municipal Corporation",
+    "Gandhinagar Municipal Corporation",
     "Gujarat Biotechnology Research Centre",
     "Gujarat High Court Recruitment",
     "Gujarat Informatics Limited",
@@ -97,7 +93,7 @@
     "SMC Official Recruitment",
     "SMC Official Website"
   ],
-  "smc_items": 40,
+  "smc_items": 39,
   "mode": "live_snapshot",
-  "updated_at": "2026-08-30T23:51:01.343550+00:00"
+  "updated_at": "2026-08-31T01:42:05.926976+00:00"
 }
