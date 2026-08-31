@@ -1,8 +1,8 @@
 {
   "region": "Gujarat",
   "focus": "Gujarat Government Jobs and SMC Recruitment",
-  "total": 690,
-  "new_items": 0,
+  "total": 691,
+  "new_items": 2,
   "updated_items": 0,
   "items": [
     {
@@ -7818,6 +7818,30 @@
       "change_type": "unchanged"
     },
     {
+      "id": "90d6cc66b5e1e9f154f5",
+      "source": "SMC Jobs Google News Discovery 2",
+      "title": "SMC Staff Nurse Recruitment 2026, Application Form (Started), 150 Vacancies, Apply Online - PW",
+      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE1QQ0RQRU1LUUJvRDNGMjVZS3Mxa2dGdHJNdXBDSXpjTGhyTFQ5blF4TlRaVUl3NVNhaS1yUmxqRndxQnd0bFNidGtEalFFUVFzWXRib3Ficlp6TEhHNnpQUEYtVmRFQXJaWUo5MW01Y25sZ3dt?oc=5",
+      "priority": "critical",
+      "source_type": "discovery",
+      "checked_at": "2026-08-31T21:02:34.267372+00:00",
+      "first_seen_at": "2026-08-31T21:04:09.481321+00:00",
+      "last_changed_at": "2026-08-31T21:04:09.481321+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "abb378cc30eacfbd8d57",
+      "source": "SMC Google News Discovery",
+      "title": "SMC Staff Nurse Recruitment 2026, Application Form (Started), 150 Vacancies, Apply Online - PW",
+      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE1QQ0RQRU1LUUJvRDNGMjVZS3Mxa2dGdHJNdXBDSXpjTGhyTFQ5blF4TlRaVUl3NVNhaS1yUmxqRndxQnd0bFNidGtEalFFUVFzWXRib3Ficlp6TEhHNnpQUEYtVmRFQXJaWUo5MW01Y25sZ3dt?oc=5",
+      "priority": "critical",
+      "source_type": "discovery",
+      "checked_at": "2026-08-31T21:01:22.908424+00:00",
+      "first_seen_at": "2026-08-31T21:04:09.481321+00:00",
+      "last_changed_at": "2026-08-31T21:04:09.481321+00:00",
+      "change_type": "new"
+    },
+    {
       "id": "c1c80c413c2c7689122a",
       "source": "SMC Official Recruitment",
       "title": "Recruitments",
@@ -7875,18 +7899,6 @@
       "checked_at": "2026-08-30T21:36:54.789499+00:00",
       "first_seen_at": "2026-08-30T21:39:39.298913+00:00",
       "last_changed_at": "2026-08-30T21:39:39.298913+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "0bc3325c765144269546",
-      "source": "SMC Google News Discovery",
-      "title": "Surat Municipal Corporation to Reserve Direct Recruitment P… - GujaratSamachar English",
-      "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxOcGhWa0ZnUVR6SXVyeVlYcGFLMEVyM3l0Z3ZYNzYyMVIwcGd4Z0NKU2VxV3pwN2lYdDlCZjVZeDdNeUNRVnhtc1VZMWczbHV4Q1FWdFdNODJwZXJDa1Nfcng0SWQtNVdRdzJyZEZxc045U1ZKWVRzMmg0TV9OSnJveHUyVWkwT0d2VGhQcUhCS00xb2w3cFlydEFyRTYyU284VHRyM3J6SlFRZXJBLUd0Y2dKakVnZWlzVnRlNFBEaGpQQ0EwcFJjVHQ4UHhVS2F2VmFTNDVxOA?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-08-30T18:45:00.860400+00:00",
-      "first_seen_at": "2026-08-30T18:47:48.008171+00:00",
-      "last_changed_at": "2026-08-30T18:47:48.008171+00:00",
       "change_type": "new"
     },
     {
@@ -8286,5 +8298,5 @@
       "change_type": "unchanged"
     }
   ],
-  "updated_at": "2026-08-31T01:42:05.926976+00:00"
+  "updated_at": "2026-08-31T21:04:09.481321+00:00"
 }
