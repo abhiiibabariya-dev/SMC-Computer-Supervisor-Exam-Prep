@@ -7812,6 +7812,18 @@
     "change_type": "unchanged"
   },
   {
+    "id": "0bc3325c765144269546",
+    "source": "SMC Google News Discovery",
+    "title": "Surat Municipal Corporation to Reserve Direct Recruitment P… - GujaratSamachar English",
+    "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxOcGhWa0ZnUVR6SXVyeVlYcGFLMEVyM3l0Z3ZYNzYyMVIwcGd4Z0NKU2VxV3pwN2lYdDlCZjVZeDdNeUNRVnhtc1VZMWczbHV4Q1FWdFdNODJwZXJDa1Nfcng0SWQtNVdRdzJyZEZxc045U1ZKWVRzMmg0TV9OSnJveHUyVWkwT0d2VGhQcUhCS00xb2w3cFlydEFyRTYyU284VHRyM3J6SlFRZXJBLUd0Y2dKakVnZWlzVnRlNFBEaGpQQ0EwcFJjVHQ4UHhVS2F2VmFTNDVxOA?oc=5",
+    "priority": "critical",
+    "source_type": "discovery",
+    "checked_at": "2026-09-01T10:22:19.258092+00:00",
+    "first_seen_at": "2026-09-01T10:25:06.097476+00:00",
+    "last_changed_at": "2026-09-01T10:25:06.097476+00:00",
+    "change_type": "new"
+  },
+  {
     "id": "e0b03b21461adfcd5ea5",
     "source": "SMC Google News Discovery",
     "title": "SMC recruitment 2026: Application starts for over 1900 posts, details here - India Today",
@@ -8100,18 +8112,6 @@
     "change_type": "unchanged"
   },
   {
-    "id": "5dd2778fbe29293d6f3b",
-    "source": "SMC Jobs Google News Discovery 2",
-    "title": "SMC Recruitment 2026 Notification Out for 2295 Posts, Apply Online Last Date Today - Adda247",
-    "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOeWdpV3lWLU4tWHJEQko1MTZQa3ltdkN4OHEtbzBQM0VwMmNzM0FsVURNeEpGblJMdXFVLVhCQUZzVDl5TmtJcmRJX05JS0N3R2U5Y19qTUFDYnhtOFA3d3JxS19yS2FNRktBWWVXakF3VHpSWWpkLUtCWGg3V3plU3g2QVZhRXNndUkw?oc=5",
-    "priority": "critical",
-    "source_type": "discovery",
-    "checked_at": "2026-08-20T02:43:04.994443+00:00",
-    "first_seen_at": "2026-08-19T20:03:55.383082+00:00",
-    "last_changed_at": "2026-08-19T20:03:55.383082+00:00",
-    "change_type": "unchanged"
-  },
-  {
     "id": "53d6b2900cddbdc01d58",
     "source": "SMC Google News Discovery",
     "title": "SMC Staff Nurse Vacancy 2026 Out, Check official PDF and Apply Online Link - Adda247",
@@ -8128,18 +8128,6 @@
     "source": "SMC Google News Discovery",
     "title": "SMC Recruitment 2026 Out, Last Date To Apply Online for 120 Various Posts - Adda247",
     "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTFBsN2QxM3I1SmVJUVB4bnlNOFVqMHdTa2Y1U1pCVDNVd2d2T29xQzVtZDJSZk05VVBienJiVzJsWG9IZVhXVEFIOHFRMUNUQUZfTnVTY0RBbklNbUNVdmp4SjFSMGFJWUFZbUdfcjRkVUlzczBNQWZ1cg?oc=5",
-    "priority": "critical",
-    "source_type": "discovery",
-    "checked_at": "2026-08-20T02:41:55.551026+00:00",
-    "first_seen_at": "2026-08-19T20:03:55.383082+00:00",
-    "last_changed_at": "2026-08-19T20:03:55.383082+00:00",
-    "change_type": "unchanged"
-  },
-  {
-    "id": "bc4cda7f36eaf99e7990",
-    "source": "SMC Google News Discovery",
-    "title": "SMC Recruitment 2026 Notification Out for 2295 Posts, Apply Online Last Date Today - Adda247",
-    "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOeWdpV3lWLU4tWHJEQko1MTZQa3ltdkN4OHEtbzBQM0VwMmNzM0FsVURNeEpGblJMdXFVLVhCQUZzVDl5TmtJcmRJX05JS0N3R2U5Y19qTUFDYnhtOFA3d3JxS19yS2FNRktBWWVXakF3VHpSWWpkLUtCWGg3V3plU3g2QVZhRXNndUkw?oc=5",
     "priority": "critical",
     "source_type": "discovery",
     "checked_at": "2026-08-20T02:41:55.551026+00:00",
