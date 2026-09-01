@@ -8388,6 +8388,30 @@
     "change_type": "unchanged"
   },
   {
+    "id": "410f653b35a133b2333e",
+    "source": "SMC Google News Discovery",
+    "title": "SMC Apprentice Recruitment 2026 Notification Out – Apply Online for Apprentice Posts - Careers360",
+    "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQdUViWkw0ZWZzSnBid3RRa1c5S0FfbERJdkc1MWthU0swODV5a18wRWllVHZpV00xNmZ5cnE0VTBucTRHNWRLYVNXcUIxWHoteGdBcnFtdERQSEJoSXdlOHliRm9ac0RyU1BMcFZ5cDg5NHRVMHAxTVhDd2JCZUZzNg?oc=5",
+    "priority": "critical",
+    "source_type": "discovery",
+    "checked_at": "2026-09-01T23:20:32.672631+00:00",
+    "first_seen_at": "2026-09-01T23:23:28.133292+00:00",
+    "last_changed_at": "2026-09-01T23:23:28.133292+00:00",
+    "change_type": "new"
+  },
+  {
+    "id": "a49d1b97be19b1b84a92",
+    "source": "SMC Google News Discovery",
+    "title": "Probe against 3 dismissed SMC staff for hiding qualification to secure job - indianexpress.com",
+    "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxQMUIyUUF0bjVaT0dtcU9zbFc3YS1iZlQtbzJTRE1zdkN2S0hMeEo1V3oxbjNYU0dyT2xhdnluVXpXMjVMOU9UWXFIajN4SGJVeGFpY3F1NGV0a3U0bGw4Q29zWkhELTF0RHQ5eENxZjVNREZaQ2t0NmZSUUZ6SGZjODl2UWp1RDJIUWZxYXFWeWtDc19raHlMZ3dGcWwySmpaYll6dV93VUtwakxWZ1FzZFlaOE5sTGtPcFdseW1iMzdlcGNwelQ1OUVFYVBlREHSAdYBQVVfeXFMTzZjVGtqdVFwZUhKbWNmcmpHS0FZX2N0OTYxdmZpQXlSMklkajJxS1dvZjgzSEkyYm80a19OZGtuY05mdmN2WGNyd3FjV1Y1LTVBeWNUOGdaNmVzbFM5OUwxU0dzQmRIRzZ6ZVM4SkRPbFVvTHplQjI4SHBtbXgyN0hDeTRQTjlBT0tBeTBMNW82bEd6QzFaSFkwWHpqVlAweDJidHJ6elZGeUVTNzBLQVZMM1o0Xzg1QXVTQlRjUjVISWp3SXdwd1hHRmt3NmpsbW53djBUUQ?oc=5",
+    "priority": "critical",
+    "source_type": "discovery",
+    "checked_at": "2026-09-01T23:20:32.672631+00:00",
+    "first_seen_at": "2026-09-01T23:23:28.133292+00:00",
+    "last_changed_at": "2026-09-01T23:23:28.133292+00:00",
+    "change_type": "new"
+  },
+  {
     "id": "37b2bf8a1b593e976045",
     "source": "SMC Jobs Google News Discovery 2",
     "title": "SMC Staff Nurse Recruitment 2026, Application Form (Started), 150 Vacancies, Apply Online - pw.live",
@@ -8556,18 +8580,6 @@
     "change_type": "new"
   },
   {
-    "id": "43ed29c2fddf1037c2be",
-    "source": "SMC Google News Discovery",
-    "title": "SMC Apprentice Recruitment 2026 Notification Out – Apply Online for Apprentice Posts - competition.careers360.com",
-    "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQdUViWkw0ZWZzSnBid3RRa1c5S0FfbERJdkc1MWthU0swODV5a18wRWllVHZpV00xNmZ5cnE0VTBucTRHNWRLYVNXcUIxWHoteGdBcnFtdERQSEJoSXdlOHliRm9ac0RyU1BMcFZ5cDg5NHRVMHAxTVhDd2JCZUZzNg?oc=5",
-    "priority": "critical",
-    "source_type": "discovery",
-    "checked_at": "2026-09-01T21:15:25.152701+00:00",
-    "first_seen_at": "2026-09-01T21:18:12.075235+00:00",
-    "last_changed_at": "2026-09-01T21:18:12.075235+00:00",
-    "change_type": "new"
-  },
-  {
     "id": "5b2d9aa07477b4ea2ee7",
     "source": "SMC Google News Discovery",
     "title": "Sanitation workers demand permanent SMC jobs - The Times of India",
@@ -8661,18 +8673,6 @@
     "checked_at": "2026-08-20T14:41:36.307393+00:00",
     "first_seen_at": "2026-08-20T14:44:22.955699+00:00",
     "last_changed_at": "2026-08-20T14:44:22.955699+00:00",
-    "change_type": "new"
-  },
-  {
-    "id": "36eb6bc2de05da7fc0e8",
-    "source": "SMC Google News Discovery",
-    "title": "Probe against 3 dismissed SMC staff for hiding qualification to secure job - The Indian Express",
-    "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxQMUIyUUF0bjVaT0dtcU9zbFc3YS1iZlQtbzJTRE1zdkN2S0hMeEo1V3oxbjNYU0dyT2xhdnluVXpXMjVMOU9UWXFIajN4SGJVeGFpY3F1NGV0a3U0bGw4Q29zWkhELTF0RHQ5eENxZjVNREZaQ2t0NmZSUUZ6SGZjODl2UWp1RDJIUWZxYXFWeWtDc19raHlMZ3dGcWwySmpaYll6dV93VUtwakxWZ1FzZFlaOE5sTGtPcFdseW1iMzdlcGNwelQ1OUVFYVBlREHSAdYBQVVfeXFMTzZjVGtqdVFwZUhKbWNmcmpHS0FZX2N0OTYxdmZpQXlSMklkajJxS1dvZjgzSEkyYm80a19OZGtuY05mdmN2WGNyd3FjV1Y1LTVBeWNUOGdaNmVzbFM5OUwxU0dzQmRIRzZ6ZVM4SkRPbFVvTHplQjI4SHBtbXgyN0hDeTRQTjlBT0tBeTBMNW82bEd6QzFaSFkwWHpqVlAweDJidHJ6elZGeUVTNzBLQVZMM1o0Xzg1QXVTQlRjUjVISWp3SXdwd1hHRmt3NmpsbW53djBUUQ?oc=5",
-    "priority": "critical",
-    "source_type": "discovery",
-    "checked_at": "2026-08-20T08:58:39.663237+00:00",
-    "first_seen_at": "2026-08-20T09:01:27.339666+00:00",
-    "last_changed_at": "2026-08-20T09:01:27.339666+00:00",
     "change_type": "new"
   },
   {
