@@ -1,9 +1,9 @@
 {
   "sources_scanned": 28,
-  "links_found_this_scan": 733,
-  "new_items": 48,
+  "links_found_this_scan": 738,
+  "new_items": 15,
   "updated_items": 0,
-  "total_items": 733,
+  "total_items": 738,
   "errors": [
     {
       "source": "Ahmedabad Municipal Corporation",
@@ -33,7 +33,7 @@
     {
       "source": "Gandhinagar Municipal Corporation",
       "url": "https://gandhinagarmunicipal.com/recruitment/",
-      "error": "HTTP Error 403: Forbidden"
+      "error": "<urlopen error [Errno 101] Network is unreachable>"
     },
     {
       "source": "Gujarat Education Department",
@@ -53,6 +53,11 @@
     {
       "source": "Gujarat Health Department",
       "url": "https://gujhealth.gujarat.gov.in",
+      "error": "<urlopen error _ssl.c:993: The handshake operation timed out>"
+    },
+    {
+      "source": "Gujarat Police",
+      "url": "https://police.gujarat.gov.in",
       "error": "<urlopen error _ssl.c:993: The handshake operation timed out>"
     },
     {
@@ -83,7 +88,6 @@
     "Gujarat High Court Recruitment",
     "Gujarat Informatics Limited",
     "Gujarat Jobs Google News Discovery",
-    "Gujarat Police",
     "Gujarat Social Justice & Empowerment",
     "Gyan Sahayak Gujarat",
     "Jamnagar Municipal Corporation",
@@ -93,7 +97,7 @@
     "SMC Official Recruitment",
     "SMC Official Website"
   ],
-  "smc_items": 34,
+  "smc_items": 39,
   "mode": "live_snapshot",
-  "updated_at": "2026-09-01T15:09:42.750056+00:00"
+  "updated_at": "2026-09-01T18:27:42.450385+00:00"
 }
