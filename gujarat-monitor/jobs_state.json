@@ -1,6 +1,6 @@
 {
-  "total_items": 690,
-  "new_items": 1,
+  "total_items": 733,
+  "new_items": 48,
   "updated_items": 0,
   "errors": [
     {
@@ -34,11 +34,6 @@
       "error": "HTTP Error 403: Forbidden"
     },
     {
-      "source": "Gujarat Biotechnology Research Centre",
-      "url": "https://www.gbrc.gujarat.gov.in/WebCMS/Start/Announcement",
-      "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.gbrc.gujarat.gov.in'. (_ssl.c:1010)>"
-    },
-    {
       "source": "Gujarat Education Department",
       "url": "https://education.gujarat.gov.in",
       "error": "<urlopen error _ssl.c:993: The handshake operation timed out>"
@@ -56,11 +51,6 @@
     {
       "source": "Gujarat Health Department",
       "url": "https://gujhealth.gujarat.gov.in",
-      "error": "<urlopen error _ssl.c:993: The handshake operation timed out>"
-    },
-    {
-      "source": "Gujarat Police",
-      "url": "https://police.gujarat.gov.in",
       "error": "<urlopen error _ssl.c:993: The handshake operation timed out>"
     },
     {
@@ -86,5 +76,5 @@
   ],
   "empty_sources": [],
   "mode": "live_snapshot",
-  "last_run": "2026-09-01T10:25:06.097476+00:00"
+  "last_run": "2026-09-01T15:09:42.750056+00:00"
 }
