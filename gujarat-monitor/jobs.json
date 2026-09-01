@@ -1,5 +1,17 @@
 [
   {
+    "id": "a31d4b652778ee6ad91f",
+    "source": "Gujarat Jobs Google News Discovery",
+    "title": "GSSSB Staff Nurse Recruitment 2026 Notification Out 90 Vacancies, Apply from 30 March - careerpower.in",
+    "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE9mOVZBQ0tkSk84Q0MzWmJpWXkwb0tTXzdjdzFEOXJzZFk5SmhVbzE0b0lRSGZDZkVSMVB3dktBQkJWT0s3dk1PZWFHV3p0amNJcmpaTThVZlRVdFR5NmxzSGd3WG4wQl8zck8zcllJNjVudkRs?oc=5",
+    "priority": "high",
+    "source_type": "discovery",
+    "checked_at": "2026-09-01T18:25:57.109474+00:00",
+    "first_seen_at": "2026-09-01T18:27:42.450385+00:00",
+    "last_changed_at": "2026-09-01T18:27:42.450385+00:00",
+    "change_type": "new"
+  },
+  {
     "id": "1a7cfae78111e4f16116",
     "source": "Gujarat Police",
     "title": "‘‘સુરક્ષા સેતુ સોસાયટીં’’",
@@ -585,18 +597,6 @@
     "checked_at": "2026-08-26T01:41:21.492007+00:00",
     "first_seen_at": "2026-08-26T01:43:18.129911+00:00",
     "last_changed_at": "2026-08-26T01:43:18.129911+00:00",
-    "change_type": "new"
-  },
-  {
-    "id": "61a96c2e3647da0cff46",
-    "source": "Gujarat Jobs Google News Discovery",
-    "title": "GSSSB Staff Nurse Recruitment 2026 Notification Out 90 Vacancies, Apply from 30 March - Career Power",
-    "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE9mOVZBQ0tkSk84Q0MzWmJpWXkwb0tTXzdjdzFEOXJzZFk5SmhVbzE0b0lRSGZDZkVSMVB3dktBQkJWT0s3dk1PZWFHV3p0amNJcmpaTThVZlRVdFR5NmxzSGd3WG4wQl8zck8zcllJNjVudkRs?oc=5",
-    "priority": "high",
-    "source_type": "discovery",
-    "checked_at": "2026-08-20T03:03:16.568517+00:00",
-    "first_seen_at": "2026-08-20T03:04:54.837783+00:00",
-    "last_changed_at": "2026-08-20T03:04:54.837783+00:00",
     "change_type": "new"
   },
   {
@@ -8388,6 +8388,174 @@
     "change_type": "unchanged"
   },
   {
+    "id": "c1c80c413c2c7689122a",
+    "source": "SMC Official Recruitment",
+    "title": "Recruitments",
+    "url": "https://www.suratmunicipal.gov.in/Information/RecruitmentDashboard",
+    "priority": "critical",
+    "source_type": "government",
+    "checked_at": "2026-09-01T18:24:49.238498+00:00",
+    "first_seen_at": "2026-09-01T18:27:42.450385+00:00",
+    "last_changed_at": "2026-09-01T18:27:42.450385+00:00",
+    "change_type": "new"
+  },
+  {
+    "id": "0f2905a29f1cb718c552",
+    "source": "SMC Official Recruitment",
+    "title": "Recruitment",
+    "url": "https://www.suratmunicipal.gov.in/Information/RecruitmentDashboard",
+    "priority": "critical",
+    "source_type": "government",
+    "checked_at": "2026-09-01T18:24:49.238498+00:00",
+    "first_seen_at": "2026-09-01T18:27:42.450385+00:00",
+    "last_changed_at": "2026-09-01T18:27:42.450385+00:00",
+    "change_type": "new"
+  },
+  {
+    "id": "9fb4659c700c8f4513a0",
+    "source": "SMC Official Recruitment",
+    "title": "Engineers (237 KB)",
+    "url": "https://www.suratmunicipal.gov.in/Content/Documents/rtiact/Disclosure/Town%20Development/TDO/Engineers.pdf",
+    "priority": "critical",
+    "source_type": "government",
+    "checked_at": "2026-09-01T18:24:49.238498+00:00",
+    "first_seen_at": "2026-09-01T18:27:42.450385+00:00",
+    "last_changed_at": "2026-09-01T18:27:42.450385+00:00",
+    "change_type": "new"
+  },
+  {
+    "id": "aa8325d68462f20f300d",
+    "source": "SMC Official Recruitment",
+    "title": "Check RTI Application Status",
+    "url": "https://www.suratmunicipal.gov.in/Information/RTIAppStatus",
+    "priority": "critical",
+    "source_type": "government",
+    "checked_at": "2026-09-01T18:24:49.238498+00:00",
+    "first_seen_at": "2026-09-01T18:27:42.450385+00:00",
+    "last_changed_at": "2026-09-01T18:27:42.450385+00:00",
+    "change_type": "new"
+  },
+  {
+    "id": "43ccf0fbc2f6ba8ca403",
+    "source": "SMC Official Recruitment",
+    "title": "Back to Dashboard",
+    "url": "https://www.suratmunicipal.gov.in/Information/RecruitmentDashboard",
+    "priority": "critical",
+    "source_type": "government",
+    "checked_at": "2026-09-01T18:24:49.238498+00:00",
+    "first_seen_at": "2026-09-01T18:27:42.450385+00:00",
+    "last_changed_at": "2026-09-01T18:27:42.450385+00:00",
+    "change_type": "new"
+  },
+  {
+    "id": "584d81ba8a9e2af54c82",
+    "source": "SMC Jobs Google News Discovery 2",
+    "title": "SMC recruitment 2026 opens 1924 posts for clerks, engineers and medical officers; apply from April 1 - timesofindia.indiatimes.com",
+    "url": "https://news.google.com/rss/articles/CBMihgJBVV95cUxNcjZtVkliamJmVl9kajM0cy01cTl3TWhzZE9xOFhPNTJpUTVubm5palBLV3Q0LW03YmNiR2REUS1uMmxqTWtRUHRIcGNwYVhrSEg2NWY0ZmV4bmdlM29jVkV3dUhacUNIa1h4YXBWNWg3LVFDSEt4czN0SzlDUHp5dmJxU1I4bThnM2tGbHJnWjhqcjAwTkFOOEVYVzNIWHhmN2hPQzA5QlFTWmpRODYyU0J1WEhsOHQwbElET2dXc1UxQ3VUcXlya0dYRFVaQ3liU2U1MVpraEtqUXUycmZBNkNiSFRWSU5UVWl0NkZQeWpMVEVDZ2NOUklVUWgycENvcjA2dUZn?oc=5",
+    "priority": "critical",
+    "source_type": "discovery",
+    "checked_at": "2026-09-01T18:25:57.510388+00:00",
+    "first_seen_at": "2026-09-01T18:27:42.450385+00:00",
+    "last_changed_at": "2026-09-01T18:27:42.450385+00:00",
+    "change_type": "new"
+  },
+  {
+    "id": "2fdbdeb9993331bc8709",
+    "source": "SMC Jobs Google News Discovery 2",
+    "title": "SMC Exam Date 2026 Out, Check Official Schedule for 2295 Clerk, MO & Other Posts - careerpower.in",
+    "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE0yenV5NjFkNHRtWVBTSUJaTEIwcHZJOFRRLVV5S05KREZueUJNR25wcEhXdU1pYkZjMGd3Um5wNE5uUGwwT0cwSkd0NXdDU3I5UFVtaHI0M0JXcDFwUWxpMGhR?oc=5",
+    "priority": "critical",
+    "source_type": "discovery",
+    "checked_at": "2026-09-01T18:25:57.510388+00:00",
+    "first_seen_at": "2026-09-01T18:27:42.450385+00:00",
+    "last_changed_at": "2026-09-01T18:27:42.450385+00:00",
+    "change_type": "new"
+  },
+  {
+    "id": "c045232f63ccf03d3722",
+    "source": "SMC Google News Discovery",
+    "title": "SMC Syllabus 2026 and Exam Pattern for Clerk, Driver & More Posts - careerpower.in",
+    "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE9fQ09KUTlYdGdwMlJUejdzRTlXWkpFLWxNVWZrVldyS29uMmY1SVNfcGVPaVAxa1U5OHhTdGI3RWRKTlBKT19JNDhYRjBXSE4yRVFXSnR1cw?oc=5",
+    "priority": "critical",
+    "source_type": "discovery",
+    "checked_at": "2026-09-01T18:24:48.006466+00:00",
+    "first_seen_at": "2026-09-01T18:27:42.450385+00:00",
+    "last_changed_at": "2026-09-01T18:27:42.450385+00:00",
+    "change_type": "new"
+  },
+  {
+    "id": "4cda1c5e54934172ee67",
+    "source": "SMC Google News Discovery",
+    "title": "SMC recruitment 2026: Application window opens for over 1900 posts, check complete details here - timesofindia.indiatimes.com",
+    "url": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxPRjQ4R3NXSVhWSHlfZThkSXY0Wm81N0FSMXJUZlpFZ3E3bUtwV19ILW1GcDRBMVdqaGMzbzN5U0RORTh5TXd5N05PaVctdEFiNmdIYzBfdDZMX0drSUZjcnExc0UwWVpnRHdDVUJnNGVvMi1RUXpVSHBQUF9uUGI3Z2N1Y3VDaXA3RnN6Z2xhVWNXWTE3RE51T1VWSHgwVmxWYmlSekRUaVVja2JZN180M28xMTJrWHJYUzNZVjNzYk1YMUtyMl9MbWs2X244Mjg3S0NXQktiMUsteDNEOWlwWG1HNktmcWM1Mzh6SE5DLTFrWHlTeGRjYzFIbG83bEnSAYQCQVVfeXFMTjE2Qkw4djVRTkdzTmtPSkd3Vm1FVkJCNUFLbGRRdlF5RjF2MGVzVS1jbGhsb0ZHWVhCaGN5SEVQYUM3SnFvQzRJa3R5dUZneVdzQ0NwNVFKR2dibkRDWm9NSlVGZGpoNWdPTHpBa2YxdGwzcXQwbUZsSFBDenhVR1JCZ1ZlaHZKMEpnNGw5VjFleXhQOXJnQU1SNk1oVXpMNjhrQ3pVeW5YSmljOTJ2dXFQcE1nZUxfaDlKdENneGhLZnF0QWZrWHhSUTN3OG1KdFk3bGNrcW05d3hxcENJYzY1M3U0MGdwTXF5SnlEbThsaENyVEpkLVpDemxjUUozVkNwNXo?oc=5",
+    "priority": "critical",
+    "source_type": "discovery",
+    "checked_at": "2026-09-01T18:24:48.006466+00:00",
+    "first_seen_at": "2026-09-01T18:27:42.450385+00:00",
+    "last_changed_at": "2026-09-01T18:27:42.450385+00:00",
+    "change_type": "new"
+  },
+  {
+    "id": "7ea656e7e832c242f11f",
+    "source": "SMC Google News Discovery",
+    "title": "SMC recruitment 2026: Application starts for over 1900 posts, details here - bestcolleges.indiatoday.in",
+    "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPdmZmMVYyWWlabmFQOTYwUzlBWFlqWjZRVFJOVW92T3V1OHllbnctZVNyUXJMRUFQZW1VaVFOSkRWX0xOVXlRVUlPYzlud0N5ZWhwZHJQSHBXQnhjeTNqbDNReWV2d1FpQ0k5bHk5VVVncU85bGliOU83bUVPeDhybFpYVkRXRFBsem1HUVgzb0NneFExRmx1TDMySXRJVWJOZGZVOHVfVXItcC05ZE53cGxpVjM1V2w4ZFF2SWVVbkFfUQ?oc=5",
+    "priority": "critical",
+    "source_type": "discovery",
+    "checked_at": "2026-09-01T18:24:48.006466+00:00",
+    "first_seen_at": "2026-09-01T18:27:42.450385+00:00",
+    "last_changed_at": "2026-09-01T18:27:42.450385+00:00",
+    "change_type": "new"
+  },
+  {
+    "id": "4948210269030b69c5ff",
+    "source": "SMC Google News Discovery",
+    "title": "SMC recruitment 2026 opens 1924 posts for clerks, engineers and medical officers; apply from April 1 - timesofindia.indiatimes.com",
+    "url": "https://news.google.com/rss/articles/CBMihgJBVV95cUxNcjZtVkliamJmVl9kajM0cy01cTl3TWhzZE9xOFhPNTJpUTVubm5palBLV3Q0LW03YmNiR2REUS1uMmxqTWtRUHRIcGNwYVhrSEg2NWY0ZmV4bmdlM29jVkV3dUhacUNIa1h4YXBWNWg3LVFDSEt4czN0SzlDUHp5dmJxU1I4bThnM2tGbHJnWjhqcjAwTkFOOEVYVzNIWHhmN2hPQzA5QlFTWmpRODYyU0J1WEhsOHQwbElET2dXc1UxQ3VUcXlya0dYRFVaQ3liU2U1MVpraEtqUXUycmZBNkNiSFRWSU5UVWl0NkZQeWpMVEVDZ2NOUklVUWgycENvcjA2dUZn?oc=5",
+    "priority": "critical",
+    "source_type": "discovery",
+    "checked_at": "2026-09-01T18:24:48.006466+00:00",
+    "first_seen_at": "2026-09-01T18:27:42.450385+00:00",
+    "last_changed_at": "2026-09-01T18:27:42.450385+00:00",
+    "change_type": "new"
+  },
+  {
+    "id": "3795b1fcdedcd41b00cf",
+    "source": "SMC Google News Discovery",
+    "title": "SMC Exam Date 2026 Out, Check Official Schedule for 2295 Clerk, MO & Other Posts - careerpower.in",
+    "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE0yenV5NjFkNHRtWVBTSUJaTEIwcHZJOFRRLVV5S05KREZueUJNR25wcEhXdU1pYkZjMGd3Um5wNE5uUGwwT0cwSkd0NXdDU3I5UFVtaHI0M0JXcDFwUWxpMGhR?oc=5",
+    "priority": "critical",
+    "source_type": "discovery",
+    "checked_at": "2026-09-01T18:24:48.006466+00:00",
+    "first_seen_at": "2026-09-01T18:27:42.450385+00:00",
+    "last_changed_at": "2026-09-01T18:27:42.450385+00:00",
+    "change_type": "new"
+  },
+  {
+    "id": "ecdf97c7d5582a00bee3",
+    "source": "SMC Google News Discovery",
+    "title": "Sanitation workers demand permanent SMC jobs - timesofindia.indiatimes.com",
+    "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxONkRrWkU0bW4xNWFTX254Ny1sUUpBTzc1UDk1UFNKTUM1ZzNna3cyV2JJR3FEeG01UE1xUGxwZWlWNXBQRldaU3hNLXp1SUstbGg1Nl9rLVduQjV4alNYTi1XLTJTaWJhQW1zdXdRbEdBbnZRYnlGVkhwNXdpRDJ4SDNxSlpMLVduaTczSklyTVRHTjFldlRWVFl6dEgyYTZCOXdCNkVEZXhsd0l6cVVZSWRQNHNxTjTSAbwBQVVfeXFMT1Y5dFJSTUxZNnZEVWEyTnBscGxvN3NFTG9KdjNPc2tqUldScDJNdUVmcDd2b04xanJmUmtEeUw5S01meVFFVWJpa3BvNGhKZTB0ZnBZRmQ5bko2M2JVbzRKcWFhZjU2dEhYMExSeGc0SEFOUVg4S09tTnp0RWt0SUZ5MlFLalJsWFNwVXhhN3UxS1IzYmVFaHItNkx5eHFiZVExUElTQy1zU3BaY3plWGRSUThXaVFEZlVuUHI?oc=5",
+    "priority": "critical",
+    "source_type": "discovery",
+    "checked_at": "2026-09-01T18:24:48.006466+00:00",
+    "first_seen_at": "2026-09-01T18:27:42.450385+00:00",
+    "last_changed_at": "2026-09-01T18:27:42.450385+00:00",
+    "change_type": "new"
+  },
+  {
+    "id": "3e2cf0107c4a431b791d",
+    "source": "SMC Google News Discovery",
+    "title": "Process for recruitment of 300 Marshalls begin in Surat municipal corporation - timesofindia.indiatimes.com",
+    "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxOak1WUGhvVWpWaUZBNTBLbV9fR3owSVlybkpTdmhEX2VHZmRSd1lTNVRIWU9QYklGb2pBN09KalQ2cXp6UVJvWTg3Yk5ud08wclA2TnU0dU9IWUppM2UyQ2R5dGpaU2xhOXg4ZHVUalhSRG5RSm1obGFyNmFzUWFVN3hUSXRtakJHMjlXNmxWT2pJNXVLdUNjVjliOWFpeG5yMVVKYWhZQzczOWg0RklLSUFwOGFlRmVjck5jc1ZVOXc1U3puaHhMeHNTX0luV05Uc3NYZi1qV3dZYmxaU0RaRHJOWdIB6AFBVV95cUxPaWpieEtBcllmT2NlOXVpeG5CenhqNmluaU1HTFpkdTNqUTNVLVJRX2tQcGl3empnRWlhb3FOdEVRVHJhUFRPbFdBbUZtWXNJOTFzUU01RW9jTnRtWUM1V0E4TjVXNmJzQTBMZ3FPMC1CcDM4WXZsd085TG1CQmVLWmZaZDczYmhVeVFjYUp6NmJxeHBNdmw5OUQyOElPSlBPRUVEcURDdlZoMURHX1F2TE03ZzV3VEZtWkZPVmZndG82blc2a0R0ckVtczhZRUp6dlhJb0hHZENmb0NtSHZGQ0JOMUdUVDNX?oc=5",
+    "priority": "critical",
+    "source_type": "discovery",
+    "checked_at": "2026-09-01T18:24:48.006466+00:00",
+    "first_seen_at": "2026-09-01T18:27:42.450385+00:00",
+    "last_changed_at": "2026-09-01T18:27:42.450385+00:00",
+    "change_type": "new"
+  },
+  {
     "id": "0bc3325c765144269546",
     "source": "SMC Google News Discovery",
     "title": "Surat Municipal Corporation to Reserve Direct Recruitment P… - GujaratSamachar English",
@@ -8397,18 +8565,6 @@
     "checked_at": "2026-09-01T10:22:19.258092+00:00",
     "first_seen_at": "2026-09-01T10:25:06.097476+00:00",
     "last_changed_at": "2026-09-01T10:25:06.097476+00:00",
-    "change_type": "new"
-  },
-  {
-    "id": "e0b03b21461adfcd5ea5",
-    "source": "SMC Google News Discovery",
-    "title": "SMC recruitment 2026: Application starts for over 1900 posts, details here - India Today",
-    "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPdmZmMVYyWWlabmFQOTYwUzlBWFlqWjZRVFJOVW92T3V1OHllbnctZVNyUXJMRUFQZW1VaVFOSkRWX0xOVXlRVUlPYzlud0N5ZWhwZHJQSHBXQnhjeTNqbDNReWV2d1FpQ0k5bHk5VVVncU85bGliOU83bUVPeDhybFpYVkRXRFBsem1HUVgzb0NneFExRmx1TDMySXRJVWJOZGZVOHVfVXItcC05ZE53cGxpVjM1V2w4ZFF2SWVVbkFfUQ?oc=5",
-    "priority": "critical",
-    "source_type": "discovery",
-    "checked_at": "2026-09-01T05:32:04.885995+00:00",
-    "first_seen_at": "2026-09-01T05:34:52.761574+00:00",
-    "last_changed_at": "2026-09-01T05:34:52.761574+00:00",
     "change_type": "new"
   },
   {
@@ -8433,18 +8589,6 @@
     "checked_at": "2026-08-31T21:01:22.908424+00:00",
     "first_seen_at": "2026-08-31T21:04:09.481321+00:00",
     "last_changed_at": "2026-08-31T21:04:09.481321+00:00",
-    "change_type": "new"
-  },
-  {
-    "id": "7260aa06b440012128cd",
-    "source": "SMC Google News Discovery",
-    "title": "Process for recruitment of 300 Marshalls begin in Surat municipal corporation - The Times of India",
-    "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxOak1WUGhvVWpWaUZBNTBLbV9fR3owSVlybkpTdmhEX2VHZmRSd1lTNVRIWU9QYklGb2pBN09KalQ2cXp6UVJvWTg3Yk5ud08wclA2TnU0dU9IWUppM2UyQ2R5dGpaU2xhOXg4ZHVUalhSRG5RSm1obGFyNmFzUWFVN3hUSXRtakJHMjlXNmxWT2pJNXVLdUNjVjliOWFpeG5yMVVKYWhZQzczOWg0RklLSUFwOGFlRmVjck5jc1ZVOXc1U3puaHhMeHNTX0luV05Uc3NYZi1qV3dZYmxaU0RaRHJOWdIB6AFBVV95cUxPaWpieEtBcllmT2NlOXVpeG5CenhqNmluaU1HTFpkdTNqUTNVLVJRX2tQcGl3empnRWlhb3FOdEVRVHJhUFRPbFdBbUZtWXNJOTFzUU01RW9jTnRtWUM1V0E4TjVXNmJzQTBMZ3FPMC1CcDM4WXZsd085TG1CQmVLWmZaZDczYmhVeVFjYUp6NmJxeHBNdmw5OUQyOElPSlBPRUVEcURDdlZoMURHX1F2TE03ZzV3VEZtWkZPVmZndG82blc2a0R0ckVtczhZRUp6dlhJb0hHZENmb0NtSHZGQ0JOMUdUVDNX?oc=5",
-    "priority": "critical",
-    "source_type": "discovery",
-    "checked_at": "2026-08-29T17:51:22.712368+00:00",
-    "first_seen_at": "2026-08-29T17:54:08.975982+00:00",
-    "last_changed_at": "2026-08-29T17:54:08.975982+00:00",
     "change_type": "new"
   },
   {
@@ -8518,90 +8662,6 @@
     "first_seen_at": "2026-08-20T06:03:19.333210+00:00",
     "last_changed_at": "2026-08-20T06:03:19.333210+00:00",
     "change_type": "new"
-  },
-  {
-    "id": "da0be8c14852f3db3c44",
-    "source": "SMC Jobs Google News Discovery 2",
-    "title": "SMC Exam Date 2026 Out, Check Official Schedule for 2295 Clerk, MO & Other Posts - Career Power",
-    "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE0yenV5NjFkNHRtWVBTSUJaTEIwcHZJOFRRLVV5S05KREZueUJNR25wcEhXdU1pYkZjMGd3Um5wNE5uUGwwT0cwSkd0NXdDU3I5UFVtaHI0M0JXcDFwUWxpMGhR?oc=5",
-    "priority": "critical",
-    "source_type": "discovery",
-    "checked_at": "2026-08-20T03:03:16.831954+00:00",
-    "first_seen_at": "2026-08-20T03:04:54.837783+00:00",
-    "last_changed_at": "2026-08-20T03:04:54.837783+00:00",
-    "change_type": "new"
-  },
-  {
-    "id": "73c5473dbc182e57fe63",
-    "source": "SMC Google News Discovery",
-    "title": "SMC Syllabus 2026 and Exam Pattern for Clerk, Driver & More Posts - Career Power",
-    "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE9fQ09KUTlYdGdwMlJUejdzRTlXWkpFLWxNVWZrVldyS29uMmY1SVNfcGVPaVAxa1U5OHhTdGI3RWRKTlBKT19JNDhYRjBXSE4yRVFXSnR1cw?oc=5",
-    "priority": "critical",
-    "source_type": "discovery",
-    "checked_at": "2026-08-20T03:02:09.087544+00:00",
-    "first_seen_at": "2026-08-20T03:04:54.837783+00:00",
-    "last_changed_at": "2026-08-20T03:04:54.837783+00:00",
-    "change_type": "new"
-  },
-  {
-    "id": "3582a361c4effaf3ea93",
-    "source": "SMC Google News Discovery",
-    "title": "SMC Exam Date 2026 Out, Check Official Schedule for 2295 Clerk, MO & Other Posts - Career Power",
-    "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE0yenV5NjFkNHRtWVBTSUJaTEIwcHZJOFRRLVV5S05KREZueUJNR25wcEhXdU1pYkZjMGd3Um5wNE5uUGwwT0cwSkd0NXdDU3I5UFVtaHI0M0JXcDFwUWxpMGhR?oc=5",
-    "priority": "critical",
-    "source_type": "discovery",
-    "checked_at": "2026-08-20T03:02:09.087544+00:00",
-    "first_seen_at": "2026-08-20T03:04:54.837783+00:00",
-    "last_changed_at": "2026-08-20T03:04:54.837783+00:00",
-    "change_type": "new"
-  },
-  {
-    "id": "4033c892f529fbed6e04",
-    "source": "SMC Jobs Google News Discovery 2",
-    "title": "SMC recruitment 2026 opens 1924 posts for clerks, engineers and medical officers; apply from April 1 - The Times of India",
-    "url": "https://news.google.com/rss/articles/CBMihgJBVV95cUxNcjZtVkliamJmVl9kajM0cy01cTl3TWhzZE9xOFhPNTJpUTVubm5palBLV3Q0LW03YmNiR2REUS1uMmxqTWtRUHRIcGNwYVhrSEg2NWY0ZmV4bmdlM29jVkV3dUhacUNIa1h4YXBWNWg3LVFDSEt4czN0SzlDUHp5dmJxU1I4bThnM2tGbHJnWjhqcjAwTkFOOEVYVzNIWHhmN2hPQzA5QlFTWmpRODYyU0J1WEhsOHQwbElET2dXc1UxQ3VUcXlya0dYRFVaQ3liU2U1MVpraEtqUXUycmZBNkNiSFRWSU5UVWl0NkZQeWpMVEVDZ2NOUklVUWgycENvcjA2dUZn?oc=5",
-    "priority": "critical",
-    "source_type": "discovery",
-    "checked_at": "2026-08-20T02:43:04.994443+00:00",
-    "first_seen_at": "2026-08-19T21:33:33.218284+00:00",
-    "last_changed_at": "2026-08-19T21:33:33.218284+00:00",
-    "change_type": "unchanged"
-  },
-  {
-    "id": "ecff0914665ed82ecc01",
-    "source": "SMC Google News Discovery",
-    "title": "SMC recruitment 2026: Application window opens for over 1900 posts, check complete details here - The Times of India",
-    "url": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxPRjQ4R3NXSVhWSHlfZThkSXY0Wm81N0FSMXJUZlpFZ3E3bUtwV19ILW1GcDRBMVdqaGMzbzN5U0RORTh5TXd5N05PaVctdEFiNmdIYzBfdDZMX0drSUZjcnExc0UwWVpnRHdDVUJnNGVvMi1RUXpVSHBQUF9uUGI3Z2N1Y3VDaXA3RnN6Z2xhVWNXWTE3RE51T1VWSHgwVmxWYmlSekRUaVVja2JZN180M28xMTJrWHJYUzNZVjNzYk1YMUtyMl9MbWs2X244Mjg3S0NXQktiMUsteDNEOWlwWG1HNktmcWM1Mzh6SE5DLTFrWHlTeGRjYzFIbG83bEnSAYQCQVVfeXFMTjE2Qkw4djVRTkdzTmtPSkd3Vm1FVkJCNUFLbGRRdlF5RjF2MGVzVS1jbGhsb0ZHWVhCaGN5SEVQYUM3SnFvQzRJa3R5dUZneVdzQ0NwNVFKR2dibkRDWm9NSlVGZGpoNWdPTHpBa2YxdGwzcXQwbUZsSFBDenhVR1JCZ1ZlaHZKMEpnNGw5VjFleXhQOXJnQU1SNk1oVXpMNjhrQ3pVeW5YSmljOTJ2dXFQcE1nZUxfaDlKdENneGhLZnF0QWZrWHhSUTN3OG1KdFk3bGNrcW05d3hxcENJYzY1M3U0MGdwTXF5SnlEbThsaENyVEpkLVpDemxjUUozVkNwNXo?oc=5",
-    "priority": "critical",
-    "source_type": "discovery",
-    "checked_at": "2026-08-20T02:41:55.551026+00:00",
-    "first_seen_at": "2026-08-19T21:33:33.218284+00:00",
-    "last_changed_at": "2026-08-19T21:33:33.218284+00:00",
-    "change_type": "unchanged"
-  },
-  {
-    "id": "0b7b2bd26e60d4d2c791",
-    "source": "SMC Google News Discovery",
-    "title": "SMC recruitment 2026 opens 1924 posts for clerks, engineers and medical officers; apply from April 1 - The Times of India",
-    "url": "https://news.google.com/rss/articles/CBMihgJBVV95cUxNcjZtVkliamJmVl9kajM0cy01cTl3TWhzZE9xOFhPNTJpUTVubm5palBLV3Q0LW03YmNiR2REUS1uMmxqTWtRUHRIcGNwYVhrSEg2NWY0ZmV4bmdlM29jVkV3dUhacUNIa1h4YXBWNWg3LVFDSEt4czN0SzlDUHp5dmJxU1I4bThnM2tGbHJnWjhqcjAwTkFOOEVYVzNIWHhmN2hPQzA5QlFTWmpRODYyU0J1WEhsOHQwbElET2dXc1UxQ3VUcXlya0dYRFVaQ3liU2U1MVpraEtqUXUycmZBNkNiSFRWSU5UVWl0NkZQeWpMVEVDZ2NOUklVUWgycENvcjA2dUZn?oc=5",
-    "priority": "critical",
-    "source_type": "discovery",
-    "checked_at": "2026-08-20T02:41:55.551026+00:00",
-    "first_seen_at": "2026-08-19T21:33:33.218284+00:00",
-    "last_changed_at": "2026-08-19T21:33:33.218284+00:00",
-    "change_type": "unchanged"
-  },
-  {
-    "id": "5b2d9aa07477b4ea2ee7",
-    "source": "SMC Google News Discovery",
-    "title": "Sanitation workers demand permanent SMC jobs - The Times of India",
-    "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxONkRrWkU0bW4xNWFTX254Ny1sUUpBTzc1UDk1UFNKTUM1ZzNna3cyV2JJR3FEeG01UE1xUGxwZWlWNXBQRldaU3hNLXp1SUstbGg1Nl9rLVduQjV4alNYTi1XLTJTaWJhQW1zdXdRbEdBbnZRYnlGVkhwNXdpRDJ4SDNxSlpMLVduaTczSklyTVRHTjFldlRWVFl6dEgyYTZCOXdCNkVEZXhsd0l6cVVZSWRQNHNxTjTSAbwBQVVfeXFMT1Y5dFJSTUxZNnZEVWEyTnBscGxvN3NFTG9KdjNPc2tqUldScDJNdUVmcDd2b04xanJmUmtEeUw5S01meVFFVWJpa3BvNGhKZTB0ZnBZRmQ5bko2M2JVbzRKcWFhZjU2dEhYMExSeGc0SEFOUVg4S09tTnp0RWt0SUZ5MlFLalJsWFNwVXhhN3UxS1IzYmVFaHItNkx5eHFiZVExUElTQy1zU3BaY3plWGRSUThXaVFEZlVuUHI?oc=5",
-    "priority": "critical",
-    "source_type": "discovery",
-    "checked_at": "2026-08-20T02:41:55.551026+00:00",
-    "first_seen_at": "2026-08-19T21:33:33.218284+00:00",
-    "last_changed_at": "2026-08-19T21:33:33.218284+00:00",
-    "change_type": "unchanged"
   },
   {
     "id": "b43ca647408a5e71e894",
