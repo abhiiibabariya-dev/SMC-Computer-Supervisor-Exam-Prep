@@ -12,6 +12,10 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: reconcile-premium
+  cancel-in-progress: true
+
 env:
   FIREBASE_URL: 'https://smc-exam-prep-38d22-default-rtdb.asia-southeast1.firebasedatabase.app'
 
@@ -27,29 +31,66 @@ jobs:
         run: |
           set -euo pipefail
           test -n "${FB_SECRET:-}"
+
+          # Retry function for network calls
+          retry_request() {
+            local max_retries=3
+            local retry=0
+            local delay=1
+            while [ $retry -lt $max_retries ]; do
+              if eval "$1"; then
+                return 0
+              fi
+              retry=$((retry + 1))
+              echo "Attempt $retry/$max_retries failed, retrying in ${delay}s..."
+              sleep $delay
+              delay=$((delay * 2))
+            done
+            return 1
+          }
+
           python3 - <<'PY'
-          import json, os, urllib.parse, urllib.request
+          import json, os, urllib.parse, urllib.request, urllib.error, time
 
           base = os.environ['FIREBASE_URL'].rstrip('/')
           secret = os.environ['FB_SECRET']
 
           def get(path):
               url = f"{base}/{path}.json?auth={urllib.parse.quote(secret, safe='')}"
-              with urllib.request.urlopen(url, timeout=30) as r:
-                  return json.load(r) or {}
+              max_retries = 3
+              for attempt in range(max_retries):
+                  try:
+                      with urllib.request.urlopen(url, timeout=30) as r:
+                          data = json.load(r)
+                          return data or {}
+                  except (urllib.error.URLError, urllib.error.HTTPError, json.JSONDecodeError, TimeoutError) as e:
+                      if attempt == max_retries - 1:
+                          print(f"Failed to fetch {path} after {max_retries} attempts: {e}")
+                          return {}
+                      time.sleep(2 ** attempt)
+              return {}
 
           def patch(path, payload):
               url = f"{base}/{path}.json?auth={urllib.parse.quote(secret, safe='')}"
               data = json.dumps(payload).encode()
-              req = urllib.request.Request(url, data=data, method='PATCH', headers={'Content-Type':'application/json'})
-              with urllib.request.urlopen(req, timeout=30) as r:
-                  body = r.read()
-                  if body:
-                      try:
-                          return json.loads(body)
-                      except json.JSONDecodeError:
-                          return body.decode()
-                  return None
+              max_retries = 3
+              for attempt in range(max_retries):
+                  try:
+                      req = urllib.request.Request(url, data=data, method='PATCH', headers={'Content-Type':'application/json'})
+                      with urllib.request.urlopen(req, timeout=30) as r:
+                          body = r.read()
+                          if body:
+                              try:
+                                  return json.loads(body)
+                              except json.JSONDecodeError:
+                                  return body.decode()
+                          return None
+                  except (urllib.error.URLError, urllib.error.HTTPError, TimeoutError) as e:
+                      if attempt == max_retries - 1:
+                          print(f"Failed to patch {path} after {max_retries} attempts: {e}")
+                          return None
+                      time.sleep(2 ** attempt)
+              return None
 
           def norm_email(v):
               return str(v or '').strip().lower()
@@ -96,27 +137,30 @@ jobs:
 
               plan = req.get('approvedPlan') or req.get('plan')
               amount = req.get('amount')
-              if plan not in ('premium49', 'premium99'):
+              if plan not in ('premium99', 'premium199'):
                   try:
-                      plan = 'premium49' if float(amount) == 49 else ('premium99' if float(amount) == 99 else None)
+                      plan = 'premium99' if float(amount) == 99 else ('premium199' if float(amount) == 199 else None)
                   except (TypeError, ValueError):
                       plan = None
-              if plan not in ('premium49', 'premium99'):
+              if plan not in ('premium99', 'premium199'):
                   continue
 
               expected = {
                   'plan': plan,
-                  'planLabel': 'Premium ₹49' if plan == 'premium49' else 'Premium ₹99',
+                  'planLabel': 'Premium ₹99' if plan == 'premium99' else 'Premium ₹199',
                   'subscriptionStatus': 'active',
                   'expiresAt': None,
-                  'entitlements': {'mockTests': True, 'fullAccess': plan == 'premium99'},
+                  'entitlements': {'mockTests': True, 'fullAccess': plan == 'premium199'},
               }
               user = users.get(uid) or {}
               mismatch = any(user.get(k) != v for k, v in expected.items())
               if mismatch:
-                  patch(f'users/{urllib.parse.quote(uid, safe="")}', expected)
-                  repaired += 1
-                  matched_by[matched] += 1
+                  result = patch(f'users/{urllib.parse.quote(uid, safe="")}', expected)
+                  if result is not None:
+                      repaired += 1
+                      matched_by[matched] += 1
+                  else:
+                      print(f"Failed to patch user {uid} for order {order_id}")
 
           print(f'Reconciled approved premium accounts: {repaired}')
           print(f'Matched accounts by identity: {matched_by}')

@@ -8,10 +8,14 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: cleanup-unverified-users
+  cancel-in-progress: true
+
 jobs:
   cleanup:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
     steps:
       - name: Set up Node.js
         uses: actions/setup-node@v5
@@ -46,71 +50,108 @@ jobs:
           const { getDatabase } = require('firebase-admin/database');
 
           (async () => {
-            const serviceAccount = JSON.parse(fs.readFileSync('/tmp/firebase-service-account.json', 'utf8'));
-            const app = initializeApp({
-              credential: cert(serviceAccount),
-              databaseURL: process.env.FIREBASE_DATABASE_URL
-            });
-            const auth = getAuth(app);
-            const db = getDatabase(app);
-            const adminEmail = process.env.ADMIN_EMAIL.toLowerCase();
-            const cutoff = Date.now() - 7 * 24 * 60 * 60 * 1000;
-            let nextPageToken;
-            let scanned = 0;
-            let removed = 0;
-            let skippedPayment = 0;
+            try {
+              const serviceAccount = JSON.parse(fs.readFileSync('/tmp/firebase-service-account.json', 'utf8'));
+              const app = initializeApp({
+                credential: cert(serviceAccount),
+                databaseURL: process.env.FIREBASE_DATABASE_URL
+              });
+              const auth = getAuth(app);
+              const db = getDatabase(app);
+              const adminEmail = process.env.ADMIN_EMAIL.toLowerCase();
+              // NOTE: This hardcoded email is used as a fallback. In production, admin status should be determined by custom claims.
+              const cutoff = Date.now() - 7 * 24 * 60 * 60 * 1000;
+              let nextPageToken;
+              let scanned = 0;
+              let removed = 0;
+              let skippedPayment = 0;
 
-            // Never delete an unverified account that already has a payment trail.
-            // This protects users who paid but have not completed email verification.
-            const paymentSnap = await db.ref('payment_requests').once('value');
-            const paymentByUid = new Map();
-            for (const [orderId, req] of Object.entries(paymentSnap.val() || {})) {
-              if (!req || !req.uid) continue;
-              const status = String(req.status || '').toLowerCase();
-              if (status === 'pending' || status === 'approved') {
-                paymentByUid.set(String(req.uid), { status, orderId });
+              // Never delete an unverified account that already has a payment trail.
+              // This protects users who paid but have not completed email verification.
+              const paymentSnap = await db.ref('payment_requests').once('value');
+              const paymentByUid = new Map();
+              for (const [orderId, req] of Object.entries(paymentSnap.val() || {})) {
+                if (!req || !req.uid) continue;
+                const status = String(req.status || '').toLowerCase();
+                if (status === 'pending' || status === 'approved') {
+                  paymentByUid.set(String(req.uid), { status, orderId });
+                }
               }
+
+              do {
+                const page = await auth.listUsers(1000, nextPageToken);
+                for (const u of page.users) {
+                  scanned++;
+                  if ((u.email || '').toLowerCase() === adminEmail) continue;
+
+                  const created = new Date(u.metadata.creationTime || 0).getTime();
+                  const stale = created > 0 && created < cutoff;
+                  // Mobile is collected for account matching, not SMS/phone verification.
+                  // Never delete an account merely because Firebase Auth has no phoneNumber.
+                  const unverified = u.emailVerified !== true;
+
+                  if (!stale || !unverified) continue;
+
+                  const payment = paymentByUid.get(u.uid);
+                  if (payment) {
+                    skippedPayment++;
+                    console.log(`Skipped stale unverified account with ${payment.status} payment: ${u.uid} (${payment.orderId})`);
+                    continue;
+                  }
+
+                  // Add retry logic for database read
+                  let profile = null;
+                  for (let attempt = 0; attempt < 3; attempt++) {
+                    try {
+                      profile = await db.ref('users/' + u.uid).once('value').then(s => s.val() || {});
+                      break;
+                    } catch (err) {
+                      if (attempt === 2) throw err;
+                      await new Promise(r => setTimeout(r, 1000 * (attempt + 1)));
+                    }
+                  }
+
+                  if (profile.subscriptionStatus === 'active' || profile.plan === 'premium99' || profile.plan === 'premium199') {
+                    skippedPayment++;
+                    console.log(`Skipped stale unverified account with premium profile: ${u.uid}`);
+                    continue;
+                  }
+
+                  // Add retry logic for user deletion
+                  for (let attempt = 0; attempt < 3; attempt++) {
+                    try {
+                      await auth.deleteUser(u.uid);
+                      break;
+                    } catch (err) {
+                      if (attempt === 2) throw err;
+                      await new Promise(r => setTimeout(r, 1000 * (attempt + 1)));
+                    }
+                  }
+
+                  // Add retry logic for database removal
+                  for (let attempt = 0; attempt < 3; attempt++) {
+                    try {
+                      await db.ref('users/' + u.uid).remove();
+                      break;
+                    } catch (err) {
+                      if (attempt === 2) throw err;
+                      await new Promise(r => setTimeout(r, 1000 * (attempt + 1)));
+                    }
+                  }
+
+                  removed++;
+                  console.log(`Removed stale unverified account: ${u.uid}`);
+                }
+                nextPageToken = page.pageToken;
+              } while (nextPageToken);
+
+              console.log(`Account cleanup complete. Scanned=${scanned}, removed=${removed}, skippedWithPaymentOrPremium=${skippedPayment}`);
+            } catch (err) {
+              console.error('Cleanup failed:', err);
+              process.exit(1);
             }
-
-            do {
-              const page = await auth.listUsers(1000, nextPageToken);
-              for (const u of page.users) {
-                scanned++;
-                if ((u.email || '').toLowerCase() === adminEmail) continue;
-
-                const created = new Date(u.metadata.creationTime || 0).getTime();
-                const stale = created > 0 && created < cutoff;
-                // Mobile is collected for account matching, not SMS/phone verification.
-                // Never delete an account merely because Firebase Auth has no phoneNumber.
-                const unverified = u.emailVerified !== true;
-
-                if (!stale || !unverified) continue;
-
-                const payment = paymentByUid.get(u.uid);
-                if (payment) {
-                  skippedPayment++;
-                  console.log(`Skipped stale unverified account with ${payment.status} payment: ${u.uid} (${payment.orderId})`);
-                  continue;
-                }
-
-                const profile = await db.ref('users/' + u.uid).once('value').then(s => s.val() || {});
-                if (profile.subscriptionStatus === 'active' || profile.plan === 'premium49' || profile.plan === 'premium99') {
-                  skippedPayment++;
-                  console.log(`Skipped stale unverified account with premium profile: ${u.uid}`);
-                  continue;
-                }
-
-                await auth.deleteUser(u.uid);
-                await db.ref('users/' + u.uid).remove().catch(() => {});
-                removed++;
-                console.log(`Removed stale unverified account: ${u.uid}`);
-              }
-              nextPageToken = page.pageToken;
-            } while (nextPageToken);
-
-            console.log(`Account cleanup complete. Scanned=${scanned}, removed=${removed}, skippedWithPaymentOrPremium=${skippedPayment}`);
           })().catch((err) => {
-            console.error(err);
+            console.error('Unhandled error:', err);
             process.exit(1);
           });
           NODE

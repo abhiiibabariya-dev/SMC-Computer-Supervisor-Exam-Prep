@@ -25,7 +25,7 @@ jobs:
   monitor:
     if: github.event_name != 'push' || github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
-    timeout-minutes: 18
+    timeout-minutes: 20
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -50,7 +50,20 @@ jobs:
         id: scan
         continue-on-error: true
         timeout-minutes: 14
-        run: python3 gujarat-monitor/smc_jobs.py
+        shell: bash
+        run: |
+          set -euo pipefail
+          max_retries=2
+          retry=0
+          while [ $retry -lt $max_retries ]; do
+            if python3 gujarat-monitor/smc_jobs.py; then
+              exit 0
+            fi
+            retry=$((retry + 1))
+            echo "Scan attempt $retry/$max_retries failed, retrying..."
+            sleep $((retry * 10))
+          done
+          exit 1
 
       - name: Restore last-good job snapshot after scan failure
         if: steps.scan.outcome == 'failure'
@@ -71,9 +84,19 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          python3 gujarat-monitor/sync_smc_site_status.py
-          mkdir -p docs/gujarat-monitor
-          cp gujarat-monitor/smc-status.json docs/gujarat-monitor/smc-status.json
+          max_retries=2
+          retry=0
+          while [ $retry -lt $max_retries ]; do
+            if python3 gujarat-monitor/sync_smc_site_status.py; then
+              mkdir -p docs/gujarat-monitor
+              cp gujarat-monitor/smc-status.json docs/gujarat-monitor/smc-status.json
+              exit 0
+            fi
+            retry=$((retry + 1))
+            echo "Sync attempt $retry/$max_retries failed, retrying..."
+            sleep $((retry * 10))
+          done
+          exit 1
 
       - name: Safety-check job snapshot
         shell: bash
@@ -99,7 +122,20 @@ jobs:
           PY
 
       - name: Update HTML from official status
-        run: python3 gujarat-monitor/inject_live_updates.py
+        shell: bash
+        run: |
+          set -euo pipefail
+          max_retries=2
+          retry=0
+          while [ $retry -lt $max_retries ]; do
+            if python3 gujarat-monitor/inject_live_updates.py; then
+              exit 0
+            fi
+            retry=$((retry + 1))
+            echo "Inject attempt $retry/$max_retries failed, retrying..."
+            sleep $((retry * 10))
+          done
+          exit 1
 
       - name: Validate generated data and JavaScript
         shell: bash
