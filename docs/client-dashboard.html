@@ -97,7 +97,7 @@ body{margin:0;min-height:100vh;background:radial-gradient(circle at 18% 8%,rgba(
 }
 </style>
 <script src="smc-live-sync.js?v=20260821"></script>
-<script src="gate.js?v=20260821"></script>
+<script src="gate.js?v=20260826-5"></script>
 </head>
 <body>
 <div class="wrap">
@@ -132,6 +132,7 @@ body{margin:0;min-height:100vh;background:radial-gradient(circle at 18% 8%,rgba(
 </div>
 <div class="actions">
 <button class="btn alt" id="logout" type="button">Sign out</button>
+<button class="btn alt" id="logoutAll" type="button" style="background:rgba(239,68,68,.14);color:#fca5a5;border:1px solid rgba(239,68,68,.2)">Logout All Devices</button>
 <a class="btn purple" id="adminLink" href="admin-console.html" style="display:none">🛡 Admin Control Center</a>
 </div>
 </div>
@@ -266,7 +267,18 @@ else if(p.plan==='premium199')p199.classList.add('pending');
 else pf.classList.add('active');
 }else{pf.classList.add('active');}
 
-if((user.email||'').toLowerCase()===ADMIN_EMAIL&&user.emailVerified===true)$('adminLink').style.display='inline-flex';
+// Admin link display is handled by checking custom claims via getIdTokenResult
+// The admin claim is set server-side via Firebase Functions
+async function checkAdminAndShowLink(user){
+    try{
+        const idTokenResult=await user.getIdTokenResult(true);
+        if(idTokenResult.claims?.admin===true){
+            $('adminLink').style.display='inline-flex';
+        }
+    }catch(e){
+        console.error('Admin check error:',e);
+    }
+}
 
 loadActivityStats(user.uid);
 }
@@ -302,18 +314,34 @@ return
 try{
 if(!firebase.apps.length)firebase.initializeApp(cfg);
 const auth=firebase.auth(),db=firebase.database();
+let currentUser = null;
 auth.onAuthStateChanged(async user=>{
 if(!user){location.replace('login.html');return}
+currentUser = user;
 try{
 const snap=await db.ref('users/'+user.uid).once('value');
-render(user,snap.val()||{})
+render(user,snap.val()||{});
+await checkAdminAndShowLink(user);
 }catch(e){
 render(user,{});
 say('Signed in, but subscription details could not be loaded. Please refresh after Firebase rules deployment.')
 }
 });
 $('logout').onclick=async()=>{
-try{if(typeof smcTrackLogout==='function')smcTrackLogout(user.uid);await auth.signOut();location.replace('login.html')}catch(e){say('Unable to sign out.')}
+const u = currentUser || auth.currentUser;
+try{if(typeof smcTrackLogout==='function' && u)smcTrackLogout(u.uid);await auth.signOut();location.replace('login.html')}catch(e){say('Unable to sign out.')}
+}
+$('logoutAll').onclick=async()=>{
+const u = currentUser || auth.currentUser;
+try{
+if(window.firebase&&firebase.functions){
+var fn=firebase.functions().httpsCallable('revokeAllSessions');
+await fn({});
+}
+if(typeof smcTrackLogout==='function' && u)smcTrackLogout(u.uid);
+await auth.signOut();
+location.replace('login.html');
+}catch(e){say('Unable to logout from all devices.');}
 }
 }catch(e){
 say('Unable to initialize your account.')

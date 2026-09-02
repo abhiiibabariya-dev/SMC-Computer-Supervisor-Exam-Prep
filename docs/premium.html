@@ -156,8 +156,7 @@
     </style>
     <script src="smc-live-sync.js?v=20260821"></script>
     <script src="/SMC-Computer-Supervisor-Exam-Prep/auto-live-jobs.js?v=20260824-5" defer></script>
-<script src="gate.js?v=20260821"></script>
-<script src="gate.js?v=20260819"></script>
+<script src="gate.js?v=20260826-5"></script>
 <script src="subscription-payments.js?v=20260821"></script>
 <script src="https://www.gstatic.com/firebasejs/12.17.1/firebase-functions-compat.js"></script>
 </head>
@@ -672,7 +671,8 @@ async function verifyPayment(){
 
     try {
         // Call Cloud Function for server-side payment verification
-        const { verifyPayment: verifyPaymentFn } = firebase.functions();
+        const functions = firebase.functions();
+        const verifyPaymentFn = functions.httpsCallable('verifyPayment');
         const result = await verifyPaymentFn({
             orderId: orderNumber,
             txnId: txnId,
@@ -680,7 +680,8 @@ async function verifyPayment(){
             plan: plan.name === 'Full Access' ? 'premium199' : 'premium99'
         });
 
-        if (result.success) {
+        const responseData = result.data || {};
+        if (responseData.success) {
             // Premium access is now granted via Firebase Custom Claims (server-side)
             // No more localStorage access keys or device binding needed
 
@@ -728,9 +729,9 @@ async function verifyPayment(){
                 sendAdminNotification(r, 'server_verified');
             }catch(e){}
 
-            alert(result.message || 'Payment verified successfully! Premium access activated.');
+            alert(responseData.message || 'Payment verified successfully! Premium access activated.');
         } else {
-            throw new Error(result.message || 'Payment verification failed');
+            throw new Error(responseData.message || 'Payment verification failed');
         }
     } catch (error) {
         console.error('Payment verification error:', error);
@@ -754,11 +755,10 @@ function getReceiptData(){
         order:orderNumber,
         plan:plan.name,
         amount:'Rs '+plan.price,
-        txn:document.getElementById('txnId').value.trim(),
-        key:document.getElementById('accessKey').textContent,
-        name:document.getElementById('userName').value.trim(),
-        phone:document.getElementById('userPhone').value.trim(),
-        email:document.getElementById('userEmail').value.trim(),
+        txn:document.getElementById('txnId')?.value?.trim()||'',
+        name:document.getElementById('userName')?.value?.trim()||'',
+        phone:document.getElementById('userPhone')?.value?.trim()||'',
+        email:document.getElementById('userEmail')?.value?.trim()||'',
         date:new Date().toLocaleString('en-IN',{timeZone:'Asia/Kolkata'})
     };
 }
@@ -860,6 +860,7 @@ function sendEmail(){
     mailtoFallback(r);
 }
 
+}
 function mailtoFallback(r){
     const subject='SMC Exam Prep — Premium Receipt ('+r.order+')';
     const body='SMC Exam Prep — Premium Activated!\n========================================\n\nPayment Receipt\n-----------------\nOrder ID: '+r.order+'\nPlan: '+r.plan+'\nAmount: '+r.amount+'\nTransaction ID: '+r.txn+'\nDate: '+r.date+'\nName: '+r.name+'\n\n========================================\n\nYour premium access is now active!\nOpen the website and sign in with your account to access all mock tests:\nhttps://abhiiibabariya-dev.github.io/SMC-Computer-Supervisor-Exam-Prep/mock-test.html\n\nPremium access is linked to your Firebase account (works on all devices).\n\nThank you for purchasing SMC Exam Prep Premium!\nGood luck with your exam!';
