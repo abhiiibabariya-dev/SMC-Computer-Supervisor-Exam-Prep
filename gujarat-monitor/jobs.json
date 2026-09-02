@@ -8376,6 +8376,30 @@
     "change_type": "unchanged"
   },
   {
+    "id": "bcbb044e7bd6eade6c69",
+    "source": "SMC Jobs Google News Discovery 2",
+    "title": "SMC Apprentices Recruitment 2026 Notification Out - Apply Online for 1000 Posts - freejobalert.com",
+    "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQZFh5SWZ3RG1wUEZTUW1xQ0JJOUUzZERMMEFKaHdTS1JfUWFwdnZXT2NFYUJmbFQzeVhSRi11Y0dOeUEwUWloUGF4ZjNmc0ZiUjBDRjdVREtIajJIZDViR3ZWUjJsdjZjbndGdDE5bmlJNkY0YzhyZ3o4ZTBCX3QxX1p0S1lHVzdZNjREX0pnaUpaVF9DZUVQYmlJbWFsaURQUThiTGlPUjVSdw?oc=5",
+    "priority": "critical",
+    "source_type": "discovery",
+    "checked_at": "2026-09-02T19:26:25.826780+00:00",
+    "first_seen_at": "2026-09-02T19:28:04.940626+00:00",
+    "last_changed_at": "2026-09-02T19:28:04.940626+00:00",
+    "change_type": "new"
+  },
+  {
+    "id": "b9039306e8eab68de4a2",
+    "source": "SMC Google News Discovery",
+    "title": "SMC Apprentices Recruitment 2026 Notification Out - Apply Online for 1000 Posts - freejobalert.com",
+    "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQZFh5SWZ3RG1wUEZTUW1xQ0JJOUUzZERMMEFKaHdTS1JfUWFwdnZXT2NFYUJmbFQzeVhSRi11Y0dOeUEwUWloUGF4ZjNmc0ZiUjBDRjdVREtIajJIZDViR3ZWUjJsdjZjbndGdDE5bmlJNkY0YzhyZ3o4ZTBCX3QxX1p0S1lHVzdZNjREX0pnaUpaVF9DZUVQYmlJbWFsaURQUThiTGlPUjVSdw?oc=5",
+    "priority": "critical",
+    "source_type": "discovery",
+    "checked_at": "2026-09-02T19:25:18.079456+00:00",
+    "first_seen_at": "2026-09-02T19:28:04.940626+00:00",
+    "last_changed_at": "2026-09-02T19:28:04.940626+00:00",
+    "change_type": "new"
+  },
+  {
     "id": "73c5473dbc182e57fe63",
     "source": "SMC Google News Discovery",
     "title": "SMC Syllabus 2026 and Exam Pattern for Clerk, Driver & More Posts - Career Power",
@@ -8460,66 +8484,6 @@
     "change_type": "new"
   },
   {
-    "id": "c1c80c413c2c7689122a",
-    "source": "SMC Official Recruitment",
-    "title": "Recruitments",
-    "url": "https://www.suratmunicipal.gov.in/Information/RecruitmentDashboard",
-    "priority": "critical",
-    "source_type": "government",
-    "checked_at": "2026-09-02T09:56:45.385321+00:00",
-    "first_seen_at": "2026-09-02T09:59:24.866312+00:00",
-    "last_changed_at": "2026-09-02T09:59:24.866312+00:00",
-    "change_type": "new"
-  },
-  {
-    "id": "0f2905a29f1cb718c552",
-    "source": "SMC Official Recruitment",
-    "title": "Recruitment",
-    "url": "https://www.suratmunicipal.gov.in/Information/RecruitmentDashboard",
-    "priority": "critical",
-    "source_type": "government",
-    "checked_at": "2026-09-02T09:56:45.385321+00:00",
-    "first_seen_at": "2026-09-02T09:59:24.866312+00:00",
-    "last_changed_at": "2026-09-02T09:59:24.866312+00:00",
-    "change_type": "new"
-  },
-  {
-    "id": "9fb4659c700c8f4513a0",
-    "source": "SMC Official Recruitment",
-    "title": "Engineers (237 KB)",
-    "url": "https://www.suratmunicipal.gov.in/Content/Documents/rtiact/Disclosure/Town%20Development/TDO/Engineers.pdf",
-    "priority": "critical",
-    "source_type": "government",
-    "checked_at": "2026-09-02T09:56:45.385321+00:00",
-    "first_seen_at": "2026-09-02T09:59:24.866312+00:00",
-    "last_changed_at": "2026-09-02T09:59:24.866312+00:00",
-    "change_type": "new"
-  },
-  {
-    "id": "aa8325d68462f20f300d",
-    "source": "SMC Official Recruitment",
-    "title": "Check RTI Application Status",
-    "url": "https://www.suratmunicipal.gov.in/Information/RTIAppStatus",
-    "priority": "critical",
-    "source_type": "government",
-    "checked_at": "2026-09-02T09:56:45.385321+00:00",
-    "first_seen_at": "2026-09-02T09:59:24.866312+00:00",
-    "last_changed_at": "2026-09-02T09:59:24.866312+00:00",
-    "change_type": "new"
-  },
-  {
-    "id": "43ccf0fbc2f6ba8ca403",
-    "source": "SMC Official Recruitment",
-    "title": "Back to Dashboard",
-    "url": "https://www.suratmunicipal.gov.in/Information/RecruitmentDashboard",
-    "priority": "critical",
-    "source_type": "government",
-    "checked_at": "2026-09-02T09:56:45.385321+00:00",
-    "first_seen_at": "2026-09-02T09:59:24.866312+00:00",
-    "last_changed_at": "2026-09-02T09:59:24.866312+00:00",
-    "change_type": "new"
-  },
-  {
     "id": "b43ca647408a5e71e894",
     "source": "SMC Jobs Google News Discovery 2",
     "title": "SMC Staff Nurse Vacancy 2026 Out, Check official PDF and Apply Online Link - Adda247",
@@ -8553,30 +8517,6 @@
     "checked_at": "2026-09-02T09:56:37.231392+00:00",
     "first_seen_at": "2026-09-02T09:59:24.866312+00:00",
     "last_changed_at": "2026-09-02T09:59:24.866312+00:00",
-    "change_type": "new"
-  },
-  {
-    "id": "354607e104825996e3c9",
-    "source": "SMC Jobs Google News Discovery 2",
-    "title": "SMC Apprentices Recruitment 2026 Notification Out - Apply Online for 1000 Posts - FreeJobAlert.Com",
-    "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQZFh5SWZ3RG1wUEZTUW1xQ0JJOUUzZERMMEFKaHdTS1JfUWFwdnZXT2NFYUJmbFQzeVhSRi11Y0dOeUEwUWloUGF4ZjNmc0ZiUjBDRjdVREtIajJIZDViR3ZWUjJsdjZjbndGdDE5bmlJNkY0YzhyZ3o4ZTBCX3QxX1p0S1lHVzdZNjREX0pnaUpaVF9DZUVQYmlJbWFsaURQUThiTGlPUjVSdw?oc=5",
-    "priority": "critical",
-    "source_type": "discovery",
-    "checked_at": "2026-09-02T05:42:37.538058+00:00",
-    "first_seen_at": "2026-09-02T05:44:22.400416+00:00",
-    "last_changed_at": "2026-09-02T05:44:22.400416+00:00",
-    "change_type": "new"
-  },
-  {
-    "id": "785d3ea07d6d1ec0be65",
-    "source": "SMC Google News Discovery",
-    "title": "SMC Apprentices Recruitment 2026 Notification Out - Apply Online for 1000 Posts - FreeJobAlert.Com",
-    "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQZFh5SWZ3RG1wUEZTUW1xQ0JJOUUzZERMMEFKaHdTS1JfUWFwdnZXT2NFYUJmbFQzeVhSRi11Y0dOeUEwUWloUGF4ZjNmc0ZiUjBDRjdVREtIajJIZDViR3ZWUjJsdjZjbndGdDE5bmlJNkY0YzhyZ3o4ZTBCX3QxX1p0S1lHVzdZNjREX0pnaUpaVF9DZUVQYmlJbWFsaURQUThiTGlPUjVSdw?oc=5",
-    "priority": "critical",
-    "source_type": "discovery",
-    "checked_at": "2026-09-02T05:41:28.546372+00:00",
-    "first_seen_at": "2026-09-02T05:44:22.400416+00:00",
-    "last_changed_at": "2026-09-02T05:44:22.400416+00:00",
     "change_type": "new"
   },
   {
