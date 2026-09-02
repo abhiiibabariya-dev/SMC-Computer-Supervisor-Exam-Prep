@@ -1,22 +1,10 @@
 {
   "region": "Gujarat",
   "focus": "Gujarat Government Jobs and SMC Recruitment",
-  "total": 729,
-  "new_items": 8,
+  "total": 728,
+  "new_items": 2,
   "updated_items": 0,
   "items": [
-    {
-      "id": "bf7410812983378019a9",
-      "source": "Gujarat Jobs Google News Discovery",
-      "title": "GSSSB Multi Purpose Health Supervisor Recruitment 2026 Notification Out - Apply Online for 119 Posts - FreeJobAlert.Com",
-      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQSk9pOGhRS2hVbE5YcXVKSEFadjJlWTZBNHFCcmYzNVVDalRMN0tETEpKVTRzVHQ0VzdEQkZBM3ROSFZCOXltSVV6ZFVPckJITUdaRDRTOXZFelNyRkk4QUF4VDFmQ1RpcVNfUzBiakFhQUkydy1TWUxqbEw4MEdxYXpINVZFOWd1RjE1OHY5a21rdUZGX3M3UDRHamxhYTRDNVE?oc=5",
-      "priority": "high",
-      "source_type": "discovery",
-      "checked_at": "2026-09-02T20:56:21.652055+00:00",
-      "first_seen_at": "2026-09-02T20:57:58.929083+00:00",
-      "last_changed_at": "2026-09-02T20:57:58.929083+00:00",
-      "change_type": "new"
-    },
     {
       "id": "61a96c2e3647da0cff46",
       "source": "Gujarat Jobs Google News Discovery",
@@ -8394,6 +8382,30 @@
       "change_type": "unchanged"
     },
     {
+      "id": "ecdf97c7d5582a00bee3",
+      "source": "SMC Google News Discovery",
+      "title": "Sanitation workers demand permanent SMC jobs - timesofindia.indiatimes.com",
+      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxONkRrWkU0bW4xNWFTX254Ny1sUUpBTzc1UDk1UFNKTUM1ZzNna3cyV2JJR3FEeG01UE1xUGxwZWlWNXBQRldaU3hNLXp1SUstbGg1Nl9rLVduQjV4alNYTi1XLTJTaWJhQW1zdXdRbEdBbnZRYnlGVkhwNXdpRDJ4SDNxSlpMLVduaTczSklyTVRHTjFldlRWVFl6dEgyYTZCOXdCNkVEZXhsd0l6cVVZSWRQNHNxTjTSAbwBQVVfeXFMT1Y5dFJSTUxZNnZEVWEyTnBscGxvN3NFTG9KdjNPc2tqUldScDJNdUVmcDd2b04xanJmUmtEeUw5S01meVFFVWJpa3BvNGhKZTB0ZnBZRmQ5bko2M2JVbzRKcWFhZjU2dEhYMExSeGc0SEFOUVg4S09tTnp0RWt0SUZ5MlFLalJsWFNwVXhhN3UxS1IzYmVFaHItNkx5eHFiZVExUElTQy1zU3BaY3plWGRSUThXaVFEZlVuUHI?oc=5",
+      "priority": "critical",
+      "source_type": "discovery",
+      "checked_at": "2026-09-02T23:13:50.885867+00:00",
+      "first_seen_at": "2026-09-02T23:16:34.592951+00:00",
+      "last_changed_at": "2026-09-02T23:16:34.592951+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "3e2cf0107c4a431b791d",
+      "source": "SMC Google News Discovery",
+      "title": "Process for recruitment of 300 Marshalls begin in Surat municipal corporation - timesofindia.indiatimes.com",
+      "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxOak1WUGhvVWpWaUZBNTBLbV9fR3owSVlybkpTdmhEX2VHZmRSd1lTNVRIWU9QYklGb2pBN09KalQ2cXp6UVJvWTg3Yk5ud08wclA2TnU0dU9IWUppM2UyQ2R5dGpaU2xhOXg4ZHVUalhSRG5RSm1obGFyNmFzUWFVN3hUSXRtakJHMjlXNmxWT2pJNXVLdUNjVjliOWFpeG5yMVVKYWhZQzczOWg0RklLSUFwOGFlRmVjck5jc1ZVOXc1U3puaHhMeHNTX0luV05Uc3NYZi1qV3dZYmxaU0RaRHJOWdIB6AFBVV95cUxPaWpieEtBcllmT2NlOXVpeG5CenhqNmluaU1HTFpkdTNqUTNVLVJRX2tQcGl3empnRWlhb3FOdEVRVHJhUFRPbFdBbUZtWXNJOTFzUU01RW9jTnRtWUM1V0E4TjVXNmJzQTBMZ3FPMC1CcDM4WXZsd085TG1CQmVLWmZaZDczYmhVeVFjYUp6NmJxeHBNdmw5OUQyOElPSlBPRUVEcURDdlZoMURHX1F2TE03ZzV3VEZtWkZPVmZndG82blc2a0R0ckVtczhZRUp6dlhJb0hHZENmb0NtSHZGQ0JOMUdUVDNX?oc=5",
+      "priority": "critical",
+      "source_type": "discovery",
+      "checked_at": "2026-09-02T23:13:50.885867+00:00",
+      "first_seen_at": "2026-09-02T23:16:34.592951+00:00",
+      "last_changed_at": "2026-09-02T23:16:34.592951+00:00",
+      "change_type": "new"
+    },
+    {
       "id": "c1c80c413c2c7689122a",
       "source": "SMC Official Recruitment",
       "title": "Recruitments",
@@ -8482,30 +8494,6 @@
       "source": "SMC Google News Discovery",
       "title": "SMC Syllabus 2026 and Exam Pattern for Clerk, Driver & More Posts - Career Power",
       "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE9fQ09KUTlYdGdwMlJUejdzRTlXWkpFLWxNVWZrVldyS29uMmY1SVNfcGVPaVAxa1U5OHhTdGI3RWRKTlBKT19JNDhYRjBXSE4yRVFXSnR1cw?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-09-02T17:55:28.219937+00:00",
-      "first_seen_at": "2026-09-02T17:58:15.066214+00:00",
-      "last_changed_at": "2026-09-02T17:58:15.066214+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "5b2d9aa07477b4ea2ee7",
-      "source": "SMC Google News Discovery",
-      "title": "Sanitation workers demand permanent SMC jobs - The Times of India",
-      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxONkRrWkU0bW4xNWFTX254Ny1sUUpBTzc1UDk1UFNKTUM1ZzNna3cyV2JJR3FEeG01UE1xUGxwZWlWNXBQRldaU3hNLXp1SUstbGg1Nl9rLVduQjV4alNYTi1XLTJTaWJhQW1zdXdRbEdBbnZRYnlGVkhwNXdpRDJ4SDNxSlpMLVduaTczSklyTVRHTjFldlRWVFl6dEgyYTZCOXdCNkVEZXhsd0l6cVVZSWRQNHNxTjTSAbwBQVVfeXFMT1Y5dFJSTUxZNnZEVWEyTnBscGxvN3NFTG9KdjNPc2tqUldScDJNdUVmcDd2b04xanJmUmtEeUw5S01meVFFVWJpa3BvNGhKZTB0ZnBZRmQ5bko2M2JVbzRKcWFhZjU2dEhYMExSeGc0SEFOUVg4S09tTnp0RWt0SUZ5MlFLalJsWFNwVXhhN3UxS1IzYmVFaHItNkx5eHFiZVExUElTQy1zU3BaY3plWGRSUThXaVFEZlVuUHI?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-09-02T17:55:28.219937+00:00",
-      "first_seen_at": "2026-09-02T17:58:15.066214+00:00",
-      "last_changed_at": "2026-09-02T17:58:15.066214+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "7260aa06b440012128cd",
-      "source": "SMC Google News Discovery",
-      "title": "Process for recruitment of 300 Marshalls begin in Surat municipal corporation - The Times of India",
-      "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxOak1WUGhvVWpWaUZBNTBLbV9fR3owSVlybkpTdmhEX2VHZmRSd1lTNVRIWU9QYklGb2pBN09KalQ2cXp6UVJvWTg3Yk5ud08wclA2TnU0dU9IWUppM2UyQ2R5dGpaU2xhOXg4ZHVUalhSRG5RSm1obGFyNmFzUWFVN3hUSXRtakJHMjlXNmxWT2pJNXVLdUNjVjliOWFpeG5yMVVKYWhZQzczOWg0RklLSUFwOGFlRmVjck5jc1ZVOXc1U3puaHhMeHNTX0luV05Uc3NYZi1qV3dZYmxaU0RaRHJOWdIB6AFBVV95cUxPaWpieEtBcllmT2NlOXVpeG5CenhqNmluaU1HTFpkdTNqUTNVLVJRX2tQcGl3empnRWlhb3FOdEVRVHJhUFRPbFdBbUZtWXNJOTFzUU01RW9jTnRtWUM1V0E4TjVXNmJzQTBMZ3FPMC1CcDM4WXZsd085TG1CQmVLWmZaZDczYmhVeVFjYUp6NmJxeHBNdmw5OUQyOElPSlBPRUVEcURDdlZoMURHX1F2TE03ZzV3VEZtWkZPVmZndG82blc2a0R0ckVtczhZRUp6dlhJb0hHZENmb0NtSHZGQ0JOMUdUVDNX?oc=5",
       "priority": "critical",
       "source_type": "discovery",
       "checked_at": "2026-09-02T17:55:28.219937+00:00",
@@ -8754,5 +8742,5 @@
       "change_type": "unchanged"
     }
   ],
-  "updated_at": "2026-09-02T20:57:58.929083+00:00"
+  "updated_at": "2026-09-02T23:16:34.592951+00:00"
 }

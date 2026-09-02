@@ -1,9 +1,9 @@
 {
   "sources_scanned": 28,
-  "links_found_this_scan": 729,
-  "new_items": 8,
+  "links_found_this_scan": 728,
+  "new_items": 2,
   "updated_items": 0,
-  "total_items": 729,
+  "total_items": 728,
   "errors": [
     {
       "source": "Ahmedabad Municipal Corporation",
@@ -36,29 +36,39 @@
       "error": "HTTP Error 403: Forbidden"
     },
     {
+      "source": "Gujarat Biotechnology Research Centre",
+      "url": "https://www.gbrc.gujarat.gov.in/WebCMS/Start/Announcement",
+      "error": "<urlopen error [Errno 101] Network is unreachable>"
+    },
+    {
       "source": "Gujarat Education Department",
       "url": "https://education.gujarat.gov.in",
-      "error": "<urlopen error _ssl.c:993: The handshake operation timed out>"
+      "error": "<urlopen error [Errno 101] Network is unreachable>"
     },
     {
       "source": "Gujarat Forest and Environment",
       "url": "https://forests.gujarat.gov.in",
-      "error": "<urlopen error _ssl.c:993: The handshake operation timed out>"
+      "error": "<urlopen error [Errno 101] Network is unreachable>"
     },
     {
       "source": "Gujarat Government",
       "url": "https://gujaratindia.gov.in",
-      "error": "<urlopen error _ssl.c:993: The handshake operation timed out>"
+      "error": "<urlopen error [Errno 101] Network is unreachable>"
     },
     {
       "source": "Gujarat Health Department",
       "url": "https://gujhealth.gujarat.gov.in",
-      "error": "<urlopen error _ssl.c:993: The handshake operation timed out>"
+      "error": "<urlopen error [Errno 101] Network is unreachable>"
+    },
+    {
+      "source": "Gujarat Informatics Limited",
+      "url": "https://gil.gujarat.gov.in/News.aspx?flag=0",
+      "error": "<urlopen error [Errno 101] Network is unreachable>"
     },
     {
       "source": "Gujarat Police",
       "url": "https://police.gujarat.gov.in",
-      "error": "<urlopen error _ssl.c:993: The handshake operation timed out>"
+      "error": "<urlopen error [Errno 101] Network is unreachable>"
     },
     {
       "source": "Gujarat Primary Education Recruitment",
@@ -66,9 +76,14 @@
       "error": "HTTP Error 503: Service Unavailable"
     },
     {
+      "source": "Gujarat Social Justice & Empowerment",
+      "url": "https://sje.gujarat.gov.in",
+      "error": "<urlopen error [Errno 101] Network is unreachable>"
+    },
+    {
       "source": "KCG Gujarat Recruitment",
       "url": "https://kcg.gujarat.gov.in/recruitments",
-      "error": "The read operation timed out"
+      "error": "<urlopen error [Errno 101] Network is unreachable>"
     },
     {
       "source": "OJAS Gujarat",
@@ -84,11 +99,8 @@
   "empty_sources": [],
   "successful_sources": [
     "Bhavnagar Municipal Corporation",
-    "Gujarat Biotechnology Research Centre",
     "Gujarat High Court Recruitment",
-    "Gujarat Informatics Limited",
     "Gujarat Jobs Google News Discovery",
-    "Gujarat Social Justice & Empowerment",
     "Gyan Sahayak Gujarat",
     "Jamnagar Municipal Corporation",
     "Rajkot Municipal Corporation",
@@ -99,5 +111,5 @@
   ],
   "smc_items": 30,
   "mode": "live_snapshot",
-  "updated_at": "2026-09-02T20:57:58.929083+00:00"
+  "updated_at": "2026-09-02T23:16:34.592951+00:00"
 }
