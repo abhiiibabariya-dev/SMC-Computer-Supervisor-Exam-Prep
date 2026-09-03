@@ -1,20 +1,20 @@
 {
   "region": "Gujarat",
   "focus": "Gujarat Government Jobs and SMC Recruitment",
-  "total": 721,
-  "new_items": 6,
+  "total": 722,
+  "new_items": 5,
   "updated_items": 0,
   "items": [
     {
-      "id": "ae9336bc5950578c0eb5",
+      "id": "88022e10b8ab81c1d4c1",
       "source": "Gujarat Jobs Google News Discovery",
-      "title": "GSSSB Supervisor Instructor Recruitment 2026 (203 Vacancies), Last Date Extended - Career Power",
-      "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPS2c0T0ZoYTVFeU5zUW9zTWlXT2VydE9idVBySHBJZ0tPSlVncV9HM0lxZWpua2M4bUFYZ3p2TEItVjR6UjhiZ3JPZ3h2dTQzRTVaZnpxS08waFhRSkpKUldfMXMxY2tyU29UVDVpb1BEeHVVZm1VYlRuV0w5bTQxTGh3?oc=5",
+      "title": "GSSSB Municipal Accountant Recruitment 2026 - Apply Online for 82 Posts - FreeJobAlert.Com",
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQMHNhUFBsS1U4bXcySnNhNi0wcTRITGdaMF81bXhkMWVKamJEZXdoY2pHN3ZsaGwyUHh2dFJfakduQjlRdDY5bV9tOE9GUDhnRVUwUmFoWG9ob055QTdjbW9nWlJscEdqajg4RXYwbkRsdjJWWlJoaGxERWFiSTQ1RXE2eXd2dUNxZUhfeWxmc2NsZ1N1cndJWVdBU2RnQXlsajFIcUhQWmVwV1dWZXVwRHd2ZDRQUQ?oc=5",
       "priority": "high",
       "source_type": "discovery",
-      "checked_at": "2026-09-03T14:37:39.558849+00:00",
-      "first_seen_at": "2026-09-03T14:39:19.238306+00:00",
-      "last_changed_at": "2026-09-03T14:39:19.238306+00:00",
+      "checked_at": "2026-09-03T18:01:40.141411+00:00",
+      "first_seen_at": "2026-09-03T18:03:17.992862+00:00",
+      "last_changed_at": "2026-09-03T18:03:17.992862+00:00",
       "change_type": "new"
     },
     {
@@ -46,18 +46,6 @@
       "source": "Gujarat Jobs Google News Discovery",
       "title": "GSSSB Supervisor Instructor Recruitment 2026 Notification Out - Apply Online for 439 Posts - FreeJobAlert.Com",
       "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQeE1KRjI1MVZQMzJmS09uYlVGZWVoZ0dmcHBsQjQ4MHh5UmVPVmFROHRnT3pqRzMwUHVXRnN6U081ZUFsTHdzNFRCYnBZLTFpczlvT194X0xwdmVJWV9mRG42YV9sbE11SHhFSno5REFOLW1xMFQ5N1BJbWhUeTBZTFpvcjE3clVMRXhBYVNKN3paMmQy?oc=5",
-      "priority": "high",
-      "source_type": "discovery",
-      "checked_at": "2026-09-03T10:10:01.745440+00:00",
-      "first_seen_at": "2026-09-03T10:11:39.104740+00:00",
-      "last_changed_at": "2026-09-03T10:11:39.104740+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "473a7e023ede940c5266",
-      "source": "Gujarat Jobs Google News Discovery",
-      "title": "GSSSB Additional Assistant Engineer Recruitment 2026 Out, Last Date To Apply Online for 110 Posts - Adda247",
-      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTFB0ejhfdWdzT1dzc0IxM05XS0lfR2RpQ1JwcEhidU1kb2xaTnhUOTdSQk00RkpDejV5XzRQUXA0d3R2TGFOZUdDbk9XVVdCTTRnYU9ZU2NkZ3Y3QlJpdFZKZTlWV3EwdzJZaE44emhUb0dOYkp4cXZR?oc=5",
       "priority": "high",
       "source_type": "discovery",
       "checked_at": "2026-09-03T10:10:01.745440+00:00",
@@ -8406,22 +8394,58 @@
       "change_type": "unchanged"
     },
     {
+      "id": "5dd2778fbe29293d6f3b",
+      "source": "SMC Jobs Google News Discovery 2",
+      "title": "SMC Recruitment 2026 Notification Out for 2295 Posts, Apply Online Last Date Today - Adda247",
+      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOeWdpV3lWLU4tWHJEQko1MTZQa3ltdkN4OHEtbzBQM0VwMmNzM0FsVURNeEpGblJMdXFVLVhCQUZzVDl5TmtJcmRJX05JS0N3R2U5Y19qTUFDYnhtOFA3d3JxS19yS2FNRktBWWVXakF3VHpSWWpkLUtCWGg3V3plU3g2QVZhRXNndUkw?oc=5",
+      "priority": "critical",
+      "source_type": "discovery",
+      "checked_at": "2026-09-03T18:01:40.447004+00:00",
+      "first_seen_at": "2026-09-03T18:03:17.992862+00:00",
+      "last_changed_at": "2026-09-03T18:03:17.992862+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "af0eb75763d65c9f2f71",
+      "source": "SMC Jobs Google News Discovery 2",
+      "title": "SMC Apprentice Recruitment 2026 Notification Out – Apply Online for Apprentice Posts - Careers360",
+      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQdUViWkw0ZWZzSnBid3RRa1c5S0FfbERJdkc1MWthU0swODV5a18wRWllVHZpV00xNmZ5cnE0VTBucTRHNWRLYVNXcUIxWHoteGdBcnFtdERQSEJoSXdlOHliRm9ac0RyU1BMcFZ5cDg5NHRVMHAxTVhDd2JCZUZzNg?oc=5",
+      "priority": "critical",
+      "source_type": "discovery",
+      "checked_at": "2026-09-03T18:01:40.447004+00:00",
+      "first_seen_at": "2026-09-03T18:03:17.992862+00:00",
+      "last_changed_at": "2026-09-03T18:03:17.992862+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "bc4cda7f36eaf99e7990",
+      "source": "SMC Google News Discovery",
+      "title": "SMC Recruitment 2026 Notification Out for 2295 Posts, Apply Online Last Date Today - Adda247",
+      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOeWdpV3lWLU4tWHJEQko1MTZQa3ltdkN4OHEtbzBQM0VwMmNzM0FsVURNeEpGblJMdXFVLVhCQUZzVDl5TmtJcmRJX05JS0N3R2U5Y19qTUFDYnhtOFA3d3JxS19yS2FNRktBWWVXakF3VHpSWWpkLUtCWGg3V3plU3g2QVZhRXNndUkw?oc=5",
+      "priority": "critical",
+      "source_type": "discovery",
+      "checked_at": "2026-09-03T18:00:28.016208+00:00",
+      "first_seen_at": "2026-09-03T18:03:17.992862+00:00",
+      "last_changed_at": "2026-09-03T18:03:17.992862+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "410f653b35a133b2333e",
+      "source": "SMC Google News Discovery",
+      "title": "SMC Apprentice Recruitment 2026 Notification Out – Apply Online for Apprentice Posts - Careers360",
+      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQdUViWkw0ZWZzSnBid3RRa1c5S0FfbERJdkc1MWthU0swODV5a18wRWllVHZpV00xNmZ5cnE0VTBucTRHNWRLYVNXcUIxWHoteGdBcnFtdERQSEJoSXdlOHliRm9ac0RyU1BMcFZ5cDg5NHRVMHAxTVhDd2JCZUZzNg?oc=5",
+      "priority": "critical",
+      "source_type": "discovery",
+      "checked_at": "2026-09-03T18:00:28.016208+00:00",
+      "first_seen_at": "2026-09-03T18:03:17.992862+00:00",
+      "last_changed_at": "2026-09-03T18:03:17.992862+00:00",
+      "change_type": "new"
+    },
+    {
       "id": "0bc3325c765144269546",
       "source": "SMC Google News Discovery",
       "title": "Surat Municipal Corporation to Reserve Direct Recruitment P… - GujaratSamachar English",
       "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxOcGhWa0ZnUVR6SXVyeVlYcGFLMEVyM3l0Z3ZYNzYyMVIwcGd4Z0NKU2VxV3pwN2lYdDlCZjVZeDdNeUNRVnhtc1VZMWczbHV4Q1FWdFdNODJwZXJDa1Nfcng0SWQtNVdRdzJyZEZxc045U1ZKWVRzMmg0TV9OSnJveHUyVWkwT0d2VGhQcUhCS00xb2w3cFlydEFyRTYyU284VHRyM3J6SlFRZXJBLUd0Y2dKakVnZWlzVnRlNFBEaGpQQ0EwcFJjVHQ4UHhVS2F2VmFTNDVxOA?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-09-03T14:36:30.128358+00:00",
-      "first_seen_at": "2026-09-03T14:39:19.238306+00:00",
-      "last_changed_at": "2026-09-03T14:39:19.238306+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "43ed29c2fddf1037c2be",
-      "source": "SMC Google News Discovery",
-      "title": "SMC Apprentice Recruitment 2026 Notification Out – Apply Online for Apprentice Posts - competition.careers360.com",
-      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQdUViWkw0ZWZzSnBid3RRa1c5S0FfbERJdkc1MWthU0swODV5a18wRWllVHZpV00xNmZ5cnE0VTBucTRHNWRLYVNXcUIxWHoteGdBcnFtdERQSEJoSXdlOHliRm9ac0RyU1BMcFZ5cDg5NHRVMHAxTVhDd2JCZUZzNg?oc=5",
       "priority": "critical",
       "source_type": "discovery",
       "checked_at": "2026-09-03T14:36:30.128358+00:00",
@@ -8439,18 +8463,6 @@
       "checked_at": "2026-09-03T14:36:30.128358+00:00",
       "first_seen_at": "2026-09-03T14:39:19.238306+00:00",
       "last_changed_at": "2026-09-03T14:39:19.238306+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "354607e104825996e3c9",
-      "source": "SMC Jobs Google News Discovery 2",
-      "title": "SMC Apprentices Recruitment 2026 Notification Out - Apply Online for 1000 Posts - FreeJobAlert.Com",
-      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQZFh5SWZ3RG1wUEZTUW1xQ0JJOUUzZERMMEFKaHdTS1JfUWFwdnZXT2NFYUJmbFQzeVhSRi11Y0dOeUEwUWloUGF4ZjNmc0ZiUjBDRjdVREtIajJIZDViR3ZWUjJsdjZjbndGdDE5bmlJNkY0YzhyZ3o4ZTBCX3QxX1p0S1lHVzdZNjREX0pnaUpaVF9DZUVQYmlJbWFsaURQUThiTGlPUjVSdw?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-09-03T10:10:01.966816+00:00",
-      "first_seen_at": "2026-09-03T10:11:39.104740+00:00",
-      "last_changed_at": "2026-09-03T10:11:39.104740+00:00",
       "change_type": "new"
     },
     {
@@ -8658,5 +8670,5 @@
       "change_type": "unchanged"
     }
   ],
-  "updated_at": "2026-09-03T14:39:19.238306+00:00"
+  "updated_at": "2026-09-03T18:03:17.992862+00:00"
 }
