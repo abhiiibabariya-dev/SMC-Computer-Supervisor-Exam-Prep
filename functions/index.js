@@ -1,6 +1,7 @@
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
 const axios = require('axios');
+const nodemailer = require('nodemailer');
 
 admin.initializeApp();
 const db = admin.database();
@@ -10,6 +11,14 @@ const auth = admin.auth();
 const UPI_MERCHANT_ID = functions.config().upi?.merchant_id || process.env.UPI_MERCHANT_ID;
 const UPI_API_KEY = functions.config().upi?.api_key || process.env.UPI_API_KEY;
 const UPI_CALLBACK_URL = functions.config().upi?.callback_url || process.env.UPI_CALLBACK_URL;
+
+// Email configuration (set via Firebase Functions config or environment variables)
+const EMAIL_HOST = functions.config().email?.host || process.env.EMAIL_HOST || 'smtp.gmail.com';
+const EMAIL_PORT = parseInt(functions.config().email?.port || process.env.EMAIL_PORT || '465', 10);
+const EMAIL_SECURE = (functions.config().email?.secure || process.env.EMAIL_SECURE || 'true') === 'true';
+const EMAIL_USER = functions.config().email?.user || process.env.EMAIL_USER;
+const EMAIL_PASS = functions.config().email?.pass || process.env.EMAIL_PASS;
+const ADMIN_EMAIL = functions.config().email?.admin || process.env.ADMIN_EMAIL || 'abhibabariya@gmail.com';
 
 // Verify UPI payment with bank/payment gateway
 async function verifyUPIPayment(txnId, amount, merchantId, apiKey) {
@@ -47,6 +56,106 @@ async function verifyUPIPayment(txnId, amount, merchantId, apiKey) {
       status: 'verification_failed',
       error: error.message
     };
+  }
+}
+
+// Create nodemailer transporter for sending emails
+function createTransporter() {
+  return nodemailer.createTransport({
+    host: EMAIL_HOST,
+    port: EMAIL_PORT,
+    secure: EMAIL_SECURE,
+    auth: {
+      user: EMAIL_USER,
+      pass: EMAIL_PASS
+    }
+  });
+}
+
+// Send login notification email to admin
+async function sendLoginNotification(user, deviceInfo, ip) {
+  if (!EMAIL_USER || !EMAIL_PASS) {
+    console.warn('Email credentials not configured, skipping login notification');
+    return;
+  }
+
+  try {
+    const transporter = createTransporter();
+
+    // Get user profile for additional details
+    const userSnap = await db.ref(`users/${user.uid}`).once('value');
+    const profile = userSnap.val() || {};
+
+    const now = new Date();
+    const istTime = now.toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
+
+    const mailOptions = {
+      from: `"SMC Exam Prep Security" <${EMAIL_USER}>`,
+      to: ADMIN_EMAIL,
+      subject: `🔐 New Login Alert: ${user.email || user.uid}`,
+      html: `
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background: #0b0f1a; color: #cbd5e1; border-radius: 12px; border: 1px solid #1e293b;">
+          <div style="background: #4f46e5; padding: 20px; border-radius: 8px 8px 0 0; text-align: center;">
+            <h1 style="margin: 0; color: #fff; font-size: 24px;">🔐 SMC Exam Prep - Login Alert</h1>
+          </div>
+          <div style="padding: 24px; background: #131a2a; border-radius: 0 0 8px 8px; border: 1px solid #1e293b; border-top: none;">
+            <p style="font-size: 16px; color: #e0e7ff;">A user has just logged into the SMC Exam Prep platform.</p>
+
+            <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+              <tr>
+                <td style="padding: 12px; background: #1e293b; border: 1px solid #334155; font-weight: bold; color: #86efac; width: 30%;">Email</td>
+                <td style="padding: 12px; background: #1e293b; border: 1px solid #334155; color: #fff;">${user.email || 'Not provided'}</td>
+              </tr>
+              <tr>
+                <td style="padding: 12px; background: #1e293b; border: 1px solid #334155; font-weight: bold; color: #86efac;">User ID</td>
+                <td style="padding: 12px; background: #1e293b; border: 1px solid #334155; color: #fff; font-family: monospace; font-size: 12px;">${user.uid}</td>
+              </tr>
+              <tr>
+                <td style="padding: 12px; background: #1e293b; border: 1px solid #334155; font-weight: bold; color: #86efac;">Name</td>
+                <td style="padding: 12px; background: #1e293b; border: 1px solid #334155; color: #fff;">${profile.name || user.displayName || 'Not set'}</td>
+              </tr>
+              <tr>
+                <td style="padding: 12px; background: #1e293b; border: 1px solid #334155; font-weight: bold; color: #86efac;">Mobile</td>
+                <td style="padding: 12px; background: #1e293b; border: 1px solid #334155; color: #fff;">${profile.mobile || 'Not provided'}</td>
+              </tr>
+              <tr>
+                <td style="padding: 12px; background: #1e293b; border: 1px solid #334155; font-weight: bold; color: #86efac;">Plan</td>
+                <td style="padding: 12px; background: #1e293b; border: 1px solid #334155; color: #fff;">${profile.planLabel || profile.plan || 'Free'}</td>
+              </tr>
+              <tr>
+                <td style="padding: 12px; background: #1e293b; border: 1px solid #334155; font-weight: bold; color: #86efac;">Device</td>
+                <td style="padding: 12px; background: #1e293b; border: 1px solid #334155; color: #fff; font-size: 12px;">${deviceInfo || 'Unknown'}</td>
+              </tr>
+              <tr>
+                <td style="padding: 12px; background: #1e293b; border: 1px solid #334155; font-weight: bold; color: #86efac;">IP Address</td>
+                <td style="padding: 12px; background: #1e293b; border: 1px solid #334155; color: #fff; font-family: monospace;">${ip || 'Unknown'}</td>
+              </tr>
+              <tr>
+                <td style="padding: 12px; background: #1e293b; border: 1px solid #334155; font-weight: bold; color: #86efac;">Time (IST)</td>
+                <td style="padding: 12px; background: #1e293b; border: 1px solid #334155; color: #fff;">${istTime}</td>
+              </tr>
+              <tr>
+                <td style="padding: 12px; background: #1e293b; border: 1px solid #334155; font-weight: bold; color: #86efac;">Email Verified</td>
+                <td style="padding: 12px; background: #1e293b; border: 1px solid #334155; color: #fff;">${user.emailVerified ? '✅ Yes' : '❌ No'}</td>
+              </tr>
+            </table>
+
+            <div style="margin-top: 24px; padding: 16px; background: #1e293b; border-radius: 8px; border: 1px solid #334155; font-size: 12px; color: #64748b;">
+              <strong>Security Note:</strong> If this login was not authorized, you can revoke all sessions for this user from the Admin Control Panel.
+            </div>
+
+            <p style="margin-top: 24px; font-size: 12px; color: #64748b; text-align: center;">
+              This is an automated security notification from SMC Exam Prep.
+            </p>
+          </div>
+        </div>
+      `
+    };
+
+    await transporter.sendMail(mailOptions);
+    console.log(`Login notification email sent to ${ADMIN_EMAIL} for user ${user.uid}`);
+  } catch (error) {
+    console.error('Failed to send login notification email:', error);
   }
 }
 
@@ -527,6 +636,11 @@ exports.registerSession = functions.https.onCall(async (data, context) => {
         deviceInfo: deviceInfo || 'Unknown device',
         revokedSessions: Object.keys(sessions).filter(id => sessions[id].active && id !== deviceId).length
       }
+    });
+
+    // Send login notification email (async, don't wait)
+    sendLoginNotification(context.auth, deviceInfo, context.rawRequest?.ip).catch(err => {
+      console.error('Failed to send login notification:', err);
     });
 
     return {

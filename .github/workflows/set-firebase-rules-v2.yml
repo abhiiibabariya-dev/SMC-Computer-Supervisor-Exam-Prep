@@ -81,7 +81,12 @@ jobs:
           max_retries=3
           retry=0
           while [ $retry -lt $max_retries ]; do
-            code=$(curl -sS -L --retry 3 --retry-all-errors --retry-delay 2 --connect-timeout 15 --max-time 60 -o response.txt -w '%{http_code}' -X PUT "${FIREBASE_URL}/.settings/rules.json?auth=${FB_SECRET}" -H 'Content-Type: application/json' --data-binary @firebase-rules.json)
+            # Use simpler curl command without problematic flags
+            code=$(curl -sS -L --connect-timeout 15 --max-time 60 \
+              -o response.txt -w '%{http_code}' \
+              -X PUT "${FIREBASE_URL}/.settings/rules.json?auth=${FB_SECRET}" \
+              -H 'Content-Type: application/json' \
+              --data-binary @firebase-rules.json)
             cat response.txt
             if [ "$code" = "200" ]; then
               echo "Rules deployed successfully"
@@ -103,7 +108,7 @@ jobs:
           max_retries=3
           retry=0
           while [ $retry -lt $max_retries ]; do
-            if curl -sS -L --retry 3 --retry-all-errors --retry-delay 2 "${FIREBASE_URL}/.settings/rules.json?auth=${FB_SECRET}" -o deployed.json; then
+            if curl -sS -L --connect-timeout 10 --max-time 30 "${FIREBASE_URL}/.settings/rules.json?auth=${FB_SECRET}" -o deployed.json; then
               python3 - <<'PY'
               import json
               with open('firebase-rules.json') as f: expected = json.load(f)

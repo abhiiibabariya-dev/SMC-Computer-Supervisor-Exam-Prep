@@ -1,5 +1,8 @@
 {
   "devDependencies": {
     "firebase-tools": "^15.28.2"
+  },
+  "dependencies": {
+    "firebase-admin": "^14.3.0"
   }
 }

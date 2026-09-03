@@ -10,3 +10,6 @@ serviceAccount*.json
 .google/
 .monitor-backup/
 _site/
+node_modules/
+.firebase/
+fix_escapes.py
