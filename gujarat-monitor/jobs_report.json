@@ -1,9 +1,9 @@
 {
   "sources_scanned": 28,
-  "links_found_this_scan": 724,
-  "new_items": 4,
+  "links_found_this_scan": 723,
+  "new_items": 5,
   "updated_items": 0,
-  "total_items": 724,
+  "total_items": 723,
   "errors": [
     {
       "source": "Ahmedabad Municipal Corporation",
@@ -33,7 +33,7 @@
     {
       "source": "Gandhinagar Municipal Corporation",
       "url": "https://gandhinagarmunicipal.com/recruitment/",
-      "error": "<urlopen error [Errno 101] Network is unreachable>"
+      "error": "HTTP Error 403: Forbidden"
     },
     {
       "source": "Gujarat Biotechnology Research Centre",
@@ -101,7 +101,7 @@
     "SMC Official Recruitment",
     "SMC Official Website"
   ],
-  "smc_items": 26,
+  "smc_items": 25,
   "mode": "live_snapshot",
-  "updated_at": "2026-09-03T01:11:18.138086+00:00"
+  "updated_at": "2026-09-03T05:54:32.059131+00:00"
 }
