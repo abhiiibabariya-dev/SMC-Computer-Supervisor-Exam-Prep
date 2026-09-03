@@ -3,6 +3,7 @@
  * Mobile is account-matching data, not SMS/OTP verification.
  * Single-session enforcement: one login per account at a time.
  * Session cleared on browser close/restart - user must re-login.
+ * Inactivity timeout: auto-logout after 30 minutes of inactivity.
  */
 (function(){'use strict';
 if(window.__SMC_UNIFIED_AUTH__)return;window.__SMC_UNIFIED_AUTH__=true;
@@ -10,7 +11,7 @@ var script=document.currentScript,rootUrl='';try{if(script&&script.src)rootUrl=n
 var file=(location.pathname.split('/').pop()||'index.html').toLowerCase();
 var PUBLIC_PAGES={'login.html':true,'index.html':true,'404.html':true,'privacy-policy.html':true,'terms-conditions.html':true};
 if(PUBLIC_PAGES[file])return;
-var RETURN_KEY='smc_auth_return',PROFILE_KEY='smc_account',SESSION_KEY='smc_session_active',auth=null,processing=false,deviceId=null,sessionCheckInterval=null;
+var RETURN_KEY='smc_auth_return',PROFILE_KEY='smc_account',SESSION_KEY='smc_session_active',DEVICE_KEY='smc_device_id',LAST_ACTIVITY_KEY='smc_last_activity',auth=null,processing=false,deviceId=null,sessionCheckInterval=null,inactivityTimeout=null,INACTIVITY_LIMIT=30*60*1000; // 30 minutes
 function esc(v){return String(v==null?'':v).replace(/[&<>"']/g,function(c){return({'&':'&','<':'<','>':'>','"':'"',"'":"'"})[c]})}
 function loginUrl(){try{sessionStorage.setItem(RETURN_KEY,location.pathname+location.search+location.hash)}catch(e){}return new URL('login.html',rootUrl).href}
 function hidePage(){var s=document.createElement('style');s.id='smc-auth-style';s.textContent='html,body{visibility:hidden!important}';(document.head||document.documentElement).appendChild(s)}
@@ -21,25 +22,65 @@ function overlay(){if(document.getElementById('smcAuthOverlay'))return;var o=doc
 function fail(msg){overlay();var m=document.getElementById('smcAuthMsg'),s=document.getElementById('smcAuthState'),a=document.getElementById('smcAuthActions');if(m)m.textContent=msg||'Authentication is unavailable.';if(s){s.textContent='AUTHENTICATION FAILED';s.className='st err'}if(a)a.innerHTML='<a href="'+esc(loginUrl())+'">Open Login</a><button type="button" id="smcAuthRetry">Retry</button>';var r=document.getElementById('smcAuthRetry');if(r)r.onclick=function(){location.reload()}}
 function verificationRequired(user){overlay();var m=document.getElementById('smcAuthMsg'),s=document.getElementById('smcAuthState'),a=document.getElementById('smcAuthActions');if(m)m.textContent='Please verify your Firebase email address before opening protected account pages.';if(s){s.textContent='EMAIL VERIFICATION REQUIRED';s.className='st warn'}if(a)a.innerHTML='<button type="button" id="smcResend">Resend verification email</button><a href="'+esc(new URL('login.html',rootUrl).href)+'">Back to Login</a>';var b=document.getElementById('smcResend');if(b)b.onclick=async function(){try{await user.sendEmailVerification();m.textContent='Verification email sent again. Check your inbox and spam folder.';b.disabled=true;b.textContent='Email sent'}catch(e){m.textContent=e.message||'Unable to send verification email.';m.className='err'}}
 }
-function getDeviceId(){try{var d=localStorage.getItem('smc_device_id');if(!d){d='dev_'+Date.now().toString(36)+Math.random().toString(36).slice(2,10);localStorage.setItem('smc_device_id',d)}return d}catch(e){return 'dev_fallback_' + Math.random().toString(36).slice(2,10)}}
+function getDeviceId(){try{var d=localStorage.getItem(DEVICE_KEY);if(!d){d='dev_'+Date.now().toString(36)+Math.random().toString(36).slice(2,10);localStorage.setItem(DEVICE_KEY,d)}return d}catch(e){return 'dev_fallback_' + Math.random().toString(36).slice(2,10)}}
 function getDeviceInfo(){try{var ua=navigator.userAgent||'';var info='';if(/iPhone|iPad|iPod/i.test(ua))info='iOS';else if(/Android/i.test(ua))info='Android';else if(/Windows/i.test(ua))info='Windows';else if(/Macintosh|Mac OS/i.test(ua))info='macOS';else if(/Linux/i.test(ua))info='Linux';else info='Unknown';return info+' | '+ua.slice(0,80)}catch(e){return 'Unknown device'}}
 
-// Clear session on browser close/restart - user must re-login
-function clearSessionOnClose(){
+// Clear session data on browser close (sessionStorage handles this automatically)
+// But we also clear on explicit logout
+function clearAllSessionData(){
     try{
         sessionStorage.removeItem(SESSION_KEY);
         sessionStorage.removeItem(PROFILE_KEY);
         sessionStorage.removeItem(RETURN_KEY);
+        sessionStorage.removeItem(LAST_ACTIVITY_KEY);
+    }catch(e){}
+    stopInactivityTimer();
+    stopSessionCheck();
+}
+
+// Inactivity timer - auto logout after 30 minutes of no activity
+function resetInactivityTimer(user){
+    if(inactivityTimeout) clearTimeout(inactivityTimeout);
+    inactivityTimeout = setTimeout(async function(){
+        console.log('Inactivity timeout - logging out');
+        try{
+            if(window.firebase && firebase.functions){
+                var fn = firebase.functions().httpsCallable('revokeAllSessions');
+                await fn({});
+            }
+        }catch(e){console.warn('revokeAllSessions failed:',e)}
+        if(auth) await auth.signOut();
+        clearAllSessionData();
+        location.replace(loginUrl());
+    }, INACTIVITY_LIMIT);
+    updateLastActivity();
+}
+
+function stopInactivityTimer(){
+    if(inactivityTimeout){
+        clearTimeout(inactivityTimeout);
+        inactivityTimeout = null;
+    }
+}
+
+function updateLastActivity(){
+    try{
+        sessionStorage.setItem(LAST_ACTIVITY_KEY, Date.now().toString());
     }catch(e){}
 }
 
-// Check if user has valid auth state (not checking sessionStorage for navigation)
-// sessionStorage clears on browser close, but we should allow navigation between pages
-// The auth state is managed by Firebase Auth persistence (LOCAL)
-function hasValidAuthState(){
-    // Don't block navigation within the same session
-    // Firebase Auth handles persistence, we just need to check if user is signed in
-    return true; // Let Firebase Auth state dictate session validity
+// Track user activity to reset inactivity timer
+function setupActivityListeners(user){
+    var events = ['mousedown','mousemove','keydown','touchstart','click','scroll','focus'];
+    var handler = function(){ resetInactivityTimer(user); };
+    events.forEach(function(evt){
+        document.addEventListener(evt, handler, {passive: true});
+    });
+    return function(){
+        events.forEach(function(evt){
+            document.removeEventListener(evt, handler);
+        });
+    };
 }
 
 // Mark session as active in sessionStorage (survives page refresh but not browser close)
@@ -49,23 +90,217 @@ function markSessionActive(){
     }catch(e){}
 }
 
-async function registerSession(user){try{if(!window.firebase||!firebase.functions)return true;var fn=firebase.functions().httpsCallable('registerSession');await fn({deviceId:deviceId,deviceInfo:getDeviceInfo()});return true}catch(e){console.warn('registerSession failed:',e);return true}}
-async function checkSessionValid(user){try{if(!window.firebase||!firebase.functions)return true;var fn=firebase.functions().httpsCallable('checkSession');var result=await fn({deviceId:deviceId});if(result&&result.data&&result.data.valid===false){return false}return true}catch(e){console.warn('checkSession failed:',e);return true}}
-function startSessionCheck(user){if(sessionCheckInterval)clearInterval(sessionCheckInterval);sessionCheckInterval=setInterval(async function(){var valid=await checkSessionValid(user);if(!valid){clearInterval(sessionCheckInterval);try{await auth.signOut()}catch(e){}showPage();overlay();var m=document.getElementById('smcAuthMsg'),s=document.getElementById('smcAuthState'),a=document.getElementById('smcAuthActions');if(m)m.textContent='Your account was signed in on another device. This session has been logged out.';if(s){s.textContent='SESSION EXPIRED';s.className='st warn'}if(a)a.innerHTML='<a href="'+esc(loginUrl())+'">Sign in again</a>'}},120000)}
-function stopSessionCheck(){if(sessionCheckInterval){clearInterval(sessionCheckInterval);sessionCheckInterval=null}}
+// Check if this session was valid (not just cleared by browser close)
+// sessionStorage persists across navigation but clears on browser/tab close
+function isSessionValid(){
+    try{
+        return sessionStorage.getItem(SESSION_KEY) === 'true';
+    }catch(e){
+        return false;
+    }
+}
 
-// Listen for browser close/restart - clear session
-// sessionStorage already handles this correctly: it persists across refreshes and navigation
-// but clears when the browser/tab is closed. No special handling needed.
+// Register this device session with server (single-session enforcement)
+async function registerSession(user){
+    try{
+        if(!window.firebase||!firebase.functions) return true;
+        var fn=firebase.functions().httpsCallable('registerSession');
+        await fn({deviceId:deviceId,deviceInfo:getDeviceInfo()});
+        return true;
+    }catch(e){
+        console.warn('registerSession failed:',e);
+        return true; // Don't block on server errors
+    }
+}
+
+// Periodically check if session is still valid (another device logged in)
+async function checkSessionValid(user){
+    try{
+        if(!window.firebase||!firebase.functions) return true;
+        var fn=firebase.functions().httpsCallable('checkSession');
+        var result=await fn({deviceId:deviceId});
+        if(result&&result.data&&result.data.valid===false){
+            return false;
+        }
+        return true;
+    }catch(e){
+        console.warn('checkSession failed:',e);
+        return true; // Don't block on server errors
+    }
+}
+
+function startSessionCheck(user){
+    if(sessionCheckInterval) clearInterval(sessionCheckInterval);
+    sessionCheckInterval=setInterval(async function(){
+        var valid=await checkSessionValid(user);
+        if(!valid){
+            clearInterval(sessionCheckInterval);
+            sessionCheckInterval=null;
+            stopInactivityTimer();
+            try{await auth.signOut()}catch(e){}
+            showPage();
+            overlay();
+            var m=document.getElementById('smcAuthMsg'),s=document.getElementById('smcAuthState'),a=document.getElementById('smcAuthActions');
+            if(m)m.textContent='Your account was signed in on another device. This session has been logged out.';
+            if(s){s.textContent='SESSION EXPIRED';s.className='st warn'}
+            if(a)a.innerHTML='<a href="'+esc(loginUrl())+'">Sign in again</a>';
+        }
+    },120000); // Check every 2 minutes
+}
+
+function stopSessionCheck(){
+    if(sessionCheckInterval){
+        clearInterval(sessionCheckInterval);
+        sessionCheckInterval=null;
+    }
+}
+
+// Cleanup on page unload
 window.addEventListener('beforeunload', function(){
     stopSessionCheck();
+    // Don't clear sessionStorage on navigation - it should persist across page loads
+    // sessionStorage naturally clears when browser/tab closes
 });
 
-// Note: pagehide handler removed - sessionStorage naturally clears on browser/tab close
-// and persists across page navigation. Clearing on pagehide was incorrectly logging out
-// users when navigating within the site.
-function account(user){var a={uid:user.uid||'',email:user.email||'',name:user.displayName||user.email||'Account',mobile:'',emailVerified:!!user.emailVerified,phoneVerified:false,post:'',postLabel:'',plan:'free',planLabel:'Free',signed_in_at:new Date().toISOString()};try{var old=JSON.parse(localStorage.getItem(PROFILE_KEY)||'{}');a.name=old.name||a.name;a.mobile=old.mobile||'';a.post=old.post||'';a.postLabel=old.postLabel||'';a.plan=old.plan||'free';a.planLabel=old.planLabel||'Free'}catch(e){}try{localStorage.setItem(PROFILE_KEY,JSON.stringify(a))}catch(e){}return a}
-function chip(user,a){if(document.getElementById('smcAuthChip'))return;var c=document.createElement('div');c.id='smcAuthChip';c.innerHTML='<style>#smcAuthChip{position:fixed;left:12px;bottom:12px;z-index:2147483000;display:flex;align-items:center;gap:7px;background:rgba(17,17,19,.94);border:1px solid rgba(255,255,255,.10);border-radius:999px;padding:7px 9px 7px 12px;color:#d4d4d8;font:700 11px/1 system-ui,sans-serif;box-shadow:0 7px 24px rgba(0,0,0,.35)}#smcAuthChip b{color:#fff;max-width:130px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}#smcAuthChip .pl{color:#86efac}#smcAuthChip button{border:0;border-radius:999px;padding:6px 9px;background:rgba(239,68,68,.14);color:#fca5a5;font-weight:800;cursor:pointer}</style><span>👤</span><b>'+esc(a.name||user.email||'Account')+'</b><span class="pl">'+esc(a.planLabel)+'</span><button type="button" id="smcAuthLogout">Logout</button>';document.body.appendChild(c);c.querySelector('#smcAuthLogout').onclick=async function(){try{stopSessionCheck();if(window.firebase&&firebase.functions){var fn=firebase.functions().httpsCallable('revokeAllSessions');await fn({})}}catch(e){}auth.signOut().then(function(){try{localStorage.removeItem(PROFILE_KEY)}catch(e){}location.replace(new URL('login.html',rootUrl).href)})}}
-function start(){deviceId=getDeviceId();hidePage();overlay();loadFirebase().then(function(){auth.onAuthStateChanged(async function(user){if(processing)return;if(!user){showPage();stopSessionCheck();location.replace(loginUrl());return}processing=true;try{await user.reload();user=auth.currentUser;if(!user){showPage();stopSessionCheck();location.replace(loginUrl());return}if(!user.emailVerified){processing=false;showPage();verificationRequired(user);return}await registerSession(user);var a=account(user);markSessionActive();var m=document.getElementById('smcAuthMsg'),s=document.getElementById('smcAuthState');if(m)m.textContent='Signed in as '+(a.name||user.email||'your account')+'.';if(s)s.textContent='ACCESS GRANTED';setTimeout(function(){var o=document.getElementById('smcAuthOverlay');if(o)o.remove();showPage();chip(user,a);startSessionCheck(user)},80)}catch(e){processing=false;fail(e&&e.code==='auth/network-request-failed'?'Firebase Authentication network access failed. Check your connection and retry.':'Unable to refresh your Firebase account. Please try again.')}})}).catch(function(e){fail(e&&e.message?e.message:'Secure Firebase authentication could not be initialized.')})}
+// Restore activity timer if returning to page (handles back/forward navigation)
+window.addEventListener('pageshow', function(event){
+    if(event.persisted && auth && auth.currentUser){
+        // Page restored from bfcache - re-establish activity tracking
+        var user = auth.currentUser;
+        resetInactivityTimer(user);
+        setupActivityListeners(user);
+    }
+});
+
+function account(user){
+    var a={uid:user.uid||'',email:user.email||'',name:user.displayName||user.email||'Account',mobile:'',emailVerified:!!user.emailVerified,phoneVerified:false,post:'',postLabel:'',plan:'free',planLabel:'Free',signed_in_at:new Date().toISOString()};
+    try{
+        var old=JSON.parse(localStorage.getItem(PROFILE_KEY)||'{}');
+        a.name=old.name||a.name;
+        a.mobile=old.mobile||'';
+        a.post=old.post||'';
+        a.postLabel=old.postLabel||'';
+        a.plan=old.plan||'free';
+        a.planLabel=old.planLabel||'Free';
+    }catch(e){}
+    try{localStorage.setItem(PROFILE_KEY,JSON.stringify(a))}catch(e){}
+    return a;
+}
+
+function chip(user,a){
+    if(document.getElementById('smcAuthChip')) return;
+    var c=document.createElement('div');
+    c.id='smcAuthChip';
+    c.innerHTML='<style>#smcAuthChip{position:fixed;left:12px;bottom:12px;z-index:2147483000;display:flex;align-items:center;gap:7px;background:rgba(17,17,19,.94);border:1px solid rgba(255,255,255,.10);border-radius:999px;padding:7px 9px 7px 12px;color:#d4d4d8;font:700 11px/1 system-ui,sans-serif;box-shadow:0 7px 24px rgba(0,0,0,.35)}#smcAuthChip b{color:#fff;max-width:130px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}#smcAuthChip .pl{color:#86efac}#smcAuthChip button{border:0;border-radius:999px;padding:6px 9px;background:rgba(239,68,68,.14);color:#fca5a5;font-weight:800;cursor:pointer}</style><span>👤</span><b>'+esc(a.name||user.email||'Account')+'</b><span class="pl">'+esc(a.planLabel)+'</span><button type="button" id="smcAuthLogout">Logout</button>';
+    document.body.appendChild(c);
+    c.querySelector('#smcAuthLogout').onclick=async function(){
+        try{
+            stopSessionCheck();
+            stopInactivityTimer();
+            if(window.firebase&&firebase.functions){
+                var fn=firebase.functions().httpsCallable('revokeAllSessions');
+                await fn({});
+            }
+        }catch(e){}
+        auth.signOut().then(function(){
+            try{localStorage.removeItem(PROFILE_KEY)}catch(e){}
+            clearAllSessionData();
+            location.replace(new URL('login.html',rootUrl).href);
+        });
+    };
+}
+
+function start(){
+    deviceId=getDeviceId();
+    hidePage();
+    overlay();
+    loadFirebase().then(function(){
+        auth.onAuthStateChanged(async function(user){
+            if(processing) return;
+            if(!user){
+                showPage();
+                stopSessionCheck();
+                stopInactivityTimer();
+                clearAllSessionData();
+                location.replace(loginUrl());
+                return;
+            }
+            processing=true;
+            try{
+                await user.reload();
+                user=auth.currentUser;
+                if(!user){
+                    showPage();
+                    stopSessionCheck();
+                    stopInactivityTimer();
+                    clearAllSessionData();
+                    location.replace(loginUrl());
+                    return;
+                }
+                if(!user.emailVerified){
+                    processing=false;
+                    showPage();
+                    verificationRequired(user);
+                    return;
+                }
+
+                // Check if session is valid (not a fresh browser open without prior login)
+                // If sessionStorage doesn't have our session key, it means:
+                // - Browser was closed and reopened
+                // - Or this is a new tab/window
+                // In either case, we should re-register the session but allow access
+                var sessionWasActive = isSessionValid();
+
+                await registerSession(user);
+                var a=account(user);
+                markSessionActive();
+
+                // Set up activity tracking and inactivity timer
+                var cleanupActivity = setupActivityListeners(user);
+                resetInactivityTimer(user);
+
+                var m=document.getElementById('smcAuthMsg'),s=document.getElementById('smcAuthState');
+                if(m)m.textContent='Signed in as '+(a.name||user.email||'your account')+'.';
+                if(s)s.textContent='ACCESS GRANTED';
+
+                // Clean up activity listeners on auth state change
+                var originalCleanup = cleanupActivity;
+                // Store cleanup for later
+                window.__smcActivityCleanup = originalCleanup;
+
+                setTimeout(function(){
+                    var o=document.getElementById('smcAuthOverlay');
+                    if(o)o.remove();
+                    showPage();
+                    chip(user,a);
+                    startSessionCheck(user);
+                    processing=false;
+                },80);
+            }catch(e){
+                processing=false;
+                fail(e&&e.code==='auth/network-request-failed'?'Firebase Authentication network access failed. Check your connection and retry.':'Unable to refresh your Firebase account. Please try again.');
+            }
+        });
+    }).catch(function(e){
+        fail(e&&e.message?e.message:'Secure Firebase authentication could not be initialized.');
+    });
+}
+
+// Expose logout function for other scripts
+window.smcLogout = async function(){
+    try{
+        stopSessionCheck();
+        stopInactivityTimer();
+        if(window.firebase&&firebase.functions){
+            var fn=firebase.functions().httpsCallable('revokeAllSessions');
+            await fn({});
+        }
+    }catch(e){}
+    if(auth) await auth.signOut();
+    try{localStorage.removeItem(PROFILE_KEY)}catch(e){}
+    clearAllSessionData();
+    location.replace(new URL('login.html',rootUrl).href);
+};
+
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});else start();
 })();

@@ -133,7 +133,7 @@ body{margin:0;min-height:100vh;background:radial-gradient(circle at 18% 8%,rgba(
 <div class="actions">
 <button class="btn alt" id="logout" type="button">Sign out</button>
 <button class="btn alt" id="logoutAll" type="button" style="background:rgba(239,68,68,.14);color:#fca5a5;border:1px solid rgba(239,68,68,.2)">Logout All Devices</button>
-<a class="btn purple" id="adminLink" href="admin-console.html" style="display:none">🛡 Admin Control Center</a>
+<a class="btn purple" id="adminLink" href="admin-control.html" style="display:none">🛡 Admin Control Center</a>
 </div>
 </div>
 
@@ -329,18 +329,25 @@ say('Signed in, but subscription details could not be loaded. Please refresh aft
 });
 $('logout').onclick=async()=>{
 const u = currentUser || auth.currentUser;
-try{if(typeof smcTrackLogout==='function' && u)smcTrackLogout(u.uid);await auth.signOut();location.replace('login.html')}catch(e){say('Unable to sign out.')}
+try{
+if(typeof smcTrackLogout==='function' && u)smcTrackLogout(u.uid);
+if(window.smcLogout) await window.smcLogout();
+else { await auth.signOut(); location.replace('login.html'); }
+}catch(e){say('Unable to sign out.');}
 }
 $('logoutAll').onclick=async()=>{
 const u = currentUser || auth.currentUser;
 try{
+if(typeof smcTrackLogout==='function' && u)smcTrackLogout(u.uid);
+if(window.smcLogout) await window.smcLogout();
+else {
 if(window.firebase&&firebase.functions){
 var fn=firebase.functions().httpsCallable('revokeAllSessions');
 await fn({});
 }
-if(typeof smcTrackLogout==='function' && u)smcTrackLogout(u.uid);
 await auth.signOut();
 location.replace('login.html');
+}
 }catch(e){say('Unable to logout from all devices.');}
 }
 }catch(e){
