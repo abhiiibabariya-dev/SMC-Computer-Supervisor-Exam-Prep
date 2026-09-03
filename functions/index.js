@@ -461,3 +461,186 @@ exports.getCustomClaims = functions.https.onCall(async (data, context) => {
     throw new functions.https.HttpsError('internal', 'Failed to get custom claims');
   }
 });
+
+// Cloud Function: Register new session and revoke previous sessions (single-session enforcement)
+exports.registerSession = functions.https.onCall(async (data, context) => {
+  if (!context.auth) {
+    throw new functions.https.HttpsError('unauthenticated', 'User must be authenticated');
+  }
+
+  const uid = context.auth.uid;
+  const { deviceId, deviceInfo } = data;
+
+  if (!deviceId) {
+    throw new functions.https.HttpsError('invalid-argument', 'deviceId is required');
+  }
+
+  try {
+    const now = new Date().toISOString();
+    const sessionRef = db.ref(`sessions/${uid}`);
+    const sessionSnap = await sessionRef.once('value');
+    const sessions = sessionSnap.val() || {};
+
+    // Check if this device already has an active session
+    if (sessions[deviceId] && sessions[deviceId].active) {
+      // Same device - update last seen
+      await sessionRef.child(deviceId).update({
+        lastSeen: now,
+        deviceInfo: deviceInfo || sessions[deviceId].deviceInfo
+      });
+      return { success: true, message: 'Session updated', singleSession: true };
+    }
+
+    // New device - revoke all other sessions' refresh tokens
+    await auth.revokeRefreshTokens(uid);
+
+    // Mark all other sessions as revoked
+    const updates = {};
+    for (const [id, session] of Object.entries(sessions)) {
+      if (session.active) {
+        updates[`${id}/active`] = false;
+        updates[`${id}/revokedAt`] = now;
+        updates[`${id}/revokedBy`] = 'new_session';
+      }
+    }
+
+    // Add new session
+    const newSession = {
+      deviceId: deviceId,
+      deviceInfo: deviceInfo || 'Unknown device',
+      createdAt: now,
+      lastSeen: now,
+      active: true,
+      ip: context.rawRequest?.ip || 'unknown'
+    };
+    updates[deviceId] = newSession;
+
+    await sessionRef.update(updates);
+
+    // Audit log
+    await db.ref('audit').push({
+      uid: uid,
+      ev: 'session_registered',
+      t: now,
+      d: {
+        deviceId: deviceId,
+        deviceInfo: deviceInfo || 'Unknown device',
+        revokedSessions: Object.keys(sessions).filter(id => sessions[id].active && id !== deviceId).length
+      }
+    });
+
+    return {
+      success: true,
+      message: 'New session registered, previous sessions revoked',
+      revokedCount: Object.keys(sessions).filter(id => sessions[id].active && id !== deviceId).length
+    };
+
+  } catch (error) {
+    console.error('Register session error:', error);
+    if (error instanceof functions.https.HttpsError) throw error;
+    throw new functions.https.HttpsError('internal', 'Failed to register session: ' + error.message);
+  }
+});
+
+// Cloud Function: Check if current session is still valid
+exports.checkSession = functions.https.onCall(async (data, context) => {
+  if (!context.auth) {
+    throw new functions.https.HttpsError('unauthenticated', 'User must be authenticated');
+  }
+
+  const uid = context.auth.uid;
+  const { deviceId } = data;
+
+  if (!deviceId) {
+    throw new functions.https.HttpsError('invalid-argument', 'deviceId is required');
+  }
+
+  try {
+    const sessionRef = db.ref(`sessions/${uid}/${deviceId}`);
+    const sessionSnap = await sessionRef.once('value');
+    const session = sessionSnap.val();
+
+    if (!session) {
+      return { valid: false, reason: 'session_not_found' };
+    }
+
+    if (!session.active) {
+      return { valid: false, reason: 'session_revoked', revokedAt: session.revokedAt, revokedBy: session.revokedBy };
+    }
+
+    // Update last seen
+    await sessionRef.update({ lastSeen: new Date().toISOString() });
+
+    return { valid: true, session };
+
+  } catch (error) {
+    console.error('Check session error:', error);
+    if (error instanceof functions.https.HttpsError) throw error;
+    throw new functions.https.HttpsError('internal', 'Failed to check session: ' + error.message);
+  }
+});
+
+// Cloud Function: Force logout all sessions (admin or user-initiated)
+exports.revokeAllSessions = functions.https.onCall(async (data, context) => {
+  if (!context.auth) {
+    throw new functions.https.HttpsError('unauthenticated', 'User must be authenticated');
+  }
+
+  const uid = context.auth.uid;
+  const { targetUid, reason } = data;
+
+  // Allow admin to revoke any user's sessions, or user to revoke their own
+  const isAdmin = context.auth.token.admin === true;
+  const target = targetUid || uid;
+
+  if (!isAdmin && target !== uid) {
+    throw new functions.https.HttpsError('permission-denied', 'Cannot revoke other user sessions');
+  }
+
+  try {
+    // Revoke all refresh tokens
+    await auth.revokeRefreshTokens(target);
+
+    // Mark all sessions as revoked in database
+    const sessionsRef = db.ref(`sessions/${target}`);
+    const sessionsSnap = await sessionsRef.once('value');
+    const sessions = sessionsSnap.val() || {};
+
+    const updates = {};
+    const now = new Date().toISOString();
+    for (const id of Object.keys(sessions)) {
+      if (sessions[id].active) {
+        updates[`${id}/active`] = false;
+        updates[`${id}/revokedAt`] = now;
+        updates[`${id}/revokedBy`] = isAdmin ? 'admin' : 'user_logout_all';
+      }
+    }
+
+    if (Object.keys(updates).length > 0) {
+      await sessionsRef.update(updates);
+    }
+
+    // Audit log
+    await db.ref('audit').push({
+      uid: isAdmin ? context.auth.uid : uid,
+      ev: isAdmin ? 'admin_sessions_revoked' : 'user_sessions_revoked',
+      t: now,
+      d: {
+        targetUid: target,
+        reason: reason || 'Manual revocation',
+        revokedCount: Object.keys(updates).length / 3
+      }
+    });
+
+    return {
+      success: true,
+      message: 'All sessions revoked',
+      revokedCount: Object.keys(updates).length / 3
+    };
+
+  } catch (error) {
+    console.error('Revoke all sessions error:', error);
+    if (error instanceof functions.https.HttpsError) throw error;
+    throw new functions.https.HttpsError('internal', 'Failed to revoke sessions: ' + error.message);
+  }
+});
