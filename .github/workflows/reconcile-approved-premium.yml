@@ -22,7 +22,7 @@ env:
 jobs:
   reconcile:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 10
     steps:
       - name: Reconcile approved payment records
         env:
@@ -31,23 +31,6 @@ jobs:
         run: |
           set -euo pipefail
           test -n "${FB_SECRET:-}"
-
-          # Retry function for network calls
-          retry_request() {
-            local max_retries=3
-            local retry=0
-            local delay=1
-            while [ $retry -lt $max_retries ]; do
-              if eval "$1"; then
-                return 0
-              fi
-              retry=$((retry + 1))
-              echo "Attempt $retry/$max_retries failed, retrying in ${delay}s..."
-              sleep $delay
-              delay=$((delay * 2))
-            done
-            return 1
-          }
 
           python3 - <<'PY'
           import json, os, urllib.parse, urllib.request, urllib.error, time
