@@ -1,8 +1,8 @@
 {
   "region": "Gujarat",
   "focus": "Gujarat Government Jobs and SMC Recruitment",
-  "total": 722,
-  "new_items": 5,
+  "total": 721,
+  "new_items": 4,
   "updated_items": 0,
   "items": [
     {
@@ -8394,6 +8394,54 @@
       "change_type": "unchanged"
     },
     {
+      "id": "4a8535e3e693607b7a58",
+      "source": "SMC Jobs Google News Discovery 2",
+      "title": "SMC Staff Nurse Eligibility Criteria 2026: Check Age Limit and Educational Qualificatio - FreeJobAlert.Com",
+      "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOTkYzMk02dHRUTDA1ME5YdFp2N3VSTFdJZS1JZnNRYzNsT2pPV0lPT1E4MXVmTnhTZVVkcEJuazJnOU9IM2dwallmaWNyM044Z3NaYzhkeTJvalZkY0YtYkRpTjJmOWhvNXdpQmUzeGZ1d1B2MEo3RzVVQlp3MEFwODlfNGNQQVhIN1E?oc=5",
+      "priority": "critical",
+      "source_type": "discovery",
+      "checked_at": "2026-09-03T20:54:59.728438+00:00",
+      "first_seen_at": "2026-09-03T20:56:39.068249+00:00",
+      "last_changed_at": "2026-09-03T20:56:39.068249+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "354607e104825996e3c9",
+      "source": "SMC Jobs Google News Discovery 2",
+      "title": "SMC Apprentices Recruitment 2026 Notification Out - Apply Online for 1000 Posts - FreeJobAlert.Com",
+      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQZFh5SWZ3RG1wUEZTUW1xQ0JJOUUzZERMMEFKaHdTS1JfUWFwdnZXT2NFYUJmbFQzeVhSRi11Y0dOeUEwUWloUGF4ZjNmc0ZiUjBDRjdVREtIajJIZDViR3ZWUjJsdjZjbndGdDE5bmlJNkY0YzhyZ3o4ZTBCX3QxX1p0S1lHVzdZNjREX0pnaUpaVF9DZUVQYmlJbWFsaURQUThiTGlPUjVSdw?oc=5",
+      "priority": "critical",
+      "source_type": "discovery",
+      "checked_at": "2026-09-03T20:54:59.728438+00:00",
+      "first_seen_at": "2026-09-03T20:56:39.068249+00:00",
+      "last_changed_at": "2026-09-03T20:56:39.068249+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "73c5473dbc182e57fe63",
+      "source": "SMC Google News Discovery",
+      "title": "SMC Syllabus 2026 and Exam Pattern for Clerk, Driver & More Posts - Career Power",
+      "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE9fQ09KUTlYdGdwMlJUejdzRTlXWkpFLWxNVWZrVldyS29uMmY1SVNfcGVPaVAxa1U5OHhTdGI3RWRKTlBKT19JNDhYRjBXSE4yRVFXSnR1cw?oc=5",
+      "priority": "critical",
+      "source_type": "discovery",
+      "checked_at": "2026-09-03T20:53:52.079069+00:00",
+      "first_seen_at": "2026-09-03T20:56:39.068249+00:00",
+      "last_changed_at": "2026-09-03T20:56:39.068249+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "5b2d9aa07477b4ea2ee7",
+      "source": "SMC Google News Discovery",
+      "title": "Sanitation workers demand permanent SMC jobs - The Times of India",
+      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxONkRrWkU0bW4xNWFTX254Ny1sUUpBTzc1UDk1UFNKTUM1ZzNna3cyV2JJR3FEeG01UE1xUGxwZWlWNXBQRldaU3hNLXp1SUstbGg1Nl9rLVduQjV4alNYTi1XLTJTaWJhQW1zdXdRbEdBbnZRYnlGVkhwNXdpRDJ4SDNxSlpMLVduaTczSklyTVRHTjFldlRWVFl6dEgyYTZCOXdCNkVEZXhsd0l6cVVZSWRQNHNxTjTSAbwBQVVfeXFMT1Y5dFJSTUxZNnZEVWEyTnBscGxvN3NFTG9KdjNPc2tqUldScDJNdUVmcDd2b04xanJmUmtEeUw5S01meVFFVWJpa3BvNGhKZTB0ZnBZRmQ5bko2M2JVbzRKcWFhZjU2dEhYMExSeGc0SEFOUVg4S09tTnp0RWt0SUZ5MlFLalJsWFNwVXhhN3UxS1IzYmVFaHItNkx5eHFiZVExUElTQy1zU3BaY3plWGRSUThXaVFEZlVuUHI?oc=5",
+      "priority": "critical",
+      "source_type": "discovery",
+      "checked_at": "2026-09-03T20:53:52.079069+00:00",
+      "first_seen_at": "2026-09-03T20:56:39.068249+00:00",
+      "last_changed_at": "2026-09-03T20:56:39.068249+00:00",
+      "change_type": "new"
+    },
+    {
       "id": "5dd2778fbe29293d6f3b",
       "source": "SMC Jobs Google News Discovery 2",
       "title": "SMC Recruitment 2026 Notification Out for 2295 Posts, Apply Online Last Date Today - Adda247",
@@ -8454,42 +8502,6 @@
       "change_type": "new"
     },
     {
-      "id": "d5a4bad5a57fe78a6b7d",
-      "source": "SMC Google News Discovery",
-      "title": "Nepotism Allegations Rock Surat Municipal Corporation Engineer Recruitment - theblunttimes.in",
-      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQWkxPVko4aGFVX2lpVUJYUmZLazRmTG5ZVndSdmRnbXdJaHZhclhIYi1jbkR3ZVZySFIzbDBJSDRNd1hvcFZORUVNSC1XeFN1U3RzRTlHSE5jVkxIUzJBcDhmNHlWcFk2eFRiS3loM0Vhb1h1RElyb1JicG5rTzFKWDl4cGRsY0FlOGZMQXpQalJQWUpRSUpEQjN6bVlHYVpfV0wtNFNoS0RsZw?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-09-03T14:36:30.128358+00:00",
-      "first_seen_at": "2026-09-03T14:39:19.238306+00:00",
-      "last_changed_at": "2026-09-03T14:39:19.238306+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "52cb48ad541dd884e638",
-      "source": "SMC Google News Discovery",
-      "title": "SMC Recruitment 2026 Notification Out for 1924 Vacancies, Check Eligibility & Last Date - Jagran Josh",
-      "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPSE1aSEtES3VDWFRCanNHWThyZ2lNaGZlZkZleDVmbndoQTFUZ0NFQ0RfUlBsTnNTUlVwVVhReEZZcHg2RTIzR0VLWHFlUW1GR25tbGN2UFYtVzloOG1QSHd6UUZBSXd5OHZCYWVLZGxSbDlWTDZiZUlhN3daVHdKV3ptaEZUdzhoajU0WGNFZWJXN3NSNXFETmJYRDVjNGNtM3BmV0ZYd0E4THZnMm93R0c4SFdSY2xSem5mUW8yUi1JYkpkZDlGelZfUnIxVkdEQy00?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-09-03T10:08:50.806377+00:00",
-      "first_seen_at": "2026-09-03T10:11:39.104740+00:00",
-      "last_changed_at": "2026-09-03T10:11:39.104740+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "6b88cbca1da3ef0e7c3d",
-      "source": "SMC Google News Discovery",
-      "title": "SMC Staff Nurse Eligibility Criteria 2026: Check Age Limit and Educational Qualificatio - FreeJobAlert.Com",
-      "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOTkYzMk02dHRUTDA1ME5YdFp2N3VSTFdJZS1JZnNRYzNsT2pPV0lPT1E4MXVmTnhTZVVkcEJuazJnOU9IM2dwallmaWNyM044Z3NaYzhkeTJvalZkY0YtYkRpTjJmOWhvNXdpQmUzeGZ1d1B2MEo3RzVVQlp3MEFwODlfNGNQQVhIN1E?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-09-03T01:08:24.959635+00:00",
-      "first_seen_at": "2026-09-03T01:11:18.138086+00:00",
-      "last_changed_at": "2026-09-03T01:11:18.138086+00:00",
-      "change_type": "new"
-    },
-    {
       "id": "c1c80c413c2c7689122a",
       "source": "SMC Official Recruitment",
       "title": "Recruitments",
@@ -8547,30 +8559,6 @@
       "checked_at": "2026-09-02T20:55:14.046387+00:00",
       "first_seen_at": "2026-09-02T20:57:58.929083+00:00",
       "last_changed_at": "2026-09-02T20:57:58.929083+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "dc03f9b3ea86a5e05545",
-      "source": "SMC Jobs Google News Discovery 2",
-      "title": "SMC Recruitment 2026 Notification Out for 1924 Vacancies, Check Eligibility & Last Date - Jagran Josh",
-      "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPSE1aSEtES3VDWFRCanNHWThyZ2lNaGZlZkZleDVmbndoQTFUZ0NFQ0RfUlBsTnNTUlVwVVhReEZZcHg2RTIzR0VLWHFlUW1GR25tbGN2UFYtVzloOG1QSHd6UUZBSXd5OHZCYWVLZGxSbDlWTDZiZUlhN3daVHdKV3ptaEZUdzhoajU0WGNFZWJXN3NSNXFETmJYRDVjNGNtM3BmV0ZYd0E4THZnMm93R0c4SFdSY2xSem5mUW8yUi1JYkpkZDlGelZfUnIxVkdEQy00?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-09-02T14:18:39.527541+00:00",
-      "first_seen_at": "2026-09-02T14:20:24.357700+00:00",
-      "last_changed_at": "2026-09-02T14:20:24.357700+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "36eb6bc2de05da7fc0e8",
-      "source": "SMC Google News Discovery",
-      "title": "Probe against 3 dismissed SMC staff for hiding qualification to secure job - The Indian Express",
-      "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxQMUIyUUF0bjVaT0dtcU9zbFc3YS1iZlQtbzJTRE1zdkN2S0hMeEo1V3oxbjNYU0dyT2xhdnluVXpXMjVMOU9UWXFIajN4SGJVeGFpY3F1NGV0a3U0bGw4Q29zWkhELTF0RHQ5eENxZjVNREZaQ2t0NmZSUUZ6SGZjODl2UWp1RDJIUWZxYXFWeWtDc19raHlMZ3dGcWwySmpaYll6dV93VUtwakxWZ1FzZFlaOE5sTGtPcFdseW1iMzdlcGNwelQ1OUVFYVBlREHSAdYBQVVfeXFMTzZjVGtqdVFwZUhKbWNmcmpHS0FZX2N0OTYxdmZpQXlSMklkajJxS1dvZjgzSEkyYm80a19OZGtuY05mdmN2WGNyd3FjV1Y1LTVBeWNUOGdaNmVzbFM5OUwxU0dzQmRIRzZ6ZVM4SkRPbFVvTHplQjI4SHBtbXgyN0hDeTRQTjlBT0tBeTBMNW82bEd6QzFaSFkwWHpqVlAweDJidHJ6elZGeUVTNzBLQVZMM1o0Xzg1QXVTQlRjUjVISWp3SXdwd1hHRmt3NmpsbW53djBUUQ?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-09-02T05:41:28.546372+00:00",
-      "first_seen_at": "2026-09-02T05:44:22.400416+00:00",
-      "last_changed_at": "2026-09-02T05:44:22.400416+00:00",
       "change_type": "new"
     },
     {
@@ -8670,5 +8658,5 @@
       "change_type": "unchanged"
     }
   ],
-  "updated_at": "2026-09-03T18:03:17.992862+00:00"
+  "updated_at": "2026-09-03T20:56:39.068249+00:00"
 }
