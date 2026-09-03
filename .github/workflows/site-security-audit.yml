@@ -148,15 +148,15 @@ jobs:
           set -euo pipefail
           if [ -f "docs/index.html" ]; then
             python3 - <<'PY'
-            from pathlib import Path
-            text = Path('docs/index.html').read_text(encoding='utf-8', errors='ignore')
-            lowered = text.lower()
-            required = ['6 september 2026', 'computer supervisor']
-            for item in required:
-                if item not in lowered:
-                    print(f'Warning: missing current state: {item}')
-            print('Current exam-state source checks: PASS')
-            PY
+from pathlib import Path
+text = Path('docs/index.html').read_text(encoding='utf-8', errors='ignore')
+lowered = text.lower()
+required = ['6 september 2026', 'computer supervisor']
+for item in required:
+    if item not in lowered:
+        print(f'Warning: missing current state: {item}')
+print('Current exam-state source checks: PASS')
+PY
           else
             echo "Warning: docs/index.html not found"
           fi
