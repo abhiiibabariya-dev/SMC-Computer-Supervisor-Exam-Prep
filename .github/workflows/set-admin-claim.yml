@@ -1,0 +1,99 @@
+name: Set Admin Custom Claim
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  set-admin-claim:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Set admin claim for abhibabariya007@gmail.com
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+          FIREBASE_DATABASE_URL: https://smc-exam-prep-38d22-default-rtdb.asia-southeast1.firebasedatabase.app
+        run: |
+          set -euo pipefail
+          if [ -z "${FIREBASE_SERVICE_ACCOUNT_JSON:-}" ]; then
+            echo "ERROR: FIREBASE_SERVICE_ACCOUNT_JSON is not configured"
+            exit 1
+          fi
+
+          # Write service account to temp file
+          echo "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/service-account.json
+          chmod 600 /tmp/service-account.json
+
+          # Create package.json
+          cat > package.json <<'EOF'
+          {
+            "name": "set-admin-claim",
+            "private": true,
+            "type": "module",
+            "dependencies": {
+              "firebase-admin": "^12.7.0"
+            }
+          }
+          EOF
+
+          # Install with retry
+          max_retries=3
+          retry=0
+          while [ $retry -lt $max_retries ]; do
+            if npm install --silent; then
+              break
+            fi
+            retry=$((retry + 1))
+            echo "npm install attempt $retry/$max_retries failed, retrying..."
+            sleep $((retry * 2))
+          done
+          if [ $retry -eq $max_retries ]; then
+            echo "Failed to install dependencies after $max_retries attempts"
+            exit 1
+          fi
+
+          # Run the admin claim script
+          node --input-type=module <<'NODE'
+          import fs from 'fs';
+          import { initializeApp, cert } from 'firebase-admin/app';
+          import { getAuth } from 'firebase-admin/auth';
+
+          try {
+            const serviceAccount = JSON.parse(fs.readFileSync('/tmp/service-account.json', 'utf8'));
+            const app = initializeApp({
+              credential: cert(serviceAccount),
+              databaseURL: process.env.FIREBASE_DATABASE_URL
+            });
+            const auth = getAuth(app);
+
+            const email = 'abhibabariya007@gmail.com';
+            console.log(`Looking up user: ${email}`);
+
+            const userRecord = await auth.getUserByEmail(email.toLowerCase());
+            console.log(`Found user: ${userRecord.uid} (${userRecord.email})`);
+
+            const existingClaims = userRecord.customClaims || {};
+            console.log('Existing claims:', existingClaims);
+
+            const newClaims = { ...existingClaims, admin: true };
+            await auth.setCustomUserClaims(userRecord.uid, newClaims);
+
+            console.log('✅ Successfully set admin: true custom claim!');
+            console.log('New claims:', newClaims);
+
+            // Verify
+            const updatedUser = await auth.getUser(userRecord.uid);
+            console.log('Verified claims:', updatedUser.customClaims);
+
+            await app.delete();
+            process.exit(0);
+          } catch (error) {
+            console.error('ERROR:', error.message);
+            if (error.code === 'auth/user-not-found') {
+              console.error(`User with email abhibabariya007@gmail.com not found in Firebase Auth`);
+            }
+            process.exit(1);
+          }
+          NODE
