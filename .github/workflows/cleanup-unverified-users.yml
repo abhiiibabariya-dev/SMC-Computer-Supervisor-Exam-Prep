@@ -21,12 +21,14 @@ jobs:
         uses: actions/setup-node@v5
         with:
           node-version: '22'
+          cache: 'npm'
 
       - name: Remove stale unverified accounts
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
           FIREBASE_DATABASE_URL: https://smc-exam-prep-38d22-default-rtdb.asia-southeast1.firebasedatabase.app
           ADMIN_EMAIL: abhibabariya007@gmail.com
+        timeout-minutes: 10
         run: |
           set -euo pipefail
           if [ -z "${FIREBASE_SERVICE_ACCOUNT_JSON:-}" ]; then
@@ -40,10 +42,33 @@ jobs:
           printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-service-account.json
           chmod 600 /tmp/firebase-service-account.json
 
-          npm init -y >/dev/null 2>&1
-          npm install --silent firebase-admin@latest
+          # Create package.json and install with retry
+          cat > package.json <<'EOF'
+          {
+            "name": "cleanup-script",
+            "private": true,
+            "dependencies": {
+              "firebase-admin": "^12.7.0"
+            }
+          }
+          EOF
 
-          node --input-type=commonjs <<'NODE'
+          max_retries=3
+          retry=0
+          while [ $retry -lt $max_retries ]; do
+            if npm install --silent; then
+              break
+            fi
+            retry=$((retry + 1))
+            echo "npm install attempt $retry/$max_retries failed, retrying..."
+            sleep $((retry * 2))
+          done
+          if [ $retry -eq $max_retries ]; then
+            echo "Failed to install dependencies after $max_retries attempts"
+            exit 1
+          fi
+
+          timeout 540 node --input-type=commonjs <<'NODE'
           const fs = require('fs');
           const { initializeApp, cert } = require('firebase-admin/app');
           const { getAuth } = require('firebase-admin/auth');
