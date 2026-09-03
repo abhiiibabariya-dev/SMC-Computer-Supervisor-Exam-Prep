@@ -36,7 +36,7 @@ jobs:
             max_retries=3
             success=false
             while [ $retry -lt $max_retries ] && [ "$success" = false ]; do
-              if curl -fsS --connect-timeout 10 --max-time 30 "${FIREBASE_URL}/${f}.json${AUTH}" -o "${f}.json"; then
+              if curl -fsS --connect-timeout 15 --max-time 60 "${FIREBASE_URL}/${f}.json${AUTH}" -o "${f}.json"; then
                 echo "Successfully fetched $f"
                 if [ ! -s "${f}.json" ] || [ "$(cat "${f}.json")" = "null" ]; then
                   echo "Warning: $f data is empty or null, creating empty JSON"

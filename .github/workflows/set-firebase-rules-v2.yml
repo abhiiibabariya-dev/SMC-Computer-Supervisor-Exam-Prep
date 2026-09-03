@@ -132,7 +132,8 @@ jobs:
         run: |
           set -euo pipefail
           for p in users payment_requests audit visits clicks leads security quizscores leaderboard leaderboard_public; do
-            code=$(curl -sS -L --retry 3 --retry-all-errors -o /dev/null -w '%{http_code}' "${FIREBASE_URL}/${p}.json")
+            # Use simpler curl without problematic flags
+            code=$(curl -sS -L --connect-timeout 10 --max-time 30 -o /dev/null -w '%{http_code}' "${FIREBASE_URL}/${p}.json")
             if [ "$code" != "401" ]; then
               echo "WARNING: Path $p returned code $code (expected 401)"
             fi
