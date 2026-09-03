@@ -13,13 +13,18 @@ cd "$(dirname "$0")/../.."
 TIMESTAMP=$(date -u +"%Y-%m-%d %H:%M:%S UTC")
 echo "Check started at: $TIMESTAMP"
 
-# Define directories to check for updates
+# Define directories to check for updates (existing directories in the repo)
 STUDY_DIRS=(
-    "assistant_auditor"
-    "assistant_engineer_civil"
     "assistant_engineer_electrical"
     "assistant_engineer_mechanical"
     "assistant_town_planner"
+    "computer_supervisor_exam"
+    "clerk_exam"
+    "junior_pharmacist"
+    "deputy_accountant"
+    "deputy_auditor"
+    "staff_nurse"
+    "driver"
     # Add more directories as needed
 )
 
