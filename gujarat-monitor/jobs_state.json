@@ -1,6 +1,6 @@
 {
   "total_items": 727,
-  "new_items": 10,
+  "new_items": 0,
   "updated_items": 0,
   "errors": [
     {
@@ -31,7 +31,7 @@
     {
       "source": "Gandhinagar Municipal Corporation",
       "url": "https://gandhinagarmunicipal.com/recruitment/",
-      "error": "<urlopen error [Errno 101] Network is unreachable>"
+      "error": "HTTP Error 403: Forbidden"
     },
     {
       "source": "Gujarat Education Department",
@@ -54,6 +54,11 @@
       "error": "<urlopen error _ssl.c:993: The handshake operation timed out>"
     },
     {
+      "source": "Gujarat Jobs Google News Discovery",
+      "url": "https://news.google.com/rss/search?q=Gujarat+government+recruitment+jobs+OJAS+GPSC+GSSSB&hl=en-IN&gl=IN&ceid=IN:en",
+      "error": "HTTP Error 503: Service Unavailable"
+    },
+    {
       "source": "Gujarat Police",
       "url": "https://police.gujarat.gov.in",
       "error": "<urlopen error _ssl.c:993: The handshake operation timed out>"
@@ -74,6 +79,16 @@
       "error": "<urlopen error [Errno 101] Network is unreachable>"
     },
     {
+      "source": "SMC Google News Discovery",
+      "url": "https://news.google.com/rss/search?q=Surat+Municipal+Corporation+recruitment+OR+SMC+Surat+jobs&hl=en-IN&gl=IN&ceid=IN:en",
+      "error": "HTTP Error 503: Service Unavailable"
+    },
+    {
+      "source": "SMC Jobs Google News Discovery 2",
+      "url": "https://news.google.com/rss/search?q=%22Surat+Municipal+Corporation%22+job+recruitment+vacancy&hl=en-IN&gl=IN&ceid=IN:en",
+      "error": "HTTP Error 503: Service Unavailable"
+    },
+    {
       "source": "Vadodara Municipal Corporation",
       "url": "https://vmc.gov.in",
       "error": "<urlopen error timed out>"
@@ -81,5 +96,5 @@
   ],
   "empty_sources": [],
   "mode": "live_snapshot",
-  "last_run": "2026-09-04T01:04:12.988858+00:00"
+  "last_run": "2026-09-04T05:45:48.568448+00:00"
 }
