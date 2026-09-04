@@ -1,80 +1,80 @@
 {
   "region": "Gujarat",
   "focus": "Gujarat Government Jobs and SMC Recruitment",
-  "total": 729,
-  "new_items": 12,
+  "total": 727,
+  "new_items": 10,
   "updated_items": 0,
   "items": [
     {
-      "id": "ae9336bc5950578c0eb5",
+      "id": "c30600088ef80d6e164d",
       "source": "Gujarat Jobs Google News Discovery",
-      "title": "GSSSB Supervisor Instructor Recruitment 2026 (203 Vacancies), Last Date Extended - Career Power",
-      "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPS2c0T0ZoYTVFeU5zUW9zTWlXT2VydE9idVBySHBJZ0tPSlVncV9HM0lxZWpua2M4bUFYZ3p2TEItVjR6UjhiZ3JPZ3h2dTQzRTVaZnpxS08waFhRSkpKUldfMXMxY2tyU29UVDVpb1BEeHVVZm1VYlRuV0w5bTQxTGh3?oc=5",
-      "priority": "high",
-      "source_type": "discovery",
-      "checked_at": "2026-09-03T23:12:28.774763+00:00",
-      "first_seen_at": "2026-09-03T23:14:07.454331+00:00",
-      "last_changed_at": "2026-09-03T23:14:07.454331+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "fedf8389740cd6431fa9",
-      "source": "Gujarat Jobs Google News Discovery",
-      "title": "GSSSB Recruitment 2026 Notification Out - Vacancies Increased to 776 Sub Accountant, Sub Auditor & Accountant Posts - FreeJobAlert.Com",
-      "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxQUVl4M2tPQUZkcWMxTnFTYWtyNEV3T0x6SklOOUpobkpuU2k3V2RqR3hIVXlQNXk0cG94QTRqVWo5cWlydHlUWkFuVHNzUGMybGNVMDRMOC1vT3o3UHlvb0stQkhsT3dmVE1nTjMzR0piX2xUdXp6X3d3cWpGQ0JXY0JnVjNwMHdMVTNVSnZwVUQ1QTRjWHV6ZGRsN0RkN1VhX0ZSMW1lb3p3YW9YVThFWWNsRHpiYVpwRlhwdjlCMnVTRXJVODBPWVZRN0lWS2wzNDU5bEQxOUtVc3c?oc=5",
-      "priority": "high",
-      "source_type": "discovery",
-      "checked_at": "2026-09-03T23:12:28.774763+00:00",
-      "first_seen_at": "2026-09-03T23:14:07.454331+00:00",
-      "last_changed_at": "2026-09-03T23:14:07.454331+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "8cc960a50988fcdd6fb3",
-      "source": "Gujarat Jobs Google News Discovery",
-      "title": "GSSSB Municipal Engineer Recruitment 2026 Notification Out - Apply Online for 50 Posts - FreeJobAlert.Com",
-      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxONVAtM2tsdWk2c3NmcjM5UjdkZF9VZjc2OUd5Vi02dFcwdFY0b0JqZG4wT3RYTnFBM1JJVy16WlhaR2xFOTMxOTl5Njl5dndWRnBobFpEa2RBV19Ya09WZXZhcks3XzI4UVB3YjBud2x1R0RDdGMzaGNvS3RPeUdaanV6T0J6Z05YcF90bm5LVnk?oc=5",
-      "priority": "high",
-      "source_type": "discovery",
-      "checked_at": "2026-09-03T23:12:28.774763+00:00",
-      "first_seen_at": "2026-09-03T23:14:07.454331+00:00",
-      "last_changed_at": "2026-09-03T23:14:07.454331+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "88022e10b8ab81c1d4c1",
-      "source": "Gujarat Jobs Google News Discovery",
-      "title": "GSSSB Municipal Accountant Recruitment 2026 - Apply Online for 82 Posts - FreeJobAlert.Com",
-      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQMHNhUFBsS1U4bXcySnNhNi0wcTRITGdaMF81bXhkMWVKamJEZXdoY2pHN3ZsaGwyUHh2dFJfakduQjlRdDY5bV9tOE9GUDhnRVUwUmFoWG9ob055QTdjbW9nWlJscEdqajg4RXYwbkRsdjJWWlJoaGxERWFiSTQ1RXE2eXd2dUNxZUhfeWxmc2NsZ1N1cndJWVdBU2RnQXlsajFIcUhQWmVwV1dWZXVwRHd2ZDRQUQ?oc=5",
-      "priority": "high",
-      "source_type": "discovery",
-      "checked_at": "2026-09-03T18:01:40.141411+00:00",
-      "first_seen_at": "2026-09-03T18:03:17.992862+00:00",
-      "last_changed_at": "2026-09-03T18:03:17.992862+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "61a96c2e3647da0cff46",
-      "source": "Gujarat Jobs Google News Discovery",
-      "title": "GSSSB Staff Nurse Recruitment 2026 Notification Out 90 Vacancies, Apply from 30 March - Career Power",
-      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE9mOVZBQ0tkSk84Q0MzWmJpWXkwb0tTXzdjdzFEOXJzZFk5SmhVbzE0b0lRSGZDZkVSMVB3dktBQkJWT0s3dk1PZWFHV3p0amNJcmpaTThVZlRVdFR5NmxzSGd3WG4wQl8zck8zcllJNjVudkRs?oc=5",
-      "priority": "high",
-      "source_type": "discovery",
-      "checked_at": "2026-09-03T14:37:39.558849+00:00",
-      "first_seen_at": "2026-09-03T14:39:19.238306+00:00",
-      "last_changed_at": "2026-09-03T14:39:19.238306+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "8b432b8dee824c54c75c",
-      "source": "Gujarat Jobs Google News Discovery",
-      "title": "GSSSB Supervisor Instructor Recruitment 2026 Notification Out - Apply Online for 439 Posts - FreeJobAlert.Com",
+      "title": "GSSSB Supervisor Instructor Recruitment 2026 Notification Out - Apply Online for 439 Posts - freejobalert.com",
       "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQeE1KRjI1MVZQMzJmS09uYlVGZWVoZ0dmcHBsQjQ4MHh5UmVPVmFROHRnT3pqRzMwUHVXRnN6U081ZUFsTHdzNFRCYnBZLTFpczlvT194X0xwdmVJWV9mRG42YV9sbE11SHhFSno5REFOLW1xMFQ5N1BJbWhUeTBZTFpvcjE3clVMRXhBYVNKN3paMmQy?oc=5",
       "priority": "high",
       "source_type": "discovery",
-      "checked_at": "2026-09-03T10:10:01.745440+00:00",
-      "first_seen_at": "2026-09-03T10:11:39.104740+00:00",
-      "last_changed_at": "2026-09-03T10:11:39.104740+00:00",
+      "checked_at": "2026-09-04T01:02:28.083747+00:00",
+      "first_seen_at": "2026-09-04T01:04:12.988858+00:00",
+      "last_changed_at": "2026-09-04T01:04:12.988858+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "b1bb2501efed17d0ee67",
+      "source": "Gujarat Jobs Google News Discovery",
+      "title": "GSSSB Supervisor Instructor Recruitment 2026 (203 Vacancies), Last Date Extended - careerpower.in",
+      "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPS2c0T0ZoYTVFeU5zUW9zTWlXT2VydE9idVBySHBJZ0tPSlVncV9HM0lxZWpua2M4bUFYZ3p2TEItVjR6UjhiZ3JPZ3h2dTQzRTVaZnpxS08waFhRSkpKUldfMXMxY2tyU29UVDVpb1BEeHVVZm1VYlRuV0w5bTQxTGh3?oc=5",
+      "priority": "high",
+      "source_type": "discovery",
+      "checked_at": "2026-09-04T01:02:28.083747+00:00",
+      "first_seen_at": "2026-09-04T01:04:12.988858+00:00",
+      "last_changed_at": "2026-09-04T01:04:12.988858+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "a31d4b652778ee6ad91f",
+      "source": "Gujarat Jobs Google News Discovery",
+      "title": "GSSSB Staff Nurse Recruitment 2026 Notification Out 90 Vacancies, Apply from 30 March - careerpower.in",
+      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE9mOVZBQ0tkSk84Q0MzWmJpWXkwb0tTXzdjdzFEOXJzZFk5SmhVbzE0b0lRSGZDZkVSMVB3dktBQkJWT0s3dk1PZWFHV3p0amNJcmpaTThVZlRVdFR5NmxzSGd3WG4wQl8zck8zcllJNjVudkRs?oc=5",
+      "priority": "high",
+      "source_type": "discovery",
+      "checked_at": "2026-09-04T01:02:28.083747+00:00",
+      "first_seen_at": "2026-09-04T01:04:12.988858+00:00",
+      "last_changed_at": "2026-09-04T01:04:12.988858+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "2805855f1b1bba5679ca",
+      "source": "Gujarat Jobs Google News Discovery",
+      "title": "GSSSB Recruitment 2026 Notification Out - Vacancies Increased to 776 Sub Accountant, Sub Auditor & Accountant Posts - freejobalert.com",
+      "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxQUVl4M2tPQUZkcWMxTnFTYWtyNEV3T0x6SklOOUpobkpuU2k3V2RqR3hIVXlQNXk0cG94QTRqVWo5cWlydHlUWkFuVHNzUGMybGNVMDRMOC1vT3o3UHlvb0stQkhsT3dmVE1nTjMzR0piX2xUdXp6X3d3cWpGQ0JXY0JnVjNwMHdMVTNVSnZwVUQ1QTRjWHV6ZGRsN0RkN1VhX0ZSMW1lb3p3YW9YVThFWWNsRHpiYVpwRlhwdjlCMnVTRXJVODBPWVZRN0lWS2wzNDU5bEQxOUtVc3c?oc=5",
+      "priority": "high",
+      "source_type": "discovery",
+      "checked_at": "2026-09-04T01:02:28.083747+00:00",
+      "first_seen_at": "2026-09-04T01:04:12.988858+00:00",
+      "last_changed_at": "2026-09-04T01:04:12.988858+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "6aa6c639435f7b74f1d0",
+      "source": "Gujarat Jobs Google News Discovery",
+      "title": "GSSSB Municipal Engineer Recruitment 2026 Notification Out - Apply Online for 50 Posts - freejobalert.com",
+      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxONVAtM2tsdWk2c3NmcjM5UjdkZF9VZjc2OUd5Vi02dFcwdFY0b0JqZG4wT3RYTnFBM1JJVy16WlhaR2xFOTMxOTl5Njl5dndWRnBobFpEa2RBV19Ya09WZXZhcks3XzI4UVB3YjBud2x1R0RDdGMzaGNvS3RPeUdaanV6T0J6Z05YcF90bm5LVnk?oc=5",
+      "priority": "high",
+      "source_type": "discovery",
+      "checked_at": "2026-09-04T01:02:28.083747+00:00",
+      "first_seen_at": "2026-09-04T01:04:12.988858+00:00",
+      "last_changed_at": "2026-09-04T01:04:12.988858+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "a948fbadcbd6b13bb25d",
+      "source": "Gujarat Jobs Google News Discovery",
+      "title": "GSSSB Municipal Accountant Recruitment 2026 - Apply Online for 82 Posts - freejobalert.com",
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQMHNhUFBsS1U4bXcySnNhNi0wcTRITGdaMF81bXhkMWVKamJEZXdoY2pHN3ZsaGwyUHh2dFJfakduQjlRdDY5bV9tOE9GUDhnRVUwUmFoWG9ob055QTdjbW9nWlJscEdqajg4RXYwbkRsdjJWWlJoaGxERWFiSTQ1RXE2eXd2dUNxZUhfeWxmc2NsZ1N1cndJWVdBU2RnQXlsajFIcUhQWmVwV1dWZXVwRHd2ZDRQUQ?oc=5",
+      "priority": "high",
+      "source_type": "discovery",
+      "checked_at": "2026-09-04T01:02:28.083747+00:00",
+      "first_seen_at": "2026-09-04T01:04:12.988858+00:00",
+      "last_changed_at": "2026-09-04T01:04:12.988858+00:00",
       "change_type": "new"
     },
     {
@@ -8418,6 +8418,54 @@
       "change_type": "unchanged"
     },
     {
+      "id": "2fdbdeb9993331bc8709",
+      "source": "SMC Jobs Google News Discovery 2",
+      "title": "SMC Exam Date 2026 Out, Check Official Schedule for 2295 Clerk, MO & Other Posts - careerpower.in",
+      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE0yenV5NjFkNHRtWVBTSUJaTEIwcHZJOFRRLVV5S05KREZueUJNR25wcEhXdU1pYkZjMGd3Um5wNE5uUGwwT0cwSkd0NXdDU3I5UFVtaHI0M0JXcDFwUWxpMGhR?oc=5",
+      "priority": "critical",
+      "source_type": "discovery",
+      "checked_at": "2026-09-04T01:02:28.346210+00:00",
+      "first_seen_at": "2026-09-04T01:04:12.988858+00:00",
+      "last_changed_at": "2026-09-04T01:04:12.988858+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "bcbb044e7bd6eade6c69",
+      "source": "SMC Jobs Google News Discovery 2",
+      "title": "SMC Apprentices Recruitment 2026 Notification Out - Apply Online for 1000 Posts - freejobalert.com",
+      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQZFh5SWZ3RG1wUEZTUW1xQ0JJOUUzZERMMEFKaHdTS1JfUWFwdnZXT2NFYUJmbFQzeVhSRi11Y0dOeUEwUWloUGF4ZjNmc0ZiUjBDRjdVREtIajJIZDViR3ZWUjJsdjZjbndGdDE5bmlJNkY0YzhyZ3o4ZTBCX3QxX1p0S1lHVzdZNjREX0pnaUpaVF9DZUVQYmlJbWFsaURQUThiTGlPUjVSdw?oc=5",
+      "priority": "critical",
+      "source_type": "discovery",
+      "checked_at": "2026-09-04T01:02:28.346210+00:00",
+      "first_seen_at": "2026-09-04T01:04:12.988858+00:00",
+      "last_changed_at": "2026-09-04T01:04:12.988858+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "3795b1fcdedcd41b00cf",
+      "source": "SMC Google News Discovery",
+      "title": "SMC Exam Date 2026 Out, Check Official Schedule for 2295 Clerk, MO & Other Posts - careerpower.in",
+      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE0yenV5NjFkNHRtWVBTSUJaTEIwcHZJOFRRLVV5S05KREZueUJNR25wcEhXdU1pYkZjMGd3Um5wNE5uUGwwT0cwSkd0NXdDU3I5UFVtaHI0M0JXcDFwUWxpMGhR?oc=5",
+      "priority": "critical",
+      "source_type": "discovery",
+      "checked_at": "2026-09-04T01:01:15.636016+00:00",
+      "first_seen_at": "2026-09-04T01:04:12.988858+00:00",
+      "last_changed_at": "2026-09-04T01:04:12.988858+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "b9039306e8eab68de4a2",
+      "source": "SMC Google News Discovery",
+      "title": "SMC Apprentices Recruitment 2026 Notification Out - Apply Online for 1000 Posts - freejobalert.com",
+      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQZFh5SWZ3RG1wUEZTUW1xQ0JJOUUzZERMMEFKaHdTS1JfUWFwdnZXT2NFYUJmbFQzeVhSRi11Y0dOeUEwUWloUGF4ZjNmc0ZiUjBDRjdVREtIajJIZDViR3ZWUjJsdjZjbndGdDE5bmlJNkY0YzhyZ3o4ZTBCX3QxX1p0S1lHVzdZNjREX0pnaUpaVF9DZUVQYmlJbWFsaURQUThiTGlPUjVSdw?oc=5",
+      "priority": "critical",
+      "source_type": "discovery",
+      "checked_at": "2026-09-04T01:01:15.636016+00:00",
+      "first_seen_at": "2026-09-04T01:04:12.988858+00:00",
+      "last_changed_at": "2026-09-04T01:04:12.988858+00:00",
+      "change_type": "new"
+    },
+    {
       "id": "b43ca647408a5e71e894",
       "source": "SMC Jobs Google News Discovery 2",
       "title": "SMC Staff Nurse Vacancy 2026 Out, Check official PDF and Apply Online Link - Adda247",
@@ -8442,34 +8490,10 @@
       "change_type": "new"
     },
     {
-      "id": "da0be8c14852f3db3c44",
-      "source": "SMC Jobs Google News Discovery 2",
-      "title": "SMC Exam Date 2026 Out, Check Official Schedule for 2295 Clerk, MO & Other Posts - Career Power",
-      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE0yenV5NjFkNHRtWVBTSUJaTEIwcHZJOFRRLVV5S05KREZueUJNR25wcEhXdU1pYkZjMGd3Um5wNE5uUGwwT0cwSkd0NXdDU3I5UFVtaHI0M0JXcDFwUWxpMGhR?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-09-03T23:12:29.070935+00:00",
-      "first_seen_at": "2026-09-03T23:14:07.454331+00:00",
-      "last_changed_at": "2026-09-03T23:14:07.454331+00:00",
-      "change_type": "new"
-    },
-    {
       "id": "53d6b2900cddbdc01d58",
       "source": "SMC Google News Discovery",
       "title": "SMC Staff Nurse Vacancy 2026 Out, Check official PDF and Apply Online Link - Adda247",
       "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE9wTkNTTnQwNlBKM0U3NUNLVnNwWGR0UnE0UG1RRXphWWNXNV9XQWU1Y0lJdGVTZzNUcS1jN1NtVnh1ZmFpcW5obDJFNjZkUDdvcWxIX095alM4SGZUcUhxRTU3NEtBWTJnYk8xT25HUDhqN3YtRUE?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-09-03T23:11:21.489616+00:00",
-      "first_seen_at": "2026-09-03T23:14:07.454331+00:00",
-      "last_changed_at": "2026-09-03T23:14:07.454331+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "6b88cbca1da3ef0e7c3d",
-      "source": "SMC Google News Discovery",
-      "title": "SMC Staff Nurse Eligibility Criteria 2026: Check Age Limit and Educational Qualificatio - FreeJobAlert.Com",
-      "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOTkYzMk02dHRUTDA1ME5YdFp2N3VSTFdJZS1JZnNRYzNsT2pPV0lPT1E4MXVmTnhTZVVkcEJuazJnOU9IM2dwallmaWNyM044Z3NaYzhkeTJvalZkY0YtYkRpTjJmOWhvNXdpQmUzeGZ1d1B2MEo3RzVVQlp3MEFwODlfNGNQQVhIN1E?oc=5",
       "priority": "critical",
       "source_type": "discovery",
       "checked_at": "2026-09-03T23:11:21.489616+00:00",
@@ -8487,54 +8511,6 @@
       "checked_at": "2026-09-03T23:11:21.489616+00:00",
       "first_seen_at": "2026-09-03T23:14:07.454331+00:00",
       "last_changed_at": "2026-09-03T23:14:07.454331+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "3582a361c4effaf3ea93",
-      "source": "SMC Google News Discovery",
-      "title": "SMC Exam Date 2026 Out, Check Official Schedule for 2295 Clerk, MO & Other Posts - Career Power",
-      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE0yenV5NjFkNHRtWVBTSUJaTEIwcHZJOFRRLVV5S05KREZueUJNR25wcEhXdU1pYkZjMGd3Um5wNE5uUGwwT0cwSkd0NXdDU3I5UFVtaHI0M0JXcDFwUWxpMGhR?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-09-03T23:11:21.489616+00:00",
-      "first_seen_at": "2026-09-03T23:14:07.454331+00:00",
-      "last_changed_at": "2026-09-03T23:14:07.454331+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "785d3ea07d6d1ec0be65",
-      "source": "SMC Google News Discovery",
-      "title": "SMC Apprentices Recruitment 2026 Notification Out - Apply Online for 1000 Posts - FreeJobAlert.Com",
-      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQZFh5SWZ3RG1wUEZTUW1xQ0JJOUUzZERMMEFKaHdTS1JfUWFwdnZXT2NFYUJmbFQzeVhSRi11Y0dOeUEwUWloUGF4ZjNmc0ZiUjBDRjdVREtIajJIZDViR3ZWUjJsdjZjbndGdDE5bmlJNkY0YzhyZ3o4ZTBCX3QxX1p0S1lHVzdZNjREX0pnaUpaVF9DZUVQYmlJbWFsaURQUThiTGlPUjVSdw?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-09-03T23:11:21.489616+00:00",
-      "first_seen_at": "2026-09-03T23:14:07.454331+00:00",
-      "last_changed_at": "2026-09-03T23:14:07.454331+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "36eb6bc2de05da7fc0e8",
-      "source": "SMC Google News Discovery",
-      "title": "Probe against 3 dismissed SMC staff for hiding qualification to secure job - The Indian Express",
-      "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxQMUIyUUF0bjVaT0dtcU9zbFc3YS1iZlQtbzJTRE1zdkN2S0hMeEo1V3oxbjNYU0dyT2xhdnluVXpXMjVMOU9UWXFIajN4SGJVeGFpY3F1NGV0a3U0bGw4Q29zWkhELTF0RHQ5eENxZjVNREZaQ2t0NmZSUUZ6SGZjODl2UWp1RDJIUWZxYXFWeWtDc19raHlMZ3dGcWwySmpaYll6dV93VUtwakxWZ1FzZFlaOE5sTGtPcFdseW1iMzdlcGNwelQ1OUVFYVBlREHSAdYBQVVfeXFMTzZjVGtqdVFwZUhKbWNmcmpHS0FZX2N0OTYxdmZpQXlSMklkajJxS1dvZjgzSEkyYm80a19OZGtuY05mdmN2WGNyd3FjV1Y1LTVBeWNUOGdaNmVzbFM5OUwxU0dzQmRIRzZ6ZVM4SkRPbFVvTHplQjI4SHBtbXgyN0hDeTRQTjlBT0tBeTBMNW82bEd6QzFaSFkwWHpqVlAweDJidHJ6elZGeUVTNzBLQVZMM1o0Xzg1QXVTQlRjUjVISWp3SXdwd1hHRmt3NmpsbW53djBUUQ?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-09-03T23:11:21.489616+00:00",
-      "first_seen_at": "2026-09-03T23:14:07.454331+00:00",
-      "last_changed_at": "2026-09-03T23:14:07.454331+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "354607e104825996e3c9",
-      "source": "SMC Jobs Google News Discovery 2",
-      "title": "SMC Apprentices Recruitment 2026 Notification Out - Apply Online for 1000 Posts - FreeJobAlert.Com",
-      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQZFh5SWZ3RG1wUEZTUW1xQ0JJOUUzZERMMEFKaHdTS1JfUWFwdnZXT2NFYUJmbFQzeVhSRi11Y0dOeUEwUWloUGF4ZjNmc0ZiUjBDRjdVREtIajJIZDViR3ZWUjJsdjZjbndGdDE5bmlJNkY0YzhyZ3o4ZTBCX3QxX1p0S1lHVzdZNjREX0pnaUpaVF9DZUVQYmlJbWFsaURQUThiTGlPUjVSdw?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-09-03T20:54:59.728438+00:00",
-      "first_seen_at": "2026-09-03T20:56:39.068249+00:00",
-      "last_changed_at": "2026-09-03T20:56:39.068249+00:00",
       "change_type": "new"
     },
     {
@@ -8754,5 +8730,5 @@
       "change_type": "unchanged"
     }
   ],
-  "updated_at": "2026-09-03T23:14:07.454331+00:00"
+  "updated_at": "2026-09-04T01:04:12.988858+00:00"
 }
