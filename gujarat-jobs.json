@@ -1,8 +1,8 @@
 {
   "region": "Gujarat",
   "focus": "Gujarat Government Jobs and SMC Recruitment",
-  "total": 729,
-  "new_items": 1,
+  "total": 733,
+  "new_items": 4,
   "updated_items": 0,
   "items": [
     {
@@ -8406,6 +8406,54 @@
       "change_type": "unchanged"
     },
     {
+      "id": "dc03f9b3ea86a5e05545",
+      "source": "SMC Jobs Google News Discovery 2",
+      "title": "SMC Recruitment 2026 Notification Out for 1924 Vacancies, Check Eligibility & Last Date - Jagran Josh",
+      "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPSE1aSEtES3VDWFRCanNHWThyZ2lNaGZlZkZleDVmbndoQTFUZ0NFQ0RfUlBsTnNTUlVwVVhReEZZcHg2RTIzR0VLWHFlUW1GR25tbGN2UFYtVzloOG1QSHd6UUZBSXd5OHZCYWVLZGxSbDlWTDZiZUlhN3daVHdKV3ptaEZUdzhoajU0WGNFZWJXN3NSNXFETmJYRDVjNGNtM3BmV0ZYd0E4THZnMm93R0c4SFdSY2xSem5mUW8yUi1JYkpkZDlGelZfUnIxVkdEQy00?oc=5",
+      "priority": "critical",
+      "source_type": "discovery",
+      "checked_at": "2026-09-04T22:18:51.814527+00:00",
+      "first_seen_at": "2026-09-04T22:20:29.225888+00:00",
+      "last_changed_at": "2026-09-04T22:20:29.225888+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "0bc3325c765144269546",
+      "source": "SMC Google News Discovery",
+      "title": "Surat Municipal Corporation to Reserve Direct Recruitment P… - GujaratSamachar English",
+      "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxOcGhWa0ZnUVR6SXVyeVlYcGFLMEVyM3l0Z3ZYNzYyMVIwcGd4Z0NKU2VxV3pwN2lYdDlCZjVZeDdNeUNRVnhtc1VZMWczbHV4Q1FWdFdNODJwZXJDa1Nfcng0SWQtNVdRdzJyZEZxc045U1ZKWVRzMmg0TV9OSnJveHUyVWkwT0d2VGhQcUhCS00xb2w3cFlydEFyRTYyU284VHRyM3J6SlFRZXJBLUd0Y2dKakVnZWlzVnRlNFBEaGpQQ0EwcFJjVHQ4UHhVS2F2VmFTNDVxOA?oc=5",
+      "priority": "critical",
+      "source_type": "discovery",
+      "checked_at": "2026-09-04T22:17:42.687580+00:00",
+      "first_seen_at": "2026-09-04T22:20:29.225888+00:00",
+      "last_changed_at": "2026-09-04T22:20:29.225888+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "8444639496c9082c40bc",
+      "source": "SMC Google News Discovery",
+      "title": "Surat Municipal Corporation Election Result 2026: Congress opens account after 5 years, AAP faces setback - The Indian Express",
+      "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxQSEtTbkZEYWgxTEN6bGJCczZvVzhhcXo2T2dXdHFLcXh6dlo0emx3SERVN1hWY281OFpCWFotNUJ4M3dCbmNIUFJ3Y1lBVllEQXpHRUhpbFhWYWZVQXRVYVViaW90Q1Y0c1htUFE2cnhFRm1mUV9ucDNuRnJWUzhsZDBPazdRc1dmNjA5MGVrSFNyUXJ6dEpnZC1nMUx4QzVIekFkYTh3VzZqTG14enhDXzVEcVhGellrMkVJTmw1dkpLSWV4RkZTdjFUVkl6Ums3MTQ1ZGNsUdIB3gFBVV95cUxNOF9Za0lnTFZIU3prS0hpX1hMSnJYNUx4TzBkYlRKQjBQSjFSd1FVSUl4dU9SU05lZUd3U1FCSHhvUU1fSzVXWjBBZy1HZjVLdTFYZHhXLUE4STF1WGtrLWd1OVBUU2xPRWZpTE03YWh3bDJaa3REYzQ4al9XTEZPcS15NjVSMG1NWDAyLUhPTkVDQXQtY1p4U1oxR2t6eVFfRDZaNmlUYXlDaUZ1SVFqUHpGZm5KNjY1UkJmWkx0Z0tfUUN2VU4xSFhINnBJRElzWmVEdVlXLUJ1TUJkbWc?oc=5",
+      "priority": "critical",
+      "source_type": "discovery",
+      "checked_at": "2026-09-04T22:17:42.687580+00:00",
+      "first_seen_at": "2026-09-04T22:20:29.225888+00:00",
+      "last_changed_at": "2026-09-04T22:20:29.225888+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "7260aa06b440012128cd",
+      "source": "SMC Google News Discovery",
+      "title": "Process for recruitment of 300 Marshalls begin in Surat municipal corporation - The Times of India",
+      "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxOak1WUGhvVWpWaUZBNTBLbV9fR3owSVlybkpTdmhEX2VHZmRSd1lTNVRIWU9QYklGb2pBN09KalQ2cXp6UVJvWTg3Yk5ud08wclA2TnU0dU9IWUppM2UyQ2R5dGpaU2xhOXg4ZHVUalhSRG5RSm1obGFyNmFzUWFVN3hUSXRtakJHMjlXNmxWT2pJNXVLdUNjVjliOWFpeG5yMVVKYWhZQzczOWg0RklLSUFwOGFlRmVjck5jc1ZVOXc1U3puaHhMeHNTX0luV05Uc3NYZi1qV3dZYmxaU0RaRHJOWdIB6AFBVV95cUxPaWpieEtBcllmT2NlOXVpeG5CenhqNmluaU1HTFpkdTNqUTNVLVJRX2tQcGl3empnRWlhb3FOdEVRVHJhUFRPbFdBbUZtWXNJOTFzUU01RW9jTnRtWUM1V0E4TjVXNmJzQTBMZ3FPMC1CcDM4WXZsd085TG1CQmVLWmZaZDczYmhVeVFjYUp6NmJxeHBNdmw5OUQyOElPSlBPRUVEcURDdlZoMURHX1F2TE03ZzV3VEZtWkZPVmZndG82blc2a0R0ckVtczhZRUp6dlhJb0hHZENmb0NtSHZGQ0JOMUdUVDNX?oc=5",
+      "priority": "critical",
+      "source_type": "discovery",
+      "checked_at": "2026-09-04T22:17:42.687580+00:00",
+      "first_seen_at": "2026-09-04T22:20:29.225888+00:00",
+      "last_changed_at": "2026-09-04T22:20:29.225888+00:00",
+      "change_type": "new"
+    },
+    {
       "id": "52cb48ad541dd884e638",
       "source": "SMC Google News Discovery",
       "title": "SMC Recruitment 2026 Notification Out for 1924 Vacancies, Check Eligibility & Last Date - Jagran Josh",
@@ -8754,5 +8802,5 @@
       "change_type": "unchanged"
     }
   ],
-  "updated_at": "2026-09-04T19:57:13.831807+00:00"
+  "updated_at": "2026-09-04T22:20:29.225888+00:00"
 }
