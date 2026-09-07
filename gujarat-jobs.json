@@ -1,10 +1,22 @@
 {
   "region": "Gujarat",
   "focus": "Gujarat Government Jobs and SMC Recruitment",
-  "total": 743,
-  "new_items": 5,
+  "total": 744,
+  "new_items": 1,
   "updated_items": 0,
   "items": [
+    {
+      "id": "2be08f89d3fc4c74c815",
+      "source": "Gujarat Jobs Google News Discovery",
+      "title": "GSSSB Horticulture Assistant Recruitment 2026 - Apply Online for 100 Posts - FreeJobAlert.Com",
+      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQelYwcjhSdmVyN19vdGozbExJbTBpbkFRbC1adXY0MjEtMmxQTEZseEV3QUdHVU5xbDRHS2l0ZnBXb2Fua0VmRjhVSklmOU9HYUdMVVQ1dEw2UERVa2QzeGVMcWdITmtEZ0FqSVZMM1RrNFMzQ2VoMnh4UEktdmxzUFkzcC1ERXFJNU91eGs4UXNqVndXMk1tSVdkRVBlQkhKX01kS1U4dVMzSHdkVG5Mck5KMlNQMGFxSmc?oc=5",
+      "priority": "high",
+      "source_type": "discovery",
+      "checked_at": "2026-09-07T17:46:59.884928+00:00",
+      "first_seen_at": "2026-09-07T17:48:37.936792+00:00",
+      "last_changed_at": "2026-09-07T17:48:37.936792+00:00",
+      "change_type": "new"
+    },
     {
       "id": "523f078c77dd686fcd74",
       "source": "Gujarat Jobs Google News Discovery",
@@ -8922,5 +8934,5 @@
       "change_type": "unchanged"
     }
   ],
-  "updated_at": "2026-09-07T12:17:53.338874+00:00"
+  "updated_at": "2026-09-07T17:48:37.936792+00:00"
 }

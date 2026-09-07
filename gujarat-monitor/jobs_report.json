@@ -1,9 +1,9 @@
 {
   "sources_scanned": 28,
-  "links_found_this_scan": 743,
-  "new_items": 5,
+  "links_found_this_scan": 744,
+  "new_items": 1,
   "updated_items": 0,
-  "total_items": 743,
+  "total_items": 744,
   "errors": [
     {
       "source": "Ahmedabad Municipal Corporation",
@@ -34,6 +34,11 @@
       "source": "Gandhinagar Municipal Corporation",
       "url": "https://gandhinagarmunicipal.com/recruitment/",
       "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "source": "Gujarat Biotechnology Research Centre",
+      "url": "https://www.gbrc.gujarat.gov.in/WebCMS/Start/Announcement",
+      "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.gbrc.gujarat.gov.in'. (_ssl.c:1010)>"
     },
     {
       "source": "Gujarat Education Department",
@@ -84,7 +89,6 @@
   "empty_sources": [],
   "successful_sources": [
     "Bhavnagar Municipal Corporation",
-    "Gujarat Biotechnology Research Centre",
     "Gujarat High Court Recruitment",
     "Gujarat Informatics Limited",
     "Gujarat Jobs Google News Discovery",
@@ -99,5 +103,5 @@
   ],
   "smc_items": 41,
   "mode": "live_snapshot",
-  "updated_at": "2026-09-07T12:17:53.338874+00:00"
+  "updated_at": "2026-09-07T17:48:37.936792+00:00"
 }
