@@ -1,10 +1,22 @@
 {
   "region": "Gujarat",
   "focus": "Gujarat Government Jobs and SMC Recruitment",
-  "total": 744,
-  "new_items": 1,
+  "total": 739,
+  "new_items": 2,
   "updated_items": 0,
   "items": [
+    {
+      "id": "150b8024d1425574dfc7",
+      "source": "Gujarat Jobs Google News Discovery",
+      "title": "Chasing Dreams Through OJAS: How a Gujarat Job Portal Changed My Life - Vocal",
+      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPdTZXV0FCaHBPWHdKN2xkNmpFeFJpOTdyQW9hd3JDdy1OZFpUS3hWeVB1NEN6NnBXNTgxeTJBMjc0OG4xVHJCOXR1OFE0Ty1fdkFGeUQyYjJjeHF4Rk1abU9QZk1YdjIweG8ySEhFTlAySE50Y0xVMnh5aDQ3UTM0eklJb2tQUzhLQUlkTkg2X0dzMlFYRmhrX09scVVXdGc?oc=5",
+      "priority": "high",
+      "source_type": "discovery",
+      "checked_at": "2026-09-07T20:48:22.681189+00:00",
+      "first_seen_at": "2026-09-07T20:50:01.944381+00:00",
+      "last_changed_at": "2026-09-07T20:50:01.944381+00:00",
+      "change_type": "new"
+    },
     {
       "id": "2be08f89d3fc4c74c815",
       "source": "Gujarat Jobs Google News Discovery",
@@ -34,18 +46,6 @@
       "source": "Gujarat Jobs Google News Discovery",
       "title": "GSSSB Recruitment 2026: Apply for Female Health Worker (Class-3) Post – Special Drive for Divyang Candidates - FreeJobAlert.Com",
       "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOYXhqR3Q1LWFzTEhoLXFDbGFBR2FHa3pTc2pQV1NOb3V5S1VjQXg3czFxWU1PYWZNXzJMci1lT3lFMGdZT0dqNWRRSTd5aGtQcXgxNVFka3Q1R1I2bm5Lc1dhVkhtR1BCVm1mNkdXY0w3X1RFMUt0RVRxdFo3SlV5aE10OUxXYUkzTUh6OHBiMGM4cjRxVlBPb2VpMW4ybXdvd01Ob0xMLXRMenJ2YW9NVkdwRThUUQ?oc=5",
-      "priority": "high",
-      "source_type": "discovery",
-      "checked_at": "2026-09-07T12:16:15.546379+00:00",
-      "first_seen_at": "2026-09-07T12:17:53.338874+00:00",
-      "last_changed_at": "2026-09-07T12:17:53.338874+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "f82b0ec9b6e317840549",
-      "source": "Gujarat Jobs Google News Discovery",
-      "title": "Chasing Dreams Through OJAS: How a Gujarat Job Portal Changed My Life - vocal.media",
-      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPdTZXV0FCaHBPWHdKN2xkNmpFeFJpOTdyQW9hd3JDdy1OZFpUS3hWeVB1NEN6NnBXNTgxeTJBMjc0OG4xVHJCOXR1OFE0Ty1fdkFGeUQyYjJjeHF4Rk1abU9QZk1YdjIweG8ySEhFTlAySE50Y0xVMnh5aDQ3UTM0eklJb2tQUzhLQUlkTkg2X0dzMlFYRmhrX09scVVXdGc?oc=5",
       "priority": "high",
       "source_type": "discovery",
       "checked_at": "2026-09-07T12:16:15.546379+00:00",
@@ -8442,6 +8442,18 @@
       "change_type": "unchanged"
     },
     {
+      "id": "1e565f0457eec6df3c8e",
+      "source": "SMC Google News Discovery",
+      "title": "SMC Recruitment 2026: 1,924 Posts Open for Application - news.kollegeapply.com",
+      "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNZnFUUEdkN01FWmRTSzZCRHg0dXJ4NzlqTUJ2MHVTTTFIeTI1MzVVRTdZUGc4ZGxTbDdOQzBnajBDUXN3Z19tVUFwRGhrRHFVZkpoeWtmaEdUVFFEMm1nLVpVLWF3bUN4OG0zNDM1Nk45V1ZzaWdVSWdjVnBWQ284ZEh4aGY4b1doemhORA?oc=5",
+      "priority": "critical",
+      "source_type": "discovery",
+      "checked_at": "2026-09-07T20:47:15.709168+00:00",
+      "first_seen_at": "2026-09-07T20:50:01.944381+00:00",
+      "last_changed_at": "2026-09-07T20:50:01.944381+00:00",
+      "change_type": "new"
+    },
+    {
       "id": "da7e897733ee049a07fa",
       "source": "SMC Google News Discovery",
       "title": "SMC Jobs 2026: 2,295 Vacancies for Candidates Ranging from 6th Grade Pass to Post-Graduates; Recruitment for Posts Including Staff Nurse and Clerk.. - Dailyhunt",
@@ -8538,18 +8550,6 @@
       "change_type": "new"
     },
     {
-      "id": "d8d032593fa6e5d47c5d",
-      "source": "SMC Google News Discovery",
-      "title": "SMC Recruitment 2026: 1,924 Posts Open for Application - KollegeApply News",
-      "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNZnFUUEdkN01FWmRTSzZCRHg0dXJ4NzlqTUJ2MHVTTTFIeTI1MzVVRTdZUGc4ZGxTbDdOQzBnajBDUXN3Z19tVUFwRGhrRHFVZkpoeWtmaEdUVFFEMm1nLVpVLWF3bUN4OG0zNDM1Nk45V1ZzaWdVSWdjVnBWQ284ZEh4aGY4b1doemhORA?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-09-07T01:03:37.953726+00:00",
-      "first_seen_at": "2026-09-07T01:06:25.562849+00:00",
-      "last_changed_at": "2026-09-07T01:06:25.562849+00:00",
-      "change_type": "new"
-    },
-    {
       "id": "9899416373f49bbcad85",
       "source": "SMC Google News Discovery",
       "title": "SMC Recruitment 2026 Out, Last Date To Apply Online for 120 Various Posts - Adda247",
@@ -8619,66 +8619,6 @@
       "checked_at": "2026-09-06T17:45:11.488133+00:00",
       "first_seen_at": "2026-09-06T17:47:57.980076+00:00",
       "last_changed_at": "2026-09-06T17:47:57.980076+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "c1c80c413c2c7689122a",
-      "source": "SMC Official Recruitment",
-      "title": "Recruitments",
-      "url": "https://www.suratmunicipal.gov.in/Information/RecruitmentDashboard",
-      "priority": "critical",
-      "source_type": "government",
-      "checked_at": "2026-09-06T12:48:43.845866+00:00",
-      "first_seen_at": "2026-09-06T12:51:29.049775+00:00",
-      "last_changed_at": "2026-09-06T12:51:29.049775+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "0f2905a29f1cb718c552",
-      "source": "SMC Official Recruitment",
-      "title": "Recruitment",
-      "url": "https://www.suratmunicipal.gov.in/Information/RecruitmentDashboard",
-      "priority": "critical",
-      "source_type": "government",
-      "checked_at": "2026-09-06T12:48:43.845866+00:00",
-      "first_seen_at": "2026-09-06T12:51:29.049775+00:00",
-      "last_changed_at": "2026-09-06T12:51:29.049775+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "9fb4659c700c8f4513a0",
-      "source": "SMC Official Recruitment",
-      "title": "Engineers (237 KB)",
-      "url": "https://www.suratmunicipal.gov.in/Content/Documents/rtiact/Disclosure/Town%20Development/TDO/Engineers.pdf",
-      "priority": "critical",
-      "source_type": "government",
-      "checked_at": "2026-09-06T12:48:43.845866+00:00",
-      "first_seen_at": "2026-09-06T12:51:29.049775+00:00",
-      "last_changed_at": "2026-09-06T12:51:29.049775+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "aa8325d68462f20f300d",
-      "source": "SMC Official Recruitment",
-      "title": "Check RTI Application Status",
-      "url": "https://www.suratmunicipal.gov.in/Information/RTIAppStatus",
-      "priority": "critical",
-      "source_type": "government",
-      "checked_at": "2026-09-06T12:48:43.845866+00:00",
-      "first_seen_at": "2026-09-06T12:51:29.049775+00:00",
-      "last_changed_at": "2026-09-06T12:51:29.049775+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "43ccf0fbc2f6ba8ca403",
-      "source": "SMC Official Recruitment",
-      "title": "Back to Dashboard",
-      "url": "https://www.suratmunicipal.gov.in/Information/RecruitmentDashboard",
-      "priority": "critical",
-      "source_type": "government",
-      "checked_at": "2026-09-06T12:48:43.845866+00:00",
-      "first_seen_at": "2026-09-06T12:51:29.049775+00:00",
-      "last_changed_at": "2026-09-06T12:51:29.049775+00:00",
       "change_type": "new"
     },
     {
@@ -8934,5 +8874,5 @@
       "change_type": "unchanged"
     }
   ],
-  "updated_at": "2026-09-07T17:48:37.936792+00:00"
+  "updated_at": "2026-09-07T20:50:01.944381+00:00"
 }
