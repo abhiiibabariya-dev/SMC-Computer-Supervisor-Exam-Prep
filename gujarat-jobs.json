@@ -1,10 +1,46 @@
 {
   "region": "Gujarat",
   "focus": "Gujarat Government Jobs and SMC Recruitment",
-  "total": 741,
-  "new_items": 3,
+  "total": 743,
+  "new_items": 5,
   "updated_items": 0,
   "items": [
+    {
+      "id": "523f078c77dd686fcd74",
+      "source": "Gujarat Jobs Google News Discovery",
+      "title": "GSSSB Work Assistant Recruitment 2026 Out, Last Date To Apply Online for 336 Posts - Adda247",
+      "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQZURXWl8wc1hMbmhtSTF5UjJDNEJOOEhJS2dXdWhtdkZ0N05nVVlMVWhrclg2X212Zlh6Qm11Y1R6ZW8tZzBBNjVkVDlBVFptN2dRTjlWVTNWSFlVNXhfR1FvUnJBb29CMzhVNGtLYndKUEpEQnRBQndBaC1MMzBxR1ljVnNqUQ?oc=5",
+      "priority": "high",
+      "source_type": "discovery",
+      "checked_at": "2026-09-07T12:16:15.546379+00:00",
+      "first_seen_at": "2026-09-07T12:17:53.338874+00:00",
+      "last_changed_at": "2026-09-07T12:17:53.338874+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "74d363a7e7cfd86052c4",
+      "source": "Gujarat Jobs Google News Discovery",
+      "title": "GSSSB Recruitment 2026: Apply for Female Health Worker (Class-3) Post – Special Drive for Divyang Candidates - FreeJobAlert.Com",
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOYXhqR3Q1LWFzTEhoLXFDbGFBR2FHa3pTc2pQV1NOb3V5S1VjQXg3czFxWU1PYWZNXzJMci1lT3lFMGdZT0dqNWRRSTd5aGtQcXgxNVFka3Q1R1I2bm5Lc1dhVkhtR1BCVm1mNkdXY0w3X1RFMUt0RVRxdFo3SlV5aE10OUxXYUkzTUh6OHBiMGM4cjRxVlBPb2VpMW4ybXdvd01Ob0xMLXRMenJ2YW9NVkdwRThUUQ?oc=5",
+      "priority": "high",
+      "source_type": "discovery",
+      "checked_at": "2026-09-07T12:16:15.546379+00:00",
+      "first_seen_at": "2026-09-07T12:17:53.338874+00:00",
+      "last_changed_at": "2026-09-07T12:17:53.338874+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "f82b0ec9b6e317840549",
+      "source": "Gujarat Jobs Google News Discovery",
+      "title": "Chasing Dreams Through OJAS: How a Gujarat Job Portal Changed My Life - vocal.media",
+      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPdTZXV0FCaHBPWHdKN2xkNmpFeFJpOTdyQW9hd3JDdy1OZFpUS3hWeVB1NEN6NnBXNTgxeTJBMjc0OG4xVHJCOXR1OFE0Ty1fdkFGeUQyYjJjeHF4Rk1abU9QZk1YdjIweG8ySEhFTlAySE50Y0xVMnh5aDQ3UTM0eklJb2tQUzhLQUlkTkg2X0dzMlFYRmhrX09scVVXdGc?oc=5",
+      "priority": "high",
+      "source_type": "discovery",
+      "checked_at": "2026-09-07T12:16:15.546379+00:00",
+      "first_seen_at": "2026-09-07T12:17:53.338874+00:00",
+      "last_changed_at": "2026-09-07T12:17:53.338874+00:00",
+      "change_type": "new"
+    },
     {
       "id": "e89005b439633b17d87a",
       "source": "Gujarat Jobs Google News Discovery",
@@ -34,18 +70,6 @@
       "source": "Gujarat Jobs Google News Discovery",
       "title": "GSSSB CCE Recruitment 2026 For 5370 Group A & B Posts, Apply Online Till 20 Feb - Adda247",
       "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNcXVnVFBOZTZPUVl1WTBNb0dVeURJN1NOalZfVUJOMjI2SWJCMkhmWVVQRjBBT1pJclFISGdOYmx4bl9xc0lXZ2Zyam1lWjlyMDRQUUFYN2pYVUJnMkxESm5zN01nQk9FWFBYdXZvSkp0bXRHSVp3cXFFSkFNZk1YQ1J0cw?oc=5",
-      "priority": "high",
-      "source_type": "discovery",
-      "checked_at": "2026-09-07T01:04:46.742228+00:00",
-      "first_seen_at": "2026-09-07T01:06:25.562849+00:00",
-      "last_changed_at": "2026-09-07T01:06:25.562849+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "150b8024d1425574dfc7",
-      "source": "Gujarat Jobs Google News Discovery",
-      "title": "Chasing Dreams Through OJAS: How a Gujarat Job Portal Changed My Life - Vocal",
-      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPdTZXV0FCaHBPWHdKN2xkNmpFeFJpOTdyQW9hd3JDdy1OZFpUS3hWeVB1NEN6NnBXNTgxeTJBMjc0OG4xVHJCOXR1OFE0Ty1fdkFGeUQyYjJjeHF4Rk1abU9QZk1YdjIweG8ySEhFTlAySE50Y0xVMnh5aDQ3UTM0eklJb2tQUzhLQUlkTkg2X0dzMlFYRmhrX09scVVXdGc?oc=5",
       "priority": "high",
       "source_type": "discovery",
       "checked_at": "2026-09-07T01:04:46.742228+00:00",
@@ -8406,6 +8430,30 @@
       "change_type": "unchanged"
     },
     {
+      "id": "da7e897733ee049a07fa",
+      "source": "SMC Google News Discovery",
+      "title": "SMC Jobs 2026: 2,295 Vacancies for Candidates Ranging from 6th Grade Pass to Post-Graduates; Recruitment for Posts Including Staff Nurse and Clerk.. - Dailyhunt",
+      "url": "https://news.google.com/rss/articles/CBMi3AJBVV95cUxNeWV2STJ5OUp0QjU4QTZLRGt1cmliVnAzWXplbHlMOTVERmJqLWFoYmdBMmdaN1Zlel9kSXR1NEZCUWFhX0lEUjZmMVJKYnhZdUNCZ2NaV0xRUTNUTWZpNkNWWktDYW95OHEzV0paUGxCLVBBNEh6My1aa1U4Z0hESjR5di00VGN6b1daai1XSktVRG1VMFNuWnF3TngzMUFvVERJMXViZzV1dTkyMFRkQWpub2lVX2J0di14MmsxYWZWYTdXUVhmcDlSSzdnVDdlQVotUjhSWHBhSldCdlpENGZGbEh4c3V1OWJBQ2g4OC11ZVAwMGxrUk8zb1lzMWlDeGN3d3ZxWFJxazA1Wkh4eVNRYTlDRHFkMklNZFVIT3hSR0hLSEd4UzR2VGItYnZSUVhCa09oOGNpWUFGVVhrM0dRUk9PSzR1eWhQSV82Q0c3MUd4azVwYkJqanI?oc=5",
+      "priority": "critical",
+      "source_type": "discovery",
+      "checked_at": "2026-09-07T12:15:06.034157+00:00",
+      "first_seen_at": "2026-09-07T12:17:53.338874+00:00",
+      "last_changed_at": "2026-09-07T12:17:53.338874+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "5b2d9aa07477b4ea2ee7",
+      "source": "SMC Google News Discovery",
+      "title": "Sanitation workers demand permanent SMC jobs - The Times of India",
+      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxONkRrWkU0bW4xNWFTX254Ny1sUUpBTzc1UDk1UFNKTUM1ZzNna3cyV2JJR3FEeG01UE1xUGxwZWlWNXBQRldaU3hNLXp1SUstbGg1Nl9rLVduQjV4alNYTi1XLTJTaWJhQW1zdXdRbEdBbnZRYnlGVkhwNXdpRDJ4SDNxSlpMLVduaTczSklyTVRHTjFldlRWVFl6dEgyYTZCOXdCNkVEZXhsd0l6cVVZSWRQNHNxTjTSAbwBQVVfeXFMT1Y5dFJSTUxZNnZEVWEyTnBscGxvN3NFTG9KdjNPc2tqUldScDJNdUVmcDd2b04xanJmUmtEeUw5S01meVFFVWJpa3BvNGhKZTB0ZnBZRmQ5bko2M2JVbzRKcWFhZjU2dEhYMExSeGc0SEFOUVg4S09tTnp0RWt0SUZ5MlFLalJsWFNwVXhhN3UxS1IzYmVFaHItNkx5eHFiZVExUElTQy1zU3BaY3plWGRSUThXaVFEZlVuUHI?oc=5",
+      "priority": "critical",
+      "source_type": "discovery",
+      "checked_at": "2026-09-07T12:15:06.034157+00:00",
+      "first_seen_at": "2026-09-07T12:17:53.338874+00:00",
+      "last_changed_at": "2026-09-07T12:17:53.338874+00:00",
+      "change_type": "new"
+    },
+    {
       "id": "dc03f9b3ea86a5e05545",
       "source": "SMC Jobs Google News Discovery 2",
       "title": "SMC Recruitment 2026 Notification Out for 1924 Vacancies, Check Eligibility & Last Date - Jagran Josh",
@@ -8422,18 +8470,6 @@
       "source": "SMC Google News Discovery",
       "title": "SMC Recruitment 2026 Notification Out for 1924 Vacancies, Check Eligibility & Last Date - Jagran Josh",
       "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPSE1aSEtES3VDWFRCanNHWThyZ2lNaGZlZkZleDVmbndoQTFUZ0NFQ0RfUlBsTnNTUlVwVVhReEZZcHg2RTIzR0VLWHFlUW1GR25tbGN2UFYtVzloOG1QSHd6UUZBSXd5OHZCYWVLZGxSbDlWTDZiZUlhN3daVHdKV3ptaEZUdzhoajU0WGNFZWJXN3NSNXFETmJYRDVjNGNtM3BmV0ZYd0E4THZnMm93R0c4SFdSY2xSem5mUW8yUi1JYkpkZDlGelZfUnIxVkdEQy00?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-09-07T05:57:08.759022+00:00",
-      "first_seen_at": "2026-09-07T05:59:55.696657+00:00",
-      "last_changed_at": "2026-09-07T05:59:55.696657+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "0b71586a39de0f2bc61c",
-      "source": "SMC Google News Discovery",
-      "title": "SMC Jobs 2026: 2,295 Vacancies for Candidates Ranging from 6th Grade Pass to Post-Graduates; Recruitment for Posts Including Staff Nurse and Clerk.. - dailyhunt.in",
-      "url": "https://news.google.com/rss/articles/CBMi3AJBVV95cUxNeWV2STJ5OUp0QjU4QTZLRGt1cmliVnAzWXplbHlMOTVERmJqLWFoYmdBMmdaN1Zlel9kSXR1NEZCUWFhX0lEUjZmMVJKYnhZdUNCZ2NaV0xRUTNUTWZpNkNWWktDYW95OHEzV0paUGxCLVBBNEh6My1aa1U4Z0hESjR5di00VGN6b1daai1XSktVRG1VMFNuWnF3TngzMUFvVERJMXViZzV1dTkyMFRkQWpub2lVX2J0di14MmsxYWZWYTdXUVhmcDlSSzdnVDdlQVotUjhSWHBhSldCdlpENGZGbEh4c3V1OWJBQ2g4OC11ZVAwMGxrUk8zb1lzMWlDeGN3d3ZxWFJxazA1Wkh4eVNRYTlDRHFkMklNZFVIT3hSR0hLSEd4UzR2VGItYnZSUVhCa09oOGNpWUFGVVhrM0dRUk9PSzR1eWhQSV82Q0c3MUd4azVwYkJqanI?oc=5",
       "priority": "critical",
       "source_type": "discovery",
       "checked_at": "2026-09-07T05:57:08.759022+00:00",
@@ -8566,18 +8602,6 @@
       "source": "SMC Google News Discovery",
       "title": "SMC Apprentice Recruitment 2026 Notification Out – Apply Online for Apprentice Posts - Careers360",
       "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQdUViWkw0ZWZzSnBid3RRa1c5S0FfbERJdkc1MWthU0swODV5a18wRWllVHZpV00xNmZ5cnE0VTBucTRHNWRLYVNXcUIxWHoteGdBcnFtdERQSEJoSXdlOHliRm9ac0RyU1BMcFZ5cDg5NHRVMHAxTVhDd2JCZUZzNg?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-09-06T17:45:11.488133+00:00",
-      "first_seen_at": "2026-09-06T17:47:57.980076+00:00",
-      "last_changed_at": "2026-09-06T17:47:57.980076+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "7260aa06b440012128cd",
-      "source": "SMC Google News Discovery",
-      "title": "Process for recruitment of 300 Marshalls begin in Surat municipal corporation - The Times of India",
-      "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxOak1WUGhvVWpWaUZBNTBLbV9fR3owSVlybkpTdmhEX2VHZmRSd1lTNVRIWU9QYklGb2pBN09KalQ2cXp6UVJvWTg3Yk5ud08wclA2TnU0dU9IWUppM2UyQ2R5dGpaU2xhOXg4ZHVUalhSRG5RSm1obGFyNmFzUWFVN3hUSXRtakJHMjlXNmxWT2pJNXVLdUNjVjliOWFpeG5yMVVKYWhZQzczOWg0RklLSUFwOGFlRmVjck5jc1ZVOXc1U3puaHhMeHNTX0luV05Uc3NYZi1qV3dZYmxaU0RaRHJOWdIB6AFBVV95cUxPaWpieEtBcllmT2NlOXVpeG5CenhqNmluaU1HTFpkdTNqUTNVLVJRX2tQcGl3empnRWlhb3FOdEVRVHJhUFRPbFdBbUZtWXNJOTFzUU01RW9jTnRtWUM1V0E4TjVXNmJzQTBMZ3FPMC1CcDM4WXZsd085TG1CQmVLWmZaZDczYmhVeVFjYUp6NmJxeHBNdmw5OUQyOElPSlBPRUVEcURDdlZoMURHX1F2TE03ZzV3VEZtWkZPVmZndG82blc2a0R0ckVtczhZRUp6dlhJb0hHZENmb0NtSHZGQ0JOMUdUVDNX?oc=5",
       "priority": "critical",
       "source_type": "discovery",
       "checked_at": "2026-09-06T17:45:11.488133+00:00",
@@ -8898,5 +8922,5 @@
       "change_type": "unchanged"
     }
   ],
-  "updated_at": "2026-09-07T05:59:55.696657+00:00"
+  "updated_at": "2026-09-07T12:17:53.338874+00:00"
 }
