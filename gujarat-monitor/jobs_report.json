@@ -1,9 +1,9 @@
 {
   "sources_scanned": 28,
-  "links_found_this_scan": 740,
-  "new_items": 12,
+  "links_found_this_scan": 741,
+  "new_items": 14,
   "updated_items": 0,
-  "total_items": 740,
+  "total_items": 741,
   "errors": [
     {
       "source": "Ahmedabad Municipal Corporation",
@@ -73,7 +73,7 @@
     {
       "source": "KCG Gujarat Recruitment",
       "url": "https://kcg.gujarat.gov.in/recruitments",
-      "error": "The read operation timed out"
+      "error": "<urlopen error [Errno 101] Network is unreachable>"
     },
     {
       "source": "OJAS Gujarat",
@@ -103,5 +103,5 @@
   ],
   "smc_items": 37,
   "mode": "live_snapshot",
-  "updated_at": "2026-09-10T06:03:58.870351+00:00"
+  "updated_at": "2026-09-10T11:08:45.136900+00:00"
 }
