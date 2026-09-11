@@ -828,18 +828,6 @@
     "change_type": "unchanged"
   },
   {
-    "id": "487fc7af28a31bff9335",
-    "source": "Rajkot Municipal Corporation",
-    "title": "2.1 Professional Tax Registration Form",
-    "url": "https://rmc.gov.in/rmcwebsite/docs/forms/ProfessionalTaxNewApplicationForm.pdf",
-    "priority": "high",
-    "source_type": "municipal",
-    "checked_at": "2026-08-20T02:43:01.127304+00:00",
-    "first_seen_at": "2026-08-18T15:37:55.569151+00:00",
-    "last_changed_at": "2026-08-19T18:45:21.268903+00:00",
-    "change_type": "unchanged"
-  },
-  {
     "id": "d037a9ac3945fd264e61",
     "source": "Rajkot Municipal Corporation",
     "title": "2. Call Letter Download",
@@ -8410,6 +8398,66 @@
     "first_seen_at": "2026-08-18T15:37:57.055545+00:00",
     "last_changed_at": "2026-08-19T18:45:21.268903+00:00",
     "change_type": "unchanged"
+  },
+  {
+    "id": "c1c80c413c2c7689122a",
+    "source": "SMC Official Recruitment",
+    "title": "Recruitments",
+    "url": "https://www.suratmunicipal.gov.in/Information/RecruitmentDashboard",
+    "priority": "critical",
+    "source_type": "government",
+    "checked_at": "2026-09-11T20:03:46.136994+00:00",
+    "first_seen_at": "2026-09-11T20:06:31.146788+00:00",
+    "last_changed_at": "2026-09-11T20:06:31.146788+00:00",
+    "change_type": "new"
+  },
+  {
+    "id": "0f2905a29f1cb718c552",
+    "source": "SMC Official Recruitment",
+    "title": "Recruitment",
+    "url": "https://www.suratmunicipal.gov.in/Information/RecruitmentDashboard",
+    "priority": "critical",
+    "source_type": "government",
+    "checked_at": "2026-09-11T20:03:46.136994+00:00",
+    "first_seen_at": "2026-09-11T20:06:31.146788+00:00",
+    "last_changed_at": "2026-09-11T20:06:31.146788+00:00",
+    "change_type": "new"
+  },
+  {
+    "id": "9fb4659c700c8f4513a0",
+    "source": "SMC Official Recruitment",
+    "title": "Engineers (237 KB)",
+    "url": "https://www.suratmunicipal.gov.in/Content/Documents/rtiact/Disclosure/Town%20Development/TDO/Engineers.pdf",
+    "priority": "critical",
+    "source_type": "government",
+    "checked_at": "2026-09-11T20:03:46.136994+00:00",
+    "first_seen_at": "2026-09-11T20:06:31.146788+00:00",
+    "last_changed_at": "2026-09-11T20:06:31.146788+00:00",
+    "change_type": "new"
+  },
+  {
+    "id": "aa8325d68462f20f300d",
+    "source": "SMC Official Recruitment",
+    "title": "Check RTI Application Status",
+    "url": "https://www.suratmunicipal.gov.in/Information/RTIAppStatus",
+    "priority": "critical",
+    "source_type": "government",
+    "checked_at": "2026-09-11T20:03:46.136994+00:00",
+    "first_seen_at": "2026-09-11T20:06:31.146788+00:00",
+    "last_changed_at": "2026-09-11T20:06:31.146788+00:00",
+    "change_type": "new"
+  },
+  {
+    "id": "43ccf0fbc2f6ba8ca403",
+    "source": "SMC Official Recruitment",
+    "title": "Back to Dashboard",
+    "url": "https://www.suratmunicipal.gov.in/Information/RecruitmentDashboard",
+    "priority": "critical",
+    "source_type": "government",
+    "checked_at": "2026-09-11T20:03:46.136994+00:00",
+    "first_seen_at": "2026-09-11T20:06:31.146788+00:00",
+    "last_changed_at": "2026-09-11T20:06:31.146788+00:00",
+    "change_type": "new"
   },
   {
     "id": "b43ca647408a5e71e894",
