@@ -1,5 +1,17 @@
 [
   {
+    "id": "487fc7af28a31bff9335",
+    "source": "Rajkot Municipal Corporation",
+    "title": "2.1 Professional Tax Registration Form",
+    "url": "https://rmc.gov.in/rmcwebsite/docs/forms/ProfessionalTaxNewApplicationForm.pdf",
+    "priority": "high",
+    "source_type": "municipal",
+    "checked_at": "2026-09-11T22:28:57.351023+00:00",
+    "first_seen_at": "2026-09-11T22:30:39.394510+00:00",
+    "last_changed_at": "2026-09-11T22:30:39.394510+00:00",
+    "change_type": "new"
+  },
+  {
     "id": "150b8024d1425574dfc7",
     "source": "Gujarat Jobs Google News Discovery",
     "title": "Chasing Dreams Through OJAS: How a Gujarat Job Portal Changed My Life - Vocal",
@@ -9,18 +21,6 @@
     "checked_at": "2026-09-11T17:46:52.495864+00:00",
     "first_seen_at": "2026-09-11T17:48:35.849477+00:00",
     "last_changed_at": "2026-09-11T17:48:35.849477+00:00",
-    "change_type": "new"
-  },
-  {
-    "id": "523f078c77dd686fcd74",
-    "source": "Gujarat Jobs Google News Discovery",
-    "title": "GSSSB Work Assistant Recruitment 2026 Out, Last Date To Apply Online for 336 Posts - Adda247",
-    "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQZURXWl8wc1hMbmhtSTF5UjJDNEJOOEhJS2dXdWhtdkZ0N05nVVlMVWhrclg2X212Zlh6Qm11Y1R6ZW8tZzBBNjVkVDlBVFptN2dRTjlWVTNWSFlVNXhfR1FvUnJBb29CMzhVNGtLYndKUEpEQnRBQndBaC1MMzBxR1ljVnNqUQ?oc=5",
-    "priority": "high",
-    "source_type": "discovery",
-    "checked_at": "2026-09-11T14:15:39.440359+00:00",
-    "first_seen_at": "2026-09-11T14:17:19.168801+00:00",
-    "last_changed_at": "2026-09-11T14:17:19.168801+00:00",
     "change_type": "new"
   },
   {
