@@ -1,5 +1,5 @@
 {
-  "total_items": 743,
+  "total_items": 737,
   "new_items": 10,
   "updated_items": 0,
   "errors": [
@@ -84,7 +84,9 @@
       "error": "<urlopen error timed out>"
     }
   ],
-  "empty_sources": [],
+  "empty_sources": [
+    "SMC Official Website"
+  ],
   "mode": "live_snapshot",
-  "last_run": "2026-09-11T10:04:11.303412+00:00"
+  "last_run": "2026-09-11T14:17:19.168801+00:00"
 }

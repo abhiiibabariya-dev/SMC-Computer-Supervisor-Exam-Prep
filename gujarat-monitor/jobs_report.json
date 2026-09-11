@@ -1,9 +1,9 @@
 {
   "sources_scanned": 28,
-  "links_found_this_scan": 743,
+  "links_found_this_scan": 737,
   "new_items": 10,
   "updated_items": 0,
-  "total_items": 743,
+  "total_items": 737,
   "errors": [
     {
       "source": "Ahmedabad Municipal Corporation",
@@ -86,7 +86,9 @@
       "error": "<urlopen error timed out>"
     }
   ],
-  "empty_sources": [],
+  "empty_sources": [
+    "SMC Official Website"
+  ],
   "successful_sources": [
     "Bhavnagar Municipal Corporation",
     "Gujarat High Court Recruitment",
@@ -101,7 +103,7 @@
     "SMC Official Recruitment",
     "SMC Official Website"
   ],
-  "smc_items": 41,
+  "smc_items": 36,
   "mode": "live_snapshot",
-  "updated_at": "2026-09-11T10:04:11.303412+00:00"
+  "updated_at": "2026-09-11T14:17:19.168801+00:00"
 }
