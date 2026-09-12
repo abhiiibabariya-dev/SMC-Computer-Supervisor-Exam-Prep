@@ -1,9 +1,9 @@
 {
   "sources_scanned": 28,
-  "links_found_this_scan": 742,
-  "new_items": 23,
+  "links_found_this_scan": 738,
+  "new_items": 29,
   "updated_items": 0,
-  "total_items": 742,
+  "total_items": 738,
   "errors": [
     {
       "source": "Ahmedabad Municipal Corporation",
@@ -36,11 +36,6 @@
       "error": "HTTP Error 403: Forbidden"
     },
     {
-      "source": "Gujarat Biotechnology Research Centre",
-      "url": "https://www.gbrc.gujarat.gov.in/WebCMS/Start/Announcement",
-      "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.gbrc.gujarat.gov.in'. (_ssl.c:1010)>"
-    },
-    {
       "source": "Gujarat Education Department",
       "url": "https://education.gujarat.gov.in",
       "error": "<urlopen error _ssl.c:993: The handshake operation timed out>"
@@ -71,11 +66,6 @@
       "error": "HTTP Error 503: Service Unavailable"
     },
     {
-      "source": "Jamnagar Municipal Corporation",
-      "url": "https://mcjamnagar.com/information/recruitment.aspx",
-      "error": "<urlopen error _ssl.c:993: The handshake operation timed out>"
-    },
-    {
       "source": "KCG Gujarat Recruitment",
       "url": "https://kcg.gujarat.gov.in/recruitments",
       "error": "The read operation timed out"
@@ -94,18 +84,20 @@
   "empty_sources": [],
   "successful_sources": [
     "Bhavnagar Municipal Corporation",
+    "Gujarat Biotechnology Research Centre",
     "Gujarat High Court Recruitment",
     "Gujarat Informatics Limited",
     "Gujarat Jobs Google News Discovery",
     "Gujarat Social Justice & Empowerment",
     "Gyan Sahayak Gujarat",
+    "Jamnagar Municipal Corporation",
     "Rajkot Municipal Corporation",
     "SMC Google News Discovery",
     "SMC Jobs Google News Discovery 2",
     "SMC Official Recruitment",
     "SMC Official Website"
   ],
-  "smc_items": 41,
+  "smc_items": 36,
   "mode": "live_snapshot",
-  "updated_at": "2026-09-12T09:12:44.270117+00:00"
+  "updated_at": "2026-09-12T12:56:07.320787+00:00"
 }
