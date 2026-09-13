@@ -8424,6 +8424,18 @@
     "change_type": "unchanged"
   },
   {
+    "id": "410f653b35a133b2333e",
+    "source": "SMC Google News Discovery",
+    "title": "SMC Apprentice Recruitment 2026 Notification Out – Apply Online for Apprentice Posts - Careers360",
+    "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQdUViWkw0ZWZzSnBid3RRa1c5S0FfbERJdkc1MWthU0swODV5a18wRWllVHZpV00xNmZ5cnE0VTBucTRHNWRLYVNXcUIxWHoteGdBcnFtdERQSEJoSXdlOHliRm9ac0RyU1BMcFZ5cDg5NHRVMHAxTVhDd2JCZUZzNg?oc=5",
+    "priority": "critical",
+    "source_type": "discovery",
+    "checked_at": "2026-09-13T14:27:29.848232+00:00",
+    "first_seen_at": "2026-09-13T14:30:15.741348+00:00",
+    "last_changed_at": "2026-09-13T14:30:15.741348+00:00",
+    "change_type": "new"
+  },
+  {
     "id": "c1c80c413c2c7689122a",
     "source": "SMC Official Recruitment",
     "title": "Recruitments",
@@ -8548,18 +8560,6 @@
     "source": "SMC Google News Discovery",
     "title": "SMC Recruitment 2026 Notification Out for 2295 Posts, Apply Online Last Date Today - Adda247",
     "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOeWdpV3lWLU4tWHJEQko1MTZQa3ltdkN4OHEtbzBQM0VwMmNzM0FsVURNeEpGblJMdXFVLVhCQUZzVDl5TmtJcmRJX05JS0N3R2U5Y19qTUFDYnhtOFA3d3JxS19yS2FNRktBWWVXakF3VHpSWWpkLUtCWGg3V3plU3g2QVZhRXNndUkw?oc=5",
-    "priority": "critical",
-    "source_type": "discovery",
-    "checked_at": "2026-09-13T10:19:54.130839+00:00",
-    "first_seen_at": "2026-09-13T10:22:40.642648+00:00",
-    "last_changed_at": "2026-09-13T10:22:40.642648+00:00",
-    "change_type": "new"
-  },
-  {
-    "id": "43ed29c2fddf1037c2be",
-    "source": "SMC Google News Discovery",
-    "title": "SMC Apprentice Recruitment 2026 Notification Out – Apply Online for Apprentice Posts - competition.careers360.com",
-    "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQdUViWkw0ZWZzSnBid3RRa1c5S0FfbERJdkc1MWthU0swODV5a18wRWllVHZpV00xNmZ5cnE0VTBucTRHNWRLYVNXcUIxWHoteGdBcnFtdERQSEJoSXdlOHliRm9ac0RyU1BMcFZ5cDg5NHRVMHAxTVhDd2JCZUZzNg?oc=5",
     "priority": "critical",
     "source_type": "discovery",
     "checked_at": "2026-09-13T10:19:54.130839+00:00",
