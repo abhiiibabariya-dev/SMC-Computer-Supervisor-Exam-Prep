@@ -1,8 +1,8 @@
 {
   "region": "Gujarat",
   "focus": "Gujarat Government Jobs and SMC Recruitment",
-  "total": 743,
-  "new_items": 1,
+  "total": 742,
+  "new_items": 0,
   "updated_items": 0,
   "items": [
     {
@@ -8826,18 +8826,6 @@
       "change_type": "new"
     },
     {
-      "id": "d5a4bad5a57fe78a6b7d",
-      "source": "SMC Google News Discovery",
-      "title": "Nepotism Allegations Rock Surat Municipal Corporation Engineer Recruitment - theblunttimes.in",
-      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQWkxPVko4aGFVX2lpVUJYUmZLazRmTG5ZVndSdmRnbXdJaHZhclhIYi1jbkR3ZVZySFIzbDBJSDRNd1hvcFZORUVNSC1XeFN1U3RzRTlHSE5jVkxIUzJBcDhmNHlWcFk2eFRiS3loM0Vhb1h1RElyb1JicG5rTzFKWDl4cGRsY0FlOGZMQXpQalJQWUpRSUpEQjN6bVlHYVpfV0wtNFNoS0RsZw?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-09-06T12:48:42.529702+00:00",
-      "first_seen_at": "2026-09-06T12:51:29.049775+00:00",
-      "last_changed_at": "2026-09-06T12:51:29.049775+00:00",
-      "change_type": "new"
-    },
-    {
       "id": "e39a963e152ae4b46374",
       "source": "SMC Official Website",
       "title": "SMC Official Website official recruitment/update page",
@@ -8922,5 +8910,5 @@
       "change_type": "unchanged"
     }
   ],
-  "updated_at": "2026-09-13T14:30:15.741348+00:00"
+  "updated_at": "2026-09-13T17:38:24.752525+00:00"
 }
