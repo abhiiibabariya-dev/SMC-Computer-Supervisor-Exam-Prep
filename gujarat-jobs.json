@@ -1,8 +1,8 @@
 {
   "region": "Gujarat",
   "focus": "Gujarat Government Jobs and SMC Recruitment",
-  "total": 737,
-  "new_items": 3,
+  "total": 742,
+  "new_items": 5,
   "updated_items": 0,
   "items": [
     {
@@ -8430,6 +8430,66 @@
       "change_type": "unchanged"
     },
     {
+      "id": "c1c80c413c2c7689122a",
+      "source": "SMC Official Recruitment",
+      "title": "Recruitments",
+      "url": "https://www.suratmunicipal.gov.in/Information/RecruitmentDashboard",
+      "priority": "critical",
+      "source_type": "government",
+      "checked_at": "2026-09-14T18:54:32.656929+00:00",
+      "first_seen_at": "2026-09-14T18:57:19.590578+00:00",
+      "last_changed_at": "2026-09-14T18:57:19.590578+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "0f2905a29f1cb718c552",
+      "source": "SMC Official Recruitment",
+      "title": "Recruitment",
+      "url": "https://www.suratmunicipal.gov.in/Information/RecruitmentDashboard",
+      "priority": "critical",
+      "source_type": "government",
+      "checked_at": "2026-09-14T18:54:32.656929+00:00",
+      "first_seen_at": "2026-09-14T18:57:19.590578+00:00",
+      "last_changed_at": "2026-09-14T18:57:19.590578+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "9fb4659c700c8f4513a0",
+      "source": "SMC Official Recruitment",
+      "title": "Engineers (237 KB)",
+      "url": "https://www.suratmunicipal.gov.in/Content/Documents/rtiact/Disclosure/Town%20Development/TDO/Engineers.pdf",
+      "priority": "critical",
+      "source_type": "government",
+      "checked_at": "2026-09-14T18:54:32.656929+00:00",
+      "first_seen_at": "2026-09-14T18:57:19.590578+00:00",
+      "last_changed_at": "2026-09-14T18:57:19.590578+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "aa8325d68462f20f300d",
+      "source": "SMC Official Recruitment",
+      "title": "Check RTI Application Status",
+      "url": "https://www.suratmunicipal.gov.in/Information/RTIAppStatus",
+      "priority": "critical",
+      "source_type": "government",
+      "checked_at": "2026-09-14T18:54:32.656929+00:00",
+      "first_seen_at": "2026-09-14T18:57:19.590578+00:00",
+      "last_changed_at": "2026-09-14T18:57:19.590578+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "43ccf0fbc2f6ba8ca403",
+      "source": "SMC Official Recruitment",
+      "title": "Back to Dashboard",
+      "url": "https://www.suratmunicipal.gov.in/Information/RecruitmentDashboard",
+      "priority": "critical",
+      "source_type": "government",
+      "checked_at": "2026-09-14T18:54:32.656929+00:00",
+      "first_seen_at": "2026-09-14T18:57:19.590578+00:00",
+      "last_changed_at": "2026-09-14T18:57:19.590578+00:00",
+      "change_type": "new"
+    },
+    {
       "id": "dc03f9b3ea86a5e05545",
       "source": "SMC Jobs Google News Discovery 2",
       "title": "SMC Recruitment 2026 Notification Out for 1924 Vacancies, Check Eligibility & Last Date - Jagran Josh",
@@ -8850,5 +8910,5 @@
       "change_type": "unchanged"
     }
   ],
-  "updated_at": "2026-09-14T13:53:39.965353+00:00"
+  "updated_at": "2026-09-14T18:57:19.590578+00:00"
 }

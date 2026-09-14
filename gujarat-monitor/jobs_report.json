@@ -1,9 +1,9 @@
 {
   "sources_scanned": 28,
-  "links_found_this_scan": 737,
-  "new_items": 3,
+  "links_found_this_scan": 742,
+  "new_items": 5,
   "updated_items": 0,
-  "total_items": 737,
+  "total_items": 742,
   "errors": [
     {
       "source": "Ahmedabad Municipal Corporation",
@@ -56,6 +56,11 @@
       "error": "<urlopen error _ssl.c:993: The handshake operation timed out>"
     },
     {
+      "source": "Gujarat Jobs Google News Discovery",
+      "url": "https://news.google.com/rss/search?q=Gujarat+government+recruitment+jobs+OJAS+GPSC+GSSSB&hl=en-IN&gl=IN&ceid=IN:en",
+      "error": "HTTP Error 503: Service Unavailable"
+    },
+    {
       "source": "Gujarat Police",
       "url": "https://police.gujarat.gov.in",
       "error": "<urlopen error _ssl.c:993: The handshake operation timed out>"
@@ -68,12 +73,22 @@
     {
       "source": "KCG Gujarat Recruitment",
       "url": "https://kcg.gujarat.gov.in/recruitments",
-      "error": "<urlopen error [Errno 101] Network is unreachable>"
+      "error": "The read operation timed out"
     },
     {
       "source": "OJAS Gujarat",
       "url": "https://ojas.gujarat.gov.in",
       "error": "<urlopen error [Errno 101] Network is unreachable>"
+    },
+    {
+      "source": "SMC Google News Discovery",
+      "url": "https://news.google.com/rss/search?q=Surat+Municipal+Corporation+recruitment+OR+SMC+Surat+jobs&hl=en-IN&gl=IN&ceid=IN:en",
+      "error": "HTTP Error 503: Service Unavailable"
+    },
+    {
+      "source": "SMC Jobs Google News Discovery 2",
+      "url": "https://news.google.com/rss/search?q=%22Surat+Municipal+Corporation%22+job+recruitment+vacancy&hl=en-IN&gl=IN&ceid=IN:en",
+      "error": "HTTP Error 503: Service Unavailable"
     },
     {
       "source": "Vadodara Municipal Corporation",
@@ -87,17 +102,14 @@
     "Gujarat Biotechnology Research Centre",
     "Gujarat High Court Recruitment",
     "Gujarat Informatics Limited",
-    "Gujarat Jobs Google News Discovery",
     "Gujarat Social Justice & Empowerment",
     "Gyan Sahayak Gujarat",
     "Jamnagar Municipal Corporation",
     "Rajkot Municipal Corporation",
-    "SMC Google News Discovery",
-    "SMC Jobs Google News Discovery 2",
     "SMC Official Recruitment",
     "SMC Official Website"
   ],
-  "smc_items": 35,
+  "smc_items": 40,
   "mode": "live_snapshot",
-  "updated_at": "2026-09-14T13:53:39.965353+00:00"
+  "updated_at": "2026-09-14T18:57:19.590578+00:00"
 }
