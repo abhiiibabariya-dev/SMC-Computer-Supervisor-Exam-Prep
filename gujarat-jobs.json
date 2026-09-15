@@ -1,27 +1,27 @@
 {
   "region": "Gujarat",
   "focus": "Gujarat Government Jobs and SMC Recruitment",
-  "total": 734,
-  "new_items": 0,
+  "total": 737,
+  "new_items": 9,
   "updated_items": 0,
   "items": [
+    {
+      "id": "19b6973853c922d7e7a4",
+      "source": "Gujarat Jobs Google News Discovery",
+      "title": "GSSSB Staff Nurse (Ayurveda) Recruitment 2026: Notification Out for 90 Posts, Check Complete Details - PW",
+      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE5VV0hvdzJLa01JYjA1b3RnNFdzX292UUlUZEZEa201R2ZYb2o5NWpiRV9qSWdXUTJVN1NnaGF1T0liN2NvUU5LeDhBVW1RVEFUWFdwZ3I4eDU4VGZNdHZ6dXY4M05XNGpVVEFHcWYtMmRibVo3N1J3?oc=5",
+      "priority": "high",
+      "source_type": "discovery",
+      "checked_at": "2026-09-15T10:23:14.103718+00:00",
+      "first_seen_at": "2026-09-15T10:24:51.228398+00:00",
+      "last_changed_at": "2026-09-15T10:24:51.228398+00:00",
+      "change_type": "new"
+    },
     {
       "id": "fedf8389740cd6431fa9",
       "source": "Gujarat Jobs Google News Discovery",
       "title": "GSSSB Recruitment 2026 Notification Out - Vacancies Increased to 776 Sub Accountant, Sub Auditor & Accountant Posts - FreeJobAlert.Com",
       "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxQUVl4M2tPQUZkcWMxTnFTYWtyNEV3T0x6SklOOUpobkpuU2k3V2RqR3hIVXlQNXk0cG94QTRqVWo5cWlydHlUWkFuVHNzUGMybGNVMDRMOC1vT3o3UHlvb0stQkhsT3dmVE1nTjMzR0piX2xUdXp6X3d3cWpGQ0JXY0JnVjNwMHdMVTNVSnZwVUQ1QTRjWHV6ZGRsN0RkN1VhX0ZSMW1lb3p3YW9YVThFWWNsRHpiYVpwRlhwdjlCMnVTRXJVODBPWVZRN0lWS2wzNDU5bEQxOUtVc3c?oc=5",
-      "priority": "high",
-      "source_type": "discovery",
-      "checked_at": "2026-09-14T06:57:19.173483+00:00",
-      "first_seen_at": "2026-09-14T06:58:56.691844+00:00",
-      "last_changed_at": "2026-09-14T06:58:56.691844+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "8cc960a50988fcdd6fb3",
-      "source": "Gujarat Jobs Google News Discovery",
-      "title": "GSSSB Municipal Engineer Recruitment 2026 Notification Out - Apply Online for 50 Posts - FreeJobAlert.Com",
-      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxONVAtM2tsdWk2c3NmcjM5UjdkZF9VZjc2OUd5Vi02dFcwdFY0b0JqZG4wT3RYTnFBM1JJVy16WlhaR2xFOTMxOTl5Njl5dndWRnBobFpEa2RBV19Ya09WZXZhcks3XzI4UVB3YjBud2x1R0RDdGMzaGNvS3RPeUdaanV6T0J6Z05YcF90bm5LVnk?oc=5",
       "priority": "high",
       "source_type": "discovery",
       "checked_at": "2026-09-14T06:57:19.173483+00:00",
@@ -8430,6 +8430,102 @@
       "change_type": "unchanged"
     },
     {
+      "id": "c1c80c413c2c7689122a",
+      "source": "SMC Official Recruitment",
+      "title": "Recruitments",
+      "url": "https://www.suratmunicipal.gov.in/Information/RecruitmentDashboard",
+      "priority": "critical",
+      "source_type": "government",
+      "checked_at": "2026-09-15T10:22:06.237462+00:00",
+      "first_seen_at": "2026-09-15T10:24:51.228398+00:00",
+      "last_changed_at": "2026-09-15T10:24:51.228398+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "0f2905a29f1cb718c552",
+      "source": "SMC Official Recruitment",
+      "title": "Recruitment",
+      "url": "https://www.suratmunicipal.gov.in/Information/RecruitmentDashboard",
+      "priority": "critical",
+      "source_type": "government",
+      "checked_at": "2026-09-15T10:22:06.237462+00:00",
+      "first_seen_at": "2026-09-15T10:24:51.228398+00:00",
+      "last_changed_at": "2026-09-15T10:24:51.228398+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "9fb4659c700c8f4513a0",
+      "source": "SMC Official Recruitment",
+      "title": "Engineers (237 KB)",
+      "url": "https://www.suratmunicipal.gov.in/Content/Documents/rtiact/Disclosure/Town%20Development/TDO/Engineers.pdf",
+      "priority": "critical",
+      "source_type": "government",
+      "checked_at": "2026-09-15T10:22:06.237462+00:00",
+      "first_seen_at": "2026-09-15T10:24:51.228398+00:00",
+      "last_changed_at": "2026-09-15T10:24:51.228398+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "aa8325d68462f20f300d",
+      "source": "SMC Official Recruitment",
+      "title": "Check RTI Application Status",
+      "url": "https://www.suratmunicipal.gov.in/Information/RTIAppStatus",
+      "priority": "critical",
+      "source_type": "government",
+      "checked_at": "2026-09-15T10:22:06.237462+00:00",
+      "first_seen_at": "2026-09-15T10:24:51.228398+00:00",
+      "last_changed_at": "2026-09-15T10:24:51.228398+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "43ccf0fbc2f6ba8ca403",
+      "source": "SMC Official Recruitment",
+      "title": "Back to Dashboard",
+      "url": "https://www.suratmunicipal.gov.in/Information/RecruitmentDashboard",
+      "priority": "critical",
+      "source_type": "government",
+      "checked_at": "2026-09-15T10:22:06.237462+00:00",
+      "first_seen_at": "2026-09-15T10:24:51.228398+00:00",
+      "last_changed_at": "2026-09-15T10:24:51.228398+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "3d1f1f1d3d839d2b012d",
+      "source": "SMC Jobs Google News Discovery 2",
+      "title": "SMC Recruitment 2026 Notification Out for 1924 Vacancies, Check Eligibility & Last Date - jagranjosh.com",
+      "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPSE1aSEtES3VDWFRCanNHWThyZ2lNaGZlZkZleDVmbndoQTFUZ0NFQ0RfUlBsTnNTUlVwVVhReEZZcHg2RTIzR0VLWHFlUW1GR25tbGN2UFYtVzloOG1QSHd6UUZBSXd5OHZCYWVLZGxSbDlWTDZiZUlhN3daVHdKV3ptaEZUdzhoajU0WGNFZWJXN3NSNXFETmJYRDVjNGNtM3BmV0ZYd0E4THZnMm93R0c4SFdSY2xSem5mUW8yUi1JYkpkZDlGelZfUnIxVkdEQy00?oc=5",
+      "priority": "critical",
+      "source_type": "discovery",
+      "checked_at": "2026-09-15T10:23:14.409063+00:00",
+      "first_seen_at": "2026-09-15T10:24:51.228398+00:00",
+      "last_changed_at": "2026-09-15T10:24:51.228398+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "7ea656e7e832c242f11f",
+      "source": "SMC Google News Discovery",
+      "title": "SMC recruitment 2026: Application starts for over 1900 posts, details here - bestcolleges.indiatoday.in",
+      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPdmZmMVYyWWlabmFQOTYwUzlBWFlqWjZRVFJOVW92T3V1OHllbnctZVNyUXJMRUFQZW1VaVFOSkRWX0xOVXlRVUlPYzlud0N5ZWhwZHJQSHBXQnhjeTNqbDNReWV2d1FpQ0k5bHk5VVVncU85bGliOU83bUVPeDhybFpYVkRXRFBsem1HUVgzb0NneFExRmx1TDMySXRJVWJOZGZVOHVfVXItcC05ZE53cGxpVjM1V2w4ZFF2SWVVbkFfUQ?oc=5",
+      "priority": "critical",
+      "source_type": "discovery",
+      "checked_at": "2026-09-15T10:22:04.427276+00:00",
+      "first_seen_at": "2026-09-15T10:24:51.228398+00:00",
+      "last_changed_at": "2026-09-15T10:24:51.228398+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "5ce153137bfe2ec7919b",
+      "source": "SMC Google News Discovery",
+      "title": "SMC Recruitment 2026 Notification Out for 1924 Vacancies, Check Eligibility & Last Date - jagranjosh.com",
+      "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPSE1aSEtES3VDWFRCanNHWThyZ2lNaGZlZkZleDVmbndoQTFUZ0NFQ0RfUlBsTnNTUlVwVVhReEZZcHg2RTIzR0VLWHFlUW1GR25tbGN2UFYtVzloOG1QSHd6UUZBSXd5OHZCYWVLZGxSbDlWTDZiZUlhN3daVHdKV3ptaEZUdzhoajU0WGNFZWJXN3NSNXFETmJYRDVjNGNtM3BmV0ZYd0E4THZnMm93R0c4SFdSY2xSem5mUW8yUi1JYkpkZDlGelZfUnIxVkdEQy00?oc=5",
+      "priority": "critical",
+      "source_type": "discovery",
+      "checked_at": "2026-09-15T10:22:04.427276+00:00",
+      "first_seen_at": "2026-09-15T10:24:51.228398+00:00",
+      "last_changed_at": "2026-09-15T10:24:51.228398+00:00",
+      "change_type": "new"
+    },
+    {
       "id": "4033c892f529fbed6e04",
       "source": "SMC Jobs Google News Discovery 2",
       "title": "SMC recruitment 2026 opens 1924 posts for clerks, engineers and medical officers; apply from April 1 - The Times of India",
@@ -8490,30 +8586,6 @@
       "change_type": "new"
     },
     {
-      "id": "dc03f9b3ea86a5e05545",
-      "source": "SMC Jobs Google News Discovery 2",
-      "title": "SMC Recruitment 2026 Notification Out for 1924 Vacancies, Check Eligibility & Last Date - Jagran Josh",
-      "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPSE1aSEtES3VDWFRCanNHWThyZ2lNaGZlZkZleDVmbndoQTFUZ0NFQ0RfUlBsTnNTUlVwVVhReEZZcHg2RTIzR0VLWHFlUW1GR25tbGN2UFYtVzloOG1QSHd6UUZBSXd5OHZCYWVLZGxSbDlWTDZiZUlhN3daVHdKV3ptaEZUdzhoajU0WGNFZWJXN3NSNXFETmJYRDVjNGNtM3BmV0ZYd0E4THZnMm93R0c4SFdSY2xSem5mUW8yUi1JYkpkZDlGelZfUnIxVkdEQy00?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-09-14T13:52:01.309447+00:00",
-      "first_seen_at": "2026-09-14T13:53:39.965353+00:00",
-      "last_changed_at": "2026-09-14T13:53:39.965353+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "52cb48ad541dd884e638",
-      "source": "SMC Google News Discovery",
-      "title": "SMC Recruitment 2026 Notification Out for 1924 Vacancies, Check Eligibility & Last Date - Jagran Josh",
-      "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPSE1aSEtES3VDWFRCanNHWThyZ2lNaGZlZkZleDVmbndoQTFUZ0NFQ0RfUlBsTnNTUlVwVVhReEZZcHg2RTIzR0VLWHFlUW1GR25tbGN2UFYtVzloOG1QSHd6UUZBSXd5OHZCYWVLZGxSbDlWTDZiZUlhN3daVHdKV3ptaEZUdzhoajU0WGNFZWJXN3NSNXFETmJYRDVjNGNtM3BmV0ZYd0E4THZnMm93R0c4SFdSY2xSem5mUW8yUi1JYkpkZDlGelZfUnIxVkdEQy00?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-09-14T13:50:53.245723+00:00",
-      "first_seen_at": "2026-09-14T13:53:39.965353+00:00",
-      "last_changed_at": "2026-09-14T13:53:39.965353+00:00",
-      "change_type": "new"
-    },
-    {
       "id": "d5a4bad5a57fe78a6b7d",
       "source": "SMC Google News Discovery",
       "title": "Nepotism Allegations Rock Surat Municipal Corporation Engineer Recruitment - theblunttimes.in",
@@ -8538,18 +8610,6 @@
       "change_type": "new"
     },
     {
-      "id": "e0b03b21461adfcd5ea5",
-      "source": "SMC Google News Discovery",
-      "title": "SMC recruitment 2026: Application starts for over 1900 posts, details here - India Today",
-      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPdmZmMVYyWWlabmFQOTYwUzlBWFlqWjZRVFJOVW92T3V1OHllbnctZVNyUXJMRUFQZW1VaVFOSkRWX0xOVXlRVUlPYzlud0N5ZWhwZHJQSHBXQnhjeTNqbDNReWV2d1FpQ0k5bHk5VVVncU85bGliOU83bUVPeDhybFpYVkRXRFBsem1HUVgzb0NneFExRmx1TDMySXRJVWJOZGZVOHVfVXItcC05ZE53cGxpVjM1V2w4ZFF2SWVVbkFfUQ?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-09-14T06:56:08.834858+00:00",
-      "first_seen_at": "2026-09-14T06:58:56.691844+00:00",
-      "last_changed_at": "2026-09-14T06:58:56.691844+00:00",
-      "change_type": "new"
-    },
-    {
       "id": "b43ca647408a5e71e894",
       "source": "SMC Jobs Google News Discovery 2",
       "title": "SMC Staff Nurse Vacancy 2026 Out, Check official PDF and Apply Online Link - Adda247",
@@ -8566,18 +8626,6 @@
       "source": "SMC Jobs Google News Discovery 2",
       "title": "SMC Recruitment 2026 Out, Last Date To Apply Online for 120 Various Posts - Adda247",
       "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTFBsN2QxM3I1SmVJUVB4bnlNOFVqMHdTa2Y1U1pCVDNVd2d2T29xQzVtZDJSZk05VVBienJiVzJsWG9IZVhXVEFIOHFRMUNUQUZfTnVTY0RBbklNbUNVdmp4SjFSMGFJWUFZbUdfcjRkVUlzczBNQWZ1cg?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-09-14T01:35:01.083401+00:00",
-      "first_seen_at": "2026-09-14T01:36:34.141628+00:00",
-      "last_changed_at": "2026-09-14T01:36:34.141628+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "5dd2778fbe29293d6f3b",
-      "source": "SMC Jobs Google News Discovery 2",
-      "title": "SMC Recruitment 2026 Notification Out for 2295 Posts, Apply Online Last Date Today - Adda247",
-      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOeWdpV3lWLU4tWHJEQko1MTZQa3ltdkN4OHEtbzBQM0VwMmNzM0FsVURNeEpGblJMdXFVLVhCQUZzVDl5TmtJcmRJX05JS0N3R2U5Y19qTUFDYnhtOFA3d3JxS19yS2FNRktBWWVXakF3VHpSWWpkLUtCWGg3V3plU3g2QVZhRXNndUkw?oc=5",
       "priority": "critical",
       "source_type": "discovery",
       "checked_at": "2026-09-14T01:35:01.083401+00:00",
@@ -8650,18 +8698,6 @@
       "source": "SMC Google News Discovery",
       "title": "SMC Recruitment 2026 Out, Last Date To Apply Online for 120 Various Posts - Adda247",
       "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTFBsN2QxM3I1SmVJUVB4bnlNOFVqMHdTa2Y1U1pCVDNVd2d2T29xQzVtZDJSZk05VVBienJiVzJsWG9IZVhXVEFIOHFRMUNUQUZfTnVTY0RBbklNbUNVdmp4SjFSMGFJWUFZbUdfcjRkVUlzczBNQWZ1cg?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-09-13T10:19:54.130839+00:00",
-      "first_seen_at": "2026-09-13T10:22:40.642648+00:00",
-      "last_changed_at": "2026-09-13T10:22:40.642648+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "bc4cda7f36eaf99e7990",
-      "source": "SMC Google News Discovery",
-      "title": "SMC Recruitment 2026 Notification Out for 2295 Posts, Apply Online Last Date Today - Adda247",
-      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOeWdpV3lWLU4tWHJEQko1MTZQa3ltdkN4OHEtbzBQM0VwMmNzM0FsVURNeEpGblJMdXFVLVhCQUZzVDl5TmtJcmRJX05JS0N3R2U5Y19qTUFDYnhtOFA3d3JxS19yS2FNRktBWWVXakF3VHpSWWpkLUtCWGg3V3plU3g2QVZhRXNndUkw?oc=5",
       "priority": "critical",
       "source_type": "discovery",
       "checked_at": "2026-09-13T10:19:54.130839+00:00",
@@ -8814,5 +8850,5 @@
       "change_type": "unchanged"
     }
   ],
-  "updated_at": "2026-09-15T05:31:11.673557+00:00"
+  "updated_at": "2026-09-15T10:24:51.228398+00:00"
 }
