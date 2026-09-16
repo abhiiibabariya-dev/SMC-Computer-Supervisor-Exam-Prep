@@ -1,10 +1,34 @@
 {
   "region": "Gujarat",
   "focus": "Gujarat Government Jobs and SMC Recruitment",
-  "total": 740,
-  "new_items": 15,
+  "total": 735,
+  "new_items": 3,
   "updated_items": 0,
   "items": [
+    {
+      "id": "ae9336bc5950578c0eb5",
+      "source": "Gujarat Jobs Google News Discovery",
+      "title": "GSSSB Supervisor Instructor Recruitment 2026 (203 Vacancies), Last Date Extended - Career Power",
+      "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPS2c0T0ZoYTVFeU5zUW9zTWlXT2VydE9idVBySHBJZ0tPSlVncV9HM0lxZWpua2M4bUFYZ3p2TEItVjR6UjhiZ3JPZ3h2dTQzRTVaZnpxS08waFhRSkpKUldfMXMxY2tyU29UVDVpb1BEeHVVZm1VYlRuV0w5bTQxTGh3?oc=5",
+      "priority": "high",
+      "source_type": "discovery",
+      "checked_at": "2026-09-16T00:10:17.167810+00:00",
+      "first_seen_at": "2026-09-16T00:11:56.081603+00:00",
+      "last_changed_at": "2026-09-16T00:11:56.081603+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "150b8024d1425574dfc7",
+      "source": "Gujarat Jobs Google News Discovery",
+      "title": "Chasing Dreams Through OJAS: How a Gujarat Job Portal Changed My Life - Vocal",
+      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPdTZXV0FCaHBPWHdKN2xkNmpFeFJpOTdyQW9hd3JDdy1OZFpUS3hWeVB1NEN6NnBXNTgxeTJBMjc0OG4xVHJCOXR1OFE0Ty1fdkFGeUQyYjJjeHF4Rk1abU9QZk1YdjIweG8ySEhFTlAySE50Y0xVMnh5aDQ3UTM0eklJb2tQUzhLQUlkTkg2X0dzMlFYRmhrX09scVVXdGc?oc=5",
+      "priority": "high",
+      "source_type": "discovery",
+      "checked_at": "2026-09-16T00:10:17.167810+00:00",
+      "first_seen_at": "2026-09-16T00:11:56.081603+00:00",
+      "last_changed_at": "2026-09-16T00:11:56.081603+00:00",
+      "change_type": "new"
+    },
     {
       "id": "19b6973853c922d7e7a4",
       "source": "Gujarat Jobs Google News Discovery",
@@ -30,34 +54,10 @@
       "change_type": "new"
     },
     {
-      "id": "f82b0ec9b6e317840549",
-      "source": "Gujarat Jobs Google News Discovery",
-      "title": "Chasing Dreams Through OJAS: How a Gujarat Job Portal Changed My Life - vocal.media",
-      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPdTZXV0FCaHBPWHdKN2xkNmpFeFJpOTdyQW9hd3JDdy1OZFpUS3hWeVB1NEN6NnBXNTgxeTJBMjc0OG4xVHJCOXR1OFE0Ty1fdkFGeUQyYjJjeHF4Rk1abU9QZk1YdjIweG8ySEhFTlAySE50Y0xVMnh5aDQ3UTM0eklJb2tQUzhLQUlkTkg2X0dzMlFYRmhrX09scVVXdGc?oc=5",
-      "priority": "high",
-      "source_type": "discovery",
-      "checked_at": "2026-09-15T22:05:18.412321+00:00",
-      "first_seen_at": "2026-09-15T22:06:56.808646+00:00",
-      "last_changed_at": "2026-09-15T22:06:56.808646+00:00",
-      "change_type": "new"
-    },
-    {
       "id": "523f078c77dd686fcd74",
       "source": "Gujarat Jobs Google News Discovery",
       "title": "GSSSB Work Assistant Recruitment 2026 Out, Last Date To Apply Online for 336 Posts - Adda247",
       "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQZURXWl8wc1hMbmhtSTF5UjJDNEJOOEhJS2dXdWhtdkZ0N05nVVlMVWhrclg2X212Zlh6Qm11Y1R6ZW8tZzBBNjVkVDlBVFptN2dRTjlWVTNWSFlVNXhfR1FvUnJBb29CMzhVNGtLYndKUEpEQnRBQndBaC1MMzBxR1ljVnNqUQ?oc=5",
-      "priority": "high",
-      "source_type": "discovery",
-      "checked_at": "2026-09-14T01:35:00.818641+00:00",
-      "first_seen_at": "2026-09-14T01:36:34.141628+00:00",
-      "last_changed_at": "2026-09-14T01:36:34.141628+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "e89005b439633b17d87a",
-      "source": "Gujarat Jobs Google News Discovery",
-      "title": "GSSSB Junior Geologist Recruitment 2026 Out, Last Date To Apply Online for 43 Posts - Adda247",
-      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQbnNTMmZhMGpoRGd2T2dkN1laVzRzc3dNdDQ0bVFYZ05vc0tOMkZRVkNqako0cWEzZ21Da3JNTi1JaXFzWUlnY0NPQUZVSHhDaDdjajNlUmZXLUxCak5fY0lmVmw1NVp5NmI1WDNEZGxQcHpySHRwaHlIbFFwME1VaGpyb2drdHJx?oc=5",
       "priority": "high",
       "source_type": "discovery",
       "checked_at": "2026-09-14T01:35:00.818641+00:00",
@@ -8430,6 +8430,18 @@
       "change_type": "unchanged"
     },
     {
+      "id": "a49d1b97be19b1b84a92",
+      "source": "SMC Google News Discovery",
+      "title": "Probe against 3 dismissed SMC staff for hiding qualification to secure job - indianexpress.com",
+      "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxQMUIyUUF0bjVaT0dtcU9zbFc3YS1iZlQtbzJTRE1zdkN2S0hMeEo1V3oxbjNYU0dyT2xhdnluVXpXMjVMOU9UWXFIajN4SGJVeGFpY3F1NGV0a3U0bGw4Q29zWkhELTF0RHQ5eENxZjVNREZaQ2t0NmZSUUZ6SGZjODl2UWp1RDJIUWZxYXFWeWtDc19raHlMZ3dGcWwySmpaYll6dV93VUtwakxWZ1FzZFlaOE5sTGtPcFdseW1iMzdlcGNwelQ1OUVFYVBlREHSAdYBQVVfeXFMTzZjVGtqdVFwZUhKbWNmcmpHS0FZX2N0OTYxdmZpQXlSMklkajJxS1dvZjgzSEkyYm80a19OZGtuY05mdmN2WGNyd3FjV1Y1LTVBeWNUOGdaNmVzbFM5OUwxU0dzQmRIRzZ6ZVM4SkRPbFVvTHplQjI4SHBtbXgyN0hDeTRQTjlBT0tBeTBMNW82bEd6QzFaSFkwWHpqVlAweDJidHJ6elZGeUVTNzBLQVZMM1o0Xzg1QXVTQlRjUjVISWp3SXdwd1hHRmt3NmpsbW53djBUUQ?oc=5",
+      "priority": "critical",
+      "source_type": "discovery",
+      "checked_at": "2026-09-16T00:09:09.519075+00:00",
+      "first_seen_at": "2026-09-16T00:11:56.081603+00:00",
+      "last_changed_at": "2026-09-16T00:11:56.081603+00:00",
+      "change_type": "new"
+    },
+    {
       "id": "90d6cc66b5e1e9f154f5",
       "source": "SMC Jobs Google News Discovery 2",
       "title": "SMC Staff Nurse Recruitment 2026, Application Form (Started), 150 Vacancies, Apply Online - PW",
@@ -8574,66 +8586,6 @@
       "change_type": "new"
     },
     {
-      "id": "c1c80c413c2c7689122a",
-      "source": "SMC Official Recruitment",
-      "title": "Recruitments",
-      "url": "https://www.suratmunicipal.gov.in/Information/RecruitmentDashboard",
-      "priority": "critical",
-      "source_type": "government",
-      "checked_at": "2026-09-15T18:53:56.705421+00:00",
-      "first_seen_at": "2026-09-15T18:56:41.410831+00:00",
-      "last_changed_at": "2026-09-15T18:56:41.410831+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "0f2905a29f1cb718c552",
-      "source": "SMC Official Recruitment",
-      "title": "Recruitment",
-      "url": "https://www.suratmunicipal.gov.in/Information/RecruitmentDashboard",
-      "priority": "critical",
-      "source_type": "government",
-      "checked_at": "2026-09-15T18:53:56.705421+00:00",
-      "first_seen_at": "2026-09-15T18:56:41.410831+00:00",
-      "last_changed_at": "2026-09-15T18:56:41.410831+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "9fb4659c700c8f4513a0",
-      "source": "SMC Official Recruitment",
-      "title": "Engineers (237 KB)",
-      "url": "https://www.suratmunicipal.gov.in/Content/Documents/rtiact/Disclosure/Town%20Development/TDO/Engineers.pdf",
-      "priority": "critical",
-      "source_type": "government",
-      "checked_at": "2026-09-15T18:53:56.705421+00:00",
-      "first_seen_at": "2026-09-15T18:56:41.410831+00:00",
-      "last_changed_at": "2026-09-15T18:56:41.410831+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "aa8325d68462f20f300d",
-      "source": "SMC Official Recruitment",
-      "title": "Check RTI Application Status",
-      "url": "https://www.suratmunicipal.gov.in/Information/RTIAppStatus",
-      "priority": "critical",
-      "source_type": "government",
-      "checked_at": "2026-09-15T18:53:56.705421+00:00",
-      "first_seen_at": "2026-09-15T18:56:41.410831+00:00",
-      "last_changed_at": "2026-09-15T18:56:41.410831+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "43ccf0fbc2f6ba8ca403",
-      "source": "SMC Official Recruitment",
-      "title": "Back to Dashboard",
-      "url": "https://www.suratmunicipal.gov.in/Information/RecruitmentDashboard",
-      "priority": "critical",
-      "source_type": "government",
-      "checked_at": "2026-09-15T18:53:56.705421+00:00",
-      "first_seen_at": "2026-09-15T18:56:41.410831+00:00",
-      "last_changed_at": "2026-09-15T18:56:41.410831+00:00",
-      "change_type": "new"
-    },
-    {
       "id": "ecff0914665ed82ecc01",
       "source": "SMC Google News Discovery",
       "title": "SMC recruitment 2026: Application window opens for over 1900 posts, check complete details here - The Times of India",
@@ -8674,18 +8626,6 @@
       "source": "SMC Google News Discovery",
       "title": "Process for recruitment of 300 Marshalls begin in Surat municipal corporation - The Times of India",
       "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxOak1WUGhvVWpWaUZBNTBLbV9fR3owSVlybkpTdmhEX2VHZmRSd1lTNVRIWU9QYklGb2pBN09KalQ2cXp6UVJvWTg3Yk5ud08wclA2TnU0dU9IWUppM2UyQ2R5dGpaU2xhOXg4ZHVUalhSRG5RSm1obGFyNmFzUWFVN3hUSXRtakJHMjlXNmxWT2pJNXVLdUNjVjliOWFpeG5yMVVKYWhZQzczOWg0RklLSUFwOGFlRmVjck5jc1ZVOXc1U3puaHhMeHNTX0luV05Uc3NYZi1qV3dZYmxaU0RaRHJOWdIB6AFBVV95cUxPaWpieEtBcllmT2NlOXVpeG5CenhqNmluaU1HTFpkdTNqUTNVLVJRX2tQcGl3empnRWlhb3FOdEVRVHJhUFRPbFdBbUZtWXNJOTFzUU01RW9jTnRtWUM1V0E4TjVXNmJzQTBMZ3FPMC1CcDM4WXZsd085TG1CQmVLWmZaZDczYmhVeVFjYUp6NmJxeHBNdmw5OUQyOElPSlBPRUVEcURDdlZoMURHX1F2TE03ZzV3VEZtWkZPVmZndG82blc2a0R0ckVtczhZRUp6dlhJb0hHZENmb0NtSHZGQ0JOMUdUVDNX?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-09-15T18:53:54.792297+00:00",
-      "first_seen_at": "2026-09-15T18:56:41.410831+00:00",
-      "last_changed_at": "2026-09-15T18:56:41.410831+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "36eb6bc2de05da7fc0e8",
-      "source": "SMC Google News Discovery",
-      "title": "Probe against 3 dismissed SMC staff for hiding qualification to secure job - The Indian Express",
-      "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxQMUIyUUF0bjVaT0dtcU9zbFc3YS1iZlQtbzJTRE1zdkN2S0hMeEo1V3oxbjNYU0dyT2xhdnluVXpXMjVMOU9UWXFIajN4SGJVeGFpY3F1NGV0a3U0bGw4Q29zWkhELTF0RHQ5eENxZjVNREZaQ2t0NmZSUUZ6SGZjODl2UWp1RDJIUWZxYXFWeWtDc19raHlMZ3dGcWwySmpaYll6dV93VUtwakxWZ1FzZFlaOE5sTGtPcFdseW1iMzdlcGNwelQ1OUVFYVBlREHSAdYBQVVfeXFMTzZjVGtqdVFwZUhKbWNmcmpHS0FZX2N0OTYxdmZpQXlSMklkajJxS1dvZjgzSEkyYm80a19OZGtuY05mdmN2WGNyd3FjV1Y1LTVBeWNUOGdaNmVzbFM5OUwxU0dzQmRIRzZ6ZVM4SkRPbFVvTHplQjI4SHBtbXgyN0hDeTRQTjlBT0tBeTBMNW82bEd6QzFaSFkwWHpqVlAweDJidHJ6elZGeUVTNzBLQVZMM1o0Xzg1QXVTQlRjUjVISWp3SXdwd1hHRmt3NmpsbW53djBUUQ?oc=5",
       "priority": "critical",
       "source_type": "discovery",
       "checked_at": "2026-09-15T18:53:54.792297+00:00",
@@ -8886,5 +8826,5 @@
       "change_type": "unchanged"
     }
   ],
-  "updated_at": "2026-09-15T22:06:56.808646+00:00"
+  "updated_at": "2026-09-16T00:11:56.081603+00:00"
 }
