@@ -10,9 +10,6 @@ on:
   schedule:
     - cron: '30 3 * * *'
   workflow_dispatch:
-  workflow_run:
-    workflows: ["Gujarat Government Jobs Monitor"]
-    types: [completed]
 
 permissions:
   contents: read
@@ -23,7 +20,6 @@ concurrency:
 
 jobs:
   audit:
-    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -44,7 +40,6 @@ jobs:
           from pathlib import Path
           try:
               rules = json.loads(Path('firebase-rules.json').read_text(encoding='utf-8'))['rules']
-              admin = "auth.token.admin === true"
               assert rules['.read'] is False and rules['.write'] is False
               users = rules['users']['$uid']
               assert 'auth.uid === $uid' in users['.read']
@@ -62,8 +57,6 @@ jobs:
               print('Firebase rules: PASS')
           except AssertionError as e:
               print(f'Firebase rules validation warning: {e}')
-              # Don't fail on validation warnings
-              pass
           except Exception as e:
               print(f'Firebase rules validation error: {e}')
               raise
@@ -148,15 +141,15 @@ jobs:
           set -euo pipefail
           if [ -f "docs/index.html" ]; then
             python3 - <<'PY'
-from pathlib import Path
-text = Path('docs/index.html').read_text(encoding='utf-8', errors='ignore')
-lowered = text.lower()
-required = ['6 september 2026', 'computer supervisor']
-for item in required:
-    if item not in lowered:
-        print(f'Warning: missing current state: {item}')
-print('Current exam-state source checks: PASS')
-PY
+            from pathlib import Path
+            text = Path('docs/index.html').read_text(encoding='utf-8', errors='ignore')
+            lowered = text.lower()
+            required = ['6 september 2026', 'computer supervisor']
+            for item in required:
+                if item not in lowered:
+                    print(f'Warning: missing current state: {item}')
+            print('Current exam-state source checks: PASS')
+            PY
           else
             echo "Warning: docs/index.html not found"
           fi
