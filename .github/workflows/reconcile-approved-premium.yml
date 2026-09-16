@@ -67,7 +67,7 @@ jobs:
                                   return json.loads(body)
                               except json.JSONDecodeError:
                                   return body.decode()
-                          return None
+                          return {}
                   except (urllib.error.URLError, urllib.error.HTTPError, TimeoutError) as e:
                       if attempt == max_retries - 1:
                           print(f"Failed to patch {path} after {max_retries} attempts: {e}")
@@ -75,57 +75,115 @@ jobs:
                       time.sleep(2 ** attempt)
               return None
 
+          def deep_equal(a, b):
+              if isinstance(a, dict) and isinstance(b, dict):
+                  if set(a.keys()) != set(b.keys()):
+                      return False
+                  return all(deep_equal(a[k], b[k]) for k in a)
+              if isinstance(a, (list, tuple)) and isinstance(b, (list, tuple)):
+                  if len(a) != len(b):
+                      return False
+                  return all(deep_equal(x, y) for x, y in zip(a, b))
+              if a is None and b is None:
+                  return True
+              return a == b
+
           def norm_email(v):
               return str(v or '').strip().lower()
 
           def norm_phone(v):
-              return ''.join(ch for ch in str(v or '') if ch.isdigit())[-10:]
+              digits = ''.join(ch for ch in str(v or '') if ch.isdigit())
+              if len(digits) >= 10:
+                  return digits[-10:]
+              return digits
 
-          payments = get('payment_requests')
-          users = get('users')
+          def classify_plan(req):
+              plan = str(req.get('approvedPlan') or req.get('plan') or '').strip()
+              if plan in ('premium99', 'premium199'):
+                  return plan
+              amount = req.get('amount')
+              try:
+                  amt = float(amount)
+              except (TypeError, ValueError):
+                  amt = None
+              if amt == 99:
+                  return 'premium99'
+              if amt == 199:
+                  return 'premium199'
+              label = str(req.get('planLabel') or '').replace('₹', '').replace('Rs', '').replace('rs', '')
+              if '99' in label and '199' not in label:
+                  return 'premium99'
+              if '199' in label:
+                  return 'premium199'
+              return None
+
+          def payments_iterable(raw):
+              if isinstance(raw, dict):
+                  return raw.items()
+              if isinstance(raw, list):
+                  return ((str(i), v) for i, v in enumerate(raw) if v)
+              return []
+
+          def users_iterable(raw):
+              if isinstance(raw, dict):
+                  return raw.items()
+              if isinstance(raw, list):
+                  return ((str(i), v) for i, v in enumerate(raw) if v)
+              return []
+
+          raw_payments = get('payment_requests')
+          raw_users = get('users')
           repaired = 0
+          skipped = 0
+          errors = 0
           matched_by = {'uid': 0, 'email': 0, 'phone': 0}
 
-          # Build safe identity indexes from the existing user profiles.
+          users = {}
           email_index = {}
           phone_index = {}
-          for user_uid, profile in users.items():
+          for user_uid, profile in users_iterable(raw_users):
               if not isinstance(profile, dict):
                   continue
+              users[str(user_uid)] = profile
               email = norm_email(profile.get('email'))
               phone = norm_phone(profile.get('mobile') or profile.get('phone'))
               if email:
-                  email_index[email] = user_uid
-              if phone and len(phone) == 10:
-                  phone_index[phone] = user_uid
+                  email_index[email] = str(user_uid)
+              if len(phone) == 10:
+                  phone_index[phone] = str(user_uid)
 
-          for order_id, req in payments.items():
-              if not isinstance(req, dict) or str(req.get('status', '')).lower() != 'approved':
+          for order_id, req in payments_iterable(raw_payments):
+              if not isinstance(req, dict):
+                  skipped += 1
                   continue
 
-              # Prefer the UID stored with the payment. If that UID is stale or
-              # missing, recover the existing account by the payment email/mobile.
-              uid = str(req.get('uid', '')).strip()
+              status = str(req.get('status') or '').strip().lower()
+              if status != 'approved':
+                  continue
+
+              uid = str(req.get('uid') or '').strip()
               matched = 'uid'
               if not uid or uid not in users:
                   email = norm_email(req.get('email'))
                   phone = norm_phone(req.get('phone') or req.get('mobile'))
-                  uid = email_index.get(email, '') if email else ''
-                  matched = 'email'
-                  if not uid and phone and len(phone) == 10:
-                      uid = phone_index.get(phone, '')
-                      matched = 'phone'
+                  recovered = email_index.get(email, '') if email else ''
+                  if recovered:
+                      uid = recovered
+                      matched = 'email'
+                  elif len(phone) == 10:
+                      recovered = phone_index.get(phone, '')
+                      if recovered:
+                          uid = recovered
+                          matched = 'phone'
               if not uid or uid not in users:
+                  skipped += 1
+                  print(f"SKIP no matching user for order {order_id} uid={req.get('uid')} email={req.get('email')} phone={req.get('phone') or req.get('mobile')}")
                   continue
 
-              plan = req.get('approvedPlan') or req.get('plan')
-              amount = req.get('amount')
+              plan = classify_plan(req)
               if plan not in ('premium99', 'premium199'):
-                  try:
-                      plan = 'premium99' if float(amount) == 99 else ('premium199' if float(amount) == 199 else None)
-                  except (TypeError, ValueError):
-                      plan = None
-              if plan not in ('premium99', 'premium199'):
+                  skipped += 1
+                  print(f"SKIP unknown plan for order {order_id} plan={req.get('plan')} amount={req.get('amount')}")
                   continue
 
               expected = {
@@ -136,15 +194,23 @@ jobs:
                   'entitlements': {'mockTests': True, 'fullAccess': plan == 'premium199'},
               }
               user = users.get(uid) or {}
-              mismatch = any(user.get(k) != v for k, v in expected.items())
+              mismatch = False
+              for k, v in expected.items():
+                  if not deep_equal(user.get(k), v):
+                      mismatch = True
+                      break
               if mismatch:
                   result = patch(f'users/{urllib.parse.quote(uid, safe="")}', expected)
                   if result is not None:
                       repaired += 1
                       matched_by[matched] += 1
+                      print(f"REPAIRED user {uid} order {order_id} matched_by={matched} plan={plan}")
                   else:
-                      print(f"Failed to patch user {uid} for order {order_id}")
+                      errors += 1
+                      print(f"ERROR patching user {uid} for order {order_id}")
 
           print(f'Reconciled approved premium accounts: {repaired}')
           print(f'Matched accounts by identity: {matched_by}')
+          print(f'Skipped unmatched/unknown-plan: {skipped}')
+          print(f'Errors: {errors}')
           PY
