@@ -26,7 +26,7 @@ async function verifyUPIPayment(txnId, amount, merchantId, apiKey) {
     // Example: Verify with a UPI payment gateway API
     // This is a template - actual implementation depends on your payment provider
     const response = await axios.post(
-      'https://api.razorpay.com/v1/payments/fetch', // Example endpoint
+      'https://api.razorpay.com/v1/payments/${txnId}', // Example endpoint
       {
         transaction_id: txnId,
         amount: amount,
@@ -337,7 +337,7 @@ exports.getSubscriptionStatus = functions.https.onCall(async (data, context) => 
 // Cloud Function: Admin - bulk approve payments (for admin console)
 exports.adminApprovePayment = functions.https.onCall(async (data, context) => {
   // Check admin Custom Claim
-  if (!context.auth || !context.auth.token.admin === true) {
+  if (!context.auth || !context.auth.token.admin) {
     throw new functions.https.HttpsError('permission-denied', 'Admin access required');
   }
 
@@ -425,7 +425,7 @@ exports.adminApprovePayment = functions.https.onCall(async (data, context) => {
 // Cloud Function: Admin - Set Custom Claims for admin/premium (for admin console)
 exports.adminSetCustomClaims = functions.https.onCall(async (data, context) => {
   // Check admin Custom Claim
-  if (!context.auth || !context.auth.token.admin === true) {
+  if (!context.auth || !context.auth.token.admin) {
     throw new functions.https.HttpsError('permission-denied', 'Admin access required');
   }
 
@@ -498,7 +498,7 @@ exports.adminSetCustomClaims = functions.https.onCall(async (data, context) => {
 // Cloud Function: Revoke premium access (admin or automated)
 exports.revokePremiumAccess = functions.https.onCall(async (data, context) => {
   // Check admin Custom Claim
-  if (!context.auth || !context.auth.token.admin === true) {
+  if (!context.auth || !context.auth.token.admin) {
     throw new functions.https.HttpsError('permission-denied', 'Admin access required');
   }
 
