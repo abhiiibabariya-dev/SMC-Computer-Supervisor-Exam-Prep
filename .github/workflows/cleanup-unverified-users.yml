@@ -173,6 +173,7 @@ jobs:
               } while (nextPageToken);
 
               console.log(`Account cleanup complete. Scanned=${scanned}, removed=${removed}, skippedWithPaymentOrPremium=${skippedPayment}`);
+              process.exit(0);
             } catch (err) {
               console.error('Cleanup failed:', err);
               process.exit(1);
