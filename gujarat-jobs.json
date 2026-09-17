@@ -2,7 +2,7 @@
   "region": "Gujarat",
   "focus": "Gujarat Government Jobs and SMC Recruitment",
   "total": 741,
-  "new_items": 2,
+  "new_items": 4,
   "updated_items": 0,
   "items": [
     {
@@ -75,18 +75,6 @@
       "checked_at": "2026-09-16T14:22:51.481607+00:00",
       "first_seen_at": "2026-09-16T14:25:36.256171+00:00",
       "last_changed_at": "2026-09-16T14:25:36.256171+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "19b6973853c922d7e7a4",
-      "source": "Gujarat Jobs Google News Discovery",
-      "title": "GSSSB Staff Nurse (Ayurveda) Recruitment 2026: Notification Out for 90 Posts, Check Complete Details - PW",
-      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE5VV0hvdzJLa01JYjA1b3RnNFdzX292UUlUZEZEa201R2ZYb2o5NWpiRV9qSWdXUTJVN1NnaGF1T0liN2NvUU5LeDhBVW1RVEFUWFdwZ3I4eDU4VGZNdHZ6dXY4M05XNGpVVEFHcWYtMmRibVo3N1J3?oc=5",
-      "priority": "high",
-      "source_type": "discovery",
-      "checked_at": "2026-09-15T22:05:18.412321+00:00",
-      "first_seen_at": "2026-09-15T22:06:56.808646+00:00",
-      "last_changed_at": "2026-09-15T22:06:56.808646+00:00",
       "change_type": "new"
     },
     {
@@ -8442,6 +8430,54 @@
       "change_type": "unchanged"
     },
     {
+      "id": "2fdbdeb9993331bc8709",
+      "source": "SMC Jobs Google News Discovery 2",
+      "title": "SMC Exam Date 2026 Out, Check Official Schedule for 2295 Clerk, MO & Other Posts - careerpower.in",
+      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE0yenV5NjFkNHRtWVBTSUJaTEIwcHZJOFRRLVV5S05KREZueUJNR25wcEhXdU1pYkZjMGd3Um5wNE5uUGwwT0cwSkd0NXdDU3I5UFVtaHI0M0JXcDFwUWxpMGhR?oc=5",
+      "priority": "critical",
+      "source_type": "discovery",
+      "checked_at": "2026-09-17T01:45:29.737733+00:00",
+      "first_seen_at": "2026-09-17T01:47:07.882913+00:00",
+      "last_changed_at": "2026-09-17T01:47:07.882913+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "8fd6d83297530fc44343",
+      "source": "SMC Google News Discovery",
+      "title": "Surat Municipal Corporation Election Result 2026: Congress opens account after 5 years, AAP faces setback - indianexpress.com",
+      "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxQSEtTbkZEYWgxTEN6bGJCczZvVzhhcXo2T2dXdHFLcXh6dlo0emx3SERVN1hWY281OFpCWFotNUJ4M3dCbmNIUFJ3Y1lBVllEQXpHRUhpbFhWYWZVQXRVYVViaW90Q1Y0c1htUFE2cnhFRm1mUV9ucDNuRnJWUzhsZDBPazdRc1dmNjA5MGVrSFNyUXJ6dEpnZC1nMUx4QzVIekFkYTh3VzZqTG14enhDXzVEcVhGellrMkVJTmw1dkpLSWV4RkZTdjFUVkl6Ums3MTQ1ZGNsUdIB3gFBVV95cUxNOF9Za0lnTFZIU3prS0hpX1hMSnJYNUx4TzBkYlRKQjBQSjFSd1FVSUl4dU9SU05lZUd3U1FCSHhvUU1fSzVXWjBBZy1HZjVLdTFYZHhXLUE4STF1WGtrLWd1OVBUU2xPRWZpTE03YWh3bDJaa3REYzQ4al9XTEZPcS15NjVSMG1NWDAyLUhPTkVDQXQtY1p4U1oxR2t6eVFfRDZaNmlUYXlDaUZ1SVFqUHpGZm5KNjY1UkJmWkx0Z0tfUUN2VU4xSFhINnBJRElzWmVEdVlXLUJ1TUJkbWc?oc=5",
+      "priority": "critical",
+      "source_type": "discovery",
+      "checked_at": "2026-09-17T01:44:21.413713+00:00",
+      "first_seen_at": "2026-09-17T01:47:07.882913+00:00",
+      "last_changed_at": "2026-09-17T01:47:07.882913+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "c045232f63ccf03d3722",
+      "source": "SMC Google News Discovery",
+      "title": "SMC Syllabus 2026 and Exam Pattern for Clerk, Driver & More Posts - careerpower.in",
+      "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE9fQ09KUTlYdGdwMlJUejdzRTlXWkpFLWxNVWZrVldyS29uMmY1SVNfcGVPaVAxa1U5OHhTdGI3RWRKTlBKT19JNDhYRjBXSE4yRVFXSnR1cw?oc=5",
+      "priority": "critical",
+      "source_type": "discovery",
+      "checked_at": "2026-09-17T01:44:21.413713+00:00",
+      "first_seen_at": "2026-09-17T01:47:07.882913+00:00",
+      "last_changed_at": "2026-09-17T01:47:07.882913+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "3795b1fcdedcd41b00cf",
+      "source": "SMC Google News Discovery",
+      "title": "SMC Exam Date 2026 Out, Check Official Schedule for 2295 Clerk, MO & Other Posts - careerpower.in",
+      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE0yenV5NjFkNHRtWVBTSUJaTEIwcHZJOFRRLVV5S05KREZueUJNR25wcEhXdU1pYkZjMGd3Um5wNE5uUGwwT0cwSkd0NXdDU3I5UFVtaHI0M0JXcDFwUWxpMGhR?oc=5",
+      "priority": "critical",
+      "source_type": "discovery",
+      "checked_at": "2026-09-17T01:44:21.413713+00:00",
+      "first_seen_at": "2026-09-17T01:47:07.882913+00:00",
+      "last_changed_at": "2026-09-17T01:47:07.882913+00:00",
+      "change_type": "new"
+    },
+    {
       "id": "e0b03b21461adfcd5ea5",
       "source": "SMC Google News Discovery",
       "title": "SMC recruitment 2026: Application starts for over 1900 posts, details here - India Today",
@@ -8646,18 +8682,6 @@
       "change_type": "new"
     },
     {
-      "id": "3582a361c4effaf3ea93",
-      "source": "SMC Google News Discovery",
-      "title": "SMC Exam Date 2026 Out, Check Official Schedule for 2295 Clerk, MO & Other Posts - Career Power",
-      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE0yenV5NjFkNHRtWVBTSUJaTEIwcHZJOFRRLVV5S05KREZueUJNR25wcEhXdU1pYkZjMGd3Um5wNE5uUGwwT0cwSkd0NXdDU3I5UFVtaHI0M0JXcDFwUWxpMGhR?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-09-16T09:49:01.462247+00:00",
-      "first_seen_at": "2026-09-16T09:51:47.985989+00:00",
-      "last_changed_at": "2026-09-16T09:51:47.985989+00:00",
-      "change_type": "new"
-    },
-    {
       "id": "5b2d9aa07477b4ea2ee7",
       "source": "SMC Google News Discovery",
       "title": "Sanitation workers demand permanent SMC jobs - The Times of India",
@@ -8790,30 +8814,6 @@
       "change_type": "new"
     },
     {
-      "id": "da0be8c14852f3db3c44",
-      "source": "SMC Jobs Google News Discovery 2",
-      "title": "SMC Exam Date 2026 Out, Check Official Schedule for 2295 Clerk, MO & Other Posts - Career Power",
-      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE0yenV5NjFkNHRtWVBTSUJaTEIwcHZJOFRRLVV5S05KREZueUJNR25wcEhXdU1pYkZjMGd3Um5wNE5uUGwwT0cwSkd0NXdDU3I5UFVtaHI0M0JXcDFwUWxpMGhR?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-09-14T01:35:01.083401+00:00",
-      "first_seen_at": "2026-09-14T01:36:34.141628+00:00",
-      "last_changed_at": "2026-09-14T01:36:34.141628+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "73c5473dbc182e57fe63",
-      "source": "SMC Google News Discovery",
-      "title": "SMC Syllabus 2026 and Exam Pattern for Clerk, Driver & More Posts - Career Power",
-      "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE9fQ09KUTlYdGdwMlJUejdzRTlXWkpFLWxNVWZrVldyS29uMmY1SVNfcGVPaVAxa1U5OHhTdGI3RWRKTlBKT19JNDhYRjBXSE4yRVFXSnR1cw?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-09-14T01:33:47.343537+00:00",
-      "first_seen_at": "2026-09-14T01:36:34.141628+00:00",
-      "last_changed_at": "2026-09-14T01:36:34.141628+00:00",
-      "change_type": "new"
-    },
-    {
       "id": "e39a963e152ae4b46374",
       "source": "SMC Official Website",
       "title": "SMC Official Website official recruitment/update page",
@@ -8898,5 +8898,5 @@
       "change_type": "unchanged"
     }
   ],
-  "updated_at": "2026-09-16T23:48:42.030667+00:00"
+  "updated_at": "2026-09-17T01:47:07.882913+00:00"
 }
