@@ -1,7 +1,7 @@
 {
   "sources_scanned": 28,
   "links_found_this_scan": 735,
-  "new_items": 8,
+  "new_items": 3,
   "updated_items": 0,
   "total_items": 735,
   "errors": [
@@ -18,57 +18,47 @@
     {
       "source": "GPSC",
       "url": "https://gpsc.gujarat.gov.in",
-      "error": "<urlopen error [Errno -3] Temporary failure in name resolution>"
+      "error": "<urlopen error [Errno 101] Network is unreachable>"
     },
     {
       "source": "GPSSB",
       "url": "https://gpssb.gujarat.gov.in",
-      "error": "<urlopen error [Errno -3] Temporary failure in name resolution>"
+      "error": "<urlopen error [Errno 101] Network is unreachable>"
     },
     {
       "source": "GSSSB",
       "url": "https://gsssb.gujarat.gov.in",
-      "error": "<urlopen error [Errno -3] Temporary failure in name resolution>"
+      "error": "<urlopen error [Errno 101] Network is unreachable>"
     },
     {
       "source": "Gandhinagar Municipal Corporation",
       "url": "https://gandhinagarmunicipal.com/recruitment/",
-      "error": "<urlopen error [Errno 101] Network is unreachable>"
-    },
-    {
-      "source": "Gujarat Biotechnology Research Centre",
-      "url": "https://www.gbrc.gujarat.gov.in/WebCMS/Start/Announcement",
-      "error": "<urlopen error [Errno -3] Temporary failure in name resolution>"
+      "error": "HTTP Error 403: Forbidden"
     },
     {
       "source": "Gujarat Education Department",
       "url": "https://education.gujarat.gov.in",
-      "error": "<urlopen error [Errno -3] Temporary failure in name resolution>"
+      "error": "<urlopen error _ssl.c:993: The handshake operation timed out>"
     },
     {
       "source": "Gujarat Forest and Environment",
       "url": "https://forests.gujarat.gov.in",
-      "error": "<urlopen error [Errno -3] Temporary failure in name resolution>"
+      "error": "<urlopen error _ssl.c:993: The handshake operation timed out>"
     },
     {
       "source": "Gujarat Government",
       "url": "https://gujaratindia.gov.in",
-      "error": "<urlopen error [Errno -3] Temporary failure in name resolution>"
+      "error": "<urlopen error _ssl.c:993: The handshake operation timed out>"
     },
     {
       "source": "Gujarat Health Department",
       "url": "https://gujhealth.gujarat.gov.in",
-      "error": "<urlopen error [Errno -3] Temporary failure in name resolution>"
-    },
-    {
-      "source": "Gujarat Informatics Limited",
-      "url": "https://gil.gujarat.gov.in/News.aspx?flag=0",
-      "error": "<urlopen error [Errno -3] Temporary failure in name resolution>"
+      "error": "<urlopen error _ssl.c:993: The handshake operation timed out>"
     },
     {
       "source": "Gujarat Police",
       "url": "https://police.gujarat.gov.in",
-      "error": "<urlopen error [Errno -3] Temporary failure in name resolution>"
+      "error": "<urlopen error _ssl.c:993: The handshake operation timed out>"
     },
     {
       "source": "Gujarat Primary Education Recruitment",
@@ -76,19 +66,19 @@
       "error": "HTTP Error 503: Service Unavailable"
     },
     {
-      "source": "Gujarat Social Justice & Empowerment",
-      "url": "https://sje.gujarat.gov.in",
-      "error": "<urlopen error [Errno -3] Temporary failure in name resolution>"
+      "source": "Jamnagar Municipal Corporation",
+      "url": "https://mcjamnagar.com/information/recruitment.aspx",
+      "error": "<urlopen error _ssl.c:993: The handshake operation timed out>"
     },
     {
       "source": "KCG Gujarat Recruitment",
       "url": "https://kcg.gujarat.gov.in/recruitments",
-      "error": "<urlopen error [Errno -3] Temporary failure in name resolution>"
+      "error": "The read operation timed out"
     },
     {
       "source": "OJAS Gujarat",
       "url": "https://ojas.gujarat.gov.in",
-      "error": "<urlopen error [Errno -3] Temporary failure in name resolution>"
+      "error": "<urlopen error [Errno 101] Network is unreachable>"
     },
     {
       "source": "Vadodara Municipal Corporation",
@@ -99,10 +89,12 @@
   "empty_sources": [],
   "successful_sources": [
     "Bhavnagar Municipal Corporation",
+    "Gujarat Biotechnology Research Centre",
     "Gujarat High Court Recruitment",
+    "Gujarat Informatics Limited",
     "Gujarat Jobs Google News Discovery",
+    "Gujarat Social Justice & Empowerment",
     "Gyan Sahayak Gujarat",
-    "Jamnagar Municipal Corporation",
     "Rajkot Municipal Corporation",
     "SMC Google News Discovery",
     "SMC Jobs Google News Discovery 2",
@@ -111,5 +103,5 @@
   ],
   "smc_items": 33,
   "mode": "live_snapshot",
-  "updated_at": "2026-09-18T01:15:16.336580+00:00"
+  "updated_at": "2026-09-18T06:00:51.559068+00:00"
 }
