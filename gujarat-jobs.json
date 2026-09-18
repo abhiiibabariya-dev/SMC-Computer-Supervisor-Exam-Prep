@@ -1,10 +1,22 @@
 {
   "region": "Gujarat",
   "focus": "Gujarat Government Jobs and SMC Recruitment",
-  "total": 735,
-  "new_items": 3,
+  "total": 742,
+  "new_items": 10,
   "updated_items": 0,
   "items": [
+    {
+      "id": "523f078c77dd686fcd74",
+      "source": "Gujarat Jobs Google News Discovery",
+      "title": "GSSSB Work Assistant Recruitment 2026 Out, Last Date To Apply Online for 336 Posts - Adda247",
+      "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQZURXWl8wc1hMbmhtSTF5UjJDNEJOOEhJS2dXdWhtdkZ0N05nVVlMVWhrclg2X212Zlh6Qm11Y1R6ZW8tZzBBNjVkVDlBVFptN2dRTjlWVTNWSFlVNXhfR1FvUnJBb29CMzhVNGtLYndKUEpEQnRBQndBaC1MMzBxR1ljVnNqUQ?oc=5",
+      "priority": "high",
+      "source_type": "discovery",
+      "checked_at": "2026-09-18T11:02:48.111788+00:00",
+      "first_seen_at": "2026-09-18T11:04:20.654286+00:00",
+      "last_changed_at": "2026-09-18T11:04:20.654286+00:00",
+      "change_type": "new"
+    },
     {
       "id": "e194e3336b449e7993bd",
       "source": "Gujarat Jobs Google News Discovery",
@@ -8430,22 +8442,118 @@
       "change_type": "unchanged"
     },
     {
+      "id": "c1c80c413c2c7689122a",
+      "source": "SMC Official Recruitment",
+      "title": "Recruitments",
+      "url": "https://www.suratmunicipal.gov.in/Information/RecruitmentDashboard",
+      "priority": "critical",
+      "source_type": "government",
+      "checked_at": "2026-09-18T11:01:25.565713+00:00",
+      "first_seen_at": "2026-09-18T11:04:20.654286+00:00",
+      "last_changed_at": "2026-09-18T11:04:20.654286+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "0f2905a29f1cb718c552",
+      "source": "SMC Official Recruitment",
+      "title": "Recruitment",
+      "url": "https://www.suratmunicipal.gov.in/Information/RecruitmentDashboard",
+      "priority": "critical",
+      "source_type": "government",
+      "checked_at": "2026-09-18T11:01:25.565713+00:00",
+      "first_seen_at": "2026-09-18T11:04:20.654286+00:00",
+      "last_changed_at": "2026-09-18T11:04:20.654286+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "9fb4659c700c8f4513a0",
+      "source": "SMC Official Recruitment",
+      "title": "Engineers (237 KB)",
+      "url": "https://www.suratmunicipal.gov.in/Content/Documents/rtiact/Disclosure/Town%20Development/TDO/Engineers.pdf",
+      "priority": "critical",
+      "source_type": "government",
+      "checked_at": "2026-09-18T11:01:25.565713+00:00",
+      "first_seen_at": "2026-09-18T11:04:20.654286+00:00",
+      "last_changed_at": "2026-09-18T11:04:20.654286+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "aa8325d68462f20f300d",
+      "source": "SMC Official Recruitment",
+      "title": "Check RTI Application Status",
+      "url": "https://www.suratmunicipal.gov.in/Information/RTIAppStatus",
+      "priority": "critical",
+      "source_type": "government",
+      "checked_at": "2026-09-18T11:01:25.565713+00:00",
+      "first_seen_at": "2026-09-18T11:04:20.654286+00:00",
+      "last_changed_at": "2026-09-18T11:04:20.654286+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "43ccf0fbc2f6ba8ca403",
+      "source": "SMC Official Recruitment",
+      "title": "Back to Dashboard",
+      "url": "https://www.suratmunicipal.gov.in/Information/RecruitmentDashboard",
+      "priority": "critical",
+      "source_type": "government",
+      "checked_at": "2026-09-18T11:01:25.565713+00:00",
+      "first_seen_at": "2026-09-18T11:04:20.654286+00:00",
+      "last_changed_at": "2026-09-18T11:04:20.654286+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "3d1f1f1d3d839d2b012d",
+      "source": "SMC Jobs Google News Discovery 2",
+      "title": "SMC Recruitment 2026 Notification Out for 1924 Vacancies, Check Eligibility & Last Date - jagranjosh.com",
+      "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPSE1aSEtES3VDWFRCanNHWThyZ2lNaGZlZkZleDVmbndoQTFUZ0NFQ0RfUlBsTnNTUlVwVVhReEZZcHg2RTIzR0VLWHFlUW1GR25tbGN2UFYtVzloOG1QSHd6UUZBSXd5OHZCYWVLZGxSbDlWTDZiZUlhN3daVHdKV3ptaEZUdzhoajU0WGNFZWJXN3NSNXFETmJYRDVjNGNtM3BmV0ZYd0E4THZnMm93R0c4SFdSY2xSem5mUW8yUi1JYkpkZDlGelZfUnIxVkdEQy00?oc=5",
+      "priority": "critical",
+      "source_type": "discovery",
+      "checked_at": "2026-09-18T11:02:48.472334+00:00",
+      "first_seen_at": "2026-09-18T11:04:20.654286+00:00",
+      "last_changed_at": "2026-09-18T11:04:20.654286+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "5ce153137bfe2ec7919b",
+      "source": "SMC Google News Discovery",
+      "title": "SMC Recruitment 2026 Notification Out for 1924 Vacancies, Check Eligibility & Last Date - jagranjosh.com",
+      "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPSE1aSEtES3VDWFRCanNHWThyZ2lNaGZlZkZleDVmbndoQTFUZ0NFQ0RfUlBsTnNTUlVwVVhReEZZcHg2RTIzR0VLWHFlUW1GR25tbGN2UFYtVzloOG1QSHd6UUZBSXd5OHZCYWVLZGxSbDlWTDZiZUlhN3daVHdKV3ptaEZUdzhoajU0WGNFZWJXN3NSNXFETmJYRDVjNGNtM3BmV0ZYd0E4THZnMm93R0c4SFdSY2xSem5mUW8yUi1JYkpkZDlGelZfUnIxVkdEQy00?oc=5",
+      "priority": "critical",
+      "source_type": "discovery",
+      "checked_at": "2026-09-18T11:01:24.156915+00:00",
+      "first_seen_at": "2026-09-18T11:04:20.654286+00:00",
+      "last_changed_at": "2026-09-18T11:04:20.654286+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "410f653b35a133b2333e",
+      "source": "SMC Google News Discovery",
+      "title": "SMC Apprentice Recruitment 2026 Notification Out – Apply Online for Apprentice Posts - Careers360",
+      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQdUViWkw0ZWZzSnBid3RRa1c5S0FfbERJdkc1MWthU0swODV5a18wRWllVHZpV00xNmZ5cnE0VTBucTRHNWRLYVNXcUIxWHoteGdBcnFtdERQSEJoSXdlOHliRm9ac0RyU1BMcFZ5cDg5NHRVMHAxTVhDd2JCZUZzNg?oc=5",
+      "priority": "critical",
+      "source_type": "discovery",
+      "checked_at": "2026-09-18T11:01:24.156915+00:00",
+      "first_seen_at": "2026-09-18T11:04:20.654286+00:00",
+      "last_changed_at": "2026-09-18T11:04:20.654286+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "36eb6bc2de05da7fc0e8",
+      "source": "SMC Google News Discovery",
+      "title": "Probe against 3 dismissed SMC staff for hiding qualification to secure job - The Indian Express",
+      "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxQMUIyUUF0bjVaT0dtcU9zbFc3YS1iZlQtbzJTRE1zdkN2S0hMeEo1V3oxbjNYU0dyT2xhdnluVXpXMjVMOU9UWXFIajN4SGJVeGFpY3F1NGV0a3U0bGw4Q29zWkhELTF0RHQ5eENxZjVNREZaQ2t0NmZSUUZ6SGZjODl2UWp1RDJIUWZxYXFWeWtDc19raHlMZ3dGcWwySmpaYll6dV93VUtwakxWZ1FzZFlaOE5sTGtPcFdseW1iMzdlcGNwelQ1OUVFYVBlREHSAdYBQVVfeXFMTzZjVGtqdVFwZUhKbWNmcmpHS0FZX2N0OTYxdmZpQXlSMklkajJxS1dvZjgzSEkyYm80a19OZGtuY05mdmN2WGNyd3FjV1Y1LTVBeWNUOGdaNmVzbFM5OUwxU0dzQmRIRzZ6ZVM4SkRPbFVvTHplQjI4SHBtbXgyN0hDeTRQTjlBT0tBeTBMNW82bEd6QzFaSFkwWHpqVlAweDJidHJ6elZGeUVTNzBLQVZMM1o0Xzg1QXVTQlRjUjVISWp3SXdwd1hHRmt3NmpsbW53djBUUQ?oc=5",
+      "priority": "critical",
+      "source_type": "discovery",
+      "checked_at": "2026-09-18T11:01:24.156915+00:00",
+      "first_seen_at": "2026-09-18T11:04:20.654286+00:00",
+      "last_changed_at": "2026-09-18T11:04:20.654286+00:00",
+      "change_type": "new"
+    },
+    {
       "id": "e0b03b21461adfcd5ea5",
       "source": "SMC Google News Discovery",
       "title": "SMC recruitment 2026: Application starts for over 1900 posts, details here - India Today",
       "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPdmZmMVYyWWlabmFQOTYwUzlBWFlqWjZRVFJOVW92T3V1OHllbnctZVNyUXJMRUFQZW1VaVFOSkRWX0xOVXlRVUlPYzlud0N5ZWhwZHJQSHBXQnhjeTNqbDNReWV2d1FpQ0k5bHk5VVVncU85bGliOU83bUVPeDhybFpYVkRXRFBsem1HUVgzb0NneFExRmx1TDMySXRJVWJOZGZVOHVfVXItcC05ZE53cGxpVjM1V2w4ZFF2SWVVbkFfUQ?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-09-18T05:58:03.677653+00:00",
-      "first_seen_at": "2026-09-18T06:00:51.559068+00:00",
-      "last_changed_at": "2026-09-18T06:00:51.559068+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "a49d1b97be19b1b84a92",
-      "source": "SMC Google News Discovery",
-      "title": "Probe against 3 dismissed SMC staff for hiding qualification to secure job - indianexpress.com",
-      "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxQMUIyUUF0bjVaT0dtcU9zbFc3YS1iZlQtbzJTRE1zdkN2S0hMeEo1V3oxbjNYU0dyT2xhdnluVXpXMjVMOU9UWXFIajN4SGJVeGFpY3F1NGV0a3U0bGw4Q29zWkhELTF0RHQ5eENxZjVNREZaQ2t0NmZSUUZ6SGZjODl2UWp1RDJIUWZxYXFWeWtDc19raHlMZ3dGcWwySmpaYll6dV93VUtwakxWZ1FzZFlaOE5sTGtPcFdseW1iMzdlcGNwelQ1OUVFYVBlREHSAdYBQVVfeXFMTzZjVGtqdVFwZUhKbWNmcmpHS0FZX2N0OTYxdmZpQXlSMklkajJxS1dvZjgzSEkyYm80a19OZGtuY05mdmN2WGNyd3FjV1Y1LTVBeWNUOGdaNmVzbFM5OUwxU0dzQmRIRzZ6ZVM4SkRPbFVvTHplQjI4SHBtbXgyN0hDeTRQTjlBT0tBeTBMNW82bEd6QzFaSFkwWHpqVlAweDJidHJ6elZGeUVTNzBLQVZMM1o0Xzg1QXVTQlRjUjVISWp3SXdwd1hHRmt3NmpsbW53djBUUQ?oc=5",
       "priority": "critical",
       "source_type": "discovery",
       "checked_at": "2026-09-18T05:58:03.677653+00:00",
@@ -8535,30 +8643,6 @@
       "checked_at": "2026-09-17T22:52:12.593333+00:00",
       "first_seen_at": "2026-09-17T22:55:04.120887+00:00",
       "last_changed_at": "2026-09-17T22:55:04.120887+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "dc03f9b3ea86a5e05545",
-      "source": "SMC Jobs Google News Discovery 2",
-      "title": "SMC Recruitment 2026 Notification Out for 1924 Vacancies, Check Eligibility & Last Date - Jagran Josh",
-      "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPSE1aSEtES3VDWFRCanNHWThyZ2lNaGZlZkZleDVmbndoQTFUZ0NFQ0RfUlBsTnNTUlVwVVhReEZZcHg2RTIzR0VLWHFlUW1GR25tbGN2UFYtVzloOG1QSHd6UUZBSXd5OHZCYWVLZGxSbDlWTDZiZUlhN3daVHdKV3ptaEZUdzhoajU0WGNFZWJXN3NSNXFETmJYRDVjNGNtM3BmV0ZYd0E4THZnMm93R0c4SFdSY2xSem5mUW8yUi1JYkpkZDlGelZfUnIxVkdEQy00?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-09-17T20:12:16.134118+00:00",
-      "first_seen_at": "2026-09-17T20:13:26.476059+00:00",
-      "last_changed_at": "2026-09-17T20:13:26.476059+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "52cb48ad541dd884e638",
-      "source": "SMC Google News Discovery",
-      "title": "SMC Recruitment 2026 Notification Out for 1924 Vacancies, Check Eligibility & Last Date - Jagran Josh",
-      "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPSE1aSEtES3VDWFRCanNHWThyZ2lNaGZlZkZleDVmbndoQTFUZ0NFQ0RfUlBsTnNTUlVwVVhReEZZcHg2RTIzR0VLWHFlUW1GR25tbGN2UFYtVzloOG1QSHd6UUZBSXd5OHZCYWVLZGxSbDlWTDZiZUlhN3daVHdKV3ptaEZUdzhoajU0WGNFZWJXN3NSNXFETmJYRDVjNGNtM3BmV0ZYd0E4THZnMm93R0c4SFdSY2xSem5mUW8yUi1JYkpkZDlGelZfUnIxVkdEQy00?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-09-17T20:10:40.631557+00:00",
-      "first_seen_at": "2026-09-17T20:13:26.476059+00:00",
-      "last_changed_at": "2026-09-17T20:13:26.476059+00:00",
       "change_type": "new"
     },
     {
@@ -8826,5 +8910,5 @@
       "change_type": "unchanged"
     }
   ],
-  "updated_at": "2026-09-18T06:00:51.559068+00:00"
+  "updated_at": "2026-09-18T11:04:20.654286+00:00"
 }
