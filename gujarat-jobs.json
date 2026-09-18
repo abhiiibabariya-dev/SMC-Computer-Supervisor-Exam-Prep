@@ -1,10 +1,22 @@
 {
   "region": "Gujarat",
   "focus": "Gujarat Government Jobs and SMC Recruitment",
-  "total": 742,
-  "new_items": 10,
+  "total": 741,
+  "new_items": 3,
   "updated_items": 0,
   "items": [
+    {
+      "id": "8cc960a50988fcdd6fb3",
+      "source": "Gujarat Jobs Google News Discovery",
+      "title": "GSSSB Municipal Engineer Recruitment 2026 Notification Out - Apply Online for 50 Posts - FreeJobAlert.Com",
+      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxONVAtM2tsdWk2c3NmcjM5UjdkZF9VZjc2OUd5Vi02dFcwdFY0b0JqZG4wT3RYTnFBM1JJVy16WlhaR2xFOTMxOTl5Njl5dndWRnBobFpEa2RBV19Ya09WZXZhcks3XzI4UVB3YjBud2x1R0RDdGMzaGNvS3RPeUdaanV6T0J6Z05YcF90bm5LVnk?oc=5",
+      "priority": "high",
+      "source_type": "discovery",
+      "checked_at": "2026-09-18T14:54:29.073361+00:00",
+      "first_seen_at": "2026-09-18T14:56:10.375869+00:00",
+      "last_changed_at": "2026-09-18T14:56:10.375869+00:00",
+      "change_type": "new"
+    },
     {
       "id": "523f078c77dd686fcd74",
       "source": "Gujarat Jobs Google News Discovery",
@@ -27,18 +39,6 @@
       "checked_at": "2026-09-18T05:59:14.514381+00:00",
       "first_seen_at": "2026-09-18T06:00:51.559068+00:00",
       "last_changed_at": "2026-09-18T06:00:51.559068+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "19b6973853c922d7e7a4",
-      "source": "Gujarat Jobs Google News Discovery",
-      "title": "GSSSB Staff Nurse (Ayurveda) Recruitment 2026: Notification Out for 90 Posts, Check Complete Details - PW",
-      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE5VV0hvdzJLa01JYjA1b3RnNFdzX292UUlUZEZEa201R2ZYb2o5NWpiRV9qSWdXUTJVN1NnaGF1T0liN2NvUU5LeDhBVW1RVEFUWFdwZ3I4eDU4VGZNdHZ6dXY4M05XNGpVVEFHcWYtMmRibVo3N1J3?oc=5",
-      "priority": "high",
-      "source_type": "discovery",
-      "checked_at": "2026-09-18T01:13:31.455738+00:00",
-      "first_seen_at": "2026-09-18T01:15:16.336580+00:00",
-      "last_changed_at": "2026-09-18T01:15:16.336580+00:00",
       "change_type": "new"
     },
     {
@@ -8442,6 +8442,30 @@
       "change_type": "unchanged"
     },
     {
+      "id": "dc03f9b3ea86a5e05545",
+      "source": "SMC Jobs Google News Discovery 2",
+      "title": "SMC Recruitment 2026 Notification Out for 1924 Vacancies, Check Eligibility & Last Date - Jagran Josh",
+      "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPSE1aSEtES3VDWFRCanNHWThyZ2lNaGZlZkZleDVmbndoQTFUZ0NFQ0RfUlBsTnNTUlVwVVhReEZZcHg2RTIzR0VLWHFlUW1GR25tbGN2UFYtVzloOG1QSHd6UUZBSXd5OHZCYWVLZGxSbDlWTDZiZUlhN3daVHdKV3ptaEZUdzhoajU0WGNFZWJXN3NSNXFETmJYRDVjNGNtM3BmV0ZYd0E4THZnMm93R0c4SFdSY2xSem5mUW8yUi1JYkpkZDlGelZfUnIxVkdEQy00?oc=5",
+      "priority": "critical",
+      "source_type": "discovery",
+      "checked_at": "2026-09-18T14:54:29.497321+00:00",
+      "first_seen_at": "2026-09-18T14:56:10.375869+00:00",
+      "last_changed_at": "2026-09-18T14:56:10.375869+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "52cb48ad541dd884e638",
+      "source": "SMC Google News Discovery",
+      "title": "SMC Recruitment 2026 Notification Out for 1924 Vacancies, Check Eligibility & Last Date - Jagran Josh",
+      "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPSE1aSEtES3VDWFRCanNHWThyZ2lNaGZlZkZleDVmbndoQTFUZ0NFQ0RfUlBsTnNTUlVwVVhReEZZcHg2RTIzR0VLWHFlUW1GR25tbGN2UFYtVzloOG1QSHd6UUZBSXd5OHZCYWVLZGxSbDlWTDZiZUlhN3daVHdKV3ptaEZUdzhoajU0WGNFZWJXN3NSNXFETmJYRDVjNGNtM3BmV0ZYd0E4THZnMm93R0c4SFdSY2xSem5mUW8yUi1JYkpkZDlGelZfUnIxVkdEQy00?oc=5",
+      "priority": "critical",
+      "source_type": "discovery",
+      "checked_at": "2026-09-18T14:53:32.671565+00:00",
+      "first_seen_at": "2026-09-18T14:56:10.375869+00:00",
+      "last_changed_at": "2026-09-18T14:56:10.375869+00:00",
+      "change_type": "new"
+    },
+    {
       "id": "c1c80c413c2c7689122a",
       "source": "SMC Official Recruitment",
       "title": "Recruitments",
@@ -8497,42 +8521,6 @@
       "priority": "critical",
       "source_type": "government",
       "checked_at": "2026-09-18T11:01:25.565713+00:00",
-      "first_seen_at": "2026-09-18T11:04:20.654286+00:00",
-      "last_changed_at": "2026-09-18T11:04:20.654286+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "3d1f1f1d3d839d2b012d",
-      "source": "SMC Jobs Google News Discovery 2",
-      "title": "SMC Recruitment 2026 Notification Out for 1924 Vacancies, Check Eligibility & Last Date - jagranjosh.com",
-      "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPSE1aSEtES3VDWFRCanNHWThyZ2lNaGZlZkZleDVmbndoQTFUZ0NFQ0RfUlBsTnNTUlVwVVhReEZZcHg2RTIzR0VLWHFlUW1GR25tbGN2UFYtVzloOG1QSHd6UUZBSXd5OHZCYWVLZGxSbDlWTDZiZUlhN3daVHdKV3ptaEZUdzhoajU0WGNFZWJXN3NSNXFETmJYRDVjNGNtM3BmV0ZYd0E4THZnMm93R0c4SFdSY2xSem5mUW8yUi1JYkpkZDlGelZfUnIxVkdEQy00?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-09-18T11:02:48.472334+00:00",
-      "first_seen_at": "2026-09-18T11:04:20.654286+00:00",
-      "last_changed_at": "2026-09-18T11:04:20.654286+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "5ce153137bfe2ec7919b",
-      "source": "SMC Google News Discovery",
-      "title": "SMC Recruitment 2026 Notification Out for 1924 Vacancies, Check Eligibility & Last Date - jagranjosh.com",
-      "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPSE1aSEtES3VDWFRCanNHWThyZ2lNaGZlZkZleDVmbndoQTFUZ0NFQ0RfUlBsTnNTUlVwVVhReEZZcHg2RTIzR0VLWHFlUW1GR25tbGN2UFYtVzloOG1QSHd6UUZBSXd5OHZCYWVLZGxSbDlWTDZiZUlhN3daVHdKV3ptaEZUdzhoajU0WGNFZWJXN3NSNXFETmJYRDVjNGNtM3BmV0ZYd0E4THZnMm93R0c4SFdSY2xSem5mUW8yUi1JYkpkZDlGelZfUnIxVkdEQy00?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-09-18T11:01:24.156915+00:00",
-      "first_seen_at": "2026-09-18T11:04:20.654286+00:00",
-      "last_changed_at": "2026-09-18T11:04:20.654286+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "410f653b35a133b2333e",
-      "source": "SMC Google News Discovery",
-      "title": "SMC Apprentice Recruitment 2026 Notification Out – Apply Online for Apprentice Posts - Careers360",
-      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQdUViWkw0ZWZzSnBid3RRa1c5S0FfbERJdkc1MWthU0swODV5a18wRWllVHZpV00xNmZ5cnE0VTBucTRHNWRLYVNXcUIxWHoteGdBcnFtdERQSEJoSXdlOHliRm9ac0RyU1BMcFZ5cDg5NHRVMHAxTVhDd2JCZUZzNg?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-09-18T11:01:24.156915+00:00",
       "first_seen_at": "2026-09-18T11:04:20.654286+00:00",
       "last_changed_at": "2026-09-18T11:04:20.654286+00:00",
       "change_type": "new"
@@ -8910,5 +8898,5 @@
       "change_type": "unchanged"
     }
   ],
-  "updated_at": "2026-09-18T11:04:20.654286+00:00"
+  "updated_at": "2026-09-18T14:56:10.375869+00:00"
 }
