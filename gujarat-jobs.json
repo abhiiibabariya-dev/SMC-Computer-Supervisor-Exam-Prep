@@ -1,10 +1,22 @@
 {
   "region": "Gujarat",
   "focus": "Gujarat Government Jobs and SMC Recruitment",
-  "total": 744,
+  "total": 742,
   "new_items": 5,
   "updated_items": 0,
   "items": [
+    {
+      "id": "150b8024d1425574dfc7",
+      "source": "Gujarat Jobs Google News Discovery",
+      "title": "Chasing Dreams Through OJAS: How a Gujarat Job Portal Changed My Life - Vocal",
+      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPdTZXV0FCaHBPWHdKN2xkNmpFeFJpOTdyQW9hd3JDdy1OZFpUS3hWeVB1NEN6NnBXNTgxeTJBMjc0OG4xVHJCOXR1OFE0Ty1fdkFGeUQyYjJjeHF4Rk1abU9QZk1YdjIweG8ySEhFTlAySE50Y0xVMnh5aDQ3UTM0eklJb2tQUzhLQUlkTkg2X0dzMlFYRmhrX09scVVXdGc?oc=5",
+      "priority": "high",
+      "source_type": "discovery",
+      "checked_at": "2026-09-19T21:30:29.400199+00:00",
+      "first_seen_at": "2026-09-19T21:32:08.967843+00:00",
+      "last_changed_at": "2026-09-19T21:32:08.967843+00:00",
+      "change_type": "new"
+    },
     {
       "id": "28e7cb646282b518a247",
       "source": "Gujarat Jobs Google News Discovery",
@@ -22,18 +34,6 @@
       "source": "Gujarat Jobs Google News Discovery",
       "title": "GSSSB Horticulture Assistant Recruitment 2026 - Apply Online for 100 Posts - FreeJobAlert.Com",
       "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQelYwcjhSdmVyN19vdGozbExJbTBpbkFRbC1adXY0MjEtMmxQTEZseEV3QUdHVU5xbDRHS2l0ZnBXb2Fua0VmRjhVSklmOU9HYUdMVVQ1dEw2UERVa2QzeGVMcWdITmtEZ0FqSVZMM1RrNFMzQ2VoMnh4UEktdmxzUFkzcC1ERXFJNU91eGs4UXNqVndXMk1tSVdkRVBlQkhKX01kS1U4dVMzSHdkVG5Mck5KMlNQMGFxSmc?oc=5",
-      "priority": "high",
-      "source_type": "discovery",
-      "checked_at": "2026-09-19T19:21:26.315453+00:00",
-      "first_seen_at": "2026-09-19T19:23:06.493228+00:00",
-      "last_changed_at": "2026-09-19T19:23:06.493228+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "f82b0ec9b6e317840549",
-      "source": "Gujarat Jobs Google News Discovery",
-      "title": "Chasing Dreams Through OJAS: How a Gujarat Job Portal Changed My Life - vocal.media",
-      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPdTZXV0FCaHBPWHdKN2xkNmpFeFJpOTdyQW9hd3JDdy1OZFpUS3hWeVB1NEN6NnBXNTgxeTJBMjc0OG4xVHJCOXR1OFE0Ty1fdkFGeUQyYjJjeHF4Rk1abU9QZk1YdjIweG8ySEhFTlAySE50Y0xVMnh5aDQ3UTM0eklJb2tQUzhLQUlkTkg2X0dzMlFYRmhrX09scVVXdGc?oc=5",
       "priority": "high",
       "source_type": "discovery",
       "checked_at": "2026-09-19T19:21:26.315453+00:00",
@@ -8454,27 +8454,51 @@
       "change_type": "unchanged"
     },
     {
-      "id": "da7e897733ee049a07fa",
-      "source": "SMC Google News Discovery",
-      "title": "SMC Jobs 2026: 2,295 Vacancies for Candidates Ranging from 6th Grade Pass to Post-Graduates; Recruitment for Posts Including Staff Nurse and Clerk.. - Dailyhunt",
-      "url": "https://news.google.com/rss/articles/CBMi3AJBVV95cUxNeWV2STJ5OUp0QjU4QTZLRGt1cmliVnAzWXplbHlMOTVERmJqLWFoYmdBMmdaN1Zlel9kSXR1NEZCUWFhX0lEUjZmMVJKYnhZdUNCZ2NaV0xRUTNUTWZpNkNWWktDYW95OHEzV0paUGxCLVBBNEh6My1aa1U4Z0hESjR5di00VGN6b1daai1XSktVRG1VMFNuWnF3TngzMUFvVERJMXViZzV1dTkyMFRkQWpub2lVX2J0di14MmsxYWZWYTdXUVhmcDlSSzdnVDdlQVotUjhSWHBhSldCdlpENGZGbEh4c3V1OWJBQ2g4OC11ZVAwMGxrUk8zb1lzMWlDeGN3d3ZxWFJxazA1Wkh4eVNRYTlDRHFkMklNZFVIT3hSR0hLSEd4UzR2VGItYnZSUVhCa09oOGNpWUFGVVhrM0dRUk9PSzR1eWhQSV82Q0c3MUd4azVwYkJqanI?oc=5",
+      "id": "2fdbdeb9993331bc8709",
+      "source": "SMC Jobs Google News Discovery 2",
+      "title": "SMC Exam Date 2026 Out, Check Official Schedule for 2295 Clerk, MO & Other Posts - careerpower.in",
+      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE0yenV5NjFkNHRtWVBTSUJaTEIwcHZJOFRRLVV5S05KREZueUJNR25wcEhXdU1pYkZjMGd3Um5wNE5uUGwwT0cwSkd0NXdDU3I5UFVtaHI0M0JXcDFwUWxpMGhR?oc=5",
       "priority": "critical",
       "source_type": "discovery",
-      "checked_at": "2026-09-19T19:20:18.958506+00:00",
-      "first_seen_at": "2026-09-19T19:23:06.493228+00:00",
-      "last_changed_at": "2026-09-19T19:23:06.493228+00:00",
+      "checked_at": "2026-09-19T21:30:29.707205+00:00",
+      "first_seen_at": "2026-09-19T21:32:08.967843+00:00",
+      "last_changed_at": "2026-09-19T21:32:08.967843+00:00",
       "change_type": "new"
     },
     {
-      "id": "410f653b35a133b2333e",
+      "id": "c045232f63ccf03d3722",
       "source": "SMC Google News Discovery",
-      "title": "SMC Apprentice Recruitment 2026 Notification Out – Apply Online for Apprentice Posts - Careers360",
-      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQdUViWkw0ZWZzSnBid3RRa1c5S0FfbERJdkc1MWthU0swODV5a18wRWllVHZpV00xNmZ5cnE0VTBucTRHNWRLYVNXcUIxWHoteGdBcnFtdERQSEJoSXdlOHliRm9ac0RyU1BMcFZ5cDg5NHRVMHAxTVhDd2JCZUZzNg?oc=5",
+      "title": "SMC Syllabus 2026 and Exam Pattern for Clerk, Driver & More Posts - careerpower.in",
+      "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE9fQ09KUTlYdGdwMlJUejdzRTlXWkpFLWxNVWZrVldyS29uMmY1SVNfcGVPaVAxa1U5OHhTdGI3RWRKTlBKT19JNDhYRjBXSE4yRVFXSnR1cw?oc=5",
       "priority": "critical",
       "source_type": "discovery",
-      "checked_at": "2026-09-19T19:20:18.958506+00:00",
-      "first_seen_at": "2026-09-19T19:23:06.493228+00:00",
-      "last_changed_at": "2026-09-19T19:23:06.493228+00:00",
+      "checked_at": "2026-09-19T21:29:21.581206+00:00",
+      "first_seen_at": "2026-09-19T21:32:08.967843+00:00",
+      "last_changed_at": "2026-09-19T21:32:08.967843+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "d252d808fe084550584e",
+      "source": "SMC Google News Discovery",
+      "title": "SMC Planning Assistant Recruitment 2026 - Apply Online for 88 Posts - FreeJobAlert.Com",
+      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQMUJnMi11MVc3a0FjQmd1OW9Ham9NMHEtbHFGSm9QS05Vb01PWTZvOXBraVBCWE14bDdkVHQ2ZE1wTVZEUWhxOFBrX19pZGtfT1pBaDYzVjhsdWpLczZiaDhZLWxhd1paRVJaR1dONmVsejFOcGFLVjBHd1F6dW1kUmRRbVR2ZHdGd2tlazVldGJtS1dNdEVoOEhSN3RBT05tX08xdEVSUWxDMW14WXhrbQ?oc=5",
+      "priority": "critical",
+      "source_type": "discovery",
+      "checked_at": "2026-09-19T21:29:21.581206+00:00",
+      "first_seen_at": "2026-09-19T21:32:08.967843+00:00",
+      "last_changed_at": "2026-09-19T21:32:08.967843+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "3795b1fcdedcd41b00cf",
+      "source": "SMC Google News Discovery",
+      "title": "SMC Exam Date 2026 Out, Check Official Schedule for 2295 Clerk, MO & Other Posts - careerpower.in",
+      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE0yenV5NjFkNHRtWVBTSUJaTEIwcHZJOFRRLVV5S05KREZueUJNR25wcEhXdU1pYkZjMGd3Um5wNE5uUGwwT0cwSkd0NXdDU3I5UFVtaHI0M0JXcDFwUWxpMGhR?oc=5",
+      "priority": "critical",
+      "source_type": "discovery",
+      "checked_at": "2026-09-19T21:29:21.581206+00:00",
+      "first_seen_at": "2026-09-19T21:32:08.967843+00:00",
+      "last_changed_at": "2026-09-19T21:32:08.967843+00:00",
       "change_type": "new"
     },
     {
@@ -8610,30 +8634,6 @@
       "change_type": "new"
     },
     {
-      "id": "da0be8c14852f3db3c44",
-      "source": "SMC Jobs Google News Discovery 2",
-      "title": "SMC Exam Date 2026 Out, Check Official Schedule for 2295 Clerk, MO & Other Posts - Career Power",
-      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE0yenV5NjFkNHRtWVBTSUJaTEIwcHZJOFRRLVV5S05KREZueUJNR25wcEhXdU1pYkZjMGd3Um5wNE5uUGwwT0cwSkd0NXdDU3I5UFVtaHI0M0JXcDFwUWxpMGhR?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-09-18T20:57:51.689195+00:00",
-      "first_seen_at": "2026-09-18T20:59:23.484470+00:00",
-      "last_changed_at": "2026-09-18T20:59:23.484470+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "73c5473dbc182e57fe63",
-      "source": "SMC Google News Discovery",
-      "title": "SMC Syllabus 2026 and Exam Pattern for Clerk, Driver & More Posts - Career Power",
-      "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE9fQ09KUTlYdGdwMlJUejdzRTlXWkpFLWxNVWZrVldyS29uMmY1SVNfcGVPaVAxa1U5OHhTdGI3RWRKTlBKT19JNDhYRjBXSE4yRVFXSnR1cw?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-09-18T20:56:37.230228+00:00",
-      "first_seen_at": "2026-09-18T20:59:23.484470+00:00",
-      "last_changed_at": "2026-09-18T20:59:23.484470+00:00",
-      "change_type": "new"
-    },
-    {
       "id": "53d6b2900cddbdc01d58",
       "source": "SMC Google News Discovery",
       "title": "SMC Staff Nurse Vacancy 2026 Out, Check official PDF and Apply Online Link - Adda247",
@@ -8674,18 +8674,6 @@
       "source": "SMC Google News Discovery",
       "title": "SMC Recruitment 2026 Notification Out for 1924 Vacancies, Check Eligibility & Last Date - Jagran Josh",
       "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPSE1aSEtES3VDWFRCanNHWThyZ2lNaGZlZkZleDVmbndoQTFUZ0NFQ0RfUlBsTnNTUlVwVVhReEZZcHg2RTIzR0VLWHFlUW1GR25tbGN2UFYtVzloOG1QSHd6UUZBSXd5OHZCYWVLZGxSbDlWTDZiZUlhN3daVHdKV3ptaEZUdzhoajU0WGNFZWJXN3NSNXFETmJYRDVjNGNtM3BmV0ZYd0E4THZnMm93R0c4SFdSY2xSem5mUW8yUi1JYkpkZDlGelZfUnIxVkdEQy00?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-09-18T20:56:37.230228+00:00",
-      "first_seen_at": "2026-09-18T20:59:23.484470+00:00",
-      "last_changed_at": "2026-09-18T20:59:23.484470+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "3582a361c4effaf3ea93",
-      "source": "SMC Google News Discovery",
-      "title": "SMC Exam Date 2026 Out, Check Official Schedule for 2295 Clerk, MO & Other Posts - Career Power",
-      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE0yenV5NjFkNHRtWVBTSUJaTEIwcHZJOFRRLVV5S05KREZueUJNR25wcEhXdU1pYkZjMGd3Um5wNE5uUGwwT0cwSkd0NXdDU3I5UFVtaHI0M0JXcDFwUWxpMGhR?oc=5",
       "priority": "critical",
       "source_type": "discovery",
       "checked_at": "2026-09-18T20:56:37.230228+00:00",
@@ -8737,18 +8725,6 @@
       "priority": "critical",
       "source_type": "discovery",
       "checked_at": "2026-09-18T01:13:31.776357+00:00",
-      "first_seen_at": "2026-09-18T01:15:16.336580+00:00",
-      "last_changed_at": "2026-09-18T01:15:16.336580+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "abb378cc30eacfbd8d57",
-      "source": "SMC Google News Discovery",
-      "title": "SMC Staff Nurse Recruitment 2026, Application Form (Started), 150 Vacancies, Apply Online - PW",
-      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE1QQ0RQRU1LUUJvRDNGMjVZS3Mxa2dGdHJNdXBDSXpjTGhyTFQ5blF4TlRaVUl3NVNhaS1yUmxqRndxQnd0bFNidGtEalFFUVFzWXRib3Ficlp6TEhHNnpQUEYtVmRFQXJaWUo5MW01Y25sZ3dt?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-09-18T01:11:47.871716+00:00",
       "first_seen_at": "2026-09-18T01:15:16.336580+00:00",
       "last_changed_at": "2026-09-18T01:15:16.336580+00:00",
       "change_type": "new"
@@ -8934,5 +8910,5 @@
       "change_type": "unchanged"
     }
   ],
-  "updated_at": "2026-09-19T19:23:06.493228+00:00"
+  "updated_at": "2026-09-19T21:32:08.967843+00:00"
 }
