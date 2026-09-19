@@ -2,7 +2,7 @@
   "region": "Gujarat",
   "focus": "Gujarat Government Jobs and SMC Recruitment",
   "total": 742,
-  "new_items": 5,
+  "new_items": 4,
   "updated_items": 0,
   "items": [
     {
@@ -8454,27 +8454,51 @@
       "change_type": "unchanged"
     },
     {
-      "id": "2fdbdeb9993331bc8709",
+      "id": "bdf34296e275ca241cc8",
       "source": "SMC Jobs Google News Discovery 2",
-      "title": "SMC Exam Date 2026 Out, Check Official Schedule for 2295 Clerk, MO & Other Posts - careerpower.in",
-      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE0yenV5NjFkNHRtWVBTSUJaTEIwcHZJOFRRLVV5S05KREZueUJNR25wcEhXdU1pYkZjMGd3Um5wNE5uUGwwT0cwSkd0NXdDU3I5UFVtaHI0M0JXcDFwUWxpMGhR?oc=5",
+      "title": "SMC Senior Residents Recruitment 2026 - Walkin for 30 Posts - FreeJobAlert.Com",
+      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOenJYcW9FVERhV2szRGUyUUJObEdGMmRDdzdJd1FuLXczY3RCN281bDVLMEt4ZmtLMkxmdGthWm5ERXRwNlRGNVRPaGd0Qzd5aGdJOUh3X1NIM3RiXzY5WWxnNzBTaU5uMHRPNjRnV2ROeHJwQWlUWVVXM3JrWmFiMDFKRXZIV3BvTzVMRW5fcXZRVFpheWJxbHNfMERCZE81QlVJRmx3?oc=5",
       "priority": "critical",
       "source_type": "discovery",
-      "checked_at": "2026-09-19T21:30:29.707205+00:00",
-      "first_seen_at": "2026-09-19T21:32:08.967843+00:00",
-      "last_changed_at": "2026-09-19T21:32:08.967843+00:00",
+      "checked_at": "2026-09-19T23:26:57.476814+00:00",
+      "first_seen_at": "2026-09-19T23:28:35.975767+00:00",
+      "last_changed_at": "2026-09-19T23:28:35.975767+00:00",
       "change_type": "new"
     },
     {
-      "id": "c045232f63ccf03d3722",
+      "id": "da0be8c14852f3db3c44",
+      "source": "SMC Jobs Google News Discovery 2",
+      "title": "SMC Exam Date 2026 Out, Check Official Schedule for 2295 Clerk, MO & Other Posts - Career Power",
+      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE0yenV5NjFkNHRtWVBTSUJaTEIwcHZJOFRRLVV5S05KREZueUJNR25wcEhXdU1pYkZjMGd3Um5wNE5uUGwwT0cwSkd0NXdDU3I5UFVtaHI0M0JXcDFwUWxpMGhR?oc=5",
+      "priority": "critical",
+      "source_type": "discovery",
+      "checked_at": "2026-09-19T23:26:57.476814+00:00",
+      "first_seen_at": "2026-09-19T23:28:35.975767+00:00",
+      "last_changed_at": "2026-09-19T23:28:35.975767+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "73c5473dbc182e57fe63",
       "source": "SMC Google News Discovery",
-      "title": "SMC Syllabus 2026 and Exam Pattern for Clerk, Driver & More Posts - careerpower.in",
+      "title": "SMC Syllabus 2026 and Exam Pattern for Clerk, Driver & More Posts - Career Power",
       "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE9fQ09KUTlYdGdwMlJUejdzRTlXWkpFLWxNVWZrVldyS29uMmY1SVNfcGVPaVAxa1U5OHhTdGI3RWRKTlBKT19JNDhYRjBXSE4yRVFXSnR1cw?oc=5",
       "priority": "critical",
       "source_type": "discovery",
-      "checked_at": "2026-09-19T21:29:21.581206+00:00",
-      "first_seen_at": "2026-09-19T21:32:08.967843+00:00",
-      "last_changed_at": "2026-09-19T21:32:08.967843+00:00",
+      "checked_at": "2026-09-19T23:25:49.326205+00:00",
+      "first_seen_at": "2026-09-19T23:28:35.975767+00:00",
+      "last_changed_at": "2026-09-19T23:28:35.975767+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "3582a361c4effaf3ea93",
+      "source": "SMC Google News Discovery",
+      "title": "SMC Exam Date 2026 Out, Check Official Schedule for 2295 Clerk, MO & Other Posts - Career Power",
+      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE0yenV5NjFkNHRtWVBTSUJaTEIwcHZJOFRRLVV5S05KREZueUJNR25wcEhXdU1pYkZjMGd3Um5wNE5uUGwwT0cwSkd0NXdDU3I5UFVtaHI0M0JXcDFwUWxpMGhR?oc=5",
+      "priority": "critical",
+      "source_type": "discovery",
+      "checked_at": "2026-09-19T23:25:49.326205+00:00",
+      "first_seen_at": "2026-09-19T23:28:35.975767+00:00",
+      "last_changed_at": "2026-09-19T23:28:35.975767+00:00",
       "change_type": "new"
     },
     {
@@ -8482,18 +8506,6 @@
       "source": "SMC Google News Discovery",
       "title": "SMC Planning Assistant Recruitment 2026 - Apply Online for 88 Posts - FreeJobAlert.Com",
       "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQMUJnMi11MVc3a0FjQmd1OW9Ham9NMHEtbHFGSm9QS05Vb01PWTZvOXBraVBCWE14bDdkVHQ2ZE1wTVZEUWhxOFBrX19pZGtfT1pBaDYzVjhsdWpLczZiaDhZLWxhd1paRVJaR1dONmVsejFOcGFLVjBHd1F6dW1kUmRRbVR2ZHdGd2tlazVldGJtS1dNdEVoOEhSN3RBT05tX08xdEVSUWxDMW14WXhrbQ?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-09-19T21:29:21.581206+00:00",
-      "first_seen_at": "2026-09-19T21:32:08.967843+00:00",
-      "last_changed_at": "2026-09-19T21:32:08.967843+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "3795b1fcdedcd41b00cf",
-      "source": "SMC Google News Discovery",
-      "title": "SMC Exam Date 2026 Out, Check Official Schedule for 2295 Clerk, MO & Other Posts - careerpower.in",
-      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE0yenV5NjFkNHRtWVBTSUJaTEIwcHZJOFRRLVV5S05KREZueUJNR25wcEhXdU1pYkZjMGd3Um5wNE5uUGwwT0cwSkd0NXdDU3I5UFVtaHI0M0JXcDFwUWxpMGhR?oc=5",
       "priority": "critical",
       "source_type": "discovery",
       "checked_at": "2026-09-19T21:29:21.581206+00:00",
@@ -8706,18 +8718,6 @@
       "change_type": "new"
     },
     {
-      "id": "90d6cc66b5e1e9f154f5",
-      "source": "SMC Jobs Google News Discovery 2",
-      "title": "SMC Staff Nurse Recruitment 2026, Application Form (Started), 150 Vacancies, Apply Online - PW",
-      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE1QQ0RQRU1LUUJvRDNGMjVZS3Mxa2dGdHJNdXBDSXpjTGhyTFQ5blF4TlRaVUl3NVNhaS1yUmxqRndxQnd0bFNidGtEalFFUVFzWXRib3Ficlp6TEhHNnpQUEYtVmRFQXJaWUo5MW01Y25sZ3dt?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-09-18T01:13:31.776357+00:00",
-      "first_seen_at": "2026-09-18T01:15:16.336580+00:00",
-      "last_changed_at": "2026-09-18T01:15:16.336580+00:00",
-      "change_type": "new"
-    },
-    {
       "id": "0f485f136d3b5fe07746",
       "source": "SMC Jobs Google News Discovery 2",
       "title": "SMC Recruitment 2026: Notification, Vacancies, Application Process - PW",
@@ -8910,5 +8910,5 @@
       "change_type": "unchanged"
     }
   ],
-  "updated_at": "2026-09-19T21:32:08.967843+00:00"
+  "updated_at": "2026-09-19T23:28:35.975767+00:00"
 }
