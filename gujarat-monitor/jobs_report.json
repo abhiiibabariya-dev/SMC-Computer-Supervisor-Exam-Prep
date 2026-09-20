@@ -1,9 +1,9 @@
 {
   "sources_scanned": 28,
-  "links_found_this_scan": 744,
-  "new_items": 2,
+  "links_found_this_scan": 746,
+  "new_items": 3,
   "updated_items": 0,
-  "total_items": 744,
+  "total_items": 746,
   "errors": [
     {
       "source": "Ahmedabad Municipal Corporation",
@@ -56,11 +56,6 @@
       "error": "<urlopen error _ssl.c:993: The handshake operation timed out>"
     },
     {
-      "source": "Gujarat High Court Recruitment",
-      "url": "https://gujarathighcourt.nic.in/currentopenings",
-      "error": "<urlopen error timed out>"
-    },
-    {
       "source": "Gujarat Police",
       "url": "https://police.gujarat.gov.in",
       "error": "<urlopen error _ssl.c:993: The handshake operation timed out>"
@@ -90,6 +85,7 @@
   "successful_sources": [
     "Bhavnagar Municipal Corporation",
     "Gujarat Biotechnology Research Centre",
+    "Gujarat High Court Recruitment",
     "Gujarat Informatics Limited",
     "Gujarat Jobs Google News Discovery",
     "Gujarat Social Justice & Empowerment",
@@ -101,7 +97,7 @@
     "SMC Official Recruitment",
     "SMC Official Website"
   ],
-  "smc_items": 40,
+  "smc_items": 42,
   "mode": "live_snapshot",
-  "updated_at": "2026-09-20T14:58:47.923131+00:00"
+  "updated_at": "2026-09-20T18:12:46.100231+00:00"
 }

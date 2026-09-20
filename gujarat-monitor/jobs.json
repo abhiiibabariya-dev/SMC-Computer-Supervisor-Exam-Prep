@@ -8448,15 +8448,39 @@
     "change_type": "unchanged"
   },
   {
-    "id": "a49d1b97be19b1b84a92",
+    "id": "bdf34296e275ca241cc8",
+    "source": "SMC Jobs Google News Discovery 2",
+    "title": "SMC Senior Residents Recruitment 2026 - Walkin for 30 Posts - FreeJobAlert.Com",
+    "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOenJYcW9FVERhV2szRGUyUUJObEdGMmRDdzdJd1FuLXczY3RCN281bDVLMEt4ZmtLMkxmdGthWm5ERXRwNlRGNVRPaGd0Qzd5aGdJOUh3X1NIM3RiXzY5WWxnNzBTaU5uMHRPNjRnV2ROeHJwQWlUWVVXM3JrWmFiMDFKRXZIV3BvTzVMRW5fcXZRVFpheWJxbHNfMERCZE81QlVJRmx3?oc=5",
+    "priority": "critical",
+    "source_type": "discovery",
+    "checked_at": "2026-09-20T18:11:07.118292+00:00",
+    "first_seen_at": "2026-09-20T18:12:46.100231+00:00",
+    "last_changed_at": "2026-09-20T18:12:46.100231+00:00",
+    "change_type": "new"
+  },
+  {
+    "id": "a7e297f7a15e0c93f15e",
     "source": "SMC Google News Discovery",
-    "title": "Probe against 3 dismissed SMC staff for hiding qualification to secure job - indianexpress.com",
+    "title": "SMC Senior Residents Recruitment 2026 - Walkin for 30 Posts - FreeJobAlert.Com",
+    "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOenJYcW9FVERhV2szRGUyUUJObEdGMmRDdzdJd1FuLXczY3RCN281bDVLMEt4ZmtLMkxmdGthWm5ERXRwNlRGNVRPaGd0Qzd5aGdJOUh3X1NIM3RiXzY5WWxnNzBTaU5uMHRPNjRnV2ROeHJwQWlUWVVXM3JrWmFiMDFKRXZIV3BvTzVMRW5fcXZRVFpheWJxbHNfMERCZE81QlVJRmx3?oc=5",
+    "priority": "critical",
+    "source_type": "discovery",
+    "checked_at": "2026-09-20T18:09:56.822726+00:00",
+    "first_seen_at": "2026-09-20T18:12:46.100231+00:00",
+    "last_changed_at": "2026-09-20T18:12:46.100231+00:00",
+    "change_type": "new"
+  },
+  {
+    "id": "36eb6bc2de05da7fc0e8",
+    "source": "SMC Google News Discovery",
+    "title": "Probe against 3 dismissed SMC staff for hiding qualification to secure job - The Indian Express",
     "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxQMUIyUUF0bjVaT0dtcU9zbFc3YS1iZlQtbzJTRE1zdkN2S0hMeEo1V3oxbjNYU0dyT2xhdnluVXpXMjVMOU9UWXFIajN4SGJVeGFpY3F1NGV0a3U0bGw4Q29zWkhELTF0RHQ5eENxZjVNREZaQ2t0NmZSUUZ6SGZjODl2UWp1RDJIUWZxYXFWeWtDc19raHlMZ3dGcWwySmpaYll6dV93VUtwakxWZ1FzZFlaOE5sTGtPcFdseW1iMzdlcGNwelQ1OUVFYVBlREHSAdYBQVVfeXFMTzZjVGtqdVFwZUhKbWNmcmpHS0FZX2N0OTYxdmZpQXlSMklkajJxS1dvZjgzSEkyYm80a19OZGtuY05mdmN2WGNyd3FjV1Y1LTVBeWNUOGdaNmVzbFM5OUwxU0dzQmRIRzZ6ZVM4SkRPbFVvTHplQjI4SHBtbXgyN0hDeTRQTjlBT0tBeTBMNW82bEd6QzFaSFkwWHpqVlAweDJidHJ6elZGeUVTNzBLQVZMM1o0Xzg1QXVTQlRjUjVISWp3SXdwd1hHRmt3NmpsbW53djBUUQ?oc=5",
     "priority": "critical",
     "source_type": "discovery",
-    "checked_at": "2026-09-20T14:56:00.497102+00:00",
-    "first_seen_at": "2026-09-20T14:58:47.923131+00:00",
-    "last_changed_at": "2026-09-20T14:58:47.923131+00:00",
+    "checked_at": "2026-09-20T18:09:56.822726+00:00",
+    "first_seen_at": "2026-09-20T18:12:46.100231+00:00",
+    "last_changed_at": "2026-09-20T18:12:46.100231+00:00",
     "change_type": "new"
   },
   {
