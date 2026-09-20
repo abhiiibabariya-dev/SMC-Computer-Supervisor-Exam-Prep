@@ -1,10 +1,22 @@
 {
   "region": "Gujarat",
   "focus": "Gujarat Government Jobs and SMC Recruitment",
-  "total": 746,
-  "new_items": 0,
+  "total": 748,
+  "new_items": 2,
   "updated_items": 0,
   "items": [
+    {
+      "id": "9c5879539a980e938b24",
+      "source": "Gujarat Jobs Google News Discovery",
+      "title": "GSSSB Agriculture Overseer Recruitment 2026 Notification Out, Apply Online Last Date - Adda247",
+      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPQ3ZkWlF2UVpxb1h4TEI4THFqZnlfTzBpU0N0a2xHRlJnRHZEV1JTSzNpdFFpUTBtRzdiclpmU2FiemE2Y21DSnU0QVB6a3ZZajVtTDJMR3BPS0x3ZVptY2owd1dHSUFSQ3p2WVhTaGpFbFc2WXlhY3F6by1xaWEwUTJsckYyRkdyemNxUmVNQQ?oc=5",
+      "priority": "high",
+      "source_type": "discovery",
+      "checked_at": "2026-09-20T22:45:36.408848+00:00",
+      "first_seen_at": "2026-09-20T22:47:14.728888+00:00",
+      "last_changed_at": "2026-09-20T22:47:14.728888+00:00",
+      "change_type": "new"
+    },
     {
       "id": "25b2542e8b618b281e83",
       "source": "Gujarat Jobs Google News Discovery",
@@ -8454,6 +8466,18 @@
       "change_type": "unchanged"
     },
     {
+      "id": "43ed29c2fddf1037c2be",
+      "source": "SMC Google News Discovery",
+      "title": "SMC Apprentice Recruitment 2026 Notification Out – Apply Online for Apprentice Posts - competition.careers360.com",
+      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQdUViWkw0ZWZzSnBid3RRa1c5S0FfbERJdkc1MWthU0swODV5a18wRWllVHZpV00xNmZ5cnE0VTBucTRHNWRLYVNXcUIxWHoteGdBcnFtdERQSEJoSXdlOHliRm9ac0RyU1BMcFZ5cDg5NHRVMHAxTVhDd2JCZUZzNg?oc=5",
+      "priority": "critical",
+      "source_type": "discovery",
+      "checked_at": "2026-09-20T22:44:27.858675+00:00",
+      "first_seen_at": "2026-09-20T22:47:14.728888+00:00",
+      "last_changed_at": "2026-09-20T22:47:14.728888+00:00",
+      "change_type": "new"
+    },
+    {
       "id": "bdf34296e275ca241cc8",
       "source": "SMC Jobs Google News Discovery 2",
       "title": "SMC Senior Residents Recruitment 2026 - Walkin for 30 Posts - FreeJobAlert.Com",
@@ -8958,5 +8982,5 @@
       "change_type": "unchanged"
     }
   ],
-  "updated_at": "2026-09-20T20:54:49.799549+00:00"
+  "updated_at": "2026-09-20T22:47:14.728888+00:00"
 }
