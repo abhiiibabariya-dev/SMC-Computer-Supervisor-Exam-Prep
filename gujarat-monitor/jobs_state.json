@@ -1,6 +1,6 @@
 {
-  "total_items": 744,
-  "new_items": 2,
+  "total_items": 746,
+  "new_items": 3,
   "updated_items": 0,
   "errors": [
     {
@@ -54,11 +54,6 @@
       "error": "<urlopen error _ssl.c:993: The handshake operation timed out>"
     },
     {
-      "source": "Gujarat High Court Recruitment",
-      "url": "https://gujarathighcourt.nic.in/currentopenings",
-      "error": "<urlopen error timed out>"
-    },
-    {
       "source": "Gujarat Police",
       "url": "https://police.gujarat.gov.in",
       "error": "<urlopen error _ssl.c:993: The handshake operation timed out>"
@@ -86,5 +81,5 @@
   ],
   "empty_sources": [],
   "mode": "live_snapshot",
-  "last_run": "2026-09-20T14:58:47.923131+00:00"
+  "last_run": "2026-09-20T18:12:46.100231+00:00"
 }
