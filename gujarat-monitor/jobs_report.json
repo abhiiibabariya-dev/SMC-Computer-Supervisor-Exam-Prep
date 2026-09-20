@@ -1,9 +1,9 @@
 {
   "sources_scanned": 28,
-  "links_found_this_scan": 745,
+  "links_found_this_scan": 744,
   "new_items": 2,
   "updated_items": 0,
-  "total_items": 745,
+  "total_items": 744,
   "errors": [
     {
       "source": "Ahmedabad Municipal Corporation",
@@ -36,11 +36,6 @@
       "error": "HTTP Error 403: Forbidden"
     },
     {
-      "source": "Gujarat Biotechnology Research Centre",
-      "url": "https://www.gbrc.gujarat.gov.in/WebCMS/Start/Announcement",
-      "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.gbrc.gujarat.gov.in'. (_ssl.c:1010)>"
-    },
-    {
       "source": "Gujarat Education Department",
       "url": "https://education.gujarat.gov.in",
       "error": "<urlopen error _ssl.c:993: The handshake operation timed out>"
@@ -59,6 +54,11 @@
       "source": "Gujarat Health Department",
       "url": "https://gujhealth.gujarat.gov.in",
       "error": "<urlopen error _ssl.c:993: The handshake operation timed out>"
+    },
+    {
+      "source": "Gujarat High Court Recruitment",
+      "url": "https://gujarathighcourt.nic.in/currentopenings",
+      "error": "<urlopen error timed out>"
     },
     {
       "source": "Gujarat Police",
@@ -89,7 +89,7 @@
   "empty_sources": [],
   "successful_sources": [
     "Bhavnagar Municipal Corporation",
-    "Gujarat High Court Recruitment",
+    "Gujarat Biotechnology Research Centre",
     "Gujarat Informatics Limited",
     "Gujarat Jobs Google News Discovery",
     "Gujarat Social Justice & Empowerment",
@@ -101,7 +101,7 @@
     "SMC Official Recruitment",
     "SMC Official Website"
   ],
-  "smc_items": 41,
+  "smc_items": 40,
   "mode": "live_snapshot",
-  "updated_at": "2026-09-20T11:54:27.138203+00:00"
+  "updated_at": "2026-09-20T14:58:47.923131+00:00"
 }
