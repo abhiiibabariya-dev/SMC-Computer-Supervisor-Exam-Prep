@@ -1,8 +1,8 @@
 {
   "region": "Gujarat",
   "focus": "Gujarat Government Jobs and SMC Recruitment",
-  "total": 743,
-  "new_items": 12,
+  "total": 748,
+  "new_items": 9,
   "updated_items": 0,
   "items": [
     {
@@ -8466,6 +8466,114 @@
       "change_type": "unchanged"
     },
     {
+      "id": "c1c80c413c2c7689122a",
+      "source": "SMC Official Recruitment",
+      "title": "Recruitments",
+      "url": "https://www.suratmunicipal.gov.in/Information/RecruitmentDashboard",
+      "priority": "critical",
+      "source_type": "government",
+      "checked_at": "2026-09-21T10:49:39.630848+00:00",
+      "first_seen_at": "2026-09-21T10:52:24.871439+00:00",
+      "last_changed_at": "2026-09-21T10:52:24.871439+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "0f2905a29f1cb718c552",
+      "source": "SMC Official Recruitment",
+      "title": "Recruitment",
+      "url": "https://www.suratmunicipal.gov.in/Information/RecruitmentDashboard",
+      "priority": "critical",
+      "source_type": "government",
+      "checked_at": "2026-09-21T10:49:39.630848+00:00",
+      "first_seen_at": "2026-09-21T10:52:24.871439+00:00",
+      "last_changed_at": "2026-09-21T10:52:24.871439+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "9fb4659c700c8f4513a0",
+      "source": "SMC Official Recruitment",
+      "title": "Engineers (237 KB)",
+      "url": "https://www.suratmunicipal.gov.in/Content/Documents/rtiact/Disclosure/Town%20Development/TDO/Engineers.pdf",
+      "priority": "critical",
+      "source_type": "government",
+      "checked_at": "2026-09-21T10:49:39.630848+00:00",
+      "first_seen_at": "2026-09-21T10:52:24.871439+00:00",
+      "last_changed_at": "2026-09-21T10:52:24.871439+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "aa8325d68462f20f300d",
+      "source": "SMC Official Recruitment",
+      "title": "Check RTI Application Status",
+      "url": "https://www.suratmunicipal.gov.in/Information/RTIAppStatus",
+      "priority": "critical",
+      "source_type": "government",
+      "checked_at": "2026-09-21T10:49:39.630848+00:00",
+      "first_seen_at": "2026-09-21T10:52:24.871439+00:00",
+      "last_changed_at": "2026-09-21T10:52:24.871439+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "43ccf0fbc2f6ba8ca403",
+      "source": "SMC Official Recruitment",
+      "title": "Back to Dashboard",
+      "url": "https://www.suratmunicipal.gov.in/Information/RecruitmentDashboard",
+      "priority": "critical",
+      "source_type": "government",
+      "checked_at": "2026-09-21T10:49:39.630848+00:00",
+      "first_seen_at": "2026-09-21T10:52:24.871439+00:00",
+      "last_changed_at": "2026-09-21T10:52:24.871439+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "37b2bf8a1b593e976045",
+      "source": "SMC Jobs Google News Discovery 2",
+      "title": "SMC Staff Nurse Recruitment 2026, Application Form (Started), 150 Vacancies, Apply Online - pw.live",
+      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE1QQ0RQRU1LUUJvRDNGMjVZS3Mxa2dGdHJNdXBDSXpjTGhyTFQ5blF4TlRaVUl3NVNhaS1yUmxqRndxQnd0bFNidGtEalFFUVFzWXRib3Ficlp6TEhHNnpQUEYtVmRFQXJaWUo5MW01Y25sZ3dt?oc=5",
+      "priority": "critical",
+      "source_type": "discovery",
+      "checked_at": "2026-09-21T10:50:46.556164+00:00",
+      "first_seen_at": "2026-09-21T10:52:24.871439+00:00",
+      "last_changed_at": "2026-09-21T10:52:24.871439+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "8541a955f971f96cf951",
+      "source": "SMC Jobs Google News Discovery 2",
+      "title": "SMC Recruitment 2026: Notification, Vacancies, Application Process - pw.live",
+      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE1pYnJyQnpDZ2Z4QUNqa1ZsYkNVRFF5YktPTXlWZzBtLVBXTFdXSm1GalVvX29EQlh1LWZkWUc2YnlGOXhZclk5WVlzWGhSTW5NX3dqWnpYQ0Q3VUhoU19CYWNR?oc=5",
+      "priority": "critical",
+      "source_type": "discovery",
+      "checked_at": "2026-09-21T10:50:46.556164+00:00",
+      "first_seen_at": "2026-09-21T10:52:24.871439+00:00",
+      "last_changed_at": "2026-09-21T10:52:24.871439+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "51cd97a96c0f9318f7b3",
+      "source": "SMC Google News Discovery",
+      "title": "SMC Staff Nurse Recruitment 2026, Application Form (Started), 150 Vacancies, Apply Online - pw.live",
+      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE1QQ0RQRU1LUUJvRDNGMjVZS3Mxa2dGdHJNdXBDSXpjTGhyTFQ5blF4TlRaVUl3NVNhaS1yUmxqRndxQnd0bFNidGtEalFFUVFzWXRib3Ficlp6TEhHNnpQUEYtVmRFQXJaWUo5MW01Y25sZ3dt?oc=5",
+      "priority": "critical",
+      "source_type": "discovery",
+      "checked_at": "2026-09-21T10:49:36.966906+00:00",
+      "first_seen_at": "2026-09-21T10:52:24.871439+00:00",
+      "last_changed_at": "2026-09-21T10:52:24.871439+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "cf6f3864ef98d9a501d0",
+      "source": "SMC Google News Discovery",
+      "title": "SMC Recruitment 2026: Notification, Vacancies, Application Process - pw.live",
+      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE1pYnJyQnpDZ2Z4QUNqa1ZsYkNVRFF5YktPTXlWZzBtLVBXTFdXSm1GalVvX29EQlh1LWZkWUc2YnlGOXhZclk5WVlzWGhSTW5NX3dqWnpYQ0Q3VUhoU19CYWNR?oc=5",
+      "priority": "critical",
+      "source_type": "discovery",
+      "checked_at": "2026-09-21T10:49:36.966906+00:00",
+      "first_seen_at": "2026-09-21T10:52:24.871439+00:00",
+      "last_changed_at": "2026-09-21T10:52:24.871439+00:00",
+      "change_type": "new"
+    },
+    {
       "id": "b43ca647408a5e71e894",
       "source": "SMC Jobs Google News Discovery 2",
       "title": "SMC Staff Nurse Vacancy 2026 Out, Check official PDF and Apply Online Link - Adda247",
@@ -8658,30 +8766,6 @@
       "change_type": "new"
     },
     {
-      "id": "90d6cc66b5e1e9f154f5",
-      "source": "SMC Jobs Google News Discovery 2",
-      "title": "SMC Staff Nurse Recruitment 2026, Application Form (Started), 150 Vacancies, Apply Online - PW",
-      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE1QQ0RQRU1LUUJvRDNGMjVZS3Mxa2dGdHJNdXBDSXpjTGhyTFQ5blF4TlRaVUl3NVNhaS1yUmxqRndxQnd0bFNidGtEalFFUVFzWXRib3Ficlp6TEhHNnpQUEYtVmRFQXJaWUo5MW01Y25sZ3dt?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-09-20T01:31:25.939676+00:00",
-      "first_seen_at": "2026-09-20T01:33:04.233226+00:00",
-      "last_changed_at": "2026-09-20T01:33:04.233226+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "abb378cc30eacfbd8d57",
-      "source": "SMC Google News Discovery",
-      "title": "SMC Staff Nurse Recruitment 2026, Application Form (Started), 150 Vacancies, Apply Online - PW",
-      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE1QQ0RQRU1LUUJvRDNGMjVZS3Mxa2dGdHJNdXBDSXpjTGhyTFQ5blF4TlRaVUl3NVNhaS1yUmxqRndxQnd0bFNidGtEalFFUVFzWXRib3Ficlp6TEhHNnpQUEYtVmRFQXJaWUo5MW01Y25sZ3dt?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-09-20T01:30:14.684832+00:00",
-      "first_seen_at": "2026-09-20T01:33:04.233226+00:00",
-      "last_changed_at": "2026-09-20T01:33:04.233226+00:00",
-      "change_type": "new"
-    },
-    {
       "id": "da0be8c14852f3db3c44",
       "source": "SMC Jobs Google News Discovery 2",
       "title": "SMC Exam Date 2026 Out, Check Official Schedule for 2295 Clerk, MO & Other Posts - Career Power",
@@ -8763,30 +8847,6 @@
       "checked_at": "2026-09-18T05:58:03.677653+00:00",
       "first_seen_at": "2026-09-18T06:00:51.559068+00:00",
       "last_changed_at": "2026-09-18T06:00:51.559068+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "0f485f136d3b5fe07746",
-      "source": "SMC Jobs Google News Discovery 2",
-      "title": "SMC Recruitment 2026: Notification, Vacancies, Application Process - PW",
-      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE1pYnJyQnpDZ2Z4QUNqa1ZsYkNVRFF5YktPTXlWZzBtLVBXTFdXSm1GalVvX29EQlh1LWZkWUc2YnlGOXhZclk5WVlzWGhSTW5NX3dqWnpYQ0Q3VUhoU19CYWNR?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-09-18T01:13:31.776357+00:00",
-      "first_seen_at": "2026-09-18T01:15:16.336580+00:00",
-      "last_changed_at": "2026-09-18T01:15:16.336580+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "3411dd0a79ccaa0fac17",
-      "source": "SMC Google News Discovery",
-      "title": "SMC Recruitment 2026: Notification, Vacancies, Application Process - PW",
-      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE1pYnJyQnpDZ2Z4QUNqa1ZsYkNVRFF5YktPTXlWZzBtLVBXTFdXSm1GalVvX29EQlh1LWZkWUc2YnlGOXhZclk5WVlzWGhSTW5NX3dqWnpYQ0Q3VUhoU19CYWNR?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-09-18T01:11:47.871716+00:00",
-      "first_seen_at": "2026-09-18T01:15:16.336580+00:00",
-      "last_changed_at": "2026-09-18T01:15:16.336580+00:00",
       "change_type": "new"
     },
     {
@@ -8922,5 +8982,5 @@
       "change_type": "unchanged"
     }
   ],
-  "updated_at": "2026-09-21T05:23:05.399216+00:00"
+  "updated_at": "2026-09-21T10:52:24.871439+00:00"
 }
