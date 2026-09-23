@@ -1,7 +1,7 @@
 {
   "sources_scanned": 28,
   "links_found_this_scan": 746,
-  "new_items": 2,
+  "new_items": 1,
   "updated_items": 0,
   "total_items": 746,
   "errors": [
@@ -99,5 +99,5 @@
   ],
   "smc_items": 42,
   "mode": "live_snapshot",
-  "updated_at": "2026-09-22T23:02:10.730433+00:00"
+  "updated_at": "2026-09-23T01:25:32.206011+00:00"
 }
