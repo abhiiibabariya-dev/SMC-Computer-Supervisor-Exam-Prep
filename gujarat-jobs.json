@@ -1,7 +1,7 @@
 {
   "region": "Gujarat",
   "focus": "Gujarat Government Jobs and SMC Recruitment",
-  "total": 746,
+  "total": 741,
   "new_items": 1,
   "updated_items": 0,
   "items": [
@@ -8454,15 +8454,15 @@
       "change_type": "unchanged"
     },
     {
-      "id": "a49d1b97be19b1b84a92",
+      "id": "36eb6bc2de05da7fc0e8",
       "source": "SMC Google News Discovery",
-      "title": "Probe against 3 dismissed SMC staff for hiding qualification to secure job - indianexpress.com",
+      "title": "Probe against 3 dismissed SMC staff for hiding qualification to secure job - The Indian Express",
       "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxQMUIyUUF0bjVaT0dtcU9zbFc3YS1iZlQtbzJTRE1zdkN2S0hMeEo1V3oxbjNYU0dyT2xhdnluVXpXMjVMOU9UWXFIajN4SGJVeGFpY3F1NGV0a3U0bGw4Q29zWkhELTF0RHQ5eENxZjVNREZaQ2t0NmZSUUZ6SGZjODl2UWp1RDJIUWZxYXFWeWtDc19raHlMZ3dGcWwySmpaYll6dV93VUtwakxWZ1FzZFlaOE5sTGtPcFdseW1iMzdlcGNwelQ1OUVFYVBlREHSAdYBQVVfeXFMTzZjVGtqdVFwZUhKbWNmcmpHS0FZX2N0OTYxdmZpQXlSMklkajJxS1dvZjgzSEkyYm80a19OZGtuY05mdmN2WGNyd3FjV1Y1LTVBeWNUOGdaNmVzbFM5OUwxU0dzQmRIRzZ6ZVM4SkRPbFVvTHplQjI4SHBtbXgyN0hDeTRQTjlBT0tBeTBMNW82bEd6QzFaSFkwWHpqVlAweDJidHJ6elZGeUVTNzBLQVZMM1o0Xzg1QXVTQlRjUjVISWp3SXdwd1hHRmt3NmpsbW53djBUUQ?oc=5",
       "priority": "critical",
       "source_type": "discovery",
-      "checked_at": "2026-09-23T01:22:46.148940+00:00",
-      "first_seen_at": "2026-09-23T01:25:32.206011+00:00",
-      "last_changed_at": "2026-09-23T01:25:32.206011+00:00",
+      "checked_at": "2026-09-23T06:33:29.186333+00:00",
+      "first_seen_at": "2026-09-23T06:36:16.326354+00:00",
+      "last_changed_at": "2026-09-23T06:36:16.326354+00:00",
       "change_type": "new"
     },
     {
@@ -8523,66 +8523,6 @@
       "checked_at": "2026-09-22T20:14:47.743359+00:00",
       "first_seen_at": "2026-09-22T20:17:35.358346+00:00",
       "last_changed_at": "2026-09-22T20:17:35.358346+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "c1c80c413c2c7689122a",
-      "source": "SMC Official Recruitment",
-      "title": "Recruitments",
-      "url": "https://www.suratmunicipal.gov.in/Information/RecruitmentDashboard",
-      "priority": "critical",
-      "source_type": "government",
-      "checked_at": "2026-09-22T17:20:41.583698+00:00",
-      "first_seen_at": "2026-09-22T17:23:28.229601+00:00",
-      "last_changed_at": "2026-09-22T17:23:28.229601+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "0f2905a29f1cb718c552",
-      "source": "SMC Official Recruitment",
-      "title": "Recruitment",
-      "url": "https://www.suratmunicipal.gov.in/Information/RecruitmentDashboard",
-      "priority": "critical",
-      "source_type": "government",
-      "checked_at": "2026-09-22T17:20:41.583698+00:00",
-      "first_seen_at": "2026-09-22T17:23:28.229601+00:00",
-      "last_changed_at": "2026-09-22T17:23:28.229601+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "9fb4659c700c8f4513a0",
-      "source": "SMC Official Recruitment",
-      "title": "Engineers (237 KB)",
-      "url": "https://www.suratmunicipal.gov.in/Content/Documents/rtiact/Disclosure/Town%20Development/TDO/Engineers.pdf",
-      "priority": "critical",
-      "source_type": "government",
-      "checked_at": "2026-09-22T17:20:41.583698+00:00",
-      "first_seen_at": "2026-09-22T17:23:28.229601+00:00",
-      "last_changed_at": "2026-09-22T17:23:28.229601+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "aa8325d68462f20f300d",
-      "source": "SMC Official Recruitment",
-      "title": "Check RTI Application Status",
-      "url": "https://www.suratmunicipal.gov.in/Information/RTIAppStatus",
-      "priority": "critical",
-      "source_type": "government",
-      "checked_at": "2026-09-22T17:20:41.583698+00:00",
-      "first_seen_at": "2026-09-22T17:23:28.229601+00:00",
-      "last_changed_at": "2026-09-22T17:23:28.229601+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "43ccf0fbc2f6ba8ca403",
-      "source": "SMC Official Recruitment",
-      "title": "Back to Dashboard",
-      "url": "https://www.suratmunicipal.gov.in/Information/RecruitmentDashboard",
-      "priority": "critical",
-      "source_type": "government",
-      "checked_at": "2026-09-22T17:20:41.583698+00:00",
-      "first_seen_at": "2026-09-22T17:23:28.229601+00:00",
-      "last_changed_at": "2026-09-22T17:23:28.229601+00:00",
       "change_type": "new"
     },
     {
@@ -8958,5 +8898,5 @@
       "change_type": "unchanged"
     }
   ],
-  "updated_at": "2026-09-23T01:25:32.206011+00:00"
+  "updated_at": "2026-09-23T06:36:16.326354+00:00"
 }
