@@ -1,10 +1,34 @@
 {
   "region": "Gujarat",
   "focus": "Gujarat Government Jobs and SMC Recruitment",
-  "total": 743,
-  "new_items": 4,
+  "total": 750,
+  "new_items": 7,
   "updated_items": 0,
   "items": [
+    {
+      "id": "51eebc0429a66a62115b",
+      "source": "Gujarat Jobs Google News Discovery",
+      "title": "GSSSB Recruitment 2026 - Apply Online for 41 Research Assistant, Statistical Assistant Posts - FreeJobAlert.Com",
+      "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxNblVEdUstaFFCUFNuZEJDMDhMSTFRTll1a2Jtamh0akl2RjYyZG1aTW02ai1rUTV4d1pnV0R1aW4wR0Z4aWlrNFhNMGw4VjhOS2ZmVjJQQnlGdTg2eWZCVzZ4c2JxeTdPbmVCbTBIaU9KOV93cng1YWRTMmlFaTRJZGpQaVNQYlh4OXhaUUF6Y2dPcS1pNHBfM3hya3pJNWNDdHY4NXd2V2dZV2ltMHdwVDdlcHdjalY1ZXlmUEVvRXp4bkpLQk1WQnNmcXctT3px?oc=5",
+      "priority": "high",
+      "source_type": "discovery",
+      "checked_at": "2026-09-25T15:57:08.056921+00:00",
+      "first_seen_at": "2026-09-25T15:58:46.849023+00:00",
+      "last_changed_at": "2026-09-25T15:58:46.849023+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "e194e3336b449e7993bd",
+      "source": "Gujarat Jobs Google News Discovery",
+      "title": "GSSSB Draftsman Recruitment 2026, Last Date To Apply Online for 52 Posts - Adda247",
+      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5NY3BjTjlqWVJtNzVXa0hmSmxGclFIdXRrVnRsY01fei10c3poTUxRbFliTzhSSmYwdmpKR0Q5NFFDd0htT0E4VlNaeENLelllUHhKbDAxRTI1SWx6c2ktNkRpQ2xGMkh5VktObHFsQWFUazllR2V2RVExRC02N1U?oc=5",
+      "priority": "high",
+      "source_type": "discovery",
+      "checked_at": "2026-09-25T15:57:08.056921+00:00",
+      "first_seen_at": "2026-09-25T15:58:46.849023+00:00",
+      "last_changed_at": "2026-09-25T15:58:46.849023+00:00",
+      "change_type": "new"
+    },
     {
       "id": "fedf8389740cd6431fa9",
       "source": "Gujarat Jobs Google News Discovery",
@@ -8478,6 +8502,66 @@
       "change_type": "unchanged"
     },
     {
+      "id": "c1c80c413c2c7689122a",
+      "source": "SMC Official Recruitment",
+      "title": "Recruitments",
+      "url": "https://www.suratmunicipal.gov.in/Information/RecruitmentDashboard",
+      "priority": "critical",
+      "source_type": "government",
+      "checked_at": "2026-09-25T15:56:02.215061+00:00",
+      "first_seen_at": "2026-09-25T15:58:46.849023+00:00",
+      "last_changed_at": "2026-09-25T15:58:46.849023+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "0f2905a29f1cb718c552",
+      "source": "SMC Official Recruitment",
+      "title": "Recruitment",
+      "url": "https://www.suratmunicipal.gov.in/Information/RecruitmentDashboard",
+      "priority": "critical",
+      "source_type": "government",
+      "checked_at": "2026-09-25T15:56:02.215061+00:00",
+      "first_seen_at": "2026-09-25T15:58:46.849023+00:00",
+      "last_changed_at": "2026-09-25T15:58:46.849023+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "9fb4659c700c8f4513a0",
+      "source": "SMC Official Recruitment",
+      "title": "Engineers (237 KB)",
+      "url": "https://www.suratmunicipal.gov.in/Content/Documents/rtiact/Disclosure/Town%20Development/TDO/Engineers.pdf",
+      "priority": "critical",
+      "source_type": "government",
+      "checked_at": "2026-09-25T15:56:02.215061+00:00",
+      "first_seen_at": "2026-09-25T15:58:46.849023+00:00",
+      "last_changed_at": "2026-09-25T15:58:46.849023+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "aa8325d68462f20f300d",
+      "source": "SMC Official Recruitment",
+      "title": "Check RTI Application Status",
+      "url": "https://www.suratmunicipal.gov.in/Information/RTIAppStatus",
+      "priority": "critical",
+      "source_type": "government",
+      "checked_at": "2026-09-25T15:56:02.215061+00:00",
+      "first_seen_at": "2026-09-25T15:58:46.849023+00:00",
+      "last_changed_at": "2026-09-25T15:58:46.849023+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "43ccf0fbc2f6ba8ca403",
+      "source": "SMC Official Recruitment",
+      "title": "Back to Dashboard",
+      "url": "https://www.suratmunicipal.gov.in/Information/RecruitmentDashboard",
+      "priority": "critical",
+      "source_type": "government",
+      "checked_at": "2026-09-25T15:56:02.215061+00:00",
+      "first_seen_at": "2026-09-25T15:58:46.849023+00:00",
+      "last_changed_at": "2026-09-25T15:58:46.849023+00:00",
+      "change_type": "new"
+    },
+    {
       "id": "584d81ba8a9e2af54c82",
       "source": "SMC Jobs Google News Discovery 2",
       "title": "SMC recruitment 2026 opens 1924 posts for clerks, engineers and medical officers; apply from April 1 - timesofindia.indiatimes.com",
@@ -8922,5 +9006,5 @@
       "change_type": "unchanged"
     }
   ],
-  "updated_at": "2026-09-25T11:44:10.165608+00:00"
+  "updated_at": "2026-09-25T15:58:46.849023+00:00"
 }
