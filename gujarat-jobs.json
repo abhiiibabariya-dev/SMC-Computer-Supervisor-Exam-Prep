@@ -2,7 +2,7 @@
   "region": "Gujarat",
   "focus": "Gujarat Government Jobs and SMC Recruitment",
   "total": 751,
-  "new_items": 6,
+  "new_items": 7,
   "updated_items": 0,
   "items": [
     {
@@ -8502,6 +8502,90 @@
       "change_type": "unchanged"
     },
     {
+      "id": "da0be8c14852f3db3c44",
+      "source": "SMC Jobs Google News Discovery 2",
+      "title": "SMC Exam Date 2026 Out, Check Official Schedule for 2295 Clerk, MO & Other Posts - Career Power",
+      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE0yenV5NjFkNHRtWVBTSUJaTEIwcHZJOFRRLVV5S05KREZueUJNR25wcEhXdU1pYkZjMGd3Um5wNE5uUGwwT0cwSkd0NXdDU3I5UFVtaHI0M0JXcDFwUWxpMGhR?oc=5",
+      "priority": "critical",
+      "source_type": "discovery",
+      "checked_at": "2026-09-26T23:51:37.161086+00:00",
+      "first_seen_at": "2026-09-26T23:53:15.300338+00:00",
+      "last_changed_at": "2026-09-26T23:53:15.300338+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "73c5473dbc182e57fe63",
+      "source": "SMC Google News Discovery",
+      "title": "SMC Syllabus 2026 and Exam Pattern for Clerk, Driver & More Posts - Career Power",
+      "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE9fQ09KUTlYdGdwMlJUejdzRTlXWkpFLWxNVWZrVldyS29uMmY1SVNfcGVPaVAxa1U5OHhTdGI3RWRKTlBKT19JNDhYRjBXSE4yRVFXSnR1cw?oc=5",
+      "priority": "critical",
+      "source_type": "discovery",
+      "checked_at": "2026-09-26T23:50:27.451523+00:00",
+      "first_seen_at": "2026-09-26T23:53:15.300338+00:00",
+      "last_changed_at": "2026-09-26T23:53:15.300338+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "ecff0914665ed82ecc01",
+      "source": "SMC Google News Discovery",
+      "title": "SMC recruitment 2026: Application window opens for over 1900 posts, check complete details here - The Times of India",
+      "url": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxPRjQ4R3NXSVhWSHlfZThkSXY0Wm81N0FSMXJUZlpFZ3E3bUtwV19ILW1GcDRBMVdqaGMzbzN5U0RORTh5TXd5N05PaVctdEFiNmdIYzBfdDZMX0drSUZjcnExc0UwWVpnRHdDVUJnNGVvMi1RUXpVSHBQUF9uUGI3Z2N1Y3VDaXA3RnN6Z2xhVWNXWTE3RE51T1VWSHgwVmxWYmlSekRUaVVja2JZN180M28xMTJrWHJYUzNZVjNzYk1YMUtyMl9MbWs2X244Mjg3S0NXQktiMUsteDNEOWlwWG1HNktmcWM1Mzh6SE5DLTFrWHlTeGRjYzFIbG83bEnSAYQCQVVfeXFMTjE2Qkw4djVRTkdzTmtPSkd3Vm1FVkJCNUFLbGRRdlF5RjF2MGVzVS1jbGhsb0ZHWVhCaGN5SEVQYUM3SnFvQzRJa3R5dUZneVdzQ0NwNVFKR2dibkRDWm9NSlVGZGpoNWdPTHpBa2YxdGwzcXQwbUZsSFBDenhVR1JCZ1ZlaHZKMEpnNGw5VjFleXhQOXJnQU1SNk1oVXpMNjhrQ3pVeW5YSmljOTJ2dXFQcE1nZUxfaDlKdENneGhLZnF0QWZrWHhSUTN3OG1KdFk3bGNrcW05d3hxcENJYzY1M3U0MGdwTXF5SnlEbThsaENyVEpkLVpDemxjUUozVkNwNXo?oc=5",
+      "priority": "critical",
+      "source_type": "discovery",
+      "checked_at": "2026-09-26T23:50:27.451523+00:00",
+      "first_seen_at": "2026-09-26T23:53:15.300338+00:00",
+      "last_changed_at": "2026-09-26T23:53:15.300338+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "0b7b2bd26e60d4d2c791",
+      "source": "SMC Google News Discovery",
+      "title": "SMC recruitment 2026 opens 1924 posts for clerks, engineers and medical officers; apply from April 1 - The Times of India",
+      "url": "https://news.google.com/rss/articles/CBMihgJBVV95cUxNcjZtVkliamJmVl9kajM0cy01cTl3TWhzZE9xOFhPNTJpUTVubm5palBLV3Q0LW03YmNiR2REUS1uMmxqTWtRUHRIcGNwYVhrSEg2NWY0ZmV4bmdlM29jVkV3dUhacUNIa1h4YXBWNWg3LVFDSEt4czN0SzlDUHp5dmJxU1I4bThnM2tGbHJnWjhqcjAwTkFOOEVYVzNIWHhmN2hPQzA5QlFTWmpRODYyU0J1WEhsOHQwbElET2dXc1UxQ3VUcXlya0dYRFVaQ3liU2U1MVpraEtqUXUycmZBNkNiSFRWSU5UVWl0NkZQeWpMVEVDZ2NOUklVUWgycENvcjA2dUZn?oc=5",
+      "priority": "critical",
+      "source_type": "discovery",
+      "checked_at": "2026-09-26T23:50:27.451523+00:00",
+      "first_seen_at": "2026-09-26T23:53:15.300338+00:00",
+      "last_changed_at": "2026-09-26T23:53:15.300338+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "3582a361c4effaf3ea93",
+      "source": "SMC Google News Discovery",
+      "title": "SMC Exam Date 2026 Out, Check Official Schedule for 2295 Clerk, MO & Other Posts - Career Power",
+      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE0yenV5NjFkNHRtWVBTSUJaTEIwcHZJOFRRLVV5S05KREZueUJNR25wcEhXdU1pYkZjMGd3Um5wNE5uUGwwT0cwSkd0NXdDU3I5UFVtaHI0M0JXcDFwUWxpMGhR?oc=5",
+      "priority": "critical",
+      "source_type": "discovery",
+      "checked_at": "2026-09-26T23:50:27.451523+00:00",
+      "first_seen_at": "2026-09-26T23:53:15.300338+00:00",
+      "last_changed_at": "2026-09-26T23:53:15.300338+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "410f653b35a133b2333e",
+      "source": "SMC Google News Discovery",
+      "title": "SMC Apprentice Recruitment 2026 Notification Out – Apply Online for Apprentice Posts - Careers360",
+      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQdUViWkw0ZWZzSnBid3RRa1c5S0FfbERJdkc1MWthU0swODV5a18wRWllVHZpV00xNmZ5cnE0VTBucTRHNWRLYVNXcUIxWHoteGdBcnFtdERQSEJoSXdlOHliRm9ac0RyU1BMcFZ5cDg5NHRVMHAxTVhDd2JCZUZzNg?oc=5",
+      "priority": "critical",
+      "source_type": "discovery",
+      "checked_at": "2026-09-26T23:50:27.451523+00:00",
+      "first_seen_at": "2026-09-26T23:53:15.300338+00:00",
+      "last_changed_at": "2026-09-26T23:53:15.300338+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "5b2d9aa07477b4ea2ee7",
+      "source": "SMC Google News Discovery",
+      "title": "Sanitation workers demand permanent SMC jobs - The Times of India",
+      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxONkRrWkU0bW4xNWFTX254Ny1sUUpBTzc1UDk1UFNKTUM1ZzNna3cyV2JJR3FEeG01UE1xUGxwZWlWNXBQRldaU3hNLXp1SUstbGg1Nl9rLVduQjV4alNYTi1XLTJTaWJhQW1zdXdRbEdBbnZRYnlGVkhwNXdpRDJ4SDNxSlpMLVduaTczSklyTVRHTjFldlRWVFl6dEgyYTZCOXdCNkVEZXhsd0l6cVVZSWRQNHNxTjTSAbwBQVVfeXFMT1Y5dFJSTUxZNnZEVWEyTnBscGxvN3NFTG9KdjNPc2tqUldScDJNdUVmcDd2b04xanJmUmtEeUw5S01meVFFVWJpa3BvNGhKZTB0ZnBZRmQ5bko2M2JVbzRKcWFhZjU2dEhYMExSeGc0SEFOUVg4S09tTnp0RWt0SUZ5MlFLalJsWFNwVXhhN3UxS1IzYmVFaHItNkx5eHFiZVExUElTQy1zU3BaY3plWGRSUThXaVFEZlVuUHI?oc=5",
+      "priority": "critical",
+      "source_type": "discovery",
+      "checked_at": "2026-09-26T23:50:27.451523+00:00",
+      "first_seen_at": "2026-09-26T23:53:15.300338+00:00",
+      "last_changed_at": "2026-09-26T23:53:15.300338+00:00",
+      "change_type": "new"
+    },
+    {
       "id": "4033c892f529fbed6e04",
       "source": "SMC Jobs Google News Discovery 2",
       "title": "SMC recruitment 2026 opens 1924 posts for clerks, engineers and medical officers; apply from April 1 - The Times of India",
@@ -8514,58 +8598,10 @@
       "change_type": "new"
     },
     {
-      "id": "2fdbdeb9993331bc8709",
-      "source": "SMC Jobs Google News Discovery 2",
-      "title": "SMC Exam Date 2026 Out, Check Official Schedule for 2295 Clerk, MO & Other Posts - careerpower.in",
-      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE0yenV5NjFkNHRtWVBTSUJaTEIwcHZJOFRRLVV5S05KREZueUJNR25wcEhXdU1pYkZjMGd3Um5wNE5uUGwwT0cwSkd0NXdDU3I5UFVtaHI0M0JXcDFwUWxpMGhR?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-09-26T21:37:32.330330+00:00",
-      "first_seen_at": "2026-09-26T21:39:10.849864+00:00",
-      "last_changed_at": "2026-09-26T21:39:10.849864+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "c045232f63ccf03d3722",
-      "source": "SMC Google News Discovery",
-      "title": "SMC Syllabus 2026 and Exam Pattern for Clerk, Driver & More Posts - careerpower.in",
-      "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE9fQ09KUTlYdGdwMlJUejdzRTlXWkpFLWxNVWZrVldyS29uMmY1SVNfcGVPaVAxa1U5OHhTdGI3RWRKTlBKT19JNDhYRjBXSE4yRVFXSnR1cw?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-09-26T21:36:24.670001+00:00",
-      "first_seen_at": "2026-09-26T21:39:10.849864+00:00",
-      "last_changed_at": "2026-09-26T21:39:10.849864+00:00",
-      "change_type": "new"
-    },
-    {
       "id": "e0b03b21461adfcd5ea5",
       "source": "SMC Google News Discovery",
       "title": "SMC recruitment 2026: Application starts for over 1900 posts, details here - India Today",
       "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPdmZmMVYyWWlabmFQOTYwUzlBWFlqWjZRVFJOVW92T3V1OHllbnctZVNyUXJMRUFQZW1VaVFOSkRWX0xOVXlRVUlPYzlud0N5ZWhwZHJQSHBXQnhjeTNqbDNReWV2d1FpQ0k5bHk5VVVncU85bGliOU83bUVPeDhybFpYVkRXRFBsem1HUVgzb0NneFExRmx1TDMySXRJVWJOZGZVOHVfVXItcC05ZE53cGxpVjM1V2w4ZFF2SWVVbkFfUQ?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-09-26T21:36:24.670001+00:00",
-      "first_seen_at": "2026-09-26T21:39:10.849864+00:00",
-      "last_changed_at": "2026-09-26T21:39:10.849864+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "3795b1fcdedcd41b00cf",
-      "source": "SMC Google News Discovery",
-      "title": "SMC Exam Date 2026 Out, Check Official Schedule for 2295 Clerk, MO & Other Posts - careerpower.in",
-      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE0yenV5NjFkNHRtWVBTSUJaTEIwcHZJOFRRLVV5S05KREZueUJNR25wcEhXdU1pYkZjMGd3Um5wNE5uUGwwT0cwSkd0NXdDU3I5UFVtaHI0M0JXcDFwUWxpMGhR?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-09-26T21:36:24.670001+00:00",
-      "first_seen_at": "2026-09-26T21:39:10.849864+00:00",
-      "last_changed_at": "2026-09-26T21:39:10.849864+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "43ed29c2fddf1037c2be",
-      "source": "SMC Google News Discovery",
-      "title": "SMC Apprentice Recruitment 2026 Notification Out – Apply Online for Apprentice Posts - competition.careers360.com",
-      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQdUViWkw0ZWZzSnBid3RRa1c5S0FfbERJdkc1MWthU0swODV5a18wRWllVHZpV00xNmZ5cnE0VTBucTRHNWRLYVNXcUIxWHoteGdBcnFtdERQSEJoSXdlOHliRm9ac0RyU1BMcFZ5cDg5NHRVMHAxTVhDd2JCZUZzNg?oc=5",
       "priority": "critical",
       "source_type": "discovery",
       "checked_at": "2026-09-26T21:36:24.670001+00:00",
@@ -8614,42 +8650,6 @@
       "source": "SMC Google News Discovery",
       "title": "SMC Recruitment 2026: Notification, Vacancies, Application Process - PW",
       "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE1pYnJyQnpDZ2Z4QUNqa1ZsYkNVRFF5YktPTXlWZzBtLVBXTFdXSm1GalVvX29EQlh1LWZkWUc2YnlGOXhZclk5WVlzWGhSTW5NX3dqWnpYQ0Q3VUhoU19CYWNR?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-09-26T18:37:44.138432+00:00",
-      "first_seen_at": "2026-09-26T18:40:30.217441+00:00",
-      "last_changed_at": "2026-09-26T18:40:30.217441+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "4cda1c5e54934172ee67",
-      "source": "SMC Google News Discovery",
-      "title": "SMC recruitment 2026: Application window opens for over 1900 posts, check complete details here - timesofindia.indiatimes.com",
-      "url": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxPRjQ4R3NXSVhWSHlfZThkSXY0Wm81N0FSMXJUZlpFZ3E3bUtwV19ILW1GcDRBMVdqaGMzbzN5U0RORTh5TXd5N05PaVctdEFiNmdIYzBfdDZMX0drSUZjcnExc0UwWVpnRHdDVUJnNGVvMi1RUXpVSHBQUF9uUGI3Z2N1Y3VDaXA3RnN6Z2xhVWNXWTE3RE51T1VWSHgwVmxWYmlSekRUaVVja2JZN180M28xMTJrWHJYUzNZVjNzYk1YMUtyMl9MbWs2X244Mjg3S0NXQktiMUsteDNEOWlwWG1HNktmcWM1Mzh6SE5DLTFrWHlTeGRjYzFIbG83bEnSAYQCQVVfeXFMTjE2Qkw4djVRTkdzTmtPSkd3Vm1FVkJCNUFLbGRRdlF5RjF2MGVzVS1jbGhsb0ZHWVhCaGN5SEVQYUM3SnFvQzRJa3R5dUZneVdzQ0NwNVFKR2dibkRDWm9NSlVGZGpoNWdPTHpBa2YxdGwzcXQwbUZsSFBDenhVR1JCZ1ZlaHZKMEpnNGw5VjFleXhQOXJnQU1SNk1oVXpMNjhrQ3pVeW5YSmljOTJ2dXFQcE1nZUxfaDlKdENneGhLZnF0QWZrWHhSUTN3OG1KdFk3bGNrcW05d3hxcENJYzY1M3U0MGdwTXF5SnlEbThsaENyVEpkLVpDemxjUUozVkNwNXo?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-09-26T18:37:44.138432+00:00",
-      "first_seen_at": "2026-09-26T18:40:30.217441+00:00",
-      "last_changed_at": "2026-09-26T18:40:30.217441+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "4948210269030b69c5ff",
-      "source": "SMC Google News Discovery",
-      "title": "SMC recruitment 2026 opens 1924 posts for clerks, engineers and medical officers; apply from April 1 - timesofindia.indiatimes.com",
-      "url": "https://news.google.com/rss/articles/CBMihgJBVV95cUxNcjZtVkliamJmVl9kajM0cy01cTl3TWhzZE9xOFhPNTJpUTVubm5palBLV3Q0LW03YmNiR2REUS1uMmxqTWtRUHRIcGNwYVhrSEg2NWY0ZmV4bmdlM29jVkV3dUhacUNIa1h4YXBWNWg3LVFDSEt4czN0SzlDUHp5dmJxU1I4bThnM2tGbHJnWjhqcjAwTkFOOEVYVzNIWHhmN2hPQzA5QlFTWmpRODYyU0J1WEhsOHQwbElET2dXc1UxQ3VUcXlya0dYRFVaQ3liU2U1MVpraEtqUXUycmZBNkNiSFRWSU5UVWl0NkZQeWpMVEVDZ2NOUklVUWgycENvcjA2dUZn?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-09-26T18:37:44.138432+00:00",
-      "first_seen_at": "2026-09-26T18:40:30.217441+00:00",
-      "last_changed_at": "2026-09-26T18:40:30.217441+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "ecdf97c7d5582a00bee3",
-      "source": "SMC Google News Discovery",
-      "title": "Sanitation workers demand permanent SMC jobs - timesofindia.indiatimes.com",
-      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxONkRrWkU0bW4xNWFTX254Ny1sUUpBTzc1UDk1UFNKTUM1ZzNna3cyV2JJR3FEeG01UE1xUGxwZWlWNXBQRldaU3hNLXp1SUstbGg1Nl9rLVduQjV4alNYTi1XLTJTaWJhQW1zdXdRbEdBbnZRYnlGVkhwNXdpRDJ4SDNxSlpMLVduaTczSklyTVRHTjFldlRWVFl6dEgyYTZCOXdCNkVEZXhsd0l6cVVZSWRQNHNxTjTSAbwBQVVfeXFMT1Y5dFJSTUxZNnZEVWEyTnBscGxvN3NFTG9KdjNPc2tqUldScDJNdUVmcDd2b04xanJmUmtEeUw5S01meVFFVWJpa3BvNGhKZTB0ZnBZRmQ5bko2M2JVbzRKcWFhZjU2dEhYMExSeGc0SEFOUVg4S09tTnp0RWt0SUZ5MlFLalJsWFNwVXhhN3UxS1IzYmVFaHItNkx5eHFiZVExUElTQy1zU3BaY3plWGRSUThXaVFEZlVuUHI?oc=5",
       "priority": "critical",
       "source_type": "discovery",
       "checked_at": "2026-09-26T18:37:44.138432+00:00",
@@ -9018,5 +9018,5 @@
       "change_type": "unchanged"
     }
   ],
-  "updated_at": "2026-09-26T21:39:10.849864+00:00"
+  "updated_at": "2026-09-26T23:53:15.300338+00:00"
 }
