@@ -120,18 +120,6 @@
     "change_type": "new"
   },
   {
-    "id": "bf7410812983378019a9",
-    "source": "Gujarat Jobs Google News Discovery",
-    "title": "GSSSB Multi Purpose Health Supervisor Recruitment 2026 Notification Out - Apply Online for 119 Posts - FreeJobAlert.Com",
-    "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQSk9pOGhRS2hVbE5YcXVKSEFadjJlWTZBNHFCcmYzNVVDalRMN0tETEpKVTRzVHQ0VzdEQkZBM3ROSFZCOXltSVV6ZFVPckJITUdaRDRTOXZFelNyRkk4QUF4VDFmQ1RpcVNfUzBiakFhQUkydy1TWUxqbEw4MEdxYXpINVZFOWd1RjE1OHY5a21rdUZGX3M3UDRHamxhYTRDNVE?oc=5",
-    "priority": "high",
-    "source_type": "discovery",
-    "checked_at": "2026-09-25T00:55:06.995577+00:00",
-    "first_seen_at": "2026-09-25T00:56:45.977741+00:00",
-    "last_changed_at": "2026-09-25T00:56:45.977741+00:00",
-    "change_type": "new"
-  },
-  {
     "id": "150b8024d1425574dfc7",
     "source": "Gujarat Jobs Google News Discovery",
     "title": "Chasing Dreams Through OJAS: How a Gujarat Job Portal Changed My Life - Vocal",
@@ -8496,15 +8484,99 @@
     "change_type": "unchanged"
   },
   {
-    "id": "3d1f1f1d3d839d2b012d",
+    "id": "c1c80c413c2c7689122a",
+    "source": "SMC Official Recruitment",
+    "title": "Recruitments",
+    "url": "https://www.suratmunicipal.gov.in/Information/RecruitmentDashboard",
+    "priority": "critical",
+    "source_type": "government",
+    "checked_at": "2026-09-27T21:14:10.612301+00:00",
+    "first_seen_at": "2026-09-27T21:16:55.866080+00:00",
+    "last_changed_at": "2026-09-27T21:16:55.866080+00:00",
+    "change_type": "new"
+  },
+  {
+    "id": "0f2905a29f1cb718c552",
+    "source": "SMC Official Recruitment",
+    "title": "Recruitment",
+    "url": "https://www.suratmunicipal.gov.in/Information/RecruitmentDashboard",
+    "priority": "critical",
+    "source_type": "government",
+    "checked_at": "2026-09-27T21:14:10.612301+00:00",
+    "first_seen_at": "2026-09-27T21:16:55.866080+00:00",
+    "last_changed_at": "2026-09-27T21:16:55.866080+00:00",
+    "change_type": "new"
+  },
+  {
+    "id": "9fb4659c700c8f4513a0",
+    "source": "SMC Official Recruitment",
+    "title": "Engineers (237 KB)",
+    "url": "https://www.suratmunicipal.gov.in/Content/Documents/rtiact/Disclosure/Town%20Development/TDO/Engineers.pdf",
+    "priority": "critical",
+    "source_type": "government",
+    "checked_at": "2026-09-27T21:14:10.612301+00:00",
+    "first_seen_at": "2026-09-27T21:16:55.866080+00:00",
+    "last_changed_at": "2026-09-27T21:16:55.866080+00:00",
+    "change_type": "new"
+  },
+  {
+    "id": "aa8325d68462f20f300d",
+    "source": "SMC Official Recruitment",
+    "title": "Check RTI Application Status",
+    "url": "https://www.suratmunicipal.gov.in/Information/RTIAppStatus",
+    "priority": "critical",
+    "source_type": "government",
+    "checked_at": "2026-09-27T21:14:10.612301+00:00",
+    "first_seen_at": "2026-09-27T21:16:55.866080+00:00",
+    "last_changed_at": "2026-09-27T21:16:55.866080+00:00",
+    "change_type": "new"
+  },
+  {
+    "id": "43ccf0fbc2f6ba8ca403",
+    "source": "SMC Official Recruitment",
+    "title": "Back to Dashboard",
+    "url": "https://www.suratmunicipal.gov.in/Information/RecruitmentDashboard",
+    "priority": "critical",
+    "source_type": "government",
+    "checked_at": "2026-09-27T21:14:10.612301+00:00",
+    "first_seen_at": "2026-09-27T21:16:55.866080+00:00",
+    "last_changed_at": "2026-09-27T21:16:55.866080+00:00",
+    "change_type": "new"
+  },
+  {
+    "id": "dc03f9b3ea86a5e05545",
     "source": "SMC Jobs Google News Discovery 2",
-    "title": "SMC Recruitment 2026 Notification Out for 1924 Vacancies, Check Eligibility & Last Date - jagranjosh.com",
+    "title": "SMC Recruitment 2026 Notification Out for 1924 Vacancies, Check Eligibility & Last Date - Jagran Josh",
     "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPSE1aSEtES3VDWFRCanNHWThyZ2lNaGZlZkZleDVmbndoQTFUZ0NFQ0RfUlBsTnNTUlVwVVhReEZZcHg2RTIzR0VLWHFlUW1GR25tbGN2UFYtVzloOG1QSHd6UUZBSXd5OHZCYWVLZGxSbDlWTDZiZUlhN3daVHdKV3ptaEZUdzhoajU0WGNFZWJXN3NSNXFETmJYRDVjNGNtM3BmV0ZYd0E4THZnMm93R0c4SFdSY2xSem5mUW8yUi1JYkpkZDlGelZfUnIxVkdEQy00?oc=5",
     "priority": "critical",
     "source_type": "discovery",
-    "checked_at": "2026-09-27T17:57:57.761182+00:00",
-    "first_seen_at": "2026-09-27T17:59:35.924224+00:00",
-    "last_changed_at": "2026-09-27T17:59:35.924224+00:00",
+    "checked_at": "2026-09-27T21:15:17.708771+00:00",
+    "first_seen_at": "2026-09-27T21:16:55.866080+00:00",
+    "last_changed_at": "2026-09-27T21:16:55.866080+00:00",
+    "change_type": "new"
+  },
+  {
+    "id": "719611d35aba9026916a",
+    "source": "SMC Google News Discovery",
+    "title": "Surat Municipal Corporation Recruitment: 2.25 Lakh Applications for 2,483 Vacancies | Gujarati News - sandesh.com",
+    "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxPc3BDOFpTRDVwTGhzcXBZNElkR3RLNV9KNHJKVEEwTzIzcThPRlNDN0pBQ2ZVX3VNZDQ2amcwSEFOeTI3Y1dwbUFMM2ZUQ0VSWFE0aFN6WkZnZzhGeDhWNlhNUnl5TllaM0FTUk9QOEJVYThjdU04SEZsRlh6a1dPRk1hTDA4b2JEcndZQVpoLVRLSFJIMXNVQVZncm5IMEJSQ0pVNG91QktEV1ZxWUdJR3Y2SW83ejNVelV2RW1tSjNlQU84M1JidzlmTjFfRmFTbVp5Mkdlc24?oc=5",
+    "priority": "critical",
+    "source_type": "discovery",
+    "checked_at": "2026-09-27T21:14:09.393326+00:00",
+    "first_seen_at": "2026-09-27T21:16:55.866080+00:00",
+    "last_changed_at": "2026-09-27T21:16:55.866080+00:00",
+    "change_type": "new"
+  },
+  {
+    "id": "52cb48ad541dd884e638",
+    "source": "SMC Google News Discovery",
+    "title": "SMC Recruitment 2026 Notification Out for 1924 Vacancies, Check Eligibility & Last Date - Jagran Josh",
+    "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPSE1aSEtES3VDWFRCanNHWThyZ2lNaGZlZkZleDVmbndoQTFUZ0NFQ0RfUlBsTnNTUlVwVVhReEZZcHg2RTIzR0VLWHFlUW1GR25tbGN2UFYtVzloOG1QSHd6UUZBSXd5OHZCYWVLZGxSbDlWTDZiZUlhN3daVHdKV3ptaEZUdzhoajU0WGNFZWJXN3NSNXFETmJYRDVjNGNtM3BmV0ZYd0E4THZnMm93R0c4SFdSY2xSem5mUW8yUi1JYkpkZDlGelZfUnIxVkdEQy00?oc=5",
+    "priority": "critical",
+    "source_type": "discovery",
+    "checked_at": "2026-09-27T21:14:09.393326+00:00",
+    "first_seen_at": "2026-09-27T21:16:55.866080+00:00",
+    "last_changed_at": "2026-09-27T21:16:55.866080+00:00",
     "change_type": "new"
   },
   {
@@ -8524,18 +8596,6 @@
     "source": "SMC Google News Discovery",
     "title": "SMC Syllabus 2026 and Exam Pattern for Clerk, Driver & More Posts - Career Power",
     "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE9fQ09KUTlYdGdwMlJUejdzRTlXWkpFLWxNVWZrVldyS29uMmY1SVNfcGVPaVAxa1U5OHhTdGI3RWRKTlBKT19JNDhYRjBXSE4yRVFXSnR1cw?oc=5",
-    "priority": "critical",
-    "source_type": "discovery",
-    "checked_at": "2026-09-27T17:56:47.895544+00:00",
-    "first_seen_at": "2026-09-27T17:59:35.924224+00:00",
-    "last_changed_at": "2026-09-27T17:59:35.924224+00:00",
-    "change_type": "new"
-  },
-  {
-    "id": "5ce153137bfe2ec7919b",
-    "source": "SMC Google News Discovery",
-    "title": "SMC Recruitment 2026 Notification Out for 1924 Vacancies, Check Eligibility & Last Date - jagranjosh.com",
-    "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPSE1aSEtES3VDWFRCanNHWThyZ2lNaGZlZkZleDVmbndoQTFUZ0NFQ0RfUlBsTnNTUlVwVVhReEZZcHg2RTIzR0VLWHFlUW1GR25tbGN2UFYtVzloOG1QSHd6UUZBSXd5OHZCYWVLZGxSbDlWTDZiZUlhN3daVHdKV3ptaEZUdzhoajU0WGNFZWJXN3NSNXFETmJYRDVjNGNtM3BmV0ZYd0E4THZnMm93R0c4SFdSY2xSem5mUW8yUi1JYkpkZDlGelZfUnIxVkdEQy00?oc=5",
     "priority": "critical",
     "source_type": "discovery",
     "checked_at": "2026-09-27T17:56:47.895544+00:00",
@@ -8841,18 +8901,6 @@
     "checked_at": "2026-09-24T22:40:41.721685+00:00",
     "first_seen_at": "2026-09-24T22:43:27.578510+00:00",
     "last_changed_at": "2026-09-24T22:43:27.578510+00:00",
-    "change_type": "new"
-  },
-  {
-    "id": "106c698869480e4bb4f2",
-    "source": "SMC Google News Discovery",
-    "title": "Surat Municipal Corporation Recruitment: 2.25 Lakh Applications for 2,483 Vacancies | Gujarati News - Sandesh",
-    "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxPc3BDOFpTRDVwTGhzcXBZNElkR3RLNV9KNHJKVEEwTzIzcThPRlNDN0pBQ2ZVX3VNZDQ2amcwSEFOeTI3Y1dwbUFMM2ZUQ0VSWFE0aFN6WkZnZzhGeDhWNlhNUnl5TllaM0FTUk9QOEJVYThjdU04SEZsRlh6a1dPRk1hTDA4b2JEcndZQVpoLVRLSFJIMXNVQVZncm5IMEJSQ0pVNG91QktEV1ZxWUdJR3Y2SW83ejNVelV2RW1tSjNlQU84M1JidzlmTjFfRmFTbVp5Mkdlc24?oc=5",
-    "priority": "critical",
-    "source_type": "discovery",
-    "checked_at": "2026-09-24T19:27:07.135472+00:00",
-    "first_seen_at": "2026-09-24T19:29:53.648281+00:00",
-    "last_changed_at": "2026-09-24T19:29:53.648281+00:00",
     "change_type": "new"
   },
   {
