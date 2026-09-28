@@ -1,22 +1,10 @@
 {
   "region": "Gujarat",
   "focus": "Gujarat Government Jobs and SMC Recruitment",
-  "total": 747,
-  "new_items": 11,
+  "total": 750,
+  "new_items": 9,
   "updated_items": 0,
   "items": [
-    {
-      "id": "bf7410812983378019a9",
-      "source": "Gujarat Jobs Google News Discovery",
-      "title": "GSSSB Multi Purpose Health Supervisor Recruitment 2026 Notification Out - Apply Online for 119 Posts - FreeJobAlert.Com",
-      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQSk9pOGhRS2hVbE5YcXVKSEFadjJlWTZBNHFCcmYzNVVDalRMN0tETEpKVTRzVHQ0VzdEQkZBM3ROSFZCOXltSVV6ZFVPckJITUdaRDRTOXZFelNyRkk4QUF4VDFmQ1RpcVNfUzBiakFhQUkydy1TWUxqbEw4MEdxYXpINVZFOWd1RjE1OHY5a21rdUZGX3M3UDRHamxhYTRDNVE?oc=5",
-      "priority": "high",
-      "source_type": "discovery",
-      "checked_at": "2026-09-28T08:35:59.922955+00:00",
-      "first_seen_at": "2026-09-28T08:37:38.389579+00:00",
-      "last_changed_at": "2026-09-28T08:37:38.389579+00:00",
-      "change_type": "new"
-    },
     {
       "id": "112a80b3ebb5df25b7ed",
       "source": "Gujarat High Court Recruitment",
@@ -8514,6 +8502,114 @@
       "change_type": "unchanged"
     },
     {
+      "id": "b83b4ea40df7feafe0e2",
+      "source": "SMC Official Recruitment",
+      "title": "View More",
+      "url": "https://www.suratmunicipal.gov.in/Contents/Jobs/Opening/1770488.pdf",
+      "priority": "critical",
+      "source_type": "government",
+      "checked_at": "2026-09-28T16:58:18.836849+00:00",
+      "first_seen_at": "2026-09-28T17:01:04.224362+00:00",
+      "last_changed_at": "2026-09-28T17:01:04.224362+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "0f2905a29f1cb718c552",
+      "source": "SMC Official Recruitment",
+      "title": "Recruitment",
+      "url": "https://www.suratmunicipal.gov.in/Information/RecruitmentDashboard",
+      "priority": "critical",
+      "source_type": "government",
+      "checked_at": "2026-09-28T16:58:18.836849+00:00",
+      "first_seen_at": "2026-09-28T17:01:04.224362+00:00",
+      "last_changed_at": "2026-09-28T17:01:04.224362+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "9fb4659c700c8f4513a0",
+      "source": "SMC Official Recruitment",
+      "title": "Engineers (237 KB)",
+      "url": "https://www.suratmunicipal.gov.in/Content/Documents/rtiact/Disclosure/Town%20Development/TDO/Engineers.pdf",
+      "priority": "critical",
+      "source_type": "government",
+      "checked_at": "2026-09-28T16:58:18.836849+00:00",
+      "first_seen_at": "2026-09-28T17:01:04.224362+00:00",
+      "last_changed_at": "2026-09-28T17:01:04.224362+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "aa8325d68462f20f300d",
+      "source": "SMC Official Recruitment",
+      "title": "Check RTI Application Status",
+      "url": "https://www.suratmunicipal.gov.in/Information/RTIAppStatus",
+      "priority": "critical",
+      "source_type": "government",
+      "checked_at": "2026-09-28T16:58:18.836849+00:00",
+      "first_seen_at": "2026-09-28T17:01:04.224362+00:00",
+      "last_changed_at": "2026-09-28T17:01:04.224362+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "43ccf0fbc2f6ba8ca403",
+      "source": "SMC Official Recruitment",
+      "title": "Back to Dashboard",
+      "url": "https://www.suratmunicipal.gov.in/Information/RecruitmentDashboard",
+      "priority": "critical",
+      "source_type": "government",
+      "checked_at": "2026-09-28T16:58:18.836849+00:00",
+      "first_seen_at": "2026-09-28T17:01:04.224362+00:00",
+      "last_changed_at": "2026-09-28T17:01:04.224362+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "da0be8c14852f3db3c44",
+      "source": "SMC Jobs Google News Discovery 2",
+      "title": "SMC Exam Date 2026 Out, Check Official Schedule for 2295 Clerk, MO & Other Posts - Career Power",
+      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE0yenV5NjFkNHRtWVBTSUJaTEIwcHZJOFRRLVV5S05KREZueUJNR25wcEhXdU1pYkZjMGd3Um5wNE5uUGwwT0cwSkd0NXdDU3I5UFVtaHI0M0JXcDFwUWxpMGhR?oc=5",
+      "priority": "critical",
+      "source_type": "discovery",
+      "checked_at": "2026-09-28T16:59:26.080604+00:00",
+      "first_seen_at": "2026-09-28T17:01:04.224362+00:00",
+      "last_changed_at": "2026-09-28T17:01:04.224362+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "73c5473dbc182e57fe63",
+      "source": "SMC Google News Discovery",
+      "title": "SMC Syllabus 2026 and Exam Pattern for Clerk, Driver & More Posts - Career Power",
+      "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE9fQ09KUTlYdGdwMlJUejdzRTlXWkpFLWxNVWZrVldyS29uMmY1SVNfcGVPaVAxa1U5OHhTdGI3RWRKTlBKT19JNDhYRjBXSE4yRVFXSnR1cw?oc=5",
+      "priority": "critical",
+      "source_type": "discovery",
+      "checked_at": "2026-09-28T16:58:16.874346+00:00",
+      "first_seen_at": "2026-09-28T17:01:04.224362+00:00",
+      "last_changed_at": "2026-09-28T17:01:04.224362+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "3582a361c4effaf3ea93",
+      "source": "SMC Google News Discovery",
+      "title": "SMC Exam Date 2026 Out, Check Official Schedule for 2295 Clerk, MO & Other Posts - Career Power",
+      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE0yenV5NjFkNHRtWVBTSUJaTEIwcHZJOFRRLVV5S05KREZueUJNR25wcEhXdU1pYkZjMGd3Um5wNE5uUGwwT0cwSkd0NXdDU3I5UFVtaHI0M0JXcDFwUWxpMGhR?oc=5",
+      "priority": "critical",
+      "source_type": "discovery",
+      "checked_at": "2026-09-28T16:58:16.874346+00:00",
+      "first_seen_at": "2026-09-28T17:01:04.224362+00:00",
+      "last_changed_at": "2026-09-28T17:01:04.224362+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "410f653b35a133b2333e",
+      "source": "SMC Google News Discovery",
+      "title": "SMC Apprentice Recruitment 2026 Notification Out – Apply Online for Apprentice Posts - Careers360",
+      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQdUViWkw0ZWZzSnBid3RRa1c5S0FfbERJdkc1MWthU0swODV5a18wRWllVHZpV00xNmZ5cnE0VTBucTRHNWRLYVNXcUIxWHoteGdBcnFtdERQSEJoSXdlOHliRm9ac0RyU1BMcFZ5cDg5NHRVMHAxTVhDd2JCZUZzNg?oc=5",
+      "priority": "critical",
+      "source_type": "discovery",
+      "checked_at": "2026-09-28T16:58:16.874346+00:00",
+      "first_seen_at": "2026-09-28T17:01:04.224362+00:00",
+      "last_changed_at": "2026-09-28T17:01:04.224362+00:00",
+      "change_type": "new"
+    },
+    {
       "id": "4033c892f529fbed6e04",
       "source": "SMC Jobs Google News Discovery 2",
       "title": "SMC recruitment 2026 opens 1924 posts for clerks, engineers and medical officers; apply from April 1 - The Times of India",
@@ -8533,30 +8629,6 @@
       "priority": "critical",
       "source_type": "discovery",
       "checked_at": "2026-09-28T08:36:00.195946+00:00",
-      "first_seen_at": "2026-09-28T08:37:38.389579+00:00",
-      "last_changed_at": "2026-09-28T08:37:38.389579+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "2fdbdeb9993331bc8709",
-      "source": "SMC Jobs Google News Discovery 2",
-      "title": "SMC Exam Date 2026 Out, Check Official Schedule for 2295 Clerk, MO & Other Posts - careerpower.in",
-      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE0yenV5NjFkNHRtWVBTSUJaTEIwcHZJOFRRLVV5S05KREZueUJNR25wcEhXdU1pYkZjMGd3Um5wNE5uUGwwT0cwSkd0NXdDU3I5UFVtaHI0M0JXcDFwUWxpMGhR?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-09-28T08:36:00.195946+00:00",
-      "first_seen_at": "2026-09-28T08:37:38.389579+00:00",
-      "last_changed_at": "2026-09-28T08:37:38.389579+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "c045232f63ccf03d3722",
-      "source": "SMC Google News Discovery",
-      "title": "SMC Syllabus 2026 and Exam Pattern for Clerk, Driver & More Posts - careerpower.in",
-      "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE9fQ09KUTlYdGdwMlJUejdzRTlXWkpFLWxNVWZrVldyS29uMmY1SVNfcGVPaVAxa1U5OHhTdGI3RWRKTlBKT19JNDhYRjBXSE4yRVFXSnR1cw?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-09-28T08:34:49.856429+00:00",
       "first_seen_at": "2026-09-28T08:37:38.389579+00:00",
       "last_changed_at": "2026-09-28T08:37:38.389579+00:00",
       "change_type": "new"
@@ -8590,18 +8662,6 @@
       "source": "SMC Google News Discovery",
       "title": "SMC Recruitment 2026 Notification Out for 1924 Vacancies, Check Eligibility & Last Date - jagranjosh.com",
       "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPSE1aSEtES3VDWFRCanNHWThyZ2lNaGZlZkZleDVmbndoQTFUZ0NFQ0RfUlBsTnNTUlVwVVhReEZZcHg2RTIzR0VLWHFlUW1GR25tbGN2UFYtVzloOG1QSHd6UUZBSXd5OHZCYWVLZGxSbDlWTDZiZUlhN3daVHdKV3ptaEZUdzhoajU0WGNFZWJXN3NSNXFETmJYRDVjNGNtM3BmV0ZYd0E4THZnMm93R0c4SFdSY2xSem5mUW8yUi1JYkpkZDlGelZfUnIxVkdEQy00?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-09-28T08:34:49.856429+00:00",
-      "first_seen_at": "2026-09-28T08:37:38.389579+00:00",
-      "last_changed_at": "2026-09-28T08:37:38.389579+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "3795b1fcdedcd41b00cf",
-      "source": "SMC Google News Discovery",
-      "title": "SMC Exam Date 2026 Out, Check Official Schedule for 2295 Clerk, MO & Other Posts - careerpower.in",
-      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE0yenV5NjFkNHRtWVBTSUJaTEIwcHZJOFRRLVV5S05KREZueUJNR25wcEhXdU1pYkZjMGd3Um5wNE5uUGwwT0cwSkd0NXdDU3I5UFVtaHI0M0JXcDFwUWxpMGhR?oc=5",
       "priority": "critical",
       "source_type": "discovery",
       "checked_at": "2026-09-28T08:34:49.856429+00:00",
@@ -8674,18 +8734,6 @@
       "source": "SMC Google News Discovery",
       "title": "SMC Recruitment 2026: Notification, Vacancies, Application Process - PW",
       "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE1pYnJyQnpDZ2Z4QUNqa1ZsYkNVRFF5YktPTXlWZzBtLVBXTFdXSm1GalVvX29EQlh1LWZkWUc2YnlGOXhZclk5WVlzWGhSTW5NX3dqWnpYQ0Q3VUhoU19CYWNR?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-09-28T02:00:37.430249+00:00",
-      "first_seen_at": "2026-09-28T02:03:23.489472+00:00",
-      "last_changed_at": "2026-09-28T02:03:23.489472+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "43ed29c2fddf1037c2be",
-      "source": "SMC Google News Discovery",
-      "title": "SMC Apprentice Recruitment 2026 Notification Out – Apply Online for Apprentice Posts - competition.careers360.com",
-      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQdUViWkw0ZWZzSnBid3RRa1c5S0FfbERJdkc1MWthU0swODV5a18wRWllVHZpV00xNmZ5cnE0VTBucTRHNWRLYVNXcUIxWHoteGdBcnFtdERQSEJoSXdlOHliRm9ac0RyU1BMcFZ5cDg5NHRVMHAxTVhDd2JCZUZzNg?oc=5",
       "priority": "critical",
       "source_type": "discovery",
       "checked_at": "2026-09-28T02:00:37.430249+00:00",
@@ -8898,18 +8946,6 @@
       "change_type": "unchanged"
     },
     {
-      "id": "30f55301655b8f17046f",
-      "source": "SMC Official Website",
-      "title": "Recruitments",
-      "url": "https://www.suratmunicipal.gov.in/Information/RecruitmentDashboard",
-      "priority": "critical",
-      "source_type": "government",
-      "checked_at": "2026-08-20T02:41:56.872385+00:00",
-      "first_seen_at": "2026-08-18T15:36:50.869641+00:00",
-      "last_changed_at": "2026-08-19T18:45:21.268903+00:00",
-      "change_type": "unchanged"
-    },
-    {
       "id": "c4e581b3a0d007c33131",
       "source": "SMC Official Website",
       "title": "Recruitment",
@@ -8970,5 +9006,5 @@
       "change_type": "unchanged"
     }
   ],
-  "updated_at": "2026-09-28T08:37:38.389579+00:00"
+  "updated_at": "2026-09-28T17:01:04.224362+00:00"
 }
