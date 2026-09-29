@@ -1,8 +1,8 @@
 {
   "region": "Gujarat",
   "focus": "Gujarat Government Jobs and SMC Recruitment",
-  "total": 748,
-  "new_items": 3,
+  "total": 747,
+  "new_items": 0,
   "updated_items": 0,
   "items": [
     {
@@ -27,18 +27,6 @@
       "checked_at": "2026-09-29T15:04:00.575865+00:00",
       "first_seen_at": "2026-09-29T15:05:38.343201+00:00",
       "last_changed_at": "2026-09-29T15:05:38.343201+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "5746dc1bfdb010a2e2c6",
-      "source": "Gujarat Jobs Google News Discovery",
-      "title": "GSSSB Staff Nurse Recruitment 2026 Notification Out - Apply Online for 131 Posts - FreeJobAlert.Com",
-      "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPbTQ4dlF0SFNWNktRbnhUX3B0SXAyMlNkaTZWSDRBZzU3N1RxU2cwVHJodTlXQndlb05ldUZldDhfVGlVV2V0QUUxeWZVdG40eVBVM3JwYzJJZ0NqS0p4OFI3ck45X1JOelo4ODVTNWg5X2JZckNaeU80eW82LWZNTElrbWFFdWlVTDZOeF9wMzg2OG1CSXBDM3Z5TC1qMFFfQ1RHZEo4MmRwUGs?oc=5",
-      "priority": "high",
-      "source_type": "discovery",
-      "checked_at": "2026-09-29T08:37:18.098884+00:00",
-      "first_seen_at": "2026-09-29T08:38:55.921178+00:00",
-      "last_changed_at": "2026-09-29T08:38:55.921178+00:00",
       "change_type": "new"
     },
     {
@@ -8982,5 +8970,5 @@
       "change_type": "unchanged"
     }
   ],
-  "updated_at": "2026-09-29T15:05:38.343201+00:00"
+  "updated_at": "2026-09-29T19:58:29.342563+00:00"
 }
