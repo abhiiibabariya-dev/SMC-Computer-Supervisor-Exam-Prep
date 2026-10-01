@@ -68,7 +68,7 @@
     {
       "source": "KCG Gujarat Recruitment",
       "url": "https://kcg.gujarat.gov.in/recruitments",
-      "error": "The read operation timed out"
+      "error": "<urlopen error [Errno 101] Network is unreachable>"
     },
     {
       "source": "OJAS Gujarat",
@@ -99,5 +99,5 @@
   ],
   "smc_items": 34,
   "mode": "live_snapshot",
-  "updated_at": "2026-09-30T23:56:48.584928+00:00"
+  "updated_at": "2026-10-01T05:34:52.087354+00:00"
 }
