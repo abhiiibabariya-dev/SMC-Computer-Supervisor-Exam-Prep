@@ -1,8 +1,8 @@
 {
   "region": "Gujarat",
   "focus": "Gujarat Government Jobs and SMC Recruitment",
-  "total": 747,
-  "new_items": 6,
+  "total": 745,
+  "new_items": 0,
   "updated_items": 0,
   "items": [
     {
@@ -8598,18 +8598,6 @@
       "change_type": "new"
     },
     {
-      "id": "da0be8c14852f3db3c44",
-      "source": "SMC Jobs Google News Discovery 2",
-      "title": "SMC Exam Date 2026 Out, Check Official Schedule for 2295 Clerk, MO & Other Posts - Career Power",
-      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE0yenV5NjFkNHRtWVBTSUJaTEIwcHZJOFRRLVV5S05KREZueUJNR25wcEhXdU1pYkZjMGd3Um5wNE5uUGwwT0cwSkd0NXdDU3I5UFVtaHI0M0JXcDFwUWxpMGhR?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-10-02T14:04:16.633649+00:00",
-      "first_seen_at": "2026-10-02T14:05:55.282042+00:00",
-      "last_changed_at": "2026-10-02T14:05:55.282042+00:00",
-      "change_type": "new"
-    },
-    {
       "id": "73c5473dbc182e57fe63",
       "source": "SMC Google News Discovery",
       "title": "SMC Syllabus 2026 and Exam Pattern for Clerk, Driver & More Posts - Career Power",
@@ -8626,18 +8614,6 @@
       "source": "SMC Google News Discovery",
       "title": "SMC Jobs 2026: 2,295 Vacancies for Candidates Ranging from 6th Grade Pass to Post-Graduates; Recruitment for Posts Including Staff Nurse and Clerk.. - Dailyhunt",
       "url": "https://news.google.com/rss/articles/CBMi3AJBVV95cUxNeWV2STJ5OUp0QjU4QTZLRGt1cmliVnAzWXplbHlMOTVERmJqLWFoYmdBMmdaN1Zlel9kSXR1NEZCUWFhX0lEUjZmMVJKYnhZdUNCZ2NaV0xRUTNUTWZpNkNWWktDYW95OHEzV0paUGxCLVBBNEh6My1aa1U4Z0hESjR5di00VGN6b1daai1XSktVRG1VMFNuWnF3TngzMUFvVERJMXViZzV1dTkyMFRkQWpub2lVX2J0di14MmsxYWZWYTdXUVhmcDlSSzdnVDdlQVotUjhSWHBhSldCdlpENGZGbEh4c3V1OWJBQ2g4OC11ZVAwMGxrUk8zb1lzMWlDeGN3d3ZxWFJxazA1Wkh4eVNRYTlDRHFkMklNZFVIT3hSR0hLSEd4UzR2VGItYnZSUVhCa09oOGNpWUFGVVhrM0dRUk9PSzR1eWhQSV82Q0c3MUd4azVwYkJqanI?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-10-02T14:03:06.772623+00:00",
-      "first_seen_at": "2026-10-02T14:05:55.282042+00:00",
-      "last_changed_at": "2026-10-02T14:05:55.282042+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "3582a361c4effaf3ea93",
-      "source": "SMC Google News Discovery",
-      "title": "SMC Exam Date 2026 Out, Check Official Schedule for 2295 Clerk, MO & Other Posts - Career Power",
-      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE0yenV5NjFkNHRtWVBTSUJaTEIwcHZJOFRRLVV5S05KREZueUJNR25wcEhXdU1pYkZjMGd3Um5wNE5uUGwwT0cwSkd0NXdDU3I5UFVtaHI0M0JXcDFwUWxpMGhR?oc=5",
       "priority": "critical",
       "source_type": "discovery",
       "checked_at": "2026-10-02T14:03:06.772623+00:00",
@@ -8970,5 +8946,5 @@
       "change_type": "unchanged"
     }
   ],
-  "updated_at": "2026-10-02T19:11:56.696145+00:00"
+  "updated_at": "2026-10-02T23:02:55.735786+00:00"
 }
