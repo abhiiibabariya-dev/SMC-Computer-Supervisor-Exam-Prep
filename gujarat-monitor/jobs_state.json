@@ -1,17 +1,17 @@
 {
   "total_items": 745,
-  "new_items": 0,
+  "new_items": 13,
   "updated_items": 0,
   "errors": [
     {
       "source": "Ahmedabad Municipal Corporation",
       "url": "https://ahmedabadcity.gov.in",
-      "error": "<urlopen error timed out>"
+      "error": "<urlopen error [SSL: UNSAFE_LEGACY_RENEGOTIATION_DISABLED] unsafe legacy renegotiation disabled (_ssl.c:1010)>"
     },
     {
       "source": "Ahmedabad Municipal Recruitment",
       "url": "https://ahmedabadcity.gov.in/AMCWEBREC/HRMS/FrmVacancyDetail.aspx",
-      "error": "<urlopen error timed out>"
+      "error": "<urlopen error [SSL: UNSAFE_LEGACY_RENEGOTIATION_DISABLED] unsafe legacy renegotiation disabled (_ssl.c:1010)>"
     },
     {
       "source": "GPSC",
@@ -36,12 +36,12 @@
     {
       "source": "Gujarat Biotechnology Research Centre",
       "url": "https://www.gbrc.gujarat.gov.in/WebCMS/Start/Announcement",
-      "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.gbrc.gujarat.gov.in'. (_ssl.c:1010)>"
+      "error": "<urlopen error [Errno 101] Network is unreachable>"
     },
     {
       "source": "Gujarat Education Department",
       "url": "https://education.gujarat.gov.in",
-      "error": "<urlopen error _ssl.c:993: The handshake operation timed out>"
+      "error": "<urlopen error [Errno 101] Network is unreachable>"
     },
     {
       "source": "Gujarat Forest and Environment",
@@ -51,17 +51,22 @@
     {
       "source": "Gujarat Government",
       "url": "https://gujaratindia.gov.in",
-      "error": "<urlopen error _ssl.c:993: The handshake operation timed out>"
+      "error": "<urlopen error [Errno 101] Network is unreachable>"
     },
     {
       "source": "Gujarat Health Department",
       "url": "https://gujhealth.gujarat.gov.in",
-      "error": "<urlopen error _ssl.c:993: The handshake operation timed out>"
+      "error": "<urlopen error [Errno 101] Network is unreachable>"
+    },
+    {
+      "source": "Gujarat Informatics Limited",
+      "url": "https://gil.gujarat.gov.in/News.aspx?flag=0",
+      "error": "<urlopen error [Errno 101] Network is unreachable>"
     },
     {
       "source": "Gujarat Police",
       "url": "https://police.gujarat.gov.in",
-      "error": "<urlopen error _ssl.c:993: The handshake operation timed out>"
+      "error": "<urlopen error [Errno 101] Network is unreachable>"
     },
     {
       "source": "Gujarat Primary Education Recruitment",
@@ -69,9 +74,14 @@
       "error": "HTTP Error 503: Service Unavailable"
     },
     {
+      "source": "Gujarat Social Justice & Empowerment",
+      "url": "https://sje.gujarat.gov.in",
+      "error": "<urlopen error [Errno 101] Network is unreachable>"
+    },
+    {
       "source": "KCG Gujarat Recruitment",
       "url": "https://kcg.gujarat.gov.in/recruitments",
-      "error": "The read operation timed out"
+      "error": "<urlopen error [Errno 101] Network is unreachable>"
     },
     {
       "source": "OJAS Gujarat",
@@ -86,5 +96,5 @@
   ],
   "empty_sources": [],
   "mode": "live_snapshot",
-  "last_run": "2026-10-02T23:02:55.735786+00:00"
+  "last_run": "2026-10-03T01:54:08.194860+00:00"
 }
