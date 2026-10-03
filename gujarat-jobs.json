@@ -1,8 +1,8 @@
 {
   "region": "Gujarat",
   "focus": "Gujarat Government Jobs and SMC Recruitment",
-  "total": 747,
-  "new_items": 10,
+  "total": 741,
+  "new_items": 2,
   "updated_items": 0,
   "items": [
     {
@@ -8454,75 +8454,27 @@
       "change_type": "unchanged"
     },
     {
-      "id": "2dce6c205dff522b6ca9",
-      "source": "SMC Official Recruitment",
-      "title": "View More",
-      "url": "https://www.suratmunicipal.gov.in/Contents/Jobs/Opening/1994252.pdf",
+      "id": "3d1f1f1d3d839d2b012d",
+      "source": "SMC Jobs Google News Discovery 2",
+      "title": "SMC Recruitment 2026 Notification Out for 1924 Vacancies, Check Eligibility & Last Date - jagranjosh.com",
+      "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPSE1aSEtES3VDWFRCanNHWThyZ2lNaGZlZkZleDVmbndoQTFUZ0NFQ0RfUlBsTnNTUlVwVVhReEZZcHg2RTIzR0VLWHFlUW1GR25tbGN2UFYtVzloOG1QSHd6UUZBSXd5OHZCYWVLZGxSbDlWTDZiZUlhN3daVHdKV3ptaEZUdzhoajU0WGNFZWJXN3NSNXFETmJYRDVjNGNtM3BmV0ZYd0E4THZnMm93R0c4SFdSY2xSem5mUW8yUi1JYkpkZDlGelZfUnIxVkdEQy00?oc=5",
       "priority": "critical",
-      "source_type": "government",
-      "checked_at": "2026-10-03T16:39:38.736004+00:00",
-      "first_seen_at": "2026-10-03T16:42:23.857831+00:00",
-      "last_changed_at": "2026-10-03T16:42:23.857831+00:00",
+      "source_type": "discovery",
+      "checked_at": "2026-10-03T19:31:01.877220+00:00",
+      "first_seen_at": "2026-10-03T19:32:40.191074+00:00",
+      "last_changed_at": "2026-10-03T19:32:40.191074+00:00",
       "change_type": "new"
     },
     {
-      "id": "b83b4ea40df7feafe0e2",
-      "source": "SMC Official Recruitment",
-      "title": "View More",
-      "url": "https://www.suratmunicipal.gov.in/Contents/Jobs/Opening/1770488.pdf",
+      "id": "5ce153137bfe2ec7919b",
+      "source": "SMC Google News Discovery",
+      "title": "SMC Recruitment 2026 Notification Out for 1924 Vacancies, Check Eligibility & Last Date - jagranjosh.com",
+      "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPSE1aSEtES3VDWFRCanNHWThyZ2lNaGZlZkZleDVmbndoQTFUZ0NFQ0RfUlBsTnNTUlVwVVhReEZZcHg2RTIzR0VLWHFlUW1GR25tbGN2UFYtVzloOG1QSHd6UUZBSXd5OHZCYWVLZGxSbDlWTDZiZUlhN3daVHdKV3ptaEZUdzhoajU0WGNFZWJXN3NSNXFETmJYRDVjNGNtM3BmV0ZYd0E4THZnMm93R0c4SFdSY2xSem5mUW8yUi1JYkpkZDlGelZfUnIxVkdEQy00?oc=5",
       "priority": "critical",
-      "source_type": "government",
-      "checked_at": "2026-10-03T16:39:38.736004+00:00",
-      "first_seen_at": "2026-10-03T16:42:23.857831+00:00",
-      "last_changed_at": "2026-10-03T16:42:23.857831+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "0f2905a29f1cb718c552",
-      "source": "SMC Official Recruitment",
-      "title": "Recruitment",
-      "url": "https://www.suratmunicipal.gov.in/Information/RecruitmentDashboard",
-      "priority": "critical",
-      "source_type": "government",
-      "checked_at": "2026-10-03T16:39:38.736004+00:00",
-      "first_seen_at": "2026-10-03T16:42:23.857831+00:00",
-      "last_changed_at": "2026-10-03T16:42:23.857831+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "9fb4659c700c8f4513a0",
-      "source": "SMC Official Recruitment",
-      "title": "Engineers (237 KB)",
-      "url": "https://www.suratmunicipal.gov.in/Content/Documents/rtiact/Disclosure/Town%20Development/TDO/Engineers.pdf",
-      "priority": "critical",
-      "source_type": "government",
-      "checked_at": "2026-10-03T16:39:38.736004+00:00",
-      "first_seen_at": "2026-10-03T16:42:23.857831+00:00",
-      "last_changed_at": "2026-10-03T16:42:23.857831+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "aa8325d68462f20f300d",
-      "source": "SMC Official Recruitment",
-      "title": "Check RTI Application Status",
-      "url": "https://www.suratmunicipal.gov.in/Information/RTIAppStatus",
-      "priority": "critical",
-      "source_type": "government",
-      "checked_at": "2026-10-03T16:39:38.736004+00:00",
-      "first_seen_at": "2026-10-03T16:42:23.857831+00:00",
-      "last_changed_at": "2026-10-03T16:42:23.857831+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "43ccf0fbc2f6ba8ca403",
-      "source": "SMC Official Recruitment",
-      "title": "Back to Dashboard",
-      "url": "https://www.suratmunicipal.gov.in/Information/RecruitmentDashboard",
-      "priority": "critical",
-      "source_type": "government",
-      "checked_at": "2026-10-03T16:39:38.736004+00:00",
-      "first_seen_at": "2026-10-03T16:42:23.857831+00:00",
-      "last_changed_at": "2026-10-03T16:42:23.857831+00:00",
+      "source_type": "discovery",
+      "checked_at": "2026-10-03T19:29:52.662436+00:00",
+      "first_seen_at": "2026-10-03T19:32:40.191074+00:00",
+      "last_changed_at": "2026-10-03T19:32:40.191074+00:00",
       "change_type": "new"
     },
     {
@@ -8691,30 +8643,6 @@
       "checked_at": "2026-10-03T07:08:00.179932+00:00",
       "first_seen_at": "2026-10-03T07:10:46.405107+00:00",
       "last_changed_at": "2026-10-03T07:10:46.405107+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "d391d54c1d6b6160ff54",
-      "source": "SMC Jobs Google News Discovery 2",
-      "title": "SMC Recruitment 2026 Notification Out for 1924 Vacancies, Check Eligibility & Last Date - Jagranjosh.com",
-      "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPSE1aSEtES3VDWFRCanNHWThyZ2lNaGZlZkZleDVmbndoQTFUZ0NFQ0RfUlBsTnNTUlVwVVhReEZZcHg2RTIzR0VLWHFlUW1GR25tbGN2UFYtVzloOG1QSHd6UUZBSXd5OHZCYWVLZGxSbDlWTDZiZUlhN3daVHdKV3ptaEZUdzhoajU0WGNFZWJXN3NSNXFETmJYRDVjNGNtM3BmV0ZYd0E4THZnMm93R0c4SFdSY2xSem5mUW8yUi1JYkpkZDlGelZfUnIxVkdEQy00?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-10-02T19:10:18.427783+00:00",
-      "first_seen_at": "2026-10-02T19:11:56.696145+00:00",
-      "last_changed_at": "2026-10-02T19:11:56.696145+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "f480b0e5b108f224db75",
-      "source": "SMC Google News Discovery",
-      "title": "SMC Recruitment 2026 Notification Out for 1924 Vacancies, Check Eligibility & Last Date - Jagranjosh.com",
-      "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPSE1aSEtES3VDWFRCanNHWThyZ2lNaGZlZkZleDVmbndoQTFUZ0NFQ0RfUlBsTnNTUlVwVVhReEZZcHg2RTIzR0VLWHFlUW1GR25tbGN2UFYtVzloOG1QSHd6UUZBSXd5OHZCYWVLZGxSbDlWTDZiZUlhN3daVHdKV3ptaEZUdzhoajU0WGNFZWJXN3NSNXFETmJYRDVjNGNtM3BmV0ZYd0E4THZnMm93R0c4SFdSY2xSem5mUW8yUi1JYkpkZDlGelZfUnIxVkdEQy00?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-10-02T19:09:10.601903+00:00",
-      "first_seen_at": "2026-10-02T19:11:56.696145+00:00",
-      "last_changed_at": "2026-10-02T19:11:56.696145+00:00",
       "change_type": "new"
     },
     {
@@ -8970,5 +8898,5 @@
       "change_type": "unchanged"
     }
   ],
-  "updated_at": "2026-10-03T16:42:23.857831+00:00"
+  "updated_at": "2026-10-03T19:32:40.191074+00:00"
 }
