@@ -2,21 +2,9 @@
   "region": "Gujarat",
   "focus": "Gujarat Government Jobs and SMC Recruitment",
   "total": 746,
-  "new_items": 13,
+  "new_items": 1,
   "updated_items": 0,
   "items": [
-    {
-      "id": "9fc21674fea595fdace2",
-      "source": "Gujarat Jobs Google News Discovery",
-      "title": "GSSSB Sanitary Inspector Recruitment 2026 Notification Out for 22 Posts, Apply Online - Adda247",
-      "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOZTNBZnlhbGhyTjM5WGR3UHBhMXdfbTVTdllieWNSb0lCaWZPSDhRb1JwOFlzbnBNc21ZaXF6NEV1dWJSOUFCMG1fSUFBUlhJVW9zUlN0NlZNSjQ0NUQyTFFjZzdvYWU1U2kzdkU4S2I3Vjhlc1dFTF84UWdCeVMtcncxZGlyRHM?oc=5",
-      "priority": "high",
-      "source_type": "discovery",
-      "checked_at": "2026-10-05T05:27:39.136587+00:00",
-      "first_seen_at": "2026-10-05T05:29:09.728243+00:00",
-      "last_changed_at": "2026-10-05T05:29:09.728243+00:00",
-      "change_type": "new"
-    },
     {
       "id": "28e7cb646282b518a247",
       "source": "Gujarat Jobs Google News Discovery",
@@ -8454,6 +8442,18 @@
       "change_type": "unchanged"
     },
     {
+      "id": "d12a170f258a2b11c5fe",
+      "source": "SMC Official Recruitment",
+      "title": "Apply Now",
+      "url": "https://www.suratmunicipal.gov.in/recruitment/",
+      "priority": "critical",
+      "source_type": "government",
+      "checked_at": "2026-10-05T12:32:55.592270+00:00",
+      "first_seen_at": "2026-10-05T12:35:40.702410+00:00",
+      "last_changed_at": "2026-10-05T12:35:40.702410+00:00",
+      "change_type": "new"
+    },
+    {
       "id": "b43ca647408a5e71e894",
       "source": "SMC Jobs Google News Discovery 2",
       "title": "SMC Staff Nurse Vacancy 2026 Out, Check official PDF and Apply Online Link - Adda247",
@@ -8958,5 +8958,5 @@
       "change_type": "unchanged"
     }
   ],
-  "updated_at": "2026-10-05T05:29:09.728243+00:00"
+  "updated_at": "2026-10-05T12:35:40.702410+00:00"
 }
