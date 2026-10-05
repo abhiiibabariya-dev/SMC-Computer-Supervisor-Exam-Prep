@@ -1,9 +1,9 @@
 {
   "sources_scanned": 28,
-  "links_found_this_scan": 747,
-  "new_items": 0,
+  "links_found_this_scan": 746,
+  "new_items": 13,
   "updated_items": 0,
-  "total_items": 747,
+  "total_items": 746,
   "errors": [
     {
       "source": "Ahmedabad Municipal Corporation",
@@ -66,11 +66,6 @@
       "error": "<urlopen error _ssl.c:993: The handshake operation timed out>"
     },
     {
-      "source": "Gujarat Jobs Google News Discovery",
-      "url": "https://news.google.com/rss/search?q=Gujarat+government+recruitment+jobs+OJAS+GPSC+GSSSB&hl=en-IN&gl=IN&ceid=IN:en",
-      "error": "HTTP Error 503: Service Unavailable"
-    },
-    {
       "source": "Gujarat Police",
       "url": "https://police.gujarat.gov.in",
       "error": "<urlopen error _ssl.c:993: The handshake operation timed out>"
@@ -91,16 +86,6 @@
       "error": "<urlopen error [Errno 101] Network is unreachable>"
     },
     {
-      "source": "SMC Google News Discovery",
-      "url": "https://news.google.com/rss/search?q=Surat+Municipal+Corporation+recruitment+OR+SMC+Surat+jobs&hl=en-IN&gl=IN&ceid=IN:en",
-      "error": "HTTP Error 503: Service Unavailable"
-    },
-    {
-      "source": "SMC Jobs Google News Discovery 2",
-      "url": "https://news.google.com/rss/search?q=%22Surat+Municipal+Corporation%22+job+recruitment+vacancy&hl=en-IN&gl=IN&ceid=IN:en",
-      "error": "HTTP Error 503: Service Unavailable"
-    },
-    {
       "source": "Vadodara Municipal Corporation",
       "url": "https://vmc.gov.in",
       "error": "<urlopen error timed out>"
@@ -110,14 +95,17 @@
   "successful_sources": [
     "Gujarat High Court Recruitment",
     "Gujarat Informatics Limited",
+    "Gujarat Jobs Google News Discovery",
     "Gujarat Social Justice & Empowerment",
     "Gyan Sahayak Gujarat",
     "Jamnagar Municipal Corporation",
     "Rajkot Municipal Corporation",
+    "SMC Google News Discovery",
+    "SMC Jobs Google News Discovery 2",
     "SMC Official Recruitment",
     "SMC Official Website"
   ],
-  "smc_items": 43,
+  "smc_items": 42,
   "mode": "live_snapshot",
-  "updated_at": "2026-10-05T00:08:59.853362+00:00"
+  "updated_at": "2026-10-05T05:29:09.728243+00:00"
 }
