@@ -1,5 +1,17 @@
 [
   {
+    "id": "f82b0ec9b6e317840549",
+    "source": "Gujarat Jobs Google News Discovery",
+    "title": "Chasing Dreams Through OJAS: How a Gujarat Job Portal Changed My Life - vocal.media",
+    "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPdTZXV0FCaHBPWHdKN2xkNmpFeFJpOTdyQW9hd3JDdy1OZFpUS3hWeVB1NEN6NnBXNTgxeTJBMjc0OG4xVHJCOXR1OFE0Ty1fdkFGeUQyYjJjeHF4Rk1abU9QZk1YdjIweG8ySEhFTlAySE50Y0xVMnh5aDQ3UTM0eklJb2tQUzhLQUlkTkg2X0dzMlFYRmhrX09scVVXdGc?oc=5",
+    "priority": "high",
+    "source_type": "discovery",
+    "checked_at": "2026-10-06T15:01:27.158796+00:00",
+    "first_seen_at": "2026-10-06T15:03:04.996071+00:00",
+    "last_changed_at": "2026-10-06T15:03:04.996071+00:00",
+    "change_type": "new"
+  },
+  {
     "id": "bf7410812983378019a9",
     "source": "Gujarat Jobs Google News Discovery",
     "title": "GSSSB Multi Purpose Health Supervisor Recruitment 2026 Notification Out - Apply Online for 119 Posts - FreeJobAlert.Com",
@@ -69,18 +81,6 @@
     "checked_at": "2026-10-05T05:27:39.136587+00:00",
     "first_seen_at": "2026-10-05T05:29:09.728243+00:00",
     "last_changed_at": "2026-10-05T05:29:09.728243+00:00",
-    "change_type": "new"
-  },
-  {
-    "id": "150b8024d1425574dfc7",
-    "source": "Gujarat Jobs Google News Discovery",
-    "title": "Chasing Dreams Through OJAS: How a Gujarat Job Portal Changed My Life - Vocal",
-    "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPdTZXV0FCaHBPWHdKN2xkNmpFeFJpOTdyQW9hd3JDdy1OZFpUS3hWeVB1NEN6NnBXNTgxeTJBMjc0OG4xVHJCOXR1OFE0Ty1fdkFGeUQyYjJjeHF4Rk1abU9QZk1YdjIweG8ySEhFTlAySE50Y0xVMnh5aDQ3UTM0eklJb2tQUzhLQUlkTkg2X0dzMlFYRmhrX09scVVXdGc?oc=5",
-    "priority": "high",
-    "source_type": "discovery",
-    "checked_at": "2026-10-04T18:12:28.366063+00:00",
-    "first_seen_at": "2026-10-04T18:14:07.114209+00:00",
-    "last_changed_at": "2026-10-04T18:14:07.114209+00:00",
     "change_type": "new"
   },
   {
@@ -8446,6 +8446,90 @@
     "first_seen_at": "2026-08-18T15:37:57.055545+00:00",
     "last_changed_at": "2026-08-19T18:45:21.268903+00:00",
     "change_type": "unchanged"
+  },
+  {
+    "id": "2dce6c205dff522b6ca9",
+    "source": "SMC Official Recruitment",
+    "title": "View More",
+    "url": "https://www.suratmunicipal.gov.in/Contents/Jobs/Opening/1994252.pdf",
+    "priority": "critical",
+    "source_type": "government",
+    "checked_at": "2026-10-06T15:00:18.483635+00:00",
+    "first_seen_at": "2026-10-06T15:03:04.996071+00:00",
+    "last_changed_at": "2026-10-06T15:03:04.996071+00:00",
+    "change_type": "new"
+  },
+  {
+    "id": "b83b4ea40df7feafe0e2",
+    "source": "SMC Official Recruitment",
+    "title": "View More",
+    "url": "https://www.suratmunicipal.gov.in/Contents/Jobs/Opening/1770488.pdf",
+    "priority": "critical",
+    "source_type": "government",
+    "checked_at": "2026-10-06T15:00:18.483635+00:00",
+    "first_seen_at": "2026-10-06T15:03:04.996071+00:00",
+    "last_changed_at": "2026-10-06T15:03:04.996071+00:00",
+    "change_type": "new"
+  },
+  {
+    "id": "0f2905a29f1cb718c552",
+    "source": "SMC Official Recruitment",
+    "title": "Recruitment",
+    "url": "https://www.suratmunicipal.gov.in/Information/RecruitmentDashboard",
+    "priority": "critical",
+    "source_type": "government",
+    "checked_at": "2026-10-06T15:00:18.483635+00:00",
+    "first_seen_at": "2026-10-06T15:03:04.996071+00:00",
+    "last_changed_at": "2026-10-06T15:03:04.996071+00:00",
+    "change_type": "new"
+  },
+  {
+    "id": "9fb4659c700c8f4513a0",
+    "source": "SMC Official Recruitment",
+    "title": "Engineers (237 KB)",
+    "url": "https://www.suratmunicipal.gov.in/Content/Documents/rtiact/Disclosure/Town%20Development/TDO/Engineers.pdf",
+    "priority": "critical",
+    "source_type": "government",
+    "checked_at": "2026-10-06T15:00:18.483635+00:00",
+    "first_seen_at": "2026-10-06T15:03:04.996071+00:00",
+    "last_changed_at": "2026-10-06T15:03:04.996071+00:00",
+    "change_type": "new"
+  },
+  {
+    "id": "aa8325d68462f20f300d",
+    "source": "SMC Official Recruitment",
+    "title": "Check RTI Application Status",
+    "url": "https://www.suratmunicipal.gov.in/Information/RTIAppStatus",
+    "priority": "critical",
+    "source_type": "government",
+    "checked_at": "2026-10-06T15:00:18.483635+00:00",
+    "first_seen_at": "2026-10-06T15:03:04.996071+00:00",
+    "last_changed_at": "2026-10-06T15:03:04.996071+00:00",
+    "change_type": "new"
+  },
+  {
+    "id": "43ccf0fbc2f6ba8ca403",
+    "source": "SMC Official Recruitment",
+    "title": "Back to Dashboard",
+    "url": "https://www.suratmunicipal.gov.in/Information/RecruitmentDashboard",
+    "priority": "critical",
+    "source_type": "government",
+    "checked_at": "2026-10-06T15:00:18.483635+00:00",
+    "first_seen_at": "2026-10-06T15:03:04.996071+00:00",
+    "last_changed_at": "2026-10-06T15:03:04.996071+00:00",
+    "change_type": "new"
+  },
+  {
+    "id": "d12a170f258a2b11c5fe",
+    "source": "SMC Official Recruitment",
+    "title": "Apply Now",
+    "url": "https://www.suratmunicipal.gov.in/recruitment/",
+    "priority": "critical",
+    "source_type": "government",
+    "checked_at": "2026-10-06T15:00:18.483635+00:00",
+    "first_seen_at": "2026-10-06T15:03:04.996071+00:00",
+    "last_changed_at": "2026-10-06T15:03:04.996071+00:00",
+    "change_type": "new"
   },
   {
     "id": "b43ca647408a5e71e894",
