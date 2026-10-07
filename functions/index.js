@@ -364,16 +364,24 @@ exports.adminApprovePayment = functions.https.onCall(async (data, context) => {
       throw new functions.https.HttpsError('already-exists', 'Payment already approved');
     }
 
-    const isPremium199 = plan === 'premium199';
-    const planLabel = isPremium199 ? 'Premium ₹199' : 'Premium ₹99';
-    const uid = paymentData.uid;
+        const uid = paymentData ? paymentData.uid : context.auth.uid; // Support both functions
+
+    // Fetch existing user data to avoid downgrades
+    const userSnap = await db.ref(`users/${uid}`).once('value');
+    const userData = userSnap.val() || {};
+    
+    // Check if they already have an existing fullAccess or premium199 plan
+    const alreadyHasFullAccess = (userData.entitlements && userData.entitlements.fullAccess) || (userData.plan === 'premium199');
+    const isPremium199 = plan === 'premium199' || alreadyHasFullAccess;
+    const finalPlan = isPremium199 ? 'premium199' : plan;
+    const planLabel = isPremium199 ? 'Premium ₹199' : (plan === 'premium99' ? 'Premium ₹99' : 'Free');
 
     // Update user
     await db.ref(`users/${uid}`).update({
-      plan: plan,
+      plan: finalPlan,
       planLabel: planLabel,
       subscriptionStatus: 'active',
-      expiresAt: null,
+      expiresAt: null, // Lifetime subscription
       entitlements: {
         mockTests: true,
         fullAccess: isPremium199
@@ -381,10 +389,15 @@ exports.adminApprovePayment = functions.https.onCall(async (data, context) => {
       updatedAt: new Date().toISOString()
     });
 
-    // Set Custom Claims for premium access (server-side enforcement)
+    // Get current custom claims
+    const userRecord = await auth.getUser(uid);
+    const existingClaims = userRecord.customClaims || {};
+
+    // Set Custom Claims for premium access (server-side enforcement), merged with existing
     const customClaims = {
+      ...existingClaims,
       premium: true,
-      premiumPlan: plan,
+      premiumPlan: finalPlan,
       fullAccess: isPremium199,
       subscriptionStatus: 'active'
     };
