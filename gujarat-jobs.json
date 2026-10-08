@@ -1,7 +1,7 @@
 {
   "region": "Gujarat",
   "focus": "Gujarat Government Jobs and SMC Recruitment",
-  "total": 747,
+  "total": 748,
   "new_items": 2,
   "updated_items": 0,
   "items": [
@@ -8454,15 +8454,27 @@
       "change_type": "unchanged"
     },
     {
-      "id": "f480b0e5b108f224db75",
+      "id": "d8d032593fa6e5d47c5d",
       "source": "SMC Google News Discovery",
-      "title": "SMC Recruitment 2026 Notification Out for 1924 Vacancies, Check Eligibility & Last Date - Jagranjosh.com",
+      "title": "SMC Recruitment 2026: 1,924 Posts Open for Application - KollegeApply News",
+      "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNZnFUUEdkN01FWmRTSzZCRHg0dXJ4NzlqTUJ2MHVTTTFIeTI1MzVVRTdZUGc4ZGxTbDdOQzBnajBDUXN3Z19tVUFwRGhrRHFVZkpoeWtmaEdUVFFEMm1nLVpVLWF3bUN4OG0zNDM1Nk45V1ZzaWdVSWdjVnBWQ284ZEh4aGY4b1doemhORA?oc=5",
+      "priority": "critical",
+      "source_type": "discovery",
+      "checked_at": "2026-10-08T01:20:51.440640+00:00",
+      "first_seen_at": "2026-10-08T01:23:37.848627+00:00",
+      "last_changed_at": "2026-10-08T01:23:37.848627+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "52cb48ad541dd884e638",
+      "source": "SMC Google News Discovery",
+      "title": "SMC Recruitment 2026 Notification Out for 1924 Vacancies, Check Eligibility & Last Date - Jagran Josh",
       "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPSE1aSEtES3VDWFRCanNHWThyZ2lNaGZlZkZleDVmbndoQTFUZ0NFQ0RfUlBsTnNTUlVwVVhReEZZcHg2RTIzR0VLWHFlUW1GR25tbGN2UFYtVzloOG1QSHd6UUZBSXd5OHZCYWVLZGxSbDlWTDZiZUlhN3daVHdKV3ptaEZUdzhoajU0WGNFZWJXN3NSNXFETmJYRDVjNGNtM3BmV0ZYd0E4THZnMm93R0c4SFdSY2xSem5mUW8yUi1JYkpkZDlGelZfUnIxVkdEQy00?oc=5",
       "priority": "critical",
       "source_type": "discovery",
-      "checked_at": "2026-10-07T21:37:25.387895+00:00",
-      "first_seen_at": "2026-10-07T21:40:11.116274+00:00",
-      "last_changed_at": "2026-10-07T21:40:11.116274+00:00",
+      "checked_at": "2026-10-08T01:20:51.440640+00:00",
+      "first_seen_at": "2026-10-08T01:23:37.848627+00:00",
+      "last_changed_at": "2026-10-08T01:23:37.848627+00:00",
       "change_type": "new"
     },
     {
@@ -8970,5 +8982,5 @@
       "change_type": "unchanged"
     }
   ],
-  "updated_at": "2026-10-07T21:40:11.116274+00:00"
+  "updated_at": "2026-10-08T01:23:37.848627+00:00"
 }
