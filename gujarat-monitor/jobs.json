@@ -12,18 +12,6 @@
     "change_type": "new"
   },
   {
-    "id": "bf7410812983378019a9",
-    "source": "Gujarat Jobs Google News Discovery",
-    "title": "GSSSB Multi Purpose Health Supervisor Recruitment 2026 Notification Out - Apply Online for 119 Posts - FreeJobAlert.Com",
-    "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQSk9pOGhRS2hVbE5YcXVKSEFadjJlWTZBNHFCcmYzNVVDalRMN0tETEpKVTRzVHQ0VzdEQkZBM3ROSFZCOXltSVV6ZFVPckJITUdaRDRTOXZFelNyRkk4QUF4VDFmQ1RpcVNfUzBiakFhQUkydy1TWUxqbEw4MEdxYXpINVZFOWd1RjE1OHY5a21rdUZGX3M3UDRHamxhYTRDNVE?oc=5",
-    "priority": "high",
-    "source_type": "discovery",
-    "checked_at": "2026-10-06T08:03:35.602032+00:00",
-    "first_seen_at": "2026-10-06T08:05:13.508534+00:00",
-    "last_changed_at": "2026-10-06T08:05:13.508534+00:00",
-    "change_type": "new"
-  },
-  {
     "id": "28e7cb646282b518a247",
     "source": "Gujarat Jobs Google News Discovery",
     "title": "GSSSB MPHW Recruitment 2026 Out, Apply Online for 100 Multi-Purpose Health Worker Posts - Adda247",
@@ -8448,15 +8436,27 @@
     "change_type": "unchanged"
   },
   {
-    "id": "d8d032593fa6e5d47c5d",
-    "source": "SMC Google News Discovery",
-    "title": "SMC Recruitment 2026: 1,924 Posts Open for Application - KollegeApply News",
-    "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNZnFUUEdkN01FWmRTSzZCRHg0dXJ4NzlqTUJ2MHVTTTFIeTI1MzVVRTdZUGc4ZGxTbDdOQzBnajBDUXN3Z19tVUFwRGhrRHFVZkpoeWtmaEdUVFFEMm1nLVpVLWF3bUN4OG0zNDM1Nk45V1ZzaWdVSWdjVnBWQ284ZEh4aGY4b1doemhORA?oc=5",
+    "id": "815ac82bc4558cfdedcd",
+    "source": "SMC Jobs Google News Discovery 2",
+    "title": "Surat Municipal Corporation Recruitment 2026 - Apply Online for 10 Staff Nurse, Lab Technician Posts - FreeJobAlert.Com",
+    "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxNT2xKQnBITE1BOVJvVk5XeC1XUWI2eFNnbFRUbjl4SzJEaTdvUmpMc25UeDQ3M2tlWjlpY3B0OER5MnRid0ozVmFxb2JFc2swdDY3OWxEd0R3VHFQRzVFdU9YQlRvWEJFZWZKSHZ6VXFMX3RRR3VCVUZNaDRwMld0dzlrdTJIOHpMdW1JdGpjS0YyNlowOXl1VXRTdENkdWcwYWNiQmZqb0ZDNF9IT1lScnc4MW00bmR4TE9GV1V4NzlIajBnNjN3UkVjMHZIWDQ5QmNkX2dUQzFoazg?oc=5",
     "priority": "critical",
     "source_type": "discovery",
-    "checked_at": "2026-10-08T14:50:45.691966+00:00",
-    "first_seen_at": "2026-10-08T14:53:32.972160+00:00",
-    "last_changed_at": "2026-10-08T14:53:32.972160+00:00",
+    "checked_at": "2026-10-09T13:41:20.735400+00:00",
+    "first_seen_at": "2026-10-09T13:42:57.434950+00:00",
+    "last_changed_at": "2026-10-09T13:42:57.434950+00:00",
+    "change_type": "new"
+  },
+  {
+    "id": "2c8aa0118bad92e39767",
+    "source": "SMC Google News Discovery",
+    "title": "Surat Municipal Corporation Recruitment 2026 - Apply Online for 10 Staff Nurse, Lab Technician Posts - FreeJobAlert.Com",
+    "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxNT2xKQnBITE1BOVJvVk5XeC1XUWI2eFNnbFRUbjl4SzJEaTdvUmpMc25UeDQ3M2tlWjlpY3B0OER5MnRid0ozVmFxb2JFc2swdDY3OWxEd0R3VHFQRzVFdU9YQlRvWEJFZWZKSHZ6VXFMX3RRR3VCVUZNaDRwMld0dzlrdTJIOHpMdW1JdGpjS0YyNlowOXl1VXRTdENkdWcwYWNiQmZqb0ZDNF9IT1lScnc4MW00bmR4TE9GV1V4NzlIajBnNjN3UkVjMHZIWDQ5QmNkX2dUQzFoazg?oc=5",
+    "priority": "critical",
+    "source_type": "discovery",
+    "checked_at": "2026-10-09T13:40:09.026946+00:00",
+    "first_seen_at": "2026-10-09T13:42:57.434950+00:00",
+    "last_changed_at": "2026-10-09T13:42:57.434950+00:00",
     "change_type": "new"
   },
   {
@@ -8481,90 +8481,6 @@
     "checked_at": "2026-10-08T07:31:04.025687+00:00",
     "first_seen_at": "2026-10-08T07:33:51.125507+00:00",
     "last_changed_at": "2026-10-08T07:33:51.125507+00:00",
-    "change_type": "new"
-  },
-  {
-    "id": "2dce6c205dff522b6ca9",
-    "source": "SMC Official Recruitment",
-    "title": "View More",
-    "url": "https://www.suratmunicipal.gov.in/Contents/Jobs/Opening/1994252.pdf",
-    "priority": "critical",
-    "source_type": "government",
-    "checked_at": "2026-10-07T16:39:08.316668+00:00",
-    "first_seen_at": "2026-10-07T16:41:54.018737+00:00",
-    "last_changed_at": "2026-10-07T16:41:54.018737+00:00",
-    "change_type": "new"
-  },
-  {
-    "id": "b83b4ea40df7feafe0e2",
-    "source": "SMC Official Recruitment",
-    "title": "View More",
-    "url": "https://www.suratmunicipal.gov.in/Contents/Jobs/Opening/1770488.pdf",
-    "priority": "critical",
-    "source_type": "government",
-    "checked_at": "2026-10-07T16:39:08.316668+00:00",
-    "first_seen_at": "2026-10-07T16:41:54.018737+00:00",
-    "last_changed_at": "2026-10-07T16:41:54.018737+00:00",
-    "change_type": "new"
-  },
-  {
-    "id": "0f2905a29f1cb718c552",
-    "source": "SMC Official Recruitment",
-    "title": "Recruitment",
-    "url": "https://www.suratmunicipal.gov.in/Information/RecruitmentDashboard",
-    "priority": "critical",
-    "source_type": "government",
-    "checked_at": "2026-10-07T16:39:08.316668+00:00",
-    "first_seen_at": "2026-10-07T16:41:54.018737+00:00",
-    "last_changed_at": "2026-10-07T16:41:54.018737+00:00",
-    "change_type": "new"
-  },
-  {
-    "id": "9fb4659c700c8f4513a0",
-    "source": "SMC Official Recruitment",
-    "title": "Engineers (237 KB)",
-    "url": "https://www.suratmunicipal.gov.in/Content/Documents/rtiact/Disclosure/Town%20Development/TDO/Engineers.pdf",
-    "priority": "critical",
-    "source_type": "government",
-    "checked_at": "2026-10-07T16:39:08.316668+00:00",
-    "first_seen_at": "2026-10-07T16:41:54.018737+00:00",
-    "last_changed_at": "2026-10-07T16:41:54.018737+00:00",
-    "change_type": "new"
-  },
-  {
-    "id": "aa8325d68462f20f300d",
-    "source": "SMC Official Recruitment",
-    "title": "Check RTI Application Status",
-    "url": "https://www.suratmunicipal.gov.in/Information/RTIAppStatus",
-    "priority": "critical",
-    "source_type": "government",
-    "checked_at": "2026-10-07T16:39:08.316668+00:00",
-    "first_seen_at": "2026-10-07T16:41:54.018737+00:00",
-    "last_changed_at": "2026-10-07T16:41:54.018737+00:00",
-    "change_type": "new"
-  },
-  {
-    "id": "43ccf0fbc2f6ba8ca403",
-    "source": "SMC Official Recruitment",
-    "title": "Back to Dashboard",
-    "url": "https://www.suratmunicipal.gov.in/Information/RecruitmentDashboard",
-    "priority": "critical",
-    "source_type": "government",
-    "checked_at": "2026-10-07T16:39:08.316668+00:00",
-    "first_seen_at": "2026-10-07T16:41:54.018737+00:00",
-    "last_changed_at": "2026-10-07T16:41:54.018737+00:00",
-    "change_type": "new"
-  },
-  {
-    "id": "d12a170f258a2b11c5fe",
-    "source": "SMC Official Recruitment",
-    "title": "Apply Now",
-    "url": "https://www.suratmunicipal.gov.in/recruitment/",
-    "priority": "critical",
-    "source_type": "government",
-    "checked_at": "2026-10-07T16:39:08.316668+00:00",
-    "first_seen_at": "2026-10-07T16:41:54.018737+00:00",
-    "last_changed_at": "2026-10-07T16:41:54.018737+00:00",
     "change_type": "new"
   },
   {
