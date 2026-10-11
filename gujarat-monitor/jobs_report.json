@@ -1,9 +1,9 @@
 {
   "sources_scanned": 28,
-  "links_found_this_scan": 748,
+  "links_found_this_scan": 742,
   "new_items": 1,
   "updated_items": 0,
-  "total_items": 748,
+  "total_items": 742,
   "errors": [
     {
       "source": "Ahmedabad Municipal Corporation",
@@ -63,7 +63,7 @@
     {
       "source": "Gujarat Primary Education Recruitment",
       "url": "https://rte.orpgujarat.com",
-      "error": "HTTP Error 503: Service Unavailable"
+      "error": "<urlopen error timed out>"
     },
     {
       "source": "KCG Gujarat Recruitment",
@@ -97,7 +97,7 @@
     "SMC Official Recruitment",
     "SMC Official Website"
   ],
-  "smc_items": 45,
+  "smc_items": 39,
   "mode": "live_snapshot",
-  "updated_at": "2026-10-11T01:21:37.493065+00:00"
+  "updated_at": "2026-10-11T07:19:45.516436+00:00"
 }
