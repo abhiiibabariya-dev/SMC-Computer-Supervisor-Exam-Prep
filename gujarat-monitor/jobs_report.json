@@ -1,9 +1,9 @@
 {
   "sources_scanned": 28,
-  "links_found_this_scan": 742,
-  "new_items": 1,
+  "links_found_this_scan": 749,
+  "new_items": 7,
   "updated_items": 0,
-  "total_items": 742,
+  "total_items": 749,
   "errors": [
     {
       "source": "Ahmedabad Municipal Corporation",
@@ -68,7 +68,7 @@
     {
       "source": "KCG Gujarat Recruitment",
       "url": "https://kcg.gujarat.gov.in/recruitments",
-      "error": "The read operation timed out"
+      "error": "<urlopen error [Errno 101] Network is unreachable>"
     },
     {
       "source": "OJAS Gujarat",
@@ -81,7 +81,9 @@
       "error": "<urlopen error timed out>"
     }
   ],
-  "empty_sources": [],
+  "empty_sources": [
+    "SMC Official Website"
+  ],
   "successful_sources": [
     "Bhavnagar Municipal Corporation",
     "Gujarat Biotechnology Research Centre",
@@ -97,7 +99,7 @@
     "SMC Official Recruitment",
     "SMC Official Website"
   ],
-  "smc_items": 39,
+  "smc_items": 46,
   "mode": "live_snapshot",
-  "updated_at": "2026-10-11T07:19:45.516436+00:00"
+  "updated_at": "2026-10-11T14:08:31.685383+00:00"
 }
