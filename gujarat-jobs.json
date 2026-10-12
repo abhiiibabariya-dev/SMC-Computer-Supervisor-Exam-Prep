@@ -1,10 +1,22 @@
 {
   "region": "Gujarat",
   "focus": "Gujarat Government Jobs and SMC Recruitment",
-  "total": 748,
-  "new_items": 0,
+  "total": 749,
+  "new_items": 1,
   "updated_items": 0,
   "items": [
+    {
+      "id": "e5db0e67a37653fbbf59",
+      "source": "Gujarat Jobs Google News Discovery",
+      "title": "GSSSB MPHW Recruitment 2026 - Apply Online for 100 Multi Purpose Health Worker (Male) Class-3 Posts - FreeJobAlert.Com",
+      "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNRG9faERkQkE2X1V6UWo3YnZPY05halRXUHJHc3BBcmcxSXMtSlZETm9FRkdpdlotYnFrSUtRTW15N1UtVVgwTG91cXZ0RTZadGQ4WWZZdWVGYjQyUHljcFdSMmxKN195aHB2WW12V2ZrRlY0NVE3NFZHb3RzQzAtbmdlY2Z6ZHhjMkppemVpMXBOQTdWaFhqejRDaGRlbm4wSGFGUHhDUTFkVGFGSVJTRFRQOUV2MWhmLVVKaDl2a2E?oc=5",
+      "priority": "high",
+      "source_type": "discovery",
+      "checked_at": "2026-10-12T23:47:59.815705+00:00",
+      "first_seen_at": "2026-10-12T23:49:39.158616+00:00",
+      "last_changed_at": "2026-10-12T23:49:39.158616+00:00",
+      "change_type": "new"
+    },
     {
       "id": "150b8024d1425574dfc7",
       "source": "Gujarat Jobs Google News Discovery",
@@ -8982,5 +8994,5 @@
       "change_type": "unchanged"
     }
   ],
-  "updated_at": "2026-10-12T17:47:21.849093+00:00"
+  "updated_at": "2026-10-12T23:49:39.158616+00:00"
 }
