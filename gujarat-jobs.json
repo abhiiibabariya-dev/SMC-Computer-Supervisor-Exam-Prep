@@ -2,7 +2,7 @@
   "region": "Gujarat",
   "focus": "Gujarat Government Jobs and SMC Recruitment",
   "total": 749,
-  "new_items": 0,
+  "new_items": 2,
   "updated_items": 0,
   "items": [
     {
@@ -8442,6 +8442,30 @@
       "change_type": "unchanged"
     },
     {
+      "id": "5d94eafcb965969a09c2",
+      "source": "SMC Jobs Google News Discovery 2",
+      "title": "SMC recruitment 2026 opens 1924 posts for clerks, engineers and medical officers; apply from April 1 - The Times of India",
+      "url": "https://news.google.com/rss/articles/CBMihgJBVV95cUxNcjZtVkliamJmVl9kajM0cy01cTl3TWhzZE9xOFhPNTJpUTVubm5palBLV3Q0LW03YmNiR2REUS1uMmxqTWtRUHRIcGNwYVhrSEg2NWY0ZmV4bmdlM29jVkV3dUhacUNIa1h4YXBWNWg3LVFDSEt4czN0SzlDUHp5dmJxU1I4bThnM2tGbHJnWjhqcjAwTkFOOEVYVzNIWHhmN2hPQzA5QlFTWmpRODYyU0J1WEhsOHQwbElET2dXc1UxQ3VUcXlya0dYRFVaQ3liU2U1MVpraEtqUXUycmZBNkNiSFRWSU5UVWl0NkZQeWpMVEVDZ2NOUklVUWgycENvcjA2dUZn0gGLAkFVX3lxTE1aX1owakxkcWR4S3huSVRBZ0dfN2hlUDN5MDVicTdPLXJldk9Hc3Vsa2Z3WWV4WHRFV3lvaVlvNV9fTnp5YUE5V0JmRkFIbFE1YzAzWWdUZ1lVMHJTdkJQNEQxRXNRWkptdE5kVlpkZkQtYm95elpxNmlKUzNTTDdtSTNtMUhMNFM5aHowVGhwekpMby1lSHAtZnpIYzYzRWREZDN4dzI2RmRfTGMzWHhjSEV0eUZTeWNGZkZwcURyYWEwOFBfa0U2emFzMHZMeUVpbjhCamtBZzAxNnRUNmlPb3pDdXU1enJxekpYZGMzb09JaTh2WnkzUlJGYmtIVnJwdmxJU2hfd185Yw?oc=5",
+      "priority": "critical",
+      "source_type": "discovery",
+      "checked_at": "2026-10-13T18:32:32.871635+00:00",
+      "first_seen_at": "2026-10-13T18:34:10.802665+00:00",
+      "last_changed_at": "2026-10-13T18:34:10.802665+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "9ef79088a731ea82b0e5",
+      "source": "SMC Google News Discovery",
+      "title": "SMC recruitment 2026 opens 1924 posts for clerks, engineers and medical officers; apply from April 1 - The Times of India",
+      "url": "https://news.google.com/rss/articles/CBMihgJBVV95cUxNcjZtVkliamJmVl9kajM0cy01cTl3TWhzZE9xOFhPNTJpUTVubm5palBLV3Q0LW03YmNiR2REUS1uMmxqTWtRUHRIcGNwYVhrSEg2NWY0ZmV4bmdlM29jVkV3dUhacUNIa1h4YXBWNWg3LVFDSEt4czN0SzlDUHp5dmJxU1I4bThnM2tGbHJnWjhqcjAwTkFOOEVYVzNIWHhmN2hPQzA5QlFTWmpRODYyU0J1WEhsOHQwbElET2dXc1UxQ3VUcXlya0dYRFVaQ3liU2U1MVpraEtqUXUycmZBNkNiSFRWSU5UVWl0NkZQeWpMVEVDZ2NOUklVUWgycENvcjA2dUZn0gGLAkFVX3lxTE1aX1owakxkcWR4S3huSVRBZ0dfN2hlUDN5MDVicTdPLXJldk9Hc3Vsa2Z3WWV4WHRFV3lvaVlvNV9fTnp5YUE5V0JmRkFIbFE1YzAzWWdUZ1lVMHJTdkJQNEQxRXNRWkptdE5kVlpkZkQtYm95elpxNmlKUzNTTDdtSTNtMUhMNFM5aHowVGhwekpMby1lSHAtZnpIYzYzRWREZDN4dzI2RmRfTGMzWHhjSEV0eUZTeWNGZkZwcURyYWEwOFBfa0U2emFzMHZMeUVpbjhCamtBZzAxNnRUNmlPb3pDdXU1enJxekpYZGMzb09JaTh2WnkzUlJGYmtIVnJwdmxJU2hfd185Yw?oc=5",
+      "priority": "critical",
+      "source_type": "discovery",
+      "checked_at": "2026-10-13T18:31:24.644888+00:00",
+      "first_seen_at": "2026-10-13T18:34:10.802665+00:00",
+      "last_changed_at": "2026-10-13T18:34:10.802665+00:00",
+      "change_type": "new"
+    },
+    {
       "id": "dc03f9b3ea86a5e05545",
       "source": "SMC Jobs Google News Discovery 2",
       "title": "SMC Recruitment 2026 Notification Out for 1924 Vacancies, Check Eligibility & Last Date - Jagran Josh",
@@ -8670,34 +8694,10 @@
       "change_type": "new"
     },
     {
-      "id": "4033c892f529fbed6e04",
-      "source": "SMC Jobs Google News Discovery 2",
-      "title": "SMC recruitment 2026 opens 1924 posts for clerks, engineers and medical officers; apply from April 1 - The Times of India",
-      "url": "https://news.google.com/rss/articles/CBMihgJBVV95cUxNcjZtVkliamJmVl9kajM0cy01cTl3TWhzZE9xOFhPNTJpUTVubm5palBLV3Q0LW03YmNiR2REUS1uMmxqTWtRUHRIcGNwYVhrSEg2NWY0ZmV4bmdlM29jVkV3dUhacUNIa1h4YXBWNWg3LVFDSEt4czN0SzlDUHp5dmJxU1I4bThnM2tGbHJnWjhqcjAwTkFOOEVYVzNIWHhmN2hPQzA5QlFTWmpRODYyU0J1WEhsOHQwbElET2dXc1UxQ3VUcXlya0dYRFVaQ3liU2U1MVpraEtqUXUycmZBNkNiSFRWSU5UVWl0NkZQeWpMVEVDZ2NOUklVUWgycENvcjA2dUZn?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-10-04T18:12:28.723498+00:00",
-      "first_seen_at": "2026-10-04T18:14:07.114209+00:00",
-      "last_changed_at": "2026-10-04T18:14:07.114209+00:00",
-      "change_type": "new"
-    },
-    {
       "id": "ecff0914665ed82ecc01",
       "source": "SMC Google News Discovery",
       "title": "SMC recruitment 2026: Application window opens for over 1900 posts, check complete details here - The Times of India",
       "url": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxPRjQ4R3NXSVhWSHlfZThkSXY0Wm81N0FSMXJUZlpFZ3E3bUtwV19ILW1GcDRBMVdqaGMzbzN5U0RORTh5TXd5N05PaVctdEFiNmdIYzBfdDZMX0drSUZjcnExc0UwWVpnRHdDVUJnNGVvMi1RUXpVSHBQUF9uUGI3Z2N1Y3VDaXA3RnN6Z2xhVWNXWTE3RE51T1VWSHgwVmxWYmlSekRUaVVja2JZN180M28xMTJrWHJYUzNZVjNzYk1YMUtyMl9MbWs2X244Mjg3S0NXQktiMUsteDNEOWlwWG1HNktmcWM1Mzh6SE5DLTFrWHlTeGRjYzFIbG83bEnSAYQCQVVfeXFMTjE2Qkw4djVRTkdzTmtPSkd3Vm1FVkJCNUFLbGRRdlF5RjF2MGVzVS1jbGhsb0ZHWVhCaGN5SEVQYUM3SnFvQzRJa3R5dUZneVdzQ0NwNVFKR2dibkRDWm9NSlVGZGpoNWdPTHpBa2YxdGwzcXQwbUZsSFBDenhVR1JCZ1ZlaHZKMEpnNGw5VjFleXhQOXJnQU1SNk1oVXpMNjhrQ3pVeW5YSmljOTJ2dXFQcE1nZUxfaDlKdENneGhLZnF0QWZrWHhSUTN3OG1KdFk3bGNrcW05d3hxcENJYzY1M3U0MGdwTXF5SnlEbThsaENyVEpkLVpDemxjUUozVkNwNXo?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-10-04T18:11:19.318862+00:00",
-      "first_seen_at": "2026-10-04T18:14:07.114209+00:00",
-      "last_changed_at": "2026-10-04T18:14:07.114209+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "0b7b2bd26e60d4d2c791",
-      "source": "SMC Google News Discovery",
-      "title": "SMC recruitment 2026 opens 1924 posts for clerks, engineers and medical officers; apply from April 1 - The Times of India",
-      "url": "https://news.google.com/rss/articles/CBMihgJBVV95cUxNcjZtVkliamJmVl9kajM0cy01cTl3TWhzZE9xOFhPNTJpUTVubm5palBLV3Q0LW03YmNiR2REUS1uMmxqTWtRUHRIcGNwYVhrSEg2NWY0ZmV4bmdlM29jVkV3dUhacUNIa1h4YXBWNWg3LVFDSEt4czN0SzlDUHp5dmJxU1I4bThnM2tGbHJnWjhqcjAwTkFOOEVYVzNIWHhmN2hPQzA5QlFTWmpRODYyU0J1WEhsOHQwbElET2dXc1UxQ3VUcXlya0dYRFVaQ3liU2U1MVpraEtqUXUycmZBNkNiSFRWSU5UVWl0NkZQeWpMVEVDZ2NOUklVUWgycENvcjA2dUZn?oc=5",
       "priority": "critical",
       "source_type": "discovery",
       "checked_at": "2026-10-04T18:11:19.318862+00:00",
@@ -8994,5 +8994,5 @@
       "change_type": "unchanged"
     }
   ],
-  "updated_at": "2026-10-13T03:57:38.380739+00:00"
+  "updated_at": "2026-10-13T18:34:10.802665+00:00"
 }
