@@ -1,7 +1,7 @@
 {
   "sources_scanned": 28,
   "links_found_this_scan": 749,
-  "new_items": 1,
+  "new_items": 0,
   "updated_items": 0,
   "total_items": 749,
   "errors": [
@@ -38,7 +38,7 @@
     {
       "source": "Gujarat Biotechnology Research Centre",
       "url": "https://www.gbrc.gujarat.gov.in/WebCMS/Start/Announcement",
-      "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.gbrc.gujarat.gov.in'. (_ssl.c:1010)>"
+      "error": "<urlopen error [Errno 101] Network is unreachable>"
     },
     {
       "source": "Gujarat Education Department",
@@ -58,17 +58,27 @@
     {
       "source": "Gujarat Health Department",
       "url": "https://gujhealth.gujarat.gov.in",
-      "error": "<urlopen error _ssl.c:993: The handshake operation timed out>"
+      "error": "<urlopen error [Errno 101] Network is unreachable>"
+    },
+    {
+      "source": "Gujarat Informatics Limited",
+      "url": "https://gil.gujarat.gov.in/News.aspx?flag=0",
+      "error": "<urlopen error [Errno 101] Network is unreachable>"
     },
     {
       "source": "Gujarat Police",
       "url": "https://police.gujarat.gov.in",
-      "error": "<urlopen error _ssl.c:993: The handshake operation timed out>"
+      "error": "<urlopen error [Errno 101] Network is unreachable>"
     },
     {
       "source": "Gujarat Primary Education Recruitment",
       "url": "https://rte.orpgujarat.com",
       "error": "HTTP Error 503: Service Unavailable"
+    },
+    {
+      "source": "Gujarat Social Justice & Empowerment",
+      "url": "https://sje.gujarat.gov.in",
+      "error": "<urlopen error [Errno 101] Network is unreachable>"
     },
     {
       "source": "KCG Gujarat Recruitment",
@@ -90,9 +100,7 @@
   "successful_sources": [
     "Bhavnagar Municipal Corporation",
     "Gujarat High Court Recruitment",
-    "Gujarat Informatics Limited",
     "Gujarat Jobs Google News Discovery",
-    "Gujarat Social Justice & Empowerment",
     "Gyan Sahayak Gujarat",
     "Jamnagar Municipal Corporation",
     "Rajkot Municipal Corporation",
@@ -103,5 +111,5 @@
   ],
   "smc_items": 45,
   "mode": "live_snapshot",
-  "updated_at": "2026-10-15T07:19:39.810630+00:00"
+  "updated_at": "2026-10-15T12:43:59.140429+00:00"
 }
