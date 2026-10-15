@@ -1,8 +1,8 @@
 {
   "region": "Gujarat",
   "focus": "Gujarat Government Jobs and SMC Recruitment",
-  "total": 748,
-  "new_items": 0,
+  "total": 749,
+  "new_items": 1,
   "updated_items": 0,
   "items": [
     {
@@ -8454,6 +8454,18 @@
       "change_type": "unchanged"
     },
     {
+      "id": "d12a170f258a2b11c5fe",
+      "source": "SMC Official Recruitment",
+      "title": "Apply Now",
+      "url": "https://www.suratmunicipal.gov.in/recruitment/",
+      "priority": "critical",
+      "source_type": "government",
+      "checked_at": "2026-10-15T07:16:46.873860+00:00",
+      "first_seen_at": "2026-10-15T07:19:39.810630+00:00",
+      "last_changed_at": "2026-10-15T07:19:39.810630+00:00",
+      "change_type": "new"
+    },
+    {
       "id": "5d94eafcb965969a09c2",
       "source": "SMC Jobs Google News Discovery 2",
       "title": "SMC recruitment 2026 opens 1924 posts for clerks, engineers and medical officers; apply from April 1 - The Times of India",
@@ -8982,5 +8994,5 @@
       "change_type": "unchanged"
     }
   ],
-  "updated_at": "2026-10-14T20:57:17.261060+00:00"
+  "updated_at": "2026-10-15T07:19:39.810630+00:00"
 }
