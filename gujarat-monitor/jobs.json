@@ -1,5 +1,17 @@
 [
   {
+    "id": "487fc7af28a31bff9335",
+    "source": "Rajkot Municipal Corporation",
+    "title": "2.1 Professional Tax Registration Form",
+    "url": "https://rmc.gov.in/rmcwebsite/docs/forms/ProfessionalTaxNewApplicationForm.pdf",
+    "priority": "high",
+    "source_type": "municipal",
+    "checked_at": "2026-10-16T15:30:01.996930+00:00",
+    "first_seen_at": "2026-10-16T15:30:51.833912+00:00",
+    "last_changed_at": "2026-10-16T15:30:51.833912+00:00",
+    "change_type": "new"
+  },
+  {
     "id": "a776869c85271df8ec7f",
     "source": "Vadodara Municipal Corporation",
     "title": "પ્રધાનમંત્રી આવાસ યોજના - PRO NO. 74/26-27",
@@ -8710,6 +8722,18 @@
     "first_seen_at": "2026-08-18T15:37:57.055545+00:00",
     "last_changed_at": "2026-08-19T18:45:21.268903+00:00",
     "change_type": "unchanged"
+  },
+  {
+    "id": "0c64d0b43f70703327f7",
+    "source": "SMC Google News Discovery",
+    "title": "SMC Honorary Coach Recruitment 2026 – Apply Online 8 Posts - FreeJobAlert.Com",
+    "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOaC13VG95ZUJ4UlBPQWJLOHhYd0FEejZqcGR3Sno3VGJBb3NyTWxVLUZCSGh5QTBYcEI3Snhfb2lsblBQd3RoMzlpSWRsV0tOYXN3QzhaR1FldG00RDUtTWx6ZmJJRmtIRXFZejduTVgyLWRrUFNaWXhuXzl6aTBkM25CWEtPVVpoZFVnNWhyNlgzWVRxVGlRdk9jSm4yYy02UXhocA?oc=5",
+    "priority": "critical",
+    "source_type": "discovery",
+    "checked_at": "2026-10-16T15:28:56.654915+00:00",
+    "first_seen_at": "2026-10-16T15:30:51.833912+00:00",
+    "last_changed_at": "2026-10-16T15:30:51.833912+00:00",
+    "change_type": "new"
   },
   {
     "id": "6106f6194fc025722a74",
