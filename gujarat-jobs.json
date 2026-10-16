@@ -1,27 +1,27 @@
 {
   "region": "Gujarat",
   "focus": "Gujarat Government Jobs and SMC Recruitment",
-  "total": 754,
-  "new_items": 3,
+  "total": 755,
+  "new_items": 2,
   "updated_items": 0,
   "items": [
+    {
+      "id": "2be08f89d3fc4c74c815",
+      "source": "Gujarat Jobs Google News Discovery",
+      "title": "GSSSB Horticulture Assistant Recruitment 2026 - Apply Online for 100 Posts - FreeJobAlert.Com",
+      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQelYwcjhSdmVyN19vdGozbExJbTBpbkFRbC1adXY0MjEtMmxQTEZseEV3QUdHVU5xbDRHS2l0ZnBXb2Fua0VmRjhVSklmOU9HYUdMVVQ1dEw2UERVa2QzeGVMcWdITmtEZ0FqSVZMM1RrNFMzQ2VoMnh4UEktdmxzUFkzcC1ERXFJNU91eGs4UXNqVndXMk1tSVdkRVBlQkhKX01kS1U4dVMzSHdkVG5Mck5KMlNQMGFxSmc?oc=5",
+      "priority": "high",
+      "source_type": "discovery",
+      "checked_at": "2026-10-16T01:25:52.291304+00:00",
+      "first_seen_at": "2026-10-16T01:27:30.614975+00:00",
+      "last_changed_at": "2026-10-16T01:27:30.614975+00:00",
+      "change_type": "new"
+    },
     {
       "id": "5746dc1bfdb010a2e2c6",
       "source": "Gujarat Jobs Google News Discovery",
       "title": "GSSSB Staff Nurse Recruitment 2026 Notification Out - Apply Online for 131 Posts - FreeJobAlert.Com",
       "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPbTQ4dlF0SFNWNktRbnhUX3B0SXAyMlNkaTZWSDRBZzU3N1RxU2cwVHJodTlXQndlb05ldUZldDhfVGlVV2V0QUUxeWZVdG40eVBVM3JwYzJJZ0NqS0p4OFI3ck45X1JOelo4ODVTNWg5X2JZckNaeU80eW82LWZNTElrbWFFdWlVTDZOeF9wMzg2OG1CSXBDM3Z5TC1qMFFfQ1RHZEo4MmRwUGs?oc=5",
-      "priority": "high",
-      "source_type": "discovery",
-      "checked_at": "2026-10-15T23:14:27.480445+00:00",
-      "first_seen_at": "2026-10-15T23:16:06.639121+00:00",
-      "last_changed_at": "2026-10-15T23:16:06.639121+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "45e4052fd5be0acf3741",
-      "source": "Gujarat Jobs Google News Discovery",
-      "title": "GSSSB Physiotherapist Recruitment 2026 - Apply Online for 138 Posts - FreeJobAlert.Com",
-      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPUVNkb0hFVGEtN2xwSVJiUlUyNkpXN28zaEVwNDdnenotMGJnT0xHNmM4YTllTVEtRDdJZndwb25oU3QtU3kwZ0dsd0JxYy01bjlVeE1hVzAwY0R4T3Z4ck5fdjl4Zm05aE9LNjFKMmI4TUZEcndyMU43MENja1J3Uy1rWUpKRnZmaU5JdmdKU1lyN3lHcEN3NlI3d0I0UWY0d1loSEQ5ZjN0TEFCbjkxdQ?oc=5",
       "priority": "high",
       "source_type": "discovery",
       "checked_at": "2026-10-15T23:14:27.480445+00:00",
@@ -8490,6 +8490,18 @@
       "change_type": "unchanged"
     },
     {
+      "id": "6106f6194fc025722a74",
+      "source": "SMC Google News Discovery",
+      "title": "SMC Biomedical Engineer Recruitment 2026 - Apply Online - FreeJobAlert.Com",
+      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNSVhnVGgtMF92cF80NkdYV1VwQ0NZdGlVSjdDMXhCNldOZUVoaWhnZTFnN2hscGdMR3RHMVRJbGRMbzNlTWF4Mmh3QWJ4LXNpUmM0Z3ZxbER0VTZ4dG11QURwa1E0dENnazRBczBRLUdUZWZUdmphUVg0eTRDdXZJVDJ6elhnd0ljR0JIdHpLWG1nbnhlT0taT1VqVjRVWDN1?oc=5",
+      "priority": "critical",
+      "source_type": "discovery",
+      "checked_at": "2026-10-16T01:24:44.329665+00:00",
+      "first_seen_at": "2026-10-16T01:27:30.614975+00:00",
+      "last_changed_at": "2026-10-16T01:27:30.614975+00:00",
+      "change_type": "new"
+    },
+    {
       "id": "d9701c46bd515b28c619",
       "source": "SMC Jobs Google News Discovery 2",
       "title": "SMC Biomedical Engineer Recruitment 2026 - Apply Online - FreeJobAlert.Com",
@@ -9054,5 +9066,5 @@
       "change_type": "unchanged"
     }
   ],
-  "updated_at": "2026-10-15T23:16:06.639121+00:00"
+  "updated_at": "2026-10-16T01:27:30.614975+00:00"
 }
