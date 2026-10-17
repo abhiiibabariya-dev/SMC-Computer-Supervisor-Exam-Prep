@@ -1,10 +1,22 @@
 {
   "region": "Gujarat",
   "focus": "Gujarat Government Jobs and SMC Recruitment",
-  "total": 775,
-  "new_items": 0,
+  "total": 776,
+  "new_items": 1,
   "updated_items": 0,
   "items": [
+    {
+      "id": "9fc21674fea595fdace2",
+      "source": "Gujarat Jobs Google News Discovery",
+      "title": "GSSSB Sanitary Inspector Recruitment 2026 Notification Out for 22 Posts, Apply Online - Adda247",
+      "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOZTNBZnlhbGhyTjM5WGR3UHBhMXdfbTVTdllieWNSb0lCaWZPSDhRb1JwOFlzbnBNc21ZaXF6NEV1dWJSOUFCMG1fSUFBUlhJVW9zUlN0NlZNSjQ0NUQyTFFjZzdvYWU1U2kzdkU4S2I3Vjhlc1dFTF84UWdCeVMtcncxZGlyRHM?oc=5",
+      "priority": "high",
+      "source_type": "discovery",
+      "checked_at": "2026-10-17T00:17:08.372964+00:00",
+      "first_seen_at": "2026-10-17T00:17:57.278426+00:00",
+      "last_changed_at": "2026-10-17T00:17:57.278426+00:00",
+      "change_type": "new"
+    },
     {
       "id": "487fc7af28a31bff9335",
       "source": "Rajkot Municipal Corporation",
@@ -9306,5 +9318,5 @@
       "change_type": "unchanged"
     }
   ],
-  "updated_at": "2026-10-16T18:59:36.162254+00:00"
+  "updated_at": "2026-10-17T00:17:57.278426+00:00"
 }
