@@ -1,8 +1,8 @@
 {
   "region": "Gujarat",
   "focus": "Gujarat Government Jobs and SMC Recruitment",
-  "total": 781,
-  "new_items": 8,
+  "total": 779,
+  "new_items": 0,
   "updated_items": 0,
   "items": [
     {
@@ -8850,30 +8850,6 @@
       "change_type": "new"
     },
     {
-      "id": "2c2988010c4e01c6f93e",
-      "source": "SMC Jobs Google News Discovery 2",
-      "title": "Surat Municipal Corporation Draftsman Recruitment 2026 - Apply Online - FreeJobAlert.Com",
-      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNU21UVkFISzMtSklyOE5YdVF4VGhpSUlMVHlnSXBldnBscU5ZWFRGcXBsdHYzWkdVMHZNaW1rY3RTTlNMQ1RwNWpXaW9ta3hiRXJvV1R0dkZsUF9ncFpwRGpMM2pERUdqc0IyZjZpV0U0WW1PUlRWZk54cU1LM19EUzFzWEQxVDZPWkYzQVIzQnJiRjdWMjBJMnYzUWVURW11TXJfNU9hQzVFNUl6bVhuYnFIQkt3d1c4VXRqcGIyYi10cjB4?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-10-17T17:59:21.231502+00:00",
-      "first_seen_at": "2026-10-17T18:00:09.928040+00:00",
-      "last_changed_at": "2026-10-17T18:00:09.928040+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "d99f0663cec6141a3c38",
-      "source": "SMC Google News Discovery",
-      "title": "Surat Municipal Corporation Draftsman Recruitment 2026 - Apply Online - FreeJobAlert.Com",
-      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNU21UVkFISzMtSklyOE5YdVF4VGhpSUlMVHlnSXBldnBscU5ZWFRGcXBsdHYzWkdVMHZNaW1rY3RTTlNMQ1RwNWpXaW9ta3hiRXJvV1R0dkZsUF9ncFpwRGpMM2pERUdqc0IyZjZpV0U0WW1PUlRWZk54cU1LM19EUzFzWEQxVDZPWkYzQVIzQnJiRjdWMjBJMnYzUWVURW11TXJfNU9hQzVFNUl6bVhuYnFIQkt3d1c4VXRqcGIyYi10cjB4?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-10-17T12:27:00.011573+00:00",
-      "first_seen_at": "2026-10-17T12:28:56.000563+00:00",
-      "last_changed_at": "2026-10-17T12:28:56.000563+00:00",
-      "change_type": "new"
-    },
-    {
       "id": "0c64d0b43f70703327f7",
       "source": "SMC Google News Discovery",
       "title": "SMC Honorary Coach Recruitment 2026 – Apply Online 8 Posts - FreeJobAlert.Com",
@@ -9378,5 +9354,5 @@
       "change_type": "unchanged"
     }
   ],
-  "updated_at": "2026-10-17T18:00:09.928040+00:00"
+  "updated_at": "2026-10-17T20:28:43.246683+00:00"
 }
