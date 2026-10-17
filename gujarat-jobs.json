@@ -1,10 +1,22 @@
 {
   "region": "Gujarat",
   "focus": "Gujarat Government Jobs and SMC Recruitment",
-  "total": 779,
-  "new_items": 0,
+  "total": 782,
+  "new_items": 3,
   "updated_items": 0,
   "items": [
+    {
+      "id": "25b2542e8b618b281e83",
+      "source": "Gujarat Jobs Google News Discovery",
+      "title": "GSSSB Staff Nurse (Ayurveda) Recruitment 2026 Notification Out - Apply Online for 90 Posts - FreeJobAlert.Com",
+      "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNcTRDOXBOMl8tMG03LVpKakRvcGFjUzVmR0ZLSEF6ZEw5MGV6VTlFa3gyYzhvQXB2Q0wzMTRiTkdTYWhFVTVtaHpVd0FLdG5WcUIzOGpKck94SldyNjZOOUpQRkdpNnZEQzFrel9wUjA5TnhMZF9MNGM5d1oxSnZiRERTTTZKckhVTV9mVEhHaFFZX0VlUExsbTFQTnc3WTBGXzdGaDN2X3pIM0FVeFdpYllQOXJmd3UydERCWWRYSmg?oc=5",
+      "priority": "high",
+      "source_type": "discovery",
+      "checked_at": "2026-10-17T22:35:39.084756+00:00",
+      "first_seen_at": "2026-10-17T22:36:28.550382+00:00",
+      "last_changed_at": "2026-10-17T22:36:28.550382+00:00",
+      "change_type": "new"
+    },
     {
       "id": "fedf8389740cd6431fa9",
       "source": "Gujarat Jobs Google News Discovery",
@@ -8778,6 +8790,30 @@
       "change_type": "unchanged"
     },
     {
+      "id": "2c2988010c4e01c6f93e",
+      "source": "SMC Jobs Google News Discovery 2",
+      "title": "Surat Municipal Corporation Draftsman Recruitment 2026 - Apply Online - FreeJobAlert.Com",
+      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNU21UVkFISzMtSklyOE5YdVF4VGhpSUlMVHlnSXBldnBscU5ZWFRGcXBsdHYzWkdVMHZNaW1rY3RTTlNMQ1RwNWpXaW9ta3hiRXJvV1R0dkZsUF9ncFpwRGpMM2pERUdqc0IyZjZpV0U0WW1PUlRWZk54cU1LM19EUzFzWEQxVDZPWkYzQVIzQnJiRjdWMjBJMnYzUWVURW11TXJfNU9hQzVFNUl6bVhuYnFIQkt3d1c4VXRqcGIyYi10cjB4?oc=5",
+      "priority": "critical",
+      "source_type": "discovery",
+      "checked_at": "2026-10-17T22:35:39.437810+00:00",
+      "first_seen_at": "2026-10-17T22:36:28.550382+00:00",
+      "last_changed_at": "2026-10-17T22:36:28.550382+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "d99f0663cec6141a3c38",
+      "source": "SMC Google News Discovery",
+      "title": "Surat Municipal Corporation Draftsman Recruitment 2026 - Apply Online - FreeJobAlert.Com",
+      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNU21UVkFISzMtSklyOE5YdVF4VGhpSUlMVHlnSXBldnBscU5ZWFRGcXBsdHYzWkdVMHZNaW1rY3RTTlNMQ1RwNWpXaW9ta3hiRXJvV1R0dkZsUF9ncFpwRGpMM2pERUdqc0IyZjZpV0U0WW1PUlRWZk54cU1LM19EUzFzWEQxVDZPWkYzQVIzQnJiRjdWMjBJMnYzUWVURW11TXJfNU9hQzVFNUl6bVhuYnFIQkt3d1c4VXRqcGIyYi10cjB4?oc=5",
+      "priority": "critical",
+      "source_type": "discovery",
+      "checked_at": "2026-10-17T22:34:33.611125+00:00",
+      "first_seen_at": "2026-10-17T22:36:28.550382+00:00",
+      "last_changed_at": "2026-10-17T22:36:28.550382+00:00",
+      "change_type": "new"
+    },
+    {
       "id": "2dce6c205dff522b6ca9",
       "source": "SMC Official Recruitment",
       "title": "View More",
@@ -9354,5 +9390,5 @@
       "change_type": "unchanged"
     }
   ],
-  "updated_at": "2026-10-17T20:28:43.246683+00:00"
+  "updated_at": "2026-10-17T22:36:28.550382+00:00"
 }
