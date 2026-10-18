@@ -1,9 +1,9 @@
 {
   "sources_scanned": 28,
-  "links_found_this_scan": 782,
-  "new_items": 3,
+  "links_found_this_scan": 781,
+  "new_items": 0,
   "updated_items": 0,
-  "total_items": 782,
+  "total_items": 781,
   "errors": [
     {
       "source": "Ahmedabad Municipal Corporation",
@@ -93,7 +93,7 @@
     "SMC Official Website",
     "Vadodara Municipal Corporation"
   ],
-  "smc_items": 50,
+  "smc_items": 49,
   "mode": "live_snapshot",
-  "updated_at": "2026-10-17T22:36:28.550382+00:00"
+  "updated_at": "2026-10-18T00:15:42.236958+00:00"
 }
