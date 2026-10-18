@@ -1,8 +1,8 @@
 {
   "region": "Gujarat",
   "focus": "Gujarat Government Jobs and SMC Recruitment",
-  "total": 782,
-  "new_items": 3,
+  "total": 781,
+  "new_items": 0,
   "updated_items": 0,
   "items": [
     {
@@ -9294,18 +9294,6 @@
       "change_type": "new"
     },
     {
-      "id": "e0b03b21461adfcd5ea5",
-      "source": "SMC Google News Discovery",
-      "title": "SMC recruitment 2026: Application starts for over 1900 posts, details here - India Today",
-      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPdmZmMVYyWWlabmFQOTYwUzlBWFlqWjZRVFJOVW92T3V1OHllbnctZVNyUXJMRUFQZW1VaVFOSkRWX0xOVXlRVUlPYzlud0N5ZWhwZHJQSHBXQnhjeTNqbDNReWV2d1FpQ0k5bHk5VVVncU85bGliOU83bUVPeDhybFpYVkRXRFBsem1HUVgzb0NneFExRmx1TDMySXRJVWJOZGZVOHVfVXItcC05ZE53cGxpVjM1V2w4ZFF2SWVVbkFfUQ?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-10-02T01:31:03.647201+00:00",
-      "first_seen_at": "2026-10-02T01:33:50.434221+00:00",
-      "last_changed_at": "2026-10-02T01:33:50.434221+00:00",
-      "change_type": "new"
-    },
-    {
       "id": "36eb6bc2de05da7fc0e8",
       "source": "SMC Google News Discovery",
       "title": "Probe against 3 dismissed SMC staff for hiding qualification to secure job - The Indian Express",
@@ -9390,5 +9378,5 @@
       "change_type": "unchanged"
     }
   ],
-  "updated_at": "2026-10-17T22:36:28.550382+00:00"
+  "updated_at": "2026-10-18T00:15:42.236958+00:00"
 }
