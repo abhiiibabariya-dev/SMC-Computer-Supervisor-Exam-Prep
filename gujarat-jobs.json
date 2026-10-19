@@ -1,8 +1,8 @@
 {
   "region": "Gujarat",
   "focus": "Gujarat Government Jobs and SMC Recruitment",
-  "total": 782,
-  "new_items": 0,
+  "total": 783,
+  "new_items": 1,
   "updated_items": 0,
   "items": [
     {
@@ -8802,6 +8802,18 @@
       "change_type": "unchanged"
     },
     {
+      "id": "277dceb4c7e7f5b73b74",
+      "source": "SMC Google News Discovery",
+      "title": "SMC Recruitment 2026 Notification Out - Apply Online for 80 Electrical Wireman, Assistant Architect and More Posts - FreeJobAlert.Com",
+      "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxOamdpVXBOamNuRjZxdXRGSE94dlphZGltUjhyb21vWmQ1bVFhRXFTWEtqdUNILXZ0UWxTMUtaQjN1Q2hSZmI2empwcDV6MkNncmU2RWZCQVhzbDdMeHVkYjNpVndRMFNTRDZCaUttV3B5ekwyR1NnSjJCVUE0X1ZJc1BvekxrWUdnVVVkTzBnZ21lcHRILThFMkN1VmFXbWMwSmpPdVVBem1KNEh5MWVuWDdkQm9pVVNHcEdGWEFqMlA0V3d3eG5tUUR2WF9ORGktSTZCS1Uza1g?oc=5",
+      "priority": "critical",
+      "source_type": "discovery",
+      "checked_at": "2026-10-19T05:57:29.631204+00:00",
+      "first_seen_at": "2026-10-19T05:59:24.857652+00:00",
+      "last_changed_at": "2026-10-19T05:59:24.857652+00:00",
+      "change_type": "new"
+    },
+    {
       "id": "2c2988010c4e01c6f93e",
       "source": "SMC Jobs Google News Discovery 2",
       "title": "Surat Municipal Corporation Draftsman Recruitment 2026 - Apply Online - FreeJobAlert.Com",
@@ -9390,5 +9402,5 @@
       "change_type": "unchanged"
     }
   ],
-  "updated_at": "2026-10-18T23:04:05.924969+00:00"
+  "updated_at": "2026-10-19T05:59:24.857652+00:00"
 }
