@@ -1,7 +1,7 @@
 {
   "sources_scanned": 28,
   "links_found_this_scan": 787,
-  "new_items": 0,
+  "new_items": 1,
   "updated_items": 0,
   "total_items": 787,
   "errors": [
@@ -76,6 +76,11 @@
       "error": "<urlopen error [Errno 101] Network is unreachable>"
     },
     {
+      "source": "Rajkot Municipal Corporation",
+      "url": "https://www.rmc.gov.in",
+      "error": "The read operation timed out"
+    },
+    {
       "source": "Vadodara Municipal Corporation",
       "url": "https://vmc.gov.in",
       "error": "The read operation timed out"
@@ -91,7 +96,6 @@
     "Gujarat Social Justice & Empowerment",
     "Gyan Sahayak Gujarat",
     "Jamnagar Municipal Corporation",
-    "Rajkot Municipal Corporation",
     "SMC Google News Discovery",
     "SMC Jobs Google News Discovery 2",
     "SMC Official Recruitment",
@@ -99,5 +103,5 @@
   ],
   "smc_items": 52,
   "mode": "live_snapshot",
-  "updated_at": "2026-10-20T15:50:32.137537+00:00"
+  "updated_at": "2026-10-20T19:40:34.179896+00:00"
 }
