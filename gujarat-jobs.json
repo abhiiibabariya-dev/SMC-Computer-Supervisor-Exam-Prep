@@ -1,22 +1,10 @@
 {
   "region": "Gujarat",
   "focus": "Gujarat Government Jobs and SMC Recruitment",
-  "total": 788,
-  "new_items": 7,
+  "total": 787,
+  "new_items": 0,
   "updated_items": 0,
   "items": [
-    {
-      "id": "a58471c400d096bfc7ab",
-      "source": "Gujarat Jobs Google News Discovery",
-      "title": "GSSSB Sanitary Inspector Recruitment 2026 Notification Out - Apply Online for 22 Posts - FreeJobAlert.Com",
-      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNdnBBOUVOQnBZdDVwcndIUGNtSnZGeVlqSVBIWTA3cUVCSXlfQkQtZUhZOWVuUWtoM1FCTF82SG9uYVNSTGNOY2xabzFDZXZFeGhnQWxHREtSWmNlQ2poQms0N3c4STA4VG5oVENieGV1Zm5uRFhKbXQ3RlkxRnByWXAwbkdXRTlydXdYUkxLM2NkQVo3dy1lTzM4cC0tb2dIdExQWENMU1o1OWtFNXdsOGpRTQ?oc=5",
-      "priority": "high",
-      "source_type": "discovery",
-      "checked_at": "2026-10-21T16:06:05.612086+00:00",
-      "first_seen_at": "2026-10-21T16:07:43.519536+00:00",
-      "last_changed_at": "2026-10-21T16:07:43.519536+00:00",
-      "change_type": "new"
-    },
     {
       "id": "8cc960a50988fcdd6fb3",
       "source": "Gujarat Jobs Google News Discovery",
@@ -9462,5 +9450,5 @@
       "change_type": "unchanged"
     }
   ],
-  "updated_at": "2026-10-21T16:07:43.519536+00:00"
+  "updated_at": "2026-10-21T20:06:23.776642+00:00"
 }
