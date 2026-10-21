@@ -1,7 +1,7 @@
 {
   "sources_scanned": 28,
   "links_found_this_scan": 787,
-  "new_items": 0,
+  "new_items": 1,
   "updated_items": 0,
   "total_items": 787,
   "errors": [
@@ -79,6 +79,11 @@
       "source": "OJAS Gujarat",
       "url": "https://ojas.gujarat.gov.in",
       "error": "<urlopen error [Errno 101] Network is unreachable>"
+    },
+    {
+      "source": "Vadodara Municipal Corporation",
+      "url": "https://vmc.gov.in",
+      "error": "<urlopen error timed out>"
     }
   ],
   "empty_sources": [],
@@ -94,10 +99,9 @@
     "SMC Google News Discovery",
     "SMC Jobs Google News Discovery 2",
     "SMC Official Recruitment",
-    "SMC Official Website",
-    "Vadodara Municipal Corporation"
+    "SMC Official Website"
   ],
   "smc_items": 52,
   "mode": "live_snapshot",
-  "updated_at": "2026-10-21T01:02:46.394433+00:00"
+  "updated_at": "2026-10-21T05:55:39.900093+00:00"
 }
