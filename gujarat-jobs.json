@@ -2,9 +2,21 @@
   "region": "Gujarat",
   "focus": "Gujarat Government Jobs and SMC Recruitment",
   "total": 787,
-  "new_items": 0,
+  "new_items": 1,
   "updated_items": 0,
   "items": [
+    {
+      "id": "e194e3336b449e7993bd",
+      "source": "Gujarat Jobs Google News Discovery",
+      "title": "GSSSB Draftsman Recruitment 2026, Last Date To Apply Online for 52 Posts - Adda247",
+      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5NY3BjTjlqWVJtNzVXa0hmSmxGclFIdXRrVnRsY01fei10c3poTUxRbFliTzhSSmYwdmpKR0Q5NFFDd0htT0E4VlNaeENLelllUHhKbDAxRTI1SWx6c2ktNkRpQ2xGMkh5VktObHFsQWFUazllR2V2RVExRC02N1U?oc=5",
+      "priority": "high",
+      "source_type": "discovery",
+      "checked_at": "2026-10-21T23:11:45.653223+00:00",
+      "first_seen_at": "2026-10-21T23:13:24.208215+00:00",
+      "last_changed_at": "2026-10-21T23:13:24.208215+00:00",
+      "change_type": "new"
+    },
     {
       "id": "8cc960a50988fcdd6fb3",
       "source": "Gujarat Jobs Google News Discovery",
@@ -399,18 +411,6 @@
       "checked_at": "2026-10-14T17:31:35.458873+00:00",
       "first_seen_at": "2026-10-14T17:34:19.939114+00:00",
       "last_changed_at": "2026-10-14T17:34:19.939114+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "e5db0e67a37653fbbf59",
-      "source": "Gujarat Jobs Google News Discovery",
-      "title": "GSSSB MPHW Recruitment 2026 - Apply Online for 100 Multi Purpose Health Worker (Male) Class-3 Posts - FreeJobAlert.Com",
-      "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNRG9faERkQkE2X1V6UWo3YnZPY05halRXUHJHc3BBcmcxSXMtSlZETm9FRkdpdlotYnFrSUtRTW15N1UtVVgwTG91cXZ0RTZadGQ4WWZZdWVGYjQyUHljcFdSMmxKN195aHB2WW12V2ZrRlY0NVE3NFZHb3RzQzAtbmdlY2Z6ZHhjMkppemVpMXBOQTdWaFhqejRDaGRlbm4wSGFGUHhDUTFkVGFGSVJTRFRQOUV2MWhmLVVKaDl2a2E?oc=5",
-      "priority": "high",
-      "source_type": "discovery",
-      "checked_at": "2026-10-12T23:47:59.815705+00:00",
-      "first_seen_at": "2026-10-12T23:49:39.158616+00:00",
-      "last_changed_at": "2026-10-12T23:49:39.158616+00:00",
       "change_type": "new"
     },
     {
@@ -9450,5 +9450,5 @@
       "change_type": "unchanged"
     }
   ],
-  "updated_at": "2026-10-21T20:06:23.776642+00:00"
+  "updated_at": "2026-10-21T23:13:24.208215+00:00"
 }
