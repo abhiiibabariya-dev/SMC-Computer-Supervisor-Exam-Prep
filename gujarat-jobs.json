@@ -1,10 +1,22 @@
 {
   "region": "Gujarat",
   "focus": "Gujarat Government Jobs and SMC Recruitment",
-  "total": 787,
+  "total": 781,
   "new_items": 1,
   "updated_items": 0,
   "items": [
+    {
+      "id": "8cc960a50988fcdd6fb3",
+      "source": "Gujarat Jobs Google News Discovery",
+      "title": "GSSSB Municipal Engineer Recruitment 2026 Notification Out - Apply Online for 50 Posts - FreeJobAlert.Com",
+      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxONVAtM2tsdWk2c3NmcjM5UjdkZF9VZjc2OUd5Vi02dFcwdFY0b0JqZG4wT3RYTnFBM1JJVy16WlhaR2xFOTMxOTl5Njl5dndWRnBobFpEa2RBV19Ya09WZXZhcks3XzI4UVB3YjBud2x1R0RDdGMzaGNvS3RPeUdaanV6T0J6Z05YcF90bm5LVnk?oc=5",
+      "priority": "high",
+      "source_type": "discovery",
+      "checked_at": "2026-10-21T11:37:52.536826+00:00",
+      "first_seen_at": "2026-10-21T11:39:31.104049+00:00",
+      "last_changed_at": "2026-10-21T11:39:31.104049+00:00",
+      "change_type": "new"
+    },
     {
       "id": "74d363a7e7cfd86052c4",
       "source": "Gujarat Jobs Google News Discovery",
@@ -27,18 +39,6 @@
       "checked_at": "2026-10-20T11:26:54.978462+00:00",
       "first_seen_at": "2026-10-20T11:27:10.325846+00:00",
       "last_changed_at": "2026-10-20T11:27:10.325846+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "a58471c400d096bfc7ab",
-      "source": "Gujarat Jobs Google News Discovery",
-      "title": "GSSSB Sanitary Inspector Recruitment 2026 Notification Out - Apply Online for 22 Posts - FreeJobAlert.Com",
-      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNdnBBOUVOQnBZdDVwcndIUGNtSnZGeVlqSVBIWTA3cUVCSXlfQkQtZUhZOWVuUWtoM1FCTF82SG9uYVNSTGNOY2xabzFDZXZFeGhnQWxHREtSWmNlQ2poQms0N3c4STA4VG5oVENieGV1Zm5uRFhKbXQ3RlkxRnByWXAwbkdXRTlydXdYUkxLM2NkQVo3dy1lTzM4cC0tb2dIdExQWENMU1o1OWtFNXdsOGpRTQ?oc=5",
-      "priority": "high",
-      "source_type": "discovery",
-      "checked_at": "2026-10-18T21:07:11.630215+00:00",
-      "first_seen_at": "2026-10-18T21:08:01.722063+00:00",
-      "last_changed_at": "2026-10-18T21:08:01.722063+00:00",
       "change_type": "new"
     },
     {
@@ -8958,30 +8958,6 @@
       "change_type": "new"
     },
     {
-      "id": "0c64d0b43f70703327f7",
-      "source": "SMC Google News Discovery",
-      "title": "SMC Honorary Coach Recruitment 2026 – Apply Online 8 Posts - FreeJobAlert.Com",
-      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOaC13VG95ZUJ4UlBPQWJLOHhYd0FEejZqcGR3Sno3VGJBb3NyTWxVLUZCSGh5QTBYcEI3Snhfb2lsblBQd3RoMzlpSWRsV0tOYXN3QzhaR1FldG00RDUtTWx6ZmJJRmtIRXFZejduTVgyLWRrUFNaWXhuXzl6aTBkM25CWEtPVVpoZFVnNWhyNlgzWVRxVGlRdk9jSm4yYy02UXhocA?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-10-16T15:28:56.654915+00:00",
-      "first_seen_at": "2026-10-16T15:30:51.833912+00:00",
-      "last_changed_at": "2026-10-16T15:30:51.833912+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "6106f6194fc025722a74",
-      "source": "SMC Google News Discovery",
-      "title": "SMC Biomedical Engineer Recruitment 2026 - Apply Online - FreeJobAlert.Com",
-      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNSVhnVGgtMF92cF80NkdYV1VwQ0NZdGlVSjdDMXhCNldOZUVoaWhnZTFnN2hscGdMR3RHMVRJbGRMbzNlTWF4Mmh3QWJ4LXNpUmM0Z3ZxbER0VTZ4dG11QURwa1E0dENnazRBczBRLUdUZWZUdmphUVg0eTRDdXZJVDJ6elhnd0ljR0JIdHpLWG1nbnhlT0taT1VqVjRVWDN1?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-10-16T11:29:59.327086+00:00",
-      "first_seen_at": "2026-10-16T11:31:55.170663+00:00",
-      "last_changed_at": "2026-10-16T11:31:55.170663+00:00",
-      "change_type": "new"
-    },
-    {
       "id": "d9701c46bd515b28c619",
       "source": "SMC Jobs Google News Discovery 2",
       "title": "SMC Biomedical Engineer Recruitment 2026 - Apply Online - FreeJobAlert.Com",
@@ -9294,42 +9270,6 @@
       "change_type": "new"
     },
     {
-      "id": "6b88cbca1da3ef0e7c3d",
-      "source": "SMC Google News Discovery",
-      "title": "SMC Staff Nurse Eligibility Criteria 2026: Check Age Limit and Educational Qualificatio - FreeJobAlert.Com",
-      "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOTkYzMk02dHRUTDA1ME5YdFp2N3VSTFdJZS1JZnNRYzNsT2pPV0lPT1E4MXVmTnhTZVVkcEJuazJnOU9IM2dwallmaWNyM044Z3NaYzhkeTJvalZkY0YtYkRpTjJmOWhvNXdpQmUzeGZ1d1B2MEo3RzVVQlp3MEFwODlfNGNQQVhIN1E?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-10-03T07:08:00.179932+00:00",
-      "first_seen_at": "2026-10-03T07:10:46.405107+00:00",
-      "last_changed_at": "2026-10-03T07:10:46.405107+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "a7e297f7a15e0c93f15e",
-      "source": "SMC Google News Discovery",
-      "title": "SMC Senior Residents Recruitment 2026 - Walkin for 30 Posts - FreeJobAlert.Com",
-      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOenJYcW9FVERhV2szRGUyUUJObEdGMmRDdzdJd1FuLXczY3RCN281bDVLMEt4ZmtLMkxmdGthWm5ERXRwNlRGNVRPaGd0Qzd5aGdJOUh3X1NIM3RiXzY5WWxnNzBTaU5uMHRPNjRnV2ROeHJwQWlUWVVXM3JrWmFiMDFKRXZIV3BvTzVMRW5fcXZRVFpheWJxbHNfMERCZE81QlVJRmx3?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-10-03T07:08:00.179932+00:00",
-      "first_seen_at": "2026-10-03T07:10:46.405107+00:00",
-      "last_changed_at": "2026-10-03T07:10:46.405107+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "d252d808fe084550584e",
-      "source": "SMC Google News Discovery",
-      "title": "SMC Planning Assistant Recruitment 2026 - Apply Online for 88 Posts - FreeJobAlert.Com",
-      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQMUJnMi11MVc3a0FjQmd1OW9Ham9NMHEtbHFGSm9QS05Vb01PWTZvOXBraVBCWE14bDdkVHQ2ZE1wTVZEUWhxOFBrX19pZGtfT1pBaDYzVjhsdWpLczZiaDhZLWxhd1paRVJaR1dONmVsejFOcGFLVjBHd1F6dW1kUmRRbVR2ZHdGd2tlazVldGJtS1dNdEVoOEhSN3RBT05tX08xdEVSUWxDMW14WXhrbQ?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-10-03T07:08:00.179932+00:00",
-      "first_seen_at": "2026-10-03T07:10:46.405107+00:00",
-      "last_changed_at": "2026-10-03T07:10:46.405107+00:00",
-      "change_type": "new"
-    },
-    {
       "id": "785d3ea07d6d1ec0be65",
       "source": "SMC Google News Discovery",
       "title": "SMC Apprentices Recruitment 2026 Notification Out - Apply Online for 1000 Posts - FreeJobAlert.Com",
@@ -9346,18 +9286,6 @@
       "source": "SMC Google News Discovery",
       "title": "SMC Syllabus 2026 and Exam Pattern for Clerk, Driver & More Posts - Career Power",
       "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE9fQ09KUTlYdGdwMlJUejdzRTlXWkpFLWxNVWZrVldyS29uMmY1SVNfcGVPaVAxa1U5OHhTdGI3RWRKTlBKT19JNDhYRjBXSE4yRVFXSnR1cw?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-10-02T14:03:06.772623+00:00",
-      "first_seen_at": "2026-10-02T14:05:55.282042+00:00",
-      "last_changed_at": "2026-10-02T14:05:55.282042+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "410f653b35a133b2333e",
-      "source": "SMC Google News Discovery",
-      "title": "SMC Apprentice Recruitment 2026 Notification Out – Apply Online for Apprentice Posts - Careers360",
-      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQdUViWkw0ZWZzSnBid3RRa1c5S0FfbERJdkc1MWthU0swODV5a18wRWllVHZpV00xNmZ5cnE0VTBucTRHNWRLYVNXcUIxWHoteGdBcnFtdERQSEJoSXdlOHliRm9ac0RyU1BMcFZ5cDg5NHRVMHAxTVhDd2JCZUZzNg?oc=5",
       "priority": "critical",
       "source_type": "discovery",
       "checked_at": "2026-10-02T14:03:06.772623+00:00",
@@ -9450,5 +9378,5 @@
       "change_type": "unchanged"
     }
   ],
-  "updated_at": "2026-10-21T05:55:39.900093+00:00"
+  "updated_at": "2026-10-21T11:39:31.104049+00:00"
 }
