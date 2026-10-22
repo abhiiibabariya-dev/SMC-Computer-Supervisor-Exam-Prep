@@ -1,20 +1,20 @@
 {
   "region": "Gujarat",
   "focus": "Gujarat Government Jobs and SMC Recruitment",
-  "total": 787,
-  "new_items": 1,
+  "total": 781,
+  "new_items": 2,
   "updated_items": 0,
   "items": [
     {
-      "id": "a58471c400d096bfc7ab",
+      "id": "74d363a7e7cfd86052c4",
       "source": "Gujarat Jobs Google News Discovery",
-      "title": "GSSSB Sanitary Inspector Recruitment 2026 Notification Out - Apply Online for 22 Posts - FreeJobAlert.Com",
-      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNdnBBOUVOQnBZdDVwcndIUGNtSnZGeVlqSVBIWTA3cUVCSXlfQkQtZUhZOWVuUWtoM1FCTF82SG9uYVNSTGNOY2xabzFDZXZFeGhnQWxHREtSWmNlQ2poQms0N3c4STA4VG5oVENieGV1Zm5uRFhKbXQ3RlkxRnByWXAwbkdXRTlydXdYUkxLM2NkQVo3dy1lTzM4cC0tb2dIdExQWENMU1o1OWtFNXdsOGpRTQ?oc=5",
+      "title": "GSSSB Recruitment 2026: Apply for Female Health Worker (Class-3) Post – Special Drive for Divyang Candidates - FreeJobAlert.Com",
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOYXhqR3Q1LWFzTEhoLXFDbGFBR2FHa3pTc2pQV1NOb3V5S1VjQXg3czFxWU1PYWZNXzJMci1lT3lFMGdZT0dqNWRRSTd5aGtQcXgxNVFka3Q1R1I2bm5Lc1dhVkhtR1BCVm1mNkdXY0w3X1RFMUt0RVRxdFo3SlV5aE10OUxXYUkzTUh6OHBiMGM4cjRxVlBPb2VpMW4ybXdvd01Ob0xMLXRMenJ2YW9NVkdwRThUUQ?oc=5",
       "priority": "high",
       "source_type": "discovery",
-      "checked_at": "2026-10-22T01:34:18.414399+00:00",
-      "first_seen_at": "2026-10-22T01:35:56.590411+00:00",
-      "last_changed_at": "2026-10-22T01:35:56.590411+00:00",
+      "checked_at": "2026-10-22T06:33:13.559299+00:00",
+      "first_seen_at": "2026-10-22T06:34:51.373921+00:00",
+      "last_changed_at": "2026-10-22T06:34:51.373921+00:00",
       "change_type": "new"
     },
     {
@@ -8826,6 +8826,18 @@
       "change_type": "unchanged"
     },
     {
+      "id": "89c7d421a6416786367c",
+      "source": "SMC Google News Discovery",
+      "title": "Contract safai workers’ protest against SMC for permanent jobs - The Times of India",
+      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQMlhNczNRaTh0VEVjWDBGMEtLcVlfcUl1elhERHhTbTZDUFZwOFg0OFc0ZVZxN0RDeVNJdDRJdXhmTUZ0YnQ0VUVubGJpZVZ6bDZuRmFqb0VTZGtyYW9DT1hCS0oxbW56cU9DUW1lZDRMcUdWZjVhZlNfd0VWY0x5WEtlQV8tajMzRi1laURpYk5MamhxYjBmSFV2OWNYTjEt0gGmAUFVX3lxTE1UeUM3M0dvbHlIYmVjUGEyQlp2YWNVWGxqX3ZYTDZsejFOOUR5V3BDLXNIeGlrYW16WXpmVmdzVWZnLVBibi1ka2NuTmF6RFlsMlowSkpTWU4zanRMZnY0OGxjamNzRFhHSXNSSTJmWl9sVG55ZEg2YUR3WlpseUpiMTlJbDV1dE0wOEF0MGRmb2l6V0Qwb0ZrWEtHNHAxRmlPa1d1cmc?oc=5",
+      "priority": "critical",
+      "source_type": "discovery",
+      "checked_at": "2026-10-22T06:32:04.628948+00:00",
+      "first_seen_at": "2026-10-22T06:34:51.373921+00:00",
+      "last_changed_at": "2026-10-22T06:34:51.373921+00:00",
+      "change_type": "new"
+    },
+    {
       "id": "6b88cbca1da3ef0e7c3d",
       "source": "SMC Google News Discovery",
       "title": "SMC Staff Nurse Eligibility Criteria 2026: Check Age Limit and Educational Qualificatio - FreeJobAlert.Com",
@@ -8955,78 +8967,6 @@
       "checked_at": "2026-10-17T22:34:33.611125+00:00",
       "first_seen_at": "2026-10-17T22:36:28.550382+00:00",
       "last_changed_at": "2026-10-17T22:36:28.550382+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "2dce6c205dff522b6ca9",
-      "source": "SMC Official Recruitment",
-      "title": "View More",
-      "url": "https://www.suratmunicipal.gov.in/Contents/Jobs/Opening/1994252.pdf",
-      "priority": "critical",
-      "source_type": "government",
-      "checked_at": "2026-10-17T17:58:16.188622+00:00",
-      "first_seen_at": "2026-10-17T18:00:09.928040+00:00",
-      "last_changed_at": "2026-10-17T18:00:09.928040+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "0f2905a29f1cb718c552",
-      "source": "SMC Official Recruitment",
-      "title": "Recruitment",
-      "url": "https://www.suratmunicipal.gov.in/Information/RecruitmentDashboard",
-      "priority": "critical",
-      "source_type": "government",
-      "checked_at": "2026-10-17T17:58:16.188622+00:00",
-      "first_seen_at": "2026-10-17T18:00:09.928040+00:00",
-      "last_changed_at": "2026-10-17T18:00:09.928040+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "9fb4659c700c8f4513a0",
-      "source": "SMC Official Recruitment",
-      "title": "Engineers (237 KB)",
-      "url": "https://www.suratmunicipal.gov.in/Content/Documents/rtiact/Disclosure/Town%20Development/TDO/Engineers.pdf",
-      "priority": "critical",
-      "source_type": "government",
-      "checked_at": "2026-10-17T17:58:16.188622+00:00",
-      "first_seen_at": "2026-10-17T18:00:09.928040+00:00",
-      "last_changed_at": "2026-10-17T18:00:09.928040+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "aa8325d68462f20f300d",
-      "source": "SMC Official Recruitment",
-      "title": "Check RTI Application Status",
-      "url": "https://www.suratmunicipal.gov.in/Information/RTIAppStatus",
-      "priority": "critical",
-      "source_type": "government",
-      "checked_at": "2026-10-17T17:58:16.188622+00:00",
-      "first_seen_at": "2026-10-17T18:00:09.928040+00:00",
-      "last_changed_at": "2026-10-17T18:00:09.928040+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "43ccf0fbc2f6ba8ca403",
-      "source": "SMC Official Recruitment",
-      "title": "Back to Dashboard",
-      "url": "https://www.suratmunicipal.gov.in/Information/RecruitmentDashboard",
-      "priority": "critical",
-      "source_type": "government",
-      "checked_at": "2026-10-17T17:58:16.188622+00:00",
-      "first_seen_at": "2026-10-17T18:00:09.928040+00:00",
-      "last_changed_at": "2026-10-17T18:00:09.928040+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "d12a170f258a2b11c5fe",
-      "source": "SMC Official Recruitment",
-      "title": "Apply Now",
-      "url": "https://www.suratmunicipal.gov.in/recruitment/",
-      "priority": "critical",
-      "source_type": "government",
-      "checked_at": "2026-10-17T17:58:16.188622+00:00",
-      "first_seen_at": "2026-10-17T18:00:09.928040+00:00",
-      "last_changed_at": "2026-10-17T18:00:09.928040+00:00",
       "change_type": "new"
     },
     {
@@ -9366,18 +9306,6 @@
       "change_type": "new"
     },
     {
-      "id": "36eb6bc2de05da7fc0e8",
-      "source": "SMC Google News Discovery",
-      "title": "Probe against 3 dismissed SMC staff for hiding qualification to secure job - The Indian Express",
-      "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxQMUIyUUF0bjVaT0dtcU9zbFc3YS1iZlQtbzJTRE1zdkN2S0hMeEo1V3oxbjNYU0dyT2xhdnluVXpXMjVMOU9UWXFIajN4SGJVeGFpY3F1NGV0a3U0bGw4Q29zWkhELTF0RHQ5eENxZjVNREZaQ2t0NmZSUUZ6SGZjODl2UWp1RDJIUWZxYXFWeWtDc19raHlMZ3dGcWwySmpaYll6dV93VUtwakxWZ1FzZFlaOE5sTGtPcFdseW1iMzdlcGNwelQ1OUVFYVBlREHSAdYBQVVfeXFMTzZjVGtqdVFwZUhKbWNmcmpHS0FZX2N0OTYxdmZpQXlSMklkajJxS1dvZjgzSEkyYm80a19OZGtuY05mdmN2WGNyd3FjV1Y1LTVBeWNUOGdaNmVzbFM5OUwxU0dzQmRIRzZ6ZVM4SkRPbFVvTHplQjI4SHBtbXgyN0hDeTRQTjlBT0tBeTBMNW82bEd6QzFaSFkwWHpqVlAweDJidHJ6elZGeUVTNzBLQVZMM1o0Xzg1QXVTQlRjUjVISWp3SXdwd1hHRmt3NmpsbW53djBUUQ?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-09-24T22:40:41.721685+00:00",
-      "first_seen_at": "2026-09-24T22:43:27.578510+00:00",
-      "last_changed_at": "2026-09-24T22:43:27.578510+00:00",
-      "change_type": "new"
-    },
-    {
       "id": "e39a963e152ae4b46374",
       "source": "SMC Official Website",
       "title": "SMC Official Website official recruitment/update page",
@@ -9450,5 +9378,5 @@
       "change_type": "unchanged"
     }
   ],
-  "updated_at": "2026-10-22T01:35:56.590411+00:00"
+  "updated_at": "2026-10-22T06:34:51.373921+00:00"
 }
