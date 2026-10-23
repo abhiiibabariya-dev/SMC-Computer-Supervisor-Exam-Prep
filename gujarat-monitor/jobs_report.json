@@ -1,9 +1,9 @@
 {
   "sources_scanned": 28,
-  "links_found_this_scan": 786,
+  "links_found_this_scan": 785,
   "new_items": 0,
   "updated_items": 0,
-  "total_items": 786,
+  "total_items": 785,
   "errors": [
     {
       "source": "Ahmedabad Municipal Corporation",
@@ -103,5 +103,5 @@
   ],
   "smc_items": 52,
   "mode": "live_snapshot",
-  "updated_at": "2026-10-23T16:56:49.970666+00:00"
+  "updated_at": "2026-10-23T20:19:48.364552+00:00"
 }
