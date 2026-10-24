@@ -1,7 +1,7 @@
 {
   "sources_scanned": 28,
   "links_found_this_scan": 776,
-  "new_items": 0,
+  "new_items": 5,
   "updated_items": 0,
   "total_items": 776,
   "errors": [
@@ -97,7 +97,7 @@
     "SMC Official Recruitment",
     "SMC Official Website"
   ],
-  "smc_items": 45,
+  "smc_items": 50,
   "mode": "live_snapshot",
-  "updated_at": "2026-10-24T17:40:46.390655+00:00"
+  "updated_at": "2026-10-24T19:52:52.299816+00:00"
 }
