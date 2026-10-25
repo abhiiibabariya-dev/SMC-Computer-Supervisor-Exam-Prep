@@ -8760,6 +8760,66 @@
     "change_type": "unchanged"
   },
   {
+    "id": "1d1fa6255e8cca43d986",
+    "source": "SMC Official Recruitment",
+    "title": "View More",
+    "url": "https://www.suratmunicipal.gov.in/Contents/Jobs/Opening/1973333.pdf",
+    "priority": "critical",
+    "source_type": "government",
+    "checked_at": "2026-10-25T13:52:10.908439+00:00",
+    "first_seen_at": "2026-10-25T13:54:55.970481+00:00",
+    "last_changed_at": "2026-10-25T13:54:55.970481+00:00",
+    "change_type": "new"
+  },
+  {
+    "id": "0f2905a29f1cb718c552",
+    "source": "SMC Official Recruitment",
+    "title": "Recruitment",
+    "url": "https://www.suratmunicipal.gov.in/Information/RecruitmentDashboard",
+    "priority": "critical",
+    "source_type": "government",
+    "checked_at": "2026-10-25T13:52:10.908439+00:00",
+    "first_seen_at": "2026-10-25T13:54:55.970481+00:00",
+    "last_changed_at": "2026-10-25T13:54:55.970481+00:00",
+    "change_type": "new"
+  },
+  {
+    "id": "9fb4659c700c8f4513a0",
+    "source": "SMC Official Recruitment",
+    "title": "Engineers (237 KB)",
+    "url": "https://www.suratmunicipal.gov.in/Content/Documents/rtiact/Disclosure/Town%20Development/TDO/Engineers.pdf",
+    "priority": "critical",
+    "source_type": "government",
+    "checked_at": "2026-10-25T13:52:10.908439+00:00",
+    "first_seen_at": "2026-10-25T13:54:55.970481+00:00",
+    "last_changed_at": "2026-10-25T13:54:55.970481+00:00",
+    "change_type": "new"
+  },
+  {
+    "id": "aa8325d68462f20f300d",
+    "source": "SMC Official Recruitment",
+    "title": "Check RTI Application Status",
+    "url": "https://www.suratmunicipal.gov.in/Information/RTIAppStatus",
+    "priority": "critical",
+    "source_type": "government",
+    "checked_at": "2026-10-25T13:52:10.908439+00:00",
+    "first_seen_at": "2026-10-25T13:54:55.970481+00:00",
+    "last_changed_at": "2026-10-25T13:54:55.970481+00:00",
+    "change_type": "new"
+  },
+  {
+    "id": "43ccf0fbc2f6ba8ca403",
+    "source": "SMC Official Recruitment",
+    "title": "Back to Dashboard",
+    "url": "https://www.suratmunicipal.gov.in/Information/RecruitmentDashboard",
+    "priority": "critical",
+    "source_type": "government",
+    "checked_at": "2026-10-25T13:52:10.908439+00:00",
+    "first_seen_at": "2026-10-25T13:54:55.970481+00:00",
+    "last_changed_at": "2026-10-25T13:54:55.970481+00:00",
+    "change_type": "new"
+  },
+  {
     "id": "6b88cbca1da3ef0e7c3d",
     "source": "SMC Google News Discovery",
     "title": "SMC Staff Nurse Eligibility Criteria 2026: Check Age Limit and Educational Qualificatio - FreeJobAlert.Com",

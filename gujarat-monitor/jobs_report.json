@@ -1,9 +1,9 @@
 {
   "sources_scanned": 28,
-  "links_found_this_scan": 775,
-  "new_items": 0,
+  "links_found_this_scan": 780,
+  "new_items": 5,
   "updated_items": 0,
-  "total_items": 775,
+  "total_items": 780,
   "errors": [
     {
       "source": "Ahmedabad Municipal Corporation",
@@ -105,7 +105,7 @@
     "SMC Official Recruitment",
     "SMC Official Website"
   ],
-  "smc_items": 45,
+  "smc_items": 50,
   "mode": "live_snapshot",
-  "updated_at": "2026-10-25T09:29:06.292119+00:00"
+  "updated_at": "2026-10-25T13:54:55.970481+00:00"
 }
