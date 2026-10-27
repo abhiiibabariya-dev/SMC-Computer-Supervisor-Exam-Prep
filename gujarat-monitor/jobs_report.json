@@ -1,9 +1,9 @@
 {
   "sources_scanned": 28,
-  "links_found_this_scan": 772,
-  "new_items": 0,
+  "links_found_this_scan": 776,
+  "new_items": 9,
   "updated_items": 0,
-  "total_items": 772,
+  "total_items": 776,
   "errors": [
     {
       "source": "Ahmedabad Municipal Corporation",
@@ -68,7 +68,7 @@
     {
       "source": "Gujarat Primary Education Recruitment",
       "url": "https://rte.orpgujarat.com",
-      "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1010)>"
+      "error": "HTTP Error 503: Service Unavailable"
     },
     {
       "source": "KCG Gujarat Recruitment",
@@ -101,7 +101,7 @@
     "SMC Official Recruitment",
     "SMC Official Website"
   ],
-  "smc_items": 46,
+  "smc_items": 41,
   "mode": "live_snapshot",
-  "updated_at": "2026-10-27T06:10:53.886088+00:00"
+  "updated_at": "2026-10-27T12:21:25.686236+00:00"
 }
