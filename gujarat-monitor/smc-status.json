@@ -6,33 +6,7 @@
     "https://www.suratmunicipal.gov.in/Information/RecruitmentResult",
     "https://www.suratmunicipal.gov.in/Information/SelectionWaitingList"
   ],
-  "events": [
-    {
-      "id": "smc-2026-09-06-computer-supervisor",
-      "date": "2026-09-06",
-      "status": "scheduled",
-      "title": "Supervisor (Computer) written examination",
-      "cadres": [
-        "Supervisor (Computer)",
-        "Junior Pharmacist",
-        "Assistant Auditor",
-        "Technical Officer"
-      ],
-      "source": "https://www.suratmunicipal.gov.in/Information/RecruitmentNews"
-    },
-    {
-      "id": "smc-2026-07-26-postponed",
-      "date": "2026-07-26",
-      "status": "postponed",
-      "title": "Written examination postponed",
-      "cadres": [
-        "Laboratory Technician",
-        "Third Class Clerk (Audit)",
-        "Pharmacist (GUHP)"
-      ],
-      "source": "https://www.suratmunicipal.gov.in/Information/RecruitmentNews"
-    }
-  ],
+  "events": [],
   "answer_key_available": false,
   "result_available": false,
   "selection_waiting_list_available": false,
@@ -40,18 +14,30 @@
   "application_deadline": null,
   "errors": [
     {
+      "url": "https://www.suratmunicipal.gov.in/Information/AnswerKey",
+      "error": "<urlopen error [Errno -3] Temporary failure in name resolution>"
+    },
+    {
+      "url": "https://www.suratmunicipal.gov.in/Information/RecruitmentDashboard",
+      "error": "<urlopen error [Errno -3] Temporary failure in name resolution>"
+    },
+    {
+      "url": "https://www.suratmunicipal.gov.in/Information/RecruitmentNews",
+      "error": "<urlopen error [Errno -3] Temporary failure in name resolution>"
+    },
+    {
       "url": "https://www.suratmunicipal.gov.in/Information/RecruitmentResult",
-      "error": "HTTP Error 404: Not Found"
+      "error": "<urlopen error [Errno -3] Temporary failure in name resolution>"
     },
     {
       "url": "https://www.suratmunicipal.gov.in/Information/SelectionWaitingList",
-      "error": "HTTP Error 404: Not Found"
+      "error": "<urlopen error [Errno -3] Temporary failure in name resolution>"
     }
   ],
   "source_health": {
     "sources_checked": 5,
-    "sources_ok": 3,
-    "sources_failed": 2
+    "sources_ok": 0,
+    "sources_failed": 5
   },
-  "updated_at": "2026-10-28T06:55:56.421088+00:00"
+  "updated_at": "2026-10-28T13:59:26.506544+00:00"
 }
