@@ -1,8 +1,8 @@
 {
   "region": "Gujarat",
   "focus": "Gujarat Government Jobs and SMC Recruitment",
-  "total": 794,
-  "new_items": 3,
+  "total": 793,
+  "new_items": 0,
   "updated_items": 0,
   "items": [
     {
@@ -8886,18 +8886,6 @@
       "change_type": "new"
     },
     {
-      "id": "e0b03b21461adfcd5ea5",
-      "source": "SMC Google News Discovery",
-      "title": "SMC recruitment 2026: Application starts for over 1900 posts, details here - India Today",
-      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPdmZmMVYyWWlabmFQOTYwUzlBWFlqWjZRVFJOVW92T3V1OHllbnctZVNyUXJMRUFQZW1VaVFOSkRWX0xOVXlRVUlPYzlud0N5ZWhwZHJQSHBXQnhjeTNqbDNReWV2d1FpQ0k5bHk5VVVncU85bGliOU83bUVPeDhybFpYVkRXRFBsem1HUVgzb0NneFExRmx1TDMySXRJVWJOZGZVOHVfVXItcC05ZE53cGxpVjM1V2w4ZFF2SWVVbkFfUQ?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-10-28T23:27:15.817809+00:00",
-      "first_seen_at": "2026-10-28T23:30:08.926855+00:00",
-      "last_changed_at": "2026-10-28T23:30:08.926855+00:00",
-      "change_type": "new"
-    },
-    {
       "id": "21acc615d015a946957e",
       "source": "SMC Jobs Google News Discovery 2",
       "title": "SMC Honorary Coach Recruitment 2026 – Apply Online 8 Posts - FreeJobAlert.Com",
@@ -9534,5 +9522,5 @@
       "change_type": "unchanged"
     }
   ],
-  "updated_at": "2026-10-28T23:30:08.926855+00:00"
+  "updated_at": "2026-10-29T02:46:28.613102+00:00"
 }
