@@ -36,6 +36,10 @@ jobs:
                       print(f'Warning: docs/{f} is missing, continuing anyway...', file=sys.stderr)
               if site.exists(): shutil.rmtree(site)
               shutil.copytree(source,site);(site/'.nojekyll').touch()
+              # Copy live job data to the site root so auto-live-jobs.js can fetch it
+              jobs_src = Path('gujarat-jobs.json')
+              if jobs_src.is_file():
+                  shutil.copy2(jobs_src, site / 'gujarat-jobs.json')
               home=site/'index.html';html=home.read_text(encoding='utf-8',errors='ignore')
               today=datetime.now(ZoneInfo('Asia/Kolkata')).strftime('%d %B %Y')
               html=re.sub(r'Last updated:\s*.*?\s*&middot;',f'Last updated: {today} &middot;',html,count=1,flags=re.I)
