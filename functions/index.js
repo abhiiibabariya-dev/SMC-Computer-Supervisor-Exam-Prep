@@ -26,7 +26,7 @@ async function verifyUPIPayment(txnId, amount, merchantId, apiKey) {
     // Example: Verify with a UPI payment gateway API
     // This is a template - actual implementation depends on your payment provider
     const response = await axios.post(
-      'https://api.razorpay.com/v1/payments/${txnId}', // Example endpoint
+      `https://api.razorpay.com/v1/payments/${txnId}`, // Example endpoint
       {
         transaction_id: txnId,
         amount: amount,
@@ -72,6 +72,13 @@ function createTransporter() {
   });
 }
 
+// HTML-escape user-controlled values before interpolating into email HTML
+function escHtml(v) {
+  return String(v == null ? '' : v).replace(/[&<>"']/g, c => ({
+    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+  }[c]));
+}
+
 // Send login notification email to admin
 async function sendLoginNotification(user, deviceInfo, ip) {
   if (!EMAIL_USER || !EMAIL_PASS) {
@@ -104,31 +111,31 @@ async function sendLoginNotification(user, deviceInfo, ip) {
             <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
               <tr>
                 <td style="padding: 12px; background: #1e293b; border: 1px solid #334155; font-weight: bold; color: #86efac; width: 30%;">Email</td>
-                <td style="padding: 12px; background: #1e293b; border: 1px solid #334155; color: #fff;">${user.email || 'Not provided'}</td>
+                <td style="padding: 12px; background: #1e293b; border: 1px solid #334155; color: #fff;">${escHtml(user.email || 'Not provided')}</td>
               </tr>
               <tr>
                 <td style="padding: 12px; background: #1e293b; border: 1px solid #334155; font-weight: bold; color: #86efac;">User ID</td>
-                <td style="padding: 12px; background: #1e293b; border: 1px solid #334155; color: #fff; font-family: monospace; font-size: 12px;">${user.uid}</td>
+                <td style="padding: 12px; background: #1e293b; border: 1px solid #334155; color: #fff; font-family: monospace; font-size: 12px;">${escHtml(user.uid)}</td>
               </tr>
               <tr>
                 <td style="padding: 12px; background: #1e293b; border: 1px solid #334155; font-weight: bold; color: #86efac;">Name</td>
-                <td style="padding: 12px; background: #1e293b; border: 1px solid #334155; color: #fff;">${profile.name || user.displayName || 'Not set'}</td>
+                <td style="padding: 12px; background: #1e293b; border: 1px solid #334155; color: #fff;">${escHtml(profile.name || user.displayName || 'Not set')}</td>
               </tr>
               <tr>
                 <td style="padding: 12px; background: #1e293b; border: 1px solid #334155; font-weight: bold; color: #86efac;">Mobile</td>
-                <td style="padding: 12px; background: #1e293b; border: 1px solid #334155; color: #fff;">${profile.mobile || 'Not provided'}</td>
+                <td style="padding: 12px; background: #1e293b; border: 1px solid #334155; color: #fff;">${escHtml(profile.mobile || 'Not provided')}</td>
               </tr>
               <tr>
                 <td style="padding: 12px; background: #1e293b; border: 1px solid #334155; font-weight: bold; color: #86efac;">Plan</td>
-                <td style="padding: 12px; background: #1e293b; border: 1px solid #334155; color: #fff;">${profile.planLabel || profile.plan || 'Free'}</td>
+                <td style="padding: 12px; background: #1e293b; border: 1px solid #334155; color: #fff;">${escHtml(profile.planLabel || profile.plan || 'Free')}</td>
               </tr>
               <tr>
                 <td style="padding: 12px; background: #1e293b; border: 1px solid #334155; font-weight: bold; color: #86efac;">Device</td>
-                <td style="padding: 12px; background: #1e293b; border: 1px solid #334155; color: #fff; font-size: 12px;">${deviceInfo || 'Unknown'}</td>
+                <td style="padding: 12px; background: #1e293b; border: 1px solid #334155; color: #fff; font-size: 12px;">${escHtml(deviceInfo || 'Unknown')}</td>
               </tr>
               <tr>
                 <td style="padding: 12px; background: #1e293b; border: 1px solid #334155; font-weight: bold; color: #86efac;">IP Address</td>
-                <td style="padding: 12px; background: #1e293b; border: 1px solid #334155; color: #fff; font-family: monospace;">${ip || 'Unknown'}</td>
+                <td style="padding: 12px; background: #1e293b; border: 1px solid #334155; color: #fff; font-family: monospace;">${escHtml(ip || 'Unknown')}</td>
               </tr>
               <tr>
                 <td style="padding: 12px; background: #1e293b; border: 1px solid #334155; font-weight: bold; color: #86efac;">Time (IST)</td>
@@ -214,13 +221,15 @@ exports.verifyPayment = functions.https.onCall(async (data, context) => {
       // Real verification with payment gateway
       verificationResult = await verifyUPIPayment(txnId, amount, UPI_MERCHANT_ID, UPI_API_KEY);
     } else {
-      // Development mode: simulate verification (REMOVE IN PRODUCTION)
-      console.warn('UPI credentials not configured - using DEVELOPMENT MODE verification');
-      verificationResult = {
-        success: true,
-        status: 'simulated_success',
-        rawResponse: { note: 'Development mode - replace with real verification' }
-      };
+      // Fail closed: no UPI credentials configured, so we cannot verify.
+      console.error('UPI credentials not configured - rejecting payment verification');
+      await paymentRef.update({
+        status: 'failed',
+        verificationResult: { success: false, status: 'credentials_not_configured' },
+        verifiedAt: new Date().toISOString(),
+        verifiedBy: 'system'
+      });
+      throw new functions.https.HttpsError('failed-precondition', 'Payment verification is not configured on the server. Contact the administrator.');
     }
 
     if (!verificationResult.success) {
