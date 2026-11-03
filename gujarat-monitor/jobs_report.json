@@ -1,9 +1,9 @@
 {
   "sources_scanned": 28,
-  "links_found_this_scan": 782,
-  "new_items": 1,
+  "links_found_this_scan": 781,
+  "new_items": 0,
   "updated_items": 0,
-  "total_items": 782,
+  "total_items": 781,
   "errors": [
     {
       "source": "Ahmedabad Municipal Corporation",
@@ -38,27 +38,27 @@
     {
       "source": "Gujarat Education Department",
       "url": "https://education.gujarat.gov.in",
-      "error": "<urlopen error _ssl.c:994: The handshake operation timed out>"
+      "error": "<urlopen error _ssl.c:993: The handshake operation timed out>"
     },
     {
       "source": "Gujarat Forest and Environment",
       "url": "https://forests.gujarat.gov.in",
-      "error": "<urlopen error _ssl.c:994: The handshake operation timed out>"
+      "error": "<urlopen error _ssl.c:993: The handshake operation timed out>"
     },
     {
       "source": "Gujarat Government",
       "url": "https://gujaratindia.gov.in",
-      "error": "<urlopen error _ssl.c:994: The handshake operation timed out>"
+      "error": "<urlopen error _ssl.c:993: The handshake operation timed out>"
     },
     {
       "source": "Gujarat Health Department",
       "url": "https://gujhealth.gujarat.gov.in",
-      "error": "<urlopen error _ssl.c:994: The handshake operation timed out>"
+      "error": "<urlopen error _ssl.c:993: The handshake operation timed out>"
     },
     {
       "source": "Gujarat Police",
       "url": "https://police.gujarat.gov.in",
-      "error": "<urlopen error _ssl.c:994: The handshake operation timed out>"
+      "error": "<urlopen error _ssl.c:993: The handshake operation timed out>"
     },
     {
       "source": "Gujarat Primary Education Recruitment",
@@ -99,5 +99,5 @@
   ],
   "smc_items": 54,
   "mode": "live_snapshot",
-  "updated_at": "2026-11-03T16:05:52.982539+00:00"
+  "updated_at": "2026-11-03T21:43:02.713950+00:00"
 }

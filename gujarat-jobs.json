@@ -1,8 +1,8 @@
 {
   "region": "Gujarat",
   "focus": "Gujarat Government Jobs and SMC Recruitment",
-  "total": 782,
-  "new_items": 1,
+  "total": 781,
+  "new_items": 0,
   "updated_items": 0,
   "items": [
     {
@@ -39,18 +39,6 @@
       "checked_at": "2026-11-01T18:31:15.309393+00:00",
       "first_seen_at": "2026-11-01T18:32:53.112380+00:00",
       "last_changed_at": "2026-11-01T18:32:53.112380+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "b4929822045f04d9fd27",
-      "source": "Gujarat Jobs Google News Discovery",
-      "title": "GSSSB Junior Industry Inspector Recruitment 2026 Out, Last Date To Apply Online for 60 Posts - Adda247",
-      "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOQmwwRW41YnUyRzdKcjR0aGlLQzU1bnVDOXdsOC1qaHRQSmJPbUthM3VRWnBvSFNmQ1ZZNFRoMHEzdVl3SEZ1TzQtREFrMnZ3alBhRXdqNVhQOWU5NWt2NlhOcWN4djQwZ1pPenF1UExEbkE0amticWZocVdHNldzTld0Umg4cHFGalo4VVFn?oc=5",
-      "priority": "high",
-      "source_type": "discovery",
-      "checked_at": "2026-11-01T13:31:45.445972+00:00",
-      "first_seen_at": "2026-11-01T13:33:27.336253+00:00",
-      "last_changed_at": "2026-11-01T13:33:27.336253+00:00",
       "change_type": "new"
     },
     {
@@ -9390,5 +9378,5 @@
       "change_type": "unchanged"
     }
   ],
-  "updated_at": "2026-11-03T16:05:52.982539+00:00"
+  "updated_at": "2026-11-03T21:43:02.713950+00:00"
 }
