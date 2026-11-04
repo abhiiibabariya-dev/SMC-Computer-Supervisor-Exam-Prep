@@ -1,7 +1,7 @@
 {
   "region": "Gujarat",
   "focus": "Gujarat Government Jobs and SMC Recruitment",
-  "total": 781,
+  "total": 771,
   "new_items": 0,
   "updated_items": 0,
   "items": [
@@ -15,18 +15,6 @@
       "checked_at": "2026-11-03T16:03:07.310803+00:00",
       "first_seen_at": "2026-11-03T16:05:52.982539+00:00",
       "last_changed_at": "2026-11-03T16:05:52.982539+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "9c5879539a980e938b24",
-      "source": "Gujarat Jobs Google News Discovery",
-      "title": "GSSSB Agriculture Overseer Recruitment 2026 Notification Out, Apply Online Last Date - Adda247",
-      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPQ3ZkWlF2UVpxb1h4TEI4THFqZnlfTzBpU0N0a2xHRlJnRHZEV1JTSzNpdFFpUTBtRzdiclpmU2FiemE2Y21DSnU0QVB6a3ZZajVtTDJMR3BPS0x3ZVptY2owd1dHSUFSQ3p2WVhTaGpFbFc2WXlhY3F6by1xaWEwUTJsckYyRkdyemNxUmVNQQ?oc=5",
-      "priority": "high",
-      "source_type": "discovery",
-      "checked_at": "2026-11-02T08:10:13.046586+00:00",
-      "first_seen_at": "2026-11-02T08:11:51.258364+00:00",
-      "last_changed_at": "2026-11-02T08:11:51.258364+00:00",
       "change_type": "new"
     },
     {
@@ -8730,102 +8718,6 @@
       "change_type": "unchanged"
     },
     {
-      "id": "6b88cbca1da3ef0e7c3d",
-      "source": "SMC Google News Discovery",
-      "title": "SMC Staff Nurse Eligibility Criteria 2026: Check Age Limit and Educational Qualificatio - FreeJobAlert.Com",
-      "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOTkYzMk02dHRUTDA1ME5YdFp2N3VSTFdJZS1JZnNRYzNsT2pPV0lPT1E4MXVmTnhTZVVkcEJuazJnOU9IM2dwallmaWNyM044Z3NaYzhkeTJvalZkY0YtYkRpTjJmOWhvNXdpQmUzeGZ1d1B2MEo3RzVVQlp3MEFwODlfNGNQQVhIN1E?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-11-03T07:57:34.488058+00:00",
-      "first_seen_at": "2026-11-03T08:00:21.377713+00:00",
-      "last_changed_at": "2026-11-03T08:00:21.377713+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "b54dc0900cb977945dcd",
-      "source": "SMC Google News Discovery",
-      "title": "SMC Sports Coach Recruitment 2026 - Apply Online - FreeJobAlert.Com",
-      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOemxMMWd5U0cydmhkd1hZTy1qMkwwbWVpZmg2UU1CbUU3cWpnVlpIcmpjY3YtTjktcExwYTNtMTNnY1JHOHBPcjZlWmFpeGYwbmVSRWRtUEQ3RC1pdm9wRUoyNzY2Z2dsQjNkNjFhcmd3cG9JQ2ZLOU8xcDdmam9PMXJ0d2ZQUkZjUjE5VzBDNFpjeng0ZkRZ?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-11-03T07:57:34.488058+00:00",
-      "first_seen_at": "2026-11-03T08:00:21.377713+00:00",
-      "last_changed_at": "2026-11-03T08:00:21.377713+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "a7e297f7a15e0c93f15e",
-      "source": "SMC Google News Discovery",
-      "title": "SMC Senior Residents Recruitment 2026 - Walkin for 30 Posts - FreeJobAlert.Com",
-      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOenJYcW9FVERhV2szRGUyUUJObEdGMmRDdzdJd1FuLXczY3RCN281bDVLMEt4ZmtLMkxmdGthWm5ERXRwNlRGNVRPaGd0Qzd5aGdJOUh3X1NIM3RiXzY5WWxnNzBTaU5uMHRPNjRnV2ROeHJwQWlUWVVXM3JrWmFiMDFKRXZIV3BvTzVMRW5fcXZRVFpheWJxbHNfMERCZE81QlVJRmx3?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-11-03T07:57:34.488058+00:00",
-      "first_seen_at": "2026-11-03T08:00:21.377713+00:00",
-      "last_changed_at": "2026-11-03T08:00:21.377713+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "d71ea7f5b2a21e84e117",
-      "source": "SMC Google News Discovery",
-      "title": "SMC Recruitment 2026 – Apply Online for 18 Supervisor, Assistant Engineer and More Posts - FreeJobAlert.Com",
-      "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxOS0hRMk5ycnFZUE5FdnpvQWJIQnlqUVR6RGZUWDg5X1ZQRVBjdWRIODVxSTZOMTRlX0F2NUVOQnJLZW5fUUFxaWVDMXYyclZZNV9zTUFvVVlyNHd0MGQ5V1pQQ2labm5NSkhUNHd4bXY2S21vUWo0STFHUV9DWm9PandQOGhVZ1N4S1kzSDRLNGJKdXh4b1l1cVhFdmNfLU1UQUVYTDZlOGJQQ1FGWGlLVUcyNHpCX2ZDSF9jQnl4dGNzWENuXzRXOXpYMA?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-11-03T07:57:34.488058+00:00",
-      "first_seen_at": "2026-11-03T08:00:21.377713+00:00",
-      "last_changed_at": "2026-11-03T08:00:21.377713+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "d252d808fe084550584e",
-      "source": "SMC Google News Discovery",
-      "title": "SMC Planning Assistant Recruitment 2026 - Apply Online for 88 Posts - FreeJobAlert.Com",
-      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQMUJnMi11MVc3a0FjQmd1OW9Ham9NMHEtbHFGSm9QS05Vb01PWTZvOXBraVBCWE14bDdkVHQ2ZE1wTVZEUWhxOFBrX19pZGtfT1pBaDYzVjhsdWpLczZiaDhZLWxhd1paRVJaR1dONmVsejFOcGFLVjBHd1F6dW1kUmRRbVR2ZHdGd2tlazVldGJtS1dNdEVoOEhSN3RBT05tX08xdEVSUWxDMW14WXhrbQ?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-11-03T07:57:34.488058+00:00",
-      "first_seen_at": "2026-11-03T08:00:21.377713+00:00",
-      "last_changed_at": "2026-11-03T08:00:21.377713+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "0c64d0b43f70703327f7",
-      "source": "SMC Google News Discovery",
-      "title": "SMC Honorary Coach Recruitment 2026 – Apply Online 8 Posts - FreeJobAlert.Com",
-      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOaC13VG95ZUJ4UlBPQWJLOHhYd0FEejZqcGR3Sno3VGJBb3NyTWxVLUZCSGh5QTBYcEI3Snhfb2lsblBQd3RoMzlpSWRsV0tOYXN3QzhaR1FldG00RDUtTWx6ZmJJRmtIRXFZejduTVgyLWRrUFNaWXhuXzl6aTBkM25CWEtPVVpoZFVnNWhyNlgzWVRxVGlRdk9jSm4yYy02UXhocA?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-11-03T07:57:34.488058+00:00",
-      "first_seen_at": "2026-11-03T08:00:21.377713+00:00",
-      "last_changed_at": "2026-11-03T08:00:21.377713+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "6106f6194fc025722a74",
-      "source": "SMC Google News Discovery",
-      "title": "SMC Biomedical Engineer Recruitment 2026 - Apply Online - FreeJobAlert.Com",
-      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNSVhnVGgtMF92cF80NkdYV1VwQ0NZdGlVSjdDMXhCNldOZUVoaWhnZTFnN2hscGdMR3RHMVRJbGRMbzNlTWF4Mmh3QWJ4LXNpUmM0Z3ZxbER0VTZ4dG11QURwa1E0dENnazRBczBRLUdUZWZUdmphUVg0eTRDdXZJVDJ6elhnd0ljR0JIdHpLWG1nbnhlT0taT1VqVjRVWDN1?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-11-03T07:57:34.488058+00:00",
-      "first_seen_at": "2026-11-03T08:00:21.377713+00:00",
-      "last_changed_at": "2026-11-03T08:00:21.377713+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "410f653b35a133b2333e",
-      "source": "SMC Google News Discovery",
-      "title": "SMC Apprentice Recruitment 2026 Notification Out – Apply Online for Apprentice Posts - Careers360",
-      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQdUViWkw0ZWZzSnBid3RRa1c5S0FfbERJdkc1MWthU0swODV5a18wRWllVHZpV00xNmZ5cnE0VTBucTRHNWRLYVNXcUIxWHoteGdBcnFtdERQSEJoSXdlOHliRm9ac0RyU1BMcFZ5cDg5NHRVMHAxTVhDd2JCZUZzNg?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-11-03T07:57:34.488058+00:00",
-      "first_seen_at": "2026-11-03T08:00:21.377713+00:00",
-      "last_changed_at": "2026-11-03T08:00:21.377713+00:00",
-      "change_type": "new"
-    },
-    {
       "id": "2c8aa0118bad92e39767",
       "source": "SMC Google News Discovery",
       "title": "Surat Municipal Corporation Recruitment 2026 - Apply Online for 10 Staff Nurse, Lab Technician Posts - FreeJobAlert.Com",
@@ -9003,18 +8895,6 @@
       "checked_at": "2026-10-17T22:34:33.611125+00:00",
       "first_seen_at": "2026-10-17T22:36:28.550382+00:00",
       "last_changed_at": "2026-10-17T22:36:28.550382+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "d9701c46bd515b28c619",
-      "source": "SMC Jobs Google News Discovery 2",
-      "title": "SMC Biomedical Engineer Recruitment 2026 - Apply Online - FreeJobAlert.Com",
-      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNSVhnVGgtMF92cF80NkdYV1VwQ0NZdGlVSjdDMXhCNldOZUVoaWhnZTFnN2hscGdMR3RHMVRJbGRMbzNlTWF4Mmh3QWJ4LXNpUmM0Z3ZxbER0VTZ4dG11QURwa1E0dENnazRBczBRLUdUZWZUdmphUVg0eTRDdXZJVDJ6elhnd0ljR0JIdHpLWG1nbnhlT0taT1VqVjRVWDN1?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-10-15T23:14:27.851751+00:00",
-      "first_seen_at": "2026-10-15T23:16:06.639121+00:00",
-      "last_changed_at": "2026-10-15T23:16:06.639121+00:00",
       "change_type": "new"
     },
     {
@@ -9378,5 +9258,5 @@
       "change_type": "unchanged"
     }
   ],
-  "updated_at": "2026-11-03T21:43:02.713950+00:00"
+  "updated_at": "2026-11-04T01:44:24.868056+00:00"
 }
