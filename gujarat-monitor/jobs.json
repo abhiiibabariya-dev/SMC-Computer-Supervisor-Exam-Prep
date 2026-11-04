@@ -84,18 +84,6 @@
     "change_type": "new"
   },
   {
-    "id": "221d9f0a2f29cd7884f8",
-    "source": "Jamnagar Municipal Corporation",
-    "title": "View Details",
-    "url": "https://mcjamnagar.com/jmcForms/req/SVACHCHHATA_MARSHALL_MERIT.pdf",
-    "priority": "high",
-    "source_type": "municipal",
-    "checked_at": "2026-10-27T12:19:50.313144+00:00",
-    "first_seen_at": "2026-10-27T12:21:25.686236+00:00",
-    "last_changed_at": "2026-10-27T12:21:25.686236+00:00",
-    "change_type": "new"
-  },
-  {
     "id": "25b2542e8b618b281e83",
     "source": "Gujarat Jobs Google News Discovery",
     "title": "GSSSB Staff Nurse (Ayurveda) Recruitment 2026 Notification Out - Apply Online for 90 Posts - FreeJobAlert.Com",
@@ -8722,6 +8710,66 @@
     "first_seen_at": "2026-08-18T15:37:57.055545+00:00",
     "last_changed_at": "2026-08-19T18:45:21.268903+00:00",
     "change_type": "unchanged"
+  },
+  {
+    "id": "1d1fa6255e8cca43d986",
+    "source": "SMC Official Recruitment",
+    "title": "View More",
+    "url": "https://www.suratmunicipal.gov.in/Contents/Jobs/Opening/1973333.pdf",
+    "priority": "critical",
+    "source_type": "government",
+    "checked_at": "2026-11-04T21:54:59.409016+00:00",
+    "first_seen_at": "2026-11-04T21:57:44.867735+00:00",
+    "last_changed_at": "2026-11-04T21:57:44.867735+00:00",
+    "change_type": "new"
+  },
+  {
+    "id": "0f2905a29f1cb718c552",
+    "source": "SMC Official Recruitment",
+    "title": "Recruitment",
+    "url": "https://www.suratmunicipal.gov.in/Information/RecruitmentDashboard",
+    "priority": "critical",
+    "source_type": "government",
+    "checked_at": "2026-11-04T21:54:59.409016+00:00",
+    "first_seen_at": "2026-11-04T21:57:44.867735+00:00",
+    "last_changed_at": "2026-11-04T21:57:44.867735+00:00",
+    "change_type": "new"
+  },
+  {
+    "id": "9fb4659c700c8f4513a0",
+    "source": "SMC Official Recruitment",
+    "title": "Engineers (237 KB)",
+    "url": "https://www.suratmunicipal.gov.in/Content/Documents/rtiact/Disclosure/Town%20Development/TDO/Engineers.pdf",
+    "priority": "critical",
+    "source_type": "government",
+    "checked_at": "2026-11-04T21:54:59.409016+00:00",
+    "first_seen_at": "2026-11-04T21:57:44.867735+00:00",
+    "last_changed_at": "2026-11-04T21:57:44.867735+00:00",
+    "change_type": "new"
+  },
+  {
+    "id": "aa8325d68462f20f300d",
+    "source": "SMC Official Recruitment",
+    "title": "Check RTI Application Status",
+    "url": "https://www.suratmunicipal.gov.in/Information/RTIAppStatus",
+    "priority": "critical",
+    "source_type": "government",
+    "checked_at": "2026-11-04T21:54:59.409016+00:00",
+    "first_seen_at": "2026-11-04T21:57:44.867735+00:00",
+    "last_changed_at": "2026-11-04T21:57:44.867735+00:00",
+    "change_type": "new"
+  },
+  {
+    "id": "43ccf0fbc2f6ba8ca403",
+    "source": "SMC Official Recruitment",
+    "title": "Back to Dashboard",
+    "url": "https://www.suratmunicipal.gov.in/Information/RecruitmentDashboard",
+    "priority": "critical",
+    "source_type": "government",
+    "checked_at": "2026-11-04T21:54:59.409016+00:00",
+    "first_seen_at": "2026-11-04T21:57:44.867735+00:00",
+    "last_changed_at": "2026-11-04T21:57:44.867735+00:00",
+    "change_type": "new"
   },
   {
     "id": "2c8aa0118bad92e39767",
