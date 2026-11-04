@@ -1,6 +1,6 @@
 {
-  "total_items": 771,
-  "new_items": 0,
+  "total_items": 773,
+  "new_items": 2,
   "updated_items": 0,
   "errors": [
     {
@@ -81,5 +81,5 @@
   ],
   "empty_sources": [],
   "mode": "live_snapshot",
-  "last_run": "2026-11-04T01:44:24.868056+00:00"
+  "last_run": "2026-11-04T08:07:02.937998+00:00"
 }
