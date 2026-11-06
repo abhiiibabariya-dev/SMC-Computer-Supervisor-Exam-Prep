@@ -1,10 +1,22 @@
 {
   "region": "Gujarat",
   "focus": "Gujarat Government Jobs and SMC Recruitment",
-  "total": 775,
+  "total": 776,
   "new_items": 3,
   "updated_items": 0,
   "items": [
+    {
+      "id": "45e4052fd5be0acf3741",
+      "source": "Gujarat Jobs Google News Discovery",
+      "title": "GSSSB Physiotherapist Recruitment 2026 - Apply Online for 138 Posts - FreeJobAlert.Com",
+      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPUVNkb0hFVGEtN2xwSVJiUlUyNkpXN28zaEVwNDdnenotMGJnT0xHNmM4YTllTVEtRDdJZndwb25oU3QtU3kwZ0dsd0JxYy01bjlVeE1hVzAwY0R4T3Z4ck5fdjl4Zm05aE9LNjFKMmI4TUZEcndyMU43MENja1J3Uy1rWUpKRnZmaU5JdmdKU1lyN3lHcEN3NlI3d0I0UWY0d1loSEQ5ZjN0TEFCbjkxdQ?oc=5",
+      "priority": "high",
+      "source_type": "discovery",
+      "checked_at": "2026-11-06T22:11:43.216615+00:00",
+      "first_seen_at": "2026-11-06T22:13:22.173201+00:00",
+      "last_changed_at": "2026-11-06T22:13:22.173201+00:00",
+      "change_type": "new"
+    },
     {
       "id": "5746dc1bfdb010a2e2c6",
       "source": "Gujarat Jobs Google News Discovery",
@@ -8718,6 +8730,30 @@
       "change_type": "unchanged"
     },
     {
+      "id": "863d1cb66639b16487da",
+      "source": "SMC Google News Discovery",
+      "title": "SMC Recruitment 2026: Walk-in for 8 Vacancies - FreeJobAlert.Com",
+      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQM2hqUDQ2Q1czRVQ1WFpmRnBqQ0N3bV92ZkFOdk1xNk00Q2trcUpROVhVdjBnU2FFVnlxenBNUExIa19nV1hrMnJUWTNIamhJZ20yQVBsckstR0ZEQVNLdGx6RUJ5ajdxeEZfeVVZeUlvWUQycHJYSS1fd1FxNDZfZkxWcEh4RThETjdzcFE5Q0lHWUROVWJV?oc=5",
+      "priority": "critical",
+      "source_type": "discovery",
+      "checked_at": "2026-11-06T22:10:35.093260+00:00",
+      "first_seen_at": "2026-11-06T22:13:22.173201+00:00",
+      "last_changed_at": "2026-11-06T22:13:22.173201+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "cae1f3ba812f41a5fb0f",
+      "source": "SMC Google News Discovery",
+      "title": "SMC Faculty Recruitment 2026 – Apply Online for 23 Associate Professor, Assistant Professor Posts - FreeJobAlert.Com",
+      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNQjRjbGl1VEkyMmpnaDcxSGxPSVBJQ05fZHp2bklIb2VTWGtQeDBEQUducE5zMjZRRktXdEgtd2p4ckhwZ0xtcmJ1STNzWXZuYmlsQVEzTEQtUHZ6LTRteFg5VE1SOUFqaUpFVlZMMTJjVk9nNVRGc0I2XzhpbTIweG5mZ3hHVWVqV01FWmc0T0dhWjNKVTFGR1h1cDZ1aFdkdXJjNXVvbUxlZw?oc=5",
+      "priority": "critical",
+      "source_type": "discovery",
+      "checked_at": "2026-11-06T22:10:35.093260+00:00",
+      "first_seen_at": "2026-11-06T22:13:22.173201+00:00",
+      "last_changed_at": "2026-11-06T22:13:22.173201+00:00",
+      "change_type": "new"
+    },
+    {
       "id": "a88a2da4381d4122799f",
       "source": "SMC Official Recruitment",
       "title": "View More",
@@ -8919,30 +8955,6 @@
       "checked_at": "2026-10-19T05:57:29.631204+00:00",
       "first_seen_at": "2026-10-19T05:59:24.857652+00:00",
       "last_changed_at": "2026-10-19T05:59:24.857652+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "2c2988010c4e01c6f93e",
-      "source": "SMC Jobs Google News Discovery 2",
-      "title": "Surat Municipal Corporation Draftsman Recruitment 2026 - Apply Online - FreeJobAlert.Com",
-      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNU21UVkFISzMtSklyOE5YdVF4VGhpSUlMVHlnSXBldnBscU5ZWFRGcXBsdHYzWkdVMHZNaW1rY3RTTlNMQ1RwNWpXaW9ta3hiRXJvV1R0dkZsUF9ncFpwRGpMM2pERUdqc0IyZjZpV0U0WW1PUlRWZk54cU1LM19EUzFzWEQxVDZPWkYzQVIzQnJiRjdWMjBJMnYzUWVURW11TXJfNU9hQzVFNUl6bVhuYnFIQkt3d1c4VXRqcGIyYi10cjB4?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-10-17T22:35:39.437810+00:00",
-      "first_seen_at": "2026-10-17T22:36:28.550382+00:00",
-      "last_changed_at": "2026-10-17T22:36:28.550382+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "d99f0663cec6141a3c38",
-      "source": "SMC Google News Discovery",
-      "title": "Surat Municipal Corporation Draftsman Recruitment 2026 - Apply Online - FreeJobAlert.Com",
-      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNU21UVkFISzMtSklyOE5YdVF4VGhpSUlMVHlnSXBldnBscU5ZWFRGcXBsdHYzWkdVMHZNaW1rY3RTTlNMQ1RwNWpXaW9ta3hiRXJvV1R0dkZsUF9ncFpwRGpMM2pERUdqc0IyZjZpV0U0WW1PUlRWZk54cU1LM19EUzFzWEQxVDZPWkYzQVIzQnJiRjdWMjBJMnYzUWVURW11TXJfNU9hQzVFNUl6bVhuYnFIQkt3d1c4VXRqcGIyYi10cjB4?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-10-17T22:34:33.611125+00:00",
-      "first_seen_at": "2026-10-17T22:36:28.550382+00:00",
-      "last_changed_at": "2026-10-17T22:36:28.550382+00:00",
       "change_type": "new"
     },
     {
@@ -9306,5 +9318,5 @@
       "change_type": "unchanged"
     }
   ],
-  "updated_at": "2026-11-06T17:23:43.664610+00:00"
+  "updated_at": "2026-11-06T22:13:22.173201+00:00"
 }
