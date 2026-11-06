@@ -1,5 +1,17 @@
 [
   {
+    "id": "5746dc1bfdb010a2e2c6",
+    "source": "Gujarat Jobs Google News Discovery",
+    "title": "GSSSB Staff Nurse Recruitment 2026 Notification Out - Apply Online for 131 Posts - FreeJobAlert.Com",
+    "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPbTQ4dlF0SFNWNktRbnhUX3B0SXAyMlNkaTZWSDRBZzU3N1RxU2cwVHJodTlXQndlb05ldUZldDhfVGlVV2V0QUUxeWZVdG40eVBVM3JwYzJJZ0NqS0p4OFI3ck45X1JOelo4ODVTNWg5X2JZckNaeU80eW82LWZNTElrbWFFdWlVTDZOeF9wMzg2OG1CSXBDM3Z5TC1qMFFfQ1RHZEo4MmRwUGs?oc=5",
+    "priority": "high",
+    "source_type": "discovery",
+    "checked_at": "2026-11-06T17:22:03.995645+00:00",
+    "first_seen_at": "2026-11-06T17:23:43.664610+00:00",
+    "last_changed_at": "2026-11-06T17:23:43.664610+00:00",
+    "change_type": "new"
+  },
+  {
     "id": "7b20bc84c48a2edb3646",
     "source": "Gujarat Jobs Google News Discovery",
     "title": "GSSSB CCE 2.0 Recruitment 2026, Apply Online for 1,237 Group A & B Posts - Adda247",
@@ -333,18 +345,6 @@
     "checked_at": "2026-10-16T11:31:02.028022+00:00",
     "first_seen_at": "2026-10-16T11:31:55.170663+00:00",
     "last_changed_at": "2026-10-16T11:31:55.170663+00:00",
-    "change_type": "new"
-  },
-  {
-    "id": "45e4052fd5be0acf3741",
-    "source": "Gujarat Jobs Google News Discovery",
-    "title": "GSSSB Physiotherapist Recruitment 2026 - Apply Online for 138 Posts - FreeJobAlert.Com",
-    "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPUVNkb0hFVGEtN2xwSVJiUlUyNkpXN28zaEVwNDdnenotMGJnT0xHNmM4YTllTVEtRDdJZndwb25oU3QtU3kwZ0dsd0JxYy01bjlVeE1hVzAwY0R4T3Z4ck5fdjl4Zm05aE9LNjFKMmI4TUZEcndyMU43MENja1J3Uy1rWUpKRnZmaU5JdmdKU1lyN3lHcEN3NlI3d0I0UWY0d1loSEQ5ZjN0TEFCbjkxdQ?oc=5",
-    "priority": "high",
-    "source_type": "discovery",
-    "checked_at": "2026-10-16T06:17:51.456836+00:00",
-    "first_seen_at": "2026-10-16T06:19:29.868128+00:00",
-    "last_changed_at": "2026-10-16T06:19:29.868128+00:00",
     "change_type": "new"
   },
   {
@@ -8710,6 +8710,30 @@
     "first_seen_at": "2026-08-18T15:37:57.055545+00:00",
     "last_changed_at": "2026-08-19T18:45:21.268903+00:00",
     "change_type": "unchanged"
+  },
+  {
+    "id": "a88a2da4381d4122799f",
+    "source": "SMC Official Recruitment",
+    "title": "View More",
+    "url": "https://www.suratmunicipal.gov.in/Contents/Jobs/Opening/1239012.pdf",
+    "priority": "critical",
+    "source_type": "government",
+    "checked_at": "2026-11-06T17:20:58.425927+00:00",
+    "first_seen_at": "2026-11-06T17:23:43.664610+00:00",
+    "last_changed_at": "2026-11-06T17:23:43.664610+00:00",
+    "change_type": "new"
+  },
+  {
+    "id": "17d842d98b5049ed0f79",
+    "source": "SMC Official Recruitment",
+    "title": "View More",
+    "url": "https://www.suratmunicipal.gov.in/Contents/Jobs/Opening/1064762.pdf",
+    "priority": "critical",
+    "source_type": "government",
+    "checked_at": "2026-11-06T17:20:58.425927+00:00",
+    "first_seen_at": "2026-11-06T17:23:43.664610+00:00",
+    "last_changed_at": "2026-11-06T17:23:43.664610+00:00",
+    "change_type": "new"
   },
   {
     "id": "b49b08794f2e103ada04",
