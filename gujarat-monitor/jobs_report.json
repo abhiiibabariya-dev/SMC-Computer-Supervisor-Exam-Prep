@@ -1,9 +1,9 @@
 {
   "sources_scanned": 28,
-  "links_found_this_scan": 776,
-  "new_items": 3,
+  "links_found_this_scan": 777,
+  "new_items": 2,
   "updated_items": 0,
-  "total_items": 776,
+  "total_items": 777,
   "errors": [
     {
       "source": "Ahmedabad Municipal Corporation",
@@ -33,7 +33,7 @@
     {
       "source": "Gandhinagar Municipal Corporation",
       "url": "https://gandhinagarmunicipal.com/recruitment/",
-      "error": "HTTP Error 403: Forbidden"
+      "error": "<urlopen error [Errno 101] Network is unreachable>"
     },
     {
       "source": "Gujarat Education Department",
@@ -97,7 +97,7 @@
     "SMC Official Recruitment",
     "SMC Official Website"
   ],
-  "smc_items": 49,
+  "smc_items": 50,
   "mode": "live_snapshot",
-  "updated_at": "2026-11-06T22:13:22.173201+00:00"
+  "updated_at": "2026-11-07T02:00:42.386456+00:00"
 }
