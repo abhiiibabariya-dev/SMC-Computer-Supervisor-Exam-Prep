@@ -1,8 +1,8 @@
 {
   "region": "Gujarat",
   "focus": "Gujarat Government Jobs and SMC Recruitment",
-  "total": 776,
-  "new_items": 2,
+  "total": 774,
+  "new_items": 0,
   "updated_items": 0,
   "items": [
     {
@@ -8730,30 +8730,6 @@
       "change_type": "unchanged"
     },
     {
-      "id": "4fad085206b137cff13b",
-      "source": "SMC Jobs Google News Discovery 2",
-      "title": "Surat Municipal Corporation Senior Residents Recruitment 2026 – Walk in for 29 Posts - FreeJobAlert.Com",
-      "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPTlZuaDNVdlNnSWUtRmtLaEg5OTNCbWhaeUpLNHFZSTBKMjM3RU8zUnp0Mi1DeGttaUUwZEJWOTM0X25PWWdqNzZmeEF6QXNBTS1jNEd1RFF1cHlYc3BveUdfMHNaeDF2c25pa2ZhYjJQU0hQLVNKMDhvcHJ3UGdzb3hkRW1XdHhrdVFITWtBQlFrMVd1azdOeHVXVGNNcFBtVEpWTDNoOTFCMHBhWXZyN0FtT3pWX1dRRkZ2ZGNqWFM3UlRyRXdR?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-11-07T19:28:25.124752+00:00",
-      "first_seen_at": "2026-11-07T19:30:02.188066+00:00",
-      "last_changed_at": "2026-11-07T19:30:02.188066+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "55d43b08c40ab5abbfd3",
-      "source": "SMC Google News Discovery",
-      "title": "Surat Municipal Corporation Senior Residents Recruitment 2026 – Walk in for 29 Posts - FreeJobAlert.Com",
-      "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPTlZuaDNVdlNnSWUtRmtLaEg5OTNCbWhaeUpLNHFZSTBKMjM3RU8zUnp0Mi1DeGttaUUwZEJWOTM0X25PWWdqNzZmeEF6QXNBTS1jNEd1RFF1cHlYc3BveUdfMHNaeDF2c25pa2ZhYjJQU0hQLVNKMDhvcHJ3UGdzb3hkRW1XdHhrdVFITWtBQlFrMVd1azdOeHVXVGNNcFBtVEpWTDNoOTFCMHBhWXZyN0FtT3pWX1dRRkZ2ZGNqWFM3UlRyRXdR?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-11-07T19:27:14.461694+00:00",
-      "first_seen_at": "2026-11-07T19:30:02.188066+00:00",
-      "last_changed_at": "2026-11-07T19:30:02.188066+00:00",
-      "change_type": "new"
-    },
-    {
       "id": "863d1cb66639b16487da",
       "source": "SMC Google News Discovery",
       "title": "SMC Recruitment 2026: Walk-in for 8 Vacancies - FreeJobAlert.Com",
@@ -9318,5 +9294,5 @@
       "change_type": "unchanged"
     }
   ],
-  "updated_at": "2026-11-07T19:30:02.188066+00:00"
+  "updated_at": "2026-11-07T22:58:23.374174+00:00"
 }
