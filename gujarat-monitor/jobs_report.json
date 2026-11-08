@@ -1,9 +1,9 @@
 {
   "sources_scanned": 28,
-  "links_found_this_scan": 774,
+  "links_found_this_scan": 775,
   "new_items": 1,
   "updated_items": 0,
-  "total_items": 774,
+  "total_items": 775,
   "errors": [
     {
       "source": "Ahmedabad Municipal Corporation",
@@ -66,11 +66,6 @@
       "error": "HTTP Error 503: Service Unavailable"
     },
     {
-      "source": "Jamnagar Municipal Corporation",
-      "url": "https://mcjamnagar.com/information/recruitment.aspx",
-      "error": "<urlopen error timed out>"
-    },
-    {
       "source": "KCG Gujarat Recruitment",
       "url": "https://kcg.gujarat.gov.in/recruitments",
       "error": "The read operation timed out"
@@ -95,13 +90,14 @@
     "Gujarat Jobs Google News Discovery",
     "Gujarat Social Justice & Empowerment",
     "Gyan Sahayak Gujarat",
+    "Jamnagar Municipal Corporation",
     "Rajkot Municipal Corporation",
     "SMC Google News Discovery",
     "SMC Jobs Google News Discovery 2",
     "SMC Official Recruitment",
     "SMC Official Website"
   ],
-  "smc_items": 47,
+  "smc_items": 48,
   "mode": "live_snapshot",
-  "updated_at": "2026-11-08T02:18:35.925243+00:00"
+  "updated_at": "2026-11-08T09:06:09.714390+00:00"
 }
