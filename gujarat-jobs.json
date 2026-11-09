@@ -1,8 +1,8 @@
 {
   "region": "Gujarat",
   "focus": "Gujarat Government Jobs and SMC Recruitment",
-  "total": 776,
-  "new_items": 3,
+  "total": 775,
+  "new_items": 0,
   "updated_items": 0,
   "items": [
     {
@@ -8754,18 +8754,6 @@
       "change_type": "new"
     },
     {
-      "id": "d9701c46bd515b28c619",
-      "source": "SMC Jobs Google News Discovery 2",
-      "title": "SMC Biomedical Engineer Recruitment 2026 - Apply Online - FreeJobAlert.Com",
-      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNSVhnVGgtMF92cF80NkdYV1VwQ0NZdGlVSjdDMXhCNldOZUVoaWhnZTFnN2hscGdMR3RHMVRJbGRMbzNlTWF4Mmh3QWJ4LXNpUmM0Z3ZxbER0VTZ4dG11QURwa1E0dENnazRBczBRLUdUZWZUdmphUVg0eTRDdXZJVDJ6elhnd0ljR0JIdHpLWG1nbnhlT0taT1VqVjRVWDN1?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-11-09T11:16:54.467794+00:00",
-      "first_seen_at": "2026-11-09T11:18:30.433741+00:00",
-      "last_changed_at": "2026-11-09T11:18:30.433741+00:00",
-      "change_type": "new"
-    },
-    {
       "id": "55d43b08c40ab5abbfd3",
       "source": "SMC Google News Discovery",
       "title": "Surat Municipal Corporation Senior Residents Recruitment 2026 – Walk in for 29 Posts - FreeJobAlert.Com",
@@ -9318,5 +9306,5 @@
       "change_type": "unchanged"
     }
   ],
-  "updated_at": "2026-11-09T11:18:30.433741+00:00"
+  "updated_at": "2026-11-09T21:30:50.373458+00:00"
 }
