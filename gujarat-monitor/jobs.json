@@ -8724,6 +8724,42 @@
     "change_type": "unchanged"
   },
   {
+    "id": "7525f73354d6be848281",
+    "source": "SMC Official Recruitment",
+    "title": "Apply Now",
+    "url": "https://www.suratmunicipal.gov.in/Information/RecruitmentDashboard",
+    "priority": "critical",
+    "source_type": "government",
+    "checked_at": "2026-11-09T11:15:44.813167+00:00",
+    "first_seen_at": "2026-11-09T11:18:30.433741+00:00",
+    "last_changed_at": "2026-11-09T11:18:30.433741+00:00",
+    "change_type": "new"
+  },
+  {
+    "id": "c75aed7d49fb402ffdb6",
+    "source": "SMC Jobs Google News Discovery 2",
+    "title": "SMC Recruitment 2026 – Apply Online for 18 Supervisor, Assistant Engineer and More Posts - FreeJobAlert.Com",
+    "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxOS0hRMk5ycnFZUE5FdnpvQWJIQnlqUVR6RGZUWDg5X1ZQRVBjdWRIODVxSTZOMTRlX0F2NUVOQnJLZW5fUUFxaWVDMXYyclZZNV9zTUFvVVlyNHd0MGQ5V1pQQ2labm5NSkhUNHd4bXY2S21vUWo0STFHUV9DWm9PandQOGhVZ1N4S1kzSDRLNGJKdXh4b1l1cVhFdmNfLU1UQUVYTDZlOGJQQ1FGWGlLVUcyNHpCX2ZDSF9jQnl4dGNzWENuXzRXOXpYMA?oc=5",
+    "priority": "critical",
+    "source_type": "discovery",
+    "checked_at": "2026-11-09T11:16:54.467794+00:00",
+    "first_seen_at": "2026-11-09T11:18:30.433741+00:00",
+    "last_changed_at": "2026-11-09T11:18:30.433741+00:00",
+    "change_type": "new"
+  },
+  {
+    "id": "d9701c46bd515b28c619",
+    "source": "SMC Jobs Google News Discovery 2",
+    "title": "SMC Biomedical Engineer Recruitment 2026 - Apply Online - FreeJobAlert.Com",
+    "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNSVhnVGgtMF92cF80NkdYV1VwQ0NZdGlVSjdDMXhCNldOZUVoaWhnZTFnN2hscGdMR3RHMVRJbGRMbzNlTWF4Mmh3QWJ4LXNpUmM0Z3ZxbER0VTZ4dG11QURwa1E0dENnazRBczBRLUdUZWZUdmphUVg0eTRDdXZJVDJ6elhnd0ljR0JIdHpLWG1nbnhlT0taT1VqVjRVWDN1?oc=5",
+    "priority": "critical",
+    "source_type": "discovery",
+    "checked_at": "2026-11-09T11:16:54.467794+00:00",
+    "first_seen_at": "2026-11-09T11:18:30.433741+00:00",
+    "last_changed_at": "2026-11-09T11:18:30.433741+00:00",
+    "change_type": "new"
+  },
+  {
     "id": "55d43b08c40ab5abbfd3",
     "source": "SMC Google News Discovery",
     "title": "Surat Municipal Corporation Senior Residents Recruitment 2026 – Walk in for 29 Posts - FreeJobAlert.Com",
@@ -9153,18 +9189,6 @@
     "checked_at": "2026-10-03T12:35:53.105717+00:00",
     "first_seen_at": "2026-10-03T12:38:39.820201+00:00",
     "last_changed_at": "2026-10-03T12:38:39.820201+00:00",
-    "change_type": "new"
-  },
-  {
-    "id": "bdf34296e275ca241cc8",
-    "source": "SMC Jobs Google News Discovery 2",
-    "title": "SMC Senior Residents Recruitment 2026 - Walkin for 30 Posts - FreeJobAlert.Com",
-    "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOenJYcW9FVERhV2szRGUyUUJObEdGMmRDdzdJd1FuLXczY3RCN281bDVLMEt4ZmtLMkxmdGthWm5ERXRwNlRGNVRPaGd0Qzd5aGdJOUh3X1NIM3RiXzY5WWxnNzBTaU5uMHRPNjRnV2ROeHJwQWlUWVVXM3JrWmFiMDFKRXZIV3BvTzVMRW5fcXZRVFpheWJxbHNfMERCZE81QlVJRmx3?oc=5",
-    "priority": "critical",
-    "source_type": "discovery",
-    "checked_at": "2026-10-03T07:09:09.277455+00:00",
-    "first_seen_at": "2026-10-03T07:10:46.405107+00:00",
-    "last_changed_at": "2026-10-03T07:10:46.405107+00:00",
     "change_type": "new"
   },
   {
