@@ -1,8 +1,8 @@
 {
   "region": "Gujarat",
   "focus": "Gujarat Government Jobs and SMC Recruitment",
-  "total": 775,
-  "new_items": 0,
+  "total": 776,
+  "new_items": 1,
   "updated_items": 0,
   "items": [
     {
@@ -8730,6 +8730,18 @@
       "change_type": "unchanged"
     },
     {
+      "id": "d9701c46bd515b28c619",
+      "source": "SMC Jobs Google News Discovery 2",
+      "title": "SMC Biomedical Engineer Recruitment 2026 - Apply Online - FreeJobAlert.Com",
+      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNSVhnVGgtMF92cF80NkdYV1VwQ0NZdGlVSjdDMXhCNldOZUVoaWhnZTFnN2hscGdMR3RHMVRJbGRMbzNlTWF4Mmh3QWJ4LXNpUmM0Z3ZxbER0VTZ4dG11QURwa1E0dENnazRBczBRLUdUZWZUdmphUVg0eTRDdXZJVDJ6elhnd0ljR0JIdHpLWG1nbnhlT0taT1VqVjRVWDN1?oc=5",
+      "priority": "critical",
+      "source_type": "discovery",
+      "checked_at": "2026-11-10T03:46:07.687770+00:00",
+      "first_seen_at": "2026-11-10T03:47:45.851760+00:00",
+      "last_changed_at": "2026-11-10T03:47:45.851760+00:00",
+      "change_type": "new"
+    },
+    {
       "id": "7525f73354d6be848281",
       "source": "SMC Official Recruitment",
       "title": "Apply Now",
@@ -9306,5 +9318,5 @@
       "change_type": "unchanged"
     }
   ],
-  "updated_at": "2026-11-09T21:30:50.373458+00:00"
+  "updated_at": "2026-11-10T03:47:45.851760+00:00"
 }
