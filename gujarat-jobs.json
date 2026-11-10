@@ -1,8 +1,8 @@
 {
   "region": "Gujarat",
   "focus": "Gujarat Government Jobs and SMC Recruitment",
-  "total": 776,
-  "new_items": 1,
+  "total": 775,
+  "new_items": 0,
   "updated_items": 0,
   "items": [
     {
@@ -8754,18 +8754,6 @@
       "change_type": "new"
     },
     {
-      "id": "c75aed7d49fb402ffdb6",
-      "source": "SMC Jobs Google News Discovery 2",
-      "title": "SMC Recruitment 2026 – Apply Online for 18 Supervisor, Assistant Engineer and More Posts - FreeJobAlert.Com",
-      "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxOS0hRMk5ycnFZUE5FdnpvQWJIQnlqUVR6RGZUWDg5X1ZQRVBjdWRIODVxSTZOMTRlX0F2NUVOQnJLZW5fUUFxaWVDMXYyclZZNV9zTUFvVVlyNHd0MGQ5V1pQQ2labm5NSkhUNHd4bXY2S21vUWo0STFHUV9DWm9PandQOGhVZ1N4S1kzSDRLNGJKdXh4b1l1cVhFdmNfLU1UQUVYTDZlOGJQQ1FGWGlLVUcyNHpCX2ZDSF9jQnl4dGNzWENuXzRXOXpYMA?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-11-09T11:16:54.467794+00:00",
-      "first_seen_at": "2026-11-09T11:18:30.433741+00:00",
-      "last_changed_at": "2026-11-09T11:18:30.433741+00:00",
-      "change_type": "new"
-    },
-    {
       "id": "55d43b08c40ab5abbfd3",
       "source": "SMC Google News Discovery",
       "title": "Surat Municipal Corporation Senior Residents Recruitment 2026 – Walk in for 29 Posts - FreeJobAlert.Com",
@@ -9318,5 +9306,5 @@
       "change_type": "unchanged"
     }
   ],
-  "updated_at": "2026-11-10T03:47:45.851760+00:00"
+  "updated_at": "2026-11-10T11:52:24.657803+00:00"
 }
