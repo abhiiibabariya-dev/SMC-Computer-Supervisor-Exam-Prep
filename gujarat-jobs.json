@@ -2,9 +2,21 @@
   "region": "Gujarat",
   "focus": "Gujarat Government Jobs and SMC Recruitment",
   "total": 776,
-  "new_items": 0,
+  "new_items": 1,
   "updated_items": 0,
   "items": [
+    {
+      "id": "b4929822045f04d9fd27",
+      "source": "Gujarat Jobs Google News Discovery",
+      "title": "GSSSB Junior Industry Inspector Recruitment 2026 Out, Last Date To Apply Online for 60 Posts - Adda247",
+      "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOQmwwRW41YnUyRzdKcjR0aGlLQzU1bnVDOXdsOC1qaHRQSmJPbUthM3VRWnBvSFNmQ1ZZNFRoMHEzdVl3SEZ1TzQtREFrMnZ3alBhRXdqNVhQOWU5NWt2NlhOcWN4djQwZ1pPenF1UExEbkE0amticWZocVdHNldzTld0Umg4cHFGalo4VVFn?oc=5",
+      "priority": "high",
+      "source_type": "discovery",
+      "checked_at": "2026-11-11T13:00:09.432262+00:00",
+      "first_seen_at": "2026-11-11T13:01:45.549548+00:00",
+      "last_changed_at": "2026-11-11T13:01:45.549548+00:00",
+      "change_type": "new"
+    },
     {
       "id": "9c5879539a980e938b24",
       "source": "Gujarat Jobs Google News Discovery",
@@ -27,18 +39,6 @@
       "checked_at": "2026-11-06T22:11:43.216615+00:00",
       "first_seen_at": "2026-11-06T22:13:22.173201+00:00",
       "last_changed_at": "2026-11-06T22:13:22.173201+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "7b20bc84c48a2edb3646",
-      "source": "Gujarat Jobs Google News Discovery",
-      "title": "GSSSB CCE 2.0 Recruitment 2026, Apply Online for 1,237 Group A & B Posts - Adda247",
-      "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE9fRXNwdlpqelpweU05d3dlOUp3YnJUR0Z1bGw2TktjWm90YUsxYUN6WS1ILWp4N0NaZWdvTzFnRzJ6Z0t6ZU9sVmlYVmIwYWdaWC1ieUZaRmFDdEtKSmxDSzRERUwtTFBUTDdINGRaWXRKLTBYUDlvag?oc=5",
-      "priority": "high",
-      "source_type": "discovery",
-      "checked_at": "2026-11-05T22:49:49.492391+00:00",
-      "first_seen_at": "2026-11-05T22:51:29.191258+00:00",
-      "last_changed_at": "2026-11-05T22:51:29.191258+00:00",
       "change_type": "new"
     },
     {
@@ -9318,5 +9318,5 @@
       "change_type": "unchanged"
     }
   ],
-  "updated_at": "2026-11-11T05:53:32.891164+00:00"
+  "updated_at": "2026-11-11T13:01:45.549548+00:00"
 }
