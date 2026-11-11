@@ -1,8 +1,8 @@
 {
   "region": "Gujarat",
   "focus": "Gujarat Government Jobs and SMC Recruitment",
-  "total": 775,
-  "new_items": 0,
+  "total": 776,
+  "new_items": 1,
   "updated_items": 0,
   "items": [
     {
@@ -8730,6 +8730,18 @@
       "change_type": "unchanged"
     },
     {
+      "id": "b49b08794f2e103ada04",
+      "source": "SMC Google News Discovery",
+      "title": "SMC Recruitment 2026 – Apply Online for 70 Deputy Town Planner, Assistant Town Planner Posts - FreeJobAlert.Com",
+      "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxNODJoaEE1V2hxd295eUJ6OXVlVFNuTG1XakFSMXVQazV1M0lvQ0tuRC0tUnhnZkRGM3dYZ2U3bHVrR0VzcEZzaWFsUmVqZGpYNU5NZGJCUUhMMGh0SDd0VklxdU5CNFBTQXRyVENGeUU1S3p5b3QxY1lOVUNxeGl3cnpmcTAwT1ZlN2RVZzRrbDZsbGJCNUZMd09td1l1d29weFhqNjRsWnlLMmpENlgwd2lUSllWN2M5S0d2UVhTa3NReUN4NHcwWFRSbkpna3dJ?oc=5",
+      "priority": "critical",
+      "source_type": "discovery",
+      "checked_at": "2026-11-10T23:58:24.066154+00:00",
+      "first_seen_at": "2026-11-11T00:01:10.288230+00:00",
+      "last_changed_at": "2026-11-11T00:01:10.288230+00:00",
+      "change_type": "new"
+    },
+    {
       "id": "d9701c46bd515b28c619",
       "source": "SMC Jobs Google News Discovery 2",
       "title": "SMC Biomedical Engineer Recruitment 2026 - Apply Online - FreeJobAlert.Com",
@@ -9306,5 +9318,5 @@
       "change_type": "unchanged"
     }
   ],
-  "updated_at": "2026-11-10T11:52:24.657803+00:00"
+  "updated_at": "2026-11-11T00:01:10.288230+00:00"
 }
