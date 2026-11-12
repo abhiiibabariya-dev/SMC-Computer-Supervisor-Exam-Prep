@@ -1,8 +1,8 @@
 {
   "region": "Gujarat",
   "focus": "Gujarat Government Jobs and SMC Recruitment",
-  "total": 776,
-  "new_items": 0,
+  "total": 777,
+  "new_items": 1,
   "updated_items": 0,
   "items": [
     {
@@ -8730,6 +8730,18 @@
       "change_type": "unchanged"
     },
     {
+      "id": "e0b03b21461adfcd5ea5",
+      "source": "SMC Google News Discovery",
+      "title": "SMC recruitment 2026: Application starts for over 1900 posts, details here - India Today",
+      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPdmZmMVYyWWlabmFQOTYwUzlBWFlqWjZRVFJOVW92T3V1OHllbnctZVNyUXJMRUFQZW1VaVFOSkRWX0xOVXlRVUlPYzlud0N5ZWhwZHJQSHBXQnhjeTNqbDNReWV2d1FpQ0k5bHk5VVVncU85bGliOU83bUVPeDhybFpYVkRXRFBsem1HUVgzb0NneFExRmx1TDMySXRJVWJOZGZVOHVfVXItcC05ZE53cGxpVjM1V2w4ZFF2SWVVbkFfUQ?oc=5",
+      "priority": "critical",
+      "source_type": "discovery",
+      "checked_at": "2026-11-12T01:52:24.221076+00:00",
+      "first_seen_at": "2026-11-12T01:55:11.620344+00:00",
+      "last_changed_at": "2026-11-12T01:55:11.620344+00:00",
+      "change_type": "new"
+    },
+    {
       "id": "b49b08794f2e103ada04",
       "source": "SMC Google News Discovery",
       "title": "SMC Recruitment 2026 – Apply Online for 70 Deputy Town Planner, Assistant Town Planner Posts - FreeJobAlert.Com",
@@ -9318,5 +9330,5 @@
       "change_type": "unchanged"
     }
   ],
-  "updated_at": "2026-11-11T20:09:15.039757+00:00"
+  "updated_at": "2026-11-12T01:55:11.620344+00:00"
 }
