@@ -8724,6 +8724,18 @@
     "change_type": "unchanged"
   },
   {
+    "id": "d12a170f258a2b11c5fe",
+    "source": "SMC Official Recruitment",
+    "title": "Apply Now",
+    "url": "https://www.suratmunicipal.gov.in/recruitment/",
+    "priority": "critical",
+    "source_type": "government",
+    "checked_at": "2026-11-12T09:38:43.503704+00:00",
+    "first_seen_at": "2026-11-12T09:41:30.475859+00:00",
+    "last_changed_at": "2026-11-12T09:41:30.475859+00:00",
+    "change_type": "new"
+  },
+  {
     "id": "e0b03b21461adfcd5ea5",
     "source": "SMC Google News Discovery",
     "title": "SMC recruitment 2026: Application starts for over 1900 posts, details here - India Today",
@@ -8736,18 +8748,6 @@
     "change_type": "new"
   },
   {
-    "id": "b49b08794f2e103ada04",
-    "source": "SMC Google News Discovery",
-    "title": "SMC Recruitment 2026 – Apply Online for 70 Deputy Town Planner, Assistant Town Planner Posts - FreeJobAlert.Com",
-    "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxNODJoaEE1V2hxd295eUJ6OXVlVFNuTG1XakFSMXVQazV1M0lvQ0tuRC0tUnhnZkRGM3dYZ2U3bHVrR0VzcEZzaWFsUmVqZGpYNU5NZGJCUUhMMGh0SDd0VklxdU5CNFBTQXRyVENGeUU1S3p5b3QxY1lOVUNxeGl3cnpmcTAwT1ZlN2RVZzRrbDZsbGJCNUZMd09td1l1d29weFhqNjRsWnlLMmpENlgwd2lUSllWN2M5S0d2UVhTa3NReUN4NHcwWFRSbkpna3dJ?oc=5",
-    "priority": "critical",
-    "source_type": "discovery",
-    "checked_at": "2026-11-10T23:58:24.066154+00:00",
-    "first_seen_at": "2026-11-11T00:01:10.288230+00:00",
-    "last_changed_at": "2026-11-11T00:01:10.288230+00:00",
-    "change_type": "new"
-  },
-  {
     "id": "d9701c46bd515b28c619",
     "source": "SMC Jobs Google News Discovery 2",
     "title": "SMC Biomedical Engineer Recruitment 2026 - Apply Online - FreeJobAlert.Com",
@@ -8757,18 +8757,6 @@
     "checked_at": "2026-11-10T03:46:07.687770+00:00",
     "first_seen_at": "2026-11-10T03:47:45.851760+00:00",
     "last_changed_at": "2026-11-10T03:47:45.851760+00:00",
-    "change_type": "new"
-  },
-  {
-    "id": "7525f73354d6be848281",
-    "source": "SMC Official Recruitment",
-    "title": "Apply Now",
-    "url": "https://www.suratmunicipal.gov.in/Information/RecruitmentDashboard",
-    "priority": "critical",
-    "source_type": "government",
-    "checked_at": "2026-11-09T11:15:44.813167+00:00",
-    "first_seen_at": "2026-11-09T11:18:30.433741+00:00",
-    "last_changed_at": "2026-11-09T11:18:30.433741+00:00",
     "change_type": "new"
   },
   {
