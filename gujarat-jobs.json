@@ -1,8 +1,8 @@
 {
   "region": "Gujarat",
   "focus": "Gujarat Government Jobs and SMC Recruitment",
-  "total": 781,
-  "new_items": 2,
+  "total": 777,
+  "new_items": 0,
   "updated_items": 0,
   "items": [
     {
@@ -8730,30 +8730,6 @@
       "change_type": "unchanged"
     },
     {
-      "id": "aff7aa9b3c072fb307f4",
-      "source": "SMC Google News Discovery",
-      "title": "Surat Municipal Corporation to Reserve Direct Recruitment P… - Gujarat Samachar",
-      "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxOcGhWa0ZnUVR6SXVyeVlYcGFLMEVyM3l0Z3ZYNzYyMVIwcGd4Z0NKU2VxV3pwN2lYdDlCZjVZeDdNeUNRVnhtc1VZMWczbHV4Q1FWdFdNODJwZXJDa1Nfcng0SWQtNVdRdzJyZEZxc045U1ZKWVRzMmg0TV9OSnJveHUyVWkwT0d2VGhQcUhCS00xb2w3cFlydEFyRTYyU284VHRyM3J6SlFRZXJBLUd0Y2dKakVnZWlzVnRlNFBEaGpQQ0EwcFJjVHQ4UHhVS2F2VmFTNDVxOA?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-11-14T21:16:40.110777+00:00",
-      "first_seen_at": "2026-11-14T21:19:26.445957+00:00",
-      "last_changed_at": "2026-11-14T21:19:26.445957+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "7260aa06b440012128cd",
-      "source": "SMC Google News Discovery",
-      "title": "Process for recruitment of 300 Marshalls begin in Surat municipal corporation - The Times of India",
-      "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxOak1WUGhvVWpWaUZBNTBLbV9fR3owSVlybkpTdmhEX2VHZmRSd1lTNVRIWU9QYklGb2pBN09KalQ2cXp6UVJvWTg3Yk5ud08wclA2TnU0dU9IWUppM2UyQ2R5dGpaU2xhOXg4ZHVUalhSRG5RSm1obGFyNmFzUWFVN3hUSXRtakJHMjlXNmxWT2pJNXVLdUNjVjliOWFpeG5yMVVKYWhZQzczOWg0RklLSUFwOGFlRmVjck5jc1ZVOXc1U3puaHhMeHNTX0luV05Uc3NYZi1qV3dZYmxaU0RaRHJOWdIB6AFBVV95cUxPaWpieEtBcllmT2NlOXVpeG5CenhqNmluaU1HTFpkdTNqUTNVLVJRX2tQcGl3empnRWlhb3FOdEVRVHJhUFRPbFdBbUZtWXNJOTFzUU01RW9jTnRtWUM1V0E4TjVXNmJzQTBMZ3FPMC1CcDM4WXZsd085TG1CQmVLWmZaZDczYmhVeVFjYUp6NmJxeHBNdmw5OUQyOElPSlBPRUVEcURDdlZoMURHX1F2TE03ZzV3VEZtWkZPVmZndG82blc2a0R0ckVtczhZRUp6dlhJb0hHZENmb0NtSHZGQ0JOMUdUVDNX?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-11-14T21:16:40.110777+00:00",
-      "first_seen_at": "2026-11-14T21:19:26.445957+00:00",
-      "last_changed_at": "2026-11-14T21:19:26.445957+00:00",
-      "change_type": "new"
-    },
-    {
       "id": "d9701c46bd515b28c619",
       "source": "SMC Jobs Google News Discovery 2",
       "title": "SMC Biomedical Engineer Recruitment 2026 - Apply Online - FreeJobAlert.Com",
@@ -8934,18 +8910,6 @@
       "change_type": "new"
     },
     {
-      "id": "4fad085206b137cff13b",
-      "source": "SMC Jobs Google News Discovery 2",
-      "title": "Surat Municipal Corporation Senior Residents Recruitment 2026 – Walk in for 29 Posts - FreeJobAlert.Com",
-      "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPTlZuaDNVdlNnSWUtRmtLaEg5OTNCbWhaeUpLNHFZSTBKMjM3RU8zUnp0Mi1DeGttaUUwZEJWOTM0X25PWWdqNzZmeEF6QXNBTS1jNEd1RFF1cHlYc3BveUdfMHNaeDF2c25pa2ZhYjJQU0hQLVNKMDhvcHJ3UGdzb3hkRW1XdHhrdVFITWtBQlFrMVd1azdOeHVXVGNNcFBtVEpWTDNoOTFCMHBhWXZyN0FtT3pWX1dRRkZ2ZGNqWFM3UlRyRXdR?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-11-08T02:16:57.700231+00:00",
-      "first_seen_at": "2026-11-08T02:18:35.925243+00:00",
-      "last_changed_at": "2026-11-08T02:18:35.925243+00:00",
-      "change_type": "new"
-    },
-    {
       "id": "2c8aa0118bad92e39767",
       "source": "SMC Google News Discovery",
       "title": "Surat Municipal Corporation Recruitment 2026 - Apply Online for 10 Staff Nurse, Lab Technician Posts - FreeJobAlert.Com",
@@ -9003,18 +8967,6 @@
       "checked_at": "2026-10-26T17:25:56.266444+00:00",
       "first_seen_at": "2026-10-26T17:27:34.289421+00:00",
       "last_changed_at": "2026-10-26T17:27:34.289421+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "e02db65691df24e41cfb",
-      "source": "SMC Jobs Google News Discovery 2",
-      "title": "SMC Recruitment 2026 Notification Out - Apply Online for 80 Electrical Wireman, Assistant Architect and More Posts - FreeJobAlert.Com",
-      "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxOamdpVXBOamNuRjZxdXRGSE94dlphZGltUjhyb21vWmQ1bVFhRXFTWEtqdUNILXZ0UWxTMUtaQjN1Q2hSZmI2empwcDV6MkNncmU2RWZCQVhzbDdMeHVkYjNpVndRMFNTRDZCaUttV3B5ekwyR1NnSjJCVUE0X1ZJc1BvekxrWUdnVVVkTzBnZ21lcHRILThFMkN1VmFXbWMwSmpPdVVBem1KNEh5MWVuWDdkQm9pVVNHcEdGWEFqMlA0V3d3eG5tUUR2WF9ORGktSTZCS1Uza1g?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-10-20T01:19:14.185748+00:00",
-      "first_seen_at": "2026-10-20T01:20:59.614511+00:00",
-      "last_changed_at": "2026-10-20T01:20:59.614511+00:00",
       "change_type": "new"
     },
     {
@@ -9378,5 +9330,5 @@
       "change_type": "unchanged"
     }
   ],
-  "updated_at": "2026-11-14T21:19:26.445957+00:00"
+  "updated_at": "2026-11-15T01:07:58.193228+00:00"
 }
