@@ -1,8 +1,8 @@
 {
   "region": "Gujarat",
   "focus": "Gujarat Government Jobs and SMC Recruitment",
-  "total": 777,
-  "new_items": 0,
+  "total": 775,
+  "new_items": 1,
   "updated_items": 0,
   "items": [
     {
@@ -15,18 +15,6 @@
       "checked_at": "2026-11-14T03:38:29.481752+00:00",
       "first_seen_at": "2026-11-14T03:40:07.683714+00:00",
       "last_changed_at": "2026-11-14T03:40:07.683714+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "9c5879539a980e938b24",
-      "source": "Gujarat Jobs Google News Discovery",
-      "title": "GSSSB Agriculture Overseer Recruitment 2026 Notification Out, Apply Online Last Date - Adda247",
-      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPQ3ZkWlF2UVpxb1h4TEI4THFqZnlfTzBpU0N0a2xHRlJnRHZEV1JTSzNpdFFpUTBtRzdiclpmU2FiemE2Y21DSnU0QVB6a3ZZajVtTDJMR3BPS0x3ZVptY2owd1dHSUFSQ3p2WVhTaGpFbFc2WXlhY3F6by1xaWEwUTJsckYyRkdyemNxUmVNQQ?oc=5",
-      "priority": "high",
-      "source_type": "discovery",
-      "checked_at": "2026-11-08T23:49:30.490271+00:00",
-      "first_seen_at": "2026-11-08T23:51:09.437771+00:00",
-      "last_changed_at": "2026-11-08T23:51:09.437771+00:00",
       "change_type": "new"
     },
     {
@@ -8730,6 +8718,18 @@
       "change_type": "unchanged"
     },
     {
+      "id": "4889cf93ce9b06585b4c",
+      "source": "SMC Jobs Google News Discovery 2",
+      "title": "SMC Recruitment 2026: 23 Associate Professor & Assistant Professor Posts - FreeJobAlert.Com",
+      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNQjRjbGl1VEkyMmpnaDcxSGxPSVBJQ05fZHp2bklIb2VTWGtQeDBEQUducE5zMjZRRktXdEgtd2p4ckhwZ0xtcmJ1STNzWXZuYmlsQVEzTEQtUHZ6LTRteFg5VE1SOUFqaUpFVlZMMTJjVk9nNVRGc0I2XzhpbTIweG5mZ3hHVWVqV01FWmc0T0dhWjNKVTFGR1h1cDZ1aFdkdXJjNXVvbUxlZw?oc=5",
+      "priority": "critical",
+      "source_type": "discovery",
+      "checked_at": "2026-11-15T07:47:12.728587+00:00",
+      "first_seen_at": "2026-11-15T07:48:51.108789+00:00",
+      "last_changed_at": "2026-11-15T07:48:51.108789+00:00",
+      "change_type": "new"
+    },
+    {
       "id": "d9701c46bd515b28c619",
       "source": "SMC Jobs Google News Discovery 2",
       "title": "SMC Biomedical Engineer Recruitment 2026 - Apply Online - FreeJobAlert.Com",
@@ -8898,18 +8898,6 @@
       "change_type": "new"
     },
     {
-      "id": "55d43b08c40ab5abbfd3",
-      "source": "SMC Google News Discovery",
-      "title": "Surat Municipal Corporation Senior Residents Recruitment 2026 – Walk in for 29 Posts - FreeJobAlert.Com",
-      "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPTlZuaDNVdlNnSWUtRmtLaEg5OTNCbWhaeUpLNHFZSTBKMjM3RU8zUnp0Mi1DeGttaUUwZEJWOTM0X25PWWdqNzZmeEF6QXNBTS1jNEd1RFF1cHlYc3BveUdfMHNaeDF2c25pa2ZhYjJQU0hQLVNKMDhvcHJ3UGdzb3hkRW1XdHhrdVFITWtBQlFrMVd1azdOeHVXVGNNcFBtVEpWTDNoOTFCMHBhWXZyN0FtT3pWX1dRRkZ2ZGNqWFM3UlRyRXdR?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-11-08T09:03:23.397310+00:00",
-      "first_seen_at": "2026-11-08T09:06:09.714390+00:00",
-      "last_changed_at": "2026-11-08T09:06:09.714390+00:00",
-      "change_type": "new"
-    },
-    {
       "id": "2c8aa0118bad92e39767",
       "source": "SMC Google News Discovery",
       "title": "Surat Municipal Corporation Recruitment 2026 - Apply Online for 10 Staff Nurse, Lab Technician Posts - FreeJobAlert.Com",
@@ -8967,18 +8955,6 @@
       "checked_at": "2026-10-26T17:25:56.266444+00:00",
       "first_seen_at": "2026-10-26T17:27:34.289421+00:00",
       "last_changed_at": "2026-10-26T17:27:34.289421+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "277dceb4c7e7f5b73b74",
-      "source": "SMC Google News Discovery",
-      "title": "SMC Recruitment 2026 Notification Out - Apply Online for 80 Electrical Wireman, Assistant Architect and More Posts - FreeJobAlert.Com",
-      "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxOamdpVXBOamNuRjZxdXRGSE94dlphZGltUjhyb21vWmQ1bVFhRXFTWEtqdUNILXZ0UWxTMUtaQjN1Q2hSZmI2empwcDV6MkNncmU2RWZCQVhzbDdMeHVkYjNpVndRMFNTRDZCaUttV3B5ekwyR1NnSjJCVUE0X1ZJc1BvekxrWUdnVVVkTzBnZ21lcHRILThFMkN1VmFXbWMwSmpPdVVBem1KNEh5MWVuWDdkQm9pVVNHcEdGWEFqMlA0V3d3eG5tUUR2WF9ORGktSTZCS1Uza1g?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-10-19T05:57:29.631204+00:00",
-      "first_seen_at": "2026-10-19T05:59:24.857652+00:00",
-      "last_changed_at": "2026-10-19T05:59:24.857652+00:00",
       "change_type": "new"
     },
     {
@@ -9330,5 +9306,5 @@
       "change_type": "unchanged"
     }
   ],
-  "updated_at": "2026-11-15T01:07:58.193228+00:00"
+  "updated_at": "2026-11-15T07:48:51.108789+00:00"
 }
