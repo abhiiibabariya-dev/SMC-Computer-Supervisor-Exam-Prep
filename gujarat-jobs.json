@@ -1,22 +1,10 @@
 {
   "region": "Gujarat",
   "focus": "Gujarat Government Jobs and SMC Recruitment",
-  "total": 779,
-  "new_items": 3,
+  "total": 777,
+  "new_items": 0,
   "updated_items": 0,
   "items": [
-    {
-      "id": "9c5879539a980e938b24",
-      "source": "Gujarat Jobs Google News Discovery",
-      "title": "GSSSB Agriculture Overseer Recruitment 2026 Notification Out, Apply Online Last Date - Adda247",
-      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPQ3ZkWlF2UVpxb1h4TEI4THFqZnlfTzBpU0N0a2xHRlJnRHZEV1JTSzNpdFFpUTBtRzdiclpmU2FiemE2Y21DSnU0QVB6a3ZZajVtTDJMR3BPS0x3ZVptY2owd1dHSUFSQ3p2WVhTaGpFbFc2WXlhY3F6by1xaWEwUTJsckYyRkdyemNxUmVNQQ?oc=5",
-      "priority": "high",
-      "source_type": "discovery",
-      "checked_at": "2026-11-16T06:03:28.459026+00:00",
-      "first_seen_at": "2026-11-16T06:05:07.397069+00:00",
-      "last_changed_at": "2026-11-16T06:05:07.397069+00:00",
-      "change_type": "new"
-    },
     {
       "id": "c963ecc514d2aa695bf3",
       "source": "Gujarat Jobs Google News Discovery",
@@ -8778,18 +8766,6 @@
       "change_type": "new"
     },
     {
-      "id": "b49b08794f2e103ada04",
-      "source": "SMC Google News Discovery",
-      "title": "SMC Recruitment 2026 – Apply Online for 70 Deputy Town Planner, Assistant Town Planner Posts - FreeJobAlert.Com",
-      "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxNODJoaEE1V2hxd295eUJ6OXVlVFNuTG1XakFSMXVQazV1M0lvQ0tuRC0tUnhnZkRGM3dYZ2U3bHVrR0VzcEZzaWFsUmVqZGpYNU5NZGJCUUhMMGh0SDd0VklxdU5CNFBTQXRyVENGeUU1S3p5b3QxY1lOVUNxeGl3cnpmcTAwT1ZlN2RVZzRrbDZsbGJCNUZMd09td1l1d29weFhqNjRsWnlLMmpENlgwd2lUSllWN2M5S0d2UVhTa3NReUN4NHcwWFRSbkpna3dJ?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-11-16T06:02:19.951943+00:00",
-      "first_seen_at": "2026-11-16T06:05:07.397069+00:00",
-      "last_changed_at": "2026-11-16T06:05:07.397069+00:00",
-      "change_type": "new"
-    },
-    {
       "id": "4889cf93ce9b06585b4c",
       "source": "SMC Jobs Google News Discovery 2",
       "title": "SMC Recruitment 2026: 23 Associate Professor & Assistant Professor Posts - FreeJobAlert.Com",
@@ -9354,5 +9330,5 @@
       "change_type": "unchanged"
     }
   ],
-  "updated_at": "2026-11-16T15:34:49.446550+00:00"
+  "updated_at": "2026-11-16T23:51:30.137221+00:00"
 }
