@@ -1,8 +1,8 @@
 {
   "region": "Gujarat",
   "focus": "Gujarat Government Jobs and SMC Recruitment",
-  "total": 781,
-  "new_items": 3,
+  "total": 780,
+  "new_items": 0,
   "updated_items": 0,
   "items": [
     {
@@ -8778,18 +8778,6 @@
       "change_type": "new"
     },
     {
-      "id": "ac7993a7ee4ee650d2ae",
-      "source": "SMC Google News Discovery",
-      "title": "SMC Honorary Super Speciality Consultant Recruitment 2026 – Apply Offline for 25 Posts - FreeJobAlert.Com",
-      "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxQcHdxMEFpOGFmaG5PRFVxOUtHVmd0QnNjczkwTVR4Q3ZpNWZTZ1lJU3RmNXJJQjh4SlFjU1Q5Q2htWDRSc0tIcG9HVW4zNTJ1NzJTcWMtRzJVUTNmcDJMS01seC1TTkpTRE5HZGZXNTBIc2VlYUNiajVreC1Ba3BQa2w0Y1o5QUlSaU9URzZzZzVYbk5SME9lZjRyY3ZQMWhibFFMOU9EcmN6ZkVlLV9XWmVRQlNfLW8tek9qRkR0UnhCb0poRWZJSW5n?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-11-18T12:19:29.519957+00:00",
-      "first_seen_at": "2026-11-18T12:22:16.396002+00:00",
-      "last_changed_at": "2026-11-18T12:22:16.396002+00:00",
-      "change_type": "new"
-    },
-    {
       "id": "7335c6018f3a7abccd78",
       "source": "SMC Official Recruitment",
       "title": "View More",
@@ -9378,5 +9366,5 @@
       "change_type": "unchanged"
     }
   ],
-  "updated_at": "2026-11-18T20:43:09.254964+00:00"
+  "updated_at": "2026-11-19T02:04:24.342889+00:00"
 }
