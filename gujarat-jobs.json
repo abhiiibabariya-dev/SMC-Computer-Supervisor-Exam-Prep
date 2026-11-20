@@ -1,8 +1,8 @@
 {
   "region": "Gujarat",
   "focus": "Gujarat Government Jobs and SMC Recruitment",
-  "total": 781,
-  "new_items": 1,
+  "total": 782,
+  "new_items": 2,
   "updated_items": 0,
   "items": [
     {
@@ -8706,6 +8706,30 @@
       "change_type": "unchanged"
     },
     {
+      "id": "815ac82bc4558cfdedcd",
+      "source": "SMC Jobs Google News Discovery 2",
+      "title": "Surat Municipal Corporation Recruitment 2026 - Apply Online for 10 Staff Nurse, Lab Technician Posts - FreeJobAlert.Com",
+      "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxNT2xKQnBITE1BOVJvVk5XeC1XUWI2eFNnbFRUbjl4SzJEaTdvUmpMc25UeDQ3M2tlWjlpY3B0OER5MnRid0ozVmFxb2JFc2swdDY3OWxEd0R3VHFQRzVFdU9YQlRvWEJFZWZKSHZ6VXFMX3RRR3VCVUZNaDRwMld0dzlrdTJIOHpMdW1JdGpjS0YyNlowOXl1VXRTdENkdWcwYWNiQmZqb0ZDNF9IT1lScnc4MW00bmR4TE9GV1V4NzlIajBnNjN3UkVjMHZIWDQ5QmNkX2dUQzFoazg?oc=5",
+      "priority": "critical",
+      "source_type": "discovery",
+      "checked_at": "2026-11-20T01:11:28.084554+00:00",
+      "first_seen_at": "2026-11-20T01:12:41.938954+00:00",
+      "last_changed_at": "2026-11-20T01:12:41.938954+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "2c8aa0118bad92e39767",
+      "source": "SMC Google News Discovery",
+      "title": "Surat Municipal Corporation Recruitment 2026 - Apply Online for 10 Staff Nurse, Lab Technician Posts - FreeJobAlert.Com",
+      "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxNT2xKQnBITE1BOVJvVk5XeC1XUWI2eFNnbFRUbjl4SzJEaTdvUmpMc25UeDQ3M2tlWjlpY3B0OER5MnRid0ozVmFxb2JFc2swdDY3OWxEd0R3VHFQRzVFdU9YQlRvWEJFZWZKSHZ6VXFMX3RRR3VCVUZNaDRwMld0dzlrdTJIOHpMdW1JdGpjS0YyNlowOXl1VXRTdENkdWcwYWNiQmZqb0ZDNF9IT1lScnc4MW00bmR4TE9GV1V4NzlIajBnNjN3UkVjMHZIWDQ5QmNkX2dUQzFoazg?oc=5",
+      "priority": "critical",
+      "source_type": "discovery",
+      "checked_at": "2026-11-20T01:09:47.697304+00:00",
+      "first_seen_at": "2026-11-20T01:12:41.938954+00:00",
+      "last_changed_at": "2026-11-20T01:12:41.938954+00:00",
+      "change_type": "new"
+    },
+    {
       "id": "277dceb4c7e7f5b73b74",
       "source": "SMC Google News Discovery",
       "title": "SMC Recruitment 2026 Notification Out - Apply Online for 80 Electrical Wireman, Assistant Architect and More Posts - FreeJobAlert.Com",
@@ -8773,18 +8797,6 @@
       "priority": "critical",
       "source_type": "discovery",
       "checked_at": "2026-11-18T12:20:42.099585+00:00",
-      "first_seen_at": "2026-11-18T12:22:16.396002+00:00",
-      "last_changed_at": "2026-11-18T12:22:16.396002+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "e0b03b21461adfcd5ea5",
-      "source": "SMC Google News Discovery",
-      "title": "SMC recruitment 2026: Application starts for over 1900 posts, details here - India Today",
-      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPdmZmMVYyWWlabmFQOTYwUzlBWFlqWjZRVFJOVW92T3V1OHllbnctZVNyUXJMRUFQZW1VaVFOSkRWX0xOVXlRVUlPYzlud0N5ZWhwZHJQSHBXQnhjeTNqbDNReWV2d1FpQ0k5bHk5VVVncU85bGliOU83bUVPeDhybFpYVkRXRFBsem1HUVgzb0NneFExRmx1TDMySXRJVWJOZGZVOHVfVXItcC05ZE53cGxpVjM1V2w4ZFF2SWVVbkFfUQ?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-11-18T12:19:29.519957+00:00",
       "first_seen_at": "2026-11-18T12:22:16.396002+00:00",
       "last_changed_at": "2026-11-18T12:22:16.396002+00:00",
       "change_type": "new"
@@ -9378,5 +9390,5 @@
       "change_type": "unchanged"
     }
   ],
-  "updated_at": "2026-11-19T19:03:15.157233+00:00"
+  "updated_at": "2026-11-20T01:12:41.938954+00:00"
 }
