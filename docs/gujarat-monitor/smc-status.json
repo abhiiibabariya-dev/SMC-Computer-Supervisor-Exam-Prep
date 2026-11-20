@@ -33,7 +33,7 @@
       "source": "https://www.suratmunicipal.gov.in/Information/RecruitmentNews"
     }
   ],
-  "answer_key_available": false,
+  "answer_key_available": true,
   "result_available": false,
   "selection_waiting_list_available": false,
   "application_status": "unknown",
@@ -53,5 +53,5 @@
     "sources_ok": 3,
     "sources_failed": 2
   },
-  "updated_at": "2026-11-20T17:16:18.165864+00:00"
+  "updated_at": "2026-11-20T23:09:52.130054+00:00"
 }
