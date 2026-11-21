@@ -1,9 +1,9 @@
 {
   "sources_scanned": 28,
-  "links_found_this_scan": 790,
-  "new_items": 16,
+  "links_found_this_scan": 789,
+  "new_items": 0,
   "updated_items": 0,
-  "total_items": 790,
+  "total_items": 789,
   "errors": [
     {
       "source": "Ahmedabad Municipal Corporation",
@@ -78,17 +78,12 @@
     {
       "source": "KCG Gujarat Recruitment",
       "url": "https://kcg.gujarat.gov.in/recruitments",
-      "error": "The read operation timed out"
+      "error": "<urlopen error [Errno 101] Network is unreachable>"
     },
     {
       "source": "OJAS Gujarat",
       "url": "https://ojas.gujarat.gov.in",
       "error": "<urlopen error [Errno 101] Network is unreachable>"
-    },
-    {
-      "source": "Rajkot Municipal Corporation",
-      "url": "https://www.rmc.gov.in",
-      "error": "The read operation timed out"
     },
     {
       "source": "Vadodara Municipal Corporation",
@@ -104,12 +99,13 @@
     "Gujarat Jobs Google News Discovery",
     "Gyan Sahayak Gujarat",
     "Jamnagar Municipal Corporation",
+    "Rajkot Municipal Corporation",
     "SMC Google News Discovery",
     "SMC Jobs Google News Discovery 2",
     "SMC Official Recruitment",
     "SMC Official Website"
   ],
-  "smc_items": 65,
+  "smc_items": 64,
   "mode": "live_snapshot",
-  "updated_at": "2026-11-21T19:44:12.745349+00:00"
+  "updated_at": "2026-11-21T23:59:54.192253+00:00"
 }

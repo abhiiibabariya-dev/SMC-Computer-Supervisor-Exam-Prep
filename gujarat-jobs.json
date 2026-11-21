@@ -1,8 +1,8 @@
 {
   "region": "Gujarat",
   "focus": "Gujarat Government Jobs and SMC Recruitment",
-  "total": 790,
-  "new_items": 16,
+  "total": 789,
+  "new_items": 0,
   "updated_items": 0,
   "items": [
     {
@@ -8886,18 +8886,6 @@
       "change_type": "new"
     },
     {
-      "id": "4889cf93ce9b06585b4c",
-      "source": "SMC Jobs Google News Discovery 2",
-      "title": "SMC Recruitment 2026: 23 Associate Professor & Assistant Professor Posts - FreeJobAlert.Com",
-      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNQjRjbGl1VEkyMmpnaDcxSGxPSVBJQ05fZHp2bklIb2VTWGtQeDBEQUducE5zMjZRRktXdEgtd2p4ckhwZ0xtcmJ1STNzWXZuYmlsQVEzTEQtUHZ6LTRteFg5VE1SOUFqaUpFVlZMMTJjVk9nNVRGc0I2XzhpbTIweG5mZ3hHVWVqV01FWmc0T0dhWjNKVTFGR1h1cDZ1aFdkdXJjNXVvbUxlZw?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-11-21T12:25:23.187145+00:00",
-      "first_seen_at": "2026-11-21T12:26:38.489643+00:00",
-      "last_changed_at": "2026-11-21T12:26:38.489643+00:00",
-      "change_type": "new"
-    },
-    {
       "id": "c75aed7d49fb402ffdb6",
       "source": "SMC Jobs Google News Discovery 2",
       "title": "SMC Recruitment 2026 – Apply Online for 18 Supervisor, Assistant Engineer and More Posts - FreeJobAlert.Com",
@@ -9486,5 +9474,5 @@
       "change_type": "unchanged"
     }
   ],
-  "updated_at": "2026-11-21T19:44:12.745349+00:00"
+  "updated_at": "2026-11-21T23:59:54.192253+00:00"
 }
