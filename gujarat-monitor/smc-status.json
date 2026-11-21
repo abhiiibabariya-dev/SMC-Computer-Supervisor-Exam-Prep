@@ -6,33 +6,7 @@
     "https://www.suratmunicipal.gov.in/Information/RecruitmentResult",
     "https://www.suratmunicipal.gov.in/Information/SelectionWaitingList"
   ],
-  "events": [
-    {
-      "id": "smc-2026-09-06-computer-supervisor",
-      "date": "2026-09-06",
-      "status": "scheduled",
-      "title": "Supervisor (Computer) written examination",
-      "cadres": [
-        "Supervisor (Computer)",
-        "Junior Pharmacist",
-        "Assistant Auditor",
-        "Technical Officer"
-      ],
-      "source": "https://www.suratmunicipal.gov.in/Information/RecruitmentNews"
-    },
-    {
-      "id": "smc-2026-07-26-postponed",
-      "date": "2026-07-26",
-      "status": "postponed",
-      "title": "Written examination postponed",
-      "cadres": [
-        "Laboratory Technician",
-        "Third Class Clerk (Audit)",
-        "Pharmacist (GUHP)"
-      ],
-      "source": "https://www.suratmunicipal.gov.in/Information/RecruitmentNews"
-    }
-  ],
+  "events": [],
   "answer_key_available": true,
   "result_available": false,
   "selection_waiting_list_available": false,
@@ -53,5 +27,5 @@
     "sources_ok": 3,
     "sources_failed": 2
   },
-  "updated_at": "2026-11-20T23:09:52.130054+00:00"
+  "updated_at": "2026-11-21T12:26:40.612112+00:00"
 }
