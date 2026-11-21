@@ -1,10 +1,22 @@
 {
   "region": "Gujarat",
   "focus": "Gujarat Government Jobs and SMC Recruitment",
-  "total": 776,
-  "new_items": 4,
+  "total": 790,
+  "new_items": 16,
   "updated_items": 0,
   "items": [
+    {
+      "id": "e2dcd3c427ae74121f6c",
+      "source": "Gujarat Jobs Google News Discovery",
+      "title": "GSSSB FSO Recruitment 2026 Notification Out – Apply Online for 84 Food Safety Officer Posts - FreeJobAlert.Com",
+      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQeHlWaTdkZDJrWDZpdFpiODRZUlBWbnRGSzg2NlRyTlBXTXphdUYzcnBrTHNQR0ExOUlFMFNlUzlGTXUxSXdQQ3p1WWcyUG5uX1FLWkZNRDZhaTRoel8wUk1SaGVlcGw0TVpHZ0I5N3pfREFNTGFiVFNoRmg3bDBLUnY0YUdlZ1F3Ykt0T1hhZHg4UQ?oc=5",
+      "priority": "high",
+      "source_type": "discovery",
+      "checked_at": "2026-11-21T19:43:12.439590+00:00",
+      "first_seen_at": "2026-11-21T19:44:12.745349+00:00",
+      "last_changed_at": "2026-11-21T19:44:12.745349+00:00",
+      "change_type": "new"
+    },
     {
       "id": "b4929822045f04d9fd27",
       "source": "Gujarat Jobs Google News Discovery",
@@ -51,18 +63,6 @@
       "checked_at": "2026-11-14T03:38:29.481752+00:00",
       "first_seen_at": "2026-11-14T03:40:07.683714+00:00",
       "last_changed_at": "2026-11-14T03:40:07.683714+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "45e4052fd5be0acf3741",
-      "source": "Gujarat Jobs Google News Discovery",
-      "title": "GSSSB Physiotherapist Recruitment 2026 - Apply Online for 138 Posts - FreeJobAlert.Com",
-      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPUVNkb0hFVGEtN2xwSVJiUlUyNkpXN28zaEVwNDdnenotMGJnT0xHNmM4YTllTVEtRDdJZndwb25oU3QtU3kwZ0dsd0JxYy01bjlVeE1hVzAwY0R4T3Z4ck5fdjl4Zm05aE9LNjFKMmI4TUZEcndyMU43MENja1J3Uy1rWUpKRnZmaU5JdmdKU1lyN3lHcEN3NlI3d0I0UWY0d1loSEQ5ZjN0TEFCbjkxdQ?oc=5",
-      "priority": "high",
-      "source_type": "discovery",
-      "checked_at": "2026-11-06T22:11:43.216615+00:00",
-      "first_seen_at": "2026-11-06T22:13:22.173201+00:00",
-      "last_changed_at": "2026-11-06T22:13:22.173201+00:00",
       "change_type": "new"
     },
     {
@@ -8706,15 +8706,183 @@
       "change_type": "unchanged"
     },
     {
-      "id": "2c207dcbc7dc6f3007d9",
+      "id": "1a440638e453d7bfd7b4",
+      "source": "SMC Official Recruitment",
+      "title": "View More",
+      "url": "https://www.suratmunicipal.gov.in/Contents/Jobs/Opening/1854681.pdf",
+      "priority": "critical",
+      "source_type": "government",
+      "checked_at": "2026-11-21T19:41:19.164739+00:00",
+      "first_seen_at": "2026-11-21T19:44:12.745349+00:00",
+      "last_changed_at": "2026-11-21T19:44:12.745349+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "1d1fa6255e8cca43d986",
+      "source": "SMC Official Recruitment",
+      "title": "View More",
+      "url": "https://www.suratmunicipal.gov.in/Contents/Jobs/Opening/1973333.pdf",
+      "priority": "critical",
+      "source_type": "government",
+      "checked_at": "2026-11-21T19:41:19.164739+00:00",
+      "first_seen_at": "2026-11-21T19:44:12.745349+00:00",
+      "last_changed_at": "2026-11-21T19:44:12.745349+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "e09c57b284c57a0a6048",
+      "source": "SMC Official Recruitment",
+      "title": "View More",
+      "url": "https://www.suratmunicipal.gov.in/Contents/Jobs/Opening/1851563.pdf",
+      "priority": "critical",
+      "source_type": "government",
+      "checked_at": "2026-11-21T19:41:19.164739+00:00",
+      "first_seen_at": "2026-11-21T19:44:12.745349+00:00",
+      "last_changed_at": "2026-11-21T19:44:12.745349+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "eaa5c05695d5fa180869",
+      "source": "SMC Official Recruitment",
+      "title": "View More",
+      "url": "https://www.suratmunicipal.gov.in/Contents/Jobs/Opening/1559726.pdf",
+      "priority": "critical",
+      "source_type": "government",
+      "checked_at": "2026-11-21T19:41:19.164739+00:00",
+      "first_seen_at": "2026-11-21T19:44:12.745349+00:00",
+      "last_changed_at": "2026-11-21T19:44:12.745349+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "7335c6018f3a7abccd78",
+      "source": "SMC Official Recruitment",
+      "title": "View More",
+      "url": "https://www.suratmunicipal.gov.in/Contents/Jobs/Opening/1658557.pdf",
+      "priority": "critical",
+      "source_type": "government",
+      "checked_at": "2026-11-21T19:41:19.164739+00:00",
+      "first_seen_at": "2026-11-21T19:44:12.745349+00:00",
+      "last_changed_at": "2026-11-21T19:44:12.745349+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "17d842d98b5049ed0f79",
+      "source": "SMC Official Recruitment",
+      "title": "View More",
+      "url": "https://www.suratmunicipal.gov.in/Contents/Jobs/Opening/1064762.pdf",
+      "priority": "critical",
+      "source_type": "government",
+      "checked_at": "2026-11-21T19:41:19.164739+00:00",
+      "first_seen_at": "2026-11-21T19:44:12.745349+00:00",
+      "last_changed_at": "2026-11-21T19:44:12.745349+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "a88a2da4381d4122799f",
+      "source": "SMC Official Recruitment",
+      "title": "View More",
+      "url": "https://www.suratmunicipal.gov.in/Contents/Jobs/Opening/1239012.pdf",
+      "priority": "critical",
+      "source_type": "government",
+      "checked_at": "2026-11-21T19:41:19.164739+00:00",
+      "first_seen_at": "2026-11-21T19:44:12.745349+00:00",
+      "last_changed_at": "2026-11-21T19:44:12.745349+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "0f2905a29f1cb718c552",
+      "source": "SMC Official Recruitment",
+      "title": "Recruitment",
+      "url": "https://www.suratmunicipal.gov.in/Information/RecruitmentDashboard",
+      "priority": "critical",
+      "source_type": "government",
+      "checked_at": "2026-11-21T19:41:19.164739+00:00",
+      "first_seen_at": "2026-11-21T19:44:12.745349+00:00",
+      "last_changed_at": "2026-11-21T19:44:12.745349+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "9fb4659c700c8f4513a0",
+      "source": "SMC Official Recruitment",
+      "title": "Engineers (237 KB)",
+      "url": "https://www.suratmunicipal.gov.in/Content/Documents/rtiact/Disclosure/Town%20Development/TDO/Engineers.pdf",
+      "priority": "critical",
+      "source_type": "government",
+      "checked_at": "2026-11-21T19:41:19.164739+00:00",
+      "first_seen_at": "2026-11-21T19:44:12.745349+00:00",
+      "last_changed_at": "2026-11-21T19:44:12.745349+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "aa8325d68462f20f300d",
+      "source": "SMC Official Recruitment",
+      "title": "Check RTI Application Status",
+      "url": "https://www.suratmunicipal.gov.in/Information/RTIAppStatus",
+      "priority": "critical",
+      "source_type": "government",
+      "checked_at": "2026-11-21T19:41:19.164739+00:00",
+      "first_seen_at": "2026-11-21T19:44:12.745349+00:00",
+      "last_changed_at": "2026-11-21T19:44:12.745349+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "43ccf0fbc2f6ba8ca403",
+      "source": "SMC Official Recruitment",
+      "title": "Back to Dashboard",
+      "url": "https://www.suratmunicipal.gov.in/Information/RecruitmentDashboard",
+      "priority": "critical",
+      "source_type": "government",
+      "checked_at": "2026-11-21T19:41:19.164739+00:00",
+      "first_seen_at": "2026-11-21T19:44:12.745349+00:00",
+      "last_changed_at": "2026-11-21T19:44:12.745349+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "d12a170f258a2b11c5fe",
+      "source": "SMC Official Recruitment",
+      "title": "Apply Now",
+      "url": "https://www.suratmunicipal.gov.in/recruitment/",
+      "priority": "critical",
+      "source_type": "government",
+      "checked_at": "2026-11-21T19:41:19.164739+00:00",
+      "first_seen_at": "2026-11-21T19:44:12.745349+00:00",
+      "last_changed_at": "2026-11-21T19:44:12.745349+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "ab66cb5cb57dd895c795",
+      "source": "SMC Official Recruitment",
+      "title": "Apply Now",
+      "url": "https://www.suratmunicipal.gov.in/Information/Recruitment",
+      "priority": "critical",
+      "source_type": "government",
+      "checked_at": "2026-11-21T19:41:19.164739+00:00",
+      "first_seen_at": "2026-11-21T19:44:12.745349+00:00",
+      "last_changed_at": "2026-11-21T19:44:12.745349+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "379515513f45e71f29c2",
       "source": "SMC Jobs Google News Discovery 2",
-      "title": "SMC Recruitment 2026: Walk-in for 8 Vacancies - FreeJobAlert.Com",
-      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQM2hqUDQ2Q1czRVQ1WFpmRnBqQ0N3bV92ZkFOdk1xNk00Q2trcUpROVhVdjBnU2FFVnlxenBNUExIa19nV1hrMnJUWTNIamhJZ20yQVBsckstR0ZEQVNLdGx6RUJ5ajdxeEZfeVVZeUlvWUQycHJYSS1fd1FxNDZfZkxWcEh4RThETjdzcFE5Q0lHWUROVWJV?oc=5",
+      "title": "SMC Recruitment 2026 – Apply Online for 18 Chief Fire Officer, Instrumentation Technician Posts - FreeJobAlert.Com",
+      "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxPMldQUy1lbzVqUWRyMWhnXzZRU3g2cjhuU2NaUEhnamdjS1diRlNKQnhrRzVLZlBON1B3YVFYOENMUUM5WEd6VlhrSXo3T3lnbDF4ZGlzTmNGSkJmeWFvRFdqak1KeFFIV0NLb0xUOE5peWx1WjR0bGVHWnV1Z3FWRG1ES3E5OVEtLUNmMC05ZkpmWFloQVVmd1NETWRGSG9GZWo5VVJ0N3k1NjM5NjZZUDFKdVZyX25tdTFCdWdHUnlIRG5RVkZ6Y0EwLVJDUG5GSURnYg?oc=5",
       "priority": "critical",
       "source_type": "discovery",
-      "checked_at": "2026-11-21T12:25:23.187145+00:00",
-      "first_seen_at": "2026-11-21T12:26:38.489643+00:00",
-      "last_changed_at": "2026-11-21T12:26:38.489643+00:00",
+      "checked_at": "2026-11-21T19:43:12.914387+00:00",
+      "first_seen_at": "2026-11-21T19:44:12.745349+00:00",
+      "last_changed_at": "2026-11-21T19:44:12.745349+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "e0b03b21461adfcd5ea5",
+      "source": "SMC Google News Discovery",
+      "title": "SMC recruitment 2026: Application starts for over 1900 posts, details here - India Today",
+      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPdmZmMVYyWWlabmFQOTYwUzlBWFlqWjZRVFJOVW92T3V1OHllbnctZVNyUXJMRUFQZW1VaVFOSkRWX0xOVXlRVUlPYzlud0N5ZWhwZHJQSHBXQnhjeTNqbDNReWV2d1FpQ0k5bHk5VVVncU85bGliOU83bUVPeDhybFpYVkRXRFBsem1HUVgzb0NneFExRmx1TDMySXRJVWJOZGZVOHVfVXItcC05ZE53cGxpVjM1V2w4ZFF2SWVVbkFfUQ?oc=5",
+      "priority": "critical",
+      "source_type": "discovery",
+      "checked_at": "2026-11-21T19:41:17.779762+00:00",
+      "first_seen_at": "2026-11-21T19:44:12.745349+00:00",
+      "last_changed_at": "2026-11-21T19:44:12.745349+00:00",
       "change_type": "new"
     },
     {
@@ -9318,5 +9486,5 @@
       "change_type": "unchanged"
     }
   ],
-  "updated_at": "2026-11-21T12:26:38.489643+00:00"
+  "updated_at": "2026-11-21T19:44:12.745349+00:00"
 }
