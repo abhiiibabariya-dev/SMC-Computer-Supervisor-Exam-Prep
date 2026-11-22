@@ -7,7 +7,7 @@
     "https://www.suratmunicipal.gov.in/Information/SelectionWaitingList"
   ],
   "events": [],
-  "answer_key_available": true,
+  "answer_key_available": false,
   "result_available": false,
   "selection_waiting_list_available": false,
   "application_status": "unknown",
@@ -27,5 +27,5 @@
     "sources_ok": 3,
     "sources_failed": 2
   },
-  "updated_at": "2026-11-21T12:26:40.612112+00:00"
+  "updated_at": "2026-11-22T06:26:23.403001+00:00"
 }
