@@ -1,20 +1,20 @@
 {
   "region": "Gujarat",
   "focus": "Gujarat Government Jobs and SMC Recruitment",
-  "total": 791,
-  "new_items": 2,
+  "total": 789,
+  "new_items": 4,
   "updated_items": 0,
   "items": [
     {
-      "id": "b10b314ffdc130c00f29",
+      "id": "7b20bc84c48a2edb3646",
       "source": "Gujarat Jobs Google News Discovery",
-      "title": "GSSSB CCE 2.0 Recruitment 2026 Notification Out for 1237 Various Posts - Career Power",
-      "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE1SRGxZUWxyNlRsNkc3VU5vT3NfNnRNalVJQ2NxWl9mU1pXVGdnNzhMVzRIMUozazRhN1IyTDZhc0xUWS1JOVpnQnJLNi1zcEpKSHNEMklnQ3dWT0lSMUtwZE40aFg?oc=5",
+      "title": "GSSSB CCE 2.0 Recruitment 2026, Apply Online for 1,237 Group A & B Posts - Adda247",
+      "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE9fRXNwdlpqelpweU05d3dlOUp3YnJUR0Z1bGw2TktjWm90YUsxYUN6WS1ILWp4N0NaZWdvTzFnRzJ6Z0t6ZU9sVmlYVmIwYWdaWC1ieUZaRmFDdEtKSmxDSzRERUwtTFBUTDdINGRaWXRKLTBYUDlvag?oc=5",
       "priority": "high",
       "source_type": "discovery",
-      "checked_at": "2026-11-22T06:24:51.945871+00:00",
-      "first_seen_at": "2026-11-22T06:26:21.354151+00:00",
-      "last_changed_at": "2026-11-22T06:26:21.354151+00:00",
+      "checked_at": "2026-11-23T21:30:06.540131+00:00",
+      "first_seen_at": "2026-11-23T21:31:38.879107+00:00",
+      "last_changed_at": "2026-11-23T21:31:38.879107+00:00",
       "change_type": "new"
     },
     {
@@ -8706,27 +8706,39 @@
       "change_type": "unchanged"
     },
     {
-      "id": "d9701c46bd515b28c619",
-      "source": "SMC Jobs Google News Discovery 2",
-      "title": "SMC Biomedical Engineer Recruitment 2026 - Apply Online - FreeJobAlert.Com",
-      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNSVhnVGgtMF92cF80NkdYV1VwQ0NZdGlVSjdDMXhCNldOZUVoaWhnZTFnN2hscGdMR3RHMVRJbGRMbzNlTWF4Mmh3QWJ4LXNpUmM0Z3ZxbER0VTZ4dG11QURwa1E0dENnazRBczBRLUdUZWZUdmphUVg0eTRDdXZJVDJ6elhnd0ljR0JIdHpLWG1nbnhlT0taT1VqVjRVWDN1?oc=5",
+      "id": "ef764fad69692360d6ee",
+      "source": "SMC Official Recruitment",
+      "title": "View More",
+      "url": "https://www.suratmunicipal.gov.in/Contents/Jobs/Opening/1136446.pdf",
       "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-11-23T09:11:26.167737+00:00",
-      "first_seen_at": "2026-11-23T09:12:38.794074+00:00",
-      "last_changed_at": "2026-11-23T09:12:38.794074+00:00",
+      "source_type": "government",
+      "checked_at": "2026-11-23T21:28:45.356633+00:00",
+      "first_seen_at": "2026-11-23T21:31:38.879107+00:00",
+      "last_changed_at": "2026-11-23T21:31:38.879107+00:00",
       "change_type": "new"
     },
     {
-      "id": "bf66dc3bd7799a2b0e8f",
-      "source": "SMC Google News Discovery",
-      "title": "SMC Recruitment 2026 – Apply Online for 18 Chief Fire Officer, Instrumentation Technician Posts - FreeJobAlert.Com",
-      "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxPMldQUy1lbzVqUWRyMWhnXzZRU3g2cjhuU2NaUEhnamdjS1diRlNKQnhrRzVLZlBON1B3YVFYOENMUUM5WEd6VlhrSXo3T3lnbDF4ZGlzTmNGSkJmeWFvRFdqak1KeFFIV0NLb0xUOE5peWx1WjR0bGVHWnV1Z3FWRG1ES3E5OVEtLUNmMC05ZkpmWFloQVVmd1NETWRGSG9GZWo5VVJ0N3k1NjM5NjZZUDFKdVZyX25tdTFCdWdHUnlIRG5RVkZ6Y0EwLVJDUG5GSURnYg?oc=5",
+      "id": "4926113e5050171e49f4",
+      "source": "SMC Jobs Google News Discovery 2",
+      "title": "SMC Faculty Recruitment 2026 – Apply Online for 23 Associate Professor, Assistant Professor Posts - FreeJobAlert.Com",
+      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNQjRjbGl1VEkyMmpnaDcxSGxPSVBJQ05fZHp2bklIb2VTWGtQeDBEQUducE5zMjZRRktXdEgtd2p4ckhwZ0xtcmJ1STNzWXZuYmlsQVEzTEQtUHZ6LTRteFg5VE1SOUFqaUpFVlZMMTJjVk9nNVRGc0I2XzhpbTIweG5mZ3hHVWVqV01FWmc0T0dhWjNKVTFGR1h1cDZ1aFdkdXJjNXVvbUxlZw?oc=5",
       "priority": "critical",
       "source_type": "discovery",
-      "checked_at": "2026-11-23T09:09:42.245435+00:00",
-      "first_seen_at": "2026-11-23T09:12:38.794074+00:00",
-      "last_changed_at": "2026-11-23T09:12:38.794074+00:00",
+      "checked_at": "2026-11-23T21:30:06.987151+00:00",
+      "first_seen_at": "2026-11-23T21:31:38.879107+00:00",
+      "last_changed_at": "2026-11-23T21:31:38.879107+00:00",
+      "change_type": "new"
+    },
+    {
+      "id": "cae1f3ba812f41a5fb0f",
+      "source": "SMC Google News Discovery",
+      "title": "SMC Faculty Recruitment 2026 – Apply Online for 23 Associate Professor, Assistant Professor Posts - FreeJobAlert.Com",
+      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNQjRjbGl1VEkyMmpnaDcxSGxPSVBJQ05fZHp2bklIb2VTWGtQeDBEQUducE5zMjZRRktXdEgtd2p4ckhwZ0xtcmJ1STNzWXZuYmlsQVEzTEQtUHZ6LTRteFg5VE1SOUFqaUpFVlZMMTJjVk9nNVRGc0I2XzhpbTIweG5mZ3hHVWVqV01FWmc0T0dhWjNKVTFGR1h1cDZ1aFdkdXJjNXVvbUxlZw?oc=5",
+      "priority": "critical",
+      "source_type": "discovery",
+      "checked_at": "2026-11-23T21:28:44.253573+00:00",
+      "first_seen_at": "2026-11-23T21:31:38.879107+00:00",
+      "last_changed_at": "2026-11-23T21:31:38.879107+00:00",
       "change_type": "new"
     },
     {
@@ -8734,18 +8746,6 @@
       "source": "SMC Official Recruitment",
       "title": "View More",
       "url": "https://www.suratmunicipal.gov.in/Contents/Jobs/Opening/1854681.pdf",
-      "priority": "critical",
-      "source_type": "government",
-      "checked_at": "2026-11-21T19:41:19.164739+00:00",
-      "first_seen_at": "2026-11-21T19:44:12.745349+00:00",
-      "last_changed_at": "2026-11-21T19:44:12.745349+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "1d1fa6255e8cca43d986",
-      "source": "SMC Official Recruitment",
-      "title": "View More",
-      "url": "https://www.suratmunicipal.gov.in/Contents/Jobs/Opening/1973333.pdf",
       "priority": "critical",
       "source_type": "government",
       "checked_at": "2026-11-21T19:41:19.164739+00:00",
@@ -8794,18 +8794,6 @@
       "source": "SMC Official Recruitment",
       "title": "View More",
       "url": "https://www.suratmunicipal.gov.in/Contents/Jobs/Opening/1064762.pdf",
-      "priority": "critical",
-      "source_type": "government",
-      "checked_at": "2026-11-21T19:41:19.164739+00:00",
-      "first_seen_at": "2026-11-21T19:44:12.745349+00:00",
-      "last_changed_at": "2026-11-21T19:44:12.745349+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "a88a2da4381d4122799f",
-      "source": "SMC Official Recruitment",
-      "title": "View More",
-      "url": "https://www.suratmunicipal.gov.in/Contents/Jobs/Opening/1239012.pdf",
       "priority": "critical",
       "source_type": "government",
       "checked_at": "2026-11-21T19:41:19.164739+00:00",
@@ -9063,18 +9051,6 @@
       "checked_at": "2026-11-18T20:40:21.358474+00:00",
       "first_seen_at": "2026-11-18T20:43:09.254964+00:00",
       "last_changed_at": "2026-11-18T20:43:09.254964+00:00",
-      "change_type": "new"
-    },
-    {
-      "id": "4a8535e3e693607b7a58",
-      "source": "SMC Jobs Google News Discovery 2",
-      "title": "SMC Staff Nurse Eligibility Criteria 2026: Check Age Limit and Educational Qualificatio - FreeJobAlert.Com",
-      "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOTkYzMk02dHRUTDA1ME5YdFp2N3VSTFdJZS1JZnNRYzNsT2pPV0lPT1E4MXVmTnhTZVVkcEJuazJnOU9IM2dwallmaWNyM044Z3NaYzhkeTJvalZkY0YtYkRpTjJmOWhvNXdpQmUzeGZ1d1B2MEo3RzVVQlp3MEFwODlfNGNQQVhIN1E?oc=5",
-      "priority": "critical",
-      "source_type": "discovery",
-      "checked_at": "2026-11-18T12:20:42.099585+00:00",
-      "first_seen_at": "2026-11-18T12:22:16.396002+00:00",
-      "last_changed_at": "2026-11-18T12:22:16.396002+00:00",
       "change_type": "new"
     },
     {
@@ -9498,5 +9474,5 @@
       "change_type": "unchanged"
     }
   ],
-  "updated_at": "2026-11-23T09:12:38.794074+00:00"
+  "updated_at": "2026-11-23T21:31:38.879107+00:00"
 }
