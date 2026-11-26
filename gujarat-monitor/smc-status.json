@@ -14,22 +14,18 @@
   "application_deadline": null,
   "errors": [
     {
-      "url": "https://www.suratmunicipal.gov.in/Information/RecruitmentNews",
-      "error": "HTTP Error 503: Service Unavailable"
-    },
-    {
       "url": "https://www.suratmunicipal.gov.in/Information/RecruitmentResult",
       "error": "HTTP Error 404: Not Found"
     },
     {
       "url": "https://www.suratmunicipal.gov.in/Information/SelectionWaitingList",
-      "error": "HTTP Error 503: Service Unavailable"
+      "error": "HTTP Error 404: Not Found"
     }
   ],
   "source_health": {
     "sources_checked": 5,
-    "sources_ok": 2,
-    "sources_failed": 3
+    "sources_ok": 3,
+    "sources_failed": 2
   },
-  "updated_at": "2026-11-26T11:01:38.970465+00:00"
+  "updated_at": "2026-11-26T20:06:25.585948+00:00"
 }
