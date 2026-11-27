@@ -1,19 +1,19 @@
 {
   "sources_scanned": 28,
-  "links_found_this_scan": 792,
+  "links_found_this_scan": 806,
   "new_items": 14,
   "updated_items": 0,
-  "total_items": 792,
+  "total_items": 806,
   "errors": [
     {
       "source": "Ahmedabad Municipal Corporation",
       "url": "https://ahmedabadcity.gov.in",
-      "error": "<urlopen error [SSL: UNSAFE_LEGACY_RENEGOTIATION_DISABLED] unsafe legacy renegotiation disabled (_ssl.c:1011)>"
+      "error": "<urlopen error timed out>"
     },
     {
       "source": "Ahmedabad Municipal Recruitment",
       "url": "https://ahmedabadcity.gov.in/AMCWEBREC/HRMS/FrmVacancyDetail.aspx",
-      "error": "<urlopen error [SSL: UNSAFE_LEGACY_RENEGOTIATION_DISABLED] unsafe legacy renegotiation disabled (_ssl.c:1011)>"
+      "error": "<urlopen error timed out>"
     },
     {
       "source": "GPSC",
@@ -36,14 +36,9 @@
       "error": "HTTP Error 403: Forbidden"
     },
     {
-      "source": "Gujarat Biotechnology Research Centre",
-      "url": "https://www.gbrc.gujarat.gov.in/WebCMS/Start/Announcement",
-      "error": "<urlopen error [Errno 101] Network is unreachable>"
-    },
-    {
       "source": "Gujarat Education Department",
       "url": "https://education.gujarat.gov.in",
-      "error": "<urlopen error [Errno 101] Network is unreachable>"
+      "error": "<urlopen error _ssl.c:994: The handshake operation timed out>"
     },
     {
       "source": "Gujarat Forest and Environment",
@@ -53,12 +48,12 @@
     {
       "source": "Gujarat Government",
       "url": "https://gujaratindia.gov.in",
-      "error": "<urlopen error [Errno 101] Network is unreachable>"
+      "error": "<urlopen error _ssl.c:994: The handshake operation timed out>"
     },
     {
       "source": "Gujarat Health Department",
       "url": "https://gujhealth.gujarat.gov.in",
-      "error": "<urlopen error [Errno 101] Network is unreachable>"
+      "error": "<urlopen error _ssl.c:994: The handshake operation timed out>"
     },
     {
       "source": "Gujarat Informatics Limited",
@@ -83,7 +78,7 @@
     {
       "source": "KCG Gujarat Recruitment",
       "url": "https://kcg.gujarat.gov.in/recruitments",
-      "error": "<urlopen error [Errno 101] Network is unreachable>"
+      "error": "The read operation timed out"
     },
     {
       "source": "OJAS Gujarat",
@@ -99,6 +94,7 @@
   "empty_sources": [],
   "successful_sources": [
     "Bhavnagar Municipal Corporation",
+    "Gujarat Biotechnology Research Centre",
     "Gujarat High Court Recruitment",
     "Gujarat Jobs Google News Discovery",
     "Gyan Sahayak Gujarat",
@@ -109,7 +105,7 @@
     "SMC Official Recruitment",
     "SMC Official Website"
   ],
-  "smc_items": 61,
+  "smc_items": 75,
   "mode": "live_snapshot",
-  "updated_at": "2026-11-27T11:29:42.719799+00:00"
+  "updated_at": "2026-11-27T20:16:05.159548+00:00"
 }
