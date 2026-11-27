@@ -1,6 +1,6 @@
 {
-  "total_items": 781,
-  "new_items": 13,
+  "total_items": 789,
+  "new_items": 21,
   "updated_items": 0,
   "errors": [
     {
@@ -31,7 +31,7 @@
     {
       "source": "Gandhinagar Municipal Corporation",
       "url": "https://gandhinagarmunicipal.com/recruitment/",
-      "error": "HTTP Error 403: Forbidden"
+      "error": "<urlopen error [Errno 101] Network is unreachable>"
     },
     {
       "source": "Gujarat Education Department",
@@ -91,5 +91,5 @@
   ],
   "empty_sources": [],
   "mode": "live_snapshot",
-  "last_run": "2026-11-26T20:06:23.610212+00:00"
+  "last_run": "2026-11-27T02:48:11.279949+00:00"
 }
