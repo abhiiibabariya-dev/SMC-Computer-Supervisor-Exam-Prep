@@ -8772,6 +8772,18 @@
     "change_type": "unchanged"
   },
   {
+    "id": "e0b03b21461adfcd5ea5",
+    "source": "SMC Google News Discovery",
+    "title": "SMC recruitment 2026: Application starts for over 1900 posts, details here - India Today",
+    "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPdmZmMVYyWWlabmFQOTYwUzlBWFlqWjZRVFJOVW92T3V1OHllbnctZVNyUXJMRUFQZW1VaVFOSkRWX0xOVXlRVUlPYzlud0N5ZWhwZHJQSHBXQnhjeTNqbDNReWV2d1FpQ0k5bHk5VVVncU85bGliOU83bUVPeDhybFpYVkRXRFBsem1HUVgzb0NneFExRmx1TDMySXRJVWJOZGZVOHVfVXItcC05ZE53cGxpVjM1V2w4ZFF2SWVVbkFfUQ?oc=5",
+    "priority": "critical",
+    "source_type": "discovery",
+    "checked_at": "2026-11-28T02:43:52.213038+00:00",
+    "first_seen_at": "2026-11-28T02:46:46.917680+00:00",
+    "last_changed_at": "2026-11-28T02:46:46.917680+00:00",
+    "change_type": "new"
+  },
+  {
     "id": "8444639496c9082c40bc",
     "source": "SMC Google News Discovery",
     "title": "Surat Municipal Corporation Election Result 2026: Congress opens account after 5 years, AAP faces setback - The Indian Express",
@@ -8896,18 +8908,6 @@
     "source": "SMC Google News Discovery",
     "title": "SMC Honorary Coach Recruitment 2026 – Apply Online 8 Posts - FreeJobAlert.Com",
     "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOaC13VG95ZUJ4UlBPQWJLOHhYd0FEejZqcGR3Sno3VGJBb3NyTWxVLUZCSGh5QTBYcEI3Snhfb2lsblBQd3RoMzlpSWRsV0tOYXN3QzhaR1FldG00RDUtTWx6ZmJJRmtIRXFZejduTVgyLWRrUFNaWXhuXzl6aTBkM25CWEtPVVpoZFVnNWhyNlgzWVRxVGlRdk9jSm4yYy02UXhocA?oc=5",
-    "priority": "critical",
-    "source_type": "discovery",
-    "checked_at": "2026-11-27T20:13:09.886951+00:00",
-    "first_seen_at": "2026-11-27T20:16:05.159548+00:00",
-    "last_changed_at": "2026-11-27T20:16:05.159548+00:00",
-    "change_type": "new"
-  },
-  {
-    "id": "cae1f3ba812f41a5fb0f",
-    "source": "SMC Google News Discovery",
-    "title": "SMC Faculty Recruitment 2026 – Apply Online for 23 Associate Professor, Assistant Professor Posts - FreeJobAlert.Com",
-    "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNQjRjbGl1VEkyMmpnaDcxSGxPSVBJQ05fZHp2bklIb2VTWGtQeDBEQUducE5zMjZRRktXdEgtd2p4ckhwZ0xtcmJ1STNzWXZuYmlsQVEzTEQtUHZ6LTRteFg5VE1SOUFqaUpFVlZMMTJjVk9nNVRGc0I2XzhpbTIweG5mZ3hHVWVqV01FWmc0T0dhWjNKVTFGR1h1cDZ1aFdkdXJjNXVvbUxlZw?oc=5",
     "priority": "critical",
     "source_type": "discovery",
     "checked_at": "2026-11-27T20:13:09.886951+00:00",
@@ -9096,18 +9096,6 @@
     "change_type": "new"
   },
   {
-    "id": "4926113e5050171e49f4",
-    "source": "SMC Jobs Google News Discovery 2",
-    "title": "SMC Faculty Recruitment 2026 – Apply Online for 23 Associate Professor, Assistant Professor Posts - FreeJobAlert.Com",
-    "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNQjRjbGl1VEkyMmpnaDcxSGxPSVBJQ05fZHp2bklIb2VTWGtQeDBEQUducE5zMjZRRktXdEgtd2p4ckhwZ0xtcmJ1STNzWXZuYmlsQVEzTEQtUHZ6LTRteFg5VE1SOUFqaUpFVlZMMTJjVk9nNVRGc0I2XzhpbTIweG5mZ3hHVWVqV01FWmc0T0dhWjNKVTFGR1h1cDZ1aFdkdXJjNXVvbUxlZw?oc=5",
-    "priority": "critical",
-    "source_type": "discovery",
-    "checked_at": "2026-11-27T11:28:02.041838+00:00",
-    "first_seen_at": "2026-11-27T11:29:42.719799+00:00",
-    "last_changed_at": "2026-11-27T11:29:42.719799+00:00",
-    "change_type": "new"
-  },
-  {
     "id": "2c207dcbc7dc6f3007d9",
     "source": "SMC Jobs Google News Discovery 2",
     "title": "SMC Recruitment 2026: Walk-in for 8 Vacancies - FreeJobAlert.Com",
@@ -9124,18 +9112,6 @@
     "source": "SMC Jobs Google News Discovery 2",
     "title": "SMC Recruitment 2026 – Apply Online for 70 Deputy Town Planner, Assistant Town Planner Posts - FreeJobAlert.Com",
     "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxNODJoaEE1V2hxd295eUJ6OXVlVFNuTG1XakFSMXVQazV1M0lvQ0tuRC0tUnhnZkRGM3dYZ2U3bHVrR0VzcEZzaWFsUmVqZGpYNU5NZGJCUUhMMGh0SDd0VklxdU5CNFBTQXRyVENGeUU1S3p5b3QxY1lOVUNxeGl3cnpmcTAwT1ZlN2RVZzRrbDZsbGJCNUZMd09td1l1d29weFhqNjRsWnlLMmpENlgwd2lUSllWN2M5S0d2UVhTa3NReUN4NHcwWFRSbkpna3dJ?oc=5",
-    "priority": "critical",
-    "source_type": "discovery",
-    "checked_at": "2026-11-27T02:46:47.006548+00:00",
-    "first_seen_at": "2026-11-27T02:48:11.279949+00:00",
-    "last_changed_at": "2026-11-27T02:48:11.279949+00:00",
-    "change_type": "new"
-  },
-  {
-    "id": "d9701c46bd515b28c619",
-    "source": "SMC Jobs Google News Discovery 2",
-    "title": "SMC Biomedical Engineer Recruitment 2026 - Apply Online - FreeJobAlert.Com",
-    "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNSVhnVGgtMF92cF80NkdYV1VwQ0NZdGlVSjdDMXhCNldOZUVoaWhnZTFnN2hscGdMR3RHMVRJbGRMbzNlTWF4Mmh3QWJ4LXNpUmM0Z3ZxbER0VTZ4dG11QURwa1E0dENnazRBczBRLUdUZWZUdmphUVg0eTRDdXZJVDJ6elhnd0ljR0JIdHpLWG1nbnhlT0taT1VqVjRVWDN1?oc=5",
     "priority": "critical",
     "source_type": "discovery",
     "checked_at": "2026-11-27T02:46:47.006548+00:00",
